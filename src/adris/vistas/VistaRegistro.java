@@ -27,28 +27,18 @@ public class VistaRegistro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adris/vistas/38ea3c85e52dd491e705bfa08712eb1e.jpg"))); // NOI18N
-        jLabel1.setText("jLabel1");
+        setBackground(new java.awt.Color(102, 204, 255));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(310, Short.MAX_VALUE))
+            .addGap(0, 839, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(252, Short.MAX_VALUE))
+            .addGap(0, 545, Short.MAX_VALUE)
         );
 
         pack();
@@ -90,6 +80,5 @@ public class VistaRegistro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
