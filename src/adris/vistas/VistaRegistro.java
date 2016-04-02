@@ -50,7 +50,9 @@ public class VistaRegistro extends javax.swing.JFrame {
         combobxSexoBecado = new javax.swing.JComboBox();
         combobxCivilBecado = new javax.swing.JComboBox();
         comboBxTrabajaBecado = new javax.swing.JComboBox();
-        txtFechaNacimiento1 = new javax.swing.JTextField();
+        txtFechaNacimiento = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        txtCorreoBecario = new javax.swing.JTextField();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jTabbedPane3 = new javax.swing.JTabbedPane();
         jTabbedPane1 = new javax.swing.JTabbedPane();
@@ -142,8 +144,14 @@ public class VistaRegistro extends javax.swing.JFrame {
 
         comboBxTrabajaBecado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        txtFechaNacimiento1.setText("dd/mm/aaaa");
-        txtFechaNacimiento1.setToolTipText("");
+        txtFechaNacimiento.setText("dd/mm/aaaa");
+        txtFechaNacimiento.setToolTipText("");
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel11.setText("Correo Electrónico");
+
+        txtCorreoBecario.setText("dd/mm/aaaa");
+        txtCorreoBecario.setToolTipText("");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -192,10 +200,15 @@ public class VistaRegistro extends javax.swing.JFrame {
                                 .addComponent(combobxCivilBecado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(txtFechaNacimiento1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(78, 78, 78)
                         .addComponent(combobxSexoBecado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addComponent(txtCorreoBecario, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,14 +228,18 @@ public class VistaRegistro extends javax.swing.JFrame {
                     .addComponent(combobxSexoBecado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(combobxCivilBecado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboBxTrabajaBecado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtFechaNacimiento1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jLabel7)
                     .addComponent(jLabel9)
                     .addComponent(jLabel10))
-                .addContainerGap(197, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtCorreoBecario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(jLabel11)
+                .addContainerGap(149, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -315,6 +332,7 @@ public class VistaRegistro extends javax.swing.JFrame {
     private javax.swing.JComboBox combobxSexoBecado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -332,8 +350,9 @@ public class VistaRegistro extends javax.swing.JFrame {
     private javax.swing.JTabbedPane tbpBecados;
     private javax.swing.JTextField txtApMaternoBecado;
     private javax.swing.JTextField txtApPaternoBecado;
+    private javax.swing.JTextField txtCorreoBecario;
     private javax.swing.JTextField txtEstatus;
-    private javax.swing.JTextField txtFechaNacimiento1;
+    private javax.swing.JTextField txtFechaNacimiento;
     private javax.swing.JTextField txtFolio;
     private javax.swing.JTextField txtNombreBecado;
     // End of variables declaration//GEN-END:variables
