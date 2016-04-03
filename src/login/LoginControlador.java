@@ -61,7 +61,10 @@ public class LoginControlador {
         if(!clave.isEmpty()){
             boolean response = modelo.iniciarSesion(clave);
             if(response){
-                System.out.println("Ingresado");
+                vista.dispose();
+                vista = null;
+                modelo = null;
+                principal.iniciaPantallaPrincipal();
 
             }
             else

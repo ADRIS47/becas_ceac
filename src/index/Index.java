@@ -6,6 +6,7 @@
 package index;
 
 import login.LoginControlador;
+import principal.PrincipalControlador;
 
 /**
  *
@@ -16,6 +17,11 @@ public class Index {
     public static void main(String[] args) {
         LoginControlador controlador = new LoginControlador();
         controlador.iniciaLogin();
+    }
+
+    public void iniciaPantallaPrincipal() {
+        PrincipalControlador controlador = new PrincipalControlador();
+        controlador.iniciaPantallaPrincipal();
     }
     
 }
