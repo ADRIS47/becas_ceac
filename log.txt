@@ -1,0 +1,9 @@
+2/4/2016;21:49:13;SQLError: 42000
+2/4/2016;21:49:13;ERROR: Code1064
+2/4/2016;21:49:13;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE clave_acceso = 'ser'' at line 1
+3/4/2016;21:2:44;SQLError: 42S22
+3/4/2016;21:2:44;ERROR: Code1054
+3/4/2016;21:2:44;Message: Unknown column 'id_estado_civil' in 'field list'
+3/4/2016;21:4:17;SQLError: 42S22
+3/4/2016;21:4:17;ERROR: Code1054
+3/4/2016;21:4:17;Message: Unknown column 'id_estado_civil' in 'field list'

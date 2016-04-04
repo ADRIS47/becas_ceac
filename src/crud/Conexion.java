@@ -1,0 +1,65 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package crud;
+
+import java.net.Socket;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+/**
+ *
+ * @author sergio
+ */
+public class Conexion {
+    private Connection conexion = null;
+    public Connection estableceConexion(){        
+        if(!isConnected())
+            return null;
+        
+        if (conexion != null)
+            return conexion;
+        
+        //String url = "jdbc:postgresql://187.216.35.172:5432/" + database;
+        String url = "jdbc:mysql://db4free.net:3306/becas_chihuahua?zeroDateTimeBehavior=convertToNull";
+        
+        //Tiempo que tardara el driver en conectarse a la BD
+        try
+        {
+            DriverManager.setLoginTimeout(5);
+            conexion = DriverManager.getConnection(url, "becas_root", "HLSyznYWS6");
+            if (conexion !=null){
+                System.out.println("Conexión a base de datos … Ok");
+            }
+        } catch (SQLException e) {
+            
+            System.out.println("Error conexion: " + e.getMessage());
+        }
+        
+        return conexion;
+    }
+    
+    public void cierraConexion(){
+        try{
+            conexion.close();
+        }
+        catch(Exception e){
+            System.out.println("Problema para cerrar la Conexión a la base de datos ");
+        }
+    }
+
+    private boolean isConnected(){
+        boolean conectado = false;
+        try{
+            Socket socket = new Socket("www.google.com", 80);
+            if(socket.isConnected())
+                conectado = true;
+        }
+        catch(Exception e){}
+        
+        return conectado;
+    }
+}
