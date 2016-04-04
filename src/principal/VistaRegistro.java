@@ -46,24 +46,24 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         pnlDatos = new javax.swing.JPanel();
-        txtFechaNacimiento2 = new javax.swing.JTextField();
-        combobxSexoBecado2 = new javax.swing.JComboBox();
-        combobxCivilBecado2 = new javax.swing.JComboBox();
-        comboBxTrabajaBecado2 = new javax.swing.JComboBox();
+        txtFechaNacimiento = new javax.swing.JTextField();
+        combobxSexoBecado = new javax.swing.JComboBox();
+        combobxCivilBecado = new javax.swing.JComboBox();
+        comboBxTrabajaBecado = new javax.swing.JComboBox();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         pnlCorreos = new javax.swing.JPanel();
         pnlCorreo1 = new javax.swing.JPanel();
-        txtCorreoBecario4 = new javax.swing.JTextField();
+        txtCorreoBecario = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
         pnlCorreo2 = new javax.swing.JPanel();
-        txtCorreoBecario5 = new javax.swing.JTextField();
+        txtCorreoBecario2 = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
         pnlBotones = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
+        btnRegistrar = new javax.swing.JButton();
         pnlDatosFamiliares = new javax.swing.JTabbedPane();
         pnlDatosEscolares = new javax.swing.JTabbedPane();
         pnlDatosdeCobranza = new javax.swing.JTabbedPane();
@@ -190,15 +190,11 @@ public class VistaRegistro extends javax.swing.JPanel {
         pnlDatos.setMinimumSize(new java.awt.Dimension(660, 130));
         pnlDatos.setPreferredSize(new java.awt.Dimension(707, 85));
 
-        txtFechaNacimiento2.setText("dd/mm/aaaa");
-        txtFechaNacimiento2.setToolTipText("");
-        txtFechaNacimiento2.setSelectionStart(0);
+        txtFechaNacimiento.setText("dd/mm/aaaa");
+        txtFechaNacimiento.setToolTipText("");
+        txtFechaNacimiento.setSelectionStart(0);
 
-        combobxSexoBecado2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        combobxCivilBecado2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        comboBxTrabajaBecado2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBxTrabajaBecado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Trabaja", "No trabaja" }));
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel23.setText("Trabajo Activo");
@@ -225,13 +221,13 @@ public class VistaRegistro extends javax.swing.JPanel {
                         .addComponent(jLabel25)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(pnlDatosLayout.createSequentialGroup()
-                        .addComponent(txtFechaNacimiento2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                        .addComponent(combobxSexoBecado2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(combobxSexoBecado, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(combobxCivilBecado2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combobxCivilBecado, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlDatosLayout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addComponent(jLabel24)))
@@ -240,7 +236,7 @@ public class VistaRegistro extends javax.swing.JPanel {
                     .addGroup(pnlDatosLayout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addComponent(jLabel23))
-                    .addComponent(comboBxTrabajaBecado2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboBxTrabajaBecado, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29))
         );
         pnlDatosLayout.setVerticalGroup(
@@ -248,10 +244,10 @@ public class VistaRegistro extends javax.swing.JPanel {
             .addGroup(pnlDatosLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(combobxCivilBecado2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(combobxSexoBecado2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboBxTrabajaBecado2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtFechaNacimiento2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(combobxCivilBecado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combobxSexoBecado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboBxTrabajaBecado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel24)
@@ -268,11 +264,11 @@ public class VistaRegistro extends javax.swing.JPanel {
         pnlCorreo1.setPreferredSize(new java.awt.Dimension(340, 50));
         pnlCorreo1.setVerifyInputWhenFocusTarget(false);
 
-        txtCorreoBecario4.setText("correo@dominio.com");
-        txtCorreoBecario4.setToolTipText("");
-        txtCorreoBecario4.setPreferredSize(new java.awt.Dimension(335, 27));
-        txtCorreoBecario4.setSelectionStart(0);
-        pnlCorreo1.add(txtCorreoBecario4);
+        txtCorreoBecario.setText("correo@dominio.com");
+        txtCorreoBecario.setToolTipText("");
+        txtCorreoBecario.setPreferredSize(new java.awt.Dimension(335, 27));
+        txtCorreoBecario.setSelectionStart(0);
+        pnlCorreo1.add(txtCorreoBecario);
 
         jLabel29.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel29.setText("Correo Electrónico");
@@ -280,11 +276,11 @@ public class VistaRegistro extends javax.swing.JPanel {
 
         pnlCorreo2.setPreferredSize(new java.awt.Dimension(340, 50));
 
-        txtCorreoBecario5.setText("correo@dominio.com");
-        txtCorreoBecario5.setToolTipText("");
-        txtCorreoBecario5.setPreferredSize(new java.awt.Dimension(335, 27));
-        txtCorreoBecario5.setSelectionStart(0);
-        pnlCorreo2.add(txtCorreoBecario5);
+        txtCorreoBecario2.setText("correo@dominio.com");
+        txtCorreoBecario2.setToolTipText("");
+        txtCorreoBecario2.setPreferredSize(new java.awt.Dimension(335, 27));
+        txtCorreoBecario2.setSelectionStart(0);
+        pnlCorreo2.add(txtCorreoBecario2);
 
         jLabel30.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel30.setText("Confirmar Correo Electrónico");
@@ -319,13 +315,13 @@ public class VistaRegistro extends javax.swing.JPanel {
 
         pnlBotones.setPreferredSize(new java.awt.Dimension(400, 39));
 
-        jButton1.setText("Registrar Becario");
-        jButton1.setPreferredSize(new java.awt.Dimension(160, 29));
-        pnlBotones.add(jButton1);
-
         btnGuardar.setText("Guardar Datos");
         btnGuardar.setPreferredSize(new java.awt.Dimension(160, 29));
         pnlBotones.add(btnGuardar);
+
+        btnRegistrar.setText("Registrar Becario");
+        btnRegistrar.setPreferredSize(new java.awt.Dimension(160, 29));
+        pnlBotones.add(btnRegistrar);
 
         pnlDatosGenerales.add(pnlBotones);
 
@@ -354,11 +350,11 @@ public class VistaRegistro extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JComboBox comboBoxPrograma;
-    private javax.swing.JComboBox comboBxTrabajaBecado2;
-    private javax.swing.JComboBox combobxCivilBecado2;
-    private javax.swing.JComboBox combobxSexoBecado2;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnRegistrar;
+    protected javax.swing.JComboBox comboBoxPrograma;
+    protected javax.swing.JComboBox comboBxTrabajaBecado;
+    protected javax.swing.JComboBox combobxCivilBecado;
+    protected javax.swing.JComboBox combobxSexoBecado;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
@@ -383,13 +379,13 @@ public class VistaRegistro extends javax.swing.JPanel {
     private javax.swing.JPanel pnlNombres;
     private javax.swing.JPanel pnlPrograma;
     private javax.swing.JTabbedPane tbpBecados;
-    private javax.swing.JTextField txtApMaternoBecado;
-    private javax.swing.JTextField txtApPaternoBecado;
-    private javax.swing.JTextField txtCorreoBecario4;
-    private javax.swing.JTextField txtCorreoBecario5;
-    private javax.swing.JTextField txtEstatus;
-    private javax.swing.JTextField txtFechaNacimiento2;
-    private javax.swing.JTextField txtFolio;
-    private javax.swing.JTextField txtNombreBecado;
+    protected javax.swing.JTextField txtApMaternoBecado;
+    protected javax.swing.JTextField txtApPaternoBecado;
+    protected javax.swing.JTextField txtCorreoBecario;
+    private javax.swing.JTextField txtCorreoBecario2;
+    protected javax.swing.JTextField txtEstatus;
+    protected javax.swing.JTextField txtFechaNacimiento;
+    protected javax.swing.JTextField txtFolio;
+    protected javax.swing.JTextField txtNombreBecado;
     // End of variables declaration//GEN-END:variables
 }
