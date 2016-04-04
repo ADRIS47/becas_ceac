@@ -5,18 +5,21 @@
  */
 package principal;
 
+import adris.vistas.*;
+
 /**
  *
- * @author sabagip
+ * @author Adriana
  */
-public class VistaRegistro extends javax.swing.JPanel {
+public class VistaRegistro3 extends javax.swing.JFrame {
 
     PrincipalControlador controlador;
     /**
-     * Creates new form VistaRegistro2
+     * Creates new form VistaRegistro
      */
-    public VistaRegistro(PrincipalControlador controlador) {
+    public VistaRegistro3(PrincipalControlador controlador) {
         initComponents();
+        
         this.controlador = controlador;
     }
 
@@ -68,12 +71,15 @@ public class VistaRegistro extends javax.swing.JPanel {
         pnlDatosEscolares = new javax.swing.JTabbedPane();
         pnlDatosdeCobranza = new javax.swing.JTabbedPane();
 
-        setPreferredSize(new java.awt.Dimension(697, 584));
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(102, 204, 255));
+        setResizable(false);
 
         tbpBecados.setMaximumSize(new java.awt.Dimension(743, 454));
         tbpBecados.setMinimumSize(new java.awt.Dimension(450, 274));
         tbpBecados.setPreferredSize(new java.awt.Dimension(743, 454));
 
+        pnlDatosGenerales.setBackground(new java.awt.Color(250, 249, 248));
         pnlDatosGenerales.setMaximumSize(new java.awt.Dimension(743, 548));
         pnlDatosGenerales.setPreferredSize(new java.awt.Dimension(743, 548));
 
@@ -317,14 +323,11 @@ public class VistaRegistro extends javax.swing.JPanel {
 
         pnlDatosGenerales.add(pnlCorreos);
 
-        pnlBotones.setPreferredSize(new java.awt.Dimension(400, 39));
-
         jButton1.setText("Registrar Becario");
-        jButton1.setPreferredSize(new java.awt.Dimension(160, 29));
         pnlBotones.add(jButton1);
 
         btnGuardar.setText("Guardar Datos");
-        btnGuardar.setPreferredSize(new java.awt.Dimension(160, 29));
+        btnGuardar.setPreferredSize(new java.awt.Dimension(130, 29));
         pnlBotones.add(btnGuardar);
 
         pnlDatosGenerales.add(pnlBotones);
@@ -334,21 +337,25 @@ public class VistaRegistro extends javax.swing.JPanel {
         tbpBecados.addTab("Datos Escolares", pnlDatosEscolares);
         tbpBecados.addTab("Datos de Cobranza", pnlDatosdeCobranza);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tbpBecados, javax.swing.GroupLayout.DEFAULT_SIZE, 694, Short.MAX_VALUE))
+                .addComponent(tbpBecados, javax.swing.GroupLayout.DEFAULT_SIZE, 685, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tbpBecados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(tbpBecados, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
                 .addContainerGap())
         );
+
+        tbpBecados.getAccessibleContext().setAccessibleName("Datos Personales");
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
 

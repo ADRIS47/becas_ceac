@@ -5,6 +5,8 @@
  */
 package principal;
 
+import java.awt.BorderLayout;
+
 /**
  *
  * @author sabagip
@@ -12,6 +14,7 @@ package principal;
 public class PrincipalControlador {
     
     VistaPanelPrincipal vista;
+    VistaRegistro vistaRegistro;
     PrincipalModelo modelo;
 
     public void setVista(VistaPanelPrincipal vista) {
@@ -23,13 +26,24 @@ public class PrincipalControlador {
     }
     
     public void iniciaPantallaPrincipal(){
-        vista = new VistaPanelPrincipal();
+        vista = new VistaPanelPrincipal(this);
         modelo = new PrincipalModelo();
         
         this.setVista(vista);
         this.setModelo(modelo);
         
         vista.setVisible(true);
+    }
+    
+    public void creaVistaRegistro(){
+        vistaRegistro = new VistaRegistro(this);
+        vista.pnlOpciones.add(vistaRegistro, BorderLayout.CENTER);
+        vistaRegistro.setVisible(true);
+        vista.pnlOpciones.updateUI();
+        vista.pnlOpciones.validate();
+        vista.repaint();
+        
+        
     }
     
 }
