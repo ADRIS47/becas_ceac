@@ -20,6 +20,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import pojos.CatEstadoCivil;
+import pojos.CatPrograma;
 import pojos.CatSexo;
 
 /**
@@ -75,11 +76,13 @@ public class PrincipalModelo {
         //Se comienzan a jalar los datos de la BD
         catSexo = getSexo(conn);
         catEstadoCivil = getEstadoCivil(conn);
+        catPrograma = getProgramas(conn);
         
         
         //Se llena la lista con las categorias
         result.add(catSexo);
         result.add(catEstadoCivil);
+        result.add(catPrograma);
         
         conn.close();
         return result;
@@ -227,5 +230,30 @@ public class PrincipalModelo {
             }
         }
         return catEstadoCivil;
+    }
+
+    /**
+     * Obtiene los programas que puede tener un becario
+     * @param conn COnexion a la base de datos
+     * @return 
+     */
+    private TreeMap<Integer, String> getProgramas(Connection conn) {
+        TreeMap<Integer, String> catPrograma = new TreeMap<>();
+        Statement st = null;
+        ResultSet rs = null;
+        try{
+            st = conn.createStatement();
+            rs = st.executeQuery(Consultas.getProgramas);
+            while(rs.next()){
+                CatPrograma programa = new CatPrograma();
+                programa.setId(rs.getInt(CatPrograma.COL_ID));
+                programa.setNombre(rs.getString(CatPrograma.COL_NOMBRE));
+                catPrograma.put(programa.getId(), programa.getNombre());
+            }
+        }
+        catch(SQLException e){
+            muestraErrores(e);
+        }
+        return catPrograma;
     }
 }

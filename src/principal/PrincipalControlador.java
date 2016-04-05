@@ -92,6 +92,7 @@ public class PrincipalControlador {
         //Se separan las categorias
         catSexo = lstCategorias.get(0);
         catEstadoCivil = lstCategorias.get(1);
+        catPrograma = lstCategorias.get(2);
         //catPrograma = lstCategorias.get(2);
         for (Integer key : catSexo.keySet()) {
             vistaRegistro.combobxSexoBecado.addItem(catSexo.get(key));
@@ -99,6 +100,10 @@ public class PrincipalControlador {
         //Se llena el combo box de Estado civil
         for (Integer key : catEstadoCivil.keySet()) {
             vistaRegistro.combobxCivilBecado.addItem(catEstadoCivil.get(key));
+        }
+        //Se llena el combo box de Programas
+        for (Integer key : catPrograma.keySet()) {
+            vistaRegistro.comboBoxPrograma.addItem(catPrograma.get(key));
         }
         
     }

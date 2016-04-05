@@ -84,7 +84,6 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel2.setText("Programa:");
 
         comboBoxPrograma.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        comboBoxPrograma.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 153));
