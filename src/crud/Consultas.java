@@ -26,5 +26,10 @@ public class Consultas {
      */
     public static String getEstadoCivil = "SELECT id_estado_civil, nombre FROM beca_cat_estado_civil";
     
+    /**
+     * Obtiene la categoria de los programas
+     */
+    public static String getProgramas = "SELECT id_programa, nombre FROM beca_cat_programa";
+    
     
 }
