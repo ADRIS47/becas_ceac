@@ -19,6 +19,11 @@ public class Index {
         controlador.iniciaLogin();
     }
 
+    public void iniciaPantallaLogin() {
+        LoginControlador controlador = new LoginControlador();
+        controlador.iniciaLogin();
+    }
+
     public void iniciaPantallaPrincipal() {
         PrincipalControlador controlador = new PrincipalControlador();
         controlador.iniciaPantallaPrincipal();

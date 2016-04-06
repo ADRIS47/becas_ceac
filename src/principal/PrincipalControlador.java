@@ -6,10 +6,10 @@
 package principal;
 
 import helpers.Log;
+import index.Index;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.sql.SQLException;
-import java.util.Iterator;
 import java.util.List;
 import java.util.TreeMap;
 import java.util.logging.Level;
@@ -25,7 +25,9 @@ public class PrincipalControlador {
     VistaPanelPrincipal vista;
     VistaRegistro vistaRegistro;
     PrincipalModelo modelo;
+    Index controladorPrincipal;
     Log log = new Log();
+    
     
     TreeMap<Integer, String> catSexo = null;
     TreeMap<Integer, String> catEstadoCivil = null;
@@ -42,6 +44,7 @@ public class PrincipalControlador {
     public void iniciaPantallaPrincipal(){
         vista = new VistaPanelPrincipal(this);
         modelo = new PrincipalModelo();
+        controladorPrincipal = new Index();
         
         this.setVista(vista);
         this.setModelo(modelo);
@@ -106,6 +109,26 @@ public class PrincipalControlador {
             vistaRegistro.comboBoxPrograma.addItem(catPrograma.get(key));
         }
         
+    }
+
+    /**
+     * Cierra la sesión de trabajo e inicia la pantalla de login
+     */
+    void cerrarSesion() {
+        int response = JOptionPane.showConfirmDialog(vista, "¿Deseas cerrar Sesión?");
+        if(response == JOptionPane.YES_OPTION){
+            terminarVista();
+        }
+    }
+
+    /**
+     * Inicia la pantalla login
+     */
+    private void terminarVista() {
+        vista.dispose();
+        vista = null;
+        modelo = null;
+        controladorPrincipal.iniciaPantallaLogin();
     }
     
 }

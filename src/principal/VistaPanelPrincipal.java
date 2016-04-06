@@ -5,8 +5,6 @@
  */
 package principal;
 
-import adris.vistas.*;
-
 /**
  *
  * @author Adriana
@@ -153,7 +151,7 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bntCerrarsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntCerrarsesionActionPerformed
-        // TODO add your handling code here:
+        controlador.cerrarSesion();
     }//GEN-LAST:event_bntCerrarsesionActionPerformed
 
     private void btnBecariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBecariosActionPerformed
