@@ -32,9 +32,6 @@ public class VistaRegistro extends javax.swing.JPanel {
     private void initComponents() {
 
         tbpBecados = new javax.swing.JTabbedPane();
-        pnlDatosFamiliares = new javax.swing.JTabbedPane();
-        pnlDatosEscolares = new javax.swing.JTabbedPane();
-        pnlDatosdeCobranza = new javax.swing.JTabbedPane();
         pnlDatosGenerales = new javax.swing.JPanel();
         pnlPrograma = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -68,16 +65,17 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel30 = new javax.swing.JLabel();
         pnlBotones = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
-        btnRegistrar = new javax.swing.JButton();
+        pnlDatosFamiliares = new javax.swing.JTabbedPane();
+        pnlDatosEscolares = new javax.swing.JTabbedPane();
+        pnlDatosdeCobranza = new javax.swing.JTabbedPane();
+        pnlbotones = new javax.swing.JPanel();
+        lblAgregar = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(697, 584));
 
         tbpBecados.setMaximumSize(new java.awt.Dimension(743, 454));
         tbpBecados.setMinimumSize(new java.awt.Dimension(450, 274));
         tbpBecados.setPreferredSize(new java.awt.Dimension(743, 454));
-        tbpBecados.addTab("Datos Familiares", pnlDatosFamiliares);
-        tbpBecados.addTab("Datos Escolares", pnlDatosEscolares);
-        tbpBecados.addTab("Datos de Cobranza", pnlDatosdeCobranza);
 
         pnlDatosGenerales.setMaximumSize(new java.awt.Dimension(743, 548));
         pnlDatosGenerales.setPreferredSize(new java.awt.Dimension(743, 548));
@@ -295,13 +293,31 @@ public class VistaRegistro extends javax.swing.JPanel {
         btnGuardar.setPreferredSize(new java.awt.Dimension(160, 29));
         pnlBotones.add(btnGuardar);
 
-        btnRegistrar.setText("Registrar Becario");
-        btnRegistrar.setPreferredSize(new java.awt.Dimension(160, 29));
-        pnlBotones.add(btnRegistrar);
-
         pnlDatosGenerales.add(pnlBotones);
 
         tbpBecados.addTab("Datos Generales", pnlDatosGenerales);
+        tbpBecados.addTab("Datos Familiares", pnlDatosFamiliares);
+        tbpBecados.addTab("Datos Escolares", pnlDatosEscolares);
+        tbpBecados.addTab("Datos de Cobranza", pnlDatosdeCobranza);
+
+        lblAgregar.setText("jLabel1");
+
+        javax.swing.GroupLayout pnlbotonesLayout = new javax.swing.GroupLayout(pnlbotones);
+        pnlbotones.setLayout(pnlbotonesLayout);
+        pnlbotonesLayout.setHorizontalGroup(
+            pnlbotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlbotonesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pnlbotonesLayout.setVerticalGroup(
+            pnlbotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlbotonesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -309,13 +325,17 @@ public class VistaRegistro extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tbpBecados, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tbpBecados, javax.swing.GroupLayout.DEFAULT_SIZE, 677, Short.MAX_VALUE)
+                    .addComponent(pnlbotones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(133, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(pnlbotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addComponent(tbpBecados, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
         );
@@ -324,7 +344,6 @@ public class VistaRegistro extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnRegistrar;
     protected javax.swing.JComboBox comboBoxPrograma;
     protected javax.swing.JComboBox comboBxTrabajaBecado;
     protected javax.swing.JComboBox combobxCivilBecado;
@@ -341,6 +360,7 @@ public class VistaRegistro extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel lblAgregar;
     private javax.swing.JPanel pnlBotones;
     private javax.swing.JPanel pnlCorreo1;
     private javax.swing.JPanel pnlCorreo2;
@@ -352,6 +372,7 @@ public class VistaRegistro extends javax.swing.JPanel {
     private javax.swing.JTabbedPane pnlDatosdeCobranza;
     private javax.swing.JPanel pnlNombres;
     private javax.swing.JPanel pnlPrograma;
+    private javax.swing.JPanel pnlbotones;
     private javax.swing.JTabbedPane tbpBecados;
     protected javax.swing.JTextField txtApMaternoBecado;
     protected javax.swing.JTextField txtApPaternoBecado;
