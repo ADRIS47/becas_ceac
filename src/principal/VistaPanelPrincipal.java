@@ -41,9 +41,14 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
         btnReportes = new javax.swing.JButton();
         pnlOpciones = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Control de Becas");
         setMinimumSize(new java.awt.Dimension(940, 558));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
         jPanel1.setLayout(new java.awt.GridBagLayout());
@@ -157,6 +162,10 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
     private void btnBecariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBecariosActionPerformed
         controlador.creaVistaRegistro();
     }//GEN-LAST:event_btnBecariosActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        controlador.cerrarSesion();
+    }//GEN-LAST:event_formWindowClosing
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
