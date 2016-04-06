@@ -44,6 +44,8 @@ public class pnlDireccion extends javax.swing.JPanel {
 
         jTextField5.setText("jTextField1");
 
+        setName(""); // NOI18N
+
         txtCalleBecado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCalleBecadoActionPerformed(evt);
