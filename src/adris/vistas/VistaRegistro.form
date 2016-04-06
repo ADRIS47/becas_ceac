@@ -24,7 +24,7 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="tbpBecados" pref="677" max="32767" attributes="0"/>
+                  <Component id="tbpBecados" pref="754" max="32767" attributes="0"/>
                   <Component id="pnlbotones" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -614,7 +614,7 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="lblAgregar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel1"/>
+            <Property name="text" type="java.lang.String" value="Agregar"/>
           </Properties>
         </Component>
       </SubComponents>

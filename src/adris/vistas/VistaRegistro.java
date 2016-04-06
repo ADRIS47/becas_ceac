@@ -300,7 +300,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         tbpBecados.addTab("Datos Escolares", pnlDatosEscolares);
         tbpBecados.addTab("Datos de Cobranza", pnlDatosdeCobranza);
 
-        lblAgregar.setText("jLabel1");
+        lblAgregar.setText("Agregar");
 
         javax.swing.GroupLayout pnlbotonesLayout = new javax.swing.GroupLayout(pnlbotones);
         pnlbotones.setLayout(pnlbotonesLayout);
@@ -326,7 +326,7 @@ public class VistaRegistro extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tbpBecados, javax.swing.GroupLayout.DEFAULT_SIZE, 677, Short.MAX_VALUE)
+                    .addComponent(tbpBecados, javax.swing.GroupLayout.DEFAULT_SIZE, 754, Short.MAX_VALUE)
                     .addComponent(pnlbotones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
