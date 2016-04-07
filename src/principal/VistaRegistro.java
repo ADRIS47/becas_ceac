@@ -5,8 +5,6 @@
  */
 package principal;
 
-import principal.PrincipalControlador;
-
 /**
  *
  * @author sabagip
@@ -32,8 +30,6 @@ public class VistaRegistro extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        pnlAgregar = new javax.swing.JPanel();
-        lblAgregar2 = new javax.swing.JLabel();
         tbpBecados = new javax.swing.JTabbedPane();
         pnlDatosGenerales = new javax.swing.JPanel();
         pnlPrograma = new javax.swing.JPanel();
@@ -61,6 +57,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         btnFotografia = new javax.swing.JButton();
+        spnlDirecciones = new javax.swing.JScrollPane();
         pnlTelefonosBecados = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -93,16 +90,11 @@ public class VistaRegistro extends javax.swing.JPanel {
         txtTel3Becado1 = new javax.swing.JTextField();
         spnlHijos = new javax.swing.JScrollPane();
 
-        setPreferredSize(new java.awt.Dimension(697, 584));
-
-        pnlAgregar.setLayout(new java.awt.GridBagLayout());
-
-        lblAgregar2.setText("Agregar");
-        pnlAgregar.add(lblAgregar2, new java.awt.GridBagConstraints());
+        setPreferredSize(new java.awt.Dimension(916, 584));
 
         tbpBecados.setMaximumSize(new java.awt.Dimension(743, 454));
         tbpBecados.setMinimumSize(new java.awt.Dimension(450, 274));
-        tbpBecados.setPreferredSize(new java.awt.Dimension(743, 454));
+        tbpBecados.setPreferredSize(new java.awt.Dimension(697, 584));
 
         pnlDatosGenerales.setMaximumSize(new java.awt.Dimension(743, 548));
         pnlDatosGenerales.setPreferredSize(new java.awt.Dimension(743, 548));
@@ -307,6 +299,10 @@ public class VistaRegistro extends javax.swing.JPanel {
 
         pnlDatosGenerales.add(pnlDatos);
 
+        spnlDirecciones.setBorder(javax.swing.BorderFactory.createTitledBorder("Dirección"));
+        spnlDirecciones.setPreferredSize(new java.awt.Dimension(707, 115));
+        pnlDatosGenerales.add(spnlDirecciones);
+
         pnlTelefonosBecados.setPreferredSize(new java.awt.Dimension(707, 55));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -352,22 +348,20 @@ public class VistaRegistro extends javax.swing.JPanel {
         pnlTelefonosBecadosLayout.setVerticalGroup(
             pnlTelefonosBecadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTelefonosBecadosLayout.createSequentialGroup()
+                .addComponent(txtTel2Becado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(pnlTelefonosBecadosLayout.createSequentialGroup()
+                .addGroup(pnlTelefonosBecadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtTel3Becado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTel1Becado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnlTelefonosBecadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlTelefonosBecadosLayout.createSequentialGroup()
-                        .addGroup(pnlTelefonosBecadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtTel3Becado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtTel1Becado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlTelefonosBecadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlTelefonosBecadosLayout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTelefonosBecadosLayout.createSequentialGroup()
-                        .addComponent(txtTel2Becado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(jLabel4)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pnlDatosGenerales.add(pnlTelefonosBecados);
@@ -451,8 +445,8 @@ public class VistaRegistro extends javax.swing.JPanel {
 
         pnlDatosFamiliares.add(jPanel1, new java.awt.GridBagConstraints());
 
-        spnlParentesco.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        spnlParentesco.setPreferredSize(new java.awt.Dimension(707, 110));
+        spnlParentesco.setBorder(javax.swing.BorderFactory.createTitledBorder("Padres"));
+        spnlParentesco.setPreferredSize(new java.awt.Dimension(707, 120));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -465,7 +459,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(12, 12, 0, 0);
         pnlDatosFamiliares.add(spnlParentesco, gridBagConstraints);
 
-        spnlHermanos.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        spnlHermanos.setBorder(javax.swing.BorderFactory.createTitledBorder("HIjos"));
         spnlHermanos.setPreferredSize(new java.awt.Dimension(707, 110));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -581,16 +575,14 @@ public class VistaRegistro extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tbpBecados, javax.swing.GroupLayout.DEFAULT_SIZE, 685, Short.MAX_VALUE)))
+                .addComponent(tbpBecados, javax.swing.GroupLayout.PREFERRED_SIZE, 765, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(139, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(pnlAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tbpBecados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(tbpBecados, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -632,10 +624,8 @@ public class VistaRegistro extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JLabel lblAgregar2;
     private javax.swing.JLabel lblFotografia;
     private javax.swing.JLabel lblParentesco1;
-    private javax.swing.JPanel pnlAgregar;
     private javax.swing.JPanel pnlBotones;
     private javax.swing.JPanel pnlCorreo1;
     private javax.swing.JPanel pnlCorreo2;
@@ -646,6 +636,7 @@ public class VistaRegistro extends javax.swing.JPanel {
     private javax.swing.JPanel pnlNombres;
     private javax.swing.JPanel pnlPrograma;
     private javax.swing.JPanel pnlTelefonosBecados;
+    protected javax.swing.JScrollPane spnlDirecciones;
     protected javax.swing.JScrollPane spnlHermanos;
     protected javax.swing.JScrollPane spnlHijos;
     protected javax.swing.JScrollPane spnlParentesco;
