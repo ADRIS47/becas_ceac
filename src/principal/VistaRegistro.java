@@ -89,6 +89,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel5.setForeground(new java.awt.Color(0, 0, 153));
         jLabel5.setText("Folio:");
 
+        txtFolio.setEditable(false);
         txtFolio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtFolio.setText("Folio");
         txtFolio.setToolTipText("");
@@ -98,6 +99,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(0, 0, 153));
         jLabel3.setText("Estatus:");
 
+        txtEstatus.setEditable(false);
         txtEstatus.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtEstatus.setText("Estatus");
         txtEstatus.setSelectionStart(0);
