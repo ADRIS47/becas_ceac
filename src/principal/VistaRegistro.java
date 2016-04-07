@@ -5,6 +5,8 @@
  */
 package principal;
 
+import principal.PrincipalControlador;
+
 /**
  *
  * @author sabagip
@@ -28,7 +30,10 @@ public class VistaRegistro extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
+        pnlAgregar = new javax.swing.JPanel();
+        lblAgregar2 = new javax.swing.JLabel();
         tbpBecados = new javax.swing.JTabbedPane();
         pnlDatosGenerales = new javax.swing.JPanel();
         pnlPrograma = new javax.swing.JPanel();
@@ -45,6 +50,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
+        lblFotografia = new javax.swing.JLabel();
         pnlDatos = new javax.swing.JPanel();
         txtFechaNacimiento = new javax.swing.JTextField();
         combobxSexoBecado = new javax.swing.JComboBox();
@@ -54,6 +60,14 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
+        btnFotografia = new javax.swing.JButton();
+        pnlTelefonosBecados = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txtTel1Becado = new javax.swing.JTextField();
+        txtTel2Becado = new javax.swing.JTextField();
+        txtTel3Becado = new javax.swing.JTextField();
         pnlCorreos = new javax.swing.JPanel();
         pnlCorreo1 = new javax.swing.JPanel();
         txtCorreoBecario = new javax.swing.JTextField();
@@ -63,12 +77,28 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel30 = new javax.swing.JLabel();
         pnlBotones = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
-        btnRegistrar = new javax.swing.JButton();
-        pnlDatosFamiliares = new javax.swing.JTabbedPane();
-        pnlDatosEscolares = new javax.swing.JTabbedPane();
-        pnlDatosdeCobranza = new javax.swing.JTabbedPane();
+        pnlDatosFamiliares = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        spnlParentesco = new javax.swing.JScrollPane();
+        spnlHermanos = new javax.swing.JScrollPane();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        lblParentesco1 = new javax.swing.JLabel();
+        txtNombreConyuge = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        txtApPaternoPariente = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        txtApMaternoPariente = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        txtTel3Becado1 = new javax.swing.JTextField();
+        spnlHijos = new javax.swing.JScrollPane();
 
         setPreferredSize(new java.awt.Dimension(697, 584));
+
+        pnlAgregar.setLayout(new java.awt.GridBagLayout());
+
+        lblAgregar2.setText("Agregar");
+        pnlAgregar.add(lblAgregar2, new java.awt.GridBagConstraints());
 
         tbpBecados.setMaximumSize(new java.awt.Dimension(743, 454));
         tbpBecados.setMinimumSize(new java.awt.Dimension(450, 274));
@@ -139,6 +169,8 @@ public class VistaRegistro extends javax.swing.JPanel {
 
         pnlDatosGenerales.add(pnlPrograma);
 
+        pnlNombres.setPreferredSize(new java.awt.Dimension(670, 72));
+
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel20.setText("Nombre(s)");
 
@@ -148,26 +180,34 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel22.setText("Ap Materno");
 
+        lblFotografia.setBackground(new java.awt.Color(0, 255, 27));
+        lblFotografia.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
         javax.swing.GroupLayout pnlNombresLayout = new javax.swing.GroupLayout(pnlNombres);
         pnlNombres.setLayout(pnlNombresLayout);
         pnlNombresLayout.setHorizontalGroup(
             pnlNombresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlNombresLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(txtNombreBecado, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(txtApPaternoBecado, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                .addComponent(txtApMaternoBecado, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlNombresLayout.createSequentialGroup()
-                .addGap(83, 83, 83)
-                .addComponent(jLabel20)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel21)
-                .addGap(159, 159, 159)
-                .addComponent(jLabel22)
-                .addGap(66, 66, 66))
+            .addGroup(pnlNombresLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(lblFotografia, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addGroup(pnlNombresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlNombresLayout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(jLabel20)
+                        .addGap(98, 98, 98)
+                        .addComponent(jLabel21))
+                    .addGroup(pnlNombresLayout.createSequentialGroup()
+                        .addComponent(txtNombreBecado, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtApPaternoBecado, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addGroup(pnlNombresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlNombresLayout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(jLabel22))
+                    .addComponent(txtApMaternoBecado, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25))
         );
         pnlNombresLayout.setVerticalGroup(
             pnlNombresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,13 +223,14 @@ public class VistaRegistro extends javax.swing.JPanel {
                     .addComponent(jLabel21)
                     .addComponent(jLabel20))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(lblFotografia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pnlDatosGenerales.add(pnlNombres);
 
         pnlDatos.setMaximumSize(new java.awt.Dimension(660, 130));
-        pnlDatos.setMinimumSize(new java.awt.Dimension(660, 130));
-        pnlDatos.setPreferredSize(new java.awt.Dimension(707, 85));
+        pnlDatos.setMinimumSize(new java.awt.Dimension(660, 45));
+        pnlDatos.setPreferredSize(new java.awt.Dimension(707, 75));
 
         txtFechaNacimiento.setText("dd/mm/aaaa");
         txtFechaNacimiento.setToolTipText("");
@@ -209,58 +250,129 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel26.setText("Fecha Nacimiento");
 
+        btnFotografia.setText("Insertar Imagen");
+
         javax.swing.GroupLayout pnlDatosLayout = new javax.swing.GroupLayout(pnlDatos);
         pnlDatos.setLayout(pnlDatosLayout);
         pnlDatosLayout.setHorizontalGroup(
             pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addContainerGap(29, Short.MAX_VALUE)
                 .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel26)
                     .addGroup(pnlDatosLayout.createSequentialGroup()
-                        .addComponent(jLabel26)
-                        .addGap(76, 76, 76)
-                        .addComponent(jLabel25)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(pnlDatosLayout.createSequentialGroup()
-                        .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                        .addComponent(btnFotografia)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(combobxSexoBecado, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(pnlDatosLayout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(jLabel25)
+                        .addGap(58, 58, 58)))
                 .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(combobxCivilBecado, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlDatosLayout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addComponent(jLabel24)))
-                .addGap(58, 58, 58)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(comboBxTrabajaBecado, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlDatosLayout.createSequentialGroup()
                         .addGap(12, 12, 12)
-                        .addComponent(jLabel23))
-                    .addComponent(comboBxTrabajaBecado, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29))
+                        .addComponent(jLabel23)))
+                .addGap(31, 31, 31))
         );
         pnlDatosLayout.setVerticalGroup(
             pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDatosLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addContainerGap()
                 .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(combobxCivilBecado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(combobxSexoBecado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboBxTrabajaBecado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnFotografia))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel24)
                     .addComponent(jLabel25)
                     .addComponent(jLabel26)
                     .addComponent(jLabel23))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(7, Short.MAX_VALUE))
         );
 
         pnlDatosGenerales.add(pnlDatos);
 
-        pnlCorreos.setPreferredSize(new java.awt.Dimension(707, 100));
+        pnlTelefonosBecados.setPreferredSize(new java.awt.Dimension(707, 55));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setText("Telefono 1");
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel6.setText("Telefono 2");
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel7.setText("Telefono 3");
+
+        txtTel1Becado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTel1BecadoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlTelefonosBecadosLayout = new javax.swing.GroupLayout(pnlTelefonosBecados);
+        pnlTelefonosBecados.setLayout(pnlTelefonosBecadosLayout);
+        pnlTelefonosBecadosLayout.setHorizontalGroup(
+            pnlTelefonosBecadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTelefonosBecadosLayout.createSequentialGroup()
+                .addContainerGap(96, Short.MAX_VALUE)
+                .addGroup(pnlTelefonosBecadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtTel1Becado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTelefonosBecadosLayout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(20, 20, 20)))
+                .addGap(62, 62, 62)
+                .addGroup(pnlTelefonosBecadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtTel2Becado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTelefonosBecadosLayout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(27, 27, 27)))
+                .addGap(77, 77, 77)
+                .addGroup(pnlTelefonosBecadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtTel3Becado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTelefonosBecadosLayout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(35, 35, 35)))
+                .addGap(91, 91, 91))
+        );
+        pnlTelefonosBecadosLayout.setVerticalGroup(
+            pnlTelefonosBecadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTelefonosBecadosLayout.createSequentialGroup()
+                .addGroup(pnlTelefonosBecadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlTelefonosBecadosLayout.createSequentialGroup()
+                        .addGroup(pnlTelefonosBecadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtTel3Becado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTel1Becado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlTelefonosBecadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlTelefonosBecadosLayout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTelefonosBecadosLayout.createSequentialGroup()
+                        .addComponent(txtTel2Becado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+
+        pnlDatosGenerales.add(pnlTelefonosBecados);
+
+        pnlCorreos.setPreferredSize(new java.awt.Dimension(707, 85));
 
         pnlCorreo1.setPreferredSize(new java.awt.Dimension(340, 50));
         pnlCorreo1.setVerifyInputWhenFocusTarget(false);
@@ -302,7 +414,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         );
         pnlCorreosLayout.setVerticalGroup(
             pnlCorreosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 85, Short.MAX_VALUE)
             .addGroup(pnlCorreosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlCorreosLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -320,16 +432,148 @@ public class VistaRegistro extends javax.swing.JPanel {
         btnGuardar.setPreferredSize(new java.awt.Dimension(160, 29));
         pnlBotones.add(btnGuardar);
 
-        btnRegistrar.setText("Registrar Becario");
-        btnRegistrar.setPreferredSize(new java.awt.Dimension(160, 29));
-        pnlBotones.add(btnRegistrar);
-
         pnlDatosGenerales.add(pnlBotones);
 
         tbpBecados.addTab("Datos Generales", pnlDatosGenerales);
+
+        pnlDatosFamiliares.setLayout(new java.awt.GridBagLayout());
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        pnlDatosFamiliares.add(jPanel1, new java.awt.GridBagConstraints());
+
+        spnlParentesco.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        spnlParentesco.setPreferredSize(new java.awt.Dimension(707, 110));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 692;
+        gridBagConstraints.ipady = 48;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(12, 12, 0, 0);
+        pnlDatosFamiliares.add(spnlParentesco, gridBagConstraints);
+
+        spnlHermanos.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        spnlHermanos.setPreferredSize(new java.awt.Dimension(707, 110));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 692;
+        gridBagConstraints.ipady = 48;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(12, 12, 0, 0);
+        pnlDatosFamiliares.add(spnlHermanos, gridBagConstraints);
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel3.setPreferredSize(new java.awt.Dimension(707, 65));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setText("Nombre completo del Conyuge");
+
+        lblParentesco1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblParentesco1.setText("Nombre(s)");
+
+        txtNombreConyuge.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreConyugeActionPerformed(evt);
+            }
+        });
+
+        jLabel27.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel27.setText("Ap Paterno");
+
+        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel28.setText("Ap Materno");
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setText("Telefono");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(lblParentesco1))
+                            .addComponent(txtNombreConyuge, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtApPaternoPariente, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel27))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel28)
+                            .addComponent(txtApMaternoPariente, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(317, 317, 317)))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(txtTel3Becado1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblParentesco1)
+                    .addComponent(jLabel27)
+                    .addComponent(jLabel28)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNombreConyuge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtApMaternoPariente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtApPaternoPariente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTel3Becado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 12, 0, 0);
+        pnlDatosFamiliares.add(jPanel3, gridBagConstraints);
+
+        spnlHijos.setBorder(javax.swing.BorderFactory.createTitledBorder("Nombre de los Hijos"));
+        spnlHijos.setPreferredSize(new java.awt.Dimension(707, 65));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 680;
+        gridBagConstraints.ipady = 25;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(12, 12, 134, 0);
+        pnlDatosFamiliares.add(spnlHijos, gridBagConstraints);
+
         tbpBecados.addTab("Datos Familiares", pnlDatosFamiliares);
-        tbpBecados.addTab("Datos Escolares", pnlDatosEscolares);
-        tbpBecados.addTab("Datos de Cobranza", pnlDatosdeCobranza);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -337,25 +581,37 @@ public class VistaRegistro extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tbpBecados, javax.swing.GroupLayout.DEFAULT_SIZE, 694, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tbpBecados, javax.swing.GroupLayout.DEFAULT_SIZE, 685, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(pnlAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(tbpBecados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtNombreConyugeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreConyugeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreConyugeActionPerformed
+
+    private void txtTel1BecadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTel1BecadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTel1BecadoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnFotografia;
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnRegistrar;
     protected javax.swing.JComboBox comboBoxPrograma;
     protected javax.swing.JComboBox comboBxTrabajaBecado;
     protected javax.swing.JComboBox combobxCivilBecado;
     protected javax.swing.JComboBox combobxSexoBecado;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
@@ -364,29 +620,50 @@ public class VistaRegistro extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel lblAgregar2;
+    private javax.swing.JLabel lblFotografia;
+    private javax.swing.JLabel lblParentesco1;
+    private javax.swing.JPanel pnlAgregar;
     private javax.swing.JPanel pnlBotones;
     private javax.swing.JPanel pnlCorreo1;
     private javax.swing.JPanel pnlCorreo2;
     private javax.swing.JPanel pnlCorreos;
     private javax.swing.JPanel pnlDatos;
-    private javax.swing.JTabbedPane pnlDatosEscolares;
-    private javax.swing.JTabbedPane pnlDatosFamiliares;
+    private javax.swing.JPanel pnlDatosFamiliares;
     private javax.swing.JPanel pnlDatosGenerales;
-    private javax.swing.JTabbedPane pnlDatosdeCobranza;
     private javax.swing.JPanel pnlNombres;
     private javax.swing.JPanel pnlPrograma;
+    private javax.swing.JPanel pnlTelefonosBecados;
+    protected javax.swing.JScrollPane spnlHermanos;
+    protected javax.swing.JScrollPane spnlHijos;
+    protected javax.swing.JScrollPane spnlParentesco;
     private javax.swing.JTabbedPane tbpBecados;
     protected javax.swing.JTextField txtApMaternoBecado;
+    protected javax.swing.JTextField txtApMaternoPariente;
     protected javax.swing.JTextField txtApPaternoBecado;
+    protected javax.swing.JTextField txtApPaternoPariente;
     protected javax.swing.JTextField txtCorreoBecario;
     private javax.swing.JTextField txtCorreoBecario2;
     protected javax.swing.JTextField txtEstatus;
     protected javax.swing.JTextField txtFechaNacimiento;
     protected javax.swing.JTextField txtFolio;
     protected javax.swing.JTextField txtNombreBecado;
+    protected javax.swing.JTextField txtNombreConyuge;
+    private javax.swing.JTextField txtTel1Becado;
+    private javax.swing.JTextField txtTel2Becado;
+    private javax.swing.JTextField txtTel3Becado;
+    protected javax.swing.JTextField txtTel3Becado1;
     // End of variables declaration//GEN-END:variables
 }

@@ -20,6 +20,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import pojos.CatEstadoCivil;
+import pojos.CatGradoEscolar;
+import pojos.CatParentesco;
 import pojos.CatPrograma;
 import pojos.CatSexo;
 
@@ -66,6 +68,8 @@ public class PrincipalModelo {
         TreeMap<Integer, String> catSexo = new TreeMap<>();
         TreeMap<Integer, String> catEstadoCivil = new TreeMap<>();
         TreeMap<Integer, String> catPrograma = new TreeMap<>();
+        TreeMap<Integer, String> catNivelEstudios = new TreeMap<>();
+        TreeMap<Integer, String> catParentesco = new TreeMap<>();
         
         Conexion conexion = new Conexion();
         Connection conn = null;
@@ -77,12 +81,16 @@ public class PrincipalModelo {
         catSexo = getSexo(conn);
         catEstadoCivil = getEstadoCivil(conn);
         catPrograma = getProgramas(conn);
+        catNivelEstudios = getNivelEstudios(conn);
+        catParentesco = getParentesco(conn);
         
         
         //Se llena la lista con las categorias
         result.add(catSexo);
         result.add(catEstadoCivil);
         result.add(catPrograma);
+        result.add(catNivelEstudios);
+        result.add(catParentesco);
         
         conn.close();
         return result;
@@ -255,5 +263,55 @@ public class PrincipalModelo {
             muestraErrores(e);
         }
         return catPrograma;
+    }
+
+    /**
+     * Obtiene el catalogo de nivel de estudios
+     * @param conn
+     * @return 
+     */
+    private TreeMap<Integer, String> getNivelEstudios(Connection conn) {
+        TreeMap<Integer, String> catNivelEstudios = new TreeMap<>();
+        Statement st = null;
+        ResultSet rs = null;
+        try{
+            st = conn.createStatement();
+            rs = st.executeQuery(Consultas.getNIvelEstudios);
+            while(rs.next()){
+                CatGradoEscolar grado = new CatGradoEscolar();
+                grado.setId(rs.getInt(CatGradoEscolar.COL_ID));
+                grado.setNombre(rs.getString(CatGradoEscolar.COL_NOMBRE));
+                catNivelEstudios.put(grado.getId(), grado.getNombre());
+            }
+        }
+        catch(SQLException e){
+            muestraErrores(e);
+        }
+        return catNivelEstudios;
+    }
+
+    /**
+     * OBtiene el catalogo de parenteco
+     * @param conn
+     * @return 
+     */
+    private TreeMap<Integer, String> getParentesco(Connection conn) {
+        TreeMap<Integer, String> catNivelEstudios = new TreeMap<>();
+        Statement st = null;
+        ResultSet rs = null;
+        try{
+            st = conn.createStatement();
+            rs = st.executeQuery(Consultas.getParentesco);
+            while(rs.next()){
+                CatParentesco parentesco = new CatParentesco();
+                parentesco.setId(rs.getInt(CatParentesco.COL_ID));
+                parentesco.setNombre(rs.getString(CatParentesco.COL_NOMBRE));
+                catNivelEstudios.put(parentesco.getId(), parentesco.getNombre());
+            }
+        }
+        catch(SQLException e){
+            muestraErrores(e);
+        }
+        return catNivelEstudios;
     }
 }

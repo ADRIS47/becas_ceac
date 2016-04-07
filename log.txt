@@ -7,3 +7,12 @@
 3/4/2016;21:4:17;SQLError: 42S22
 3/4/2016;21:4:17;ERROR: Code1054
 3/4/2016;21:4:17;Message: Unknown column 'id_estado_civil' in 'field list'
+6/4/2016;23:47:45;SQLError: S0022
+6/4/2016;23:47:45;ERROR: Code0
+6/4/2016;23:47:45;Message: Column 'id_grado_escolar' not found.
+6/4/2016;23:48:34;SQLError: S0022
+6/4/2016;23:48:34;ERROR: Code0
+6/4/2016;23:48:34;Message: Column 'id_grado_escolar' not found.
+6/4/2016;23:51:12;SQLError: S0022
+6/4/2016;23:51:12;ERROR: Code0
+6/4/2016;23:51:12;Message: Column 'id_grado_escolar' not found.
