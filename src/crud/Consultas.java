@@ -31,5 +31,15 @@ public class Consultas {
      */
     public static String getProgramas = "SELECT id_programa, nombre FROM beca_cat_programa";
     
+    /**
+     * Obtiene el catalogo de nivel de estudios
+     */
+    public static String getNIvelEstudios = "SELECT id_grado_escolar, nombre FROM beca_cat_grado_escolar";
+    
+    /**
+     * Obtiene el parentezco de los becarios
+     */
+    public static String getParentesco = "SELECT id_parentesco, nombre FROM beca_cat_parentesco";
+    
     
 }

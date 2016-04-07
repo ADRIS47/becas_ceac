@@ -24,6 +24,9 @@ public class PrincipalControlador {
     
     VistaPanelPrincipal vista;
     VistaRegistro vistaRegistro;
+    PnlHermanos vistaHermanos;
+    PnlHijos vistaHijos;
+    PnlParentesco vistaParentesco;
     PrincipalModelo modelo;
     Index controladorPrincipal;
     Log log = new Log();
@@ -32,6 +35,8 @@ public class PrincipalControlador {
     TreeMap<Integer, String> catSexo = null;
     TreeMap<Integer, String> catEstadoCivil = null;
     TreeMap<Integer, String> catPrograma = null;
+    TreeMap<Integer, String> catParentesco = null;
+    TreeMap<Integer, String> catNivelEstudios = null;
 
     public void setVista(VistaPanelPrincipal vista) {
         this.vista = vista;
@@ -40,6 +45,23 @@ public class PrincipalControlador {
     public void setModelo(PrincipalModelo modelo) {
         this.modelo = modelo;
     }
+
+    public void setVistaRegistro(VistaRegistro vistaRegistro) {
+        this.vistaRegistro = vistaRegistro;
+    }
+
+    public void setVistaHermanos(PnlHermanos vistaHermanos) {
+        this.vistaHermanos = vistaHermanos;
+    }
+
+    public void setVistaHijos(PnlHijos vistaHijos) {
+        this.vistaHijos = vistaHijos;
+    }
+
+    public void setVistaParentesco(PnlParentesco vistaParentesco) {
+        this.vistaParentesco = vistaParentesco;
+    }
+    
     
     public void iniciaPantallaPrincipal(){
         vista = new VistaPanelPrincipal(this);
@@ -57,9 +79,12 @@ public class PrincipalControlador {
      */
     public void creaVistaRegistro(){
         vistaRegistro = new VistaRegistro(this);
+        this.setVistaRegistro(vistaRegistro);
         List<TreeMap<Integer, String>> lstCategorias = null;
                 
         try {
+            //Se muestran las pantallas dinamicas
+            llenaPanelesVistaRegistro();
             //Se obtienen las categorias para llenar la pantalla
             lstCategorias = modelo.getCategoriasVistaRegistro();
             llenaCamposVistaRegistro(lstCategorias);
@@ -96,6 +121,10 @@ public class PrincipalControlador {
         catSexo = lstCategorias.get(0);
         catEstadoCivil = lstCategorias.get(1);
         catPrograma = lstCategorias.get(2);
+        catNivelEstudios = lstCategorias.get(3);
+        catParentesco = lstCategorias.get(4);
+        
+        
         //catPrograma = lstCategorias.get(2);
         for (Integer key : catSexo.keySet()) {
             vistaRegistro.combobxSexoBecado.addItem(catSexo.get(key));
@@ -107,6 +136,15 @@ public class PrincipalControlador {
         //Se llena el combo box de Programas
         for (Integer key : catPrograma.keySet()) {
             vistaRegistro.comboBoxPrograma.addItem(catPrograma.get(key));
+        }
+        //Se llena el combo box de Nivel de estudios
+        for (Integer key : catNivelEstudios.keySet()) {
+            vistaParentesco.cmbNivelEstudiosPariente.addItem(catNivelEstudios.get(key));
+            vistaHermanos.cmbNivelEstudiosHermano.addItem(catNivelEstudios.get(key));
+        }
+        //Se llena el combo box de Parentesco
+        for (Integer key : catParentesco.keySet()) {
+            vistaParentesco.cmbParentesco.addItem(catParentesco.get(key));
         }
         
     }
@@ -129,6 +167,32 @@ public class PrincipalControlador {
         vista = null;
         modelo = null;
         controladorPrincipal.iniciaPantallaLogin();
+    }
+    
+    /**
+     * Muestra las pantallas dinamicas de VistaRegistro
+     */
+    private void llenaPanelesVistaRegistro() {
+        vistaParentesco = new PnlParentesco();
+        vistaHermanos = new PnlHermanos();
+        vistaHijos = new PnlHijos();
+        
+        vistaParentesco.setControlador(this);
+        vistaHermanos.setControlador(this);
+        vistaHijos.setControlador(this);
+        
+        this.setVistaHermanos(vistaHermanos);
+        this.setVistaHijos(vistaHijos);
+        this.setVistaParentesco(vistaParentesco);
+        
+        vistaRegistro.spnlParentesco.setViewportView(vistaParentesco);
+        vistaRegistro.spnlHermanos.setViewportView(vistaHermanos);
+        vistaRegistro.spnlHijos.setViewportView(vistaHijos);
+        
+        vistaParentesco.setVisible(true);
+        vistaHermanos.setVisible(true);
+        vistaHijos.setVisible(true);
+        
     }
     
 }
