@@ -7,7 +7,6 @@ package principal;
 
 import helpers.Log;
 import index.Index;
-import java.awt.BorderLayout;
 import java.awt.Component;
 import java.sql.SQLException;
 import java.util.List;
@@ -29,6 +28,7 @@ public class PrincipalControlador {
     PnlParentesco vistaParentesco;
     PrincipalModelo modelo;
     Index controladorPrincipal;
+    PnlDireccion vistaDireccion;
     Log log = new Log();
     
     
@@ -61,6 +61,11 @@ public class PrincipalControlador {
     public void setVistaParentesco(PnlParentesco vistaParentesco) {
         this.vistaParentesco = vistaParentesco;
     }
+
+    public void setVistaDireccion(PnlDireccion vistaDireccion) {
+        this.vistaDireccion = vistaDireccion;
+    }
+    
     
     
     public void iniciaPantallaPrincipal(){
@@ -104,8 +109,9 @@ public class PrincipalControlador {
      * @param pantalla Pantalla a agregar en el panel opciones
      */
     private void creaPantalla(Component pantalla){
-        vista.pnlOpciones.removeAll();
-        vista.pnlOpciones.add(pantalla, BorderLayout.CENTER);
+        //vista.pnlOpciones.removeAll();
+        //vista.pnlOpciones.add(pantalla, BorderLayout.CENTER);
+        vista.pnlOpciones.setViewportView(pantalla);
         pantalla.setVisible(true);
         vista.pnlOpciones.updateUI();
         vista.pnlOpciones.validate();
@@ -176,18 +182,22 @@ public class PrincipalControlador {
         vistaParentesco = new PnlParentesco();
         vistaHermanos = new PnlHermanos();
         vistaHijos = new PnlHijos();
+        vistaDireccion = new PnlDireccion();
         
         vistaParentesco.setControlador(this);
         vistaHermanos.setControlador(this);
         vistaHijos.setControlador(this);
+        vistaDireccion.setControlador(this);
         
         this.setVistaHermanos(vistaHermanos);
         this.setVistaHijos(vistaHijos);
         this.setVistaParentesco(vistaParentesco);
+        this.setVistaDireccion(vistaDireccion);
         
         vistaRegistro.spnlParentesco.setViewportView(vistaParentesco);
         vistaRegistro.spnlHermanos.setViewportView(vistaHermanos);
         vistaRegistro.spnlHijos.setViewportView(vistaHijos);
+        vistaRegistro.spnlDirecciones.setViewportView(vistaDireccion);
         
         vistaParentesco.setVisible(true);
         vistaHermanos.setVisible(true);
