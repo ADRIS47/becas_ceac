@@ -35,7 +35,6 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        bntCerrarsesion = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         btnBecarios = new javax.swing.JButton();
         btnKardex = new javax.swing.JButton();
@@ -69,18 +68,11 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(12, 20, 0, 0);
         jPanel1.add(jLabel1, gridBagConstraints);
 
-        bntCerrarsesion.setIcon(new javax.swing.ImageIcon("C:\\Users\\Adriana\\Documents\\NetBeansProjects\\becas\\becas_ceac\\build\\classes\\imagenes\\salir.png")); // NOI18N
-        bntCerrarsesion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bntCerrarsesionActionPerformed(evt);
-            }
-        });
-        jPanel1.add(bntCerrarsesion, new java.awt.GridBagConstraints());
-
-        jPanel2.setBackground(new java.awt.Color(0, 0, 255));
+        jPanel2.setBackground(new java.awt.Color(51, 0, 255));
 
         btnBecarios.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnBecarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adris/vistas/REGISTRO.png"))); // NOI18N
+        btnBecarios.setToolTipText("registro");
         btnBecarios.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBecarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,18 +81,18 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
         });
 
         btnKardex.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnKardex.setIcon(new javax.swing.ImageIcon("C:\\Users\\Adriana\\Documents\\NetBeansProjects\\becas\\becas_ceac\\src\\imagenes\\kardex.png")); // NOI18N
+        btnKardex.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/kardex.png"))); // NOI18N
         btnKardex.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         btnCobranza.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnCobranza.setIcon(new javax.swing.ImageIcon("C:\\Users\\Adriana\\Documents\\NetBeansProjects\\becas\\becas_ceac\\build\\classes\\imagenes\\cobranza.png")); // NOI18N
+        btnCobranza.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adris/vistas/cobranza.png"))); // NOI18N
         btnCobranza.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         btnReportes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnReportes.setIcon(new javax.swing.ImageIcon("C:\\Users\\Adriana\\Documents\\NetBeansProjects\\becas\\becas_ceac\\build\\classes\\imagenes\\reportes.png")); // NOI18N
+        btnReportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adris/vistas/reportes.png"))); // NOI18N
 
         btnBusqueda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnBusqueda.setIcon(new javax.swing.ImageIcon("C:\\Users\\Adriana\\Documents\\NetBeansProjects\\becas\\becas_ceac\\build\\classes\\imagenes\\busqueda.png")); // NOI18N
+        btnBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adris/vistas/busqueda.png"))); // NOI18N
         btnBusqueda.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -162,10 +154,6 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bntCerrarsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntCerrarsesionActionPerformed
-        controlador.cerrarSesion();
-    }//GEN-LAST:event_bntCerrarsesionActionPerformed
-
     private void btnBecariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBecariosActionPerformed
         controlador.creaVistaRegistro();
     }//GEN-LAST:event_btnBecariosActionPerformed
@@ -176,7 +164,6 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bntCerrarsesion;
     private javax.swing.JButton btnBecarios;
     private javax.swing.JButton btnBusqueda;
     private javax.swing.JButton btnCobranza;
