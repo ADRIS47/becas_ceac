@@ -5,6 +5,8 @@
  */
 package principal;
 
+import javax.swing.JFileChooser;
+
 /**
  *
  * @author sabagip
@@ -243,6 +245,11 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel26.setText("Fecha Nacimiento");
 
         btnFotografia.setText("Insertar Imagen");
+        btnFotografia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFotografiaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlDatosLayout = new javax.swing.GroupLayout(pnlDatos);
         pnlDatos.setLayout(pnlDatosLayout);
@@ -313,12 +320,6 @@ public class VistaRegistro extends javax.swing.JPanel {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setText("Telefono 3");
-
-        txtTel1Becado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTel1BecadoActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout pnlTelefonosBecadosLayout = new javax.swing.GroupLayout(pnlTelefonosBecados);
         pnlTelefonosBecados.setLayout(pnlTelefonosBecadosLayout);
@@ -482,12 +483,6 @@ public class VistaRegistro extends javax.swing.JPanel {
         lblParentesco1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblParentesco1.setText("Nombre(s)");
 
-        txtNombreConyuge.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreConyugeActionPerformed(evt);
-            }
-        });
-
         jLabel27.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel27.setText("Ap Paterno");
 
@@ -587,13 +582,9 @@ public class VistaRegistro extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNombreConyugeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreConyugeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreConyugeActionPerformed
-
-    private void txtTel1BecadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTel1BecadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTel1BecadoActionPerformed
+    private void btnFotografiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFotografiaActionPerformed
+        controlador.cargaFotografia();
+    }//GEN-LAST:event_btnFotografiaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -624,7 +615,7 @@ public class VistaRegistro extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JLabel lblFotografia;
+    protected javax.swing.JLabel lblFotografia;
     private javax.swing.JLabel lblParentesco1;
     private javax.swing.JPanel pnlBotones;
     private javax.swing.JPanel pnlCorreo1;

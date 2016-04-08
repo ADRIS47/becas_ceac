@@ -52,6 +52,7 @@ public class LoginControlador {
         this.setModelo(modelo);
         this.setPrincipal(principal);
         vista.setLocationRelativeTo(null);
+        helper.cargaImagenLocal(vista.lblImagen, "/imagenes/llavelogin.jpg");
         vista.setVisible(true);
     }
     

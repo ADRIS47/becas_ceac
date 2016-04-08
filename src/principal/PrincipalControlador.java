@@ -5,15 +5,21 @@
  */
 package principal;
 
+import helpers.Helper;
 import helpers.Log;
 import index.Index;
 import java.awt.Component;
+import java.awt.image.ImageFilter;
+import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -30,6 +36,7 @@ public class PrincipalControlador {
     Index controladorPrincipal;
     PnlDireccion vistaDireccion;
     Log log = new Log();
+    Helper helper = new Helper();
     
     
     TreeMap<Integer, String> catSexo = null;
@@ -203,6 +210,18 @@ public class PrincipalControlador {
         vistaHermanos.setVisible(true);
         vistaHijos.setVisible(true);
         
+    }
+
+    void cargaFotografia() {
+        JFileChooser selector = new JFileChooser();
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("PNG, JPG, JPEG", "jpg","png","jpeg");
+        selector.setFileFilter(filtro);
+        int select = selector.showOpenDialog(vista);
+        
+        if(select == JFileChooser.APPROVE_OPTION){
+            File foto = selector.getSelectedFile();
+            helper.cargaImagenExterna(vistaRegistro.lblFotografia, selector.getSelectedFile().toPath());
+        }
     }
     
 }

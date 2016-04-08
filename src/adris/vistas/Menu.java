@@ -265,99 +265,99 @@ public class Menu extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Empleados emp = new Empleados();
-        Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
-        Dimension ventana = emp.getSize();
-        int x=(pantalla.width - ventana.width) / 2;
-        int y=(pantalla.height - ventana.height) / 2;
-        emp.setLocation(x,y);
-        Principal.desktopPane.add(emp);
-        emp.toFront();
-        emp.setVisible(true);
+//        Empleados emp = new Empleados();
+//        Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
+//        Dimension ventana = emp.getSize();
+//        int x=(pantalla.width - ventana.width) / 2;
+//        int y=(pantalla.height - ventana.height) / 2;
+//        emp.setLocation(x,y);
+//        Principal.desktopPane.add(emp);
+//        emp.toFront();
+//        emp.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        Unidades un = new Unidades();
-        Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
-        Dimension ventana = un.getSize();
-        int x=(pantalla.width - ventana.width) / 2;
-        int y=(pantalla.height - ventana.height) / 2;
-        un.setLocation(x,y-50);
-        Principal.desktopPane.add(un);
-        un.toFront();
-        un.setVisible(true);
+//        Unidades un = new Unidades();
+//        Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
+//        Dimension ventana = un.getSize();
+//        int x=(pantalla.width - ventana.width) / 2;
+//        int y=(pantalla.height - ventana.height) / 2;
+//        un.setLocation(x,y-50);
+//        Principal.desktopPane.add(un);
+//        un.toFront();
+//        un.setVisible(true);
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        clientes cli = new clientes();
-        Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
-        Dimension ventana = cli.getSize();
-        int x=(pantalla.width - ventana.width) / 2;
-        int y=(pantalla.height - ventana.height) / 2;
-        cli.setLocation(x,y);
-        Principal.desktopPane.add(cli);
-        cli.toFront();
-        cli.setVisible(true);
+//        clientes cli = new clientes();
+//        Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
+//        Dimension ventana = cli.getSize();
+//        int x=(pantalla.width - ventana.width) / 2;
+//        int y=(pantalla.height - ventana.height) / 2;
+//        cli.setLocation(x,y);
+//        Principal.desktopPane.add(cli);
+//        cli.toFront();
+//        cli.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Servicios serv = new Servicios();
-        Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
-        Dimension ventana = serv.getSize();
-        int x=(pantalla.width - ventana.width) / 2;
-        int y=(pantalla.height - ventana.height) / 2;
-        serv.setLocation(x,y-30);
-        Principal.desktopPane.add(serv);
-        serv.toFront();
-        serv.setVisible(true);
+//        Servicios serv = new Servicios();
+//        Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
+//        Dimension ventana = serv.getSize();
+//        int x=(pantalla.width - ventana.width) / 2;
+//        int y=(pantalla.height - ventana.height) / 2;
+//        serv.setLocation(x,y-30);
+//        Principal.desktopPane.add(serv);
+//        serv.toFront();
+//        serv.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        refacciones ref = new refacciones();
-        Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
-        Dimension ventana = ref.getSize();
-        int x=(pantalla.width - ventana.width) / 2;
-        int y=(pantalla.height - ventana.height) / 2;
-        ref.setLocation(x,y);
-        Principal.desktopPane.add(ref);
-        ref.toFront();
-        ref.setVisible(true);
+//        refacciones ref = new refacciones();
+//        Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
+//        Dimension ventana = ref.getSize();
+//        int x=(pantalla.width - ventana.width) / 2;
+//        int y=(pantalla.height - ventana.height) / 2;
+//        ref.setLocation(x,y);
+//        Principal.desktopPane.add(ref);
+//        ref.toFront();
+//        ref.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        GenerarContrato cont = new GenerarContrato();
-        Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
-        Dimension ventana = cont.getSize();
-        int x=(pantalla.width - ventana.width) / 2;
-        int y=(pantalla.height - ventana.height) / 2;
-        cont.setLocation(x,y-40);
-        Principal.desktopPane.add(cont);
-        cont.toFront();
-        cont.setVisible(true);
+//        GenerarContrato cont = new GenerarContrato();
+//        Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
+//        Dimension ventana = cont.getSize();
+//        int x=(pantalla.width - ventana.width) / 2;
+//        int y=(pantalla.height - ventana.height) / 2;
+//        cont.setLocation(x,y-40);
+//        Principal.desktopPane.add(cont);
+//        cont.toFront();
+//        cont.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        OrdenTrabajo ot = new OrdenTrabajo();
-        Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
-        Dimension ventana = ot.getSize();
-        int x=(pantalla.width - ventana.width) / 2;
-        int y=(pantalla.height - ventana.height) / 2;
-        ot.setLocation(x,y-40);
-        Principal.desktopPane.add(ot);
-        ot.toFront();
-        ot.setVisible(true);
+//        OrdenTrabajo ot = new OrdenTrabajo();
+//        Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
+//        Dimension ventana = ot.getSize();
+//        int x=(pantalla.width - ventana.width) / 2;
+//        int y=(pantalla.height - ventana.height) / 2;
+//        ot.setLocation(x,y-40);
+//        Principal.desktopPane.add(ot);
+//        ot.toFront();
+//        ot.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        RcontratoRenta ot = new RcontratoRenta();
-        Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
-        Dimension ventana = ot.getSize();
-        int x=(pantalla.width - ventana.width) / 2;
-        int y=(pantalla.height - ventana.height) / 2;
-        ot.setLocation(x,y-40);
-        Principal.desktopPane.add(ot);
-        ot.toFront();
-        ot.setVisible(true);
+//        RcontratoRenta ot = new RcontratoRenta();
+//        Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
+//        Dimension ventana = ot.getSize();
+//        int x=(pantalla.width - ventana.width) / 2;
+//        int y=(pantalla.height - ventana.height) / 2;
+//        ot.setLocation(x,y-40);
+//        Principal.desktopPane.add(ot);
+//        ot.toFront();
+//        ot.setVisible(true);
     }//GEN-LAST:event_jButton8ActionPerformed
 
 
