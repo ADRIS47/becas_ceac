@@ -194,7 +194,7 @@ public class PrincipalControlador {
 //        vistaHermanos.setControlador(this);
 //        vistaHijos.setControlador(this);
 //        vistaDireccion.setControlador(this);
-        
+//        
         this.setVistaHermanos(vistaHermanos);
         this.setVistaHijos(vistaHijos);
         this.setVistaParentesco(vistaParentesco);
