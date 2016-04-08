@@ -151,7 +151,7 @@ public class pnlParentesco extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox cmbNivelEstudiosPariente;
+    javax.swing.JComboBox cmbNivelEstudiosPariente;
     private javax.swing.JComboBox cmbParentesco;
     private javax.swing.JComboBox cmbTrabajoActivoPariente;
     private javax.swing.JLabel jLabel21;

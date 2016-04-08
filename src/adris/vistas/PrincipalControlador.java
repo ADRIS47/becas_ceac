@@ -5,7 +5,6 @@
  */
 package adris.vistas;
 
-import principal.*;
 import helpers.Log;
 import index.Index;
 import java.awt.Component;
@@ -15,6 +14,7 @@ import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import principal.*;
 
 /**
  *
@@ -151,12 +151,12 @@ public class PrincipalControlador {
         }
         //Se llena el combo box de Nivel de estudios
         for (Integer key : catNivelEstudios.keySet()) {
-            vistaParentesco.cmbNivelEstudiosPariente.addItem(catNivelEstudios.get(key));
-            vistaHermanos.cmbNivelEstudiosHermano.addItem(catNivelEstudios.get(key));
+//            vistaParentesco.cmbNivelEstudiosPariente.addItem(catNivelEstudios.get(key));
+//            vistaHermanos.cmbNivelEstudiosHermano.addItem(catNivelEstudios.get(key));
         }
         //Se llena el combo box de Parentesco
         for (Integer key : catParentesco.keySet()) {
-            vistaParentesco.cmbParentesco.addItem(catParentesco.get(key));
+//            vistaParentesco.cmbParentesco.addItem(catParentesco.get(key));
         }
         
     }
@@ -190,10 +190,10 @@ public class PrincipalControlador {
         vistaHijos = new PnlHijos();
         vistaDireccion = new PnlDireccion();
         
-        vistaParentesco.setControlador(this);
-        vistaHermanos.setControlador(this);
-        vistaHijos.setControlador(this);
-        vistaDireccion.setControlador(this);
+//        vistaParentesco.setControlador(this);
+//        vistaHermanos.setControlador(this);
+//        vistaHijos.setControlador(this);
+//        vistaDireccion.setControlador(this);
         
         this.setVistaHermanos(vistaHermanos);
         this.setVistaHijos(vistaHijos);
