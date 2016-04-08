@@ -5,8 +5,6 @@
  */
 package principal;
 
-import adris.vistas.*;
-
 /**
  *
  * @author Adriana
@@ -75,6 +73,11 @@ public class PnlHermanos extends javax.swing.JPanel {
         lblAgregarParentesco.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAgregarParentesco.setText("Add");
         lblAgregarParentesco.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblAgregarParentesco.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblAgregarParentescoMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -97,6 +100,10 @@ public class PnlHermanos extends javax.swing.JPanel {
                 .addGap(0, 8, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lblAgregarParentescoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAgregarParentescoMouseClicked
+        controlador.agregaJPanel(this);
+    }//GEN-LAST:event_lblAgregarParentescoMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

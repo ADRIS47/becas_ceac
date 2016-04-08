@@ -5,8 +5,6 @@
  */
 package principal;
 
-import javax.swing.JFileChooser;
-
 /**
  *
  * @author sabagip

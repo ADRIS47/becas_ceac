@@ -261,6 +261,41 @@ public class PrincipalControlador {
             
             vistaRegistro.repaint();
             vista.repaint();
+        }
+        
+        if(componente instanceof PnlDireccion){
+            PnlDireccion pnlDireccion = new PnlDireccion();
+            pnlDireccion.setControlador(this);
+            lstVistaDireccion.add(pnlDireccion);
+            System.out.println("Esto es de dirección");
+            helper.agregaJPanel(pnlDireccion, vistaRegistro.pnlDirecciones);
+            
+            vistaRegistro.repaint();
+            vista.repaint();
+        }
+        
+        if(componente instanceof PnlHermanos){
+            PnlHermanos pnlHermanos = new PnlHermanos();
+            pnlHermanos.setControlador(this);
+            lstVistaHermanos.add(pnlHermanos);
+            System.out.println("Esto es de Hermanos");
+            helper.agregaJPanel(pnlHermanos, vistaRegistro.pnlHermanos);
+            
+            vistaRegistro.repaint();
+            vista.repaint();
+            //vistaRegistro.validate();
+            //vistaRegistro.repaint();
+        }
+        
+        if(componente instanceof PnlHijos){
+            PnlHijos pnlHijos = new PnlHijos();
+            pnlHijos.setControlador(this);
+            lstVistaHijos.add(pnlHijos);
+            System.out.println("Esto es de Hijos");
+            helper.agregaJPanel(pnlHijos, vistaRegistro.pnlHijos);
+            
+            vistaRegistro.repaint();
+            vista.repaint();
             //vistaRegistro.validate();
             //vistaRegistro.repaint();
         }

@@ -5,8 +5,6 @@
  */
 package principal;
 
-import adris.vistas.*;
-
 /**
  *
  * @author Adriana
@@ -52,6 +50,11 @@ public class PnlHijos extends javax.swing.JPanel {
         lblAgregarParentesco.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAgregarParentesco.setText("Add");
         lblAgregarParentesco.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblAgregarParentesco.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblAgregarParentescoMouseClicked(evt);
+            }
+        });
 
         jPanel1.setPreferredSize(new java.awt.Dimension(0, 77));
         jPanel1.setLayout(new java.awt.GridLayout(2, 4));
@@ -108,6 +111,10 @@ public class PnlHijos extends javax.swing.JPanel {
     private void txtNombresParienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombresParienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombresParienteActionPerformed
+
+    private void lblAgregarParentescoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAgregarParentescoMouseClicked
+        controlador.agregaJPanel(this);
+    }//GEN-LAST:event_lblAgregarParentescoMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

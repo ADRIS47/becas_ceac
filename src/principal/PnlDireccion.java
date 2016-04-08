@@ -110,6 +110,11 @@ public class PnlDireccion extends javax.swing.JPanel {
         lblAgregarDireccion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAgregarDireccion.setText("Add");
         lblAgregarDireccion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblAgregarDireccion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblAgregarDireccionMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -124,11 +129,11 @@ public class PnlDireccion extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblAgregarDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(lblAgregarDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -143,6 +148,10 @@ public class PnlDireccion extends javax.swing.JPanel {
     private void txtCpBecadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpBecadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCpBecadoActionPerformed
+
+    private void lblAgregarDireccionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAgregarDireccionMouseClicked
+       controlador.agregaJPanel(this);
+    }//GEN-LAST:event_lblAgregarDireccionMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
