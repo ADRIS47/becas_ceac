@@ -13,6 +13,7 @@ import java.awt.image.ImageFilter;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 import java.util.logging.Level;
@@ -29,21 +30,27 @@ public class PrincipalControlador {
     
     VistaPanelPrincipal vista;
     VistaRegistro vistaRegistro;
-    PnlHermanos vistaHermanos;
-    PnlHijos vistaHijos;
-    PnlParentesco vistaParentesco;
+//    PnlHermanos vistaHermanos;
+//    PnlHijos vistaHijos;
+//    PnlParentesco vistaParentesco;
+//    PnlDireccion vistaDireccion;
     PrincipalModelo modelo;
     Index controladorPrincipal;
-    PnlDireccion vistaDireccion;
+    
+    File foto;
     Log log = new Log();
     Helper helper = new Helper();
-    
     
     TreeMap<Integer, String> catSexo = null;
     TreeMap<Integer, String> catEstadoCivil = null;
     TreeMap<Integer, String> catPrograma = null;
     TreeMap<Integer, String> catParentesco = null;
     TreeMap<Integer, String> catNivelEstudios = null;
+    
+    List<PnlHijos> lstVistaHijos = new ArrayList<>();
+    List<PnlHermanos> lstVistaHermanos = new ArrayList<>();
+    List<PnlParentesco> lstVistaParentesco = new ArrayList<>();
+    List<PnlDireccion> lstVistaDireccion = new ArrayList<>();
 
     public void setVista(VistaPanelPrincipal vista) {
         this.vista = vista;
@@ -56,22 +63,22 @@ public class PrincipalControlador {
     public void setVistaRegistro(VistaRegistro vistaRegistro) {
         this.vistaRegistro = vistaRegistro;
     }
-
-    public void setVistaHermanos(PnlHermanos vistaHermanos) {
-        this.vistaHermanos = vistaHermanos;
-    }
-
-    public void setVistaHijos(PnlHijos vistaHijos) {
-        this.vistaHijos = vistaHijos;
-    }
-
-    public void setVistaParentesco(PnlParentesco vistaParentesco) {
-        this.vistaParentesco = vistaParentesco;
-    }
-
-    public void setVistaDireccion(PnlDireccion vistaDireccion) {
-        this.vistaDireccion = vistaDireccion;
-    }
+//
+//    public void setVistaHermanos(PnlHermanos vistaHermanos) {
+//        this.vistaHermanos = vistaHermanos;
+//    }
+//
+//    public void setVistaHijos(PnlHijos vistaHijos) {
+//        this.vistaHijos = vistaHijos;
+//    }
+//
+//    public void setVistaParentesco(PnlParentesco vistaParentesco) {
+//        this.vistaParentesco = vistaParentesco;
+//    }
+//
+//    public void setVistaDireccion(PnlDireccion vistaDireccion) {
+//        this.vistaDireccion = vistaDireccion;
+//    }
     
     
     
@@ -152,12 +159,20 @@ public class PrincipalControlador {
         }
         //Se llena el combo box de Nivel de estudios
         for (Integer key : catNivelEstudios.keySet()) {
-            vistaParentesco.cmbNivelEstudiosPariente.addItem(catNivelEstudios.get(key));
-            vistaHermanos.cmbNivelEstudiosHermano.addItem(catNivelEstudios.get(key));
+            for (PnlParentesco vistaParentesco : lstVistaParentesco) {
+                vistaParentesco.cmbNivelEstudiosPariente.addItem(catNivelEstudios.get(key));
+            }
+            
+            for (PnlHermanos vistaHermano : lstVistaHermanos) {
+                vistaHermano.cmbNivelEstudiosHermano.addItem(catNivelEstudios.get(key));
+            }
+            
         }
         //Se llena el combo box de Parentesco
         for (Integer key : catParentesco.keySet()) {
-            vistaParentesco.cmbParentesco.addItem(catParentesco.get(key));
+            for (PnlParentesco vistaParentesco : lstVistaParentesco) {
+                vistaParentesco.cmbParentesco.addItem(catParentesco.get(key));
+            }
         }
         
     }
@@ -186,25 +201,30 @@ public class PrincipalControlador {
      * Muestra las pantallas dinamicas de VistaRegistro
      */
     private void llenaPanelesVistaRegistro() {
-        vistaParentesco = new PnlParentesco();
-        vistaHermanos = new PnlHermanos();
-        vistaHijos = new PnlHijos();
-        vistaDireccion = new PnlDireccion();
+        PnlParentesco vistaParentesco = new PnlParentesco();
+        PnlHermanos vistaHermanos = new PnlHermanos();
+        PnlHijos vistaHijos = new PnlHijos();
+        PnlDireccion vistaDireccion = new PnlDireccion();
         
         vistaParentesco.setControlador(this);
         vistaHermanos.setControlador(this);
         vistaHijos.setControlador(this);
         vistaDireccion.setControlador(this);
         
-        this.setVistaHermanos(vistaHermanos);
-        this.setVistaHijos(vistaHijos);
-        this.setVistaParentesco(vistaParentesco);
-        this.setVistaDireccion(vistaDireccion);
+//        this.setVistaHermanos(vistaHermanos);
+//        this.setVistaHijos(vistaHijos);
+//        this.setVistaParentesco(vistaParentesco);
+//        this.setVistaDireccion(vistaDireccion);
         
         vistaRegistro.spnlParentesco.setViewportView(vistaParentesco);
         vistaRegistro.spnlHermanos.setViewportView(vistaHermanos);
         vistaRegistro.spnlHijos.setViewportView(vistaHijos);
         vistaRegistro.spnlDirecciones.setViewportView(vistaDireccion);
+        
+        lstVistaParentesco.add(vistaParentesco);
+        lstVistaHermanos.add(vistaHermanos);
+        lstVistaHijos.add(vistaHijos);
+        lstVistaDireccion.add(vistaDireccion);
         
         vistaParentesco.setVisible(true);
         vistaHermanos.setVisible(true);
@@ -212,15 +232,18 @@ public class PrincipalControlador {
         
     }
 
-    void cargaFotografia() {
+    /**
+     * Carga la fotografía del becario
+     */
+    protected void cargaFotografia() {
         JFileChooser selector = new JFileChooser();
         FileNameExtensionFilter filtro = new FileNameExtensionFilter("PNG, JPG, JPEG", "jpg","png","jpeg");
         selector.setFileFilter(filtro);
         int select = selector.showOpenDialog(vista);
         
         if(select == JFileChooser.APPROVE_OPTION){
-            File foto = selector.getSelectedFile();
-            helper.cargaImagenExterna(vistaRegistro.lblFotografia, selector.getSelectedFile().toPath());
+            foto = selector.getSelectedFile();
+            helper.cargaImagenExterna(vistaRegistro.lblFotografia, foto.toPath());
         }
     }
     
