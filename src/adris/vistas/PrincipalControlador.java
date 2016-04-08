@@ -190,11 +190,11 @@ public class PrincipalControlador {
         vistaHijos = new PnlHijos();
         vistaDireccion = new PnlDireccion();
         
-        vistaParentesco.setControlador(this);
-        vistaHermanos.setControlador(this);
-        vistaHijos.setControlador(this);
-        vistaDireccion.setControlador(this);
-        
+//        vistaParentesco.setControlador(this);
+//        vistaHermanos.setControlador(this);
+//        vistaHijos.setControlador(this);
+//        vistaDireccion.setControlador(this);
+//        
         this.setVistaHermanos(vistaHermanos);
         this.setVistaHijos(vistaHijos);
         this.setVistaParentesco(vistaParentesco);

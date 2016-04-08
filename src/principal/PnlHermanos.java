@@ -99,7 +99,7 @@ public class PnlHermanos extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    protected javax.swing.JComboBox cmbNivelEstudiosHermano;
+    public javax.swing.JComboBox cmbNivelEstudiosHermano;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JPanel jPanel1;
