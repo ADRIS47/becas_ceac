@@ -9,15 +9,14 @@ import helpers.Helper;
 import helpers.Log;
 import index.Index;
 import java.awt.Component;
-import java.awt.image.ImageFilter;
 import java.io.File;
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComponent;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -216,10 +215,10 @@ public class PrincipalControlador {
 //        this.setVistaParentesco(vistaParentesco);
 //        this.setVistaDireccion(vistaDireccion);
         
-        vistaRegistro.spnlParentesco.setViewportView(vistaParentesco);
-        vistaRegistro.spnlHermanos.setViewportView(vistaHermanos);
-        vistaRegistro.spnlHijos.setViewportView(vistaHijos);
-        vistaRegistro.spnlDirecciones.setViewportView(vistaDireccion);
+        helper.agregaJPanel(vistaParentesco, vistaRegistro.pnlParentesco);
+        helper.agregaJPanel(vistaHermanos, vistaRegistro.pnlHermanos);
+        helper.agregaJPanel(vistaHijos, vistaRegistro.pnlHijos);
+        helper.agregaJPanel(vistaDireccion, vistaRegistro.pnlDirecciones);
         
         lstVistaParentesco.add(vistaParentesco);
         lstVistaHermanos.add(vistaHermanos);
@@ -229,6 +228,7 @@ public class PrincipalControlador {
         vistaParentesco.setVisible(true);
         vistaHermanos.setVisible(true);
         vistaHijos.setVisible(true);
+        vistaDireccion.setVisible(true);
         
     }
 
@@ -245,6 +245,26 @@ public class PrincipalControlador {
             foto = selector.getSelectedFile();
             helper.cargaImagenExterna(vistaRegistro.lblFotografia, foto.toPath());
         }
+    }
+    
+    /**
+     * Agrega un componente a su respectivo JPanel
+     * @param componente JPanel que se quiere agregar
+     */
+    protected void agregaJPanel(JComponent componente) {
+        if(componente instanceof PnlParentesco){
+            PnlParentesco pnlParentesco = new PnlParentesco();
+            pnlParentesco.setControlador(this);
+            lstVistaParentesco.add(pnlParentesco);
+            System.out.println("Esto es de parentesco");
+            helper.agregaJPanel(pnlParentesco, vistaRegistro.pnlParentesco);
+            
+            vistaRegistro.repaint();
+            vista.repaint();
+            //vistaRegistro.validate();
+            //vistaRegistro.repaint();
+        }
+        
     }
     
 }

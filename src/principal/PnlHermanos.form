@@ -38,9 +38,10 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="lblAgregarParentesco" alignment="1" min="-2" pref="34" max="-2" attributes="0"/>
-                  <Component id="jPanel1" min="-2" pref="38" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lblAgregarParentesco" min="-2" pref="34" max="-2" attributes="0"/>
+                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="0" pref="8" max="32767" attributes="0"/>
           </Group>
@@ -64,6 +65,8 @@
             <Property name="text" type="java.lang.String" value="Nombre(s)"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JTextField" name="txtNombresPariente">
+        </Component>
         <Component class="javax.swing.JLabel" name="jLabel21">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -71,6 +74,8 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Ap Paterno"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtApPaternoPariente">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel22">
           <Properties>
@@ -80,6 +85,8 @@
             <Property name="text" type="java.lang.String" value="Ap Materno"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JTextField" name="txtApMaternoPariente">
+        </Component>
         <Component class="javax.swing.JLabel" name="lblParentesco5">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -87,12 +94,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Nivel de Estudios"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtNombresPariente">
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtApPaternoPariente">
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtApMaternoPariente">
         </Component>
         <Component class="javax.swing.JComboBox" name="cmbNivelEstudiosHermano">
           <Properties>

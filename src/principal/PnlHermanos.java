@@ -37,12 +37,12 @@ public class PnlHermanos extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         lblParentesco1 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        lblParentesco5 = new javax.swing.JLabel();
         txtNombresPariente = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
         txtApPaternoPariente = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
         txtApMaternoPariente = new javax.swing.JTextField();
+        lblParentesco5 = new javax.swing.JLabel();
         cmbNivelEstudiosHermano = new javax.swing.JComboBox();
         lblAgregarParentesco = new javax.swing.JLabel();
 
@@ -54,21 +54,21 @@ public class PnlHermanos extends javax.swing.JPanel {
         lblParentesco1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblParentesco1.setText("Nombre(s)");
         jPanel1.add(lblParentesco1);
+        jPanel1.add(txtNombresPariente);
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel21.setText("Ap Paterno");
         jPanel1.add(jLabel21);
+        jPanel1.add(txtApPaternoPariente);
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel22.setText("Ap Materno");
         jPanel1.add(jLabel22);
+        jPanel1.add(txtApMaternoPariente);
 
         lblParentesco5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblParentesco5.setText("Nivel de Estudios");
         jPanel1.add(lblParentesco5);
-        jPanel1.add(txtNombresPariente);
-        jPanel1.add(txtApPaternoPariente);
-        jPanel1.add(txtApMaternoPariente);
 
         jPanel1.add(cmbNivelEstudiosHermano);
 
@@ -90,9 +90,10 @@ public class PnlHermanos extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(4, 4, 4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblAgregarParentesco, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 8, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents

@@ -6,6 +6,7 @@
 package principal;
 
 import adris.vistas.*;
+import javax.swing.JComponent;
 
 /**
  *
@@ -96,6 +97,11 @@ public class PnlParentesco extends javax.swing.JPanel {
         lblAgregarPariente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAgregarPariente.setText("Add");
         lblAgregarPariente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblAgregarPariente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblAgregarParienteMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -110,13 +116,13 @@ public class PnlParentesco extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblAgregarPariente, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 12, Short.MAX_VALUE)
+                .addComponent(lblAgregarPariente)
+                .addGap(48, 48, 48))
         );
 
         getAccessibleContext().setAccessibleName("Información de padres");
@@ -125,6 +131,10 @@ public class PnlParentesco extends javax.swing.JPanel {
     private void txtNombresParienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombresParienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombresParienteActionPerformed
+
+    private void lblAgregarParienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAgregarParienteMouseClicked
+        controlador.agregaJPanel(this);
+    }//GEN-LAST:event_lblAgregarParienteMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

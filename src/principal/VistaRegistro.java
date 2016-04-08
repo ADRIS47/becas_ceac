@@ -30,7 +30,6 @@ public class VistaRegistro extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         tbpBecados = new javax.swing.JTabbedPane();
         pnlDatosGenerales = new javax.swing.JPanel();
@@ -60,6 +59,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel26 = new javax.swing.JLabel();
         btnFotografia = new javax.swing.JButton();
         spnlDirecciones = new javax.swing.JScrollPane();
+        pnlDirecciones = new javax.swing.JPanel();
         pnlTelefonosBecados = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -77,9 +77,10 @@ public class VistaRegistro extends javax.swing.JPanel {
         pnlBotones = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
         pnlDatosFamiliares = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
         spnlParentesco = new javax.swing.JScrollPane();
+        pnlParentesco = new javax.swing.JPanel();
         spnlHermanos = new javax.swing.JScrollPane();
+        pnlHermanos = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         lblParentesco1 = new javax.swing.JLabel();
@@ -91,6 +92,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         txtTel3Becado1 = new javax.swing.JTextField();
         spnlHijos = new javax.swing.JScrollPane();
+        pnlHijos = new javax.swing.JPanel();
 
         setPreferredSize(new java.awt.Dimension(916, 584));
 
@@ -308,6 +310,10 @@ public class VistaRegistro extends javax.swing.JPanel {
 
         spnlDirecciones.setBorder(javax.swing.BorderFactory.createTitledBorder("Dirección"));
         spnlDirecciones.setPreferredSize(new java.awt.Dimension(707, 115));
+
+        pnlDirecciones.setLayout(new javax.swing.BoxLayout(pnlDirecciones, javax.swing.BoxLayout.PAGE_AXIS));
+        spnlDirecciones.setViewportView(pnlDirecciones);
+
         pnlDatosGenerales.add(spnlDirecciones);
 
         pnlTelefonosBecados.setPreferredSize(new java.awt.Dimension(707, 55));
@@ -431,48 +437,23 @@ public class VistaRegistro extends javax.swing.JPanel {
 
         tbpBecados.addTab("Datos Generales", pnlDatosGenerales);
 
-        pnlDatosFamiliares.setLayout(new java.awt.GridBagLayout());
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        pnlDatosFamiliares.add(jPanel1, new java.awt.GridBagConstraints());
-
         spnlParentesco.setBorder(javax.swing.BorderFactory.createTitledBorder("Padres"));
-        spnlParentesco.setPreferredSize(new java.awt.Dimension(707, 120));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 692;
-        gridBagConstraints.ipady = 48;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(12, 12, 0, 0);
-        pnlDatosFamiliares.add(spnlParentesco, gridBagConstraints);
+        spnlParentesco.setPreferredSize(new java.awt.Dimension(707, 125));
 
-        spnlHermanos.setBorder(javax.swing.BorderFactory.createTitledBorder("HIjos"));
-        spnlHermanos.setPreferredSize(new java.awt.Dimension(707, 110));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 692;
-        gridBagConstraints.ipady = 48;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(12, 12, 0, 0);
-        pnlDatosFamiliares.add(spnlHermanos, gridBagConstraints);
+        pnlParentesco.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        pnlParentesco.setLayout(new javax.swing.BoxLayout(pnlParentesco, javax.swing.BoxLayout.PAGE_AXIS));
+        spnlParentesco.setViewportView(pnlParentesco);
+
+        pnlDatosFamiliares.add(spnlParentesco);
+
+        spnlHermanos.setBorder(javax.swing.BorderFactory.createTitledBorder("Hermanos"));
+        spnlHermanos.setPreferredSize(new java.awt.Dimension(707, 85));
+
+        pnlHermanos.setPreferredSize(new java.awt.Dimension(680, 80));
+        pnlHermanos.setLayout(new javax.swing.BoxLayout(pnlHermanos, javax.swing.BoxLayout.PAGE_AXIS));
+        spnlHermanos.setViewportView(pnlHermanos);
+
+        pnlDatosFamiliares.add(spnlHermanos);
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel3.setPreferredSize(new java.awt.Dimension(707, 65));
@@ -541,26 +522,16 @@ public class VistaRegistro extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 12, 0, 0);
-        pnlDatosFamiliares.add(jPanel3, gridBagConstraints);
+        pnlDatosFamiliares.add(jPanel3);
 
         spnlHijos.setBorder(javax.swing.BorderFactory.createTitledBorder("Nombre de los Hijos"));
-        spnlHijos.setPreferredSize(new java.awt.Dimension(707, 65));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 680;
-        gridBagConstraints.ipady = 25;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(12, 12, 134, 0);
-        pnlDatosFamiliares.add(spnlHijos, gridBagConstraints);
+        spnlHijos.setPreferredSize(new java.awt.Dimension(707, 85));
+
+        pnlHijos.setPreferredSize(new java.awt.Dimension(680, 80));
+        pnlHijos.setLayout(new javax.swing.BoxLayout(pnlHijos, javax.swing.BoxLayout.PAGE_AXIS));
+        spnlHijos.setViewportView(pnlHijos);
+
+        pnlDatosFamiliares.add(spnlHijos);
 
         tbpBecados.addTab("Datos Familiares", pnlDatosFamiliares);
 
@@ -570,8 +541,8 @@ public class VistaRegistro extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tbpBecados, javax.swing.GroupLayout.PREFERRED_SIZE, 765, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addComponent(tbpBecados, javax.swing.GroupLayout.PREFERRED_SIZE, 782, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(122, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -613,7 +584,6 @@ public class VistaRegistro extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     protected javax.swing.JLabel lblFotografia;
     private javax.swing.JLabel lblParentesco1;
@@ -624,7 +594,11 @@ public class VistaRegistro extends javax.swing.JPanel {
     private javax.swing.JPanel pnlDatos;
     private javax.swing.JPanel pnlDatosFamiliares;
     private javax.swing.JPanel pnlDatosGenerales;
+    protected javax.swing.JPanel pnlDirecciones;
+    protected javax.swing.JPanel pnlHermanos;
+    protected javax.swing.JPanel pnlHijos;
     private javax.swing.JPanel pnlNombres;
+    protected javax.swing.JPanel pnlParentesco;
     private javax.swing.JPanel pnlPrograma;
     private javax.swing.JPanel pnlTelefonosBecados;
     protected javax.swing.JScrollPane spnlDirecciones;
