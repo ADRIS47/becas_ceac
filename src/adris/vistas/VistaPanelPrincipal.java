@@ -71,7 +71,7 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(51, 0, 255));
 
         btnBecarios.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnBecarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adris/vistas/REGISTRO.png"))); // NOI18N
+        btnBecarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/REGISTRO.png"))); // NOI18N
         btnBecarios.setToolTipText("registro");
         btnBecarios.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBecarios.addActionListener(new java.awt.event.ActionListener() {
