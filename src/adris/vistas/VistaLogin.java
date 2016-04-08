@@ -6,8 +6,8 @@
 package adris.vistas;
 
 import login.*;
-import adris.vistas.*;
 import java.awt.Image;
+import java.awt.event.KeyEvent;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
@@ -28,7 +28,7 @@ public class VistaLogin extends javax.swing.JFrame {
      * Creates new form VistaLogin
      * @param controlador
      */
-    public VistaLogin() {
+    public VistaLogin(LoginControlador controlador) {
         initComponents();
         this.controlador = controlador;
         
@@ -39,39 +39,6 @@ public class VistaLogin extends javax.swing.JFrame {
         repaint();
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VistaLogin_A.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VistaLogin_A.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VistaLogin_A.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VistaLogin_A.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        // Create and display the form
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VistaLogin().setVisible(true);
-            }
-        });
-    }
-    
-    
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -120,6 +87,12 @@ public class VistaLogin extends javax.swing.JFrame {
 
         jPanel3.setPreferredSize(new java.awt.Dimension(541, 196));
         jPanel3.setLayout(new java.awt.GridBagLayout());
+
+        txtClave.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtClaveKeyPressed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.ipadx = 150;
         jPanel3.add(txtClave, gridBagConstraints);
@@ -169,6 +142,13 @@ public class VistaLogin extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         controlador.iniciarSesion();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtClaveKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtClaveKeyPressed
+        int code = evt.getKeyCode();
+        if(code == KeyEvent.VK_ENTER){
+            controlador.iniciarSesion();
+        }
+    }//GEN-LAST:event_txtClaveKeyPressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCambiologin;
