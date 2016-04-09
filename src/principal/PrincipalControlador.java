@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -143,37 +144,23 @@ public class PrincipalControlador {
         catNivelEstudios = lstCategorias.get(3);
         catParentesco = lstCategorias.get(4);
         
+        llenaComboCategorias(vistaRegistro.combobxCivilBecado, catEstadoCivil);
+        llenaComboCategorias(vistaRegistro.comboBoxPrograma, catPrograma);
+        llenaComboCategorias(lstVistaParentesco.get(0).cmbNivelEstudiosPariente, catNivelEstudios);
+        llenaComboCategorias(lstVistaHermanos.get(0).cmbNivelEstudiosHermano, catNivelEstudios);
+        llenaComboCategorias(lstVistaParentesco.get(0).cmbNivelEstudiosPariente, catNivelEstudios);
+        llenaComboCategorias(lstVistaParentesco.get(0).cmbParentesco, catParentesco);
         
+    }
+    
+    /**
+     * Llena el combo box indicado
+     */
+    private void llenaComboCategorias(JComboBox combo, TreeMap<Integer, String> lstCategoria){
         //catPrograma = lstCategorias.get(2);
-        for (Integer key : catSexo.keySet()) {
-            vistaRegistro.combobxSexoBecado.addItem(catSexo.get(key));
+        for (Integer key : lstCategoria.keySet()) {
+            combo.addItem(lstCategoria.get(key));
         }
-        //Se llena el combo box de Estado civil
-        for (Integer key : catEstadoCivil.keySet()) {
-            vistaRegistro.combobxCivilBecado.addItem(catEstadoCivil.get(key));
-        }
-        //Se llena el combo box de Programas
-        for (Integer key : catPrograma.keySet()) {
-            vistaRegistro.comboBoxPrograma.addItem(catPrograma.get(key));
-        }
-        //Se llena el combo box de Nivel de estudios
-        for (Integer key : catNivelEstudios.keySet()) {
-            for (PnlParentesco vistaParentesco : lstVistaParentesco) {
-                vistaParentesco.cmbNivelEstudiosPariente.addItem(catNivelEstudios.get(key));
-            }
-            
-            for (PnlHermanos vistaHermano : lstVistaHermanos) {
-                vistaHermano.cmbNivelEstudiosHermano.addItem(catNivelEstudios.get(key));
-            }
-            
-        }
-        //Se llena el combo box de Parentesco
-        for (Integer key : catParentesco.keySet()) {
-            for (PnlParentesco vistaParentesco : lstVistaParentesco) {
-                vistaParentesco.cmbParentesco.addItem(catParentesco.get(key));
-            }
-        }
-        
     }
 
     /**
@@ -255,36 +242,34 @@ public class PrincipalControlador {
         if(componente instanceof PnlParentesco){
             PnlParentesco pnlParentesco = new PnlParentesco();
             pnlParentesco.setControlador(this);
+            
             lstVistaParentesco.add(pnlParentesco);
+            pnlParentesco.lblAgregarPariente.setVisible(false);
+            llenaComboCategorias(pnlParentesco.cmbNivelEstudiosPariente, catNivelEstudios);
+            llenaComboCategorias(pnlParentesco.cmbParentesco, catParentesco);
+            lstVistaParentesco.get(0).lblAgregarPariente.setVisible(false);
             System.out.println("Esto es de parentesco");
             helper.agregaJPanel(pnlParentesco, vistaRegistro.pnlParentesco);
-            
-            vistaRegistro.repaint();
-            vista.repaint();
         }
         
         if(componente instanceof PnlDireccion){
             PnlDireccion pnlDireccion = new PnlDireccion();
             pnlDireccion.setControlador(this);
+            pnlDireccion.lblAgregarDireccion.setVisible(false);
             lstVistaDireccion.add(pnlDireccion);
+            lstVistaDireccion.get(0).lblAgregarDireccion.setVisible(false);
             System.out.println("Esto es de dirección");
             helper.agregaJPanel(pnlDireccion, vistaRegistro.pnlDirecciones);
-            
-            vistaRegistro.repaint();
-            vista.repaint();
         }
         
         if(componente instanceof PnlHermanos){
             PnlHermanos pnlHermanos = new PnlHermanos();
             pnlHermanos.setControlador(this);
             lstVistaHermanos.add(pnlHermanos);
+            llenaComboCategorias(pnlHermanos.cmbNivelEstudiosHermano, catNivelEstudios);
+            
             System.out.println("Esto es de Hermanos");
             helper.agregaJPanel(pnlHermanos, vistaRegistro.pnlHermanos);
-            
-            vistaRegistro.repaint();
-            vista.repaint();
-            //vistaRegistro.validate();
-            //vistaRegistro.repaint();
         }
         
         if(componente instanceof PnlHijos){
@@ -292,13 +277,11 @@ public class PrincipalControlador {
             pnlHijos.setControlador(this);
             lstVistaHijos.add(pnlHijos);
             System.out.println("Esto es de Hijos");
-            helper.agregaJPanel(pnlHijos, vistaRegistro.pnlHijos);
-            
-            vistaRegistro.repaint();
-            vista.repaint();
-            //vistaRegistro.validate();
-            //vistaRegistro.repaint();
+            helper.agregaJPanel(pnlHijos, vistaRegistro.pnlHijos);    
         }
+        
+        vistaRegistro.repaint();
+        vista.repaint();
         
     }
     

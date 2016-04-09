@@ -445,16 +445,16 @@ public class VistaRegistro extends javax.swing.JPanel {
         pnlDatosFamiliares.add(spnlParentesco);
 
         spnlHermanos.setBorder(javax.swing.BorderFactory.createTitledBorder("Hermanos"));
-        spnlHermanos.setPreferredSize(new java.awt.Dimension(707, 85));
+        spnlHermanos.setPreferredSize(new java.awt.Dimension(707, 160));
 
-        pnlHermanos.setPreferredSize(new java.awt.Dimension(680, 80));
+        pnlHermanos.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         pnlHermanos.setLayout(new javax.swing.BoxLayout(pnlHermanos, javax.swing.BoxLayout.PAGE_AXIS));
         spnlHermanos.setViewportView(pnlHermanos);
 
         pnlDatosFamiliares.add(spnlHermanos);
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jPanel3.setPreferredSize(new java.awt.Dimension(707, 65));
+        jPanel3.setPreferredSize(new java.awt.Dimension(707, 80));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Nombre completo del Conyuge");
@@ -523,9 +523,9 @@ public class VistaRegistro extends javax.swing.JPanel {
         pnlDatosFamiliares.add(jPanel3);
 
         spnlHijos.setBorder(javax.swing.BorderFactory.createTitledBorder("Nombre de los Hijos"));
-        spnlHijos.setPreferredSize(new java.awt.Dimension(707, 85));
+        spnlHijos.setPreferredSize(new java.awt.Dimension(707, 150));
 
-        pnlHijos.setPreferredSize(new java.awt.Dimension(680, 80));
+        pnlHijos.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         pnlHijos.setLayout(new javax.swing.BoxLayout(pnlHijos, javax.swing.BoxLayout.PAGE_AXIS));
         spnlHijos.setViewportView(pnlHijos);
 

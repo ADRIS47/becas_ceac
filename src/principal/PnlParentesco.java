@@ -144,7 +144,7 @@ public class PnlParentesco extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblAgregarPariente;
+    protected javax.swing.JLabel lblAgregarPariente;
     private javax.swing.JLabel lblParentesco;
     private javax.swing.JLabel lblParentesco1;
     private javax.swing.JLabel lblParentesco2;

@@ -163,7 +163,7 @@ public class PnlDireccion extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JLabel lblAgregarDireccion;
+    protected javax.swing.JLabel lblAgregarDireccion;
     private javax.swing.JTextField txtCalleBecado;
     private javax.swing.JTextField txtCiudadBecado;
     private javax.swing.JTextField txtColonia;
