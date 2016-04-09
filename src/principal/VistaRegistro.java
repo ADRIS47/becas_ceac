@@ -28,7 +28,6 @@ public class VistaRegistro extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         tbpBecados = new javax.swing.JTabbedPane();
         pnlDatosGenerales = new javax.swing.JPanel();
@@ -109,14 +108,17 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel15 = new javax.swing.JLabel();
         cmboxIngresoCarrera1 = new javax.swing.JComboBox();
         pnlManejoBeca = new javax.swing.JPanel();
-        jLabel16 = new javax.swing.JLabel();
-        cmboxSemestreRegistroBeca = new javax.swing.JComboBox();
-        jLabel17 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        cmboxSemestreRegistroBeca = new javax.swing.JComboBox();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         btnGuardar1 = new javax.swing.JButton();
@@ -569,31 +571,22 @@ public class VistaRegistro extends javax.swing.JPanel {
 
         pnlEscuelaProcedencia.setBorder(javax.swing.BorderFactory.createTitledBorder("Informacion Escolar"));
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel9.setText("Escuela de Procedencia:");
-
-        cmboxEscuelaProcedencia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("¿Primero con carrera?");
 
-        cmboxCarreraSiNo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel11.setText("Escuela Universitaria:");
-
-        cmboxEscuelaUniversitaria.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel12.setText("Campo que aplica:");
 
-        cmboxCampoEscuela.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        txtNombreUniversidad.setText("jTextField1");
         txtNombreUniversidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreUniversidadActionPerformed(evt);
@@ -604,8 +597,6 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel13.setText("Nombre de la Carrera:");
 
-        cmboxIngresoCarrera.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel14.setText("Semestre de Ingreso:");
@@ -613,8 +604,6 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel15.setText("Semestre de Graduación:");
-
-        cmboxIngresoCarrera1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout pnlEscuelaProcedenciaLayout = new javax.swing.GroupLayout(pnlEscuelaProcedencia);
         pnlEscuelaProcedencia.setLayout(pnlEscuelaProcedenciaLayout);
@@ -632,24 +621,24 @@ public class VistaRegistro extends javax.swing.JPanel {
                         .addGroup(pnlEscuelaProcedenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlEscuelaProcedenciaLayout.createSequentialGroup()
                                 .addComponent(cmboxIngresoCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtNombreUniversidad)))
                     .addGroup(pnlEscuelaProcedenciaLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(pnlEscuelaProcedenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlEscuelaProcedenciaLayout.createSequentialGroup()
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cmboxEscuelaProcedencia, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlEscuelaProcedenciaLayout.createSequentialGroup()
+                                .addContainerGap()
                                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cmboxEscuelaUniversitaria, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(cmboxEscuelaUniversitaria, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnlEscuelaProcedenciaLayout.createSequentialGroup()
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cmboxEscuelaProcedencia, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(pnlEscuelaProcedenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(pnlEscuelaProcedenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlEscuelaProcedenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(cmboxIngresoCarrera1, 0, 170, Short.MAX_VALUE)
@@ -689,29 +678,14 @@ public class VistaRegistro extends javax.swing.JPanel {
 
         pnlManejoBeca.setBorder(javax.swing.BorderFactory.createTitledBorder("Manejo de Beca"));
 
-        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel16.setText("Semestre de Registro Solicitud de Beca:");
-
-        cmboxSemestreRegistroBeca.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel17.setText("Costo Carrera:");
-
-        jTextField1.setText("jTextField1");
-
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel18.setText("Beca Autorizada:");
-
-        jTextField2.setText("jTextField1");
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel19.setText("Beca por Semestre:");
 
-        jTextField3.setText("jTextField1");
         jTextField3.setEnabled(false);
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -719,50 +693,61 @@ public class VistaRegistro extends javax.swing.JPanel {
             }
         });
 
+        jPanel4.setLayout(new java.awt.GridLayout(1, 4));
+
+        jPanel5.setLayout(new java.awt.GridLayout(2, 1));
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel16.setText("Semestre de ");
+        jPanel5.add(jLabel16);
+
+        jLabel31.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
+        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel31.setText("Registro Solicitud de Beca:");
+        jPanel5.add(jLabel31);
+
+        jPanel4.add(jPanel5);
+        jPanel4.add(jTextField1);
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel17.setText("Costo Carrera:");
+        jPanel4.add(jLabel17);
+
+        jPanel4.add(cmboxSemestreRegistroBeca);
+
         javax.swing.GroupLayout pnlManejoBecaLayout = new javax.swing.GroupLayout(pnlManejoBeca);
         pnlManejoBeca.setLayout(pnlManejoBecaLayout);
         pnlManejoBecaLayout.setHorizontalGroup(
             pnlManejoBecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlManejoBecaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlManejoBecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlManejoBecaLayout.createSequentialGroup()
-                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cmboxSemestreRegistroBeca, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnlManejoBecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlManejoBecaLayout.createSequentialGroup()
                         .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(217, 217, 217)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlManejoBecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlManejoBecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlManejoBecaLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
                         .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jTextField1))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnlManejoBecaLayout.setVerticalGroup(
             pnlManejoBecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlManejoBecaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlManejoBecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16)
-                    .addComponent(cmboxSemestreRegistroBeca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(106, 106, 106)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
                 .addGroup(pnlManejoBecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel19)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pnlDatosEscolares.add(pnlManejoBeca);
@@ -869,13 +854,13 @@ public class VistaRegistro extends javax.swing.JPanel {
     private javax.swing.JButton btnGuardar2;
     private javax.swing.JButton btnGuardar3;
     private javax.swing.JButton btnGuardar4;
-    private javax.swing.JComboBox cmboxCampoEscuela;
-    private javax.swing.JComboBox cmboxCarreraSiNo;
-    private javax.swing.JComboBox cmboxEscuelaProcedencia;
-    private javax.swing.JComboBox cmboxEscuelaUniversitaria;
-    private javax.swing.JComboBox cmboxIngresoCarrera;
-    private javax.swing.JComboBox cmboxIngresoCarrera1;
-    private javax.swing.JComboBox cmboxSemestreRegistroBeca;
+    protected javax.swing.JComboBox cmboxCampoEscuela;
+    protected javax.swing.JComboBox cmboxCarreraSiNo;
+    protected javax.swing.JComboBox cmboxEscuelaProcedencia;
+    protected javax.swing.JComboBox cmboxEscuelaUniversitaria;
+    protected javax.swing.JComboBox cmboxIngresoCarrera;
+    protected javax.swing.JComboBox cmboxIngresoCarrera1;
+    protected javax.swing.JComboBox cmboxSemestreRegistroBeca;
     protected javax.swing.JComboBox comboBoxPrograma;
     protected javax.swing.JComboBox comboBxTrabajaBecado;
     protected javax.swing.JComboBox combobxCivilBecado;
@@ -904,6 +889,7 @@ public class VistaRegistro extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -913,9 +899,11 @@ public class VistaRegistro extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    protected javax.swing.JTextField jTextField1;
+    protected javax.swing.JTextField jTextField2;
+    protected javax.swing.JTextField jTextField3;
     protected javax.swing.JLabel lblFotografia;
     private javax.swing.JLabel lblParentesco1;
     private javax.swing.JPanel pnlBotones;
@@ -951,7 +939,7 @@ public class VistaRegistro extends javax.swing.JPanel {
     protected javax.swing.JTextField txtFolio;
     protected javax.swing.JTextField txtNombreBecado;
     protected javax.swing.JTextField txtNombreConyuge;
-    private javax.swing.JTextField txtNombreUniversidad;
+    protected javax.swing.JTextField txtNombreUniversidad;
     private javax.swing.JTextField txtTel1Becado;
     private javax.swing.JTextField txtTel2Becado;
     private javax.swing.JTextField txtTel3Becado;

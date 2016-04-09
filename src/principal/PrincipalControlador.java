@@ -146,6 +146,7 @@ public class PrincipalControlador {
         
         llenaComboCategorias(vistaRegistro.combobxCivilBecado, catEstadoCivil);
         llenaComboCategorias(vistaRegistro.comboBoxPrograma, catPrograma);
+        llenaComboCategorias(vistaRegistro.combobxSexoBecado, catSexo);
         llenaComboCategorias(lstVistaParentesco.get(0).cmbNivelEstudiosPariente, catNivelEstudios);
         llenaComboCategorias(lstVistaHermanos.get(0).cmbNivelEstudiosHermano, catNivelEstudios);
         llenaComboCategorias(lstVistaParentesco.get(0).cmbNivelEstudiosPariente, catNivelEstudios);
