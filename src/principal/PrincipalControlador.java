@@ -13,7 +13,7 @@ import java.io.File;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.TreeMap;
+import java.util.LinkedHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
@@ -41,11 +41,13 @@ public class PrincipalControlador {
     Log log = new Log();
     Helper helper = new Helper();
     
-    TreeMap<Integer, String> catSexo = null;
-    TreeMap<Integer, String> catEstadoCivil = null;
-    TreeMap<Integer, String> catPrograma = null;
-    TreeMap<Integer, String> catParentesco = null;
-    TreeMap<Integer, String> catNivelEstudios = null;
+    LinkedHashMap<Integer, String> catSexo = null;
+    LinkedHashMap<Integer, String> catEstadoCivil = null;
+    LinkedHashMap<Integer, String> catPrograma = null;
+    LinkedHashMap<Integer, String> catParentesco = null;
+    LinkedHashMap<Integer, String> catNivelEstudios = null;
+    LinkedHashMap<Integer, String> catUniversidad = null;
+    LinkedHashMap<Integer, String> catCampoEstudio = null;
     
     List<PnlHijos> lstVistaHijos = new ArrayList<>();
     List<PnlHermanos> lstVistaHermanos = new ArrayList<>();
@@ -99,7 +101,7 @@ public class PrincipalControlador {
     public void creaVistaRegistro(){
         vistaRegistro = new VistaRegistro(this);
         this.setVistaRegistro(vistaRegistro);
-        List<TreeMap<Integer, String>> lstCategorias = null;
+        List<LinkedHashMap<Integer, String>> lstCategorias = null;
                 
         try {
             //Se muestran las pantallas dinamicas
@@ -136,13 +138,15 @@ public class PrincipalControlador {
      * Llena con los datos de las categorias la pantalla VistaRegistro
      * @param lstCategorias 
      */
-    private void llenaCamposVistaRegistro(List<TreeMap<Integer, String>> lstCategorias){
+    private void llenaCamposVistaRegistro(List<LinkedHashMap<Integer, String>> lstCategorias){
         //Se separan las categorias
         catSexo = lstCategorias.get(0);
         catEstadoCivil = lstCategorias.get(1);
         catPrograma = lstCategorias.get(2);
         catNivelEstudios = lstCategorias.get(3);
         catParentesco = lstCategorias.get(4);
+        catUniversidad = lstCategorias.get(5);
+        catCampoEstudio = lstCategorias.get(6);
         
         llenaComboCategorias(vistaRegistro.combobxCivilBecado, catEstadoCivil);
         llenaComboCategorias(vistaRegistro.comboBoxPrograma, catPrograma);
@@ -151,13 +155,15 @@ public class PrincipalControlador {
         llenaComboCategorias(lstVistaHermanos.get(0).cmbNivelEstudiosHermano, catNivelEstudios);
         llenaComboCategorias(lstVistaParentesco.get(0).cmbNivelEstudiosPariente, catNivelEstudios);
         llenaComboCategorias(lstVistaParentesco.get(0).cmbParentesco, catParentesco);
+        llenaComboCategorias(vistaRegistro.cmboxEscuelaUniversitaria, catUniversidad);
+        llenaComboCategorias(vistaRegistro.cmboxCampoEscuela, catCampoEstudio);
         
     }
     
     /**
      * Llena el combo box indicado
      */
-    private void llenaComboCategorias(JComboBox combo, TreeMap<Integer, String> lstCategoria){
+    private void llenaComboCategorias(JComboBox combo, LinkedHashMap<Integer, String> lstCategoria){
         //catPrograma = lstCategorias.get(2);
         for (Integer key : lstCategoria.keySet()) {
             combo.addItem(lstCategoria.get(key));

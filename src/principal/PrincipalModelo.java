@@ -15,15 +15,17 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
+import java.util.LinkedHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import pojos.CatCampoCarrera;
 import pojos.CatEstadoCivil;
 import pojos.CatGradoEscolar;
 import pojos.CatParentesco;
 import pojos.CatPrograma;
 import pojos.CatSexo;
+import pojos.CatUniversidad;
 
 /**
  *
@@ -62,14 +64,17 @@ public class PrincipalModelo {
      * @return Lista con las categorias de datos
      * @throws SQLException Al no conectarse a la base de datos
      */
-    protected List<TreeMap<Integer, String>> getCategoriasVistaRegistro() throws SQLException{
+    //protected List<LinkedHashMap<Integer, String>> getCategoriasVistaRegistro() throws SQLException{
+    protected List<LinkedHashMap<Integer, String>> getCategoriasVistaRegistro() throws SQLException{
         
-        List<TreeMap<Integer, String>> result = new ArrayList<>();
-        TreeMap<Integer, String> catSexo = new TreeMap<>();
-        TreeMap<Integer, String> catEstadoCivil = new TreeMap<>();
-        TreeMap<Integer, String> catPrograma = new TreeMap<>();
-        TreeMap<Integer, String> catNivelEstudios = new TreeMap<>();
-        TreeMap<Integer, String> catParentesco = new TreeMap<>();
+        List<LinkedHashMap<Integer, String>> result = new ArrayList<>();
+        LinkedHashMap<Integer, String> catSexo = new LinkedHashMap<>();
+        LinkedHashMap<Integer, String> catEstadoCivil = new LinkedHashMap<>();
+        LinkedHashMap<Integer, String> catPrograma = new LinkedHashMap<>();
+        LinkedHashMap<Integer, String> catNivelEstudios = new LinkedHashMap<>();
+        LinkedHashMap<Integer, String> catParentesco = new LinkedHashMap<>();
+        LinkedHashMap<Integer, String> catUniversidad = new LinkedHashMap<>();
+        LinkedHashMap<Integer, String> catCampoEstudio = new LinkedHashMap<>();
         
         Conexion conexion = new Conexion();
         Connection conn = null;
@@ -83,6 +88,8 @@ public class PrincipalModelo {
         catPrograma = getProgramas(conn);
         catNivelEstudios = getNivelEstudios(conn);
         catParentesco = getParentesco(conn);
+        catUniversidad = getUniversidades(conn);
+        catCampoEstudio = getCampoEstudio(conn);
         
         
         //Se llena la lista con las categorias
@@ -91,6 +98,8 @@ public class PrincipalModelo {
         result.add(catPrograma);
         result.add(catNivelEstudios);
         result.add(catParentesco);
+        result.add(catUniversidad);
+        result.add(catCampoEstudio);
         
         conn.close();
         return result;
@@ -101,11 +110,11 @@ public class PrincipalModelo {
      * @param conn COnexion a la base de datos
      * @return Categoria de sexos
      */
-    protected TreeMap<Integer, String> getSexo(Connection conn){
-        TreeMap<Integer, String> catSexo = new TreeMap<>();
+    protected LinkedHashMap<Integer, String> getSexo(Connection conn){
+        LinkedHashMap<Integer, String> catSexo = new LinkedHashMap<>();
         Statement st = null;
         ResultSet rs = null;
-        Map<Integer, String> result = new TreeMap<>();
+        Map<Integer, String> result = new LinkedHashMap<>();
         
         try{
             st = conn.createStatement();
@@ -135,8 +144,8 @@ public class PrincipalModelo {
     * Obtiene la categoria de sexos
     * @return Categoria de sexos
     */
-    protected TreeMap<Integer, String> getSexo(){
-        TreeMap<Integer, String> catSexo = new TreeMap<>();
+    protected LinkedHashMap<Integer, String> getSexo(){
+        LinkedHashMap<Integer, String> catSexo = new LinkedHashMap<>();
         Conexion  conexion = new Conexion();
         Connection conn = null;
         Statement st = null;
@@ -172,8 +181,8 @@ public class PrincipalModelo {
      * @param conn Conexion a la base de datos
      * @return Lista con los datos de estados civiles
      */
-    private TreeMap<Integer, String> getEstadoCivil(Connection conn) {
-        TreeMap<Integer, String> catEstadoCivil = new TreeMap<>();
+    private LinkedHashMap<Integer, String> getEstadoCivil(Connection conn) {
+        LinkedHashMap<Integer, String> catEstadoCivil = new LinkedHashMap<>();
         Statement st = null;
         ResultSet rs = null;
         
@@ -207,10 +216,10 @@ public class PrincipalModelo {
      * @param conn Conexion a la base de datos
      * @return Lista con los datos de estados civiles
      */
-    private TreeMap<Integer, String> getEstadoCivil() {
+    private LinkedHashMap<Integer, String> getEstadoCivil() {
         Conexion conexion = new Conexion();
         Connection conn = null;
-        TreeMap<Integer, String> catEstadoCivil = new TreeMap<>();
+        LinkedHashMap<Integer, String> catEstadoCivil = new LinkedHashMap<>();
         Statement st = null;
         ResultSet rs = null;
         
@@ -245,8 +254,8 @@ public class PrincipalModelo {
      * @param conn COnexion a la base de datos
      * @return 
      */
-    private TreeMap<Integer, String> getProgramas(Connection conn) {
-        TreeMap<Integer, String> catPrograma = new TreeMap<>();
+    private LinkedHashMap<Integer, String> getProgramas(Connection conn) {
+        LinkedHashMap<Integer, String> catPrograma = new LinkedHashMap<>();
         Statement st = null;
         ResultSet rs = null;
         try{
@@ -270,8 +279,8 @@ public class PrincipalModelo {
      * @param conn
      * @return 
      */
-    private TreeMap<Integer, String> getNivelEstudios(Connection conn) {
-        TreeMap<Integer, String> catNivelEstudios = new TreeMap<>();
+    private LinkedHashMap<Integer, String> getNivelEstudios(Connection conn) {
+        LinkedHashMap<Integer, String> catNivelEstudios = new LinkedHashMap<>();
         Statement st = null;
         ResultSet rs = null;
         try{
@@ -295,8 +304,8 @@ public class PrincipalModelo {
      * @param conn
      * @return 
      */
-    private TreeMap<Integer, String> getParentesco(Connection conn) {
-        TreeMap<Integer, String> catNivelEstudios = new TreeMap<>();
+    private LinkedHashMap<Integer, String> getParentesco(Connection conn) {
+        LinkedHashMap<Integer, String> catNivelEstudios = new LinkedHashMap<>();
         Statement st = null;
         ResultSet rs = null;
         try{
@@ -313,5 +322,55 @@ public class PrincipalModelo {
             muestraErrores(e);
         }
         return catNivelEstudios;
+    }
+
+    /**
+     * Obtiene el catalogo de universidades
+     * @param conn Conexion a la base de datos
+     * @return Lista de las universidades
+     */
+    private LinkedHashMap<Integer, String> getUniversidades(Connection conn) {
+        LinkedHashMap<Integer, String> catUniversidades = new LinkedHashMap<>();
+        Statement st = null;
+        ResultSet rs = null;
+        try{
+            st = conn.createStatement();
+            rs = st.executeQuery(Consultas.getUniversidades);
+            while(rs.next()){
+                CatUniversidad universidad = new CatUniversidad();
+                universidad.setId(rs.getInt(CatUniversidad.COL_ID));
+                universidad.setNombre(rs.getString(CatUniversidad.COL_NOMBRE));
+                catUniversidades.put(universidad.getId(), universidad.getNombre());
+            }
+        }
+        catch(SQLException e){
+            muestraErrores(e);
+        }
+        return catUniversidades;
+    }
+
+    /**
+     * Obtiene el catalogo de campo de estudio
+     * @param conn Conexion a la base de datos
+     * @return Lista de campos de estudio
+     */
+    private LinkedHashMap<Integer, String> getCampoEstudio(Connection conn) {
+        LinkedHashMap<Integer, String> catCampoEstudio = new LinkedHashMap<>();
+        Statement st = null;
+        ResultSet rs = null;
+        try{
+            st = conn.createStatement();
+            rs = st.executeQuery(Consultas.getCampoEstudio);
+            while(rs.next()){
+                CatCampoCarrera campo = new CatCampoCarrera();
+                campo.setId(rs.getInt(CatCampoCarrera.COL_ID));
+                campo.setNombre(rs.getString(CatCampoCarrera.COL_NOMBRE));
+                catCampoEstudio.put(campo.getId(), campo.getNombre());
+            }
+        }
+        catch(SQLException e){
+            muestraErrores(e);
+        }
+        return catCampoEstudio;
     }
 }
