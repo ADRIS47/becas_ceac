@@ -164,11 +164,11 @@ public class PnlDireccion extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField5;
     protected javax.swing.JLabel lblAgregarDireccion;
-    private javax.swing.JTextField txtCalleBecado;
-    private javax.swing.JTextField txtCiudadBecado;
-    private javax.swing.JTextField txtColonia;
-    private javax.swing.JTextField txtCpBecado;
-    private javax.swing.JTextField txtIntBecado;
-    private javax.swing.JTextField txtNumBecado;
+    protected javax.swing.JTextField txtCalleBecado;
+    protected javax.swing.JTextField txtCiudadBecado;
+    protected javax.swing.JTextField txtColonia;
+    protected javax.swing.JTextField txtCpBecado;
+    protected javax.swing.JTextField txtIntBecado;
+    protected javax.swing.JTextField txtNumBecado;
     // End of variables declaration//GEN-END:variables
 }

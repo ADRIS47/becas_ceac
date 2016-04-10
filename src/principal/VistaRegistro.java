@@ -985,9 +985,9 @@ public class VistaRegistro extends javax.swing.JPanel {
     protected javax.swing.JTextField txtNombreBecado;
     protected javax.swing.JTextField txtNombreConyuge;
     protected javax.swing.JTextField txtNombreUniversidad;
-    private javax.swing.JTextField txtTel1Becado;
-    private javax.swing.JTextField txtTel2Becado;
-    private javax.swing.JTextField txtTel3Becado;
+    protected javax.swing.JTextField txtTel1Becado;
+    protected javax.swing.JTextField txtTel2Becado;
+    protected javax.swing.JTextField txtTel3Becado;
     protected javax.swing.JTextField txtTelefonoConyuge;
     // End of variables declaration//GEN-END:variables
 }

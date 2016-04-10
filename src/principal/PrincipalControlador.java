@@ -24,10 +24,9 @@ import javax.swing.JComponent;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import org.jdatepicker.impl.JDatePanelImpl;
-import org.jdatepicker.impl.JDatePickerImpl;
-import org.jdatepicker.impl.UtilDateModel;
 import pojos.Becario;
+import pojos.Direccion;
+import pojos.Telefono;
 
 /**
  *
@@ -288,7 +287,8 @@ public class PrincipalControlador {
      */
     protected void insertaNuevoBecario() {
        Becario becario = getDatosBecarioDeFormulario();
-        
+       List<Direccion> lstDireccionesBecario = getDireccionBecarioDeFormulario(becario.getId());
+       List<Telefono> lstTelefonosBecario = getTelefonoBecarioDeFormulario(becario.getId());
         
     }
 
@@ -300,6 +300,8 @@ public class PrincipalControlador {
         becario.setIdPrograma(getIdCmbBox(prog, catPrograma));
         //Se obtiene las iniciales del folio
         String inicioFolio = modelo.getClavePrograma(getIdCmbBox(prog, catPrograma));
+        //Se obtiene el estatus del becario
+        becario.setIdEstatus(1);
         //Se obtiene el estado civil
         String edoCiv = getSeleccionCmbBox(vistaRegistro.combobxCivilBecado);
         becario.setIdEstadoCivil(getIdCmbBox(edoCiv, catEstadoCivil));
@@ -366,5 +368,55 @@ public class PrincipalControlador {
         long result = calendario.getTimeInMillis();
         
         return result;
+    }
+
+    /**
+     * Obtiene la(s) direccion(es) del nuevo becario
+     * @return Lista de Direcciones del becario
+     */
+    private List<Direccion> getDireccionBecarioDeFormulario(long idBecario) {
+        List<Direccion> lstDirecciones = new ArrayList<>();
+        
+        for (PnlDireccion panel : lstVistaDireccion) {
+                Direccion direccion = new Direccion();
+                direccion.setCalle(panel.txtCalleBecado.getText());
+                direccion.setNumExt(panel.txtNumBecado.getText());
+                direccion.setNumInt(panel.txtIntBecado.getText());
+                direccion.setCodigoPostal(panel.txtCpBecado.getText());
+                direccion.setColonia(panel.txtColonia.getText());
+                direccion.setCiudad(panel.txtCiudadBecado.getText());
+                direccion.setIdBecario(idBecario);
+                lstDirecciones.add(direccion);
+        }
+        return lstDirecciones;
+    }
+
+    /**
+     * OBtiene el(los) telefonos ingresados del nuevo becario
+     * @param idBecario Id del becario con el que se relaciona los telefonos
+     * @return Lista de Telefonos del becario
+     */
+    private List<Telefono> getTelefonoBecarioDeFormulario(long idBecario) {
+        List<Telefono> lstTelefono = new ArrayList<>();
+        if(!vistaRegistro.txtTel1Becado.getText().equals("")){
+            Telefono telefono = new Telefono();
+            telefono.setIdBecario(idBecario);
+            telefono.setTelefono(vistaRegistro.txtTel1Becado.getText());
+            lstTelefono.add(telefono);
+        }
+        if(!vistaRegistro.txtTel2Becado.getText().equals("")){
+            Telefono telefono = new Telefono();
+            telefono.setIdBecario(idBecario);
+            telefono.setTelefono(vistaRegistro.txtTel2Becado.getText());
+            lstTelefono.add(telefono);
+        }
+        if(!vistaRegistro.txtTel3Becado.getText().equals("")){
+            Telefono telefono = new Telefono();
+            telefono.setIdBecario(idBecario);
+            telefono.setTelefono(vistaRegistro.txtTel3Becado.getText());
+            lstTelefono.add(telefono);
+        }
+        
+        return lstTelefono;
     }
 }
