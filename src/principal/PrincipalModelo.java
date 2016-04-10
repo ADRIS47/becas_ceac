@@ -9,6 +9,7 @@ import crud.Conexion;
 import crud.Consultas;
 import helpers.Log;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -271,6 +272,14 @@ public class PrincipalModelo {
         catch(SQLException e){
             muestraErrores(e);
         }
+        finally{
+            try {
+                rs.close();
+                st.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         return catPrograma;
     }
 
@@ -295,6 +304,14 @@ public class PrincipalModelo {
         }
         catch(SQLException e){
             muestraErrores(e);
+        }
+        finally{
+            try {
+                rs.close();
+                st.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return catNivelEstudios;
     }
@@ -321,6 +338,14 @@ public class PrincipalModelo {
         catch(SQLException e){
             muestraErrores(e);
         }
+        finally{
+            try {
+                rs.close();
+                st.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         return catNivelEstudios;
     }
 
@@ -345,6 +370,14 @@ public class PrincipalModelo {
         }
         catch(SQLException e){
             muestraErrores(e);
+        }
+        finally{
+            try {
+                rs.close();
+                st.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return catUniversidades;
     }
@@ -371,6 +404,49 @@ public class PrincipalModelo {
         catch(SQLException e){
             muestraErrores(e);
         }
+        finally{
+            try {
+                rs.close();
+                st.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
         return catCampoEstudio;
+    }
+
+    /**
+     * Obtiene las iniciales del programa seleccionado
+     * @param programa Id del programa seleccionado
+     * @return 
+     */
+    protected String getClavePrograma(int programa) {
+        Connection conn = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        Conexion conexion = new Conexion();
+        String result = "";
+        try{
+            conn = conexion.estableceConexion();
+            st = conn.prepareStatement(Consultas.getInicialesPrograma);
+            st.setInt(1, programa);
+            rs = st.executeQuery();
+            while(rs.next()){
+               result = rs.getString(CatPrograma.COL_INICIALES);
+            }
+        }
+        catch(SQLException e){
+            muestraErrores(e);
+        }
+        finally{
+            try {
+                rs.close();
+                st.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return result;
     }
 }

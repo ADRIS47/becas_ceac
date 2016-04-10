@@ -69,6 +69,7 @@ public class LoginControlador {
 
             }
             else
+                JOptionPane.showMessageDialog(vista, "Contraseña incorrecta");
                 System.out.println("Contraseña incorrecta");
         }
         else

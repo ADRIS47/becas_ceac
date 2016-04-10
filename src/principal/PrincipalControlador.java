@@ -21,6 +21,10 @@ import javax.swing.JComponent;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import org.jdatepicker.impl.JDatePanelImpl;
+import org.jdatepicker.impl.JDatePickerImpl;
+import org.jdatepicker.impl.UtilDateModel;
+import pojos.Becario;
 
 /**
  *
@@ -291,5 +295,29 @@ public class PrincipalControlador {
         vista.repaint();
         
     }
+
+    protected void insertaBecario() {
+        Becario becario = new Becario();
+        String prog = (String) vistaRegistro.comboBoxPrograma.getSelectedItem();
+        int idPrograma = getIdCmbBox(prog, catPrograma);
+        String inicioFolio = modelo.getClavePrograma(idPrograma);
+        
+        
+    }
+
+    private int getIdCmbBox(String prog, LinkedHashMap<Integer, String> catPrograma) throws NullPointerException {
+        int idCategoria = 0;
+        for (Integer key : catPrograma.keySet()) {
+            if(prog.equals(catPrograma.get(key))){
+                idCategoria = key;
+            }
+        }
+        
+        if(idCategoria == 0){
+            log.crearLog(new NullPointerException("Id no encontrado").getMessage());
+        }
+        return idCategoria;
+    }
+
     
 }

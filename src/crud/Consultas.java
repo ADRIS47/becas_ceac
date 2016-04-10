@@ -51,5 +51,10 @@ public class Consultas {
      */
     public static String getCampoEstudio = "SELECT id_campo_carrera, nombre, descripcion FROM beca_cat_campo ORDER BY nombre";
     
+    /**
+     * Obtiene las iniciales del programa seleccionado
+     */
+    public static String getInicialesPrograma = "SELECT iniciales FROM beca_cat_programa WHERE id_programa = ?";
+    
     
 }
