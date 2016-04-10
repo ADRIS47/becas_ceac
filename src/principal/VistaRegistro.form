@@ -440,9 +440,10 @@
                 <Component class="javax.swing.JComboBox" name="comboBxTrabajaBecado">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="2">
-                        <StringItem index="0" value="Trabaja"/>
-                        <StringItem index="1" value="No trabaja"/>
+                      <StringArray count="3">
+                        <StringItem index="0" value="No trabaja"/>
+                        <StringItem index="1" value="Trabaja"/>
+                        <StringItem index="2" value=" "/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -850,13 +851,13 @@
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtApPaternoPariente" min="-2" pref="170" max="-2" attributes="0"/>
+                                      <Component id="txtApPaternoConyuge" min="-2" pref="170" max="-2" attributes="0"/>
                                       <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtApMaternoPariente" min="-2" pref="178" max="-2" attributes="0"/>
+                                      <Component id="txtApMaternoConyuge" min="-2" pref="178" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" attributes="0">
@@ -866,7 +867,7 @@
                           </Group>
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtTel3Becado1" min="-2" pref="101" max="-2" attributes="0"/>
+                              <Component id="txtTelefonoConyuge" min="-2" pref="101" max="-2" attributes="0"/>
                               <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -887,9 +888,9 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="txtNombreConyuge" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtApMaternoPariente" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtApPaternoPariente" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtTel3Becado1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtApMaternoConyuge" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtApPaternoConyuge" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtTelefonoConyuge" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -926,7 +927,7 @@
                     <Property name="text" type="java.lang.String" value="Ap Paterno"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtApPaternoPariente">
+                <Component class="javax.swing.JTextField" name="txtApPaternoConyuge">
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                   </AuxValues>
@@ -939,7 +940,7 @@
                     <Property name="text" type="java.lang.String" value="Ap Materno"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtApMaternoPariente">
+                <Component class="javax.swing.JTextField" name="txtApMaternoConyuge">
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                   </AuxValues>
@@ -952,7 +953,7 @@
                     <Property name="text" type="java.lang.String" value="Telefono"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtTel3Becado1">
+                <Component class="javax.swing.JTextField" name="txtTelefonoConyuge">
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                   </AuxValues>
@@ -1136,8 +1137,8 @@
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="2">
-                        <StringItem index="0" value="Si"/>
-                        <StringItem index="1" value="No"/>
+                        <StringItem index="0" value="No"/>
+                        <StringItem index="1" value="Si"/>
                       </StringArray>
                     </Property>
                   </Properties>

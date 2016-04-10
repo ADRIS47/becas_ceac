@@ -10,8 +10,11 @@ import helpers.Log;
 import index.Index;
 import java.awt.Component;
 import java.io.File;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.LinkedHashMap;
 import java.util.logging.Level;
@@ -69,22 +72,6 @@ public class PrincipalControlador {
     public void setVistaRegistro(VistaRegistro vistaRegistro) {
         this.vistaRegistro = vistaRegistro;
     }
-//
-//    public void setVistaHermanos(PnlHermanos vistaHermanos) {
-//        this.vistaHermanos = vistaHermanos;
-//    }
-//
-//    public void setVistaHijos(PnlHijos vistaHijos) {
-//        this.vistaHijos = vistaHijos;
-//    }
-//
-//    public void setVistaParentesco(PnlParentesco vistaParentesco) {
-//        this.vistaParentesco = vistaParentesco;
-//    }
-//
-//    public void setVistaDireccion(PnlDireccion vistaDireccion) {
-//        this.vistaDireccion = vistaDireccion;
-//    }
     
     
     
@@ -296,19 +283,70 @@ public class PrincipalControlador {
         
     }
 
-    protected void insertaBecario() {
-        Becario becario = new Becario();
-        String prog = (String) vistaRegistro.comboBoxPrograma.getSelectedItem();
-        int idPrograma = getIdCmbBox(prog, catPrograma);
-        String inicioFolio = modelo.getClavePrograma(idPrograma);
+    /**
+     * Comienza la insersión del becario
+     */
+    protected void insertaNuevoBecario() {
+       Becario becario = getDatosBecarioDeFormulario();
         
         
     }
 
-    private int getIdCmbBox(String prog, LinkedHashMap<Integer, String> catPrograma) throws NullPointerException {
+    private Becario getDatosBecarioDeFormulario() {
+        Becario becario = new Becario();
+    
+        //Se obtiene el id del programa seleccionado
+        String prog = getSeleccionCmbBox(vistaRegistro.comboBoxPrograma);
+        becario.setIdPrograma(getIdCmbBox(prog, catPrograma));
+        //Se obtiene las iniciales del folio
+        String inicioFolio = modelo.getClavePrograma(getIdCmbBox(prog, catPrograma));
+        //Se obtiene el estado civil
+        String edoCiv = getSeleccionCmbBox(vistaRegistro.combobxCivilBecado);
+        becario.setIdEstadoCivil(getIdCmbBox(edoCiv, catEstadoCivil));
+        //Se obtiene si trabaja o no
+        becario.setTrabaja(vistaRegistro.comboBxTrabajaBecado.getSelectedIndex());
+        //Se obtiene el id del sexo
+        becario.setIdSexo(vistaRegistro.combobxSexoBecado.getSelectedIndex());
+        //Se obtiene el nombre del becario
+        becario.setNombre(vistaRegistro.txtNombreBecado.getText());
+        //Se obtiene el ap paterno del becario
+        becario.setApPaterno(vistaRegistro.txtApPaternoBecado.getText());
+        //Se obtiene el ap materno del becario
+        becario.setApMaterno(vistaRegistro.txtApMaternoBecado.getText());
+        //Se obtiene la fecha de nacimiento del becario
+        long fecha = getFecha(vistaRegistro.txtFechaNacimiento.getText());
+        becario.setFecha_nac(new Date(fecha));
+        //Se obtiene los datos del conyuge
+        becario.setNombreConyuge(vistaRegistro.txtNombreConyuge.getText());
+        becario.setApPaternoConyuge(vistaRegistro.txtApPaternoConyuge.getText());
+        becario.setApMaternoConyuge(vistaRegistro.txtApMaternoConyuge.getText());
+        //Se obtiene si es el primero con beca
+        becario.setPrimeroConBeca(vistaRegistro.cmboxCarreraSiNo.getSelectedIndex());
+        return becario;
+    }
+    
+    /**
+     * Obtiene la seleccion de un combo box
+     * @param combo Combo box que se evaluará
+     * @return Selección
+     */
+    private String getSeleccionCmbBox(JComboBox combo){
+        String seleccion = (String) combo.getSelectedItem();
+        
+        return seleccion;
+    }
+
+    /**
+     * Obtiene el id de la seleccion del usuario en un combo box
+     * @param cadena Nombre de la seleccion del usuario
+     * @param categorias Listado de categorias a comparar
+     * @return Id de la seleccion del usuario
+     * @throws NullPointerException En caso de que no se encuentre el id de la selección
+     */
+    private int getIdCmbBox(String cadena, LinkedHashMap<Integer, String> categorias) throws NullPointerException {
         int idCategoria = 0;
-        for (Integer key : catPrograma.keySet()) {
-            if(prog.equals(catPrograma.get(key))){
+        for (Integer key : categorias.keySet()) {
+            if(cadena.equals(categorias.get(key))){
                 idCategoria = key;
             }
         }
@@ -319,5 +357,14 @@ public class PrincipalControlador {
         return idCategoria;
     }
 
-    
+    private long getFecha(String fecha){
+        String[] fech = fecha.split("/");
+        int anio = Integer.parseInt(fech[2]); 
+        int mes = Integer.parseInt(fech[1]); 
+        int dia = Integer.parseInt(fech[0]); 
+        Calendar calendario = new GregorianCalendar(anio, mes, dia);
+        long result = calendario.getTimeInMillis();
+        
+        return result;
+    }
 }
