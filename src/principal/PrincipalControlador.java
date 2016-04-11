@@ -117,10 +117,10 @@ public class PrincipalControlador {
     private void creaPantalla(Component pantalla){
         //vista.pnlOpciones.removeAll();
         //vista.pnlOpciones.add(pantalla, BorderLayout.CENTER);
-        vista.pnlOpciones.setViewportView(pantalla);
+        vista.ScrollpnlOpciones.setViewportView(pantalla);
         pantalla.setVisible(true);
-        vista.pnlOpciones.updateUI();
-        vista.pnlOpciones.validate();
+        vista.ScrollpnlOpciones.updateUI();
+        vista.ScrollpnlOpciones.validate();
         vista.repaint();
     }
     
