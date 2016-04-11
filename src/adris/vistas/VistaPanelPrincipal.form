@@ -134,7 +134,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagenes/REGISTRO.png"/>
             </Property>
-            <Property name="toolTipText" type="java.lang.String" value="registro"/>
+            <Property name="toolTipText" type="java.lang.String" value="Registro Inicial del Becario"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
                 <BevelBorder/>
@@ -153,6 +153,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagenes/kardex.png"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Kardex del becario"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
                 <BevelBorder/>
@@ -168,6 +169,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/adris/vistas/cobranza.png"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Cobranza Programas Especiales"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
                 <BevelBorder/>
@@ -183,6 +185,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/adris/vistas/reportes.png"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Reportes"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnBusqueda">
@@ -193,6 +196,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/adris/vistas/busqueda.png"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Busquedas"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
                 <BevelBorder/>

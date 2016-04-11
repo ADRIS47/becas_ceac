@@ -72,7 +72,7 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
 
         btnBecarios.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnBecarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/REGISTRO.png"))); // NOI18N
-        btnBecarios.setToolTipText("registro");
+        btnBecarios.setToolTipText("Registro Inicial del Becario");
         btnBecarios.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBecarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,17 +82,21 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
 
         btnKardex.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnKardex.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/kardex.png"))); // NOI18N
+        btnKardex.setToolTipText("Kardex del becario");
         btnKardex.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         btnCobranza.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnCobranza.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adris/vistas/cobranza.png"))); // NOI18N
+        btnCobranza.setToolTipText("Cobranza Programas Especiales");
         btnCobranza.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         btnReportes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnReportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adris/vistas/reportes.png"))); // NOI18N
+        btnReportes.setToolTipText("Reportes");
 
         btnBusqueda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adris/vistas/busqueda.png"))); // NOI18N
+        btnBusqueda.setToolTipText("Busquedas");
         btnBusqueda.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
