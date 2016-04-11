@@ -164,10 +164,10 @@ public class VistaRegistro extends javax.swing.JPanel {
         btnEliminaPagare = new javax.swing.JButton();
         txtEstatusPagare = new javax.swing.JLabel();
         jpnlAreaBotones = new javax.swing.JPanel();
-        btnGuardar1 = new javax.swing.JButton();
-        btnGuardar2 = new javax.swing.JButton();
-        btnGuardar3 = new javax.swing.JButton();
-        btnGuardar4 = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
+        btnImprimir = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(916, 584));
 
@@ -1068,17 +1068,21 @@ public class VistaRegistro extends javax.swing.JPanel {
 
         tbpBecados.addTab("Datos Escolares", pnlDatosEscolares);
 
-        btnGuardar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/guardar_cambios.png"))); // NOI18N
-        btnGuardar1.setPreferredSize(new java.awt.Dimension(160, 29));
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/guardar_cambios.png"))); // NOI18N
+        btnGuardar.setToolTipText("Guardar Registro");
+        btnGuardar.setPreferredSize(new java.awt.Dimension(160, 29));
 
-        btnGuardar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imprime.png"))); // NOI18N
-        btnGuardar2.setPreferredSize(new java.awt.Dimension(160, 29));
+        btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imprime.png"))); // NOI18N
+        btnImprimir.setToolTipText("Imprimir Forma");
+        btnImprimir.setPreferredSize(new java.awt.Dimension(160, 29));
 
-        btnGuardar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cancel_registro.png"))); // NOI18N
-        btnGuardar3.setPreferredSize(new java.awt.Dimension(160, 29));
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cancel_registro.png"))); // NOI18N
+        btnCancelar.setToolTipText("Cancelar Folio");
+        btnCancelar.setPreferredSize(new java.awt.Dimension(160, 29));
 
-        btnGuardar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adris/vistas/salir.png"))); // NOI18N
-        btnGuardar4.setPreferredSize(new java.awt.Dimension(160, 29));
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adris/vistas/salir.png"))); // NOI18N
+        btnSalir.setToolTipText("Salir de Pantalla");
+        btnSalir.setPreferredSize(new java.awt.Dimension(160, 29));
 
         javax.swing.GroupLayout jpnlAreaBotonesLayout = new javax.swing.GroupLayout(jpnlAreaBotones);
         jpnlAreaBotones.setLayout(jpnlAreaBotonesLayout);
@@ -1086,27 +1090,27 @@ public class VistaRegistro extends javax.swing.JPanel {
             jpnlAreaBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpnlAreaBotonesLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnGuardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41))
             .addGroup(jpnlAreaBotonesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jpnlAreaBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnGuardar2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnGuardar3, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnGuardar4, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jpnlAreaBotonesLayout.setVerticalGroup(
             jpnlAreaBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpnlAreaBotonesLayout.createSequentialGroup()
                 .addGap(41, 41, 41)
-                .addComponent(btnGuardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnGuardar2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnGuardar3, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnGuardar4, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1175,6 +1179,7 @@ public class VistaRegistro extends javax.swing.JPanel {
     private javax.swing.JButton btnAddINEAval;
     private javax.swing.JButton btnAddINEBecario;
     private javax.swing.JButton btnAddPagare;
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEliminaActa;
     private javax.swing.JButton btnEliminaBoleta;
     private javax.swing.JButton btnEliminaCarta;
@@ -1184,10 +1189,9 @@ public class VistaRegistro extends javax.swing.JPanel {
     private javax.swing.JButton btnEliminaINEBecario;
     private javax.swing.JButton btnEliminaPagare;
     private javax.swing.JButton btnFotografia;
-    private javax.swing.JButton btnGuardar1;
-    private javax.swing.JButton btnGuardar2;
-    private javax.swing.JButton btnGuardar3;
-    private javax.swing.JButton btnGuardar4;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnImprimir;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JComboBox cmboxCampoEscuela;
     private javax.swing.JComboBox cmboxCarreraSiNo;
     private javax.swing.JComboBox cmboxEscuelaProcedencia;
