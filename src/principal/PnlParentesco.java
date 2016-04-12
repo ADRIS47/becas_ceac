@@ -90,7 +90,7 @@ public class PnlParentesco extends javax.swing.JPanel {
 
         jPanel1.add(cmbNivelEstudiosPariente);
 
-        cmbTrabajoActivoPariente.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Si", "No" }));
+        cmbTrabajoActivoPariente.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "No", "Si" }));
         jPanel1.add(cmbTrabajoActivoPariente);
 
         lblAgregarPariente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -150,6 +150,6 @@ public class PnlParentesco extends javax.swing.JPanel {
     private javax.swing.JLabel lblParentesco3;
     protected javax.swing.JTextField txtApMaternoPariente;
     protected javax.swing.JTextField txtApPaternoPariente;
-    private javax.swing.JTextField txtNombresPariente;
+    protected javax.swing.JTextField txtNombresPariente;
     // End of variables declaration//GEN-END:variables
 }

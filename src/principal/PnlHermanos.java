@@ -107,15 +107,15 @@ public class PnlHermanos extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JComboBox cmbNivelEstudiosHermano;
+    protected javax.swing.JComboBox cmbNivelEstudiosHermano;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAgregarParentesco;
     private javax.swing.JLabel lblParentesco1;
     private javax.swing.JLabel lblParentesco5;
-    private javax.swing.JTextField txtApMaternoPariente;
-    private javax.swing.JTextField txtApPaternoPariente;
-    private javax.swing.JTextField txtNombresPariente;
+    protected javax.swing.JTextField txtApMaternoPariente;
+    protected javax.swing.JTextField txtApPaternoPariente;
+    protected javax.swing.JTextField txtNombresPariente;
     // End of variables declaration//GEN-END:variables
 }

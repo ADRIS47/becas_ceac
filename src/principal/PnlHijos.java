@@ -39,10 +39,10 @@ public class PnlHijos extends javax.swing.JPanel {
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        txtNombresPariente = new javax.swing.JTextField();
-        txtApPaternoPariente = new javax.swing.JTextField();
-        txtApMaternoPariente = new javax.swing.JTextField();
-        cmbEdad = new javax.swing.JComboBox();
+        txtNombreHIjo = new javax.swing.JTextField();
+        txtApPaternoHijo = new javax.swing.JTextField();
+        txtApMaternoHijo = new javax.swing.JTextField();
+        cmbEdadHijo = new javax.swing.JComboBox();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         setPreferredSize(new java.awt.Dimension(675, 75));
@@ -75,17 +75,17 @@ public class PnlHijos extends javax.swing.JPanel {
         jLabel23.setText("Edad");
         jPanel1.add(jLabel23);
 
-        txtNombresPariente.addActionListener(new java.awt.event.ActionListener() {
+        txtNombreHIjo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombresParienteActionPerformed(evt);
+                txtNombreHIjoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtNombresPariente);
-        jPanel1.add(txtApPaternoPariente);
-        jPanel1.add(txtApMaternoPariente);
+        jPanel1.add(txtNombreHIjo);
+        jPanel1.add(txtApPaternoHijo);
+        jPanel1.add(txtApMaternoHijo);
 
-        cmbEdad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99", "100" }));
-        jPanel1.add(cmbEdad);
+        cmbEdadHijo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99", "100" }));
+        jPanel1.add(cmbEdadHijo);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -108,9 +108,9 @@ public class PnlHijos extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNombresParienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombresParienteActionPerformed
+    private void txtNombreHIjoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreHIjoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombresParienteActionPerformed
+    }//GEN-LAST:event_txtNombreHIjoActionPerformed
 
     private void lblAgregarParentescoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAgregarParentescoMouseClicked
         controlador.agregaJPanel(this);
@@ -118,15 +118,15 @@ public class PnlHijos extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox cmbEdad;
+    private javax.swing.JComboBox cmbEdadHijo;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAgregarParentesco;
     private javax.swing.JLabel lblParentesco1;
-    protected javax.swing.JTextField txtApMaternoPariente;
-    protected javax.swing.JTextField txtApPaternoPariente;
-    private javax.swing.JTextField txtNombresPariente;
+    protected javax.swing.JTextField txtApMaternoHijo;
+    protected javax.swing.JTextField txtApPaternoHijo;
+    protected javax.swing.JTextField txtNombreHIjo;
     // End of variables declaration//GEN-END:variables
 }

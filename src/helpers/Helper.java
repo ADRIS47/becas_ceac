@@ -60,5 +60,12 @@ public class Helper {
         panel.add(componente);
         //panel.validate();
     }
+
+    public boolean validaEmail(String cadena1, String cadena2) {
+        if(cadena1.equals(cadena2))
+            return true;
+        else
+            return false;
+    }
     
 }

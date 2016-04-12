@@ -29,6 +29,9 @@ import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import pojos.Becario;
 import pojos.Direccion;
+import pojos.Hermanos;
+import pojos.Hijos;
+import pojos.Padres;
 import pojos.Telefono;
 
 /**
@@ -290,13 +293,52 @@ public class PrincipalControlador {
     protected void insertaNuevoBecario() {
         
         boolean vacio = validaCamposVacios();
-//       Becario becario = getDatosBecarioDeFormulario();
-//       List<Direccion> lstDireccionesBecario = getDireccionBecarioDeFormulario(becario.getId());
-//       List<Telefono> lstTelefonosBecario = getTelefonoBecarioDeFormulario(becario.getId());
-//        vistaRegistro.repaint();
-//        vista.repaint();
+        // Si hay campos vacios en el formulario se pregunta si se quiere guardar el becario y llenarlo después
+        if(vacio){
+            int i = JOptionPane.showConfirmDialog(vistaRegistro, "¿Desea guardar y continuar después?", "Alerta, Campos Vacios", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+            if(i == JOptionPane.OK_OPTION){
+                //Se valida que los correos electronicos sean iguales
+                boolean email = helper.validaEmail(vistaRegistro.txtCorreoBecario.getText(),
+                                                    vistaRegistro.txtCorreoBecario2.getText());
+                //Si los email son iguales se procede a tomar los valores e insertarlos
+                if(email){
+                    insertBecario(true);
+                }
+                else
+                    JOptionPane.showMessageDialog(vistaRegistro, "Correos electrónicos diferentes", 
+                                                                "Verifica los correos electrónicos", JOptionPane.WARNING_MESSAGE);
+                
+            }
+        }
+        //Si el formulario fue llenado en su totalidad...
+        else{
+            //Se valida que los correos electronicos sean iguales
+            boolean email = helper.validaEmail(vistaRegistro.txtCorreoBecario.getText(),
+                                                   vistaRegistro.txtCorreoBecario2.getText());
+            //Si los email son iguales se procede a tomar los valores e insertarlos
+            if(email)
+                insertBecario(false);
+        }
+
+    }
+    
+    /**
+     * Inserta el becario en la base de datos
+     * @param bandera True si es un becario borrador, False si es un becario completo
+     */
+    private void insertBecario(boolean bandera){
+        Becario becario = getDatosBecarioDeFormulario();
+        List<Direccion> lstDireccionesBecario = getDireccionBecarioDeFormulario(becario.getId());
+        List<Telefono> lstTelefonosBecario = getTelefonoBecarioDeFormulario(becario.getId());
+        List<Padres> lstPadresBecario = getPadresBecarioDeFormulario(becario.getId());
+        List<Hermanos> lstHermanos = getHermanosDeFormulario(becario.getId());
+        List<Hijos> lstHijos = getHijosDeFormulario(becario.getId());
     }
 
+    /**
+     * Obtiene los datos del becario del formulario de registro
+     * @return Un becario con sus propiedades
+     */
     private Becario getDatosBecarioDeFormulario() {
         Becario becario = new Becario();
         
@@ -335,52 +377,12 @@ public class PrincipalControlador {
         becario.setApMaternoConyuge(vistaRegistro.txtApMaternoConyuge.getText());
         //Se obtiene si es el primero con beca
         becario.setPrimeroConBeca(vistaRegistro.cmboxCarreraSiNo.getSelectedIndex());
+        //Se obtiene el correo electronico
+        becario.setEmail(vistaRegistro.txtCorreoBecario.getText());
+        
         return becario;
     }
     
-    /**
-     * Obtiene la seleccion de un combo box
-     * @param combo Combo box que se evaluará
-     * @return Selección
-     */
-    private String getSeleccionCmbBox(JComboBox combo){
-        String seleccion = (String) combo.getSelectedItem();
-        
-        return seleccion;
-    }
-
-    /**
-     * Obtiene el id de la seleccion del usuario en un combo box
-     * @param cadena Nombre de la seleccion del usuario
-     * @param categorias Listado de categorias a comparar
-     * @return Id de la seleccion del usuario
-     * @throws NullPointerException En caso de que no se encuentre el id de la selección
-     */
-    private int getIdCmbBox(String cadena, LinkedHashMap<Integer, String> categorias) throws NullPointerException {
-        int idCategoria = 0;
-        for (Integer key : categorias.keySet()) {
-            if(cadena.equals(categorias.get(key))){
-                idCategoria = key;
-            }
-        }
-        
-        if(idCategoria == 0){
-            log.crearLog(new NullPointerException("Id no encontrado").getMessage());
-        }
-        return idCategoria;
-    }
-
-    private long getFecha(String fecha){
-        String[] fech = fecha.split("/");
-        int anio = Integer.parseInt(fech[2]); 
-        int mes = Integer.parseInt(fech[1]); 
-        int dia = Integer.parseInt(fech[0]); 
-        Calendar calendario = new GregorianCalendar(anio, mes, dia);
-        long result = calendario.getTimeInMillis();
-        
-        return result;
-    }
-
     /**
      * Obtiene la(s) direccion(es) del nuevo becario
      * @return Lista de Direcciones del becario
@@ -432,6 +434,117 @@ public class PrincipalControlador {
     }
     
     /**
+     * Obtiene los datos del(los) papá(ás) del becario
+     * @param idBecario Id del becario
+     * @return Lista con los datos de los padres
+     */
+    private List<Padres> getPadresBecarioDeFormulario(long idBecario) {
+        List<Padres> lstResult = new ArrayList<>();
+        for (PnlParentesco panel : lstVistaParentesco) {
+            Padres padre = new Padres();
+            padre.setNombre(panel.txtNombresPariente.getText());
+            padre.setaPaterno(panel.txtApPaternoPariente.getText());
+            padre.setaMaterno(panel.txtApMaternoPariente.getText());
+            padre.setTrabaja(0);
+            String grado = (String) panel.cmbNivelEstudiosPariente.getSelectedItem();
+            padre.setGradoEscolar(getIdCmbBox(grado, catNivelEstudios));
+            padre.setTrabaja(panel.cmbTrabajoActivoPariente.getSelectedIndex());
+            padre.setIdBecario(idBecario);
+            String parentesco = (String) panel.cmbParentesco.getSelectedItem();
+            padre.setParenteco(getIdCmbBox(parentesco, catParentesco));
+            
+            lstResult.add(padre);
+        }
+        
+        return lstResult;
+    }
+    
+    /**
+     * Obtiene los datos del(los) hermano(s) del becario
+     * @param idBecario Id del becario
+     * @return LIsta con los datos de los hermanos
+     */
+    private List<Hermanos> getHermanosDeFormulario(long idBecario) {
+        List<Hermanos> lstResult = new ArrayList<>();
+        
+        for (PnlHermanos panel : lstVistaHermanos) {
+            Hermanos hermano = new Hermanos();
+            hermano.setNombre(panel.txtNombresPariente.getText());
+            hermano.setAPaterno(panel.txtApPaternoPariente.getText());
+            String grado = (String) panel.cmbNivelEstudiosHermano.getSelectedItem();
+            hermano.setGradoEscolar(getIdCmbBox(grado, catNivelEstudios));
+            hermano.setIdBecario(idBecario);
+            lstResult.add(hermano);
+        }
+        
+        return lstResult;
+    }
+    
+    /**
+     * Obtiene los datos del(los) hermano(s) del becario
+     * @param idBecario Id del becario
+     * @return Lista con los datos de los hijos
+     */
+    private List<Hijos> getHijosDeFormulario(long idBecario) {
+        List<Hijos> lstResult = new ArrayList<>();
+        
+        for (PnlHijos panel : lstVistaHijos) {
+            Hijos hijo = new Hijos();
+            hijo.setNombre(panel.txtNombreHIjo.getText());
+            hijo.setAPaterno(panel.txtApPaternoHijo.getText());
+            hijo.setAMaterno(panel.txtApMaternoHijo.getText());
+            //hijo.setFechaNac(null);
+            hijo.setIdBecario(idBecario);
+            lstResult.add(hijo);
+        }
+        
+        return lstResult;
+    }
+    
+    /**
+     * Obtiene la seleccion de un combo box
+     * @param combo Combo box que se evaluará
+     * @return Selección
+     */
+    private String getSeleccionCmbBox(JComboBox combo){
+        String seleccion = (String) combo.getSelectedItem();
+        
+        return seleccion;
+    }
+
+    /**
+     * Obtiene el id de la seleccion del usuario en un combo box
+     * @param cadena Nombre de la seleccion del usuario
+     * @param categorias Listado de categorias a comparar
+     * @return Id de la seleccion del usuario
+     * @throws NullPointerException En caso de que no se encuentre el id de la selección
+     */
+    private int getIdCmbBox(String cadena, LinkedHashMap<Integer, String> categorias) throws NullPointerException {
+        int idCategoria = 0;
+        for (Integer key : categorias.keySet()) {
+            if(cadena.equals(categorias.get(key))){
+                idCategoria = key;
+            }
+        }
+        
+        if(idCategoria == 0){
+            log.crearLog(new NullPointerException("Id no encontrado").getMessage());
+        }
+        return idCategoria;
+    }
+
+    private long getFecha(String fecha){
+        String[] fech = fecha.split("/");
+        int anio = Integer.parseInt(fech[2]); 
+        int mes = Integer.parseInt(fech[1]); 
+        int dia = Integer.parseInt(fech[0]); 
+        Calendar calendario = new GregorianCalendar(anio, mes, dia);
+        long result = calendario.getTimeInMillis();
+        
+        return result;
+    }
+    
+    /**
      * Recorre todos los componentes dentro de un JPanel
      * @param clave 1: Valida si hay campos vacios
      * @param panel Jpanel a recorrer
@@ -469,13 +582,20 @@ public class PrincipalControlador {
      */
     private boolean validaCamposVacios() {
         boolean response = false;
-        recorreJPanel(vistaRegistro.pnlDatosGenerales, 1);
-        recorreJPanel(vistaRegistro.pnlParentesco, 1);
-        recorreJPanel(vistaRegistro.pnlInformacionEscolar, 1);
-        recorreJPanel(vistaRegistro.pnlManejoBeca, 1);
-        recorreJPanel(vistaRegistro.pnlDirecciones, 1);
-        recorreJPanel(vistaRegistro.pnlCorreos, 1);
+        
+        //Si se encuentran campos vacios
+        if( recorreJPanel(vistaRegistro.pnlDatosGenerales, 1) || 
+            recorreJPanel(vistaRegistro.pnlParentesco, 1) || 
+            recorreJPanel(vistaRegistro.pnlInformacionEscolar, 1) || 
+            recorreJPanel(vistaRegistro.pnlManejoBeca, 1) || 
+            recorreJPanel(vistaRegistro.pnlDirecciones, 1) || 
+            recorreJPanel(vistaRegistro.pnlCorreos, 1) ){
+            
+            response = true;
+        }
         
         return response;
     }
+
+    
 }

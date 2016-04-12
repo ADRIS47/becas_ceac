@@ -132,6 +132,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNombresParienteActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JComboBox" name="cmbNivelEstudiosPariente">
           <Properties>
@@ -147,8 +150,8 @@
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="2">
-                <StringItem index="0" value="Si"/>
-                <StringItem index="1" value="No"/>
+                <StringItem index="0" value="No"/>
+                <StringItem index="1" value="Si"/>
               </StringArray>
             </Property>
           </Properties>
