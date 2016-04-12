@@ -5,9 +5,6 @@
  */
 package principal;
 
-import adris.vistas.*;
-import javax.swing.JComponent;
-
 /**
  *
  * @author Adriana
@@ -68,6 +65,8 @@ public class PnlParentesco extends javax.swing.JPanel {
 
         jPanel1.add(cmbParentesco);
         jPanel1.add(txtApPaternoPariente);
+
+        txtApMaternoPariente.setName("txtApMaternoPariente"); // NOI18N
         jPanel1.add(txtApMaternoPariente);
 
         lblParentesco1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N

@@ -8,6 +8,7 @@ package principal;
 import helpers.Helper;
 import helpers.Log;
 import index.Index;
+import java.awt.Color;
 import java.awt.Component;
 import java.io.File;
 import java.sql.Date;
@@ -15,14 +16,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.List;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import pojos.Becario;
 import pojos.Direccion;
@@ -143,7 +146,6 @@ public class PrincipalControlador {
         llenaComboCategorias(vistaRegistro.combobxSexoBecado, catSexo);
         llenaComboCategorias(lstVistaParentesco.get(0).cmbNivelEstudiosPariente, catNivelEstudios);
         llenaComboCategorias(lstVistaHermanos.get(0).cmbNivelEstudiosHermano, catNivelEstudios);
-        llenaComboCategorias(lstVistaParentesco.get(0).cmbNivelEstudiosPariente, catNivelEstudios);
         llenaComboCategorias(lstVistaParentesco.get(0).cmbParentesco, catParentesco);
         llenaComboCategorias(vistaRegistro.cmboxEscuelaUniversitaria, catUniversidad);
         llenaComboCategorias(vistaRegistro.cmboxCampoEscuela, catCampoEstudio);
@@ -151,7 +153,7 @@ public class PrincipalControlador {
     }
     
     /**
-     * Llena el combo box indicado
+     * Llena el combo box indicado con el listado que se le manda
      */
     private void llenaComboCategorias(JComboBox combo, LinkedHashMap<Integer, String> lstCategoria){
         //catPrograma = lstCategorias.get(2);
@@ -283,25 +285,34 @@ public class PrincipalControlador {
     }
 
     /**
-     * Comienza la insersión del becario
+     * Comienza la insersión del becario, en caso de que falten datos generales de llenar se guarda como pendiente
      */
     protected void insertaNuevoBecario() {
-       Becario becario = getDatosBecarioDeFormulario();
-       List<Direccion> lstDireccionesBecario = getDireccionBecarioDeFormulario(becario.getId());
-       List<Telefono> lstTelefonosBecario = getTelefonoBecarioDeFormulario(becario.getId());
         
+        boolean vacio = validaCamposVacios();
+//       Becario becario = getDatosBecarioDeFormulario();
+//       List<Direccion> lstDireccionesBecario = getDireccionBecarioDeFormulario(becario.getId());
+//       List<Telefono> lstTelefonosBecario = getTelefonoBecarioDeFormulario(becario.getId());
+//        vistaRegistro.repaint();
+//        vista.repaint();
     }
 
     private Becario getDatosBecarioDeFormulario() {
         Becario becario = new Becario();
-    
+        
         //Se obtiene el id del programa seleccionado
         String prog = getSeleccionCmbBox(vistaRegistro.comboBoxPrograma);
         becario.setIdPrograma(getIdCmbBox(prog, catPrograma));
         //Se obtiene las iniciales del folio
         String inicioFolio = modelo.getClavePrograma(getIdCmbBox(prog, catPrograma));
         //Se obtiene el estatus del becario
-        becario.setIdEstatus(1);
+        int estatus = vistaRegistro.cmbEstatus.getSelectedIndex();
+        if(estatus == 0)
+            //estatus becario
+            becario.setIdEstatus(1);
+        else
+            //Estatus exalumno
+            becario.setIdEstatus(3);
         //Se obtiene el estado civil
         String edoCiv = getSeleccionCmbBox(vistaRegistro.combobxCivilBecado);
         becario.setIdEstadoCivil(getIdCmbBox(edoCiv, catEstadoCivil));
@@ -383,7 +394,7 @@ public class PrincipalControlador {
                 direccion.setNumExt(panel.txtNumBecado.getText());
                 direccion.setNumInt(panel.txtIntBecado.getText());
                 direccion.setCodigoPostal(panel.txtCpBecado.getText());
-                direccion.setColonia(panel.txtColonia.getText());
+                direccion.setColonia(panel.txtNumIntBecado.getText());
                 direccion.setCiudad(panel.txtCiudadBecado.getText());
                 direccion.setIdBecario(idBecario);
                 lstDirecciones.add(direccion);
@@ -418,5 +429,53 @@ public class PrincipalControlador {
         }
         
         return lstTelefono;
+    }
+    
+    /**
+     * Recorre todos los componentes dentro de un JPanel
+     * @param clave 1: Valida si hay campos vacios
+     * @param panel Jpanel a recorrer
+     * @return True si encontró campos vacios, false si no
+     */
+    private boolean recorreJPanel(JPanel panel, int clave){
+        Component[] componentes = panel.getComponents();
+        boolean response = false;
+        switch(clave){
+            //Datos generales
+            case 1:
+                for (Component componente : componentes) {
+                    if(componente instanceof JPanel){
+                        response = recorreJPanel((JPanel)componente, 1);
+                    }                    
+                    if (componente instanceof JTextField) {
+                        //Si el campo tiene un nombre quiere decir que puede estar vacio
+                        if(((JTextField) componente).getName() != null){
+                            continue;
+                        }
+                        if(((JTextField) componente).getText().equals("")){
+                            ((JTextField) componente).setBackground(Color.ORANGE);
+                            response = true;
+                        }
+                    }
+                }   
+                break;
+        }
+        return response;
+    }
+
+    /**
+     * Valida que los campos de datos generales,  Direccion, Padres, Información escolar, Manejo de beca no estén vacios
+     * @return True si hay campos vacios, False si no
+     */
+    private boolean validaCamposVacios() {
+        boolean response = false;
+        recorreJPanel(vistaRegistro.pnlDatosGenerales, 1);
+        recorreJPanel(vistaRegistro.pnlParentesco, 1);
+        recorreJPanel(vistaRegistro.pnlInformacionEscolar, 1);
+        recorreJPanel(vistaRegistro.pnlManejoBeca, 1);
+        recorreJPanel(vistaRegistro.pnlDirecciones, 1);
+        recorreJPanel(vistaRegistro.pnlCorreos, 1);
+        
+        return response;
     }
 }

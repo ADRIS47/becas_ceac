@@ -41,7 +41,7 @@ public class PnlDireccion extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         txtCalleBecado = new javax.swing.JTextField();
         txtNumBecado = new javax.swing.JTextField();
-        txtColonia = new javax.swing.JTextField();
+        txtNumIntBecado = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -84,7 +84,9 @@ public class PnlDireccion extends javax.swing.JPanel {
             }
         });
         jPanel1.add(txtNumBecado);
-        jPanel1.add(txtColonia);
+
+        txtNumIntBecado.setName("txtColonia"); // NOI18N
+        jPanel1.add(txtNumIntBecado);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("C.P.");
@@ -166,9 +168,9 @@ public class PnlDireccion extends javax.swing.JPanel {
     protected javax.swing.JLabel lblAgregarDireccion;
     protected javax.swing.JTextField txtCalleBecado;
     protected javax.swing.JTextField txtCiudadBecado;
-    protected javax.swing.JTextField txtColonia;
     protected javax.swing.JTextField txtCpBecado;
     protected javax.swing.JTextField txtIntBecado;
     protected javax.swing.JTextField txtNumBecado;
+    protected javax.swing.JTextField txtNumIntBecado;
     // End of variables declaration//GEN-END:variables
 }
