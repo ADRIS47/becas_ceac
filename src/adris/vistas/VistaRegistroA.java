@@ -11,13 +11,13 @@ import principal.*;
  *
  * @author sabagip
  */
-public class VistaRegistro extends javax.swing.JPanel {
+public class VistaRegistroA extends javax.swing.JPanel {
 
     PrincipalControlador controlador;
     /**
      * Creates new form VistaRegistro2
      */
-    public VistaRegistro(PrincipalControlador controlador) {
+    public VistaRegistroA(PrincipalControlador controlador) {
         initComponents();
         this.controlador = controlador;
     }

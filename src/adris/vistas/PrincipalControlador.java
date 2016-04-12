@@ -23,7 +23,7 @@ import javax.swing.JOptionPane;
 public class PrincipalControlador {
     
     VistaPanelPrincipal vista;
-    VistaRegistro vistaRegistro;
+    VistaRegistroA vistaRegistro;
     PnlHermanos vistaHermanos;
     PnlHijos vistaHijos;
     PnlParentesco vistaParentesco;
@@ -52,7 +52,7 @@ public class PrincipalControlador {
         this.modelo = modelo;
     }
 
-    public void setVistaRegistro(VistaRegistro vistaRegistro) {
+    public void setVistaRegistro(VistaRegistroA vistaRegistro) {
         this.vistaRegistro = vistaRegistro;
     }
 
@@ -89,7 +89,7 @@ public class PrincipalControlador {
      * Crea una pantalla VistaRegistro en la pantalla principal con sus respectivos datos
      */
     public void creaVistaRegistro(){
-        vistaRegistro = new VistaRegistro(this);
+        vistaRegistro = new VistaRegistroA(this);
         this.setVistaRegistro(vistaRegistro);
         List<TreeMap<Integer, String>> lstCategorias = null;
                 
