@@ -28,6 +28,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import pojos.Becario;
+import pojos.DatosEscolares;
 import pojos.Direccion;
 import pojos.Hermanos;
 import pojos.Hijos;
@@ -333,6 +334,7 @@ public class PrincipalControlador {
         List<Padres> lstPadresBecario = getPadresBecarioDeFormulario(becario.getId());
         List<Hermanos> lstHermanos = getHermanosDeFormulario(becario.getId());
         List<Hijos> lstHijos = getHijosDeFormulario(becario.getId());
+        DatosEscolares lstDatosEscolares = getDatosEscolaresDeFormulario(becario.getId());
     }
 
     /**
@@ -499,6 +501,18 @@ public class PrincipalControlador {
         }
         
         return lstResult;
+    }
+    
+    /**
+     * Obtiene los datos escolares del becario
+     * @param idBecario
+     * @return 
+     */
+    private DatosEscolares getDatosEscolaresDeFormulario(long idBecario) {
+        DatosEscolares datos = new DatosEscolares();
+        //datos.set
+        
+        return datos;
     }
     
     /**
