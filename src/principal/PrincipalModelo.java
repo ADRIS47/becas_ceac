@@ -8,6 +8,7 @@ package principal;
 import crud.Conexion;
 import crud.Consultas;
 import crud.Insert;
+import crud.Update;
 import helpers.Helper;
 import helpers.Log;
 import java.sql.Connection;
@@ -16,9 +17,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.LinkedHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -501,6 +502,12 @@ public class PrincipalModelo {
             }
 
         } catch (SQLException e) {
+            try {
+                conexion.rollback();
+            } catch (SQLException ex) {
+                muestraErrores(e);
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
             muestraErrores(e);
         } finally {
             try {
@@ -558,7 +565,7 @@ public class PrincipalModelo {
     protected boolean insertDireccionBecario(Connection conexion, long idBecario, List<Direccion> lstDireccionesBecario) {
         boolean response = false;
         PreparedStatement ps = null;
-        ResultSet rs = null;
+        //ResultSet rs = null;
         try {
             for (Direccion direccion : lstDireccionesBecario) {
                 ps = conexion.prepareStatement(Insert.insertDireccionBecario);
@@ -568,7 +575,7 @@ public class PrincipalModelo {
                 ps.setString(4, direccion.getColonia());
                 ps.setString(5, direccion.getCodigoPostal());
                 ps.setString(6, direccion.getCiudad());
-                ps.setLong(7, direccion.getIdBecario());
+                ps.setLong(7, idBecario);
                 int i = ps.executeUpdate();
                 if (i == 0) {
                     throw new SQLException("Error al insertar direccion becario: " + ps.toString());
@@ -578,10 +585,16 @@ public class PrincipalModelo {
             response = true;
 
         } catch (SQLException e) {
+            try {
+                conexion.rollback();
+            } catch (SQLException ex) {
+                muestraErrores(ex);
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
             muestraErrores(e);
         } finally {
             try {
-                rs.close();
+                //rs.close();
                 ps.close();
             } catch (SQLException ex) {
                 muestraErrores(ex);
@@ -603,7 +616,7 @@ public class PrincipalModelo {
     protected boolean insertTelefonoBecario(Connection conexion, long idBecario, List<Telefono> lstTelefonosBecario) {
         boolean response = false;
         PreparedStatement ps = null;
-        ResultSet rs = null;
+        //ResultSet rs = null;
         try {
             for (Telefono telefono : lstTelefonosBecario) {
                 ps = conexion.prepareStatement(Insert.insertTelefonoBecario);
@@ -618,10 +631,16 @@ public class PrincipalModelo {
             response = true;
 
         } catch (SQLException e) {
+            try {
+                conexion.rollback();
+            } catch (SQLException ex) {
+                muestraErrores(ex);
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
             muestraErrores(e);
         } finally {
             try {
-                rs.close();
+                //rs.close();
                 ps.close();
             } catch (SQLException ex) {
                 muestraErrores(ex);
@@ -643,7 +662,7 @@ public class PrincipalModelo {
     protected boolean insertPapasBecario(Connection conexion, long idBecario, List<Padres> lstPadresBecario) {
         boolean response = false;
         PreparedStatement ps = null;
-        ResultSet rs = null;
+        //ResultSet rs = null;
         try {
             for (Padres papa : lstPadresBecario) {
                 ps = conexion.prepareStatement(Insert.insertPadresBecario);
@@ -664,10 +683,16 @@ public class PrincipalModelo {
             response = true;
 
         } catch (SQLException e) {
+            try {
+                conexion.rollback();
+            } catch (SQLException ex) {
+                muestraErrores(ex);
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
             muestraErrores(e);
         } finally {
             try {
-                rs.close();
+                //rs.close();
                 ps.close();
             } catch (SQLException ex) {
                 muestraErrores(ex);
@@ -689,7 +714,7 @@ public class PrincipalModelo {
     protected boolean insertHermanosBecario(Connection conexion, long idBecario, List<Hermanos> lstHermanos) {
         boolean response = false;
         PreparedStatement ps = null;
-        ResultSet rs = null;
+        //ResultSet rs = null;
         try {
             for (Hermanos hermano : lstHermanos) {
                 ps = conexion.prepareStatement(Insert.insertHermanoBecario);
@@ -705,10 +730,16 @@ public class PrincipalModelo {
             }
             response = true;
         } catch (SQLException e) {
+            try {
+                conexion.rollback();
+            } catch (SQLException ex) {
+                muestraErrores(ex);
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
             muestraErrores(e);
         } finally {
             try {
-                rs.close();
+                //rs.close();
                 ps.close();
             } catch (SQLException ex) {
                 muestraErrores(ex);
@@ -729,7 +760,7 @@ public class PrincipalModelo {
     protected boolean insertHijosBecario(Connection conexion, long idBecario, List<Hijos> lstHijos) {
         boolean response = false;
         PreparedStatement ps = null;
-        ResultSet rs = null;
+        //ResultSet rs = null;
         try {
             for (Hijos hijo : lstHijos) {
                 ps = conexion.prepareStatement(Insert.insertHijoBecario);
@@ -745,10 +776,51 @@ public class PrincipalModelo {
             }
             response = true;
         } catch (SQLException e) {
+            try {
+                conexion.rollback();
+            } catch (SQLException ex) {
+                muestraErrores(ex);
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
             muestraErrores(e);
         } finally {
             try {
-                rs.close();
+                //rs.close();
+                ps.close();
+            } catch (SQLException ex) {
+                muestraErrores(ex);
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+        return response;
+    }
+
+    boolean updateContadorPrograma(Connection conexion, String inicialesFolio) {
+        boolean response = false;
+        PreparedStatement ps = null;
+        //ResultSet rs = null;
+        try {
+            
+            ps = conexion.prepareStatement(Update.updateContadorPrograma);
+            ps.setString(1, inicialesFolio);
+            int i = ps.executeUpdate();
+            if (i == 0) {
+                throw new SQLException("Error al insertar hijos becario: " + ps.toString());
+            }
+            
+            response = true;
+        } catch (SQLException e) {
+            try {
+                conexion.rollback();
+            } catch (SQLException ex) {
+                muestraErrores(ex);
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            muestraErrores(e);
+        } finally {
+            try {
+                //rs.close();
                 ps.close();
             } catch (SQLException ex) {
                 muestraErrores(ex);

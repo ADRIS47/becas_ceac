@@ -57,19 +57,25 @@ public class Insert {
      */
     public static String insertPadresBecario = "INSERT INTO beca_padres "
             + "(" + Padres.COL_NOMBRE + ",  " + Padres.COL_APATERNO + ", "
-            + "(" + Padres.COL_AMATERNO + ",  " + Padres.COL_TELEFONO + ", "
-            + "(" + Padres.COL_ID_GRADO_ESCOLAR + ",  " + Padres.COL_TRABAJA + ", "
-            + "(" + Padres.COL_ID_BECARIO + ",  " + Padres.COL_ID_PARENTESCO + ") "
+            + Padres.COL_AMATERNO + ",  " + Padres.COL_TELEFONO + ", "
+            + Padres.COL_ID_GRADO_ESCOLAR + ",  " + Padres.COL_TRABAJA + ", "
+            + Padres.COL_ID_BECARIO + ",  " + Padres.COL_ID_PARENTESCO + ") " 
             + "VALUES (?,?,?,?,"
-                        + "?,?,?,?,)";
+                        + "?,?,?,?)";
+    
+    
+    
+    /**
+     * Esto es una prueba de actuializacion
+     */
     
     /**
      * Inserta el hermano del becario
      */
     public static String insertHermanoBecario = "INSERT INTO beca_hermano "
             + "(" + Hermanos.COL_NOMBRE + ",  " + Hermanos.COL_APATERNO + ", "
-            + "(" + Hermanos.COL_AMATERNO + ",  " + Hermanos.COL_ID_GRADO_ESCOLAR + ", "
-            + "(" + Hermanos.COL_ID_BECARIO + ") "
+            + Hermanos.COL_AMATERNO + ",  " + Hermanos.COL_ID_GRADO_ESCOLAR + ", "
+            + Hermanos.COL_ID_BECARIO + ") "
             + "VALUES (?,?,?,?,?)";
     
     /**
@@ -77,8 +83,8 @@ public class Insert {
      */
     public static String insertHijoBecario = "INSERT INTO beca_hijo "
             + "(" + Hijos.COL_NOMBRE + ",  " + Hijos.COL_APATERNO + ", "
-            + "(" + Hijos.COL_AMATERNO + ",  " + Hijos.COL_FECHA_NAC + ", "
-            + "(" + Hijos.COL_ID_BECARIO + ") "
+            + Hijos.COL_AMATERNO + ",  " + Hijos.COL_FECHA_NAC + ", "
+            + Hijos.COL_ID_BECARIO + ") "
             + "VALUES (?,?,?,?,?)";
     
 }

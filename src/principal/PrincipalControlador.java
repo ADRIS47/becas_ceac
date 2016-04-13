@@ -14,8 +14,6 @@ import java.awt.Component;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -383,9 +381,14 @@ public class PrincipalControlador {
             if(hijos == false){
                 throw new SQLException();
             }
-            
+            //Se aumenta el contador del folio
+            boolean contador = modelo.updateContadorPrograma(conexion, becario.getInicialesFolio());
+            if(contador == false){
+                throw new SQLException();
+            }
             conexion.commit();
-            JOptionPane.showMessageDialog(vista, "Becario registrado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(vista, "Becario registrado correctamente \n"
+                    + "Número de folio: " + becario.getFolio(), "Éxito", JOptionPane.INFORMATION_MESSAGE);
         }
         catch(SQLException e){
             try {
@@ -437,8 +440,9 @@ public class PrincipalControlador {
         becario.setIdEstadoCivil(getIdCmbBox(edoCiv, catEstadoCivil));
         //Se obtiene si trabaja o no
         becario.setTrabaja(vistaRegistro.comboBxTrabajaBecado.getSelectedIndex());
+        String sexo = (String) vistaRegistro.combobxSexoBecado.getSelectedItem();
         //Se obtiene el id del sexo
-        becario.setIdSexo(vistaRegistro.combobxSexoBecado.getSelectedIndex());
+        becario.setIdSexo(getIdCmbBox(sexo, catSexo));
         //Se obtiene el nombre del becario
         becario.setNombre(vistaRegistro.txtNombreBecado.getText());
         //Se obtiene el ap paterno del becario
@@ -478,11 +482,11 @@ public class PrincipalControlador {
                 //Se obtiene el numero exterior
                 direccion.setNumExt(panel.txtNumBecado.getText());
                 //Se obtiene el numero interior
-                direccion.setNumInt(panel.txtIntBecado.getText());
+                direccion.setNumInt(panel.txtNumIntBecado.getText());
                 //Se obtiene el codigo postal
-                direccion.setCodigoPostal(panel.txtCpBecado.getText());
+                direccion.setCodigoPostal(panel.txtCPBecado.getText());
                 //Se obtiene la colonia
-                direccion.setColonia(panel.txtNumIntBecado.getText());
+                direccion.setColonia(panel.txtColoniaBecado.getText());
                 //Se obtiene la ciudad
                 direccion.setCiudad(panel.txtCiudadBecado.getText());
                 //Se obtiene el becario

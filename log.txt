@@ -38,3 +38,97 @@
 13/4/2016;1:0:55;SQLError: 23000
 13/4/2016;1:0:55;ERROR: Code1452
 13/4/2016;1:0:55;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_becario`, CONSTRAINT `fk_beca_becario_beca_cat_sexo1` FOREIGN KEY (`sexo`) REFERENCES `beca_cat_sexo` (`id_genero`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+13/4/2016;9:55:12;SQLError: 23000
+13/4/2016;9:55:12;ERROR: Code1452
+13/4/2016;9:55:12;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_becario`, CONSTRAINT `fk_beca_becario_beca_cat_sexo1` FOREIGN KEY (`sexo`) REFERENCES `beca_cat_sexo` (`id_genero`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+13/4/2016;10:0:48;SQLError: HY000
+13/4/2016;10:0:48;ERROR: Code1366
+13/4/2016;10:0:48;Message: Incorrect integer value: 'asdf' for column 'codigo_postal' at row 1
+13/4/2016;10:7:49;SQLError: HY000
+13/4/2016;10:7:49;ERROR: Code1366
+13/4/2016;10:7:49;Message: Incorrect integer value: 'asdf' for column 'codigo_postal' at row 1
+13/4/2016;10:12:11;SQLError: 23000
+13/4/2016;10:12:11;ERROR: Code1452
+13/4/2016;10:12:11;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_direccion`, CONSTRAINT `fk_beca_direccion_beca_becario1` FOREIGN KEY (`id_becario`) REFERENCES `beca_becario` (`id_becario`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+13/4/2016;10:13:22;SQLError: 23000
+13/4/2016;10:13:22;ERROR: Code1452
+13/4/2016;10:13:22;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_direccion`, CONSTRAINT `fk_beca_direccion_beca_becario1` FOREIGN KEY (`id_becario`) REFERENCES `beca_becario` (`id_becario`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+13/4/2016;10:14:31;SQLError: 23000
+13/4/2016;10:14:31;ERROR: Code1452
+13/4/2016;10:14:31;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_direccion`, CONSTRAINT `fk_beca_direccion_beca_becario1` FOREIGN KEY (`id_becario`) REFERENCES `beca_becario` (`id_becario`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+13/4/2016;10:26:36;SQLError: 42000
+13/4/2016;10:26:36;ERROR: Code1064
+13/4/2016;10:26:36;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(ap_materno,  telefono, (id_grado_escolar,  trabaja, (id_becario,  id_parentesco' at line 1
+13/4/2016;10:27:54;SQLError: 42000
+13/4/2016;10:27:54;ERROR: Code1064
+13/4/2016;10:27:54;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(ap_materno,  telefono, (id_grado_escolar,  trabaja, (id_becario,  id_parentesco' at line 1
+13/4/2016;10:28:52;SQLError: 42000
+13/4/2016;10:28:52;ERROR: Code1064
+13/4/2016;10:28:52;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(ap_materno,  telefono, (id_grado_escolar,  trabaja, (id_becario,  id_parentesco' at line 1
+13/4/2016;10:29:33;SQLError: 42000
+13/4/2016;10:29:33;ERROR: Code1064
+13/4/2016;10:29:33;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(ap_materno,  telefono, (id_grado_escolar,  trabaja, (id_becario,  id_parentesco' at line 1
+13/4/2016;10:30:15;SQLError: 42000
+13/4/2016;10:30:15;ERROR: Code1064
+13/4/2016;10:30:15;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(ap_materno,  telefono, (id_grado_escolar,  trabaja, (id_becario,  id_parentesco' at line 1
+13/4/2016;10:30:58;SQLError: 42000
+13/4/2016;10:30:58;ERROR: Code1064
+13/4/2016;10:30:58;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(ap_materno,  telefono, (id_grado_escolar,  trabaja, (id_becario,  id_parentesco' at line 1
+13/4/2016;10:31:26;SQLError: 42000
+13/4/2016;10:31:26;ERROR: Code1064
+13/4/2016;10:31:26;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(ap_materno,  telefono, (id_grado_escolar,  trabaja, (id_becario,  id_parentesco' at line 1
+13/4/2016;10:32:31;SQLError: 42000
+13/4/2016;10:32:31;ERROR: Code1064
+13/4/2016;10:32:31;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(ap_materno,  telefono, (id_grado_escolar,  trabaja, (id_becario,  id_parentesco' at line 1
+13/4/2016;10:36:12;SQLError: 42000
+13/4/2016;10:36:12;ERROR: Code1064
+13/4/2016;10:36:12;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+13/4/2016;10:36:26;null
+13/4/2016;10:38:1;SQLError: 42000
+13/4/2016;10:38:1;ERROR: Code1064
+13/4/2016;10:38:1;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+13/4/2016;10:38:4;null
+13/4/2016;10:38:33;SQLError: 42000
+13/4/2016;10:38:33;ERROR: Code1064
+13/4/2016;10:38:33;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+13/4/2016;10:38:35;null
+13/4/2016;10:39:19;SQLError: 42000
+13/4/2016;10:39:19;ERROR: Code1064
+13/4/2016;10:39:19;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+13/4/2016;10:39:22;null
+13/4/2016;10:42:24;SQLError: 42S22
+13/4/2016;10:42:24;ERROR: Code1054
+13/4/2016;10:42:24;Message: Unknown column 'ap_paterno' in 'field list'
+13/4/2016;10:42:30;null
+13/4/2016;10:46:35;SQLError: 23000
+13/4/2016;10:46:35;ERROR: Code1048
+13/4/2016;10:46:35;Message: Column 'telefono' cannot be null
+13/4/2016;10:46:39;null
+13/4/2016;10:52:9;SQLError: 42000
+13/4/2016;10:52:9;ERROR: Code1064
+13/4/2016;10:52:9;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(ap_materno,  id_grado_escolar, (id_becario) VALUES ('asdf','asdf','asdf',2,1)' at line 1
+13/4/2016;10:52:12;null
+13/4/2016;10:52:56;SQLError: 42000
+13/4/2016;10:52:56;ERROR: Code1064
+13/4/2016;10:52:56;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(ap_materno,  id_grado_escolar, (id_becario) VALUES ('asdf','asdf','asdf',2,2)' at line 1
+13/4/2016;10:52:59;null
+13/4/2016;10:55:38;SQLError: 42S22
+13/4/2016;10:55:38;ERROR: Code1054
+13/4/2016;10:55:38;Message: Unknown column 'nombre' in 'field list'
+13/4/2016;10:55:42;null
+13/4/2016;10:58:54;SQLError: 42000
+13/4/2016;10:58:54;ERROR: Code1064
+13/4/2016;10:58:54;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'nombre,  ap_paterno, ap_materno,  fecha_nacimiento, id_becario) VALUES ('asdf','' at line 1
+13/4/2016;10:58:59;null
+13/4/2016;10:59:41;SQLError: 42000
+13/4/2016;10:59:41;ERROR: Code1064
+13/4/2016;10:59:41;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'nombre,  ap_paterno, ap_materno,  fecha_nacimiento, id_becario) VALUES ('asdf','' at line 1
+13/4/2016;10:59:43;null
+13/4/2016;11:2:58;SQLError: 42S22
+13/4/2016;11:2:58;ERROR: Code1054
+13/4/2016;11:2:58;Message: Unknown column 'ap_paterno' in 'field list'
+13/4/2016;11:3:0;null
+13/4/2016;11:21:9;SQLError: 42000
+13/4/2016;11:21:9;ERROR: Code1064
+13/4/2016;11:21:9;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'iniciales = 'DEV-'' at line 1
+13/4/2016;11:21:11;null

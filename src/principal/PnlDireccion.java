@@ -45,8 +45,8 @@ public class PnlDireccion extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txtIntBecado = new javax.swing.JTextField();
-        txtCpBecado = new javax.swing.JTextField();
+        txtCPBecado = new javax.swing.JTextField();
+        txtColoniaBecado = new javax.swing.JTextField();
         txtCiudadBecado = new javax.swing.JTextField();
         lblAgregarDireccion = new javax.swing.JLabel();
 
@@ -99,14 +99,14 @@ public class PnlDireccion extends javax.swing.JPanel {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("Ciudad");
         jPanel1.add(jLabel6);
-        jPanel1.add(txtIntBecado);
+        jPanel1.add(txtCPBecado);
 
-        txtCpBecado.addActionListener(new java.awt.event.ActionListener() {
+        txtColoniaBecado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCpBecadoActionPerformed(evt);
+                txtColoniaBecadoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtCpBecado);
+        jPanel1.add(txtColoniaBecado);
         jPanel1.add(txtCiudadBecado);
 
         lblAgregarDireccion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -147,9 +147,9 @@ public class PnlDireccion extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNumBecadoActionPerformed
 
-    private void txtCpBecadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpBecadoActionPerformed
+    private void txtColoniaBecadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtColoniaBecadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCpBecadoActionPerformed
+    }//GEN-LAST:event_txtColoniaBecadoActionPerformed
 
     private void lblAgregarDireccionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAgregarDireccionMouseClicked
        controlador.agregaJPanel(this);
@@ -166,10 +166,10 @@ public class PnlDireccion extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField5;
     protected javax.swing.JLabel lblAgregarDireccion;
+    protected javax.swing.JTextField txtCPBecado;
     protected javax.swing.JTextField txtCalleBecado;
     protected javax.swing.JTextField txtCiudadBecado;
-    protected javax.swing.JTextField txtCpBecado;
-    protected javax.swing.JTextField txtIntBecado;
+    protected javax.swing.JTextField txtColoniaBecado;
     protected javax.swing.JTextField txtNumBecado;
     protected javax.swing.JTextField txtNumIntBecado;
     // End of variables declaration//GEN-END:variables
