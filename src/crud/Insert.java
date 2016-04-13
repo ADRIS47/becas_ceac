@@ -7,6 +7,10 @@ package crud;
 
 import pojos.Becario;
 import pojos.Direccion;
+import pojos.Hermanos;
+import pojos.Hijos;
+import pojos.Padres;
+import pojos.Telefono;
 
 /**
  *
@@ -38,5 +42,41 @@ public class Insert {
                 + Direccion.COL_CODIGO_POSTAL + ", " + Direccion.COL_CIUDAD + ", "
                 + Direccion.COL_ID_BECARIO + " ) "
             + "VALUES (?,?,?,?,?,?,?)";
+    
+    /**
+     * Inserta telefono de un becario
+     */
+    public static String insertTelefonoBecario = "INSERT INTO beca_telefono "
+            + "( " + Telefono.COL_TELEFONO + ", " + Telefono.COL_ID_BECARIO + " ) "
+            + "VALUES (?,?)";
+    
+    /**
+     * Inserta los padres del becario
+     */
+    public static String insertPadresBecario = "INSERT INTO beca_padres "
+            + "(" + Padres.COL_NOMBRE + ",  " + Padres.COL_APATERNO + ", "
+            + "(" + Padres.COL_AMATERNO + ",  " + Padres.COL_TELEFONO + ", "
+            + "(" + Padres.COL_ID_GRADO_ESCOLAR + ",  " + Padres.COL_TRABAJA + ", "
+            + "(" + Padres.COL_ID_BECARIO + ",  " + Padres.COL_ID_PARENTESCO + ") "
+            + "VALUES (?,?,?,?,"
+                        + "?,?,?,?,)";
+    
+    /**
+     * Inserta el hermano del becario
+     */
+    public static String insertHermanoBecario = "INSERT INTO beca_hermano "
+            + "(" + Hermanos.COL_NOMBRE + ",  " + Hermanos.COL_APATERNO + ", "
+            + "(" + Hermanos.COL_AMATERNO + ",  " + Hermanos.COL_ID_GRADO_ESCOLAR + ", "
+            + "(" + Hermanos.COL_ID_BECARIO + ") "
+            + "VALUES (?,?,?,?,?)";
+    
+    /**
+     * Inserta un hijo del becario
+     */
+    public static String insertHijoBecario = "INSERT INTO beca_hijo "
+            + "(" + Hijos.COL_NOMBRE + ",  " + Hijos.COL_APATERNO + ", "
+            + "(" + Hijos.COL_AMATERNO + ",  " + Hijos.COL_FECHA_NAC + ", "
+            + "(" + Hijos.COL_ID_BECARIO + ") "
+            + "VALUES (?,?,?,?,?)";
     
 }

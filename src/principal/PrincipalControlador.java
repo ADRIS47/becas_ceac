@@ -357,14 +357,53 @@ public class PrincipalControlador {
             if(idBecario == 0){
                 throw new SQLException();
             }
+            //Se insertan las direcciones
             boolean direccion = modelo.insertDireccionBecario(conexion, idBecario, lstDireccionesBecario);
             if(direccion == false){
                 throw new SQLException();
             }
+            //Se insertan los telefonos
+            boolean telefono = modelo.insertTelefonoBecario(conexion, idBecario, lstTelefonosBecario);
+            if(telefono == false){
+                throw new SQLException();
+            }
+            //Se insertan los padres
+            boolean papas = modelo.insertPapasBecario(conexion, idBecario, lstPadresBecario);
+            if(papas == false){
+                throw new SQLException();
+            }
+            //Se insertan los hermanos
+            boolean hermanos = modelo.insertHermanosBecario(conexion, idBecario, lstHermanos);
+            if(hermanos == false){
+                throw new SQLException();
+            }
+            //Se insertan los hijos
+            boolean hijos = modelo.insertHijosBecario(conexion, idBecario, lstHijos);
+            if(hijos == false){
+                throw new SQLException();
+            }
             
+            conexion.commit();
+            JOptionPane.showMessageDialog(vista, "Becario registrado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
         }
         catch(SQLException e){
+            try {
+                conexion.rollback();
+            } catch (SQLException ex) {
+                log.crearLog(ex.getMessage());
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JOptionPane.showMessageDialog(vista, "Error al guardar al becario", "Error de inserción", JOptionPane.ERROR_MESSAGE);
             log.crearLog(e.getMessage());
+        }
+        
+        finally{
+            try {
+                conexion.close();
+            } catch (SQLException ex) {
+                log.crearLog(ex.getMessage());
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         
         

@@ -31,16 +31,20 @@ import pojos.CatPrograma;
 import pojos.CatSexo;
 import pojos.CatUniversidad;
 import pojos.Direccion;
+import pojos.Hermanos;
+import pojos.Hijos;
+import pojos.Padres;
+import pojos.Telefono;
 
 /**
  *
  * @author sabagip
  */
 public class PrincipalModelo {
-    
+
     Log log = new Log();
     Helper helper = new Helper();
-    
+
     /**
      * Muestra los errores generados por la excepcion en consola
      *
@@ -64,15 +68,16 @@ public class PrincipalModelo {
             e = e.getNextException();
         }
     }
-    
+
     /**
      * Obtiene los datos de las categorias de la pantall VistaRegistro
+     *
      * @return Lista con las categorias de datos
      * @throws SQLException Al no conectarse a la base de datos
      */
     //protected List<LinkedHashMap<Integer, String>> getCategoriasVistaRegistro() throws SQLException{
-    protected List<LinkedHashMap<Integer, String>> getCategoriasVistaRegistro() throws SQLException{
-        
+    protected List<LinkedHashMap<Integer, String>> getCategoriasVistaRegistro() throws SQLException {
+
         List<LinkedHashMap<Integer, String>> result = new ArrayList<>();
         LinkedHashMap<Integer, String> catSexo = new LinkedHashMap<>();
         LinkedHashMap<Integer, String> catEstadoCivil = new LinkedHashMap<>();
@@ -81,11 +86,11 @@ public class PrincipalModelo {
         LinkedHashMap<Integer, String> catParentesco = new LinkedHashMap<>();
         LinkedHashMap<Integer, String> catUniversidad = new LinkedHashMap<>();
         LinkedHashMap<Integer, String> catCampoEstudio = new LinkedHashMap<>();
-        
+
         Conexion conexion = new Conexion();
         Connection conn = null;
         conn = conexion.estableceConexion();
-        if(conn == null){
+        if (conn == null) {
             throw new SQLException("No se pudo conectar a la Base de datos");
         }
         //Se comienzan a jalar los datos de la BD
@@ -96,8 +101,7 @@ public class PrincipalModelo {
         catParentesco = getParentesco(conn);
         catUniversidad = getUniversidades(conn);
         catCampoEstudio = getCampoEstudio(conn);
-        
-        
+
         //Se llena la lista con las categorias
         result.add(catSexo);
         result.add(catEstadoCivil);
@@ -106,36 +110,35 @@ public class PrincipalModelo {
         result.add(catParentesco);
         result.add(catUniversidad);
         result.add(catCampoEstudio);
-        
+
         conn.close();
         return result;
     }
-    
+
     /**
      * Obtiene la categoria de sexos
+     *
      * @param conn COnexion a la base de datos
      * @return Categoria de sexos
      */
-    protected LinkedHashMap<Integer, String> getSexo(Connection conn){
+    protected LinkedHashMap<Integer, String> getSexo(Connection conn) {
         LinkedHashMap<Integer, String> catSexo = new LinkedHashMap<>();
         Statement st = null;
         ResultSet rs = null;
         Map<Integer, String> result = new LinkedHashMap<>();
-        
-        try{
+
+        try {
             st = conn.createStatement();
             rs = st.executeQuery(Consultas.getSexo);
-            while(rs.next()){
+            while (rs.next()) {
                 CatSexo sexo = new CatSexo();
                 sexo.setId(rs.getInt(CatSexo.COL_ID_GENERO));
                 sexo.setNombre(rs.getString(CatSexo.COL_NOMBRE));
                 catSexo.put(sexo.getId(), sexo.getNombre());
             }
-        }
-        catch(SQLException e){
+        } catch (SQLException e) {
             muestraErrores(e);
-        }
-        finally{
+        } finally {
             try {
                 rs.close();
                 st.close();
@@ -145,32 +148,31 @@ public class PrincipalModelo {
         }
         return catSexo;
     }
-    
+
     /**
-    * Obtiene la categoria de sexos
-    * @return Categoria de sexos
-    */
-    protected LinkedHashMap<Integer, String> getSexo(){
+     * Obtiene la categoria de sexos
+     *
+     * @return Categoria de sexos
+     */
+    protected LinkedHashMap<Integer, String> getSexo() {
         LinkedHashMap<Integer, String> catSexo = new LinkedHashMap<>();
-        Conexion  conexion = new Conexion();
+        Conexion conexion = new Conexion();
         Connection conn = null;
         Statement st = null;
         ResultSet rs = null;
-        try{
+        try {
             conn = conexion.estableceConexion();
             st = conn.createStatement();
             rs = st.executeQuery(Consultas.getSexo);
-            while(rs.next()){
+            while (rs.next()) {
                 CatSexo sexo = new CatSexo();
                 sexo.setId(rs.getInt(CatSexo.COL_ID_GENERO));
                 sexo.setNombre(rs.getString(CatSexo.COL_NOMBRE));
                 catSexo.put(sexo.getId(), sexo.getNombre());
             }
-        }
-        catch(SQLException e){
+        } catch (SQLException e) {
             muestraErrores(e);
-        }
-        finally{
+        } finally {
             try {
                 rs.close();
                 st.close();
@@ -184,6 +186,7 @@ public class PrincipalModelo {
 
     /**
      * Obtiene la lista de estados civiles
+     *
      * @param conn Conexion a la base de datos
      * @return Lista con los datos de estados civiles
      */
@@ -191,22 +194,20 @@ public class PrincipalModelo {
         LinkedHashMap<Integer, String> catEstadoCivil = new LinkedHashMap<>();
         Statement st = null;
         ResultSet rs = null;
-        
-        try{
+
+        try {
             st = conn.createStatement();
             rs = st.executeQuery(Consultas.getEstadoCivil);
-            while(rs.next()){
+            while (rs.next()) {
                 CatEstadoCivil edoCivil = new CatEstadoCivil();
                 edoCivil.setId(rs.getInt(CatEstadoCivil.COL_ID_ESTADO_CIVIL));
                 edoCivil.setNombre(rs.getString(CatEstadoCivil.COL_NOMBRE));
                 catEstadoCivil.put(edoCivil.getId(), edoCivil.getNombre());
             }
-        }
-        catch(SQLException e){
+        } catch (SQLException e) {
             muestraErrores(e);
             JOptionPane.showMessageDialog(null, "Error al consultar la BD", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        finally{
+        } finally {
             try {
                 rs.close();
                 st.close();
@@ -216,9 +217,10 @@ public class PrincipalModelo {
         }
         return catEstadoCivil;
     }
-    
+
     /**
      * Obtiene la lista de estados civiles
+     *
      * @param conn Conexion a la base de datos
      * @return Lista con los datos de estados civiles
      */
@@ -228,22 +230,20 @@ public class PrincipalModelo {
         LinkedHashMap<Integer, String> catEstadoCivil = new LinkedHashMap<>();
         Statement st = null;
         ResultSet rs = null;
-        
-        try{
+
+        try {
             conn = conexion.estableceConexion();
             st = conn.createStatement();
             rs = st.executeQuery(Consultas.getEstadoCivil);
-            while(rs.next()){
+            while (rs.next()) {
                 CatEstadoCivil edoCivil = new CatEstadoCivil();
                 edoCivil.setId(rs.getInt(CatEstadoCivil.COL_ID_ESTADO_CIVIL));
                 edoCivil.setNombre(rs.getString(CatEstadoCivil.COL_NOMBRE));
                 catEstadoCivil.put(edoCivil.getId(), edoCivil.getNombre());
             }
-        }
-        catch(SQLException e){
+        } catch (SQLException e) {
             muestraErrores(e);
-        }
-        finally{
+        } finally {
             try {
                 rs.close();
                 st.close();
@@ -257,27 +257,26 @@ public class PrincipalModelo {
 
     /**
      * Obtiene los programas que puede tener un becario
+     *
      * @param conn COnexion a la base de datos
-     * @return 
+     * @return
      */
     private LinkedHashMap<Integer, String> getProgramas(Connection conn) {
         LinkedHashMap<Integer, String> catPrograma = new LinkedHashMap<>();
         Statement st = null;
         ResultSet rs = null;
-        try{
+        try {
             st = conn.createStatement();
             rs = st.executeQuery(Consultas.getProgramas);
-            while(rs.next()){
+            while (rs.next()) {
                 CatPrograma programa = new CatPrograma();
                 programa.setId(rs.getInt(CatPrograma.COL_ID));
                 programa.setNombre(rs.getString(CatPrograma.COL_NOMBRE));
                 catPrograma.put(programa.getId(), programa.getNombre());
             }
-        }
-        catch(SQLException e){
+        } catch (SQLException e) {
             muestraErrores(e);
-        }
-        finally{
+        } finally {
             try {
                 rs.close();
                 st.close();
@@ -290,27 +289,26 @@ public class PrincipalModelo {
 
     /**
      * Obtiene el catalogo de nivel de estudios
+     *
      * @param conn
-     * @return 
+     * @return
      */
     private LinkedHashMap<Integer, String> getNivelEstudios(Connection conn) {
         LinkedHashMap<Integer, String> catNivelEstudios = new LinkedHashMap<>();
         Statement st = null;
         ResultSet rs = null;
-        try{
+        try {
             st = conn.createStatement();
             rs = st.executeQuery(Consultas.getNIvelEstudios);
-            while(rs.next()){
+            while (rs.next()) {
                 CatGradoEscolar grado = new CatGradoEscolar();
                 grado.setId(rs.getInt(CatGradoEscolar.COL_ID));
                 grado.setNombre(rs.getString(CatGradoEscolar.COL_NOMBRE));
                 catNivelEstudios.put(grado.getId(), grado.getNombre());
             }
-        }
-        catch(SQLException e){
+        } catch (SQLException e) {
             muestraErrores(e);
-        }
-        finally{
+        } finally {
             try {
                 rs.close();
                 st.close();
@@ -323,27 +321,26 @@ public class PrincipalModelo {
 
     /**
      * OBtiene el catalogo de parenteco
+     *
      * @param conn
-     * @return 
+     * @return
      */
     private LinkedHashMap<Integer, String> getParentesco(Connection conn) {
         LinkedHashMap<Integer, String> catNivelEstudios = new LinkedHashMap<>();
         Statement st = null;
         ResultSet rs = null;
-        try{
+        try {
             st = conn.createStatement();
             rs = st.executeQuery(Consultas.getParentesco);
-            while(rs.next()){
+            while (rs.next()) {
                 CatParentesco parentesco = new CatParentesco();
                 parentesco.setId(rs.getInt(CatParentesco.COL_ID));
                 parentesco.setNombre(rs.getString(CatParentesco.COL_NOMBRE));
                 catNivelEstudios.put(parentesco.getId(), parentesco.getNombre());
             }
-        }
-        catch(SQLException e){
+        } catch (SQLException e) {
             muestraErrores(e);
-        }
-        finally{
+        } finally {
             try {
                 rs.close();
                 st.close();
@@ -356,6 +353,7 @@ public class PrincipalModelo {
 
     /**
      * Obtiene el catalogo de universidades
+     *
      * @param conn Conexion a la base de datos
      * @return Lista de las universidades
      */
@@ -363,20 +361,18 @@ public class PrincipalModelo {
         LinkedHashMap<Integer, String> catUniversidades = new LinkedHashMap<>();
         Statement st = null;
         ResultSet rs = null;
-        try{
+        try {
             st = conn.createStatement();
             rs = st.executeQuery(Consultas.getUniversidades);
-            while(rs.next()){
+            while (rs.next()) {
                 CatUniversidad universidad = new CatUniversidad();
                 universidad.setId(rs.getInt(CatUniversidad.COL_ID));
                 universidad.setNombre(rs.getString(CatUniversidad.COL_NOMBRE));
                 catUniversidades.put(universidad.getId(), universidad.getNombre());
             }
-        }
-        catch(SQLException e){
+        } catch (SQLException e) {
             muestraErrores(e);
-        }
-        finally{
+        } finally {
             try {
                 rs.close();
                 st.close();
@@ -389,6 +385,7 @@ public class PrincipalModelo {
 
     /**
      * Obtiene el catalogo de campo de estudio
+     *
      * @param conn Conexion a la base de datos
      * @return Lista de campos de estudio
      */
@@ -396,20 +393,18 @@ public class PrincipalModelo {
         LinkedHashMap<Integer, String> catCampoEstudio = new LinkedHashMap<>();
         Statement st = null;
         ResultSet rs = null;
-        try{
+        try {
             st = conn.createStatement();
             rs = st.executeQuery(Consultas.getCampoEstudio);
-            while(rs.next()){
+            while (rs.next()) {
                 CatCampoCarrera campo = new CatCampoCarrera();
                 campo.setId(rs.getInt(CatCampoCarrera.COL_ID));
                 campo.setNombre(rs.getString(CatCampoCarrera.COL_NOMBRE));
                 catCampoEstudio.put(campo.getId(), campo.getNombre());
             }
-        }
-        catch(SQLException e){
+        } catch (SQLException e) {
             muestraErrores(e);
-        }
-        finally{
+        } finally {
             try {
                 rs.close();
                 st.close();
@@ -417,14 +412,15 @@ public class PrincipalModelo {
                 Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
+
         return catCampoEstudio;
     }
 
     /**
      * Obtiene las iniciales del programa seleccionado
+     *
      * @param programa Id del programa seleccionado
-     * @return 
+     * @return
      */
     protected String getClavePrograma(int programa) {
         Connection conn = null;
@@ -432,19 +428,17 @@ public class PrincipalModelo {
         ResultSet rs = null;
         Conexion conexion = new Conexion();
         String result = "";
-        try{
+        try {
             conn = conexion.estableceConexion();
             st = conn.prepareStatement(Consultas.getInicialesPrograma);
             st.setInt(1, programa);
             rs = st.executeQuery();
-            while(rs.next()){
-               result = rs.getString(CatPrograma.COL_INICIALES);
+            while (rs.next()) {
+                result = rs.getString(CatPrograma.COL_INICIALES);
             }
-        }
-        catch(SQLException e){
+        } catch (SQLException e) {
             muestraErrores(e);
-        }
-        finally{
+        } finally {
             try {
                 rs.close();
                 st.close();
@@ -457,6 +451,7 @@ public class PrincipalModelo {
 
     /**
      * Inserta un nuevo becario en la base de datos
+     *
      * @param bandera True es un becario borrador, False es un becario Completo
      * @param conexion Conexion a la base de datos
      * @param becario Becario que se va a insertar en la base de datos
@@ -466,11 +461,11 @@ public class PrincipalModelo {
         long idBecario = 0;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        
+
         //Se obtiene el folio
         becario.setFolio(creaFolio(conexion, becario));
-        try{
-            
+        try {
+
             ps = conexion.prepareStatement(Insert.insertBecarioBorrador, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setString(1, becario.getNombre());
             ps.setString(2, becario.getApPaterno());
@@ -492,21 +487,20 @@ public class PrincipalModelo {
             ps.setString(18, becario.getEnsayo());
             ps.setString(19, becario.getBoletaInicioBeca());
             ps.setBoolean(20, bandera);
-            
+
             int i = ps.executeUpdate();
-            if(i == 0)
+            if (i == 0) {
                 throw new SQLException("No se pudo insertar al nuevo becario: " + ps.toString());
-            
+            }
+
             rs = ps.getGeneratedKeys();
-            while(rs.next()){
+            while (rs.next()) {
                 idBecario = rs.getLong(1);
             }
-            
-        }
-        catch(SQLException e){
+
+        } catch (SQLException e) {
             log.crearLog(e.getMessage());
-        }
-        finally{
+        } finally {
             try {
                 rs.close();
                 ps.close();
@@ -518,28 +512,27 @@ public class PrincipalModelo {
         return idBecario;
     }
 
-    private String creaFolio(Connection conexion,  Becario becario) {
+    private String creaFolio(Connection conexion, Becario becario) {
         long contador = 0;
         String folio = "";
         PreparedStatement ps = null;
         ResultSet rs = null;
-        
-        try{
+
+        try {
             ps = conexion.prepareStatement(Consultas.getContadorFolio);
             ps.setInt(1, becario.getIdPrograma());
             rs = ps.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 contador = rs.getLong(CatPrograma.COL_CONTADOR);
             }
-            if(contador == 0)
+            if (contador == 0) {
                 throw new SQLException("No se pudo obtener el contador del programa");
-            
+            }
+
             folio = helper.creaFolio(becario.getInicialesFolio(), contador);
-        }
-        catch(SQLException e){
+        } catch (SQLException e) {
             log.crearLog(e.getMessage());
-        }
-        finally{
+        } finally {
             try {
                 rs.close();
                 ps.close();
@@ -548,22 +541,23 @@ public class PrincipalModelo {
                 Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
+
         return folio;
     }
 
     /**
      * Inserta las direcciones del becario
+     *
      * @param conexion Conexion a la base de datos
      * @param idBecario Id del becario
      * @param lstDireccionesBecario Lista de direcciones
      * @return True si operacion exitosa, False si no
      */
-    boolean insertDireccionBecario(Connection conexion, long idBecario, List<Direccion> lstDireccionesBecario) {
+    protected boolean insertDireccionBecario(Connection conexion, long idBecario, List<Direccion> lstDireccionesBecario) {
         boolean response = false;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        try{
+        try {
             for (Direccion direccion : lstDireccionesBecario) {
                 ps = conexion.prepareStatement(Insert.insertDireccionBecario);
                 ps.setString(1, direccion.getCalle());
@@ -574,17 +568,16 @@ public class PrincipalModelo {
                 ps.setString(6, direccion.getCiudad());
                 ps.setLong(7, direccion.getIdBecario());
                 int i = ps.executeUpdate();
-                if(i == 0)
-                    throw  new SQLException("Error al insertar direccion becario: " + ps.toString());
+                if (i == 0) {
+                    throw new SQLException("Error al insertar direccion becario: " + ps.toString());
+                }
             }
-            
+
             response = true;
-                
-        }
-        catch(SQLException e){
+
+        } catch (SQLException e) {
             log.crearLog(e.getMessage());
-        }
-        finally{
+        } finally {
             try {
                 rs.close();
                 ps.close();
@@ -592,7 +585,174 @@ public class PrincipalModelo {
                 log.crearLog(ex.getMessage());
                 Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
+        }
+        return response;
+    }
+
+    /**
+     * Inserta los telefonos del nuevo becario
+     *
+     * @param conexion Conexion a la base de datos
+     * @param idBecario id del becario
+     * @param lstTelefonosBecario Lista de telefonos
+     * @return True si la operacion exitosa, False si no
+     */
+    protected boolean insertTelefonoBecario(Connection conexion, long idBecario, List<Telefono> lstTelefonosBecario) {
+        boolean response = false;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            for (Telefono telefono : lstTelefonosBecario) {
+                ps = conexion.prepareStatement(Insert.insertTelefonoBecario);
+                ps.setString(1, telefono.getTelefono());
+                ps.setLong(2, idBecario);
+                int i = ps.executeUpdate();
+                if (i == 0) {
+                    throw new SQLException("Error al insertar telefono becario: " + ps.toString());
+                }
+            }
+
+            response = true;
+
+        } catch (SQLException e) {
+            log.crearLog(e.getMessage());
+        } finally {
+            try {
+                rs.close();
+                ps.close();
+            } catch (SQLException ex) {
+                log.crearLog(ex.getMessage());
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+        return response;
+    }
+
+    /**
+     * Inserta los padres del becario
+     *
+     * @param conexion Conexion a la base de datos
+     * @param idBecario id del becario
+     * @param lstPadresBecario lista de los padres del becario
+     * @return
+     */
+    protected boolean insertPapasBecario(Connection conexion, long idBecario, List<Padres> lstPadresBecario) {
+        boolean response = false;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            for (Padres papa : lstPadresBecario) {
+                ps = conexion.prepareStatement(Insert.insertPadresBecario);
+                ps.setString(1, papa.getNombre());
+                ps.setString(2, papa.getaPaterno());
+                ps.setString(3, papa.getaMaterno());
+                ps.setString(4, papa.getTelefono());
+                ps.setInt(5, papa.getGradoEscolar());
+                ps.setInt(6, papa.getTrabaja());
+                ps.setLong(7, idBecario);
+                ps.setInt(8, papa.getParenteco());
+                int i = ps.executeUpdate();
+                if (i == 0) {
+                    throw new SQLException("Error al insertar padres becario: " + ps.toString());
+                }
+            }
+
+            response = true;
+
+        } catch (SQLException e) {
+            log.crearLog(e.getMessage());
+        } finally {
+            try {
+                rs.close();
+                ps.close();
+            } catch (SQLException ex) {
+                log.crearLog(ex.getMessage());
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+        return response;
+    }
+
+    /**
+     * Inserta los hermanos del becario
+     *
+     * @param conexion Conexion a la base de datos
+     * @param idBecario Id del becario
+     * @param lstHermanos Lista de hermanos
+     * @return
+     */
+    protected boolean insertHermanosBecario(Connection conexion, long idBecario, List<Hermanos> lstHermanos) {
+        boolean response = false;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            for (Hermanos hermano : lstHermanos) {
+                ps = conexion.prepareStatement(Insert.insertHermanoBecario);
+                ps.setString(1, hermano.getNombre());
+                ps.setString(2, hermano.getAPaterno());
+                ps.setString(3, hermano.getAMaterno());
+                ps.setInt(4, hermano.getGradoEscolar());
+                ps.setLong(5, idBecario);
+                int i = ps.executeUpdate();
+                if (i == 0) {
+                    throw new SQLException("Error al insertar hermanos becario: " + ps.toString());
+                }
+            }
+            response = true;
+        } catch (SQLException e) {
+            log.crearLog(e.getMessage());
+        } finally {
+            try {
+                rs.close();
+                ps.close();
+            } catch (SQLException ex) {
+                log.crearLog(ex.getMessage());
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+        return response;
+    }
+
+    /**
+     * Inserta los hijos del becario
+     * @param conexion Conexion a la base de datos
+     * @param idBecario Id del becario
+     * @param lstHijos Lista de hijos del becario
+     * @return True si la operacion correcta, False si no
+     */
+    protected boolean insertHijosBecario(Connection conexion, long idBecario, List<Hijos> lstHijos) {
+        boolean response = false;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            for (Hijos hijo : lstHijos) {
+                ps = conexion.prepareStatement(Insert.insertHijoBecario);
+                ps.setString(1, hijo.getNombre());
+                ps.setString(2, hijo.getAPaterno());
+                ps.setString(3, hijo.getAMaterno());
+                ps.setDate(4, hijo.getFechaNac());
+                ps.setLong(5, idBecario);
+                int i = ps.executeUpdate();
+                if (i == 0) {
+                    throw new SQLException("Error al insertar hijos becario: " + ps.toString());
+                }
+            }
+            response = true;
+        } catch (SQLException e) {
+            log.crearLog(e.getMessage());
+        } finally {
+            try {
+                rs.close();
+                ps.close();
+            } catch (SQLException ex) {
+                log.crearLog(ex.getMessage());
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
         }
         return response;
     }
