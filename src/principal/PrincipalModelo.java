@@ -7,6 +7,8 @@ package principal;
 
 import crud.Conexion;
 import crud.Consultas;
+import crud.Insert;
+import helpers.Helper;
 import helpers.Log;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,6 +22,7 @@ import java.util.LinkedHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import pojos.Becario;
 import pojos.CatCampoCarrera;
 import pojos.CatEstadoCivil;
 import pojos.CatGradoEscolar;
@@ -27,6 +30,7 @@ import pojos.CatParentesco;
 import pojos.CatPrograma;
 import pojos.CatSexo;
 import pojos.CatUniversidad;
+import pojos.Direccion;
 
 /**
  *
@@ -35,6 +39,7 @@ import pojos.CatUniversidad;
 public class PrincipalModelo {
     
     Log log = new Log();
+    Helper helper = new Helper();
     
     /**
      * Muestra los errores generados por la excepcion en consola
@@ -448,5 +453,147 @@ public class PrincipalModelo {
             }
         }
         return result;
+    }
+
+    /**
+     * Inserta un nuevo becario en la base de datos
+     * @param bandera True es un becario borrador, False es un becario Completo
+     * @param conexion Conexion a la base de datos
+     * @param becario Becario que se va a insertar en la base de datos
+     * @return Id del becario insertado
+     */
+    protected long insertBecario(boolean bandera, Connection conexion, Becario becario) {
+        long idBecario = 0;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        //Se obtiene el folio
+        becario.setFolio(creaFolio(conexion, becario));
+        try{
+            
+            ps = conexion.prepareStatement(Insert.insertBecarioBorrador, PreparedStatement.RETURN_GENERATED_KEYS);
+            ps.setString(1, becario.getNombre());
+            ps.setString(2, becario.getApPaterno());
+            ps.setString(3, becario.getApMaterno());
+            ps.setDate(4, becario.getFecha_nac());
+            ps.setInt(5, becario.getIdSexo());
+            ps.setInt(6, becario.getIdEstadoCivil());
+            ps.setInt(7, becario.getTrabaja());
+            ps.setString(8, becario.getFoto());
+            ps.setString(9, becario.getEmail());
+            ps.setInt(10, becario.getPrimeroConBeca());
+            ps.setString(11, becario.getNombreConyuge());
+            ps.setString(12, becario.getApPaternoConyuge());
+            ps.setString(13, becario.getApMaternoConyuge());
+            ps.setString(14, becario.getTelefonoConyuge());
+            ps.setString(15, becario.getObservaciones());
+            ps.setString(16, becario.getActaNacimiento());
+            ps.setString(17, becario.getSolicitudBeca());
+            ps.setString(18, becario.getEnsayo());
+            ps.setString(19, becario.getBoletaInicioBeca());
+            ps.setBoolean(20, bandera);
+            
+            int i = ps.executeUpdate();
+            if(i == 0)
+                throw new SQLException("No se pudo insertar al nuevo becario: " + ps.toString());
+            
+            rs = ps.getGeneratedKeys();
+            while(rs.next()){
+                idBecario = rs.getLong(1);
+            }
+            
+        }
+        catch(SQLException e){
+            log.crearLog(e.getMessage());
+        }
+        finally{
+            try {
+                rs.close();
+                ps.close();
+            } catch (SQLException ex) {
+                log.crearLog(ex.getMessage());
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return idBecario;
+    }
+
+    private String creaFolio(Connection conexion,  Becario becario) {
+        long contador = 0;
+        String folio = "";
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        try{
+            ps = conexion.prepareStatement(Consultas.getContadorFolio);
+            ps.setInt(1, becario.getIdPrograma());
+            rs = ps.executeQuery();
+            while(rs.next()){
+                contador = rs.getLong(CatPrograma.COL_CONTADOR);
+            }
+            if(contador == 0)
+                throw new SQLException("No se pudo obtener el contador del programa");
+            
+            folio = helper.creaFolio(becario.getInicialesFolio(), contador);
+        }
+        catch(SQLException e){
+            log.crearLog(e.getMessage());
+        }
+        finally{
+            try {
+                rs.close();
+                ps.close();
+            } catch (SQLException ex) {
+                log.crearLog(ex.getMessage());
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        return folio;
+    }
+
+    /**
+     * Inserta las direcciones del becario
+     * @param conexion Conexion a la base de datos
+     * @param idBecario Id del becario
+     * @param lstDireccionesBecario Lista de direcciones
+     * @return True si operacion exitosa, False si no
+     */
+    boolean insertDireccionBecario(Connection conexion, long idBecario, List<Direccion> lstDireccionesBecario) {
+        boolean response = false;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{
+            for (Direccion direccion : lstDireccionesBecario) {
+                ps = conexion.prepareStatement(Insert.insertDireccionBecario);
+                ps.setString(1, direccion.getCalle());
+                ps.setString(2, direccion.getNumExt());
+                ps.setString(3, direccion.getNumInt());
+                ps.setString(4, direccion.getColonia());
+                ps.setString(5, direccion.getCodigoPostal());
+                ps.setString(6, direccion.getCiudad());
+                ps.setLong(7, direccion.getIdBecario());
+                int i = ps.executeUpdate();
+                if(i == 0)
+                    throw  new SQLException("Error al insertar direccion becario: " + ps.toString());
+            }
+            
+            response = true;
+                
+        }
+        catch(SQLException e){
+            log.crearLog(e.getMessage());
+        }
+        finally{
+            try {
+                rs.close();
+                ps.close();
+            } catch (SQLException ex) {
+                log.crearLog(ex.getMessage());
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+        return response;
     }
 }

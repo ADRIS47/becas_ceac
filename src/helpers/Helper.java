@@ -67,5 +67,31 @@ public class Helper {
         else
             return false;
     }
+
+    public String creaFolio(String iniciales, long contador) {
+        String folio = "";
+        if(contador < 10){
+            folio = "00000" + contador;
+        }
+        if(contador > 9 && contador < 100){
+            folio = "0000" + contador;
+        }
+        if(contador > 99 && contador < 1-000){
+            folio = "000" + contador;
+        }
+        if(contador > 999 && contador < 10-000){
+            folio = "00" + contador;
+        }
+        if(contador > 9-999 && contador < 100-000){
+            folio = "0" + contador;
+        }
+        if(contador > 99-999 && contador < 1-000-000){
+            folio = "00" + contador;
+        }
+        
+        folio = iniciales + folio;
+        return folio;
+        
+    }
     
 }

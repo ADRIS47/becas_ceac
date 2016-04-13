@@ -5,13 +5,17 @@
  */
 package principal;
 
+import crud.Conexion;
 import helpers.Helper;
 import helpers.Log;
 import index.Index;
 import java.awt.Color;
 import java.awt.Component;
 import java.io.File;
+import java.sql.Connection;
 import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -294,6 +298,7 @@ public class PrincipalControlador {
     protected void insertaNuevoBecario() {
         
         boolean vacio = validaCamposVacios();
+        
         // Si hay campos vacios en el formulario se pregunta si se quiere guardar el becario y llenarlo después
         if(vacio){
             int i = JOptionPane.showConfirmDialog(vistaRegistro, "¿Desea guardar y continuar después?", "Alerta, Campos Vacios", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
@@ -327,7 +332,8 @@ public class PrincipalControlador {
      * Inserta el becario en la base de datos
      * @param bandera True si es un becario borrador, False si es un becario completo
      */
-    private void insertBecario(boolean bandera){
+    private void insertBecario(boolean bandera){        
+        //Se obtienen los valores del nuevo becario
         Becario becario = getDatosBecarioDeFormulario();
         List<Direccion> lstDireccionesBecario = getDireccionBecarioDeFormulario(becario.getId());
         List<Telefono> lstTelefonosBecario = getTelefonoBecarioDeFormulario(becario.getId());
@@ -335,6 +341,33 @@ public class PrincipalControlador {
         List<Hermanos> lstHermanos = getHermanosDeFormulario(becario.getId());
         List<Hijos> lstHijos = getHijosDeFormulario(becario.getId());
         DatosEscolares lstDatosEscolares = getDatosEscolaresDeFormulario(becario.getId());
+        
+        Conexion conn = new Conexion();
+        Connection conexion = conn.estableceConexion();
+        if(conexion == null){
+            JOptionPane.showMessageDialog(vista, "No se puede conectar a la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
+            log.crearLog(new SQLException("No se pudo conectar a la base de datos").getMessage());
+            return;
+        }
+        //Se inicia la transacción para la inserción del becario
+        try{
+            conexion.setAutoCommit(false);
+            long idBecario = modelo.insertBecario(bandera, conexion, becario);
+            //Si no se pudo insertar el becario
+            if(idBecario == 0){
+                throw new SQLException();
+            }
+            boolean direccion = modelo.insertDireccionBecario(conexion, idBecario, lstDireccionesBecario);
+            if(direccion == false){
+                throw new SQLException();
+            }
+            
+        }
+        catch(SQLException e){
+            log.crearLog(e.getMessage());
+        }
+        
+        
     }
 
     /**
@@ -349,6 +382,8 @@ public class PrincipalControlador {
         becario.setIdPrograma(getIdCmbBox(prog, catPrograma));
         //Se obtiene las iniciales del folio
         String inicioFolio = modelo.getClavePrograma(getIdCmbBox(prog, catPrograma));
+        //Se asignan las iniciales del folio
+        becario.setInicialesFolio(inicioFolio);
         //Se obtiene el estatus del becario
         int estatus = vistaRegistro.cmbEstatus.getSelectedIndex();
         if(estatus == 0)
@@ -381,6 +416,8 @@ public class PrincipalControlador {
         becario.setPrimeroConBeca(vistaRegistro.cmboxCarreraSiNo.getSelectedIndex());
         //Se obtiene el correo electronico
         becario.setEmail(vistaRegistro.txtCorreoBecario.getText());
+        //Se obtienen los comentarios
+        becario.setObservaciones(vistaRegistro.txtAreaObservaciones.getText());
         
         return becario;
     }
@@ -394,13 +431,21 @@ public class PrincipalControlador {
         
         for (PnlDireccion panel : lstVistaDireccion) {
                 Direccion direccion = new Direccion();
+                //Se obtiene la calle
                 direccion.setCalle(panel.txtCalleBecado.getText());
+                //Se obtiene el numero exterior
                 direccion.setNumExt(panel.txtNumBecado.getText());
+                //Se obtiene el numero interior
                 direccion.setNumInt(panel.txtIntBecado.getText());
+                //Se obtiene el codigo postal
                 direccion.setCodigoPostal(panel.txtCpBecado.getText());
+                //Se obtiene la colonia
                 direccion.setColonia(panel.txtNumIntBecado.getText());
+                //Se obtiene la ciudad
                 direccion.setCiudad(panel.txtCiudadBecado.getText());
+                //Se obtiene el becario
                 direccion.setIdBecario(idBecario);
+                //Se agrega la direccion a la lista
                 lstDirecciones.add(direccion);
         }
         return lstDirecciones;
@@ -415,20 +460,29 @@ public class PrincipalControlador {
         List<Telefono> lstTelefono = new ArrayList<>();
         if(!vistaRegistro.txtTel1Becado.getText().equals("")){
             Telefono telefono = new Telefono();
+            //Se agrega el becario
             telefono.setIdBecario(idBecario);
+            //Se agrega el primer teléfono
             telefono.setTelefono(vistaRegistro.txtTel1Becado.getText());
+            //Se agrega a la lista el teléfono
             lstTelefono.add(telefono);
         }
         if(!vistaRegistro.txtTel2Becado.getText().equals("")){
             Telefono telefono = new Telefono();
+            //Se agrega el becario
             telefono.setIdBecario(idBecario);
+            //Se agrega el primer teléfono
             telefono.setTelefono(vistaRegistro.txtTel2Becado.getText());
+            //Se agrega a la lista el teléfono
             lstTelefono.add(telefono);
         }
         if(!vistaRegistro.txtTel3Becado.getText().equals("")){
             Telefono telefono = new Telefono();
+            //Se agrega el becario
             telefono.setIdBecario(idBecario);
+            //Se agrega el primer teléfono
             telefono.setTelefono(vistaRegistro.txtTel3Becado.getText());
+            //Se agrega a la lista el teléfono
             lstTelefono.add(telefono);
         }
         
@@ -444,15 +498,25 @@ public class PrincipalControlador {
         List<Padres> lstResult = new ArrayList<>();
         for (PnlParentesco panel : lstVistaParentesco) {
             Padres padre = new Padres();
+            //Se obtiene el nombre del padre
             padre.setNombre(panel.txtNombresPariente.getText());
+            //Se obtiene el apellido paterno del padre
             padre.setaPaterno(panel.txtApPaternoPariente.getText());
+            //Se obtiene el apellido materno de la madre
             padre.setaMaterno(panel.txtApMaternoPariente.getText());
+            //Se obtiene si trabaja o no
             padre.setTrabaja(0);
+            //Se obtiene el grado de estudio
             String grado = (String) panel.cmbNivelEstudiosPariente.getSelectedItem();
+            //Se asigna el grado de estudio
             padre.setGradoEscolar(getIdCmbBox(grado, catNivelEstudios));
+            //Se obtiene si trabaja 
             padre.setTrabaja(panel.cmbTrabajoActivoPariente.getSelectedIndex());
+            //Se obtiene el becario
             padre.setIdBecario(idBecario);
+            //Se obtiene si es padre o madre
             String parentesco = (String) panel.cmbParentesco.getSelectedItem();
+            //Se asigna el parentesco
             padre.setParenteco(getIdCmbBox(parentesco, catParentesco));
             
             lstResult.add(padre);
@@ -471,11 +535,19 @@ public class PrincipalControlador {
         
         for (PnlHermanos panel : lstVistaHermanos) {
             Hermanos hermano = new Hermanos();
+            //Se obtiene el nombre del hermano
             hermano.setNombre(panel.txtNombresPariente.getText());
+            //Se obtiene el apellido paterno
             hermano.setAPaterno(panel.txtApPaternoPariente.getText());
+            //Se obtiene el apellido materno 
+            hermano.setAMaterno(panel.txtApMaternoPariente.getText());
+            //Se obtiene el nivel de estudios
             String grado = (String) panel.cmbNivelEstudiosHermano.getSelectedItem();
+            //Se asigna el nivel de estudios
             hermano.setGradoEscolar(getIdCmbBox(grado, catNivelEstudios));
+            //Se obtiene el becario
             hermano.setIdBecario(idBecario);
+            //Se agregra a la lista el hermano
             lstResult.add(hermano);
         }
         
@@ -492,11 +564,17 @@ public class PrincipalControlador {
         
         for (PnlHijos panel : lstVistaHijos) {
             Hijos hijo = new Hijos();
+            //Se obtiene el nombre del hijo
             hijo.setNombre(panel.txtNombreHIjo.getText());
+            //Se obtiene el apellido paterno
             hijo.setAPaterno(panel.txtApPaternoHijo.getText());
+            //SE obtiene el apellido materno
             hijo.setAMaterno(panel.txtApMaternoHijo.getText());
+            //Se obtiene la fecha de nacimiento
             //hijo.setFechaNac(null);
+            //Se obtiene el becario
             hijo.setIdBecario(idBecario);
+            //Se agrega el hijo a la lista
             lstResult.add(hijo);
         }
         
@@ -510,8 +588,38 @@ public class PrincipalControlador {
      */
     private DatosEscolares getDatosEscolaresDeFormulario(long idBecario) {
         DatosEscolares datos = new DatosEscolares();
-        //datos.set
+        //Se obtiene el nombre de la carrera
+        datos.setNombreCarrera(vistaRegistro.txtNombreCarrera.getText());
+        //Se obtiene el campo de la carrera
+        String campo = (String) vistaRegistro.cmboxCampoEscuela.getSelectedItem();
+        //Se obtiene el campo de estudio de la carrera
+        datos.setIdCampoCarrera(getIdCmbBox(campo, catCampoEstudio));
+        //Se obtiene la universidad de estudio
+        String universidad = (String) vistaRegistro.cmboxEscuelaUniversitaria.getSelectedItem();
+        //Se asigna la universidad
+        datos.setIdUniversidad(getIdCmbBox(universidad, catUniversidad));
         
+
+        //Se obtiene el nombre de la preparatoria
+        datos.setEscuelaProcedencia(vistaRegistro.txtEscuelaProcedencia.getText());
+        
+
+        //Se obtiene el mes de inicio de la beca
+        datos.setMesInicioBeca(vistaRegistro.cmboxMesInicioBeca.getSelectedIndex());
+        //Se obtiene el año del inicio de la beca
+        datos.setAnioInicioBeca(Integer.parseInt((String) vistaRegistro.cmboxAnioInicioBeca.getSelectedItem()));
+        //Se obtiene el mes de graduacion
+        datos.setMesGraduacion(vistaRegistro.cmboxMesGraduacion.getSelectedIndex() + 1);
+        //Se obtiene el año de graduacion
+        datos.setAnioGraduacion(Integer.parseInt((String) vistaRegistro.cmboxAnioGraduacion.getSelectedItem()));
+        //Se obtiene el total de semestres de estudio
+        datos.setSemestresTotalesCarrera(vistaRegistro.cmboxSemestresTotalesCarrera.getSelectedIndex() + 1);
+        //Se obtiene el semestre de estudio del inicio de la beca
+        datos.setSemestreInicioBeca(vistaRegistro.cmboxSemestreInicioBeca.getSelectedIndex() + 1);
+        //Se obtiene el total de la beca
+        datos.setBecaTotal(Float.parseFloat(vistaRegistro.txtBecaAutorizada.getText()));
+        //Se obtiene el valor semestral de la beca
+        datos.setBecaSemestral(datos.getBecaTotal() / (datos.getSemestresTotalesCarrera() - datos.getSemestreInicioBeca()));
         return datos;
     }
     

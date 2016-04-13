@@ -31,11 +31,14 @@ public class Becario {
     String nombreConyuge;
     String apPaternoConyuge;
     String apMaternoConyuge;
+    String telefonoConyuge;
     String observaciones;
     String actaNacimiento;
     String solicitudBeca;
     String ensayo;
     String boletaInicioBeca;
+    String inicialesFolio;
+    boolean pendiente;
 
     public long getId() {
         return id;
@@ -181,6 +184,14 @@ public class Becario {
         this.apMaternoConyuge = apMaternoConyuge;
     }
 
+    public String getTelefonoConyuge() {
+        return telefonoConyuge;
+    }
+
+    public void setTelefonoConyuge(String telefonoConyuge) {
+        this.telefonoConyuge = telefonoConyuge;
+    }
+
     public String getObservaciones() {
         return observaciones;
     }
@@ -220,6 +231,25 @@ public class Becario {
     public void setBoletaInicioBeca(String boletaInicioBeca) {
         this.boletaInicioBeca = boletaInicioBeca;
     }
+
+    public String getInicialesFolio() {
+        return inicialesFolio;
+    }
+
+    public void setInicialesFolio(String inicialesFolio) {
+        this.inicialesFolio = inicialesFolio;
+    }
+
+    public boolean isPendiente() {
+        return pendiente;
+    }
+
+    public void setPendiente(boolean pendiente) {
+        this.pendiente = pendiente;
+    }
+    
+    
+    
     
     public final static String COL_ID = "id_becario";
     public final static String COL_NOMBRE = "nombre(s)";
@@ -245,4 +275,5 @@ public class Becario {
     public final static String COL_SOLICITUD_BECA = "solicitud_beca";
     public final static String COL_ENSAYO = "ensayo";
     public final static String COL_BOLETA_INICIO_BECA = "boleta_inicio_beca";
+    public final static String COL_PENDIENTE = "pendiente";
 }
