@@ -70,6 +70,7 @@ public class Helper {
 
     public String creaFolio(String iniciales, long contador) {
         String folio = "";
+        String result = "";
         if(contador < 10){
             folio = "00000" + contador;
         }
@@ -89,8 +90,8 @@ public class Helper {
             folio = "00" + contador;
         }
         
-        folio = iniciales + folio;
-        return folio;
+        result = iniciales + folio;
+        return result;
         
     }
     

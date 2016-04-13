@@ -22,3 +22,19 @@
 9/4/2016;19:10:32;SQLError: 08003
 9/4/2016;19:10:32;ERROR: Code0
 9/4/2016;19:10:32;Message: No operations allowed after connection closed.
+13/4/2016;0:9:5;You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(s), ap_paterno, ap_materno, fecha_nacimiento, sexo, id_estado_civil, trabaja, f' at line 1
+13/4/2016;0:12:48;You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(s), ap_paterno, ap_materno, fecha_nacimiento, sexo, id_estado_civil, trabaja, f' at line 1
+13/4/2016;0:18:12;You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(s), ap_paterno, ap_materno, fecha_nacimiento, sexo, id_estado_civil, trabaja, f' at line 1
+13/4/2016;0:26:51;Column 'foto' cannot be null
+13/4/2016;0:29:55;Column 'acta_nacimiento' cannot be null
+13/4/2016;0:36:24;Column 'acta_nacimiento' cannot be null
+13/4/2016;0:39:21;Field 'folio' doesn't have a default value
+13/4/2016;0:47:6;SQLError: HY000
+13/4/2016;0:47:6;ERROR: Code1364
+13/4/2016;0:47:6;Message: Field 'folio' doesn't have a default value
+13/4/2016;0:53:2;SQLError: HY000
+13/4/2016;0:53:2;ERROR: Code1364
+13/4/2016;0:53:2;Message: Field 'id_estatus' doesn't have a default value
+13/4/2016;1:0:55;SQLError: 23000
+13/4/2016;1:0:55;ERROR: Code1452
+13/4/2016;1:0:55;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_becario`, CONSTRAINT `fk_beca_becario_beca_cat_sexo1` FOREIGN KEY (`sexo`) REFERENCES `beca_cat_sexo` (`id_genero`) ON DELETE NO ACTION ON UPDATE NO ACTION)

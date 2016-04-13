@@ -352,6 +352,7 @@ public class PrincipalControlador {
         //Se inicia la transacción para la inserción del becario
         try{
             conexion.setAutoCommit(false);
+            
             long idBecario = modelo.insertBecario(bandera, conexion, becario);
             //Si no se pudo insertar el becario
             if(idBecario == 0){
@@ -458,6 +459,8 @@ public class PrincipalControlador {
         //Se obtienen los comentarios
         becario.setObservaciones(vistaRegistro.txtAreaObservaciones.getText());
         
+        
+        becario.setFoto(foto.getAbsolutePath());
         return becario;
     }
     

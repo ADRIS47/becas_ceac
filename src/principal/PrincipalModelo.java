@@ -487,7 +487,9 @@ public class PrincipalModelo {
             ps.setString(18, becario.getEnsayo());
             ps.setString(19, becario.getBoletaInicioBeca());
             ps.setBoolean(20, bandera);
-
+            ps.setString(21, becario.getFolio());
+            ps.setInt(22, becario.getIdEstatus());
+            
             int i = ps.executeUpdate();
             if (i == 0) {
                 throw new SQLException("No se pudo insertar al nuevo becario: " + ps.toString());
@@ -499,13 +501,13 @@ public class PrincipalModelo {
             }
 
         } catch (SQLException e) {
-            log.crearLog(e.getMessage());
+            muestraErrores(e);
         } finally {
             try {
                 rs.close();
                 ps.close();
             } catch (SQLException ex) {
-                log.crearLog(ex.getMessage());
+                muestraErrores(ex);
                 Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -531,13 +533,13 @@ public class PrincipalModelo {
 
             folio = helper.creaFolio(becario.getInicialesFolio(), contador);
         } catch (SQLException e) {
-            log.crearLog(e.getMessage());
+            muestraErrores(e);
         } finally {
             try {
                 rs.close();
                 ps.close();
             } catch (SQLException ex) {
-                log.crearLog(ex.getMessage());
+                muestraErrores(ex);
                 Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -576,13 +578,13 @@ public class PrincipalModelo {
             response = true;
 
         } catch (SQLException e) {
-            log.crearLog(e.getMessage());
+            muestraErrores(e);
         } finally {
             try {
                 rs.close();
                 ps.close();
             } catch (SQLException ex) {
-                log.crearLog(ex.getMessage());
+                muestraErrores(ex);
                 Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
             }
 
@@ -616,13 +618,13 @@ public class PrincipalModelo {
             response = true;
 
         } catch (SQLException e) {
-            log.crearLog(e.getMessage());
+            muestraErrores(e);
         } finally {
             try {
                 rs.close();
                 ps.close();
             } catch (SQLException ex) {
-                log.crearLog(ex.getMessage());
+                muestraErrores(ex);
                 Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
             }
 
@@ -662,13 +664,13 @@ public class PrincipalModelo {
             response = true;
 
         } catch (SQLException e) {
-            log.crearLog(e.getMessage());
+            muestraErrores(e);
         } finally {
             try {
                 rs.close();
                 ps.close();
             } catch (SQLException ex) {
-                log.crearLog(ex.getMessage());
+                muestraErrores(ex);
                 Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
             }
 
@@ -703,13 +705,13 @@ public class PrincipalModelo {
             }
             response = true;
         } catch (SQLException e) {
-            log.crearLog(e.getMessage());
+            muestraErrores(e);
         } finally {
             try {
                 rs.close();
                 ps.close();
             } catch (SQLException ex) {
-                log.crearLog(ex.getMessage());
+                muestraErrores(ex);
                 Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
             }
 
@@ -743,13 +745,13 @@ public class PrincipalModelo {
             }
             response = true;
         } catch (SQLException e) {
-            log.crearLog(e.getMessage());
+            muestraErrores(e);
         } finally {
             try {
                 rs.close();
                 ps.close();
             } catch (SQLException ex) {
-                log.crearLog(ex.getMessage());
+                muestraErrores(ex);
                 Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
             }
 

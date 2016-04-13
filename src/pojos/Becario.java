@@ -252,7 +252,7 @@ public class Becario {
     
     
     public final static String COL_ID = "id_becario";
-    public final static String COL_NOMBRE = "nombre(s)";
+    public final static String COL_NOMBRE = "nombre";
     public final static String COL_APATERNO = "ap_paterno";
     public final static String COL_AMATERNO = "ap_materno";
     public final static String COL_FECHA_NAC = "fecha_nacimiento";
