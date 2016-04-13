@@ -11,14 +11,14 @@ import principal.*;
  *
  * @author Adriana
  */
-public class VistaPanelPrincipal extends javax.swing.JFrame {
+public class VistaPanelPrincipalA extends javax.swing.JFrame {
     
     PrincipalControlador controlador;
 
     /**
      * Creates new form VistaPanelPrincipal
      */
-    public VistaPanelPrincipal(PrincipalControlador controlador) {
+    public VistaPanelPrincipalA(PrincipalControlador controlador) {
         initComponents();
         this.controlador = controlador;
     }

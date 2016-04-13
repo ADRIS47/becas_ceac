@@ -27,129 +27,306 @@ public class VistaKardex extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        PnlInfoBecario = new javax.swing.JPanel();
+        PnlInfBecarioI = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
+        txtFolio = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txtPrograma = new javax.swing.JTextField();
+        txtNombreBecario = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        PnlInfBecarioD = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        txtFechaGraduacion = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txtCondicion = new javax.swing.JTextField();
         jpnlAreaBotones = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
         btnImprimir = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
+        PnlKardex = new javax.swing.JPanel();
+        PnlEncabezadoKardex = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        PnlKardexF1 = new javax.swing.JPanel();
+        TxtSem = new javax.swing.JTextField();
+        TxtAño = new javax.swing.JTextField();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jTextField5 = new javax.swing.JTextField();
+        jCheckBox3 = new javax.swing.JCheckBox();
+        jCheckBox4 = new javax.swing.JCheckBox();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        PnlKardexF2 = new javax.swing.JPanel();
+        TxtSem1 = new javax.swing.JTextField();
+        TxtAño1 = new javax.swing.JTextField();
+        jCheckBox5 = new javax.swing.JCheckBox();
+        jTextField6 = new javax.swing.JTextField();
+        jCheckBox6 = new javax.swing.JCheckBox();
+        jCheckBox7 = new javax.swing.JCheckBox();
+        jCheckBox8 = new javax.swing.JCheckBox();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField7 = new javax.swing.JTextField();
+        PnlKardexF3 = new javax.swing.JPanel();
+        TxtSem2 = new javax.swing.JTextField();
+        TxtAño2 = new javax.swing.JTextField();
+        jCheckBox9 = new javax.swing.JCheckBox();
+        jTextField8 = new javax.swing.JTextField();
+        jCheckBox10 = new javax.swing.JCheckBox();
+        jCheckBox11 = new javax.swing.JCheckBox();
+        jCheckBox12 = new javax.swing.JCheckBox();
+        jTextField9 = new javax.swing.JTextField();
+        jTextField10 = new javax.swing.JTextField();
+        PnlKardexF4 = new javax.swing.JPanel();
+        TxtSem3 = new javax.swing.JTextField();
+        TxtAño3 = new javax.swing.JTextField();
+        jCheckBox13 = new javax.swing.JCheckBox();
+        jTextField11 = new javax.swing.JTextField();
+        jCheckBox14 = new javax.swing.JCheckBox();
+        jCheckBox15 = new javax.swing.JCheckBox();
+        jCheckBox16 = new javax.swing.JCheckBox();
+        jTextField12 = new javax.swing.JTextField();
+        jTextField13 = new javax.swing.JTextField();
+        PnlKardexF5 = new javax.swing.JPanel();
+        TxtSem4 = new javax.swing.JTextField();
+        TxtAño4 = new javax.swing.JTextField();
+        jCheckBox17 = new javax.swing.JCheckBox();
+        jTextField14 = new javax.swing.JTextField();
+        jCheckBox18 = new javax.swing.JCheckBox();
+        jCheckBox19 = new javax.swing.JCheckBox();
+        jCheckBox20 = new javax.swing.JCheckBox();
+        jTextField15 = new javax.swing.JTextField();
+        jTextField16 = new javax.swing.JTextField();
+        PnlKardexF6 = new javax.swing.JPanel();
+        TxtSem5 = new javax.swing.JTextField();
+        TxtAño5 = new javax.swing.JTextField();
+        jCheckBox21 = new javax.swing.JCheckBox();
+        jTextField17 = new javax.swing.JTextField();
+        jCheckBox22 = new javax.swing.JCheckBox();
+        jCheckBox23 = new javax.swing.JCheckBox();
+        jCheckBox24 = new javax.swing.JCheckBox();
+        jTextField18 = new javax.swing.JTextField();
+        jTextField19 = new javax.swing.JTextField();
+        PnlKardexF7 = new javax.swing.JPanel();
+        TxtSem6 = new javax.swing.JTextField();
+        TxtAño6 = new javax.swing.JTextField();
+        jCheckBox25 = new javax.swing.JCheckBox();
+        jTextField20 = new javax.swing.JTextField();
+        jCheckBox26 = new javax.swing.JCheckBox();
+        jCheckBox27 = new javax.swing.JCheckBox();
+        jCheckBox28 = new javax.swing.JCheckBox();
+        jTextField21 = new javax.swing.JTextField();
+        jTextField22 = new javax.swing.JTextField();
+        PnlKardexF8 = new javax.swing.JPanel();
+        TxtSem7 = new javax.swing.JTextField();
+        TxtAño7 = new javax.swing.JTextField();
+        jCheckBox29 = new javax.swing.JCheckBox();
+        jTextField23 = new javax.swing.JTextField();
+        jCheckBox30 = new javax.swing.JCheckBox();
+        jCheckBox31 = new javax.swing.JCheckBox();
+        jCheckBox32 = new javax.swing.JCheckBox();
+        jTextField24 = new javax.swing.JTextField();
+        jTextField25 = new javax.swing.JTextField();
+        PnlKardexF9 = new javax.swing.JPanel();
+        TxtSem8 = new javax.swing.JTextField();
+        TxtAño8 = new javax.swing.JTextField();
+        jCheckBox33 = new javax.swing.JCheckBox();
+        jTextField26 = new javax.swing.JTextField();
+        jCheckBox34 = new javax.swing.JCheckBox();
+        jCheckBox35 = new javax.swing.JCheckBox();
+        jCheckBox36 = new javax.swing.JCheckBox();
+        jTextField27 = new javax.swing.JTextField();
+        jTextField28 = new javax.swing.JTextField();
+        PnlKardexF10 = new javax.swing.JPanel();
+        TxtSem9 = new javax.swing.JTextField();
+        TxtAño9 = new javax.swing.JTextField();
+        jCheckBox37 = new javax.swing.JCheckBox();
+        jTextField29 = new javax.swing.JTextField();
+        jCheckBox38 = new javax.swing.JCheckBox();
+        jCheckBox39 = new javax.swing.JCheckBox();
+        jCheckBox40 = new javax.swing.JCheckBox();
+        jTextField30 = new javax.swing.JTextField();
+        jTextField31 = new javax.swing.JTextField();
 
         setPreferredSize(new java.awt.Dimension(916, 584));
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion del Alumno", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
-        jPanel1.setLayout(new java.awt.GridLayout(1, 2));
+        PnlInfoBecario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion del Alumno", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
+        PnlInfoBecario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 153));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel7.setText("Folio:");
+        PnlInfBecarioI.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jTextField5.setText("jTextField5");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel1.setText("Folio:");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel1.setText("Nombre:");
+        txtFolio.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        txtFolio.setForeground(new java.awt.Color(255, 0, 0));
+        txtFolio.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtFolio.setText("DI-001");
+        txtFolio.setEnabled(false);
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel3.setText("Programa:");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel2.setText("Programa:");
 
-        jLabel6.setText("jLabel6");
+        txtPrograma.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtPrograma.setForeground(new java.awt.Color(255, 0, 0));
+        txtPrograma.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtPrograma.setText("COBRANZA");
+        txtPrograma.setEnabled(false);
+        txtPrograma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtProgramaActionPerformed(evt);
+            }
+        });
 
-        jTextField1.setText("jTextField1");
+        txtNombreBecario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtNombreBecario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtNombreBecario.setText("Adriana Perez Bonilla");
+        txtNombreBecario.setEnabled(false);
+        txtNombreBecario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreBecarioActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PnlInfBecarioILayout = new javax.swing.GroupLayout(PnlInfBecarioI);
+        PnlInfBecarioI.setLayout(PnlInfBecarioILayout);
+        PnlInfBecarioILayout.setHorizontalGroup(
+            PnlInfBecarioILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PnlInfBecarioILayout.createSequentialGroup()
+                .addGroup(PnlInfBecarioILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PnlInfBecarioILayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtPrograma, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PnlInfBecarioILayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtFolio, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(PnlInfBecarioILayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txtNombreBecario, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+        PnlInfBecarioILayout.setVerticalGroup(
+            PnlInfBecarioILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PnlInfBecarioILayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(PnlInfBecarioILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFolio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PnlInfBecarioILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPrograma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtNombreBecario, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(82, 82, 82))
+        );
+
+        PnlInfoBecario.add(PnlInfBecarioI, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 17, 330, 130));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(321, 321, 321))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGap(0, 120, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(0, 130, Short.MAX_VALUE)
+        );
+
+        PnlInfoBecario.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 120, 130));
+
+        PnlInfBecarioD.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel4.setText("Fecha Graduación");
+
+        txtFechaGraduacion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtFechaGraduacion.setEnabled(false);
+        txtFechaGraduacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFechaGraduacionActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Condición");
+
+        txtCondicion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtCondicion.setEnabled(false);
+        txtCondicion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCondicionActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PnlInfBecarioDLayout = new javax.swing.GroupLayout(PnlInfBecarioD);
+        PnlInfBecarioD.setLayout(PnlInfBecarioDLayout);
+        PnlInfBecarioDLayout.setHorizontalGroup(
+            PnlInfBecarioDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PnlInfBecarioDLayout.createSequentialGroup()
+                .addGap(101, 101, 101)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(PnlInfBecarioDLayout.createSequentialGroup()
+                .addGroup(PnlInfBecarioDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PnlInfBecarioDLayout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 68, Short.MAX_VALUE))
+                    .addGroup(PnlInfBecarioDLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(txtFechaGraduacion))
+                    .addGroup(PnlInfBecarioDLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(txtCondicion)))
+                .addContainerGap())
+        );
+        PnlInfBecarioDLayout.setVerticalGroup(
+            PnlInfBecarioDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PnlInfBecarioDLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
+                .addComponent(txtFechaGraduacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtCondicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        jTextField3.setText("jTextField3");
-
-        jTextField7.setText("jTextField7");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(563, 563, 563)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(88, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(jPanel2);
+        PnlInfoBecario.add(PnlInfBecarioD, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, 290, 130));
 
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/guardar_cambios.png"))); // NOI18N
         btnGuardar.setToolTipText("Guardar Registro");
         btnGuardar.setPreferredSize(new java.awt.Dimension(160, 29));
 
-        btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imprime.png"))); // NOI18N
-        btnImprimir.setToolTipText("Imprimir Forma");
+        btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BOLETA.png"))); // NOI18N
+        btnImprimir.setToolTipText("Cargar boleta");
         btnImprimir.setPreferredSize(new java.awt.Dimension(160, 29));
 
-        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cancel_registro.png"))); // NOI18N
-        btnCancelar.setToolTipText("Cancelar Folio");
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/carta.png"))); // NOI18N
+        btnCancelar.setToolTipText("Cargar Carta Servicio Comunitario");
         btnCancelar.setPreferredSize(new java.awt.Dimension(160, 29));
 
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adris/vistas/salir.png"))); // NOI18N
@@ -183,7 +360,663 @@ public class VistaKardex extends javax.swing.JPanel {
                 .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(240, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        PnlKardex.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Kardex Becario", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+
+        PnlEncabezadoKardex.setLayout(new java.awt.GridLayout(1, 9));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Semestre");
+        jLabel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PnlEncabezadoKardex.add(jLabel6);
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Año");
+        jLabel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PnlEncabezadoKardex.add(jLabel7);
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Pago Febrero");
+        jLabel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PnlEncabezadoKardex.add(jLabel8);
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Hrs. Servicio");
+        jLabel9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PnlEncabezadoKardex.add(jLabel9);
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Platica 1");
+        jLabel10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PnlEncabezadoKardex.add(jLabel10);
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("Platica 2");
+        jLabel12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PnlEncabezadoKardex.add(jLabel12);
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel14.setText("Pago Julio");
+        jLabel14.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PnlEncabezadoKardex.add(jLabel14);
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setText("Promedio");
+        jLabel13.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PnlEncabezadoKardex.add(jLabel13);
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("Desc. Acum");
+        jLabel11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PnlEncabezadoKardex.add(jLabel11);
+
+        PnlKardexF1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PnlKardexF1.setLayout(new java.awt.GridLayout(1, 9));
+
+        TxtSem.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtSem.setText("Enero");
+        TxtSem.setBorder(null);
+        TxtSem.setEnabled(false);
+        TxtSem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSemActionPerformed(evt);
+            }
+        });
+        PnlKardexF1.add(TxtSem);
+
+        TxtAño.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtAño.setText("2016");
+        TxtAño.setBorder(null);
+        TxtAño.setEnabled(false);
+        TxtAño.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtAñoActionPerformed(evt);
+            }
+        });
+        PnlKardexF1.add(TxtAño);
+
+        jCheckBox1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jCheckBox1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF1.add(jCheckBox1);
+
+        jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField5.setText("6");
+        jTextField5.setBorder(null);
+        PnlKardexF1.add(jTextField5);
+
+        jCheckBox3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jCheckBox3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF1.add(jCheckBox3);
+
+        jCheckBox4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jCheckBox4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF1.add(jCheckBox4);
+
+        jCheckBox2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF1.add(jCheckBox2);
+
+        jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField3.setText("9");
+        jTextField3.setBorder(null);
+        PnlKardexF1.add(jTextField3);
+
+        jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField2.setText("2");
+        jTextField2.setBorder(null);
+        PnlKardexF1.add(jTextField2);
+
+        PnlKardexF2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PnlKardexF2.setLayout(new java.awt.GridLayout(1, 9));
+
+        TxtSem1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtSem1.setText("Enero");
+        TxtSem1.setBorder(null);
+        TxtSem1.setEnabled(false);
+        TxtSem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSem1ActionPerformed(evt);
+            }
+        });
+        PnlKardexF2.add(TxtSem1);
+
+        TxtAño1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtAño1.setText("2016");
+        TxtAño1.setBorder(null);
+        TxtAño1.setEnabled(false);
+        TxtAño1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtAño1ActionPerformed(evt);
+            }
+        });
+        PnlKardexF2.add(TxtAño1);
+
+        jCheckBox5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jCheckBox5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF2.add(jCheckBox5);
+
+        jTextField6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField6.setText("6");
+        jTextField6.setBorder(null);
+        PnlKardexF2.add(jTextField6);
+
+        jCheckBox6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jCheckBox6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF2.add(jCheckBox6);
+
+        jCheckBox7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jCheckBox7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF2.add(jCheckBox7);
+
+        jCheckBox8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF2.add(jCheckBox8);
+
+        jTextField4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField4.setText("9");
+        jTextField4.setBorder(null);
+        PnlKardexF2.add(jTextField4);
+
+        jTextField7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField7.setText("2");
+        jTextField7.setBorder(null);
+        PnlKardexF2.add(jTextField7);
+
+        PnlKardexF3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PnlKardexF3.setLayout(new java.awt.GridLayout(1, 9));
+
+        TxtSem2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtSem2.setText("Enero");
+        TxtSem2.setBorder(null);
+        TxtSem2.setEnabled(false);
+        TxtSem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSem2ActionPerformed(evt);
+            }
+        });
+        PnlKardexF3.add(TxtSem2);
+
+        TxtAño2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtAño2.setText("2016");
+        TxtAño2.setBorder(null);
+        TxtAño2.setEnabled(false);
+        TxtAño2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtAño2ActionPerformed(evt);
+            }
+        });
+        PnlKardexF3.add(TxtAño2);
+
+        jCheckBox9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jCheckBox9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF3.add(jCheckBox9);
+
+        jTextField8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField8.setText("6");
+        jTextField8.setBorder(null);
+        PnlKardexF3.add(jTextField8);
+
+        jCheckBox10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jCheckBox10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF3.add(jCheckBox10);
+
+        jCheckBox11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jCheckBox11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF3.add(jCheckBox11);
+
+        jCheckBox12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF3.add(jCheckBox12);
+
+        jTextField9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField9.setText("9");
+        jTextField9.setBorder(null);
+        PnlKardexF3.add(jTextField9);
+
+        jTextField10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField10.setText("2");
+        jTextField10.setBorder(null);
+        PnlKardexF3.add(jTextField10);
+
+        PnlKardexF4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PnlKardexF4.setLayout(new java.awt.GridLayout(1, 9));
+
+        TxtSem3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtSem3.setText("Enero");
+        TxtSem3.setBorder(null);
+        TxtSem3.setEnabled(false);
+        TxtSem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSem3ActionPerformed(evt);
+            }
+        });
+        PnlKardexF4.add(TxtSem3);
+
+        TxtAño3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtAño3.setText("2016");
+        TxtAño3.setBorder(null);
+        TxtAño3.setEnabled(false);
+        TxtAño3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtAño3ActionPerformed(evt);
+            }
+        });
+        PnlKardexF4.add(TxtAño3);
+
+        jCheckBox13.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jCheckBox13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF4.add(jCheckBox13);
+
+        jTextField11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField11.setText("6");
+        jTextField11.setBorder(null);
+        PnlKardexF4.add(jTextField11);
+
+        jCheckBox14.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jCheckBox14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF4.add(jCheckBox14);
+
+        jCheckBox15.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jCheckBox15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF4.add(jCheckBox15);
+
+        jCheckBox16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF4.add(jCheckBox16);
+
+        jTextField12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField12.setText("9");
+        jTextField12.setBorder(null);
+        PnlKardexF4.add(jTextField12);
+
+        jTextField13.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField13.setText("2");
+        jTextField13.setBorder(null);
+        PnlKardexF4.add(jTextField13);
+
+        PnlKardexF5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PnlKardexF5.setLayout(new java.awt.GridLayout(1, 9));
+
+        TxtSem4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtSem4.setText("Enero");
+        TxtSem4.setBorder(null);
+        TxtSem4.setEnabled(false);
+        TxtSem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSem4ActionPerformed(evt);
+            }
+        });
+        PnlKardexF5.add(TxtSem4);
+
+        TxtAño4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtAño4.setText("2016");
+        TxtAño4.setBorder(null);
+        TxtAño4.setEnabled(false);
+        TxtAño4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtAño4ActionPerformed(evt);
+            }
+        });
+        PnlKardexF5.add(TxtAño4);
+
+        jCheckBox17.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jCheckBox17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF5.add(jCheckBox17);
+
+        jTextField14.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField14.setText("6");
+        jTextField14.setBorder(null);
+        PnlKardexF5.add(jTextField14);
+
+        jCheckBox18.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jCheckBox18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF5.add(jCheckBox18);
+
+        jCheckBox19.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jCheckBox19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF5.add(jCheckBox19);
+
+        jCheckBox20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF5.add(jCheckBox20);
+
+        jTextField15.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField15.setText("9");
+        jTextField15.setBorder(null);
+        PnlKardexF5.add(jTextField15);
+
+        jTextField16.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField16.setText("2");
+        jTextField16.setBorder(null);
+        PnlKardexF5.add(jTextField16);
+
+        PnlKardexF6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PnlKardexF6.setLayout(new java.awt.GridLayout(1, 9));
+
+        TxtSem5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtSem5.setText("Enero");
+        TxtSem5.setBorder(null);
+        TxtSem5.setEnabled(false);
+        TxtSem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSem5ActionPerformed(evt);
+            }
+        });
+        PnlKardexF6.add(TxtSem5);
+
+        TxtAño5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtAño5.setText("2016");
+        TxtAño5.setBorder(null);
+        TxtAño5.setEnabled(false);
+        TxtAño5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtAño5ActionPerformed(evt);
+            }
+        });
+        PnlKardexF6.add(TxtAño5);
+
+        jCheckBox21.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jCheckBox21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF6.add(jCheckBox21);
+
+        jTextField17.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField17.setText("6");
+        jTextField17.setBorder(null);
+        PnlKardexF6.add(jTextField17);
+
+        jCheckBox22.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jCheckBox22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF6.add(jCheckBox22);
+
+        jCheckBox23.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jCheckBox23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF6.add(jCheckBox23);
+
+        jCheckBox24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF6.add(jCheckBox24);
+
+        jTextField18.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField18.setText("9");
+        jTextField18.setBorder(null);
+        PnlKardexF6.add(jTextField18);
+
+        jTextField19.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField19.setText("2");
+        jTextField19.setBorder(null);
+        PnlKardexF6.add(jTextField19);
+
+        PnlKardexF7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PnlKardexF7.setLayout(new java.awt.GridLayout(1, 9));
+
+        TxtSem6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtSem6.setText("Enero");
+        TxtSem6.setBorder(null);
+        TxtSem6.setEnabled(false);
+        TxtSem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSem6ActionPerformed(evt);
+            }
+        });
+        PnlKardexF7.add(TxtSem6);
+
+        TxtAño6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtAño6.setText("2016");
+        TxtAño6.setBorder(null);
+        TxtAño6.setEnabled(false);
+        TxtAño6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtAño6ActionPerformed(evt);
+            }
+        });
+        PnlKardexF7.add(TxtAño6);
+
+        jCheckBox25.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jCheckBox25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF7.add(jCheckBox25);
+
+        jTextField20.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField20.setText("6");
+        jTextField20.setBorder(null);
+        PnlKardexF7.add(jTextField20);
+
+        jCheckBox26.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jCheckBox26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF7.add(jCheckBox26);
+
+        jCheckBox27.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jCheckBox27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF7.add(jCheckBox27);
+
+        jCheckBox28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF7.add(jCheckBox28);
+
+        jTextField21.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField21.setText("9");
+        jTextField21.setBorder(null);
+        PnlKardexF7.add(jTextField21);
+
+        jTextField22.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField22.setText("2");
+        jTextField22.setBorder(null);
+        PnlKardexF7.add(jTextField22);
+
+        PnlKardexF8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PnlKardexF8.setLayout(new java.awt.GridLayout(1, 9));
+
+        TxtSem7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtSem7.setText("Enero");
+        TxtSem7.setBorder(null);
+        TxtSem7.setEnabled(false);
+        TxtSem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSem7ActionPerformed(evt);
+            }
+        });
+        PnlKardexF8.add(TxtSem7);
+
+        TxtAño7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtAño7.setText("2016");
+        TxtAño7.setBorder(null);
+        TxtAño7.setEnabled(false);
+        TxtAño7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtAño7ActionPerformed(evt);
+            }
+        });
+        PnlKardexF8.add(TxtAño7);
+
+        jCheckBox29.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jCheckBox29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF8.add(jCheckBox29);
+
+        jTextField23.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField23.setText("6");
+        jTextField23.setBorder(null);
+        PnlKardexF8.add(jTextField23);
+
+        jCheckBox30.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jCheckBox30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF8.add(jCheckBox30);
+
+        jCheckBox31.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jCheckBox31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF8.add(jCheckBox31);
+
+        jCheckBox32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF8.add(jCheckBox32);
+
+        jTextField24.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField24.setText("9");
+        jTextField24.setBorder(null);
+        PnlKardexF8.add(jTextField24);
+
+        jTextField25.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField25.setText("2");
+        jTextField25.setBorder(null);
+        PnlKardexF8.add(jTextField25);
+
+        PnlKardexF9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PnlKardexF9.setLayout(new java.awt.GridLayout(1, 9));
+
+        TxtSem8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtSem8.setText("Enero");
+        TxtSem8.setBorder(null);
+        TxtSem8.setEnabled(false);
+        TxtSem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSem8ActionPerformed(evt);
+            }
+        });
+        PnlKardexF9.add(TxtSem8);
+
+        TxtAño8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtAño8.setText("2016");
+        TxtAño8.setBorder(null);
+        TxtAño8.setEnabled(false);
+        TxtAño8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtAño8ActionPerformed(evt);
+            }
+        });
+        PnlKardexF9.add(TxtAño8);
+
+        jCheckBox33.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jCheckBox33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF9.add(jCheckBox33);
+
+        jTextField26.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField26.setText("6");
+        jTextField26.setBorder(null);
+        PnlKardexF9.add(jTextField26);
+
+        jCheckBox34.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jCheckBox34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF9.add(jCheckBox34);
+
+        jCheckBox35.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jCheckBox35.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF9.add(jCheckBox35);
+
+        jCheckBox36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF9.add(jCheckBox36);
+
+        jTextField27.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField27.setText("9");
+        jTextField27.setBorder(null);
+        PnlKardexF9.add(jTextField27);
+
+        jTextField28.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField28.setText("2");
+        jTextField28.setBorder(null);
+        PnlKardexF9.add(jTextField28);
+
+        PnlKardexF10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PnlKardexF10.setLayout(new java.awt.GridLayout(1, 9));
+
+        TxtSem9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtSem9.setText("Enero");
+        TxtSem9.setBorder(null);
+        TxtSem9.setEnabled(false);
+        TxtSem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSem9ActionPerformed(evt);
+            }
+        });
+        PnlKardexF10.add(TxtSem9);
+
+        TxtAño9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtAño9.setText("2016");
+        TxtAño9.setBorder(null);
+        TxtAño9.setEnabled(false);
+        TxtAño9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtAño9ActionPerformed(evt);
+            }
+        });
+        PnlKardexF10.add(TxtAño9);
+
+        jCheckBox37.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jCheckBox37.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF10.add(jCheckBox37);
+
+        jTextField29.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField29.setText("6");
+        jTextField29.setBorder(null);
+        PnlKardexF10.add(jTextField29);
+
+        jCheckBox38.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jCheckBox38.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF10.add(jCheckBox38);
+
+        jCheckBox39.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jCheckBox39.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF10.add(jCheckBox39);
+
+        jCheckBox40.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PnlKardexF10.add(jCheckBox40);
+
+        jTextField30.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField30.setText("9");
+        jTextField30.setBorder(null);
+        PnlKardexF10.add(jTextField30);
+
+        jTextField31.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField31.setText("2");
+        jTextField31.setBorder(null);
+        PnlKardexF10.add(jTextField31);
+
+        javax.swing.GroupLayout PnlKardexLayout = new javax.swing.GroupLayout(PnlKardex);
+        PnlKardex.setLayout(PnlKardexLayout);
+        PnlKardexLayout.setHorizontalGroup(
+            PnlKardexLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PnlKardexLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PnlKardexLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PnlEncabezadoKardex, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PnlKardexF1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PnlKardexF2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PnlKardexF3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PnlKardexF4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PnlKardexF5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PnlKardexF6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PnlKardexF7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PnlKardexF8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PnlKardexF9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PnlKardexF10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        PnlKardexLayout.setVerticalGroup(
+            PnlKardexLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PnlKardexLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(PnlEncabezadoKardex, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PnlKardexF1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PnlKardexF2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PnlKardexF3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PnlKardexF4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PnlKardexF5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PnlKardexF6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PnlKardexF7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PnlKardexF8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PnlKardexF9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PnlKardexF10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -192,41 +1025,254 @@ public class VistaKardex extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 772, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addComponent(jpnlAreaBotones, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(PnlInfoBecario, javax.swing.GroupLayout.DEFAULT_SIZE, 779, Short.MAX_VALUE)
+                    .addComponent(PnlKardex, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jpnlAreaBotones, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jpnlAreaBotones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jpnlAreaBotones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(PnlInfoBecario, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(PnlKardex, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtNombreBecarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreBecarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreBecarioActionPerformed
+
+    private void txtProgramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProgramaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtProgramaActionPerformed
+
+    private void txtFechaGraduacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaGraduacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFechaGraduacionActionPerformed
+
+    private void txtCondicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCondicionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCondicionActionPerformed
+
+    private void TxtSemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtSemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtSemActionPerformed
+
+    private void TxtAñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtAñoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtAñoActionPerformed
+
+    private void TxtSem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtSem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtSem1ActionPerformed
+
+    private void TxtAño1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtAño1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtAño1ActionPerformed
+
+    private void TxtSem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtSem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtSem2ActionPerformed
+
+    private void TxtAño2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtAño2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtAño2ActionPerformed
+
+    private void TxtSem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtSem3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtSem3ActionPerformed
+
+    private void TxtAño3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtAño3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtAño3ActionPerformed
+
+    private void TxtSem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtSem4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtSem4ActionPerformed
+
+    private void TxtAño4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtAño4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtAño4ActionPerformed
+
+    private void TxtSem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtSem5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtSem5ActionPerformed
+
+    private void TxtAño5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtAño5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtAño5ActionPerformed
+
+    private void TxtSem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtSem6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtSem6ActionPerformed
+
+    private void TxtAño6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtAño6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtAño6ActionPerformed
+
+    private void TxtSem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtSem7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtSem7ActionPerformed
+
+    private void TxtAño7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtAño7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtAño7ActionPerformed
+
+    private void TxtSem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtSem8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtSem8ActionPerformed
+
+    private void TxtAño8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtAño8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtAño8ActionPerformed
+
+    private void TxtSem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtSem9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtSem9ActionPerformed
+
+    private void TxtAño9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtAño9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtAño9ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel PnlEncabezadoKardex;
+    private javax.swing.JPanel PnlInfBecarioD;
+    private javax.swing.JPanel PnlInfBecarioI;
+    private javax.swing.JPanel PnlInfoBecario;
+    private javax.swing.JPanel PnlKardex;
+    private javax.swing.JPanel PnlKardexF1;
+    private javax.swing.JPanel PnlKardexF10;
+    private javax.swing.JPanel PnlKardexF2;
+    private javax.swing.JPanel PnlKardexF3;
+    private javax.swing.JPanel PnlKardexF4;
+    private javax.swing.JPanel PnlKardexF5;
+    private javax.swing.JPanel PnlKardexF6;
+    private javax.swing.JPanel PnlKardexF7;
+    private javax.swing.JPanel PnlKardexF8;
+    private javax.swing.JPanel PnlKardexF9;
+    private javax.swing.JTextField TxtAño;
+    private javax.swing.JTextField TxtAño1;
+    private javax.swing.JTextField TxtAño2;
+    private javax.swing.JTextField TxtAño3;
+    private javax.swing.JTextField TxtAño4;
+    private javax.swing.JTextField TxtAño5;
+    private javax.swing.JTextField TxtAño6;
+    private javax.swing.JTextField TxtAño7;
+    private javax.swing.JTextField TxtAño8;
+    private javax.swing.JTextField TxtAño9;
+    private javax.swing.JTextField TxtSem;
+    private javax.swing.JTextField TxtSem1;
+    private javax.swing.JTextField TxtSem2;
+    private javax.swing.JTextField TxtSem3;
+    private javax.swing.JTextField TxtSem4;
+    private javax.swing.JTextField TxtSem5;
+    private javax.swing.JTextField TxtSem6;
+    private javax.swing.JTextField TxtSem7;
+    private javax.swing.JTextField TxtSem8;
+    private javax.swing.JTextField TxtSem9;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnSalir;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox10;
+    private javax.swing.JCheckBox jCheckBox11;
+    private javax.swing.JCheckBox jCheckBox12;
+    private javax.swing.JCheckBox jCheckBox13;
+    private javax.swing.JCheckBox jCheckBox14;
+    private javax.swing.JCheckBox jCheckBox15;
+    private javax.swing.JCheckBox jCheckBox16;
+    private javax.swing.JCheckBox jCheckBox17;
+    private javax.swing.JCheckBox jCheckBox18;
+    private javax.swing.JCheckBox jCheckBox19;
+    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox jCheckBox20;
+    private javax.swing.JCheckBox jCheckBox21;
+    private javax.swing.JCheckBox jCheckBox22;
+    private javax.swing.JCheckBox jCheckBox23;
+    private javax.swing.JCheckBox jCheckBox24;
+    private javax.swing.JCheckBox jCheckBox25;
+    private javax.swing.JCheckBox jCheckBox26;
+    private javax.swing.JCheckBox jCheckBox27;
+    private javax.swing.JCheckBox jCheckBox28;
+    private javax.swing.JCheckBox jCheckBox29;
+    private javax.swing.JCheckBox jCheckBox3;
+    private javax.swing.JCheckBox jCheckBox30;
+    private javax.swing.JCheckBox jCheckBox31;
+    private javax.swing.JCheckBox jCheckBox32;
+    private javax.swing.JCheckBox jCheckBox33;
+    private javax.swing.JCheckBox jCheckBox34;
+    private javax.swing.JCheckBox jCheckBox35;
+    private javax.swing.JCheckBox jCheckBox36;
+    private javax.swing.JCheckBox jCheckBox37;
+    private javax.swing.JCheckBox jCheckBox38;
+    private javax.swing.JCheckBox jCheckBox39;
+    private javax.swing.JCheckBox jCheckBox4;
+    private javax.swing.JCheckBox jCheckBox40;
+    private javax.swing.JCheckBox jCheckBox5;
+    private javax.swing.JCheckBox jCheckBox6;
+    private javax.swing.JCheckBox jCheckBox7;
+    private javax.swing.JCheckBox jCheckBox8;
+    private javax.swing.JCheckBox jCheckBox9;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField12;
+    private javax.swing.JTextField jTextField13;
+    private javax.swing.JTextField jTextField14;
+    private javax.swing.JTextField jTextField15;
+    private javax.swing.JTextField jTextField16;
+    private javax.swing.JTextField jTextField17;
+    private javax.swing.JTextField jTextField18;
+    private javax.swing.JTextField jTextField19;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField20;
+    private javax.swing.JTextField jTextField21;
+    private javax.swing.JTextField jTextField22;
+    private javax.swing.JTextField jTextField23;
+    private javax.swing.JTextField jTextField24;
+    private javax.swing.JTextField jTextField25;
+    private javax.swing.JTextField jTextField26;
+    private javax.swing.JTextField jTextField27;
+    private javax.swing.JTextField jTextField28;
+    private javax.swing.JTextField jTextField29;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField30;
+    private javax.swing.JTextField jTextField31;
+    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     private javax.swing.JPanel jpnlAreaBotones;
+    private javax.swing.JTextField txtCondicion;
+    private javax.swing.JTextField txtFechaGraduacion;
+    private javax.swing.JTextField txtFolio;
+    private javax.swing.JTextField txtNombreBecario;
+    private javax.swing.JTextField txtPrograma;
     // End of variables declaration//GEN-END:variables
 }

@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package principal;
+package adris.vistas;
 
+import principal.*;
 import helpers.Helper;
 import helpers.Log;
 import index.Index;
@@ -67,6 +68,10 @@ public class PrincipalControlador {
     List<PnlParentesco> lstVistaParentesco = new ArrayList<>();
     List<PnlDireccion> lstVistaDireccion = new ArrayList<>();
 
+    public static void main(String[] args) {
+        PrincipalControlador controlador= new PrincipalControlador();
+        controlador.iniciaPantallaPrincipal();
+    }
     public void setVista(VistaPanelPrincipal vista) {
         this.vista = vista;
     }

@@ -30,7 +30,7 @@ import pojos.CatSexo;
  *
  * @author sabagip
  */
-public class PrincipalModelo {
+public class PrincipalModeloA {
     
     Log log = new Log();
     
@@ -126,7 +126,7 @@ public class PrincipalModelo {
                 rs.close();
                 st.close();
             } catch (SQLException ex) {
-                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PrincipalModeloA.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         return catSexo;
@@ -162,7 +162,7 @@ public class PrincipalModelo {
                 st.close();
                 conn.close();
             } catch (SQLException ex) {
-                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PrincipalModeloA.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         return catSexo;
@@ -197,7 +197,7 @@ public class PrincipalModelo {
                 rs.close();
                 st.close();
             } catch (SQLException ex) {
-                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PrincipalModeloA.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         return catEstadoCivil;
@@ -235,7 +235,7 @@ public class PrincipalModelo {
                 st.close();
                 conn.close();
             } catch (SQLException ex) {
-                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PrincipalModeloA.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         return catEstadoCivil;
