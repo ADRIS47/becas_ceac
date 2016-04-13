@@ -5,6 +5,7 @@
  */
 package login;
 
+import helpers.Helper;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import javax.swing.Icon;
@@ -17,6 +18,7 @@ import javax.swing.ImageIcon;
 public class VistaLogin extends javax.swing.JFrame {
 
     LoginControlador controlador;
+    Helper helper = new Helper();
 
     public void setControlador(LoginControlador controlador) {
         this.controlador = controlador;
@@ -30,12 +32,7 @@ public class VistaLogin extends javax.swing.JFrame {
     public VistaLogin(LoginControlador controlador) {
         initComponents();
         this.controlador = controlador;
-        
-        ImageIcon fot = new ImageIcon(getClass().getResource("/imagenes/llavelogin.jpg"));
-        Icon icono = new ImageIcon(fot.getImage().getScaledInstance(lblImagen.getWidth(), 
-                lblImagen.getHeight(), Image.SCALE_DEFAULT));
-        lblImagen.setIcon(icono);
-        repaint();
+        //helper.cargaImagenLocal(lblImagen, "/imagenes/llavelogin.jpg");
     }
 
     /**

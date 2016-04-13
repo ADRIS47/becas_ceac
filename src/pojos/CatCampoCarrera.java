@@ -9,13 +9,11 @@ package pojos;
  *
  * @author sabagip
  */
-public class CatPrograma {
+public class CatCampoCarrera {
     
     int id;
     String nombre;
-    String descripcion; 
-    long contador;
-    String iniciales;
+    String descripcion;
 
     public int getId() {
         return id;
@@ -40,29 +38,9 @@ public class CatPrograma {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-
-    public long getContador() {
-        return contador;
-    }
-
-    public void setContador(long contador) {
-        this.contador = contador;
-    }
-
-    public String getIniciales() {
-        return iniciales;
-    }
-
-    public void setIniciales(String iniciales) {
-        this.iniciales = iniciales;
-    }
     
-    
-    
-    public static String COL_ID = "id_programa";
-    public static String COL_NOMBRE = "nombre";
-    public static String COL_DESCRIPCION = "descripcion";
-    public static String COL_CONTADOR = "contador";
-    public static String COL_INICIALES = "iniciales";
+    public final static String COL_ID = "id_campo_carrera";
+    public final static String COL_NOMBRE = "nombre";
+    public final static String COL_DESCRIPCION = "descripcion";
     
 }

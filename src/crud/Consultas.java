@@ -41,5 +41,20 @@ public class Consultas {
      */
     public static String getParentesco = "SELECT id_parentesco, nombre FROM beca_cat_parentesco";
     
+    /**
+     * Obtiene el catalogo de universidades
+     */
+    public static String getUniversidades = "SELECT id_universidad, nombre FROM beca_cat_universidad ORDER BY nombre";
+    
+    /**
+     * Obtiene el catalogo de campo de estudio
+     */
+    public static String getCampoEstudio = "SELECT id_campo_carrera, nombre, descripcion FROM beca_cat_campo ORDER BY nombre";
+    
+    /**
+     * Obtiene las iniciales del programa seleccionado
+     */
+    public static String getInicialesPrograma = "SELECT iniciales FROM beca_cat_programa WHERE id_programa = ?";
+    
     
 }

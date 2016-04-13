@@ -3,9 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package adris.vistas;
-
-import principal.*;
+package principal;
 
 /**
  *
@@ -33,6 +31,8 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        ScrollpnlOpciones = new javax.swing.JScrollPane();
+        pnlOpciones = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -41,7 +41,6 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
         btnCobranza = new javax.swing.JButton();
         btnReportes = new javax.swing.JButton();
         btnBusqueda = new javax.swing.JButton();
-        pnlOpciones = new javax.swing.JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Control de Becas");
@@ -52,6 +51,21 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
                 formWindowClosing(evt);
             }
         });
+
+        ScrollpnlOpciones.setPreferredSize(new java.awt.Dimension(916, 584));
+
+        javax.swing.GroupLayout pnlOpcionesLayout = new javax.swing.GroupLayout(pnlOpciones);
+        pnlOpciones.setLayout(pnlOpcionesLayout);
+        pnlOpcionesLayout.setHorizontalGroup(
+            pnlOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 962, Short.MAX_VALUE)
+        );
+        pnlOpcionesLayout.setVerticalGroup(
+            pnlOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 609, Short.MAX_VALUE)
+        );
+
+        ScrollpnlOpciones.setViewportView(pnlOpciones);
 
         jPanel1.setBackground(new java.awt.Color(51, 0, 255));
         jPanel1.setLayout(new java.awt.GridBagLayout());
@@ -72,7 +86,7 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
 
         btnBecarios.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnBecarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/REGISTRO.png"))); // NOI18N
-        btnBecarios.setToolTipText("Registro Inicial del Becario");
+        btnBecarios.setToolTipText("registro");
         btnBecarios.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBecarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,21 +96,17 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
 
         btnKardex.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnKardex.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/kardex.png"))); // NOI18N
-        btnKardex.setToolTipText("Kardex del becario");
         btnKardex.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         btnCobranza.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnCobranza.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adris/vistas/cobranza.png"))); // NOI18N
-        btnCobranza.setToolTipText("Cobranza Programas Especiales");
         btnCobranza.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         btnReportes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnReportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adris/vistas/reportes.png"))); // NOI18N
-        btnReportes.setToolTipText("Reportes");
 
         btnBusqueda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adris/vistas/busqueda.png"))); // NOI18N
-        btnBusqueda.setToolTipText("Busquedas");
         btnBusqueda.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -129,28 +139,28 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pnlOpciones.setPreferredSize(new java.awt.Dimension(916, 584));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(pnlOpciones, javax.swing.GroupLayout.DEFAULT_SIZE, 943, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(ScrollpnlOpciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1066, Short.MAX_VALUE))
                 .addContainerGap())
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(6, 6, 6)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlOpciones, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE)
+                    .addComponent(ScrollpnlOpciones, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -158,16 +168,17 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBecariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBecariosActionPerformed
-        controlador.creaVistaRegistro();
-    }//GEN-LAST:event_btnBecariosActionPerformed
-
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         controlador.cerrarSesion();
     }//GEN-LAST:event_formWindowClosing
 
+    private void btnBecariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBecariosActionPerformed
+        controlador.creaVistaRegistro();
+    }//GEN-LAST:event_btnBecariosActionPerformed
+
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    protected javax.swing.JScrollPane ScrollpnlOpciones;
     private javax.swing.JButton btnBecarios;
     private javax.swing.JButton btnBusqueda;
     private javax.swing.JButton btnCobranza;
@@ -176,6 +187,6 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    protected javax.swing.JScrollPane pnlOpciones;
+    protected javax.swing.JPanel pnlOpciones;
     // End of variables declaration//GEN-END:variables
 }

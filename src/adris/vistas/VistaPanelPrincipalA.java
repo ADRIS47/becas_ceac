@@ -6,20 +6,19 @@
 package adris.vistas;
 
 import principal.*;
-import adris.vistas.*;
 
 /**
  *
  * @author Adriana
  */
-public class VistaPanelPrincipal_A extends javax.swing.JFrame {
+public class VistaPanelPrincipal extends javax.swing.JFrame {
     
     PrincipalControlador controlador;
 
     /**
      * Creates new form VistaPanelPrincipal
      */
-    public VistaPanelPrincipal_A(PrincipalControlador controlador) {
+    public VistaPanelPrincipal(PrincipalControlador controlador) {
         initComponents();
         this.controlador = controlador;
     }
@@ -36,25 +35,30 @@ public class VistaPanelPrincipal_A extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        bntCerrarsesion = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         btnBecarios = new javax.swing.JButton();
         btnKardex = new javax.swing.JButton();
         btnCobranza = new javax.swing.JButton();
         btnReportes = new javax.swing.JButton();
-        btnReportes1 = new javax.swing.JButton();
-        pnlOpciones = new javax.swing.JPanel();
+        btnBusqueda = new javax.swing.JButton();
+        pnlOpciones = new javax.swing.JScrollPane();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Control de Becas");
         setMinimumSize(new java.awt.Dimension(940, 558));
+        setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(51, 0, 255));
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        jLabel1.setFont(new java.awt.Font("Eras Bold ITC", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 204));
-        jLabel1.setText("Sistema de Control de asignacion de Becas");
+        jLabel1.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Control de asignacion de Becas");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -64,24 +68,12 @@ public class VistaPanelPrincipal_A extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(12, 20, 0, 0);
         jPanel1.add(jLabel1, gridBagConstraints);
 
-        bntCerrarsesion.setText("Cerrar Sesión");
-        bntCerrarsesion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bntCerrarsesionActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(14, 211, 22, 35);
-        jPanel1.add(bntCerrarsesion, gridBagConstraints);
-
-        jPanel2.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel2.setBackground(new java.awt.Color(51, 0, 255));
 
         btnBecarios.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnBecarios.setText("Registro");
+        btnBecarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/REGISTRO.png"))); // NOI18N
+        btnBecarios.setToolTipText("Registro Inicial del Becario");
+        btnBecarios.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBecarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBecariosActionPerformed(evt);
@@ -89,21 +81,23 @@ public class VistaPanelPrincipal_A extends javax.swing.JFrame {
         });
 
         btnKardex.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnKardex.setText("Kardex");
+        btnKardex.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/kardex.png"))); // NOI18N
+        btnKardex.setToolTipText("Kardex del becario");
+        btnKardex.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         btnCobranza.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnCobranza.setText("Cobranza");
+        btnCobranza.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adris/vistas/cobranza.png"))); // NOI18N
+        btnCobranza.setToolTipText("Cobranza Programas Especiales");
+        btnCobranza.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         btnReportes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnReportes.setText("Reportes");
+        btnReportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adris/vistas/reportes.png"))); // NOI18N
+        btnReportes.setToolTipText("Reportes");
 
-        btnReportes1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnReportes1.setText("Búsquedas");
-        btnReportes1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReportes1ActionPerformed(evt);
-            }
-        });
+        btnBusqueda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adris/vistas/busqueda.png"))); // NOI18N
+        btnBusqueda.setToolTipText("Busquedas");
+        btnBusqueda.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -116,27 +110,26 @@ public class VistaPanelPrincipal_A extends javax.swing.JFrame {
                     .addComponent(btnCobranza, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnBecarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnKardex, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnReportes1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnBusqueda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(btnBecarios, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnBecarios)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnKardex)
                 .addGap(18, 18, 18)
-                .addComponent(btnKardex, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCobranza)
                 .addGap(18, 18, 18)
-                .addComponent(btnCobranza, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16)
-                .addComponent(btnReportes1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnReportes)
                 .addGap(18, 18, 18)
-                .addComponent(btnReportes, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnBusqueda)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pnlOpciones.setPreferredSize(new java.awt.Dimension(697, 584));
-        pnlOpciones.setLayout(new java.awt.CardLayout());
+        pnlOpciones.setPreferredSize(new java.awt.Dimension(916, 584));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -145,19 +138,19 @@ public class VistaPanelPrincipal_A extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlOpciones, javax.swing.GroupLayout.DEFAULT_SIZE, 795, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(pnlOpciones, javax.swing.GroupLayout.DEFAULT_SIZE, 943, Short.MAX_VALUE)
                 .addContainerGap())
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 940, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlOpciones, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
+                    .addComponent(pnlOpciones, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -165,29 +158,24 @@ public class VistaPanelPrincipal_A extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bntCerrarsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntCerrarsesionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bntCerrarsesionActionPerformed
-
     private void btnBecariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBecariosActionPerformed
         controlador.creaVistaRegistro();
     }//GEN-LAST:event_btnBecariosActionPerformed
 
-    private void btnReportes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportes1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnReportes1ActionPerformed
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        controlador.cerrarSesion();
+    }//GEN-LAST:event_formWindowClosing
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bntCerrarsesion;
     private javax.swing.JButton btnBecarios;
+    private javax.swing.JButton btnBusqueda;
     private javax.swing.JButton btnCobranza;
     private javax.swing.JButton btnKardex;
     private javax.swing.JButton btnReportes;
-    private javax.swing.JButton btnReportes1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    protected javax.swing.JPanel pnlOpciones;
+    protected javax.swing.JScrollPane pnlOpciones;
     // End of variables declaration//GEN-END:variables
 }
