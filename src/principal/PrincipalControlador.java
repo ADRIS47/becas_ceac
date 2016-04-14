@@ -764,11 +764,11 @@ public class PrincipalControlador {
     }
 
     private void addListenerTeclasVistaRegistro() {
-        //Nombres del becado
+        //Nombres del becado y fecha de nacimiento
         vistaRegistro.txtNombreBecado.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtNombreBecado));
         vistaRegistro.txtApPaternoBecado.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtApPaternoBecado));
         vistaRegistro.txtApMaternoBecado.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtApPaternoBecado));
-        
+        vistaRegistro.txtFechaNacimiento.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.FECHA_NACIMIENTO, vistaRegistro.txtFechaNacimiento));
         //Telefonos del becado
         vistaRegistro.txtTel1Becado.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.TELEFONO, vistaRegistro.txtTel1Becado));
         vistaRegistro.txtTel2Becado.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.TELEFONO, vistaRegistro.txtTel2Becado));

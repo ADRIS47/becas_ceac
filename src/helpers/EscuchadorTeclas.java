@@ -26,6 +26,7 @@ public class EscuchadorTeclas implements KeyListener {
     public final static int LETRAS_Y_NUMEROS = 4;
     public final static int TELEFONO = 5;
     public final static int LETRAS_NUMEROS_ESPACIO = 6;
+    public final static int FECHA_NACIMIENTO = 7;
     int codigo;
     JTextField txtCampo;
 
@@ -77,6 +78,10 @@ public class EscuchadorTeclas implements KeyListener {
                 
             case EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO:
                 evaluaLetrasNumerosEspacios();
+                break;
+            
+            case EscuchadorTeclas.FECHA_NACIMIENTO:
+                evaluaFechaNacimiento();
                 break;
         }
 
@@ -210,6 +215,35 @@ public class EscuchadorTeclas implements KeyListener {
             if (error) {
                 txtCampo.setText("");
                 txtCampo.setText(new String(resultado, 0, j));
+            }
+        }
+    }
+    
+    private void evaluaFechaNacimiento(){
+        String str = txtCampo.getText();
+        char[] fuente = str.toCharArray();
+        char[] resultado = new char[fuente.length];
+        int j = 0;
+        boolean error = false;
+
+        for (int i = 0; i < 10; i++) {
+
+            if ((fuente[i] >= '0' && fuente[i] <= '9') ||
+                     fuente[i] == '/') {
+                resultado[j++] = fuente[i];
+            } 
+            else{
+                error = true;
+                java.awt.Toolkit.getDefaultToolkit().beep();
+            }
+
+            if (error) {
+                txtCampo.setText("");
+                txtCampo.setText(new String(resultado, 0, 10));
+            }
+            
+            if(i == 10){
+                txtCampo.setText(new String(resultado, 0, 10));
             }
         }
     }
