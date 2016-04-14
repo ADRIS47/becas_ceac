@@ -462,9 +462,7 @@ public class PrincipalModelo {
         long idBecario = 0;
         PreparedStatement ps = null;
         ResultSet rs = null;
-
-        //Se obtiene el folio
-        becario.setFolio(creaFolio(conexion, becario));
+        
         try {
 
             ps = conexion.prepareStatement(Insert.insertBecarioBorrador, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -488,8 +486,10 @@ public class PrincipalModelo {
             ps.setString(18, becario.getEnsayo());
             ps.setString(19, becario.getBoletaInicioBeca());
             ps.setBoolean(20, bandera);
-            ps.setString(21, becario.getFolio());
-            ps.setInt(22, becario.getIdEstatus());
+            ps.setString(21, becario.getContatoBeca());
+            ps.setString(22, becario.getIdentificacion());
+            ps.setString(23, becario.getFolio());
+            ps.setInt(24, becario.getIdEstatus());
             
             int i = ps.executeUpdate();
             if (i == 0) {
@@ -521,7 +521,7 @@ public class PrincipalModelo {
         return idBecario;
     }
 
-    private String creaFolio(Connection conexion, Becario becario) {
+    public String creaFolio(Connection conexion, Becario becario) {
         long contador = 0;
         String folio = "";
         PreparedStatement ps = null;

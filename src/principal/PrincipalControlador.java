@@ -6,7 +6,6 @@
 package principal;
 
 import crud.Conexion;
-import helpers.EscuchadorAdjuntaArchivos;
 import helpers.EscuchadorCalculaBecaXSemestre;
 import helpers.EscuchadorCmbBoxCambiado;
 import helpers.EscuchadorValidaEntrada;
@@ -16,6 +15,7 @@ import index.Index;
 import java.awt.Color;
 import java.awt.Component;
 import java.io.File;
+import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -29,10 +29,12 @@ import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import pojos.Aval;
 import pojos.Becario;
 import pojos.DatosEscolares;
 import pojos.Direccion;
@@ -56,15 +58,15 @@ public class PrincipalControlador {
     PrincipalModelo modelo;
     Index controladorPrincipal;
     
-    File fileFoto;
-    File fileActaNacimiento;
-    File fileBoleta_calificaciones_inicial;
-    File fileCarta_solicitud;
-    File fileEnsayo;
-    File fileIneBecario;
-    File fileIneAval;
-    File fileContrato;
-    File filePagare;
+    protected File fileFoto = null;
+    protected File fileActaNacimiento;
+    protected File fileBoleta_calificaciones_inicial;
+    protected File fileCarta_solicitud;
+    protected File fileEnsayo;
+    protected File fileIneBecario;
+    protected File fileIneAval;
+    protected File fileContrato;
+    protected File filePagare;
     
     Log log = new Log();
     Helper helper = new Helper();
@@ -134,7 +136,7 @@ public class PrincipalControlador {
         }
         
         addListenerTeclasVistaRegistro();
-        addListenerArchivosAdjuntos();
+        //addListenerArchivosAdjuntos();
         //Helper.getBecaSemestral(vistaRegistro.cmboxSemestresTotalesCarrera, vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre);
         //Helper.getFechaGraduacion(vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca, vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion, vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera);
         
@@ -256,6 +258,37 @@ public class PrincipalControlador {
         }
     }
     
+    protected File cargaDocumento(File archivo, JLabel lblEstatus){
+        JFileChooser selector = new JFileChooser();
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("PDF", "pdf");
+        selector.setFileFilter(filtro);
+        int select = selector.showOpenDialog(vista);
+
+        if(select == JFileChooser.APPROVE_OPTION){
+            archivo = selector.getSelectedFile();
+            String nombreArchivo = archivo.getName();
+            String extension = nombreArchivo.substring(nombreArchivo.length()-3, nombreArchivo.length());
+            if(!extension.equals("pdf") && 
+                    !extension.equals("PDF")){
+                JOptionPane.showMessageDialog(vista, "Debes de seleccionar archivos con la extension PDF", "Error", JOptionPane.ERROR_MESSAGE);
+                lblEstatus.setText("ERROR");
+                archivo = null;
+            }
+            else{
+                //JOptionPane.showMessageDialog(vista, "Debes de seleccionar archivos con la extension PDF", "Error", JOptionPane.ERROR_MESSAGE);
+                lblEstatus.setText("¡OK!");
+            }
+        }
+        
+        return archivo;
+    }
+    
+    protected File borraDocumento(File archivo, JLabel lblEstatus){
+        archivo =null;
+        lblEstatus.setText("Eliminado");
+        return archivo;
+    }
+    
     /**
      * Agrega un componente a su respectivo JPanel
      * @param componente JPanel que se quiere agregar
@@ -351,14 +384,17 @@ public class PrincipalControlador {
      * @param bandera True si es un becario borrador, False si es un becario completo
      */
     private void insertBecario(boolean bandera){        
-        //Se obtienen los valores del nuevo becario
-        Becario becario = getDatosBecarioDeFormulario();
-        List<Direccion> lstDireccionesBecario = getDireccionBecarioDeFormulario(becario.getId());
-        List<Telefono> lstTelefonosBecario = getTelefonoBecarioDeFormulario(becario.getId());
-        List<Padres> lstPadresBecario = getPadresBecarioDeFormulario(becario.getId());
-        List<Hermanos> lstHermanos = getHermanosDeFormulario(becario.getId());
-        List<Hijos> lstHijos = getHijosDeFormulario(becario.getId());
-        DatosEscolares lstDatosEscolares = getDatosEscolaresDeFormulario(becario.getId());
+        
+        //Se crean las variables donde se alojaran los archivos adjuntos
+        File fileFotoDest;
+        File fileActaNacimientoDest;
+        File fileBoleta_calificaciones_inicialDest;
+        File fileCarta_solicitudDest;
+        File fileEnsayoDest;
+        File fileIneBecarioDest;
+        File fileIneAvalDest;
+        File fileContratoDest;
+        File filePagareDest;
         
         Conexion conn = new Conexion();
         Connection conexion = conn.estableceConexion();
@@ -367,6 +403,21 @@ public class PrincipalControlador {
             log.crearLog(new SQLException("No se pudo conectar a la base de datos").getMessage());
             return;
         }
+        
+        //Se obtienen los valores del nuevo becario
+        Becario becario = getDatosBecarioDeFormulario(conexion);
+        if(becario == null)
+            return;
+        
+        List<Direccion> lstDireccionesBecario = getDireccionBecarioDeFormulario(becario.getId());
+        List<Telefono> lstTelefonosBecario = getTelefonoBecarioDeFormulario(becario.getId());
+        List<Padres> lstPadresBecario = getPadresBecarioDeFormulario(becario.getId());
+        List<Hermanos> lstHermanos = getHermanosDeFormulario(becario.getId());
+        List<Hijos> lstHijos = getHijosDeFormulario(becario.getId());
+        DatosEscolares lstDatosEscolares = getDatosEscolaresDeFormulario(becario.getId());
+        Aval aval = getAvalDeFormulario(becario.getId(), becario.getFolio());
+        
+        
         //Se inicia la transacción para la inserción del becario
         try{
             conexion.setAutoCommit(false);
@@ -437,7 +488,7 @@ public class PrincipalControlador {
      * Obtiene los datos del becario del formulario de registro
      * @return Un becario con sus propiedades
      */
-    private Becario getDatosBecarioDeFormulario() {
+    private Becario getDatosBecarioDeFormulario(Connection conexion) {
         Becario becario = new Becario();
         
         //Se obtiene el id del programa seleccionado
@@ -447,6 +498,9 @@ public class PrincipalControlador {
         String inicioFolio = modelo.getClavePrograma(getIdCmbBox(prog, catPrograma));
         //Se asignan las iniciales del folio
         becario.setInicialesFolio(inicioFolio);
+        //Se obtiene el folio
+        //Se obtiene el folio
+        becario.setFolio(modelo.creaFolio(conexion, becario));
         //Se obtiene el estatus del becario
         int estatus = vistaRegistro.cmbEstatus.getSelectedIndex();
         if(estatus == 0)
@@ -485,35 +539,101 @@ public class PrincipalControlador {
         //Se obtienen los comentarios
         becario.setObservaciones(vistaRegistro.txtAreaObservaciones.getText());
         
-        if(fileFoto != null)
-            becario.setFoto(fileFoto.getAbsolutePath());
+        //Se carga la foto
+        if(fileFoto != null){
+            Path path = helper.CopiaArchivoADestino(becario.getFolio(), "foto-", fileFoto);
+            if(path == null){
+                JOptionPane.showMessageDialog(vista, "Error al copiar la foto", "Error", JOptionPane.ERROR_MESSAGE);
+                return null;
+            }
+            else{
+                becario.setFoto(path.toString());
+            }
+        }
         
-        if(fileActaNacimiento != null)
-            becario.setFoto(fileActaNacimiento.getAbsolutePath());
+        //Se carga el acta de nacimiento
+        if(fileActaNacimiento != null){
+            Path path = helper.CopiaArchivoADestino(becario.getFolio(), "acta_nacimiento-", fileActaNacimiento);
+            if(path == null){
+                JOptionPane.showMessageDialog(vista, "Error al copiar el acta de nacimiento", "Error", JOptionPane.ERROR_MESSAGE);
+                return null;
+            }
+            else{
+                becario.setActaNacimiento(path.toString());
+            }
+        }
         
-        if(fileBoleta_calificaciones_inicial != null)
-            becario.setFoto(fileBoleta_calificaciones_inicial.getAbsolutePath());
+        //Se carga la boleta de calificaciones inicial
+        if(fileBoleta_calificaciones_inicial != null){
+            Path path = helper.CopiaArchivoADestino(becario.getFolio(), "boleta_inicial-", fileBoleta_calificaciones_inicial);
+            if(path == null){
+                JOptionPane.showMessageDialog(vista, "Error al copiar la bolea", "Error", JOptionPane.ERROR_MESSAGE);
+                return null;
+            }
+            else{
+                becario.setBoletaInicioBeca(path.toString());
+            }
+        }
         
-        if(fileCarta_solicitud != null)
-            becario.setFoto(fileCarta_solicitud.getAbsolutePath());
+        //Se carga la carta solicitud de beca
+        if(fileCarta_solicitud != null){
+            Path path = helper.CopiaArchivoADestino(becario.getFolio(), "carta_solicitud-", fileCarta_solicitud);
+            if(path == null){
+                JOptionPane.showMessageDialog(vista, "Error al copiar la solicitud de la beca", "Error", JOptionPane.ERROR_MESSAGE);
+                return null;
+            }
+            else{
+                becario.setSolicitudBeca(path.toString());
+            }
+        }
+    
+        //Se carga el contrato
+        if(fileContrato != null){
+            Path path = helper.CopiaArchivoADestino(becario.getFolio(), "contrato-", fileContrato);
+            if(path == null){
+                JOptionPane.showMessageDialog(vista, "Error al copiar el contrato", "Error", JOptionPane.ERROR_MESSAGE);
+                return null;
+            }
+            else{
+                becario.setContatoBeca(path.toString());
+            }
+        }
         
-        if(fileContrato != null)
-            becario.setFoto(fileContrato.getAbsolutePath());
+        //Se carga el ensayo
+        if(fileEnsayo != null){
+            Path path = helper.CopiaArchivoADestino(becario.getFolio(), "ensayo-", fileEnsayo);
+            if(path == null){
+                JOptionPane.showMessageDialog(vista, "Error al copiar el ensayo", "Error", JOptionPane.ERROR_MESSAGE);
+                return null;
+            }
+            else{
+                becario.setEnsayo(path.toString());
+            }
+        }
         
-        if(fileContrato != null)
-            becario.setFoto(fileContrato.getAbsolutePath());
+        //Se carga la identificacion del becario
+        if(fileIneBecario != null){
+            Path path = helper.CopiaArchivoADestino(becario.getFolio(), "ine_becario-", fileIneBecario);
+            if(path == null){
+                JOptionPane.showMessageDialog(vista, "Error al copiar la identificacion del becario", "Error", JOptionPane.ERROR_MESSAGE);
+                return null;
+            }
+            else{
+                becario.setIdentificacion(path.toString());
+            }
+        }
         
-        if(fileEnsayo != null)
-            becario.setFoto(fileEnsayo.getAbsolutePath());
-        
-        if(fileIneAval != null)
-            becario.setFoto(fileFoto.getAbsolutePath());
-        
-        if(fileIneBecario != null)
-            becario.setFoto(fileIneBecario.getAbsolutePath());
-        
-        if(filePagare != null)
-            becario.setFoto(filePagare.getAbsolutePath());
+        //Se carga el pagare del becario
+        if(filePagare != null){
+            Path path = helper.CopiaArchivoADestino(becario.getFolio(), "pagare-", filePagare);
+            if(path == null){
+                JOptionPane.showMessageDialog(vista, "Error al copiar el pagaré", "Error", JOptionPane.ERROR_MESSAGE);
+                return null;
+            }
+            else{
+                becario.setFoto(path.toString());
+            }
+        }
         
         return becario;
     }
@@ -700,7 +820,7 @@ public class PrincipalControlador {
         //Se obtiene el nombre de la preparatoria
         datos.setEscuelaProcedencia(vistaRegistro.txtEscuelaProcedencia.getText());
         
-
+        
         //Se obtiene el mes de inicio de la beca
         datos.setMesInicioBeca(vistaRegistro.cmboxMesInicioBeca.getSelectedIndex());
         //Se obtiene el año del inicio de la beca
@@ -719,7 +839,35 @@ public class PrincipalControlador {
         //Se obtiene el valor semestral de la beca
         if(vistaRegistro.txtBecaPorSemestre.getText().length() > 0)
             datos.setBecaSemestral(Float.parseFloat(vistaRegistro.txtBecaPorSemestre.getText()));
+         //Se obtiene el costo de la carrera
+        if(vistaRegistro.txtCostoCarrera.getText().length() > 0)
+            datos.setBecaSemestral(Float.parseFloat(vistaRegistro.txtCostoCarrera.getText()));
         return datos;
+    }
+    
+    /**
+     * Obtiene los datos del aval del formulario de registro
+     * @param id ID del becario
+     * @return Objeto Aval
+     */
+    private Aval getAvalDeFormulario(long id, String folio) {
+        Aval aval = null;
+        
+        //Se carga el acta de nacimiento
+        if(fileIneAval != null){
+            Path path = helper.CopiaArchivoADestino(folio, "ine_aval-", fileActaNacimiento);
+            aval.setIdBecario(id);
+            if(path == null){
+                JOptionPane.showMessageDialog(vista, "Error al copiar la identificacion del aval", "Error", JOptionPane.ERROR_MESSAGE);
+                return null;
+            }
+            else{
+                aval.setIdentificacion(path.toString());
+            }
+        }
+        
+        
+        return aval;
     }
     
     /**
@@ -923,75 +1071,4 @@ public class PrincipalControlador {
                 vistaRegistro, EscuchadorCmbBoxCambiado.FECHA_GRADUACION));
         
     }
-
-    /**
-     * Agrega los escuchadores para adjuntar archivos a la aplicion
-     */
-    private void addListenerArchivosAdjuntos() {
-        //Se agrega el escuchador del acta de nacimiento
-        vistaRegistro.btnAddActa.addActionListener(new EscuchadorAdjuntaArchivos(vistaRegistro, 
-                    vistaRegistro.btnAddActa, EscuchadorAdjuntaArchivos.ADD_DOCUMENTO_PDF,
-                    fileActaNacimiento, vistaRegistro.lblEstatusActa));
-        vistaRegistro.btnEliminaActa.addActionListener(new EscuchadorAdjuntaArchivos(vistaRegistro, 
-                    vistaRegistro.btnEliminaActa, EscuchadorAdjuntaArchivos.DELETE_DOCUMENTO_PDF,
-                    fileActaNacimiento, vistaRegistro.lblEstatusActa));
-        
-        //Se agrega el escuchador de las calificaciones
-        vistaRegistro.btnAddBoleta.addActionListener(new EscuchadorAdjuntaArchivos(vistaRegistro, 
-                    vistaRegistro.btnAddBoleta, EscuchadorAdjuntaArchivos.ADD_DOCUMENTO_PDF,
-                    fileBoleta_calificaciones_inicial, vistaRegistro.lblEstatusBoleta));
-        vistaRegistro.btnEliminaBoleta.addActionListener(new EscuchadorAdjuntaArchivos(vistaRegistro, 
-                    vistaRegistro.btnAddBoleta, EscuchadorAdjuntaArchivos.DELETE_DOCUMENTO_PDF,
-                    fileBoleta_calificaciones_inicial, vistaRegistro.lblEstatusBoleta));
-        
-        //Se agrega el escuchador de la solicitud de la beca
-        vistaRegistro.btnAddCarta.addActionListener(new EscuchadorAdjuntaArchivos(vistaRegistro, 
-                    vistaRegistro.btnAddCarta, EscuchadorAdjuntaArchivos.ADD_DOCUMENTO_PDF,
-                    fileCarta_solicitud, vistaRegistro.lblEstatusCarta));
-        vistaRegistro.btnEliminaCarta.addActionListener(new EscuchadorAdjuntaArchivos(vistaRegistro, 
-                    vistaRegistro.btnEliminaCarta, EscuchadorAdjuntaArchivos.DELETE_DOCUMENTO_PDF,
-                    fileCarta_solicitud, vistaRegistro.lblEstatusCarta));
-        
-        //Se agrega el escuchador del ensayo
-        vistaRegistro.btnAddEnsayo.addActionListener(new EscuchadorAdjuntaArchivos(vistaRegistro, 
-                    vistaRegistro.btnAddEnsayo, EscuchadorAdjuntaArchivos.ADD_DOCUMENTO_PDF,
-                    fileEnsayo, vistaRegistro.lblEstatusEnsayo));
-        vistaRegistro.btnEliminaEnsayo.addActionListener(new EscuchadorAdjuntaArchivos(vistaRegistro, 
-                    vistaRegistro.btnEliminaEnsayo, EscuchadorAdjuntaArchivos.DELETE_DOCUMENTO_PDF,
-                    fileEnsayo, vistaRegistro.lblEstatusEnsayo));
-        
-        //Se agrega el escuchador de la identificacion del becario
-        vistaRegistro.btnAddINEBecario.addActionListener(new EscuchadorAdjuntaArchivos(vistaRegistro, 
-                    vistaRegistro.btnAddINEBecario, EscuchadorAdjuntaArchivos.ADD_DOCUMENTO_PDF,
-                    fileIneBecario, vistaRegistro.lblEstatusINEBecario));
-        vistaRegistro.btnEliminaINEBecario.addActionListener(new EscuchadorAdjuntaArchivos(vistaRegistro, 
-                    vistaRegistro.btnEliminaINEBecario, EscuchadorAdjuntaArchivos.DELETE_DOCUMENTO_PDF,
-                    fileIneBecario, vistaRegistro.lblEstatusINEBecario));
-        
-        //Se agrega el escuchador de la identificacion del AVAL
-        vistaRegistro.btnAddINEAval.addActionListener(new EscuchadorAdjuntaArchivos(vistaRegistro, 
-                    vistaRegistro.btnAddINEAval, EscuchadorAdjuntaArchivos.ADD_DOCUMENTO_PDF,
-                    fileIneAval, vistaRegistro.lblEstatusINEAval));
-        vistaRegistro.btnEliminaINEAval.addActionListener(new EscuchadorAdjuntaArchivos(vistaRegistro, 
-                    vistaRegistro.btnEliminaINEAval, EscuchadorAdjuntaArchivos.DELETE_DOCUMENTO_PDF,
-                    fileIneAval, vistaRegistro.lblEstatusINEAval));
-        
-        //Se agrega el escuchador del contrato de la beca
-        vistaRegistro.btnAddContrato.addActionListener(new EscuchadorAdjuntaArchivos(vistaRegistro, 
-                    vistaRegistro.btnAddContrato, EscuchadorAdjuntaArchivos.ADD_DOCUMENTO_PDF,
-                    fileContrato, vistaRegistro.lblEstatusContrato));
-        vistaRegistro.btnEliminaContrato.addActionListener(new EscuchadorAdjuntaArchivos(vistaRegistro, 
-                    vistaRegistro.btnEliminaContrato, EscuchadorAdjuntaArchivos.DELETE_DOCUMENTO_PDF,
-                    fileContrato, vistaRegistro.lblEstatusContrato));
-        
-        //Se agrega el escuchador del pagaré de la beca
-        vistaRegistro.btnAddPagare.addActionListener(new EscuchadorAdjuntaArchivos(vistaRegistro, 
-                    vistaRegistro.btnAddPagare, EscuchadorAdjuntaArchivos.ADD_DOCUMENTO_PDF,
-                    filePagare, vistaRegistro.lblEstatusPagare));
-        vistaRegistro.btnEliminaPagare.addActionListener(new EscuchadorAdjuntaArchivos(vistaRegistro, 
-                    vistaRegistro.btnEliminaPagare, EscuchadorAdjuntaArchivos.DELETE_DOCUMENTO_PDF,
-                    filePagare, vistaRegistro.lblEstatusPagare));
-    }
-
-    
 }

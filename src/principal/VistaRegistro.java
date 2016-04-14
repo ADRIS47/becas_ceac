@@ -1016,6 +1016,11 @@ public class VistaRegistro extends javax.swing.JPanel {
 
         btnEliminaBoleta.setForeground(new java.awt.Color(0, 0, 204));
         btnEliminaBoleta.setText("Eliminar archivo");
+        btnEliminaBoleta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminaBoletaActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentos.add(btnEliminaBoleta);
 
         lblEstatusBoleta.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -1027,10 +1032,20 @@ public class VistaRegistro extends javax.swing.JPanel {
 
         btnAddActa.setForeground(new java.awt.Color(0, 204, 0));
         btnAddActa.setText("Agregar...");
+        btnAddActa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActaActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentos.add(btnAddActa);
 
         btnEliminaActa.setForeground(new java.awt.Color(0, 204, 0));
         btnEliminaActa.setText("Eliminar Archivo");
+        btnEliminaActa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminaActaActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentos.add(btnEliminaActa);
 
         lblEstatusActa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1039,9 +1054,19 @@ public class VistaRegistro extends javax.swing.JPanel {
         jpnlAccionesDocumentos.add(lblEstatusActa);
 
         btnAddCarta.setText("Agregar...");
+        btnAddCarta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddCartaActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentos.add(btnAddCarta);
 
         btnEliminaCarta.setText("Eliminar Archivo");
+        btnEliminaCarta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminaCartaActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentos.add(btnEliminaCarta);
 
         lblEstatusCarta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1051,10 +1076,20 @@ public class VistaRegistro extends javax.swing.JPanel {
 
         btnAddEnsayo.setForeground(new java.awt.Color(0, 0, 204));
         btnAddEnsayo.setText("Agregar...");
+        btnAddEnsayo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddEnsayoActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentos.add(btnAddEnsayo);
 
         btnEliminaEnsayo.setForeground(new java.awt.Color(0, 0, 204));
         btnEliminaEnsayo.setText("Eliminar Archivo");
+        btnEliminaEnsayo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminaEnsayoActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentos.add(btnEliminaEnsayo);
 
         lblEstatusEnsayo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1064,10 +1099,20 @@ public class VistaRegistro extends javax.swing.JPanel {
 
         btnAddINEBecario.setForeground(new java.awt.Color(0, 204, 0));
         btnAddINEBecario.setText("Agregar...");
+        btnAddINEBecario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddINEBecarioActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentos.add(btnAddINEBecario);
 
         btnEliminaINEBecario.setForeground(new java.awt.Color(0, 204, 0));
         btnEliminaINEBecario.setText("Eliminar Archivo");
+        btnEliminaINEBecario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminaINEBecarioActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentos.add(btnEliminaINEBecario);
 
         lblEstatusINEBecario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1076,9 +1121,19 @@ public class VistaRegistro extends javax.swing.JPanel {
         jpnlAccionesDocumentos.add(lblEstatusINEBecario);
 
         btnAddINEAval.setText("Agregar...");
+        btnAddINEAval.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddINEAvalActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentos.add(btnAddINEAval);
 
         btnEliminaINEAval.setText("Eliminar Archivo");
+        btnEliminaINEAval.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminaINEAvalActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentos.add(btnEliminaINEAval);
 
         lblEstatusINEAval.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1111,10 +1166,20 @@ public class VistaRegistro extends javax.swing.JPanel {
 
         btnAddPagare.setForeground(new java.awt.Color(0, 204, 0));
         btnAddPagare.setText("Agregar...");
+        btnAddPagare.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddPagareActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentos.add(btnAddPagare);
 
         btnEliminaPagare.setForeground(new java.awt.Color(0, 204, 0));
         btnEliminaPagare.setText("Eliminar Archivo");
+        btnEliminaPagare.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminaPagareActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentos.add(btnEliminaPagare);
 
         lblEstatusPagare.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1252,20 +1317,72 @@ public class VistaRegistro extends javax.swing.JPanel {
     }//GEN-LAST:event_txtEscuelaProcedenciaActionPerformed
 
     private void btnAddBoletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddBoletaActionPerformed
-        // TODO add your handling code here:
+        controlador.fileBoleta_calificaciones_inicial = controlador.cargaDocumento(controlador.fileBoleta_calificaciones_inicial, lblEstatusBoleta);
     }//GEN-LAST:event_btnAddBoletaActionPerformed
 
     private void btnAddContratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddContratoActionPerformed
-        // TODO add your handling code here:
+        controlador.fileContrato = controlador.cargaDocumento(controlador.fileContrato, lblEstatusContrato);
     }//GEN-LAST:event_btnAddContratoActionPerformed
 
     private void btnEliminaContratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaContratoActionPerformed
-        // TODO add your handling code here:
+        controlador.fileContrato = controlador.borraDocumento(controlador.fileContrato, lblEstatusContrato);
     }//GEN-LAST:event_btnEliminaContratoActionPerformed
 
     private void txtNombreCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreCarreraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreCarreraActionPerformed
+
+    private void btnAddActaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActaActionPerformed
+        controlador.fileActaNacimiento = controlador.cargaDocumento(controlador.fileActaNacimiento, lblEstatusActa);
+    }//GEN-LAST:event_btnAddActaActionPerformed
+
+    private void btnAddCartaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCartaActionPerformed
+        controlador.fileCarta_solicitud = controlador.cargaDocumento(controlador.fileCarta_solicitud, lblEstatusCarta);
+    }//GEN-LAST:event_btnAddCartaActionPerformed
+
+    private void btnAddEnsayoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddEnsayoActionPerformed
+        controlador.fileEnsayo = controlador.cargaDocumento(controlador.fileEnsayo, lblEstatusEnsayo);
+    }//GEN-LAST:event_btnAddEnsayoActionPerformed
+
+    private void btnAddINEBecarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddINEBecarioActionPerformed
+        controlador.fileIneBecario = controlador.cargaDocumento(controlador.fileIneBecario, lblEstatusINEBecario);
+    }//GEN-LAST:event_btnAddINEBecarioActionPerformed
+
+    private void btnAddINEAvalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddINEAvalActionPerformed
+        controlador.fileIneAval = controlador.cargaDocumento(controlador.fileIneAval, lblEstatusINEAval);
+    }//GEN-LAST:event_btnAddINEAvalActionPerformed
+
+    private void btnAddPagareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPagareActionPerformed
+        controlador.filePagare = controlador.cargaDocumento(controlador.filePagare, lblEstatusPagare);
+    }//GEN-LAST:event_btnAddPagareActionPerformed
+
+    private void btnEliminaBoletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaBoletaActionPerformed
+        controlador.fileBoleta_calificaciones_inicial = controlador.borraDocumento(controlador.fileBoleta_calificaciones_inicial, lblEstatusBoleta);
+    }//GEN-LAST:event_btnEliminaBoletaActionPerformed
+
+    private void btnEliminaActaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaActaActionPerformed
+        controlador.fileActaNacimiento = controlador.borraDocumento(controlador.fileActaNacimiento, lblEstatusActa);
+    }//GEN-LAST:event_btnEliminaActaActionPerformed
+
+    private void btnEliminaCartaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaCartaActionPerformed
+        controlador.fileCarta_solicitud = controlador.borraDocumento(controlador.fileCarta_solicitud, lblEstatusCarta);
+    }//GEN-LAST:event_btnEliminaCartaActionPerformed
+
+    private void btnEliminaEnsayoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaEnsayoActionPerformed
+        controlador.fileEnsayo = controlador.borraDocumento(controlador.fileEnsayo, lblEstatusEnsayo);
+    }//GEN-LAST:event_btnEliminaEnsayoActionPerformed
+
+    private void btnEliminaINEBecarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaINEBecarioActionPerformed
+        controlador.fileIneBecario = controlador.borraDocumento(controlador.fileIneBecario, lblEstatusINEBecario);
+    }//GEN-LAST:event_btnEliminaINEBecarioActionPerformed
+
+    private void btnEliminaINEAvalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaINEAvalActionPerformed
+        controlador.fileIneAval = controlador.borraDocumento(controlador.fileIneAval, lblEstatusINEAval);
+    }//GEN-LAST:event_btnEliminaINEAvalActionPerformed
+
+    private void btnEliminaPagareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaPagareActionPerformed
+        controlador.filePagare = controlador.borraDocumento(controlador.filePagare, lblEstatusPagare);
+    }//GEN-LAST:event_btnEliminaPagareActionPerformed
     
     private void validaLetras(java.awt.event.KeyEvent ke){
         char c=ke.getKeyChar();

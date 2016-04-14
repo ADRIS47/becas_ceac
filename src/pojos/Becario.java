@@ -38,6 +38,8 @@ public class Becario {
     String ensayo;
     String boletaInicioBeca;
     String inicialesFolio;
+    String contatoBeca;
+    String identificacion;
     boolean pendiente;
 
     public long getId() {
@@ -247,9 +249,22 @@ public class Becario {
     public void setPendiente(boolean pendiente) {
         this.pendiente = pendiente;
     }
-    
-    
-    
+
+    public String getContatoBeca() {
+        return contatoBeca;
+    }
+
+    public void setContatoBeca(String contatoBeca) {
+        this.contatoBeca = contatoBeca;
+    }
+
+    public String getIdentificacion() {
+        return identificacion;
+    }
+
+    public void setIdentificacion(String identificacion) {
+        this.identificacion = identificacion;
+    }
     
     public final static String COL_ID = "id_becario";
     public final static String COL_NOMBRE = "nombre";
@@ -275,5 +290,7 @@ public class Becario {
     public final static String COL_SOLICITUD_BECA = "solicitud_beca";
     public final static String COL_ENSAYO = "ensayo";
     public final static String COL_BOLETA_INICIO_BECA = "boleta_inicio_beca";
+    public final static String COL_CONTRATO_BECA = "contrato_beca";
+    public final static String COL_IDENTIFICACION = "identificacion";
     public final static String COL_PENDIENTE = "pendiente";
 }
