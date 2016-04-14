@@ -1608,6 +1608,9 @@
                       <Properties>
                         <Property name="name" type="java.lang.String" value="" noResource="true"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtBecaPorSemestre">
                       <Properties>

@@ -6,6 +6,7 @@
 package principal;
 
 import crud.Conexion;
+import helpers.EscuchadorTeclas;
 import helpers.Helper;
 import helpers.Log;
 import index.Index;
@@ -115,6 +116,7 @@ public class PrincipalControlador {
             log.crearLog(ex.getMessage());
         }
         
+        addListenerTeclasVistaRegistro();
         
         creaPantalla(vistaRegistro);
     }
@@ -202,11 +204,6 @@ public class PrincipalControlador {
         vistaHijos.setControlador(this);
         vistaDireccion.setControlador(this);
         
-//        this.setVistaHermanos(vistaHermanos);
-//        this.setVistaHijos(vistaHijos);
-//        this.setVistaParentesco(vistaParentesco);
-//        this.setVistaDireccion(vistaDireccion);
-        
         helper.agregaJPanel(vistaParentesco, vistaRegistro.pnlParentesco);
         helper.agregaJPanel(vistaHermanos, vistaRegistro.pnlHermanos);
         helper.agregaJPanel(vistaHijos, vistaRegistro.pnlHijos);
@@ -285,6 +282,7 @@ public class PrincipalControlador {
             helper.agregaJPanel(pnlHijos, vistaRegistro.pnlHijos);    
         }
         
+        addListenerTeclasVistaRegistro();
         vistaRegistro.repaint();
         vista.repaint();
         
@@ -763,6 +761,62 @@ public class PrincipalControlador {
         }
         
         return response;
+    }
+
+    private void addListenerTeclasVistaRegistro() {
+        //Nombres del becado
+        vistaRegistro.txtNombreBecado.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtNombreBecado));
+        vistaRegistro.txtApPaternoBecado.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtApPaternoBecado));
+        vistaRegistro.txtApMaternoBecado.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtApPaternoBecado));
+        
+        //Telefonos del becado
+        vistaRegistro.txtTel1Becado.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.TELEFONO, vistaRegistro.txtTel1Becado));
+        vistaRegistro.txtTel2Becado.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.TELEFONO, vistaRegistro.txtTel2Becado));
+        vistaRegistro.txtTel3Becado.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.TELEFONO, vistaRegistro.txtTel3Becado));
+        
+        //Datos del conyugue
+        vistaRegistro.txtNombreConyuge.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtNombreConyuge));
+        vistaRegistro.txtApPaternoBecado.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtApPaternoBecado));
+        vistaRegistro.txtApMaternoBecado.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtApMaternoBecado));
+        vistaRegistro.txtTelefonoConyuge.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.TELEFONO, vistaRegistro.txtTelefonoConyuge));
+        
+        //Datos Escolares 
+        vistaRegistro.txtNombreCarrera.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtNombreCarrera));
+        vistaRegistro.txtEscuelaProcedencia.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtEscuelaProcedencia));
+        vistaRegistro.txtCostoCarrera.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.NUMEROS, vistaRegistro.txtCostoCarrera));
+        vistaRegistro.txtBecaAutorizada.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.NUMEROS, vistaRegistro.txtBecaAutorizada));
+        
+        //Datos hijos
+        for (PnlHijos lstVistaHijo : lstVistaHijos) {
+            lstVistaHijo.txtApPaternoHijo.addKeyListener(new EscuchadorTeclas(lstVistaHijo, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, lstVistaHijo.txtApPaternoHijo));
+            lstVistaHijo.txtApMaternoHijo.addKeyListener(new EscuchadorTeclas(lstVistaHijo, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, lstVistaHijo.txtApMaternoHijo));
+            lstVistaHijo.txtNombreHIjo.addKeyListener(new EscuchadorTeclas(lstVistaHijo, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, lstVistaHijo.txtNombreHIjo));
+        }
+        
+        //Datos direccion
+        for (PnlDireccion lstVistaDireccion : lstVistaDireccion) {
+            lstVistaDireccion.txtCPBecado.addKeyListener(new EscuchadorTeclas(lstVistaDireccion, EscuchadorTeclas.NUMEROS, lstVistaDireccion.txtCPBecado));
+            lstVistaDireccion.txtCalleBecado.addKeyListener(new EscuchadorTeclas(lstVistaDireccion, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, lstVistaDireccion.txtCalleBecado));
+            lstVistaDireccion.txtCiudadBecado.addKeyListener(new EscuchadorTeclas(lstVistaDireccion, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, lstVistaDireccion.txtCiudadBecado));
+            lstVistaDireccion.txtColoniaBecado.addKeyListener(new EscuchadorTeclas(lstVistaDireccion, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, lstVistaDireccion.txtColoniaBecado));
+            lstVistaDireccion.txtNumBecado.addKeyListener(new EscuchadorTeclas(lstVistaDireccion, EscuchadorTeclas.NUMEROS, lstVistaDireccion.txtNumBecado));
+            lstVistaDireccion.txtNumIntBecado.addKeyListener(new EscuchadorTeclas(lstVistaDireccion, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, lstVistaDireccion.txtNumIntBecado));
+        }
+        
+        //Datos Hermanos
+        for (PnlHermanos lstVistaHermanos : lstVistaHermanos) {
+            lstVistaHermanos.txtApMaternoPariente.addKeyListener(new EscuchadorTeclas(lstVistaHermanos, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, lstVistaHermanos.txtApMaternoPariente));
+            lstVistaHermanos.txtApPaternoPariente.addKeyListener(new EscuchadorTeclas(lstVistaHermanos, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, lstVistaHermanos.txtApPaternoPariente));
+            lstVistaHermanos.txtNombresPariente.addKeyListener(new EscuchadorTeclas(lstVistaHermanos, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, lstVistaHermanos.txtNombresPariente));
+        }
+        
+        //Datos Padres
+        for (PnlParentesco lstParentesco : lstVistaParentesco) {
+            lstParentesco.txtApMaternoPariente.addKeyListener(new EscuchadorTeclas(lstParentesco, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, lstParentesco.txtApMaternoPariente));
+            lstParentesco.txtApPaternoPariente.addKeyListener(new EscuchadorTeclas(lstParentesco, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, lstParentesco.txtApPaternoPariente));
+            lstParentesco.txtNombresPariente.addKeyListener(new EscuchadorTeclas(lstParentesco, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, lstParentesco.txtNombresPariente));
+        }
+        
     }
 
     
