@@ -5,7 +5,6 @@
  */
 package principal;
 
-import helpers.EscuchadorValidaEntrada;
 import javax.swing.JOptionPane;
 
 /**
@@ -41,7 +40,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         txtFolio = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        cmbEstatus = new javax.swing.JComboBox<String>();
+        cmbEstatus = new javax.swing.JComboBox<>();
         pnlNombres = new javax.swing.JPanel();
         txtNombreBecado = new javax.swing.JTextField();
         txtApPaternoBecado = new javax.swing.JTextField();
@@ -111,8 +110,8 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         cmboxMesGraduacion = new javax.swing.JComboBox();
-        cmboxAnioInicioBeca = new javax.swing.JComboBox<String>();
-        cmboxAnioGraduacion = new javax.swing.JComboBox<String>();
+        cmboxAnioInicioBeca = new javax.swing.JComboBox<>();
+        cmboxAnioGraduacion = new javax.swing.JComboBox<>();
         txtNombreCarrera = new javax.swing.JTextField();
         pnlManejoBeca = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -149,28 +148,28 @@ public class VistaRegistro extends javax.swing.JPanel {
         jpnlAccionesDocumentos = new javax.swing.JPanel();
         btnAddBoleta = new javax.swing.JButton();
         btnEliminaBoleta = new javax.swing.JButton();
-        txtEstatusBoleta = new javax.swing.JLabel();
+        lblEstatusBoleta = new javax.swing.JLabel();
         btnAddActa = new javax.swing.JButton();
         btnEliminaActa = new javax.swing.JButton();
-        txtEstatusActa = new javax.swing.JLabel();
+        lblEstatusActa = new javax.swing.JLabel();
         btnAddCarta = new javax.swing.JButton();
         btnEliminaCarta = new javax.swing.JButton();
-        txtEstatusCarta = new javax.swing.JLabel();
+        lblEstatusCarta = new javax.swing.JLabel();
         btnAddEnsayo = new javax.swing.JButton();
         btnEliminaEnsayo = new javax.swing.JButton();
-        txtEstatusEnsayo = new javax.swing.JLabel();
+        lblEstatusEnsayo = new javax.swing.JLabel();
         btnAddINEBecario = new javax.swing.JButton();
         btnEliminaINEBecario = new javax.swing.JButton();
-        txtEstatusINEBecario = new javax.swing.JLabel();
+        lblEstatusINEBecario = new javax.swing.JLabel();
         btnAddINEAval = new javax.swing.JButton();
         btnEliminaINEAval = new javax.swing.JButton();
-        txtEstatusINEAval = new javax.swing.JLabel();
+        lblEstatusINEAval = new javax.swing.JLabel();
         btnAddContrato = new javax.swing.JButton();
         btnEliminaContrato = new javax.swing.JButton();
-        txtEstatusContrato = new javax.swing.JLabel();
+        lblEstatusContrato = new javax.swing.JLabel();
         btnAddPagare = new javax.swing.JButton();
         btnEliminaPagare = new javax.swing.JButton();
-        txtEstatusPagare = new javax.swing.JLabel();
+        lblEstatusPagare = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         btnGuardar1 = new javax.swing.JButton();
         btnGuardar2 = new javax.swing.JButton();
@@ -219,7 +218,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(0, 0, 153));
         jLabel3.setText("Estatus:");
 
-        cmbEstatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Becado", "Exalumno" }));
+        cmbEstatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Becado", "Exalumno" }));
 
         javax.swing.GroupLayout pnlProgramaLayout = new javax.swing.GroupLayout(pnlPrograma);
         pnlPrograma.setLayout(pnlProgramaLayout);
@@ -691,9 +690,9 @@ public class VistaRegistro extends javax.swing.JPanel {
         cmboxMesGraduacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
         cmboxMesGraduacion.setEnabled(false);
 
-        cmboxAnioInicioBeca.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
+        cmboxAnioInicioBeca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
 
-        cmboxAnioGraduacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
+        cmboxAnioGraduacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
         cmboxAnioGraduacion.setEnabled(false);
 
         txtNombreCarrera.setName("txtNombreCarrera"); // NOI18N
@@ -1019,13 +1018,12 @@ public class VistaRegistro extends javax.swing.JPanel {
         btnEliminaBoleta.setText("Eliminar archivo");
         jpnlAccionesDocumentos.add(btnEliminaBoleta);
 
-        txtEstatusBoleta.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        txtEstatusBoleta.setForeground(new java.awt.Color(0, 0, 204));
-        txtEstatusBoleta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtEstatusBoleta.setText("OK");
-        txtEstatusBoleta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        txtEstatusBoleta.setEnabled(false);
-        jpnlAccionesDocumentos.add(txtEstatusBoleta);
+        lblEstatusBoleta.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblEstatusBoleta.setForeground(new java.awt.Color(0, 0, 204));
+        lblEstatusBoleta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusBoleta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusBoleta.setEnabled(false);
+        jpnlAccionesDocumentos.add(lblEstatusBoleta);
 
         btnAddActa.setForeground(new java.awt.Color(0, 204, 0));
         btnAddActa.setText("Agregar...");
@@ -1035,9 +1033,10 @@ public class VistaRegistro extends javax.swing.JPanel {
         btnEliminaActa.setText("Eliminar Archivo");
         jpnlAccionesDocumentos.add(btnEliminaActa);
 
-        txtEstatusActa.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        txtEstatusActa.setEnabled(false);
-        jpnlAccionesDocumentos.add(txtEstatusActa);
+        lblEstatusActa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusActa.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusActa.setEnabled(false);
+        jpnlAccionesDocumentos.add(lblEstatusActa);
 
         btnAddCarta.setText("Agregar...");
         jpnlAccionesDocumentos.add(btnAddCarta);
@@ -1045,9 +1044,10 @@ public class VistaRegistro extends javax.swing.JPanel {
         btnEliminaCarta.setText("Eliminar Archivo");
         jpnlAccionesDocumentos.add(btnEliminaCarta);
 
-        txtEstatusCarta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        txtEstatusCarta.setEnabled(false);
-        jpnlAccionesDocumentos.add(txtEstatusCarta);
+        lblEstatusCarta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusCarta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusCarta.setEnabled(false);
+        jpnlAccionesDocumentos.add(lblEstatusCarta);
 
         btnAddEnsayo.setForeground(new java.awt.Color(0, 0, 204));
         btnAddEnsayo.setText("Agregar...");
@@ -1057,9 +1057,10 @@ public class VistaRegistro extends javax.swing.JPanel {
         btnEliminaEnsayo.setText("Eliminar Archivo");
         jpnlAccionesDocumentos.add(btnEliminaEnsayo);
 
-        txtEstatusEnsayo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        txtEstatusEnsayo.setEnabled(false);
-        jpnlAccionesDocumentos.add(txtEstatusEnsayo);
+        lblEstatusEnsayo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusEnsayo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusEnsayo.setEnabled(false);
+        jpnlAccionesDocumentos.add(lblEstatusEnsayo);
 
         btnAddINEBecario.setForeground(new java.awt.Color(0, 204, 0));
         btnAddINEBecario.setText("Agregar...");
@@ -1069,9 +1070,10 @@ public class VistaRegistro extends javax.swing.JPanel {
         btnEliminaINEBecario.setText("Eliminar Archivo");
         jpnlAccionesDocumentos.add(btnEliminaINEBecario);
 
-        txtEstatusINEBecario.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        txtEstatusINEBecario.setEnabled(false);
-        jpnlAccionesDocumentos.add(txtEstatusINEBecario);
+        lblEstatusINEBecario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusINEBecario.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusINEBecario.setEnabled(false);
+        jpnlAccionesDocumentos.add(lblEstatusINEBecario);
 
         btnAddINEAval.setText("Agregar...");
         jpnlAccionesDocumentos.add(btnAddINEAval);
@@ -1079,9 +1081,10 @@ public class VistaRegistro extends javax.swing.JPanel {
         btnEliminaINEAval.setText("Eliminar Archivo");
         jpnlAccionesDocumentos.add(btnEliminaINEAval);
 
-        txtEstatusINEAval.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        txtEstatusINEAval.setEnabled(false);
-        jpnlAccionesDocumentos.add(txtEstatusINEAval);
+        lblEstatusINEAval.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusINEAval.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusINEAval.setEnabled(false);
+        jpnlAccionesDocumentos.add(lblEstatusINEAval);
 
         btnAddContrato.setForeground(new java.awt.Color(0, 0, 204));
         btnAddContrato.setText("Agregar...");
@@ -1101,9 +1104,10 @@ public class VistaRegistro extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentos.add(btnEliminaContrato);
 
-        txtEstatusContrato.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        txtEstatusContrato.setEnabled(false);
-        jpnlAccionesDocumentos.add(txtEstatusContrato);
+        lblEstatusContrato.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusContrato.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusContrato.setEnabled(false);
+        jpnlAccionesDocumentos.add(lblEstatusContrato);
 
         btnAddPagare.setForeground(new java.awt.Color(0, 204, 0));
         btnAddPagare.setText("Agregar...");
@@ -1113,9 +1117,10 @@ public class VistaRegistro extends javax.swing.JPanel {
         btnEliminaPagare.setText("Eliminar Archivo");
         jpnlAccionesDocumentos.add(btnEliminaPagare);
 
-        txtEstatusPagare.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        txtEstatusPagare.setEnabled(false);
-        jpnlAccionesDocumentos.add(txtEstatusPagare);
+        lblEstatusPagare.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusPagare.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusPagare.setEnabled(false);
+        jpnlAccionesDocumentos.add(lblEstatusPagare);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -1278,22 +1283,22 @@ public class VistaRegistro extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddActa;
-    private javax.swing.JButton btnAddBoleta;
-    private javax.swing.JButton btnAddCarta;
-    private javax.swing.JButton btnAddContrato;
-    private javax.swing.JButton btnAddEnsayo;
-    private javax.swing.JButton btnAddINEAval;
-    private javax.swing.JButton btnAddINEBecario;
-    private javax.swing.JButton btnAddPagare;
-    private javax.swing.JButton btnEliminaActa;
-    private javax.swing.JButton btnEliminaBoleta;
-    private javax.swing.JButton btnEliminaCarta;
-    private javax.swing.JButton btnEliminaContrato;
-    private javax.swing.JButton btnEliminaEnsayo;
-    private javax.swing.JButton btnEliminaINEAval;
-    private javax.swing.JButton btnEliminaINEBecario;
-    private javax.swing.JButton btnEliminaPagare;
+    protected javax.swing.JButton btnAddActa;
+    protected javax.swing.JButton btnAddBoleta;
+    protected javax.swing.JButton btnAddCarta;
+    protected javax.swing.JButton btnAddContrato;
+    protected javax.swing.JButton btnAddEnsayo;
+    protected javax.swing.JButton btnAddINEAval;
+    protected javax.swing.JButton btnAddINEBecario;
+    protected javax.swing.JButton btnAddPagare;
+    protected javax.swing.JButton btnEliminaActa;
+    protected javax.swing.JButton btnEliminaBoleta;
+    protected javax.swing.JButton btnEliminaCarta;
+    protected javax.swing.JButton btnEliminaContrato;
+    protected javax.swing.JButton btnEliminaEnsayo;
+    protected javax.swing.JButton btnEliminaINEAval;
+    protected javax.swing.JButton btnEliminaINEBecario;
+    protected javax.swing.JButton btnEliminaPagare;
     private javax.swing.JButton btnFotografia;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnGuardar1;
@@ -1368,6 +1373,14 @@ public class VistaRegistro extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel jpnlAccionesDocumentos;
     private javax.swing.JPanel jpnlListaDocumentos;
+    protected javax.swing.JLabel lblEstatusActa;
+    protected javax.swing.JLabel lblEstatusBoleta;
+    protected javax.swing.JLabel lblEstatusCarta;
+    protected javax.swing.JLabel lblEstatusContrato;
+    protected javax.swing.JLabel lblEstatusEnsayo;
+    protected javax.swing.JLabel lblEstatusINEAval;
+    protected javax.swing.JLabel lblEstatusINEBecario;
+    protected javax.swing.JLabel lblEstatusPagare;
     protected javax.swing.JLabel lblFotografia;
     private javax.swing.JLabel lblParentesco1;
     private javax.swing.JPanel pnlArchivosAdjuntos;
@@ -1405,14 +1418,6 @@ public class VistaRegistro extends javax.swing.JPanel {
     protected javax.swing.JTextField txtCorreoBecario2;
     protected javax.swing.JTextField txtCostoCarrera;
     protected javax.swing.JTextField txtEscuelaProcedencia;
-    private javax.swing.JLabel txtEstatusActa;
-    private javax.swing.JLabel txtEstatusBoleta;
-    private javax.swing.JLabel txtEstatusCarta;
-    private javax.swing.JLabel txtEstatusContrato;
-    private javax.swing.JLabel txtEstatusEnsayo;
-    private javax.swing.JLabel txtEstatusINEAval;
-    private javax.swing.JLabel txtEstatusINEBecario;
-    private javax.swing.JLabel txtEstatusPagare;
     protected javax.swing.JTextField txtFechaNacimiento;
     protected javax.swing.JTextField txtFolio;
     protected javax.swing.JTextField txtNombreBecado;

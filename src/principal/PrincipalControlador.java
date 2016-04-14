@@ -6,6 +6,7 @@
 package principal;
 
 import crud.Conexion;
+import helpers.EscuchadorAdjuntaArchivos;
 import helpers.EscuchadorCalculaBecaXSemestre;
 import helpers.EscuchadorCmbBoxCambiado;
 import helpers.EscuchadorValidaEntrada;
@@ -55,7 +56,16 @@ public class PrincipalControlador {
     PrincipalModelo modelo;
     Index controladorPrincipal;
     
-    File foto;
+    File fileFoto;
+    File fileActaNacimiento;
+    File fileBoleta_calificaciones_inicial;
+    File fileCarta_solicitud;
+    File fileEnsayo;
+    File fileIneBecario;
+    File fileIneAval;
+    File fileContrato;
+    File filePagare;
+    
     Log log = new Log();
     Helper helper = new Helper();
     
@@ -124,6 +134,7 @@ public class PrincipalControlador {
         }
         
         addListenerTeclasVistaRegistro();
+        addListenerArchivosAdjuntos();
         //Helper.getBecaSemestral(vistaRegistro.cmboxSemestresTotalesCarrera, vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre);
         //Helper.getFechaGraduacion(vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca, vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion, vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera);
         
@@ -240,8 +251,8 @@ public class PrincipalControlador {
         int select = selector.showOpenDialog(vista);
         
         if(select == JFileChooser.APPROVE_OPTION){
-            foto = selector.getSelectedFile();
-            helper.cargaImagenExterna(vistaRegistro.lblFotografia, foto.toPath());
+            fileFoto = selector.getSelectedFile();
+            helper.cargaImagenExterna(vistaRegistro.lblFotografia, fileFoto.toPath());
         }
     }
     
@@ -474,8 +485,36 @@ public class PrincipalControlador {
         //Se obtienen los comentarios
         becario.setObservaciones(vistaRegistro.txtAreaObservaciones.getText());
         
-        if(foto != null)
-            becario.setFoto(foto.getAbsolutePath());
+        if(fileFoto != null)
+            becario.setFoto(fileFoto.getAbsolutePath());
+        
+        if(fileActaNacimiento != null)
+            becario.setFoto(fileActaNacimiento.getAbsolutePath());
+        
+        if(fileBoleta_calificaciones_inicial != null)
+            becario.setFoto(fileBoleta_calificaciones_inicial.getAbsolutePath());
+        
+        if(fileCarta_solicitud != null)
+            becario.setFoto(fileCarta_solicitud.getAbsolutePath());
+        
+        if(fileContrato != null)
+            becario.setFoto(fileContrato.getAbsolutePath());
+        
+        if(fileContrato != null)
+            becario.setFoto(fileContrato.getAbsolutePath());
+        
+        if(fileEnsayo != null)
+            becario.setFoto(fileEnsayo.getAbsolutePath());
+        
+        if(fileIneAval != null)
+            becario.setFoto(fileFoto.getAbsolutePath());
+        
+        if(fileIneBecario != null)
+            becario.setFoto(fileIneBecario.getAbsolutePath());
+        
+        if(filePagare != null)
+            becario.setFoto(filePagare.getAbsolutePath());
+        
         return becario;
     }
     
@@ -883,6 +922,75 @@ public class PrincipalControlador {
                 vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera, 
                 vistaRegistro, EscuchadorCmbBoxCambiado.FECHA_GRADUACION));
         
+    }
+
+    /**
+     * Agrega los escuchadores para adjuntar archivos a la aplicion
+     */
+    private void addListenerArchivosAdjuntos() {
+        //Se agrega el escuchador del acta de nacimiento
+        vistaRegistro.btnAddActa.addActionListener(new EscuchadorAdjuntaArchivos(vistaRegistro, 
+                    vistaRegistro.btnAddActa, EscuchadorAdjuntaArchivos.ADD_DOCUMENTO_PDF,
+                    fileActaNacimiento, vistaRegistro.lblEstatusActa));
+        vistaRegistro.btnEliminaActa.addActionListener(new EscuchadorAdjuntaArchivos(vistaRegistro, 
+                    vistaRegistro.btnEliminaActa, EscuchadorAdjuntaArchivos.DELETE_DOCUMENTO_PDF,
+                    fileActaNacimiento, vistaRegistro.lblEstatusActa));
+        
+        //Se agrega el escuchador de las calificaciones
+        vistaRegistro.btnAddBoleta.addActionListener(new EscuchadorAdjuntaArchivos(vistaRegistro, 
+                    vistaRegistro.btnAddBoleta, EscuchadorAdjuntaArchivos.ADD_DOCUMENTO_PDF,
+                    fileBoleta_calificaciones_inicial, vistaRegistro.lblEstatusBoleta));
+        vistaRegistro.btnEliminaBoleta.addActionListener(new EscuchadorAdjuntaArchivos(vistaRegistro, 
+                    vistaRegistro.btnAddBoleta, EscuchadorAdjuntaArchivos.DELETE_DOCUMENTO_PDF,
+                    fileBoleta_calificaciones_inicial, vistaRegistro.lblEstatusBoleta));
+        
+        //Se agrega el escuchador de la solicitud de la beca
+        vistaRegistro.btnAddCarta.addActionListener(new EscuchadorAdjuntaArchivos(vistaRegistro, 
+                    vistaRegistro.btnAddCarta, EscuchadorAdjuntaArchivos.ADD_DOCUMENTO_PDF,
+                    fileCarta_solicitud, vistaRegistro.lblEstatusCarta));
+        vistaRegistro.btnEliminaCarta.addActionListener(new EscuchadorAdjuntaArchivos(vistaRegistro, 
+                    vistaRegistro.btnEliminaCarta, EscuchadorAdjuntaArchivos.DELETE_DOCUMENTO_PDF,
+                    fileCarta_solicitud, vistaRegistro.lblEstatusCarta));
+        
+        //Se agrega el escuchador del ensayo
+        vistaRegistro.btnAddEnsayo.addActionListener(new EscuchadorAdjuntaArchivos(vistaRegistro, 
+                    vistaRegistro.btnAddEnsayo, EscuchadorAdjuntaArchivos.ADD_DOCUMENTO_PDF,
+                    fileEnsayo, vistaRegistro.lblEstatusEnsayo));
+        vistaRegistro.btnEliminaEnsayo.addActionListener(new EscuchadorAdjuntaArchivos(vistaRegistro, 
+                    vistaRegistro.btnEliminaEnsayo, EscuchadorAdjuntaArchivos.DELETE_DOCUMENTO_PDF,
+                    fileEnsayo, vistaRegistro.lblEstatusEnsayo));
+        
+        //Se agrega el escuchador de la identificacion del becario
+        vistaRegistro.btnAddINEBecario.addActionListener(new EscuchadorAdjuntaArchivos(vistaRegistro, 
+                    vistaRegistro.btnAddINEBecario, EscuchadorAdjuntaArchivos.ADD_DOCUMENTO_PDF,
+                    fileIneBecario, vistaRegistro.lblEstatusINEBecario));
+        vistaRegistro.btnEliminaINEBecario.addActionListener(new EscuchadorAdjuntaArchivos(vistaRegistro, 
+                    vistaRegistro.btnEliminaINEBecario, EscuchadorAdjuntaArchivos.DELETE_DOCUMENTO_PDF,
+                    fileIneBecario, vistaRegistro.lblEstatusINEBecario));
+        
+        //Se agrega el escuchador de la identificacion del AVAL
+        vistaRegistro.btnAddINEAval.addActionListener(new EscuchadorAdjuntaArchivos(vistaRegistro, 
+                    vistaRegistro.btnAddINEAval, EscuchadorAdjuntaArchivos.ADD_DOCUMENTO_PDF,
+                    fileIneAval, vistaRegistro.lblEstatusINEAval));
+        vistaRegistro.btnEliminaINEAval.addActionListener(new EscuchadorAdjuntaArchivos(vistaRegistro, 
+                    vistaRegistro.btnEliminaINEAval, EscuchadorAdjuntaArchivos.DELETE_DOCUMENTO_PDF,
+                    fileIneAval, vistaRegistro.lblEstatusINEAval));
+        
+        //Se agrega el escuchador del contrato de la beca
+        vistaRegistro.btnAddContrato.addActionListener(new EscuchadorAdjuntaArchivos(vistaRegistro, 
+                    vistaRegistro.btnAddContrato, EscuchadorAdjuntaArchivos.ADD_DOCUMENTO_PDF,
+                    fileContrato, vistaRegistro.lblEstatusContrato));
+        vistaRegistro.btnEliminaContrato.addActionListener(new EscuchadorAdjuntaArchivos(vistaRegistro, 
+                    vistaRegistro.btnEliminaContrato, EscuchadorAdjuntaArchivos.DELETE_DOCUMENTO_PDF,
+                    fileContrato, vistaRegistro.lblEstatusContrato));
+        
+        //Se agrega el escuchador del pagaré de la beca
+        vistaRegistro.btnAddPagare.addActionListener(new EscuchadorAdjuntaArchivos(vistaRegistro, 
+                    vistaRegistro.btnAddPagare, EscuchadorAdjuntaArchivos.ADD_DOCUMENTO_PDF,
+                    filePagare, vistaRegistro.lblEstatusPagare));
+        vistaRegistro.btnEliminaPagare.addActionListener(new EscuchadorAdjuntaArchivos(vistaRegistro, 
+                    vistaRegistro.btnEliminaPagare, EscuchadorAdjuntaArchivos.DELETE_DOCUMENTO_PDF,
+                    filePagare, vistaRegistro.lblEstatusPagare));
     }
 
     
