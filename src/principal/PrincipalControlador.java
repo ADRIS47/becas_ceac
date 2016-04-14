@@ -124,6 +124,8 @@ public class PrincipalControlador {
         }
         
         addListenerTeclasVistaRegistro();
+        //Helper.getBecaSemestral(vistaRegistro.cmboxSemestresTotalesCarrera, vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre);
+        //Helper.getFechaGraduacion(vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca, vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion, vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera);
         
         creaPantalla(vistaRegistro);
     }
@@ -310,9 +312,7 @@ public class PrincipalControlador {
                 boolean email = helper.validaEmail(vistaRegistro.txtCorreoBecario.getText(),
                                                     vistaRegistro.txtCorreoBecario2.getText());
                 boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vistaRegistro);
-                if(fecha){
-                    return;
-                }
+                
                 //Si los email son iguales se procede a tomar los valores e insertarlos
                 if(email && fecha){
                     insertBecario(true);
@@ -459,8 +459,10 @@ public class PrincipalControlador {
         //Se obtiene el ap materno del becario
         becario.setApMaterno(vistaRegistro.txtApMaternoBecado.getText());
         //Se obtiene la fecha de nacimiento del becario
-        long fecha = getFecha(vistaRegistro.txtFechaNacimiento.getText());
-        becario.setFecha_nac(new Date(fecha));
+        if(vistaRegistro.txtFechaNacimiento.getText().length() > 0){
+            long fecha = getFecha(vistaRegistro.txtFechaNacimiento.getText());
+            becario.setFecha_nac(new Date(fecha));
+        }
         //Se obtiene los datos del conyuge
         becario.setNombreConyuge(vistaRegistro.txtNombreConyuge.getText());
         becario.setApPaternoConyuge(vistaRegistro.txtApPaternoConyuge.getText());
@@ -472,8 +474,8 @@ public class PrincipalControlador {
         //Se obtienen los comentarios
         becario.setObservaciones(vistaRegistro.txtAreaObservaciones.getText());
         
-        
-        becario.setFoto(foto.getAbsolutePath());
+        if(foto != null)
+            becario.setFoto(foto.getAbsolutePath());
         return becario;
     }
     
@@ -493,7 +495,8 @@ public class PrincipalControlador {
                 //Se obtiene el numero interior
                 direccion.setNumInt(panel.txtNumIntBecado.getText());
                 //Se obtiene el codigo postal
-                direccion.setCodigoPostal(panel.txtCPBecado.getText());
+                if(panel.txtCPBecado.getText().length() > 0)
+                direccion.setCodigoPostal(Integer.parseInt(panel.txtCPBecado.getText()));
                 //Se obtiene la colonia
                 direccion.setColonia(panel.txtColoniaBecado.getText());
                 //Se obtiene la ciudad
@@ -672,9 +675,11 @@ public class PrincipalControlador {
         //Se obtiene el semestre de estudio del inicio de la beca
         datos.setSemestreInicioBeca(vistaRegistro.cmboxSemestreInicioBeca.getSelectedIndex() + 1);
         //Se obtiene el total de la beca
-        datos.setBecaTotal(Float.parseFloat(vistaRegistro.txtBecaAutorizada.getText()));
+        if(vistaRegistro.txtBecaAutorizada.getText().length() > 0)
+            datos.setBecaTotal(Float.parseFloat(vistaRegistro.txtBecaAutorizada.getText()));
         //Se obtiene el valor semestral de la beca
-        datos.setBecaSemestral(datos.getBecaTotal() / (datos.getSemestresTotalesCarrera() - datos.getSemestreInicioBeca()));
+        if(vistaRegistro.txtBecaPorSemestre.getText().length() > 0)
+            datos.setBecaSemestral(Float.parseFloat(vistaRegistro.txtBecaPorSemestre.getText()));
         return datos;
     }
     
@@ -710,6 +715,11 @@ public class PrincipalControlador {
         return idCategoria;
     }
 
+    /**
+     * Obtiene la fecha capturada y la convierte a a TIMESTAMP
+     * @param fecha
+     * @return TIMESTAMP DE LA FECHA
+     */
     private long getFecha(String fecha){
         String[] fech = fecha.split("/");
         int anio = Integer.parseInt(fech[2]); 

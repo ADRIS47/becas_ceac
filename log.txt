@@ -132,3 +132,13 @@
 13/4/2016;11:21:9;ERROR: Code1064
 13/4/2016;11:21:9;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'iniciales = 'DEV-'' at line 1
 13/4/2016;11:21:11;null
+14/4/2016;0:52:37;SQLError: 23000
+14/4/2016;0:52:37;ERROR: Code1048
+14/4/2016;0:52:37;Message: Column 'fecha_nacimiento' cannot be null
+14/4/2016;0:57:34;SQLError: 23000
+14/4/2016;0:57:34;ERROR: Code1048
+14/4/2016;0:57:34;Message: Column 'fecha_nacimiento' cannot be null
+14/4/2016;1:1:24;SQLError: HY000
+14/4/2016;1:1:24;ERROR: Code1366
+14/4/2016;1:1:24;Message: Incorrect integer value: '' for column 'codigo_postal' at row 1
+14/4/2016;1:1:26;null

@@ -573,7 +573,7 @@ public class PrincipalModelo {
                 ps.setString(2, direccion.getNumExt());
                 ps.setString(3, direccion.getNumInt());
                 ps.setString(4, direccion.getColonia());
-                ps.setString(5, direccion.getCodigoPostal());
+                ps.setInt(5, direccion.getCodigoPostal());
                 ps.setString(6, direccion.getCiudad());
                 ps.setLong(7, idBecario);
                 int i = ps.executeUpdate();
@@ -641,7 +641,8 @@ public class PrincipalModelo {
         } finally {
             try {
                 //rs.close();
-                ps.close();
+                if(ps != null)
+                    ps.close();
             } catch (SQLException ex) {
                 muestraErrores(ex);
                 Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);

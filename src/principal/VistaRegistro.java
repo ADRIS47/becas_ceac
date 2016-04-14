@@ -796,6 +796,7 @@ public class VistaRegistro extends javax.swing.JPanel {
 
         cmboxSemestreInicioBeca.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
 
+        txtBecaAutorizada.setText("0");
         txtBecaAutorizada.setName(""); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);

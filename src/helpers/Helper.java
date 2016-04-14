@@ -29,7 +29,7 @@ import javax.swing.JTextField;
  */
 public class Helper {
 
-    static void getFechaGraduacion(JComboBox<?> cmbBoxMesInicioCarrera, JComboBox<?> cmbBoxAnioInicioBeca, JComboBox<?> cmbBoxMesGraduacion, JComboBox<?> cmbBoxAnioGraduacion, JComboBox<?> cmbBoxSemestreInicioBeca, JComboBox<?> cmbBoxTotalSemestres) {
+    public static void getFechaGraduacion(JComboBox<?> cmbBoxMesInicioCarrera, JComboBox<?> cmbBoxAnioInicioBeca, JComboBox<?> cmbBoxMesGraduacion, JComboBox<?> cmbBoxAnioGraduacion, JComboBox<?> cmbBoxSemestreInicioBeca, JComboBox<?> cmbBoxTotalSemestres) {
         Calendar graduacion = new GregorianCalendar(Integer.parseInt((String) cmbBoxAnioInicioBeca.getSelectedItem()), 
         cmbBoxMesInicioCarrera.getSelectedIndex(), 1);
 
@@ -42,7 +42,7 @@ public class Helper {
         cmbBoxMesGraduacion.setSelectedIndex(graduacion.get(Calendar.MONTH));
     }
 
-    static void getBecaSemestral(JComboBox<?> cmbSemestresTotales, JComboBox<?> cmbSemestreInicioBeca, JTextField txtBecaAutorizada, JTextField txtBecaSemestral) {
+    public static void getBecaSemestral(JComboBox<?> cmbSemestresTotales, JComboBox<?> cmbSemestreInicioBeca, JTextField txtBecaAutorizada, JTextField txtBecaSemestral) {
         int semestres = Integer.parseInt((String) cmbSemestresTotales.getSelectedItem()) - 
                 Integer.parseInt((String) cmbSemestreInicioBeca.getSelectedItem());
         float total = Float.parseFloat(txtBecaAutorizada.getText()) / semestres;
