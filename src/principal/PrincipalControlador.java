@@ -415,7 +415,7 @@ public class PrincipalControlador {
         List<Hermanos> lstHermanos = getHermanosDeFormulario(becario.getId());
         List<Hijos> lstHijos = getHijosDeFormulario(becario.getId());
         DatosEscolares lstDatosEscolares = getDatosEscolaresDeFormulario(becario.getId());
-        Aval aval = getAvalDeFormulario(becario.getId(), becario.getFolio());
+        Aval lstAval = getAvalDeFormulario(becario.getId(), becario.getFolio());
         
         
         //Se inicia la transacción para la inserción del becario
@@ -452,6 +452,19 @@ public class PrincipalControlador {
             if(hijos == false){
                 throw new SQLException();
             }
+            
+            //Se insertan los datos escolares
+            boolean datosEscolares = modelo.insertDatosEscolares(conexion, idBecario, lstDatosEscolares);
+            if(datosEscolares == false){
+                throw new SQLException();
+            }
+            
+            //Se insertan los datos del aval
+            boolean aval = modelo.insertAval(conexion, idBecario, lstAval);
+            if(aval == false){
+                throw new SQLException();
+            }
+            
             //Se aumenta el contador del folio
             boolean contador = modelo.updateContadorPrograma(conexion, becario.getInicialesFolio());
             if(contador == false){
@@ -851,7 +864,7 @@ public class PrincipalControlador {
      * @return Objeto Aval
      */
     private Aval getAvalDeFormulario(long id, String folio) {
-        Aval aval = null;
+        Aval aval = new Aval();
         
         //Se carga el acta de nacimiento
         if(fileIneAval != null){

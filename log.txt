@@ -142,3 +142,46 @@
 14/4/2016;1:1:24;ERROR: Code1366
 14/4/2016;1:1:24;Message: Incorrect integer value: '' for column 'codigo_postal' at row 1
 14/4/2016;1:1:26;null
+14/4/2016;14:34:42;SQLError: 42000
+14/4/2016;14:34:42;ERROR: Code1064
+14/4/2016;14:34:42;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(id_campo_carrera, nombre_carrera, (mes_inicio_beca, anio_inicio_beca, (mes_grad' at line 1
+14/4/2016;14:34:44;null
+14/4/2016;14:41:44;SQLError: 42000
+14/4/2016;14:41:44;ERROR: Code1064
+14/4/2016;14:41:44;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(id_campo_carrera, nombre_carrera, (mes_inicio_beca, anio_inicio_beca, (mes_grad' at line 1
+14/4/2016;14:41:49;null
+14/4/2016;14:47:9;SQLError: 42000
+14/4/2016;14:47:9;ERROR: Code1064
+14/4/2016;14:47:9;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+14/4/2016;14:47:10;null
+14/4/2016;14:51:30;SQLError: 42S22
+14/4/2016;14:51:30;ERROR: Code1054
+14/4/2016;14:51:30;Message: Unknown column 'semestres_totales_beca' in 'field list'
+14/4/2016;14:51:33;null
+14/4/2016;14:57:24;SQLError: 42S22
+14/4/2016;14:57:24;ERROR: Code1054
+14/4/2016;14:57:24;Message: Unknown column 'semestres_totales_beca' in 'field list'
+14/4/2016;14:57:27;null
+14/4/2016;15:2:56;SQLError: 23000
+14/4/2016;15:2:56;ERROR: Code1452
+14/4/2016;15:2:56;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_datos_escolares`, CONSTRAINT `fk_beca_datos_escolares_beca_becario1` FOREIGN KEY (`id_becario`) REFERENCES `beca_becario` (`id_becario`) ON DELETE NO ACTION ON UPDATE N)
+14/4/2016;15:3:0;null
+14/4/2016;15:5:16;SQLError: 23000
+14/4/2016;15:5:16;ERROR: Code1452
+14/4/2016;15:5:16;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_datos_escolares`, CONSTRAINT `fk_beca_datos_escolares_beca_becario1` FOREIGN KEY (`id_becario`) REFERENCES `beca_becario` (`id_becario`) ON DELETE NO ACTION ON UPDATE N)
+14/4/2016;15:5:21;null
+14/4/2016;15:16:51;No se pudo conectar a la Base de datos
+14/4/2016;15:16:58;No se pudo conectar a la Base de datos
+14/4/2016;15:20:6;No se pudo conectar a la Base de datos
+14/4/2016;15:22:27;No se pudo conectar a la Base de datos
+14/4/2016;15:22:52;No se pudo conectar a la Base de datos
+14/4/2016;15:23:4;No se pudo conectar a la Base de datos
+14/4/2016;15:24:48;No se pudo conectar a la Base de datos
+14/4/2016;15:28:0;SQLError: 23000
+14/4/2016;15:28:0;ERROR: Code1452
+14/4/2016;15:28:0;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_datos_escolares`, CONSTRAINT `fk_beca_datos_escolares_beca_becario1` FOREIGN KEY (`id_becario`) REFERENCES `beca_becario` (`id_becario`) ON DELETE NO ACTION ON UPDATE N)
+14/4/2016;15:28:1;null
+14/4/2016;15:32:57;SQLError: 07001
+14/4/2016;15:32:57;ERROR: Code0
+14/4/2016;15:32:57;Message: No value specified for parameter 2
+14/4/2016;15:32:58;null

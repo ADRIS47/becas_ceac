@@ -5,7 +5,9 @@
  */
 package crud;
 
+import pojos.Aval;
 import pojos.Becario;
+import pojos.DatosEscolares;
 import pojos.Direccion;
 import pojos.Hermanos;
 import pojos.Hijos;
@@ -87,5 +89,28 @@ public class Insert {
             + Hijos.COL_AMATERNO + ",  " + Hijos.COL_FECHA_NAC + ", "
             + Hijos.COL_ID_BECARIO + ") "
             + "VALUES (?,?,?,?,?)";
+    
+    /**
+     * Inserta los datos escolares del becario
+     */
+    public static String insertDatosEscolares = "INSERT INTO beca_datos_escolares "
+            + "(" + DatosEscolares.COL_ESCUELA_PROCEDENCIA + ", " + DatosEscolares.COL_ID_UNIVERSIDAD + ", "
+            + DatosEscolares.COL_ID_CAMPO_CARRERA + ", " + DatosEscolares.COL_NOMBRE_CARRERA + ", "
+            + DatosEscolares.COL_MES_INICIO_BECA + ", " + DatosEscolares.COL_ANIO_INICIO_BECA + ", "
+            + DatosEscolares.COL_MES_GRADUACION + ", " + DatosEscolares.COL_ANIO_GRADUACION + ", "
+            + DatosEscolares.COL_SEMESTRES_TOTALES_BECA + ", " + DatosEscolares.COL_SEMESTRE_INICIO_BECA + ", "
+            + DatosEscolares.COL_COSTO_CARRERA + ", " + DatosEscolares.COL_BECA_TOTAL + ", "
+            + DatosEscolares.COL_BECA_SEMESTRAL + ", " + DatosEscolares.COL_CONDICIONADO + ", "
+            + DatosEscolares.COL_ID_BECARIO + ") "
+            + "VALUES (?,?,?,?,?,"
+                        + "?,?,?,?,?,"
+                        + "?,?,?,?,?)";
+    
+    /**
+     * Inserta el aval del becario
+     */
+    public static String insertAvalDeFormulario = "INSERT INTO beca_aval "
+            + "(" + Aval.COL_IDENTIFICACION + ", " + Aval.COL_ID_BECARIO + ") "
+            + "VALUES (?,?)";
     
 }

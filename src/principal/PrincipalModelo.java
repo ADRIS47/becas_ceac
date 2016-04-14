@@ -23,6 +23,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import pojos.Aval;
 import pojos.Becario;
 import pojos.CatCampoCarrera;
 import pojos.CatEstadoCivil;
@@ -31,6 +32,7 @@ import pojos.CatParentesco;
 import pojos.CatPrograma;
 import pojos.CatSexo;
 import pojos.CatUniversidad;
+import pojos.DatosEscolares;
 import pojos.Direccion;
 import pojos.Hermanos;
 import pojos.Hijos;
@@ -808,6 +810,105 @@ public class PrincipalModelo {
             int i = ps.executeUpdate();
             if (i == 0) {
                 throw new SQLException("Error al insertar hijos becario: " + ps.toString());
+            }
+            
+            response = true;
+        } catch (SQLException e) {
+            try {
+                conexion.rollback();
+            } catch (SQLException ex) {
+                muestraErrores(ex);
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            muestraErrores(e);
+        } finally {
+            try {
+                //rs.close();
+                ps.close();
+            } catch (SQLException ex) {
+                muestraErrores(ex);
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+        return response;
+    }
+
+    /**
+     * Insera los datos escolates del registro del becario
+     * @param conexion
+     * @param idBecario
+     * @param lstDatosEscolares
+     * @return 
+     */
+    boolean insertDatosEscolares(Connection conexion, long idBecario, DatosEscolares lstDatosEscolares) {
+        boolean response = false;
+        PreparedStatement ps = null;
+        //ResultSet rs = null;
+        try {
+            
+                ps = conexion.prepareStatement(Insert.insertDatosEscolares);
+                ps.setString(1, lstDatosEscolares.getEscuelaProcedencia());
+                ps.setInt(2, lstDatosEscolares.getIdUniversidad());
+                ps.setInt(3, lstDatosEscolares.getIdCampoCarrera());
+                ps.setString(4, lstDatosEscolares.getNombreCarrera());
+                ps.setInt(5, lstDatosEscolares.getMesInicioBeca());
+                ps.setInt(6, lstDatosEscolares.getAnioInicioBeca());
+                ps.setInt(7, lstDatosEscolares.getMesGraduacion());
+                ps.setInt(8, lstDatosEscolares.getAnioGraduacion());
+                ps.setInt(9, lstDatosEscolares.getSemestresTotalesCarrera());
+                ps.setInt(10, lstDatosEscolares.getSemestreInicioBeca());
+                ps.setFloat(11, lstDatosEscolares.getCostoCarrera());
+                ps.setFloat(12, lstDatosEscolares.getBecaTotal());
+                ps.setFloat(13, lstDatosEscolares.getBecaSemestral());
+                ps.setInt(14, lstDatosEscolares.getCondicionado());
+                ps.setLong(15, idBecario);
+                int i = ps.executeUpdate();
+                if (i == 0) {
+                    throw new SQLException("Error al insertar los datos escolares del becario: " + ps.toString());
+                }
+            
+            response = true;
+        } catch (SQLException e) {
+            try {
+                conexion.rollback();
+            } catch (SQLException ex) {
+                muestraErrores(ex);
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            muestraErrores(e);
+        } finally {
+            try {
+                //rs.close();
+                ps.close();
+            } catch (SQLException ex) {
+                muestraErrores(ex);
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+        return response;
+    }
+
+    /**
+     * Inserta el aval del registro del becario
+     * @param conexion
+     * @param idBecario
+     * @param lstAval
+     * @return 
+     */
+    boolean insertAval(Connection conexion, long idBecario, Aval lstAval) {
+        boolean response = false;
+        PreparedStatement ps = null;
+        //ResultSet rs = null;
+        try {
+            
+            ps = conexion.prepareStatement(Insert.insertAvalDeFormulario);
+            ps.setString(1, lstAval.getIdentificacion());
+            ps.setLong(2, idBecario);
+            int i = ps.executeUpdate();
+            if (i == 0) {
+                throw new SQLException("Error al insertar el aval del becario: " + ps.toString());
             }
             
             response = true;

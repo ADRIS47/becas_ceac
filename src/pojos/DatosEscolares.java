@@ -173,7 +173,7 @@ public class DatosEscolares {
     public static final String COL_BECA_SEMESTRAL = "beca_semestral";
     public static final String COL_CONDICIONADO = "condicionado";
     public static final String COL_ID_BECARIO = "id_becario";
-    public static final String COL_SEMESTRES_TOTALES_BECA = "semestres_totales_beca";
+    public static final String COL_SEMESTRES_TOTALES_BECA = "semestres_totales_carrera";
     public static final String COL_SEMESTRE_INICIO_BECA = "semestre_inicio_beca";
     
     
