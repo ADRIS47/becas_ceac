@@ -57,6 +57,8 @@ public class LoginControlador {
     }
     
     public void iniciarSesion(){
+        
+        helper.validaRutaInicial();
         char[] charClave = vista.txtClave.getPassword();
         String clave = new String(charClave);
         if(!clave.isEmpty()){

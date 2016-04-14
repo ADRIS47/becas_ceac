@@ -203,4 +203,25 @@ public class Helper {
             }
         }
     }
+
+    public void validaRutaInicial() {
+        String sistemaOperativo = System.getProperty("os.name");
+        String rutaPrincipal = null;
+        
+        if(sistemaOperativo.toLowerCase().contains("win")){
+            rutaPrincipal = Index.RUTA_BASE_WINDOWS;
+        }
+        if(sistemaOperativo.toLowerCase().contains("lin")){
+            rutaPrincipal = Index.RUTA_BASE_LINUX;
+        }
+        
+        if(!Files.exists(Paths.get(rutaPrincipal))){
+            try {
+                Files.createDirectory(Paths.get(rutaPrincipal));
+            } catch (IOException ex) {
+                log.crearLog(ex.getMessage());
+                Logger.getLogger(Helper.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
 }
