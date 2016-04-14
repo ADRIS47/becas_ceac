@@ -9,10 +9,13 @@ import adris.vistas.VistaRegistro;
 import java.awt.Color;
 import java.awt.Image;
 import java.nio.file.Path;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -25,6 +28,26 @@ import javax.swing.JTextField;
  * @author sabagip
  */
 public class Helper {
+
+    static void getFechaGraduacion(JComboBox<?> cmbBoxMesInicioCarrera, JComboBox<?> cmbBoxAnioInicioBeca, JComboBox<?> cmbBoxMesGraduacion, JComboBox<?> cmbBoxAnioGraduacion, JComboBox<?> cmbBoxSemestreInicioBeca, JComboBox<?> cmbBoxTotalSemestres) {
+        Calendar graduacion = new GregorianCalendar(Integer.parseInt((String) cmbBoxAnioInicioBeca.getSelectedItem()), 
+        cmbBoxMesInicioCarrera.getSelectedIndex(), 1);
+
+        graduacion.add(Calendar.MONTH, - Integer.parseInt(cmbBoxSemestreInicioBeca.getSelectedItem().toString()) * 6);
+        graduacion.add(Calendar.MONTH, Integer.parseInt((String) cmbBoxTotalSemestres.getSelectedItem()) * 6);      
+
+        int indexAnioGraduacion = graduacion.get(Calendar.YEAR) - Integer.parseInt(cmbBoxAnioGraduacion.getItemAt(0).toString()) ;
+
+        cmbBoxAnioGraduacion.setSelectedIndex(indexAnioGraduacion);
+        cmbBoxMesGraduacion.setSelectedIndex(graduacion.get(Calendar.MONTH));
+    }
+
+    static void getBecaSemestral(JComboBox<?> cmbSemestresTotales, JComboBox<?> cmbSemestreInicioBeca, JTextField txtBecaAutorizada, JTextField txtBecaSemestral) {
+        int semestres = Integer.parseInt((String) cmbSemestresTotales.getSelectedItem()) - 
+                Integer.parseInt((String) cmbSemestreInicioBeca.getSelectedItem());
+        float total = Float.parseFloat(txtBecaAutorizada.getText()) / semestres;
+        txtBecaSemestral.setText(total + "");
+    }
     /**
      * Carga una imagen dentro de un label y la adapta al tamaño de la etiqueta
      * @param etiqueta Etiqueta donde se pondrá la imagen

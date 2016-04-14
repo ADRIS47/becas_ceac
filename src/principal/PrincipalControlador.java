@@ -6,7 +6,9 @@
 package principal;
 
 import crud.Conexion;
-import helpers.EscuchadorTeclas;
+import helpers.EscuchadorCalculaBecaXSemestre;
+import helpers.EscuchadorCmbBoxCambiado;
+import helpers.EscuchadorValidaEntrada;
 import helpers.Helper;
 import helpers.Log;
 import index.Index;
@@ -69,6 +71,11 @@ public class PrincipalControlador {
     List<PnlHermanos> lstVistaHermanos = new ArrayList<>();
     List<PnlParentesco> lstVistaParentesco = new ArrayList<>();
     List<PnlDireccion> lstVistaDireccion = new ArrayList<>();
+    
+    public static void main(String[] args) {
+        PrincipalControlador prueba = new PrincipalControlador();
+        prueba.iniciaPantallaPrincipal();
+    }
 
     public void setVista(VistaPanelPrincipal vista) {
         this.vista = vista;
@@ -769,58 +776,102 @@ public class PrincipalControlador {
 
     private void addListenerTeclasVistaRegistro() {
         //Nombres del becado y fecha de nacimiento
-        vistaRegistro.txtNombreBecado.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtNombreBecado));
-        vistaRegistro.txtApPaternoBecado.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtApPaternoBecado));
-        vistaRegistro.txtApMaternoBecado.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtApPaternoBecado));
-        vistaRegistro.txtFechaNacimiento.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.FECHA_NACIMIENTO, vistaRegistro.txtFechaNacimiento));
+        vistaRegistro.txtNombreBecado.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtNombreBecado));
+        vistaRegistro.txtApPaternoBecado.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtApPaternoBecado));
+        vistaRegistro.txtApMaternoBecado.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtApPaternoBecado));
+        vistaRegistro.txtFechaNacimiento.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.FECHA_NACIMIENTO, vistaRegistro.txtFechaNacimiento));
         
         //Telefonos del becado
-        vistaRegistro.txtTel1Becado.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.TELEFONO, vistaRegistro.txtTel1Becado));
-        vistaRegistro.txtTel2Becado.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.TELEFONO, vistaRegistro.txtTel2Becado));
-        vistaRegistro.txtTel3Becado.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.TELEFONO, vistaRegistro.txtTel3Becado));
+        vistaRegistro.txtTel1Becado.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.TELEFONO, vistaRegistro.txtTel1Becado));
+        vistaRegistro.txtTel2Becado.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.TELEFONO, vistaRegistro.txtTel2Becado));
+        vistaRegistro.txtTel3Becado.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.TELEFONO, vistaRegistro.txtTel3Becado));
         
         //Datos del conyugue
-        vistaRegistro.txtNombreConyuge.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtNombreConyuge));
-        vistaRegistro.txtApPaternoBecado.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtApPaternoBecado));
-        vistaRegistro.txtApMaternoBecado.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtApMaternoBecado));
-        vistaRegistro.txtTelefonoConyuge.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.TELEFONO, vistaRegistro.txtTelefonoConyuge));
+        vistaRegistro.txtNombreConyuge.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtNombreConyuge));
+        vistaRegistro.txtApPaternoBecado.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtApPaternoBecado));
+        vistaRegistro.txtApMaternoBecado.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtApMaternoBecado));
+        vistaRegistro.txtTelefonoConyuge.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.TELEFONO, vistaRegistro.txtTelefonoConyuge));
         
         //Datos Escolares 
-        vistaRegistro.txtNombreCarrera.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtNombreCarrera));
-        vistaRegistro.txtEscuelaProcedencia.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtEscuelaProcedencia));
-        vistaRegistro.txtCostoCarrera.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.NUMEROS, vistaRegistro.txtCostoCarrera));
-        vistaRegistro.txtBecaAutorizada.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.NUMEROS, vistaRegistro.txtBecaAutorizada));
+        vistaRegistro.txtNombreCarrera.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtNombreCarrera));
+        vistaRegistro.txtEscuelaProcedencia.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtEscuelaProcedencia));
+        vistaRegistro.txtCostoCarrera.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.NUMEROS, vistaRegistro.txtCostoCarrera));
+        vistaRegistro.txtBecaAutorizada.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.NUMEROS, vistaRegistro.txtBecaAutorizada));
+        
+        //Datos que calculan la beca total semestral
+        vistaRegistro.txtBecaAutorizada.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.NUMEROS, vistaRegistro.txtBecaAutorizada));
+        vistaRegistro.txtCostoCarrera.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.NUMEROS, vistaRegistro.txtCostoCarrera));
+        vistaRegistro.txtBecaAutorizada.addKeyListener(new EscuchadorCalculaBecaXSemestre(vistaRegistro.txtBecaAutorizada, vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera, vistaRegistro.txtBecaPorSemestre));
+        vistaRegistro.cmboxSemestreInicioBeca.addItemListener(new EscuchadorCmbBoxCambiado(vistaRegistro.cmboxSemestresTotalesCarrera, vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre, EscuchadorCmbBoxCambiado.BECA_SEMESTRAL));
+        vistaRegistro.cmboxSemestresTotalesCarrera.addItemListener(new EscuchadorCmbBoxCambiado(vistaRegistro.cmboxSemestresTotalesCarrera, vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre, EscuchadorCmbBoxCambiado.BECA_SEMESTRAL));
         
         //Datos hijos
         for (PnlHijos lstVistaHijo : lstVistaHijos) {
-            lstVistaHijo.txtApPaternoHijo.addKeyListener(new EscuchadorTeclas(lstVistaHijo, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, lstVistaHijo.txtApPaternoHijo));
-            lstVistaHijo.txtApMaternoHijo.addKeyListener(new EscuchadorTeclas(lstVistaHijo, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, lstVistaHijo.txtApMaternoHijo));
-            lstVistaHijo.txtNombreHIjo.addKeyListener(new EscuchadorTeclas(lstVistaHijo, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, lstVistaHijo.txtNombreHIjo));
+            lstVistaHijo.txtApPaternoHijo.addKeyListener(new EscuchadorValidaEntrada(lstVistaHijo, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, lstVistaHijo.txtApPaternoHijo));
+            lstVistaHijo.txtApMaternoHijo.addKeyListener(new EscuchadorValidaEntrada(lstVistaHijo, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, lstVistaHijo.txtApMaternoHijo));
+            lstVistaHijo.txtNombreHIjo.addKeyListener(new EscuchadorValidaEntrada(lstVistaHijo, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, lstVistaHijo.txtNombreHIjo));
         }
         
         //Datos direccion
         for (PnlDireccion lstVistaDireccion : lstVistaDireccion) {
-            lstVistaDireccion.txtCPBecado.addKeyListener(new EscuchadorTeclas(lstVistaDireccion, EscuchadorTeclas.NUMEROS, lstVistaDireccion.txtCPBecado));
-            lstVistaDireccion.txtCalleBecado.addKeyListener(new EscuchadorTeclas(lstVistaDireccion, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, lstVistaDireccion.txtCalleBecado));
-            lstVistaDireccion.txtCiudadBecado.addKeyListener(new EscuchadorTeclas(lstVistaDireccion, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, lstVistaDireccion.txtCiudadBecado));
-            lstVistaDireccion.txtColoniaBecado.addKeyListener(new EscuchadorTeclas(lstVistaDireccion, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, lstVistaDireccion.txtColoniaBecado));
-            lstVistaDireccion.txtNumBecado.addKeyListener(new EscuchadorTeclas(lstVistaDireccion, EscuchadorTeclas.NUMEROS, lstVistaDireccion.txtNumBecado));
-            lstVistaDireccion.txtNumIntBecado.addKeyListener(new EscuchadorTeclas(lstVistaDireccion, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, lstVistaDireccion.txtNumIntBecado));
+            lstVistaDireccion.txtCPBecado.addKeyListener(new EscuchadorValidaEntrada(lstVistaDireccion, EscuchadorValidaEntrada.NUMEROS, lstVistaDireccion.txtCPBecado));
+            lstVistaDireccion.txtCalleBecado.addKeyListener(new EscuchadorValidaEntrada(lstVistaDireccion, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, lstVistaDireccion.txtCalleBecado));
+            lstVistaDireccion.txtCiudadBecado.addKeyListener(new EscuchadorValidaEntrada(lstVistaDireccion, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, lstVistaDireccion.txtCiudadBecado));
+            lstVistaDireccion.txtColoniaBecado.addKeyListener(new EscuchadorValidaEntrada(lstVistaDireccion, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, lstVistaDireccion.txtColoniaBecado));
+            lstVistaDireccion.txtNumBecado.addKeyListener(new EscuchadorValidaEntrada(lstVistaDireccion, EscuchadorValidaEntrada.NUMEROS, lstVistaDireccion.txtNumBecado));
+            lstVistaDireccion.txtNumIntBecado.addKeyListener(new EscuchadorValidaEntrada(lstVistaDireccion, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, lstVistaDireccion.txtNumIntBecado));
         }
         
         //Datos Hermanos
         for (PnlHermanos lstVistaHermanos : lstVistaHermanos) {
-            lstVistaHermanos.txtApMaternoPariente.addKeyListener(new EscuchadorTeclas(lstVistaHermanos, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, lstVistaHermanos.txtApMaternoPariente));
-            lstVistaHermanos.txtApPaternoPariente.addKeyListener(new EscuchadorTeclas(lstVistaHermanos, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, lstVistaHermanos.txtApPaternoPariente));
-            lstVistaHermanos.txtNombresPariente.addKeyListener(new EscuchadorTeclas(lstVistaHermanos, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, lstVistaHermanos.txtNombresPariente));
+            lstVistaHermanos.txtApMaternoPariente.addKeyListener(new EscuchadorValidaEntrada(lstVistaHermanos, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, lstVistaHermanos.txtApMaternoPariente));
+            lstVistaHermanos.txtApPaternoPariente.addKeyListener(new EscuchadorValidaEntrada(lstVistaHermanos, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, lstVistaHermanos.txtApPaternoPariente));
+            lstVistaHermanos.txtNombresPariente.addKeyListener(new EscuchadorValidaEntrada(lstVistaHermanos, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, lstVistaHermanos.txtNombresPariente));
         }
         
         //Datos Padres
         for (PnlParentesco lstParentesco : lstVistaParentesco) {
-            lstParentesco.txtApMaternoPariente.addKeyListener(new EscuchadorTeclas(lstParentesco, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, lstParentesco.txtApMaternoPariente));
-            lstParentesco.txtApPaternoPariente.addKeyListener(new EscuchadorTeclas(lstParentesco, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, lstParentesco.txtApPaternoPariente));
-            lstParentesco.txtNombresPariente.addKeyListener(new EscuchadorTeclas(lstParentesco, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, lstParentesco.txtNombresPariente));
+            lstParentesco.txtApMaternoPariente.addKeyListener(new EscuchadorValidaEntrada(lstParentesco, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, lstParentesco.txtApMaternoPariente));
+            lstParentesco.txtApPaternoPariente.addKeyListener(new EscuchadorValidaEntrada(lstParentesco, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, lstParentesco.txtApPaternoPariente));
+            lstParentesco.txtNombresPariente.addKeyListener(new EscuchadorValidaEntrada(lstParentesco, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, lstParentesco.txtNombresPariente));
         }
+        
+        //Datos de fechas de inicio de carrera y graduacion
+        vistaRegistro.cmboxSemestresTotalesCarrera.addItemListener(new 
+        EscuchadorCmbBoxCambiado(vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca, 
+                vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion, 
+                vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera, 
+                vistaRegistro, EscuchadorCmbBoxCambiado.FECHA_GRADUACION));
+        
+        vistaRegistro.cmboxMesInicioBeca.addItemListener(new 
+        EscuchadorCmbBoxCambiado(vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca, 
+                vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion, 
+                vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera, 
+                vistaRegistro, EscuchadorCmbBoxCambiado.FECHA_GRADUACION));
+        
+        vistaRegistro.cmboxAnioInicioBeca.addItemListener(new 
+        EscuchadorCmbBoxCambiado(vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca, 
+                vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion, 
+                vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera, 
+                vistaRegistro, EscuchadorCmbBoxCambiado.FECHA_GRADUACION));
+        
+        vistaRegistro.cmboxMesGraduacion.addItemListener(new 
+        EscuchadorCmbBoxCambiado(vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca, 
+                vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion, 
+                vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera, 
+                vistaRegistro, EscuchadorCmbBoxCambiado.FECHA_GRADUACION));
+        
+        vistaRegistro.cmboxAnioGraduacion.addItemListener(new 
+        EscuchadorCmbBoxCambiado(vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca, 
+                vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion, 
+                vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera, 
+                vistaRegistro, EscuchadorCmbBoxCambiado.FECHA_GRADUACION));
+        
+        vistaRegistro.cmboxSemestreInicioBeca.addItemListener(new 
+        EscuchadorCmbBoxCambiado(vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca, 
+                vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion, 
+                vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera, 
+                vistaRegistro, EscuchadorCmbBoxCambiado.FECHA_GRADUACION));
         
     }
 

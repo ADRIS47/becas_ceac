@@ -17,7 +17,7 @@ import javax.swing.JTextField;
  *
  * @author sergio
  */
-public class EscuchadorTeclas implements KeyListener {
+public class EscuchadorValidaEntrada implements KeyListener {
 
     JPanel vista;
     public final static int LETRAS = 1;
@@ -36,7 +36,7 @@ public class EscuchadorTeclas implements KeyListener {
      * @param codigo Clave que determina que se evaluara
      * @param txtCampo Campo de texto a evaluar
      */
-    public EscuchadorTeclas(JPanel vista, int codigo, JTextField txtCampo) {
+    public EscuchadorValidaEntrada(JPanel vista, int codigo, JTextField txtCampo) {
         this.vista = vista;
         this.codigo = codigo;
         this.txtCampo = txtCampo;
@@ -56,31 +56,31 @@ public class EscuchadorTeclas implements KeyListener {
     public void keyReleased(KeyEvent e) {
         
         switch(codigo){
-            case EscuchadorTeclas.LETRAS:
+            case EscuchadorValidaEntrada.LETRAS:
                 evaluaLetras();
                 break;
                 
-            case EscuchadorTeclas.LETRAS_Y_NUMEROS:
+            case EscuchadorValidaEntrada.LETRAS_Y_NUMEROS:
                 evaluaNumerosYLetras();
                 break;
                 
-            case EscuchadorTeclas.NUMEROS:
+            case EscuchadorValidaEntrada.NUMEROS:
                 evaluaNumeros();
                 break;
                 
-            case EscuchadorTeclas.EMAIL:
+            case EscuchadorValidaEntrada.EMAIL:
                 
                 break;
                 
-            case EscuchadorTeclas.TELEFONO:
+            case EscuchadorValidaEntrada.TELEFONO:
                 evaluaTelefono();
                 break;
                 
-            case EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO:
+            case EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO:
                 evaluaLetrasNumerosEspacios();
                 break;
             
-            case EscuchadorTeclas.FECHA_NACIMIENTO:
+            case EscuchadorValidaEntrada.FECHA_NACIMIENTO:
                 evaluaFechaNacimiento();
                 break;
         }

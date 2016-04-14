@@ -5,7 +5,7 @@
  */
 package principal;
 
-import helpers.EscuchadorTeclas;
+import helpers.EscuchadorValidaEntrada;
 import javax.swing.JOptionPane;
 
 /**
