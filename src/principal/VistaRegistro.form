@@ -442,7 +442,6 @@
                 <Component class="javax.swing.JTextField" name="txtFechaNacimiento">
                   <Properties>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
-                    <Property name="selectionStart" type="int" value="0"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
