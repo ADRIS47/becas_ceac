@@ -145,7 +145,7 @@ public class EscuchadorTeclas implements KeyListener {
         int j = 0;
         boolean error = false;
 
-        for (int i = 0; i <= 10; i++) {
+        for (int i = 0; i <= fuente.length; i++) {
 
             if ((fuente[i] >= '0' && fuente[i] <= '9')) {
                 resultado[j++] = fuente[i];
@@ -226,7 +226,7 @@ public class EscuchadorTeclas implements KeyListener {
         int j = 0;
         boolean error = false;
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < fuente.length; i++) {
 
             if ((fuente[i] >= '0' && fuente[i] <= '9') ||
                      fuente[i] == '/') {
@@ -239,10 +239,11 @@ public class EscuchadorTeclas implements KeyListener {
 
             if (error) {
                 txtCampo.setText("");
-                txtCampo.setText(new String(resultado, 0, 10));
+                txtCampo.setText(new String(resultado, 0, j));
             }
             
             if(i == 10){
+                txtCampo.setText("");
                 txtCampo.setText(new String(resultado, 0, 10));
             }
         }

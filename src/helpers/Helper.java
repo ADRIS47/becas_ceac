@@ -6,14 +6,19 @@
 package helpers;
 
 import adris.vistas.VistaRegistro;
+import java.awt.Color;
 import java.awt.Image;
 import java.nio.file.Path;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -93,6 +98,30 @@ public class Helper {
         result = iniciales + folio;
         return result;
         
+    }
+
+    public boolean validaFechaNacimiento(JTextField txtFechaNacimiento, JPanel vista) {
+        boolean response = false;
+        Pattern patron = null;
+        Matcher matcher;
+        patron = Pattern.compile("^(?:(?:31(\\/)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/)(?:0?[1,3-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$");
+        
+        if(txtFechaNacimiento.getText().length() > 0){
+            matcher = patron.matcher(txtFechaNacimiento.getText());
+            if(!matcher.matches()){
+                txtFechaNacimiento.setBackground(Color.ORANGE);
+                JOptionPane.showMessageDialog(vista, "Fecha de nacimiento incorrecta");
+            }
+            else
+                response = true;
+            
+        }
+        else{
+            response = true;
+        }
+        
+        
+        return response;
     }
     
 }

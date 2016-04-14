@@ -302,11 +302,15 @@ public class PrincipalControlador {
                 //Se valida que los correos electronicos sean iguales
                 boolean email = helper.validaEmail(vistaRegistro.txtCorreoBecario.getText(),
                                                     vistaRegistro.txtCorreoBecario2.getText());
+                boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vistaRegistro);
+                if(fecha){
+                    return;
+                }
                 //Si los email son iguales se procede a tomar los valores e insertarlos
-                if(email){
+                if(email && fecha){
                     insertBecario(true);
                 }
-                else
+                else if(email == false)
                     JOptionPane.showMessageDialog(vistaRegistro, "Correos electrónicos diferentes", 
                                                                 "Verifica los correos electrónicos", JOptionPane.WARNING_MESSAGE);
                 
@@ -769,6 +773,7 @@ public class PrincipalControlador {
         vistaRegistro.txtApPaternoBecado.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtApPaternoBecado));
         vistaRegistro.txtApMaternoBecado.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtApPaternoBecado));
         vistaRegistro.txtFechaNacimiento.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.FECHA_NACIMIENTO, vistaRegistro.txtFechaNacimiento));
+        
         //Telefonos del becado
         vistaRegistro.txtTel1Becado.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.TELEFONO, vistaRegistro.txtTel1Becado));
         vistaRegistro.txtTel2Becado.addKeyListener(new EscuchadorTeclas(vistaRegistro, EscuchadorTeclas.TELEFONO, vistaRegistro.txtTel2Becado));
