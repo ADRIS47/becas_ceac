@@ -46,7 +46,7 @@ public class EscuchadorCmbBoxCambiado implements ItemListener{
      * @param cmbBoxSemestreInicioBeca
      * @param cmbBoxTotalSemestres
      * @param panel
-     * @param codigo 
+     * @param codigo 1.- Fecha Graduacion, 2: Beca Semestral
      */
     public EscuchadorCmbBoxCambiado(JComboBox<?> cmbBoxMesInicioBeca, 
             JComboBox<?> cmbBoxAnioInicioBeca, JComboBox<?> cmbBoxMesGraduacion, 

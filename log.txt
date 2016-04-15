@@ -185,3 +185,4 @@
 14/4/2016;15:32:57;ERROR: Code0
 14/4/2016;15:32:57;Message: No value specified for parameter 2
 14/4/2016;15:32:58;null
+14/4/2016;18:17:42;No se pudo conectar a la Base de datos
