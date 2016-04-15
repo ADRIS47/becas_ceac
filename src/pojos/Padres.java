@@ -69,7 +69,7 @@ public class Padres {
         this.gradoEscolar = gradoEscolar;
     }
 
-    public int isTrabaja() {
+    public int getTrabaja() {
         return trabaja;
     }
 

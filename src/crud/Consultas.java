@@ -56,5 +56,10 @@ public class Consultas {
      */
     public static String getInicialesPrograma = "SELECT iniciales FROM beca_cat_programa WHERE id_programa = ?";
     
+    /**
+     * Obtiene el contador de los programas
+     */
+    public static String getContadorFolio = "SELECT contador FROM beca_cat_programa WHERE id_programa = ?";
+    
     
 }

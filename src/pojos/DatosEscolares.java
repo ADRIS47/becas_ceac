@@ -16,7 +16,7 @@ public class DatosEscolares {
     int idUniversidad;
     int idCampoCarrera;
     String nombreCarrera;
-    int semestreInicioBeca;
+    int mesInicioBeca;
     int anioInicioBeca;
     int mesGraduacion;
     int anioGraduacion;
@@ -25,6 +25,8 @@ public class DatosEscolares {
     float becaSemestral;
     int condicionado;
     long idBecario;
+    int semestresTotalesCarrera;
+    int semestreInicioBeca;
 
     public long getId() {
         return id;
@@ -67,11 +69,11 @@ public class DatosEscolares {
     }
 
     public int getSemestreInicioBeca() {
-        return semestreInicioBeca;
+        return mesInicioBeca;
     }
 
     public void setSemestreInicioBeca(int semestreInicioBeca) {
-        this.semestreInicioBeca = semestreInicioBeca;
+        this.mesInicioBeca = semestreInicioBeca;
     }
 
     public int getAnioInicioBeca() {
@@ -137,21 +139,42 @@ public class DatosEscolares {
     public void setIdBecario(long idBecario) {
         this.idBecario = idBecario;
     }
+
+    public int getMesInicioBeca() {
+        return mesInicioBeca;
+    }
+
+    public void setMesInicioBeca(int mesInicioBeca) {
+        this.mesInicioBeca = mesInicioBeca;
+    }
+
+    public int getSemestresTotalesCarrera() {
+        return semestresTotalesCarrera;
+    }
+
+    public void setSemestresTotalesCarrera(int semestresTotalesCarrera) {
+        this.semestresTotalesCarrera = semestresTotalesCarrera;
+    }
+    
+    
+    
     
     public static final String COL_ID = "id_dato_escolar";
     public static final String COL_ESCUELA_PROCEDENCIA = "escuela_procedencia";
     public static final String COL_ID_UNIVERSIDAD = "id_universidad";
     public static final String COL_ID_CAMPO_CARRERA = "id_campo_carrera";
     public static final String COL_NOMBRE_CARRERA = "nombre_carrera";
-    public static final String COL_SEMESTRE_INICIO_BECA = "semestre_inicio_beca";
+    public static final String COL_MES_INICIO_BECA = "mes_inicio_beca";
     public static final String COL_ANIO_INICIO_BECA = "anio_inicio_beca";
-    public static final String COL_MES_GRADUACION = "id_mes_graduacion";
+    public static final String COL_MES_GRADUACION = "mes_graduacion";
     public static final String COL_ANIO_GRADUACION = "anio_graduacion";
     public static final String COL_COSTO_CARRERA = "costo_carrera";
     public static final String COL_BECA_TOTAL = "beca_total";
     public static final String COL_BECA_SEMESTRAL = "beca_semestral";
     public static final String COL_CONDICIONADO = "condicionado";
     public static final String COL_ID_BECARIO = "id_becario";
+    public static final String COL_SEMESTRES_TOTALES_BECA = "semestres_totales_carrera";
+    public static final String COL_SEMESTRE_INICIO_BECA = "semestre_inicio_beca";
     
     
 }

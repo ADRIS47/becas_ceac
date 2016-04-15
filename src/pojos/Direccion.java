@@ -16,7 +16,7 @@ public class Direccion {
     String numExt;
     String numInt;
     String colonia;
-    String codigoPostal;
+    int codigoPostal;
     String ciudad;
     long idBecario;
 
@@ -60,11 +60,11 @@ public class Direccion {
         this.colonia = colonia;
     }
 
-    public String getCodigoPostal() {
+    public int getCodigoPostal() {
         return codigoPostal;
     }
 
-    public void setCodigoPostal(String codigoPostal) {
+    public void setCodigoPostal(int codigoPostal) {
         this.codigoPostal = codigoPostal;
     }
 
