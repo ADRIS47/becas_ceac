@@ -355,7 +355,7 @@ public class PrincipalControlador {
                 //Se valida que los correos electronicos sean iguales
                 boolean email = helper.validaEmail(vistaRegistro.txtCorreoBecario.getText(),
                                                     vistaRegistro.txtCorreoBecario2.getText());
-                boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vistaRegistro);
+                boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
                 
                 //Si los email son iguales se procede a tomar los valores e insertarlos
                 if(email && fecha){
@@ -372,8 +372,9 @@ public class PrincipalControlador {
             //Se valida que los correos electronicos sean iguales
             boolean email = helper.validaEmail(vistaRegistro.txtCorreoBecario.getText(),
                                                    vistaRegistro.txtCorreoBecario2.getText());
+            boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
             //Si los email son iguales se procede a tomar los valores e insertarlos
-            if(email)
+            if(email && fecha)
                 insertBecario(false);
         }
 
@@ -473,6 +474,10 @@ public class PrincipalControlador {
             conexion.commit();
             JOptionPane.showMessageDialog(vista, "Becario registrado correctamente \n"
                     + "Número de folio: " + becario.getFolio(), "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            
+            vistaRegistro.comboBoxPrograma.setEnabled(false);
+            vistaRegistro.cmbEstatus.setEnabled(false);
+            vistaRegistro.txtFolio.setText(becario.getFolio());
         }
         catch(SQLException e){
             try {

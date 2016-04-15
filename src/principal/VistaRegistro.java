@@ -5,8 +5,6 @@
  */
 package principal;
 
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author sabagip
@@ -76,8 +74,6 @@ public class VistaRegistro extends javax.swing.JPanel {
         pnlCorreo2 = new javax.swing.JPanel();
         txtCorreoBecario2 = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
-        pnlBotones = new javax.swing.JPanel();
-        btnGuardar = new javax.swing.JButton();
         pnlDatosFamiliares = new javax.swing.JPanel();
         spnlParentesco = new javax.swing.JScrollPane();
         pnlParentesco = new javax.swing.JPanel();
@@ -533,14 +529,6 @@ public class VistaRegistro extends javax.swing.JPanel {
         );
 
         pnlDatosGenerales.add(pnlCorreos);
-
-        pnlBotones.setPreferredSize(new java.awt.Dimension(400, 39));
-
-        btnGuardar.setText("Guardar Datos");
-        btnGuardar.setPreferredSize(new java.awt.Dimension(160, 29));
-        pnlBotones.add(btnGuardar);
-
-        pnlDatosGenerales.add(pnlBotones);
 
         tbpBecados.addTab("Datos Generales", pnlDatosGenerales);
 
@@ -1402,7 +1390,6 @@ public class VistaRegistro extends javax.swing.JPanel {
     protected javax.swing.JButton btnEliminaINEBecario;
     protected javax.swing.JButton btnEliminaPagare;
     private javax.swing.JButton btnFotografia;
-    private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnGuardar1;
     private javax.swing.JButton btnGuardar2;
     private javax.swing.JButton btnGuardar3;
@@ -1486,7 +1473,6 @@ public class VistaRegistro extends javax.swing.JPanel {
     protected javax.swing.JLabel lblFotografia;
     private javax.swing.JLabel lblParentesco1;
     private javax.swing.JPanel pnlArchivosAdjuntos;
-    private javax.swing.JPanel pnlBotones;
     protected javax.swing.JPanel pnlConyuge;
     private javax.swing.JPanel pnlCorreo1;
     private javax.swing.JPanel pnlCorreo2;

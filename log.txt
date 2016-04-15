@@ -186,3 +186,7 @@
 14/4/2016;15:32:57;Message: No value specified for parameter 2
 14/4/2016;15:32:58;null
 14/4/2016;18:17:42;No se pudo conectar a la Base de datos
+15/4/2016;8:54:41;~/Documentos/becarios
+15/4/2016;8:54:41;~/Documentos/becarios
+15/4/2016;9:8:50;~/Documentos/becarios
+15/4/2016;9:8:50;~/Documentos/becarios

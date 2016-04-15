@@ -7,6 +7,7 @@ package helpers;
 
 import index.Index;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
@@ -54,7 +55,7 @@ public class Helper {
     public static void getBecaSemestral(JComboBox<?> cmbSemestresTotales, JComboBox<?> cmbSemestreInicioBeca, 
                     JComboBox<?> cmbAnioInicioBeca, JTextField txtBecaAutorizada, 
                     JTextField txtBecaSemestral) {
-        String semestresTotales = (String) cmbSemestresTotales.getSelectedItem();
+        String semestresTotales = (String) cmbSemestresTotales.getSelectedItem() + 1;
         String semestreInicioBeca = (String) cmbSemestreInicioBeca.getSelectedItem();
         int semestres = Integer.parseInt((String) cmbSemestresTotales.getSelectedItem()) - 
                 Integer.parseInt((String) cmbSemestreInicioBeca.getSelectedItem());
@@ -136,7 +137,7 @@ public class Helper {
         
     }
 
-    public boolean validaFechaNacimiento(JTextField txtFechaNacimiento, JPanel vista) {
+    public boolean validaFechaNacimiento(JTextField txtFechaNacimiento, Component vista) {
         boolean response = false;
         Pattern patron = null;
         Matcher matcher;
@@ -171,7 +172,7 @@ public class Helper {
         String sistemaOperativo = System.getProperty("os.name");
         String rutaPrincipal = null;
         String separador = System.getProperty("file.separator");
-        String extension = archivo.getName().substring(archivo.getName().length() - 3, archivo.getName().length());
+        String extension = archivo.getName().substring(archivo.getName().length() - 4, archivo.getName().length());
         
         if(sistemaOperativo.toLowerCase().contains("win")){
             rutaPrincipal = Index.RUTA_BASE_WINDOWS;
