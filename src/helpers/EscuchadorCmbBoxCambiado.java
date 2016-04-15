@@ -25,8 +25,6 @@ public class EscuchadorCmbBoxCambiado implements ItemListener{
     JComboBox<?> cmbBoxAnioGraduacion;
     JComboBox<?> cmbBoxSemestreInicioBeca;
     JComboBox<?> cmbBoxTotalSemestres;
-    
-    JComboBox<?> cmbSemestresTotales;
     JTextField txtBecaAutorizada; 
     JTextField txtBecaSemestral;
     
@@ -45,19 +43,24 @@ public class EscuchadorCmbBoxCambiado implements ItemListener{
      * @param cmbBoxAnioGraduacion
      * @param cmbBoxSemestreInicioBeca
      * @param cmbBoxTotalSemestres
+     * @param txtBecaAutorizada
+     * @param txtBecaPorSemestre
      * @param panel
-     * @param codigo 1.- Fecha Graduacion, 2: Beca Semestral
+     * @param codigo 
      */
     public EscuchadorCmbBoxCambiado(JComboBox<?> cmbBoxMesInicioBeca, 
             JComboBox<?> cmbBoxAnioInicioBeca, JComboBox<?> cmbBoxMesGraduacion, 
             JComboBox<?> cmbBoxAnioGraduacion, JComboBox<?> cmbBoxSemestreInicioBeca, 
-            JComboBox<?> cmbBoxTotalSemestres, JPanel panel, int codigo) {
+            JComboBox<?> cmbBoxTotalSemestres, JTextField txtBecaAutorizada,
+            JTextField txtBecaPorSemestre, JPanel panel, int codigo) {
         this.cmbBoxMesInicioBeca = cmbBoxMesInicioBeca;
         this.cmbBoxAnioInicioBeca = cmbBoxAnioInicioBeca;
         this.cmbBoxMesGraduacion = cmbBoxMesGraduacion;
         this.cmbBoxAnioGraduacion = cmbBoxAnioGraduacion;
         this.cmbBoxSemestreInicioBeca = cmbBoxSemestreInicioBeca;
         this.cmbBoxTotalSemestres = cmbBoxTotalSemestres;
+        this.txtBecaAutorizada = txtBecaAutorizada;
+        this.txtBecaSemestral = txtBecaPorSemestre;
         this.panel = panel;
         this.codigo = codigo;
     }
@@ -66,18 +69,22 @@ public class EscuchadorCmbBoxCambiado implements ItemListener{
      * Se utiliza cuando se va a agregar el escuchador de calcular beca semestral
      * @param cmbSemestresTotales
      * @param cmbBoxSemestreInicioBeca
+     * @param cmbBoxAnioInicioBeca
      * @param txtBecaAutorizada
-     * @param txtBecaSemestral 
+     * @param txtBecaSemestral
+     * @param codigo 
      */
-    public EscuchadorCmbBoxCambiado(JComboBox<?> cmbSemestresTotales, JComboBox<?> cmbBoxSemestreInicioBeca, 
-            JTextField txtBecaAutorizada, JTextField txtBecaSemestra, int codigo) {
-        this.cmbSemestresTotales = cmbSemestresTotales;
-        this.cmbBoxSemestreInicioBeca = cmbBoxSemestreInicioBeca;
-        this.txtBecaAutorizada = txtBecaAutorizada;
-        this.txtBecaSemestral = txtBecaSemestral;
-        this.codigo = codigo;
-    }
-    
+//    public EscuchadorCmbBoxCambiado(JComboBox<?> cmbSemestresTotales, JComboBox<?> cmbBoxSemestreInicioBeca, 
+//            JComboBox<?> cmbBoxAnioInicioBeca, JTextField txtBecaAutorizada, 
+//            JTextField txtBecaSemestral, int codigo) {
+//        this.cmbBoxTotalSemestres = cmbSemestresTotales;
+//        this.cmbBoxSemestreInicioBeca = cmbBoxSemestreInicioBeca;
+//        this.cmbBoxAnioInicioBeca = cmbBoxAnioInicioBeca;
+//        this.txtBecaAutorizada = txtBecaAutorizada;
+//        this.txtBecaSemestral = txtBecaSemestral;
+//        this.codigo = codigo;
+//    }
+//    
     
 
     
@@ -92,7 +99,8 @@ public class EscuchadorCmbBoxCambiado implements ItemListener{
                                             cmbBoxSemestreInicioBeca, cmbBoxTotalSemestres);
                 break;
             case EscuchadorCmbBoxCambiado.BECA_SEMESTRAL:
-                Helper.getBecaSemestral(cmbSemestresTotales, cmbBoxSemestreInicioBeca, txtBecaAutorizada, txtBecaSemestral);
+                Helper.getBecaSemestral(cmbBoxTotalSemestres, cmbBoxSemestreInicioBeca,
+                        cmbBoxAnioInicioBeca, txtBecaAutorizada, txtBecaSemestral);
                 break;
         }
         

@@ -51,7 +51,11 @@ public class Helper {
         cmbBoxMesGraduacion.setSelectedIndex(graduacion.get(Calendar.MONTH));
     }
 
-    public static void getBecaSemestral(JComboBox<?> cmbSemestresTotales, JComboBox<?> cmbSemestreInicioBeca, JTextField txtBecaAutorizada, JTextField txtBecaSemestral) {
+    public static void getBecaSemestral(JComboBox<?> cmbSemestresTotales, JComboBox<?> cmbSemestreInicioBeca, 
+                    JComboBox<?> cmbAnioInicioBeca, JTextField txtBecaAutorizada, 
+                    JTextField txtBecaSemestral) {
+        String semestresTotales = (String) cmbSemestresTotales.getSelectedItem();
+        String semestreInicioBeca = (String) cmbSemestreInicioBeca.getSelectedItem();
         int semestres = Integer.parseInt((String) cmbSemestresTotales.getSelectedItem()) - 
                 Integer.parseInt((String) cmbSemestreInicioBeca.getSelectedItem());
         float total = Float.parseFloat(txtBecaAutorizada.getText()) / semestres;

@@ -1383,21 +1383,6 @@ public class VistaRegistro extends javax.swing.JPanel {
     private void btnEliminaPagareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaPagareActionPerformed
         controlador.filePagare = controlador.borraDocumento(controlador.filePagare, lblEstatusPagare);
     }//GEN-LAST:event_btnEliminaPagareActionPerformed
-    
-    private void validaLetras(java.awt.event.KeyEvent ke){
-        char c=ke.getKeyChar();
-            
-        
-          if(Character.isDigit(c)) {
-              getToolkit().beep();
-              
-              ke.consume();
-              
-              JOptionPane.showMessageDialog(this, "Ingresa solo letras", "Error", JOptionPane.ERROR_MESSAGE);
-              //Error.setText("Ingresa Solo Letras";
-              
-          }
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     protected javax.swing.JButton btnAddActa;
