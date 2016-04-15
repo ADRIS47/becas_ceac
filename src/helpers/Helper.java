@@ -211,7 +211,8 @@ public class Helper {
     public void validaRutaInicial() {
         String sistemaOperativo = System.getProperty("os.name");
         String rutaPrincipal = null;
-        
+        String separador = System.getProperty("file.separator");
+        System.out.println("SO: " + sistemaOperativo);
         if(sistemaOperativo.toLowerCase().contains("win")){
             rutaPrincipal = Index.RUTA_BASE_WINDOWS;
         }
@@ -219,7 +220,24 @@ public class Helper {
             rutaPrincipal = Index.RUTA_BASE_LINUX;
         }
         
-        if(!Files.exists(Paths.get(rutaPrincipal))){
+        Path pathRutaPrincipal = Paths.get(rutaPrincipal);
+        Path pathRutaBecas =  Paths.get(pathRutaPrincipal + separador + ".." + separador + "..");
+        Path pathRutaBecarios =  Paths.get(pathRutaPrincipal + separador + "..");
+        
+        System.out.println("RutaPrincipal: " + pathRutaPrincipal);
+        System.out.println("Path becas: "  + pathRutaBecas);
+        System.out.println("Path becarios: "  + pathRutaBecarios );
+        
+        if(!Files.exists(Paths.get(pathRutaBecas.toString()))){
+            try {
+                Files.createDirectory(Paths.get(rutaPrincipal));
+            } catch (IOException ex) {
+                log.crearLog(ex.getMessage());
+                Logger.getLogger(Helper.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        if(!Files.exists(Paths.get(pathRutaBecarios.toString()))){
             try {
                 Files.createDirectory(Paths.get(rutaPrincipal));
             } catch (IOException ex) {
