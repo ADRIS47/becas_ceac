@@ -38,7 +38,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         txtFolio = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        cmbEstatus = new javax.swing.JComboBox<>();
+        cmbEstatus = new javax.swing.JComboBox<String>();
         pnlNombres = new javax.swing.JPanel();
         txtNombreBecado = new javax.swing.JTextField();
         txtApPaternoBecado = new javax.swing.JTextField();
@@ -56,8 +56,8 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        btnFotografia = new javax.swing.JButton();
         jLabel44 = new javax.swing.JLabel();
+        btnFotografia = new javax.swing.JButton();
         spnlDirecciones = new javax.swing.JScrollPane();
         pnlDirecciones = new javax.swing.JPanel();
         pnlTelefonosBecados = new javax.swing.JPanel();
@@ -106,8 +106,8 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         cmboxMesGraduacion = new javax.swing.JComboBox();
-        cmboxAnioInicioBeca = new javax.swing.JComboBox<>();
-        cmboxAnioGraduacion = new javax.swing.JComboBox<>();
+        cmboxAnioInicioBeca = new javax.swing.JComboBox<String>();
+        cmboxAnioGraduacion = new javax.swing.JComboBox<String>();
         txtNombreCarrera = new javax.swing.JTextField();
         pnlManejoBeca = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -214,7 +214,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(0, 0, 153));
         jLabel3.setText("Estatus:");
 
-        cmbEstatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Becado", "Exalumno" }));
+        cmbEstatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Becado", "Exalumno" }));
 
         javax.swing.GroupLayout pnlProgramaLayout = new javax.swing.GroupLayout(pnlPrograma);
         pnlPrograma.setLayout(pnlProgramaLayout);
@@ -333,33 +333,27 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel26.setText("Fecha Nacimiento");
 
-        btnFotografia.setText("Insertar Imagen");
-        btnFotografia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFotografiaActionPerformed(evt);
-            }
-        });
-
         jLabel44.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel44.setText("(dd/mm/aaaa)");
+
+        btnFotografia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adris/vistas/addFoto.png"))); // NOI18N
+        btnFotografia.setText("Insertar Imagen");
 
         javax.swing.GroupLayout pnlDatosLayout = new javax.swing.GroupLayout(pnlDatos);
         pnlDatos.setLayout(pnlDatosLayout);
         pnlDatosLayout.setHorizontalGroup(
             pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlDatosLayout.createSequentialGroup()
+                            .addGap(12, 12, 12)
+                            .addComponent(jLabel44))
+                        .addComponent(jLabel26))
                     .addGroup(pnlDatosLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlDatosLayout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(jLabel44))
-                            .addComponent(jLabel26)))
-                    .addGroup(pnlDatosLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
                         .addComponent(btnFotografia)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosLayout.createSequentialGroup()
@@ -678,9 +672,9 @@ public class VistaRegistro extends javax.swing.JPanel {
         cmboxMesGraduacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
         cmboxMesGraduacion.setEnabled(false);
 
-        cmboxAnioInicioBeca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
+        cmboxAnioInicioBeca.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
 
-        cmboxAnioGraduacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
+        cmboxAnioGraduacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
         cmboxAnioGraduacion.setEnabled(false);
 
         txtNombreCarrera.setName("txtNombreCarrera"); // NOI18N
@@ -1292,10 +1286,6 @@ public class VistaRegistro extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBecaPorSemestreActionPerformed
 
-    private void btnFotografiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFotografiaActionPerformed
-        controlador.cargaFotografia();
-    }//GEN-LAST:event_btnFotografiaActionPerformed
-
     private void btnGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar1ActionPerformed
         controlador.insertaNuevoBecario();
     }//GEN-LAST:event_btnGuardar1ActionPerformed
@@ -1389,7 +1379,7 @@ public class VistaRegistro extends javax.swing.JPanel {
     protected javax.swing.JButton btnEliminaINEAval;
     protected javax.swing.JButton btnEliminaINEBecario;
     protected javax.swing.JButton btnEliminaPagare;
-    private javax.swing.JButton btnFotografia;
+    protected javax.swing.JButton btnFotografia;
     private javax.swing.JButton btnGuardar1;
     private javax.swing.JButton btnGuardar2;
     private javax.swing.JButton btnGuardar3;

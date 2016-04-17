@@ -51,6 +51,7 @@ public class PrincipalControlador {
     
     VistaPanelPrincipal vista;
     VistaRegistro vistaRegistro;
+    PnlPortada vistaPortada;
 //    PnlHermanos vistaHermanos;
 //    PnlHijos vistaHijos;
 //    PnlParentesco vistaParentesco;
@@ -100,18 +101,31 @@ public class PrincipalControlador {
     public void setVistaRegistro(VistaRegistro vistaRegistro) {
         this.vistaRegistro = vistaRegistro;
     }
-    
-    
+
+    public void setVistaPortada(PnlPortada vistaPortada) {
+        this.vistaPortada = vistaPortada;
+    }
     
     public void iniciaPantallaPrincipal(){
         vista = new VistaPanelPrincipal(this);
+        vistaPortada = new PnlPortada(this);
         modelo = new PrincipalModelo();
         controladorPrincipal = new Index();
         
         this.setVista(vista);
         this.setModelo(modelo);
+        this.setVistaPortada(vistaPortada);
+        
+        creaVistaPortada();
         
         vista.setVisible(true);
+    }
+    
+    private void creaVistaPortada(){
+        creaPantalla(vistaPortada);
+        vistaPortada.setVisible(true);
+        helper.cargaImagenLocal(vistaPortada.lblPortada, "/imagenes/LOGO_con_letra.png");
+        
     }
     
     /**
@@ -303,8 +317,8 @@ public class PrincipalControlador {
             llenaComboCategorias(pnlParentesco.cmbNivelEstudiosPariente, catNivelEstudios);
             llenaComboCategorias(pnlParentesco.cmbParentesco, catParentesco);
             lstVistaParentesco.get(0).lblAgregarPariente.setVisible(false);
-            System.out.println("Esto es de parentesco");
             helper.agregaJPanel(pnlParentesco, vistaRegistro.pnlParentesco);
+            vistaRegistro.spnlParentesco.getVerticalScrollBar().setValue(vistaRegistro.spnlParentesco.getVerticalScrollBar().getMaximum());
         }
         
         if(componente instanceof PnlDireccion){
@@ -338,7 +352,6 @@ public class PrincipalControlador {
         addListenerTeclasVistaRegistro();
         vistaRegistro.repaint();
         vista.repaint();
-        
     }
 
     /**

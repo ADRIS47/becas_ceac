@@ -247,4 +247,8 @@ public class Helper {
             }
         }
     }
+
+    public void bajaScrollVertical(JScrollPane scrollPane) {
+        scrollPane.getVerticalScrollBar().setValue(scrollPane.getVerticalScrollBar().getMaximum());
+    }
 }
