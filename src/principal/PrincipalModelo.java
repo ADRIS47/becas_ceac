@@ -932,4 +932,26 @@ public class PrincipalModelo {
         }
         return response;
     }
+
+    protected boolean updateBecario(Connection conexion, Becario becario) {
+        boolean response = false;
+        PreparedStatement ps = null;
+        int valor = 0;
+        
+        try{
+            ps = conexion.prepareStatement(Update.updateBecario);
+        }
+        catch(SQLException e){
+            log.crearLog(e.getMessage());
+        }
+        finally{
+            try {
+                ps.close();
+            } catch (SQLException ex) {
+                log.crearLog(ex.getSQLState());
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return response;
+    }
 }
