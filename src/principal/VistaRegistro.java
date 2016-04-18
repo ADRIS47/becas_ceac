@@ -167,10 +167,10 @@ public class VistaRegistro extends javax.swing.JPanel {
         btnEliminaPagare = new javax.swing.JButton();
         lblEstatusPagare = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        btnGuardar1 = new javax.swing.JButton();
-        btnGuardar2 = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
+        btnImprimir = new javax.swing.JButton();
         btnGuardar3 = new javax.swing.JButton();
-        btnGuardar4 = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -1210,25 +1210,25 @@ public class VistaRegistro extends javax.swing.JPanel {
 
         tbpBecados.addTab("Datos Escolares", pnlDatosEscolares);
 
-        btnGuardar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/guardar_cambios.png"))); // NOI18N
-        btnGuardar1.setPreferredSize(new java.awt.Dimension(160, 29));
-        btnGuardar1.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/guardar_cambios.png"))); // NOI18N
+        btnGuardar.setPreferredSize(new java.awt.Dimension(160, 29));
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardar1ActionPerformed(evt);
+                btnGuardarActionPerformed(evt);
             }
         });
 
-        btnGuardar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imprime.png"))); // NOI18N
-        btnGuardar2.setPreferredSize(new java.awt.Dimension(160, 29));
+        btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imprime.png"))); // NOI18N
+        btnImprimir.setPreferredSize(new java.awt.Dimension(160, 29));
 
         btnGuardar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cancel_registro.png"))); // NOI18N
         btnGuardar3.setPreferredSize(new java.awt.Dimension(160, 29));
 
-        btnGuardar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adris/vistas/salir.png"))); // NOI18N
-        btnGuardar4.setPreferredSize(new java.awt.Dimension(160, 29));
-        btnGuardar4.addActionListener(new java.awt.event.ActionListener() {
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adris/vistas/salir.png"))); // NOI18N
+        btnSalir.setPreferredSize(new java.awt.Dimension(160, 29));
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardar4ActionPerformed(evt);
+                btnSalirActionPerformed(evt);
             }
         });
 
@@ -1238,27 +1238,27 @@ public class VistaRegistro extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnGuardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnGuardar2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnGuardar3, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnGuardar4, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(41, 41, 41)
-                .addComponent(btnGuardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnGuardar2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnGuardar3, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnGuardar4, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1291,9 +1291,9 @@ public class VistaRegistro extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBecaPorSemestreActionPerformed
 
-    private void btnGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar1ActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         controlador.insertaNuevoBecario();
-    }//GEN-LAST:event_btnGuardar1ActionPerformed
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void txtEscuelaProcedenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEscuelaProcedenciaActionPerformed
         // TODO add your handling code here:
@@ -1367,9 +1367,9 @@ public class VistaRegistro extends javax.swing.JPanel {
         controlador.filePagare = controlador.borraDocumento(controlador.filePagare, lblEstatusPagare);
     }//GEN-LAST:event_btnEliminaPagareActionPerformed
 
-    private void btnGuardar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar4ActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         controlador.cerrarSesion();
-    }//GEN-LAST:event_btnGuardar4ActionPerformed
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     protected javax.swing.JButton btnAddActa;
@@ -1389,10 +1389,10 @@ public class VistaRegistro extends javax.swing.JPanel {
     protected javax.swing.JButton btnEliminaINEBecario;
     protected javax.swing.JButton btnEliminaPagare;
     protected javax.swing.JButton btnFotografia;
-    private javax.swing.JButton btnGuardar1;
-    private javax.swing.JButton btnGuardar2;
+    private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnGuardar3;
-    private javax.swing.JButton btnGuardar4;
+    private javax.swing.JButton btnImprimir;
+    private javax.swing.JButton btnSalir;
     protected javax.swing.JComboBox<String> cmbEstatus;
     protected javax.swing.JComboBox<String> cmboxAnioGraduacion;
     protected javax.swing.JComboBox<String> cmboxAnioInicioBeca;
