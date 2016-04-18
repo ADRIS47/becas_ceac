@@ -33,7 +33,7 @@ public class PnlHijos extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblAgregarParentesco = new javax.swing.JLabel();
+        lblAgregarHijos = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lblParentesco1 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
@@ -43,16 +43,17 @@ public class PnlHijos extends javax.swing.JPanel {
         txtApPaternoHijo = new javax.swing.JTextField();
         txtApMaternoHijo = new javax.swing.JTextField();
         cmbEdadHijo = new javax.swing.JComboBox();
+        lblBorrarHijos = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         setPreferredSize(new java.awt.Dimension(675, 75));
 
-        lblAgregarParentesco.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblAgregarParentesco.setText("Add");
-        lblAgregarParentesco.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        lblAgregarParentesco.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblAgregarHijos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAgregarHijos.setText("Add");
+        lblAgregarHijos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblAgregarHijos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblAgregarParentescoMouseClicked(evt);
+                lblAgregarHijosMouseClicked(evt);
             }
         });
 
@@ -87,6 +88,15 @@ public class PnlHijos extends javax.swing.JPanel {
         cmbEdadHijo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99", "100" }));
         jPanel1.add(cmbEdadHijo);
 
+        lblBorrarHijos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBorrarHijos.setText("Delete");
+        lblBorrarHijos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblBorrarHijos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblBorrarHijosMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -94,17 +104,23 @@ public class PnlHijos extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(lblAgregarParentesco, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblAgregarHijos, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblBorrarHijos, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAgregarParentesco, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 10, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(lblAgregarHijos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblBorrarHijos)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -112,9 +128,13 @@ public class PnlHijos extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreHIjoActionPerformed
 
-    private void lblAgregarParentescoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAgregarParentescoMouseClicked
+    private void lblAgregarHijosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAgregarHijosMouseClicked
         controlador.agregaJPanel(this);
-    }//GEN-LAST:event_lblAgregarParentescoMouseClicked
+    }//GEN-LAST:event_lblAgregarHijosMouseClicked
+
+    private void lblBorrarHijosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBorrarHijosMouseClicked
+        controlador.borraJpanel(this);
+    }//GEN-LAST:event_lblBorrarHijosMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -123,7 +143,8 @@ public class PnlHijos extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblAgregarParentesco;
+    protected javax.swing.JLabel lblAgregarHijos;
+    protected javax.swing.JLabel lblBorrarHijos;
     private javax.swing.JLabel lblParentesco1;
     protected javax.swing.JTextField txtApMaternoHijo;
     protected javax.swing.JTextField txtApPaternoHijo;

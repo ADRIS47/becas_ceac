@@ -250,6 +250,11 @@ public class PrincipalControlador {
         lstVistaHijos.add(vistaHijos);
         lstVistaDireccion.add(vistaDireccion);
         
+        vistaParentesco.lblBorrarPariente.setVisible(false);
+        vistaHermanos.lblBorrarHermano.setVisible(false);
+        vistaHijos.lblBorrarHijos.setVisible(false);
+        vistaDireccion.lblBorrarDireccion.setVisible(false);
+        
         vistaParentesco.setVisible(true);
         vistaHermanos.setVisible(true);
         vistaHijos.setVisible(true);
@@ -318,7 +323,6 @@ public class PrincipalControlador {
             llenaComboCategorias(pnlParentesco.cmbParentesco, catParentesco);
             lstVistaParentesco.get(0).lblAgregarPariente.setVisible(false);
             helper.agregaJPanel(pnlParentesco, vistaRegistro.pnlParentesco);
-            vistaRegistro.spnlParentesco.getVerticalScrollBar().setValue(vistaRegistro.spnlParentesco.getVerticalScrollBar().getMaximum());
         }
         
         if(componente instanceof PnlDireccion){
@@ -347,6 +351,59 @@ public class PrincipalControlador {
             lstVistaHijos.add(pnlHijos);
             System.out.println("Esto es de Hijos");
             helper.agregaJPanel(pnlHijos, vistaRegistro.pnlHijos);    
+        }
+        
+        addListenerTeclasVistaRegistro();
+        vistaRegistro.repaint();
+        vista.repaint();
+    }
+    
+    /**
+     * Elimina el ultimo jpanel agregado
+     * @param componente Componente a eliminar 
+     */
+    protected void borraJpanel(JComponent componente) {
+        if(componente instanceof PnlParentesco){
+            int tamanio = lstVistaParentesco.size();
+            helper.borraJpanel(lstVistaParentesco.get(lstVistaParentesco.size() - 1), vistaRegistro.pnlParentesco);
+            lstVistaParentesco.remove(lstVistaParentesco.size() - 1);
+            lstVistaParentesco.get(lstVistaParentesco.size() - 1).lblAgregarPariente.setVisible(true);
+            System.out.println("Esto es de dirección"); 
+            if(tamanio == 1){
+                lstVistaParentesco.get(0).lblBorrarPariente.setVisible(false);
+            }
+        }
+        
+        if(componente instanceof PnlDireccion){
+            int tamanio = lstVistaDireccion.size();
+            helper.borraJpanel(lstVistaDireccion.get(tamanio - 1), vistaRegistro.pnlDirecciones);
+            lstVistaDireccion.remove(tamanio - 1);
+            lstVistaDireccion.get(lstVistaDireccion.size() - 1).lblAgregarDireccion.setVisible(true);
+            System.out.println("Esto es de dirección");
+            if(tamanio == 1){
+                lstVistaDireccion.get(0).lblBorrarDireccion.setVisible(false);
+            }
+        }
+        if(componente instanceof PnlHermanos){
+            int tamanio = lstVistaHermanos.size();
+            helper.borraJpanel(lstVistaHermanos.get(lstVistaHermanos.size() - 1), vistaRegistro.pnlHermanos);
+            lstVistaHermanos.remove(tamanio - 1);
+            lstVistaHermanos.get(lstVistaHermanos.size() - 1).lblAgregarHermano.setVisible(true);
+            System.out.println("Esto es de dirección");
+            if(tamanio == 1){
+                lstVistaHermanos.get(tamanio - 1).lblBorrarHermano.setVisible(false);
+            }
+        }
+        
+        if(componente instanceof PnlHijos){
+            int tamanio = lstVistaHijos.size();
+            helper.borraJpanel(lstVistaHijos.get(tamanio - 1), vistaRegistro.pnlHijos);
+            lstVistaHijos.remove(tamanio - 1);
+            lstVistaHijos.get(lstVistaHijos.size() - 1).lblAgregarHijos.setVisible(true);
+            System.out.println("Esto es de dirección");
+            if(tamanio == 1){
+                lstVistaHijos.get(0).lblBorrarHijos.setVisible(false);
+            }
         }
         
         addListenerTeclasVistaRegistro();

@@ -96,11 +96,20 @@ public class Helper {
     /**
      * Agrega un JPanel a otro Jpanel 
      * @param componente Componente que se desea agregar al ScrollPane
-     * @param spnlParentesco JScrollPane donde se agregará el componente
+     * @param panel JPanel donde se agregará el componente
      */
     public void agregaJPanel(JComponent componente, JPanel panel) {
         panel.add(componente);
         //panel.validate();
+    }
+    
+    /**
+     * Elimina el último JPnael 
+     * @param componente Componente a eliminar
+     * @param panel Panel donde se eliminará el componente
+     */
+    public void borraJpanel(JComponent componente, JPanel panel) {
+        panel.remove(componente);
     }
 
     public boolean validaEmail(String cadena1, String cadena2) {
