@@ -42,9 +42,9 @@ public class Update {
      * Actualiza las direcciones del becario
      */
     public static String updateDireccionesBecario = "UPDATE beca_direccion "
-            + "SET " + Direccion.COL_CALLE + "?, " + Direccion.COL_NUM_EXT + "?, "
-            + " " + Direccion.COL_NUM_INT + "?, " + Direccion.COL_COLONIA + "?, "
-            + " " + Direccion.COL_CODIGO_POSTAL + "?, " + Direccion.COL_CIUDAD + "? " 
-            + "WHERE " + Direccion.COL_ID_BECARIO + "?";
+            + "SET " + Direccion.COL_CALLE + "?, " + Direccion.COL_NUM_EXT + " = ?, "
+            + Direccion.COL_NUM_INT + "?, " + Direccion.COL_COLONIA + " = ?, "
+            + Direccion.COL_CODIGO_POSTAL + "?, " + Direccion.COL_CIUDAD + " = ? " 
+            + "WHERE " + Direccion.COL_ID_BECARIO + "? AND " + Direccion.COL_ID + " = ?";
     
 }

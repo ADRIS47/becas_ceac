@@ -6,6 +6,7 @@
 package crud;
 
 import pojos.Becario;
+import pojos.Direccion;
 
 /**
  *
@@ -67,6 +68,11 @@ public class Consultas {
      * Obtiene el id de un becario a partir de su folio
      */
     public static String getIdBecarioPorFolio = "SELECT " + Becario.COL_ID + "FROM beca_becario WHERE " + Becario.COL_FOLIO + " = ?";
+    
+    /**
+     * Obtiene las direcciones que tiene registradas un becario
+     */
+    public static String getDireccionesBecario = "SELECT COUNT(*), " + Direccion.COL_ID + " FROM beca_direccion WHERE " + Direccion.COL_ID_BECARIO + " = ?" ;
     
     
 }

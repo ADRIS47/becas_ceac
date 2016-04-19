@@ -651,18 +651,18 @@ public class PrincipalControlador {
             boolean idBecario = modelo.updateBecario(conexion, becario);
             //Si no se pudo insertar el becario
             if(idBecario == false){
-                throw new SQLException();
+                throw new SQLException("Error al actualizar los datos del becario");
             }
             //Se insertan las direcciones
             boolean direccion = modelo.updateDireccionBecario(conexion, becario.getId(), lstDireccionesBecario);
             if(direccion == false){
+                throw new SQLException("Error al actualizar las direcciones del becario");
+            }
+            //Se insertan los telefonos
+            boolean telefono = modelo.updateTelefonoBecario(conexion, becario.getId(), lstTelefonosBecario);
+            if(telefono == false){
                 throw new SQLException();
             }
-//            //Se insertan los telefonos
-//            boolean telefono = modelo.insertTelefonoBecario(conexion, idBecario, lstTelefonosBecario);
-//            if(telefono == false){
-//                throw new SQLException();
-//            }
 //            //Se insertan los padres
 //            boolean papas = modelo.insertPapasBecario(conexion, idBecario, lstPadresBecario);
 //            if(papas == false){
