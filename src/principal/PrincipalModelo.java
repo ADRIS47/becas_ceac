@@ -940,9 +940,39 @@ public class PrincipalModelo {
         
         try{
             ps = conexion.prepareStatement(Update.updateBecario);
+            ps.setString(1, becario.getNombre() );
+            ps.setString(2, becario.getApPaterno());
+            ps.setString(3, becario.getApMaterno());
+            ps.setDate(4, becario.getFecha_nac());
+            ps.setInt(5, becario.getIdSexo());
+            ps.setInt(6, becario.getIdEstadoCivil());
+            ps.setInt(7, becario.getTrabaja());
+            ps.setInt(8, becario.getIdEstatus());
+            ps.setString(9, becario.getFoto());
+            ps.setString(10, becario.getEmail());
+            ps.setInt(12, becario.getPrimeroConBeca());
+            ps.setString(13, becario.getNombreConyuge());
+            ps.setString(14, becario.getApPaternoConyuge());
+            ps.setString(15, becario.getApMaternoConyuge());
+            ps.setString(16, becario.getTelefonoConyuge());
+            ps.setString(17, becario.getObservaciones());
+            ps.setString(18, becario.getActaNacimiento());
+            ps.setString(19, becario.getSolicitudBeca());
+            ps.setString(20, becario.getContatoBeca());
+            ps.setString(21, becario.getIdentificacion());
+            ps.setString(22, becario.getFolio());
+            
+            valor = ps.executeUpdate();
+            
+            if(valor == 0){
+                throw new SQLException("No se pudo actualizar el becario");
+            }
+            response = true;
+            
         }
         catch(SQLException e){
             log.crearLog(e.getMessage());
+            System.err.println("Error: " + e.getMessage());
         }
         finally{
             try {
@@ -953,5 +983,77 @@ public class PrincipalModelo {
             }
         }
         return response;
+    }
+
+    protected boolean updateDireccionBecario(Connection conexion, long id, List<Direccion> lstDireccionesBecario) {
+        boolean response = false;
+        PreparedStatement ps = null;
+        
+        try{
+            //Se verifica si existen más direcciones que las que se van a actualizar
+            
+            
+            for (Direccion direccion : lstDireccionesBecario) {
+                ps = conexion.prepareStatement(Update.updateDireccionesBecario);
+                ps.setString(1, direccion.getCalle());
+                ps.setString(2, direccion.getNumExt());
+                ps.setString(3, direccion.getNumInt());
+                ps.setString(4, direccion.getColonia());
+                ps.setInt(5, direccion.getCodigoPostal());
+                ps.setString(6, direccion.getCiudad());
+                ps.setLong(7, id);
+            }
+            
+        }
+        catch(SQLException e){
+            log.muestraErrores(e);
+        }
+        finally{
+            try {
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+                log.muestraErrores(ex);
+            }
+        }
+        
+        return response;
+    }
+
+    /**
+     * Obtiene el id del becario a modificar, borrar o eliminar a partir de un número de folio
+     * @param conexion Conexion a la base de datos
+     * @param folio Folio del becario
+     * @return Id del becario a modificar, borrar o eliminar
+     */
+    protected long getIdBecarioPorFolio(Connection conexion, String folio) {
+        long id = 0;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{
+            ps = conexion.prepareStatement(Consultas.getIdBecarioPorFolio);
+            ps.setString(1, folio);
+            rs = ps.executeQuery();
+            
+            if(rs.next())
+                id = rs.getLong(Becario.COL_ID);
+            
+            if(id == 0)
+                throw new SQLException("Noo se encontró el id del becario a partir de su folio");
+            
+        }
+        catch(SQLException e){
+            log.muestraErrores(e);
+        }
+        finally{
+            try {
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+                log.muestraErrores(ex);
+            }
+        }
+        
+        return id;
     }
 }

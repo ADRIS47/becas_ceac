@@ -653,11 +653,11 @@ public class PrincipalControlador {
             if(idBecario == false){
                 throw new SQLException();
             }
-//            //Se insertan las direcciones
-//            boolean direccion = modelo.insertDireccionBecario(conexion, idBecario, lstDireccionesBecario);
-//            if(direccion == false){
-//                throw new SQLException();
-//            }
+            //Se insertan las direcciones
+            boolean direccion = modelo.updateDireccionBecario(conexion, becario.getId(), lstDireccionesBecario);
+            if(direccion == false){
+                throw new SQLException();
+            }
 //            //Se insertan los telefonos
 //            boolean telefono = modelo.insertTelefonoBecario(conexion, idBecario, lstTelefonosBecario);
 //            if(telefono == false){
@@ -787,6 +787,15 @@ public class PrincipalControlador {
         //Se obtienen los comentarios
         becario.setObservaciones(vistaRegistro.txtAreaObservaciones.getText());
         
+        //Se obtiene el id del becario en caso de que sea una actualización o eliminación
+        if(updateOrInsert == false){
+            becario.setId(modelo.getIdBecarioPorFolio(conexion, becario.getFolio()));
+            //Se verifica
+            if(becario.getId() == 0){
+                JOptionPane.showMessageDialog(vista, "Error al obtener el identificador del becario, intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                return null;
+            }
+        }
         //Se carga la foto
         if(fileFoto != null){
             Path path = helper.CopiaArchivoADestino(becario.getFolio(), "foto-", fileFoto);

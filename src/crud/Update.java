@@ -7,6 +7,7 @@ package crud;
 
 import pojos.Becario;
 import pojos.CatPrograma;
+import pojos.Direccion;
 
 /**
  *
@@ -34,7 +35,16 @@ public class Update {
             + Becario.COL_APATERNO_CONYUGE + " = ?, " + Becario.COL_AMATERNO_CONYUGE + "= ?, "
             + Becario.COL_TELEFONO_CONYUGE + " = ?, " + Becario.COL_OBSERVACIONES + "= ?, "
             + Becario.COL_ACTA_NAC + " = ?, " + Becario.COL_SOLICITUD_BECA + "= ?, "
-            + Becario.COL_CONTRATO_BECA + " = ?, " + Becario.COL_IDENTIFICACION + "= ?, "
+            + Becario.COL_CONTRATO_BECA + " = ?, " + Becario.COL_IDENTIFICACION + "= ? "
             + "WHERE " + Becario.COL_FOLIO + " = ?";
+    
+    /**
+     * Actualiza las direcciones del becario
+     */
+    public static String updateDireccionesBecario = "UPDATE beca_direccion "
+            + "SET " + Direccion.COL_CALLE + "?, " + Direccion.COL_NUM_EXT + "?, "
+            + " " + Direccion.COL_NUM_INT + "?, " + Direccion.COL_COLONIA + "?, "
+            + " " + Direccion.COL_CODIGO_POSTAL + "?, " + Direccion.COL_CIUDAD + "? " 
+            + "WHERE " + Direccion.COL_ID_BECARIO + "?";
     
 }

@@ -44,7 +44,7 @@ public class Log {
      *
      * @param e Excepcion generada para mostrar sus errores
      */
-    private void muestraErrores(SQLException e) {
+    public void muestraErrores(SQLException e) {
         try{
             //Pregunta el archivo existe, caso contrario crea uno con el nombre log.txt
             if (new File("log.txt").exists()==false){archivo=new FileWriter(new File("log.txt"),false);}

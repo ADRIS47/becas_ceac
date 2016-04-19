@@ -5,6 +5,8 @@
  */
 package crud;
 
+import pojos.Becario;
+
 /**
  *
  * @author JoelSaldana
@@ -60,6 +62,11 @@ public class Consultas {
      * Obtiene el contador de los programas
      */
     public static String getContadorFolio = "SELECT contador FROM beca_cat_programa WHERE id_programa = ?";
+    
+    /**
+     * Obtiene el id de un becario a partir de su folio
+     */
+    public static String getIdBecarioPorFolio = "SELECT " + Becario.COL_ID + "FROM beca_becario WHERE " + Becario.COL_FOLIO + " = ?";
     
     
 }
