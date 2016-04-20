@@ -145,7 +145,7 @@ public class EscuchadorValidaEntrada implements KeyListener {
         int j = 0;
         boolean error = false;
 
-        for (int i = 0; i <= fuente.length; i++) {
+        for (int i = 0; i < fuente.length; i++) {
 
             if ((fuente[i] >= '0' && fuente[i] <= '9')) {
                 resultado[j++] = fuente[i];

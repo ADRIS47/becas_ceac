@@ -6,8 +6,10 @@
 package crud;
 
 import pojos.Becario;
+import pojos.DatosEscolares;
 import pojos.Direccion;
 import pojos.Hermanos;
+import pojos.Hijos;
 import pojos.Padres;
 import pojos.Telefono;
 
@@ -70,7 +72,7 @@ public class Consultas {
     /**
      * Obtiene el id de un becario a partir de su folio
      */
-    public static String getIdBecarioPorFolio = "SELECT " + Becario.COL_ID + "FROM beca_becario WHERE " + Becario.COL_FOLIO + " = ?";
+    public static String getIdBecarioPorFolio = "SELECT " + Becario.COL_ID + " FROM beca_becario WHERE " + Becario.COL_FOLIO + " = ?";
     
     /**
      * Obtiene las direcciones que tiene registradas un becario
@@ -91,6 +93,16 @@ public class Consultas {
      * Obtiene los hermanos que tiene registrado un becario
      */
     public static String getHermanosBecario = "SELECT COUNT(*), " + Hermanos.COL_ID + " FROM beca_hermano WHERE " + Hermanos.COL_ID_BECARIO + " = ?";
+    
+    /**
+     * Obtiene los hijos que tiene registrado un becario
+     */
+    public static String getHijosBecario = "SELECT COUNT(*), " + Hijos.COL_ID + " FROM beca_hijo WHERE " + Hijos.COL_ID_BECARIO + " = ?";
+    
+    /**
+     * Obtiene los datos escolares que tiene registrado un becario
+     */
+    public static String getDatosEscolaresBecario = "SELECT COUNT(*), " + DatosEscolares.COL_ID + " FROM beca_datos_escolarews WHERE " + DatosEscolares.COL_ID_BECARIO + " = ?";
     
     
 }

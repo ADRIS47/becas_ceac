@@ -30,6 +30,5 @@ public class Index {
     }
     
     
-    public static final String RUTA_BASE_LINUX = "/home/sergio/Documentos/becarios/";
-    public static final String RUTA_BASE_WINDOWS = "C:\\becas\\becarios\\";
+    public static final String RUTA_BASE = System.getProperty("user.home");
 }

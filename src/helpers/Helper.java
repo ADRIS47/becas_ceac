@@ -183,12 +183,7 @@ public class Helper {
         String separador = System.getProperty("file.separator");
         String extension = archivo.getName().substring(archivo.getName().length() - 4, archivo.getName().length());
         
-        if(sistemaOperativo.toLowerCase().contains("win")){
-            rutaPrincipal = Index.RUTA_BASE_WINDOWS;
-        }
-        if(sistemaOperativo.toLowerCase().contains("lin")){
-            rutaPrincipal = Index.RUTA_BASE_LINUX;
-        }
+        rutaPrincipal = System.getProperty("user.home") + separador + "becas" + separador + "becarios" + separador;
         //Se verifica si ya existe el directorio del nuevo becario y si no, lo crea
         verificaDirectorio(Paths.get(rutaPrincipal + folioBecario));
         
@@ -222,17 +217,14 @@ public class Helper {
         String sistemaOperativo = System.getProperty("os.name");
         String rutaPrincipal = null;
         String separador = System.getProperty("file.separator");
+        String homeUsuario = System.getProperty("user.home");
         System.out.println("SO: " + sistemaOperativo);
-        if(sistemaOperativo.toLowerCase().contains("win")){
-            rutaPrincipal = Index.RUTA_BASE_WINDOWS;
-        }
-        if(sistemaOperativo.toLowerCase().contains("lin")){
-            rutaPrincipal = Index.RUTA_BASE_LINUX;
-        }
         
-        Path pathRutaPrincipal = Paths.get(rutaPrincipal);
-        Path pathRutaBecas =  Paths.get(pathRutaPrincipal + separador + ".." + separador + "..");
-        Path pathRutaBecarios =  Paths.get(pathRutaPrincipal + separador + "..");
+        rutaPrincipal = System.getProperty("user.home") + separador + "becas" + separador + "becarios" + separador;
+        
+        Path pathRutaPrincipal = Paths.get(homeUsuario);
+        Path pathRutaBecas =  Paths.get(pathRutaPrincipal + separador + "becas");
+        Path pathRutaBecarios =  Paths.get(pathRutaPrincipal + separador + "becas" + separador + "becarios");
         
         System.out.println("RutaPrincipal: " + pathRutaPrincipal);
         System.out.println("Path becas: "  + pathRutaBecas);
@@ -240,7 +232,7 @@ public class Helper {
         
         if(!Files.exists(Paths.get(pathRutaBecas.toString()))){
             try {
-                Files.createDirectory(Paths.get(rutaPrincipal));
+                Files.createDirectory(Paths.get(pathRutaBecas.toString()));
             } catch (IOException ex) {
                 log.crearLog(ex.getMessage());
                 Logger.getLogger(Helper.class.getName()).log(Level.SEVERE, null, ex);
@@ -249,7 +241,7 @@ public class Helper {
         
         if(!Files.exists(Paths.get(pathRutaBecarios.toString()))){
             try {
-                Files.createDirectory(Paths.get(rutaPrincipal));
+                Files.createDirectory(Paths.get(pathRutaBecarios.toString()));
             } catch (IOException ex) {
                 log.crearLog(ex.getMessage());
                 Logger.getLogger(Helper.class.getName()).log(Level.SEVERE, null, ex);

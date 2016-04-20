@@ -446,9 +446,12 @@ public class PrincipalControlador {
                 if(email && fecha){
                     insertBecario(true);
                 }
-                else if(email == false)
+                else if(email == false){
                     JOptionPane.showMessageDialog(vistaRegistro, "Correos electrónicos diferentes", 
                                                                 "Verifica los correos electrónicos", JOptionPane.WARNING_MESSAGE);
+                    vistaRegistro.txtCorreoBecario.setBackground(Color.ORANGE);
+                    vistaRegistro.txtCorreoBecario2.setBackground(Color.ORANGE);
+                }
                 
             }
         }
@@ -461,6 +464,14 @@ public class PrincipalControlador {
             //Si los email son iguales se procede a tomar los valores e insertarlos
             if(email && fecha)
                 insertBecario(false);
+            else if(email == false){
+                JOptionPane.showMessageDialog(vistaRegistro, "Correos electrónicos diferentes", 
+                                                                "Verifica los correos electrónicos", JOptionPane.WARNING_MESSAGE);
+                vistaRegistro.txtCorreoBecario.setBackground(Color.ORANGE);
+                vistaRegistro.txtCorreoBecario2.setBackground(Color.ORANGE);
+            }
+            
+                
         }
 
     }
@@ -540,7 +551,7 @@ public class PrincipalControlador {
             }
             
             //Se insertan los datos escolares
-            boolean datosEscolares = modelo.insertDatosEscolares(conexion, idBecario, lstDatosEscolares);
+            boolean datosEscolares = modelo.insertDatosEscolaresBecario(conexion, idBecario, lstDatosEscolares);
             if(datosEscolares == false){
                 throw new SQLException();
             }
@@ -649,62 +660,51 @@ public class PrincipalControlador {
             conexion.setAutoCommit(false);
             
             boolean idBecario = modelo.updateBecario(conexion, becario);
-            //Si no se pudo insertar el becario
+            //Si no se pudo actualizar el becario
             if(idBecario == false){
                 throw new SQLException("Error al actualizar los datos del becario");
             }
-            //Se insertan las direcciones
+            //Se actualizan las direcciones
             boolean direccion = modelo.updateDireccionBecario(conexion, becario.getId(), lstDireccionesBecario);
             if(direccion == false){
                 throw new SQLException("Error al actualizar las direcciones del becario");
             }
-            //Se insertan los telefonos
+            //Se actualizan los telefonos
             boolean telefono = modelo.updateTelefonoBecario(conexion, becario.getId(), lstTelefonosBecario);
             if(telefono == false){
                 throw new SQLException();
             }
-            //Se insertan los padres
+            //Se actualizan los padres
             boolean papas = modelo.updatePapasBecario(conexion, becario.getId(), lstPadresBecario);
             if(papas == false){
                 throw new SQLException();
             }
-            //Se insertan los hermanos
+            //Se actualizan los hermanos
             boolean hermanos = modelo.updateHermanosBecario(conexion, becario.getId(), lstHermanos);
             if(hermanos == false){
                 throw new SQLException();
             }
-//            //Se insertan los hijos
-//            boolean hijos = modelo.insertHijosBecario(conexion, idBecario, lstHijos);
-//            if(hijos == false){
-//                throw new SQLException();
-//            }
-//            
-//            //Se insertan los datos escolares
-//            boolean datosEscolares = modelo.insertDatosEscolares(conexion, idBecario, lstDatosEscolares);
-//            if(datosEscolares == false){
-//                throw new SQLException();
-//            }
-//            
-//            //Se insertan los datos del aval
-//            boolean aval = modelo.insertAval(conexion, idBecario, lstAval);
-//            if(aval == false){
-//                throw new SQLException();
-//            }
-//            
-//            //Se aumenta el contador del folio
-//            boolean contador = modelo.updateContadorPrograma(conexion, becario.getInicialesFolio());
-//            if(contador == false){
-//                throw new SQLException();
-//            }
-//            conexion.commit();
-//            JOptionPane.showMessageDialog(vista, "Becario registrado correctamente \n"
-//                    + "Número de folio: " + becario.getFolio(), "Éxito", JOptionPane.INFORMATION_MESSAGE);
-//            
-//            VistaRegistroOpcionActualizar opcion = new VistaRegistroOpcionActualizar();
-//            agregaJPanel(opcion);
-//            vistaRegistro.comboBoxPrograma.setEnabled(false);
-//            vistaRegistro.cmbEstatus.setEnabled(false);
-//            vistaRegistro.txtFolio.setText(becario.getFolio());
+            //Se actualizan los hijos
+            boolean hijos = modelo.updateHijosBecario(conexion, becario.getId(), lstHijos);
+            if(hijos == false){
+                throw new SQLException();
+            }
+            
+            //Se actualizan los datos escolares
+            boolean datosEscolares = modelo.updateDatosEscolares(conexion, becario.getId(), lstDatosEscolares);
+            if(datosEscolares == false){
+                throw new SQLException();
+            }
+            
+            //Se actualizan los datos del aval
+            boolean aval = modelo.updateAval(conexion, becario.getId(), lstAval);
+            if(aval == false){
+                throw new SQLException();
+            }
+
+            conexion.commit();
+            JOptionPane.showMessageDialog(vista, "Becario actualizado correctamente \n", "Operacion exitosa", JOptionPane.INFORMATION_MESSAGE);
+
         }
         catch(SQLException e){
             try {

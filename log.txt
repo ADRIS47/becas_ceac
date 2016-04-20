@@ -216,3 +216,9 @@
 16/4/2016;17:59:29;/home/sergio/Documentos/becarios
 16/4/2016;18:0:9;/home/sergio/Documentos/becarios
 16/4/2016;18:0:9;/home/sergio/Documentos/becarios
+19/4/2016;22:5:31;/home/sergio/Documentos/becarios
+19/4/2016;22:5:31;/home/sergio/Documentos/becarios
+19/4/2016;22:9:0;/home/sabagip
+19/4/2016;22:9:0;/home/sabagip
+19/4/2016;22:30:18;/home/sergio/Documentos/becarios/HIS-05
+19/4/2016;22:30:18;No se pudo copiar el archivo Captura de pantalla de 2015-08-30 17:12:09.png    /home/sergio/Documentos/becarios/HIS-05/foto-HIS-05.png

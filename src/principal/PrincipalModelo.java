@@ -707,11 +707,11 @@ public class PrincipalModelo {
     }
 
     /**
-     * Inserta los hermanos del becario
+     * Inserta los datosEscolares del becario
      *
      * @param conexion Conexion a la base de datos
      * @param idBecario Id del becario
-     * @param lstHermanos Lista de hermanos
+     * @param lstHermanos Lista de datosEscolares
      * @return
      */
     protected boolean insertHermanosBecario(Connection conexion, long idBecario, List<Hermanos> lstHermanos) {
@@ -754,10 +754,10 @@ public class PrincipalModelo {
     }
 
     /**
-     * Inserta los hijos del becario
+     * Inserta los datosEscolares del becario
      * @param conexion Conexion a la base de datos
      * @param idBecario Id del becario
-     * @param lstHijos Lista de hijos del becario
+     * @param lstHijos Lista de datosEscolares del becario
      * @return True si la operacion correcta, False si no
      */
     protected boolean insertHijosBecario(Connection conexion, long idBecario, List<Hijos> lstHijos) {
@@ -841,7 +841,7 @@ public class PrincipalModelo {
      * @param lstDatosEscolares
      * @return 
      */
-    boolean insertDatosEscolares(Connection conexion, long idBecario, DatosEscolares lstDatosEscolares) {
+    boolean insertDatosEscolaresBecario(Connection conexion, long idBecario, DatosEscolares lstDatosEscolares) {
         boolean response = false;
         PreparedStatement ps = null;
         //ResultSet rs = null;
@@ -1239,8 +1239,9 @@ public class PrincipalModelo {
                 ps.setString(4, lstPadresBecario.get(0).getTelefono());
                 ps.setInt(5, lstPadresBecario.get(0).getGradoEscolar());
                 ps.setInt(6, lstPadresBecario.get(0).getTrabaja());
-                ps.setLong(7, idBecario);
-                ps.setLong(8, lstIdPapas.get(0));
+                ps.setInt(7, lstPadresBecario.get(0).getParenteco());
+                ps.setLong(8, idBecario);
+                ps.setLong(9, lstIdPapas.get(0));
                 int resp = ps.executeUpdate();
                 //Si la actualizacion fue correcta
                 if(resp >= 1){
@@ -1260,8 +1261,9 @@ public class PrincipalModelo {
                     ps.setString(4, papa.getTelefono());
                     ps.setInt(5, papa.getGradoEscolar());
                     ps.setInt(6, papa.getTrabaja());
-                    ps.setLong(7, idBecario);
-                    ps.setLong(8, lstIdPapas.get(contador));
+                    ps.setInt(7, papa.getParenteco());
+                    ps.setLong(8, idBecario);
+                    ps.setLong(9, lstIdPapas.get(contador));
                     int resp = ps.executeUpdate();
                     //Si la actualizacion fue correcta
                     if(resp == 0)
@@ -1289,7 +1291,7 @@ public class PrincipalModelo {
     }
 
     /**
-     * Actualiza los hermanos del becario
+     * Actualiza los datosEscolares del becario
      * @param conexion
      * @param idBecario
      * @param lstHermanos
@@ -1312,7 +1314,7 @@ public class PrincipalModelo {
             }
             
             if(hermanos == -1)
-                throw new SQLException("No se pudo obtener los padres del becario");
+                throw new SQLException("No se pudo obtener los hermanos del becario");
             
             //Si no se tienen telefonos registrados se insertan las nuevas telefonos
             if(hermanos == 0){
@@ -1358,6 +1360,188 @@ public class PrincipalModelo {
                         response = true;
                 }
             }      
+        }
+        catch(SQLException e){
+            log.muestraErrores(e);
+        }
+        finally{
+            try {
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+                log.muestraErrores(ex);
+            }
+        }
+        
+        return response;
+    }
+
+    /**
+     * Actualiza los datosEscolares del becario
+     * @param conexion
+     * @param idBecario
+     * @param lstHijos
+     * @return True si exito, False si Error
+     */
+    protected boolean updateHijosBecario(Connection conexion, long idBecario, List<Hijos> lstHijos) {
+        boolean response = false;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{
+            //Se verifica si existen más direcciones que las que se van a actualizar
+            ps = conexion.prepareStatement(Consultas.getHijosBecario);
+            ps.setLong(1, idBecario);
+            rs = ps.executeQuery();
+            int hijos = -1;
+            List<Integer> lstIdHijos= new ArrayList <>();
+            if(rs.next()){
+                hijos = rs.getInt(1);
+                lstIdHijos.add(rs.getInt(Hijos.COL_ID));
+            }
+            
+            if(hijos == -1)
+                throw new SQLException("No se pudo obtener los hijos del becario");
+            
+            //Si no se tienen telefonos registrados se insertan las nuevas telefonos
+            if(hijos == 0){
+                response = insertHijosBecario(conexion, idBecario, lstHijos);
+            }
+            
+            
+            //Si existe una sola telefono registrado, se actualiza el primero y el segundo se inserta
+            else if(hijos > 0 && hijos < lstHijos.size()){
+                ps = conexion.prepareStatement(Update.updateHijosBecario);
+                ps.setString(1, lstHijos.get(0).getNombre());
+                ps.setString(2, lstHijos.get(0).getAPaterno());
+                ps.setString(3, lstHijos.get(0).getAMaterno());
+                ps.setDate(4, lstHijos.get(0).getFechaNac());
+                ps.setLong(5, idBecario);
+                ps.setLong(6, lstIdHijos.get(0));
+                int resp = ps.executeUpdate();
+                //Si la actualizacion fue correcta
+                if(resp >= 1){
+                    List<Hijos> nuevaLista = new ArrayList<>();
+                    nuevaLista.add(lstHijos.get(1));
+                    response = insertHijosBecario(conexion, idBecario, nuevaLista);
+                }
+            }
+            //Si existen la misma cantidad de registros con la misma cantidad de nuevas direcciones
+            else if(hijos > 0 && hijos == lstHijos.size()){
+                int contador = 0;
+                for (Hijos hijo : lstHijos) {
+                    ps = conexion.prepareStatement(Update.updateHijosBecario);
+                    ps.setString(1, hijo.getNombre());
+                    ps.setString(2, hijo.getAPaterno());
+                    ps.setString(3, hijo.getAMaterno());
+                    ps.setDate(4, hijo.getFechaNac());
+                    ps.setLong(5, idBecario);
+                    ps.setLong(6, lstIdHijos.get(contador));
+                    int resp = ps.executeUpdate();
+                    //Si la actualizacion fue correcta
+                    if(resp == 0)
+                        break;
+                    contador++;
+                    //Si ya se actualizo el ultimo registro
+                    if(contador == 1)
+                        response = true;
+                }
+            }      
+        }
+        catch(SQLException e){
+            log.muestraErrores(e);
+        }
+        finally{
+            try {
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+                log.muestraErrores(ex);
+            }
+        }
+        
+        return response;
+    }
+
+    /**
+     * Actualiza los datos escolares del becario
+     * @param conexion
+     * @param idBecario
+     * @param lstDatosEscolares
+     * @return True si correcto, False si error
+     */
+    protected boolean updateDatosEscolares(Connection conexion, long idBecario, DatosEscolares lstDatosEscolares) {
+        boolean response = false;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{
+
+            ps = conexion.prepareStatement(Update.updateDatosEscolaresBecario);
+            ps.setString(1, lstDatosEscolares.getEscuelaProcedencia());
+            ps.setInt(2, lstDatosEscolares.getIdUniversidad());
+            ps.setInt(3, lstDatosEscolares.getIdCampoCarrera());
+            ps.setString(4, lstDatosEscolares.getNombreCarrera());
+            ps.setInt(5, lstDatosEscolares.getMesInicioBeca());
+            ps.setInt(6, lstDatosEscolares.getAnioInicioBeca());
+            ps.setInt(7, lstDatosEscolares.getMesGraduacion());
+            ps.setInt(8, lstDatosEscolares.getAnioGraduacion());
+            ps.setInt(9, lstDatosEscolares.getSemestresTotalesCarrera());
+            ps.setInt(10, lstDatosEscolares.getSemestreInicioBeca());
+            ps.setFloat(11, lstDatosEscolares.getCostoCarrera());
+            ps.setFloat(12, lstDatosEscolares.getBecaTotal());
+            ps.setFloat(13, lstDatosEscolares.getBecaSemestral());
+            ps.setInt(14, lstDatosEscolares.getCondicionado());
+            ps.setLong(15, idBecario);
+            int resp = ps.executeUpdate();
+            //Si la actualizacion fue correcta
+            if(resp == 0)
+                throw new SQLException("No se pudo actualizar los datos escolares del becario");
+            response = true;
+     
+        }
+        catch(SQLException e){
+            log.muestraErrores(e);
+        }
+        finally{
+            try {
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+                log.muestraErrores(ex);
+            }
+        }
+        
+        return response;
+    }
+
+    /**
+     * Actualiza los datos del aval del becario
+     * @param conexion
+     * @param idBecario
+     * @param lstAval
+     * @return True si correcto, False si no
+     */
+    protected boolean updateAval(Connection conexion, long idBecario, Aval lstAval) {
+        boolean response = false;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{
+
+            ps = conexion.prepareStatement(Update.updateAvalBecario);
+            ps.setString(1, lstAval.getaPaterno());
+            ps.setString(2, lstAval.getaMaterno());
+            ps.setString(3, lstAval.getNombre());
+            ps.setString(4, lstAval.getCalle());
+            ps.setString(5, lstAval.getNumExt());
+            ps.setString(6, lstAval.getNumInt());
+            ps.setString(7, lstAval.getColonia());
+            ps.setString(8, lstAval.getIdentificacion());
+            ps.setLong(9, idBecario);
+            int resp = ps.executeUpdate();
+            //Si la actualizacion fue correcta
+            if(resp == 0)
+                throw new SQLException("No se pudo actualizar el aval del becario");
+            response = true;
+     
         }
         catch(SQLException e){
             log.muestraErrores(e);
