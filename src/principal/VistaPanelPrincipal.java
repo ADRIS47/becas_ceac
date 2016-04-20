@@ -107,7 +107,13 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
 
         btnBusqueda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adris/vistas/busqueda.png"))); // NOI18N
+        btnBusqueda.setToolTipText("Buscar becarios");
         btnBusqueda.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnBusqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBusquedaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -175,6 +181,10 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
     private void btnBecariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBecariosActionPerformed
         controlador.creaVistaRegistro();
     }//GEN-LAST:event_btnBecariosActionPerformed
+
+    private void btnBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusquedaActionPerformed
+        controlador.creaVistaBusqueda();
+    }//GEN-LAST:event_btnBusquedaActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

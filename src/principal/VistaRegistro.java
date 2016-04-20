@@ -5,8 +5,6 @@
  */
 package principal;
 
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author sabagip
@@ -40,7 +38,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         txtFolio = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        cmbEstatus = new javax.swing.JComboBox<>();
+        cmbEstatus = new javax.swing.JComboBox<String>();
         pnlNombres = new javax.swing.JPanel();
         txtNombreBecado = new javax.swing.JTextField();
         txtApPaternoBecado = new javax.swing.JTextField();
@@ -58,8 +56,8 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        btnFotografia = new javax.swing.JButton();
         jLabel44 = new javax.swing.JLabel();
+        btnFotografia = new javax.swing.JButton();
         spnlDirecciones = new javax.swing.JScrollPane();
         pnlDirecciones = new javax.swing.JPanel();
         pnlTelefonosBecados = new javax.swing.JPanel();
@@ -76,8 +74,6 @@ public class VistaRegistro extends javax.swing.JPanel {
         pnlCorreo2 = new javax.swing.JPanel();
         txtCorreoBecario2 = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
-        pnlBotones = new javax.swing.JPanel();
-        btnGuardar = new javax.swing.JButton();
         pnlDatosFamiliares = new javax.swing.JPanel();
         spnlParentesco = new javax.swing.JScrollPane();
         pnlParentesco = new javax.swing.JPanel();
@@ -110,8 +106,8 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         cmboxMesGraduacion = new javax.swing.JComboBox();
-        cmboxAnioInicioBeca = new javax.swing.JComboBox<>();
-        cmboxAnioGraduacion = new javax.swing.JComboBox<>();
+        cmboxAnioInicioBeca = new javax.swing.JComboBox<String>();
+        cmboxAnioGraduacion = new javax.swing.JComboBox<String>();
         txtNombreCarrera = new javax.swing.JTextField();
         pnlManejoBeca = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -170,11 +166,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         btnAddPagare = new javax.swing.JButton();
         btnEliminaPagare = new javax.swing.JButton();
         lblEstatusPagare = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        btnGuardar1 = new javax.swing.JButton();
-        btnGuardar2 = new javax.swing.JButton();
-        btnGuardar3 = new javax.swing.JButton();
-        btnGuardar4 = new javax.swing.JButton();
+        pnlOpciones = new javax.swing.JPanel();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -218,7 +210,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(0, 0, 153));
         jLabel3.setText("Estatus:");
 
-        cmbEstatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Becado", "Exalumno" }));
+        cmbEstatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Becado", "Exalumno" }));
 
         javax.swing.GroupLayout pnlProgramaLayout = new javax.swing.GroupLayout(pnlPrograma);
         pnlPrograma.setLayout(pnlProgramaLayout);
@@ -337,6 +329,10 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel26.setText("Fecha Nacimiento");
 
+        jLabel44.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel44.setText("(dd/mm/aaaa)");
+
+        btnFotografia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adris/vistas/addFoto.png"))); // NOI18N
         btnFotografia.setText("Insertar Imagen");
         btnFotografia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -344,26 +340,21 @@ public class VistaRegistro extends javax.swing.JPanel {
             }
         });
 
-        jLabel44.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel44.setText("(dd/mm/aaaa)");
-
         javax.swing.GroupLayout pnlDatosLayout = new javax.swing.GroupLayout(pnlDatos);
         pnlDatos.setLayout(pnlDatosLayout);
         pnlDatosLayout.setHorizontalGroup(
             pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlDatosLayout.createSequentialGroup()
+                            .addGap(12, 12, 12)
+                            .addComponent(jLabel44))
+                        .addComponent(jLabel26))
                     .addGroup(pnlDatosLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlDatosLayout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(jLabel44))
-                            .addComponent(jLabel26)))
-                    .addGroup(pnlDatosLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
                         .addComponent(btnFotografia)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosLayout.createSequentialGroup()
@@ -534,14 +525,6 @@ public class VistaRegistro extends javax.swing.JPanel {
 
         pnlDatosGenerales.add(pnlCorreos);
 
-        pnlBotones.setPreferredSize(new java.awt.Dimension(400, 39));
-
-        btnGuardar.setText("Guardar Datos");
-        btnGuardar.setPreferredSize(new java.awt.Dimension(160, 29));
-        pnlBotones.add(btnGuardar);
-
-        pnlDatosGenerales.add(pnlBotones);
-
         tbpBecados.addTab("Datos Generales", pnlDatosGenerales);
 
         spnlParentesco.setBorder(javax.swing.BorderFactory.createTitledBorder("Padres"));
@@ -690,9 +673,9 @@ public class VistaRegistro extends javax.swing.JPanel {
         cmboxMesGraduacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
         cmboxMesGraduacion.setEnabled(false);
 
-        cmboxAnioInicioBeca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
+        cmboxAnioInicioBeca.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
 
-        cmboxAnioGraduacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
+        cmboxAnioGraduacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
         cmboxAnioGraduacion.setEnabled(false);
 
         txtNombreCarrera.setName("txtNombreCarrera"); // NOI18N
@@ -1228,52 +1211,7 @@ public class VistaRegistro extends javax.swing.JPanel {
 
         tbpBecados.addTab("Datos Escolares", pnlDatosEscolares);
 
-        btnGuardar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/guardar_cambios.png"))); // NOI18N
-        btnGuardar1.setPreferredSize(new java.awt.Dimension(160, 29));
-        btnGuardar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardar1ActionPerformed(evt);
-            }
-        });
-
-        btnGuardar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imprime.png"))); // NOI18N
-        btnGuardar2.setPreferredSize(new java.awt.Dimension(160, 29));
-
-        btnGuardar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cancel_registro.png"))); // NOI18N
-        btnGuardar3.setPreferredSize(new java.awt.Dimension(160, 29));
-
-        btnGuardar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adris/vistas/salir.png"))); // NOI18N
-        btnGuardar4.setPreferredSize(new java.awt.Dimension(160, 29));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnGuardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnGuardar2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnGuardar3, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnGuardar4, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(btnGuardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnGuardar2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnGuardar3, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnGuardar4, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        pnlOpciones.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -1282,8 +1220,8 @@ public class VistaRegistro extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(tbpBecados, javax.swing.GroupLayout.PREFERRED_SIZE, 782, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -1295,7 +1233,7 @@ public class VistaRegistro extends javax.swing.JPanel {
                         .addComponent(tbpBecados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pnlOpciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(292, 292, 292))))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -1303,14 +1241,6 @@ public class VistaRegistro extends javax.swing.JPanel {
     private void txtBecaPorSemestreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBecaPorSemestreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBecaPorSemestreActionPerformed
-
-    private void btnFotografiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFotografiaActionPerformed
-        controlador.cargaFotografia();
-    }//GEN-LAST:event_btnFotografiaActionPerformed
-
-    private void btnGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar1ActionPerformed
-        controlador.insertaNuevoBecario();
-    }//GEN-LAST:event_btnGuardar1ActionPerformed
 
     private void txtEscuelaProcedenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEscuelaProcedenciaActionPerformed
         // TODO add your handling code here:
@@ -1384,6 +1314,10 @@ public class VistaRegistro extends javax.swing.JPanel {
         controlador.filePagare = controlador.borraDocumento(controlador.filePagare, lblEstatusPagare);
     }//GEN-LAST:event_btnEliminaPagareActionPerformed
 
+    private void btnFotografiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFotografiaActionPerformed
+        controlador.cargaFotografia();
+    }//GEN-LAST:event_btnFotografiaActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     protected javax.swing.JButton btnAddActa;
     protected javax.swing.JButton btnAddBoleta;
@@ -1401,12 +1335,7 @@ public class VistaRegistro extends javax.swing.JPanel {
     protected javax.swing.JButton btnEliminaINEAval;
     protected javax.swing.JButton btnEliminaINEBecario;
     protected javax.swing.JButton btnEliminaPagare;
-    private javax.swing.JButton btnFotografia;
-    private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnGuardar1;
-    private javax.swing.JButton btnGuardar2;
-    private javax.swing.JButton btnGuardar3;
-    private javax.swing.JButton btnGuardar4;
+    protected javax.swing.JButton btnFotografia;
     protected javax.swing.JComboBox<String> cmbEstatus;
     protected javax.swing.JComboBox<String> cmboxAnioGraduacion;
     protected javax.swing.JComboBox<String> cmboxAnioInicioBeca;
@@ -1467,7 +1396,6 @@ public class VistaRegistro extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -1486,7 +1414,6 @@ public class VistaRegistro extends javax.swing.JPanel {
     protected javax.swing.JLabel lblFotografia;
     private javax.swing.JLabel lblParentesco1;
     private javax.swing.JPanel pnlArchivosAdjuntos;
-    private javax.swing.JPanel pnlBotones;
     protected javax.swing.JPanel pnlConyuge;
     private javax.swing.JPanel pnlCorreo1;
     private javax.swing.JPanel pnlCorreo2;
@@ -1501,6 +1428,7 @@ public class VistaRegistro extends javax.swing.JPanel {
     protected javax.swing.JPanel pnlInformacionEscolar;
     protected javax.swing.JPanel pnlManejoBeca;
     private javax.swing.JPanel pnlNombres;
+    protected javax.swing.JPanel pnlOpciones;
     protected javax.swing.JPanel pnlParentesco;
     private javax.swing.JPanel pnlPrograma;
     private javax.swing.JPanel pnlTelefonosBecados;

@@ -42,7 +42,8 @@ public class PnlHermanos extends javax.swing.JPanel {
         txtApMaternoPariente = new javax.swing.JTextField();
         lblParentesco5 = new javax.swing.JLabel();
         cmbNivelEstudiosHermano = new javax.swing.JComboBox();
-        lblAgregarParentesco = new javax.swing.JLabel();
+        lblAgregarHermano = new javax.swing.JLabel();
+        lblBorrarHermano = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         setPreferredSize(new java.awt.Dimension(680, 80));
@@ -70,12 +71,21 @@ public class PnlHermanos extends javax.swing.JPanel {
 
         jPanel1.add(cmbNivelEstudiosHermano);
 
-        lblAgregarParentesco.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblAgregarParentesco.setText("Add");
-        lblAgregarParentesco.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        lblAgregarParentesco.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblAgregarHermano.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAgregarHermano.setText("Add");
+        lblAgregarHermano.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblAgregarHermano.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblAgregarParentescoMouseClicked(evt);
+                lblAgregarHermanoMouseClicked(evt);
+            }
+        });
+
+        lblBorrarHermano.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBorrarHermano.setText("Delete");
+        lblBorrarHermano.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblBorrarHermano.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblBorrarHermanoMouseClicked(evt);
             }
         });
 
@@ -87,23 +97,32 @@ public class PnlHermanos extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(lblAgregarParentesco, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblAgregarHermano, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblBorrarHermano, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblAgregarParentesco, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblAgregarHermano)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblBorrarHermano)))
                 .addGap(0, 8, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lblAgregarParentescoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAgregarParentescoMouseClicked
+    private void lblAgregarHermanoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAgregarHermanoMouseClicked
         controlador.agregaJPanel(this);
-    }//GEN-LAST:event_lblAgregarParentescoMouseClicked
+    }//GEN-LAST:event_lblAgregarHermanoMouseClicked
+
+    private void lblBorrarHermanoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBorrarHermanoMouseClicked
+        controlador.borraJpanel(this);
+    }//GEN-LAST:event_lblBorrarHermanoMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -111,7 +130,8 @@ public class PnlHermanos extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblAgregarParentesco;
+    protected javax.swing.JLabel lblAgregarHermano;
+    protected javax.swing.JLabel lblBorrarHermano;
     private javax.swing.JLabel lblParentesco1;
     private javax.swing.JLabel lblParentesco5;
     protected javax.swing.JTextField txtApMaternoPariente;

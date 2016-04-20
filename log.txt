@@ -186,3 +186,39 @@
 14/4/2016;15:32:57;Message: No value specified for parameter 2
 14/4/2016;15:32:58;null
 14/4/2016;18:17:42;No se pudo conectar a la Base de datos
+15/4/2016;8:54:41;~/Documentos/becarios
+15/4/2016;8:54:41;~/Documentos/becarios
+15/4/2016;9:8:50;~/Documentos/becarios
+15/4/2016;9:8:50;~/Documentos/becarios
+16/4/2016;17:10:44;/home/sergio/Documentos/becarios
+16/4/2016;17:10:44;/home/sergio/Documentos/becarios
+16/4/2016;17:15:21;/home/sergio/Documentos/becarios
+16/4/2016;17:15:21;/home/sergio/Documentos/becarios
+16/4/2016;17:16:37;/home/sergio/Documentos/becarios
+16/4/2016;17:16:37;/home/sergio/Documentos/becarios
+16/4/2016;17:17:30;/home/sergio/Documentos/becarios
+16/4/2016;17:17:30;/home/sergio/Documentos/becarios
+16/4/2016;17:25:22;/home/sergio/Documentos/becarios
+16/4/2016;17:25:22;/home/sergio/Documentos/becarios
+16/4/2016;17:26:26;/home/sergio/Documentos/becarios
+16/4/2016;17:26:26;/home/sergio/Documentos/becarios
+16/4/2016;17:34:1;/home/sergio/Documentos/becarios
+16/4/2016;17:34:1;/home/sergio/Documentos/becarios
+16/4/2016;17:40:56;/home/sergio/Documentos/becarios
+16/4/2016;17:40:56;/home/sergio/Documentos/becarios
+16/4/2016;17:53:47;/home/sergio/Documentos/becarios
+16/4/2016;17:53:47;/home/sergio/Documentos/becarios
+16/4/2016;17:55:11;/home/sergio/Documentos/becarios
+16/4/2016;17:55:11;/home/sergio/Documentos/becarios
+16/4/2016;17:57:56;/home/sergio/Documentos/becarios
+16/4/2016;17:57:56;/home/sergio/Documentos/becarios
+16/4/2016;17:59:29;/home/sergio/Documentos/becarios
+16/4/2016;17:59:29;/home/sergio/Documentos/becarios
+16/4/2016;18:0:9;/home/sergio/Documentos/becarios
+16/4/2016;18:0:9;/home/sergio/Documentos/becarios
+19/4/2016;22:5:31;/home/sergio/Documentos/becarios
+19/4/2016;22:5:31;/home/sergio/Documentos/becarios
+19/4/2016;22:9:0;/home/sabagip
+19/4/2016;22:9:0;/home/sabagip
+19/4/2016;22:30:18;/home/sergio/Documentos/becarios/HIS-05
+19/4/2016;22:30:18;No se pudo copiar el archivo Captura de pantalla de 2015-08-30 17:12:09.png    /home/sergio/Documentos/becarios/HIS-05/foto-HIS-05.png

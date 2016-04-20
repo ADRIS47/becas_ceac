@@ -46,6 +46,7 @@ public class PnlParentesco extends javax.swing.JPanel {
         cmbNivelEstudiosPariente = new javax.swing.JComboBox();
         cmbTrabajoActivoPariente = new javax.swing.JComboBox();
         lblAgregarPariente = new javax.swing.JLabel();
+        lblBorrarPariente = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -102,6 +103,15 @@ public class PnlParentesco extends javax.swing.JPanel {
             }
         });
 
+        lblBorrarPariente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBorrarPariente.setText("Delete");
+        lblBorrarPariente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblBorrarPariente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblBorrarParienteMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -110,18 +120,22 @@ public class PnlParentesco extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblAgregarPariente, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblAgregarPariente, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblBorrarPariente, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, Short.MAX_VALUE)
-                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 12, Short.MAX_VALUE)
-                .addComponent(lblAgregarPariente)
-                .addGap(48, 48, 48))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblAgregarPariente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblBorrarPariente))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         getAccessibleContext().setAccessibleName("Información de padres");
@@ -135,6 +149,10 @@ public class PnlParentesco extends javax.swing.JPanel {
         controlador.agregaJPanel(this);
     }//GEN-LAST:event_lblAgregarParienteMouseClicked
 
+    private void lblBorrarParienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBorrarParienteMouseClicked
+        controlador.borraJpanel(this);
+    }//GEN-LAST:event_lblBorrarParienteMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JComboBox cmbNivelEstudiosPariente;
@@ -144,6 +162,7 @@ public class PnlParentesco extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JPanel jPanel1;
     protected javax.swing.JLabel lblAgregarPariente;
+    protected javax.swing.JLabel lblBorrarPariente;
     private javax.swing.JLabel lblParentesco;
     private javax.swing.JLabel lblParentesco1;
     private javax.swing.JLabel lblParentesco2;

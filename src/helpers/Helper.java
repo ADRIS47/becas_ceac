@@ -7,6 +7,7 @@ package helpers;
 
 import index.Index;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
@@ -54,7 +55,7 @@ public class Helper {
     public static void getBecaSemestral(JComboBox<?> cmbSemestresTotales, JComboBox<?> cmbSemestreInicioBeca, 
                     JComboBox<?> cmbAnioInicioBeca, JTextField txtBecaAutorizada, 
                     JTextField txtBecaSemestral) {
-        String semestresTotales = (String) cmbSemestresTotales.getSelectedItem();
+        String semestresTotales = (String) cmbSemestresTotales.getSelectedItem() + 1;
         String semestreInicioBeca = (String) cmbSemestreInicioBeca.getSelectedItem();
         int semestres = Integer.parseInt((String) cmbSemestresTotales.getSelectedItem()) - 
                 Integer.parseInt((String) cmbSemestreInicioBeca.getSelectedItem());
@@ -95,11 +96,20 @@ public class Helper {
     /**
      * Agrega un JPanel a otro Jpanel 
      * @param componente Componente que se desea agregar al ScrollPane
-     * @param spnlParentesco JScrollPane donde se agregará el componente
+     * @param panel JPanel donde se agregará el componente
      */
     public void agregaJPanel(JComponent componente, JPanel panel) {
         panel.add(componente);
         //panel.validate();
+    }
+    
+    /**
+     * Elimina el último JPnael 
+     * @param componente Componente a eliminar
+     * @param panel Panel donde se eliminará el componente
+     */
+    public void borraJpanel(JComponent componente, JPanel panel) {
+        panel.remove(componente);
     }
 
     public boolean validaEmail(String cadena1, String cadena2) {
@@ -136,7 +146,7 @@ public class Helper {
         
     }
 
-    public boolean validaFechaNacimiento(JTextField txtFechaNacimiento, JPanel vista) {
+    public boolean validaFechaNacimiento(JTextField txtFechaNacimiento, Component vista) {
         boolean response = false;
         Pattern patron = null;
         Matcher matcher;
@@ -171,14 +181,9 @@ public class Helper {
         String sistemaOperativo = System.getProperty("os.name");
         String rutaPrincipal = null;
         String separador = System.getProperty("file.separator");
-        String extension = archivo.getName().substring(archivo.getName().length() - 3, archivo.getName().length());
+        String extension = archivo.getName().substring(archivo.getName().length() - 4, archivo.getName().length());
         
-        if(sistemaOperativo.toLowerCase().contains("win")){
-            rutaPrincipal = Index.RUTA_BASE_WINDOWS;
-        }
-        if(sistemaOperativo.toLowerCase().contains("lin")){
-            rutaPrincipal = Index.RUTA_BASE_LINUX;
-        }
+        rutaPrincipal = System.getProperty("user.home") + separador + "becas" + separador + "becarios" + separador;
         //Se verifica si ya existe el directorio del nuevo becario y si no, lo crea
         verificaDirectorio(Paths.get(rutaPrincipal + folioBecario));
         
@@ -212,17 +217,14 @@ public class Helper {
         String sistemaOperativo = System.getProperty("os.name");
         String rutaPrincipal = null;
         String separador = System.getProperty("file.separator");
+        String homeUsuario = System.getProperty("user.home");
         System.out.println("SO: " + sistemaOperativo);
-        if(sistemaOperativo.toLowerCase().contains("win")){
-            rutaPrincipal = Index.RUTA_BASE_WINDOWS;
-        }
-        if(sistemaOperativo.toLowerCase().contains("lin")){
-            rutaPrincipal = Index.RUTA_BASE_LINUX;
-        }
         
-        Path pathRutaPrincipal = Paths.get(rutaPrincipal);
-        Path pathRutaBecas =  Paths.get(pathRutaPrincipal + separador + ".." + separador + "..");
-        Path pathRutaBecarios =  Paths.get(pathRutaPrincipal + separador + "..");
+        rutaPrincipal = System.getProperty("user.home") + separador + "becas" + separador + "becarios" + separador;
+        
+        Path pathRutaPrincipal = Paths.get(homeUsuario);
+        Path pathRutaBecas =  Paths.get(pathRutaPrincipal + separador + "becas");
+        Path pathRutaBecarios =  Paths.get(pathRutaPrincipal + separador + "becas" + separador + "becarios");
         
         System.out.println("RutaPrincipal: " + pathRutaPrincipal);
         System.out.println("Path becas: "  + pathRutaBecas);
@@ -230,7 +232,7 @@ public class Helper {
         
         if(!Files.exists(Paths.get(pathRutaBecas.toString()))){
             try {
-                Files.createDirectory(Paths.get(rutaPrincipal));
+                Files.createDirectory(Paths.get(pathRutaBecas.toString()));
             } catch (IOException ex) {
                 log.crearLog(ex.getMessage());
                 Logger.getLogger(Helper.class.getName()).log(Level.SEVERE, null, ex);
@@ -239,11 +241,15 @@ public class Helper {
         
         if(!Files.exists(Paths.get(pathRutaBecarios.toString()))){
             try {
-                Files.createDirectory(Paths.get(rutaPrincipal));
+                Files.createDirectory(Paths.get(pathRutaBecarios.toString()));
             } catch (IOException ex) {
                 log.crearLog(ex.getMessage());
                 Logger.getLogger(Helper.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+
+    public void bajaScrollVertical(JScrollPane scrollPane) {
+        scrollPane.getVerticalScrollBar().setValue(scrollPane.getVerticalScrollBar().getMaximum());
     }
 }

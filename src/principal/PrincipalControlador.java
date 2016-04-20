@@ -12,6 +12,7 @@ import helpers.EscuchadorValidaEntrada;
 import helpers.Helper;
 import helpers.Log;
 import index.Index;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.io.File;
@@ -51,10 +52,11 @@ public class PrincipalControlador {
     
     VistaPanelPrincipal vista;
     VistaRegistro vistaRegistro;
-//    PnlHermanos vistaHermanos;
-//    PnlHijos vistaHijos;
-//    PnlParentesco vistaParentesco;
-//    PnlDireccion vistaDireccion;
+    VistaBusqueda vistaBusqueda;
+    PnlPortada vistaPortada;
+    VistaRegistroOpcionGuardar vistaOpcionGuardar;
+    VistaRegistroOpcionActualizar vistaOpcionActualizar;
+    
     PrincipalModelo modelo;
     Index controladorPrincipal;
     
@@ -100,18 +102,37 @@ public class PrincipalControlador {
     public void setVistaRegistro(VistaRegistro vistaRegistro) {
         this.vistaRegistro = vistaRegistro;
     }
-    
-    
+
+    public void setVistaPortada(PnlPortada vistaPortada) {
+        this.vistaPortada = vistaPortada;
+    }
+
+    public void setVistaBusqueda(VistaBusqueda vistaBusqueda) {
+        this.vistaBusqueda = vistaBusqueda;
+    }
     
     public void iniciaPantallaPrincipal(){
         vista = new VistaPanelPrincipal(this);
+        vistaPortada = new PnlPortada(this);
         modelo = new PrincipalModelo();
         controladorPrincipal = new Index();
         
         this.setVista(vista);
         this.setModelo(modelo);
+        this.setVistaPortada(vistaPortada);
+        
+        creaVistaPortada();
+        
+        vista.setLocationRelativeTo(null);
         
         vista.setVisible(true);
+    }
+    
+    private void creaVistaPortada(){
+        creaPantalla(vistaPortada);
+        vistaPortada.setVisible(true);
+        helper.cargaImagenLocal(vistaPortada.lblPortada, "/imagenes/LOGO_con_letra.png");
+        
     }
     
     /**
@@ -141,6 +162,14 @@ public class PrincipalControlador {
         //Helper.getFechaGraduacion(vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca, vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion, vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera);
         
         creaPantalla(vistaRegistro);
+    }
+    
+    protected void creaVistaBusqueda() {
+        vistaBusqueda = new VistaBusqueda();
+        this.setVistaBusqueda(vistaBusqueda);
+        vistaBusqueda.setControlador(this);
+        
+        creaPantalla(vistaBusqueda);
     }
     
     /**
@@ -220,27 +249,35 @@ public class PrincipalControlador {
         PnlHermanos vistaHermanos = new PnlHermanos();
         PnlHijos vistaHijos = new PnlHijos();
         PnlDireccion vistaDireccion = new PnlDireccion();
+        vistaOpcionGuardar = new VistaRegistroOpcionGuardar();
         
         vistaParentesco.setControlador(this);
         vistaHermanos.setControlador(this);
         vistaHijos.setControlador(this);
         vistaDireccion.setControlador(this);
+        vistaOpcionGuardar.setControlador(this);
         
         helper.agregaJPanel(vistaParentesco, vistaRegistro.pnlParentesco);
         helper.agregaJPanel(vistaHermanos, vistaRegistro.pnlHermanos);
         helper.agregaJPanel(vistaHijos, vistaRegistro.pnlHijos);
         helper.agregaJPanel(vistaDireccion, vistaRegistro.pnlDirecciones);
+        helper.agregaJPanel(vistaOpcionGuardar, vistaRegistro.pnlOpciones);
         
         lstVistaParentesco.add(vistaParentesco);
         lstVistaHermanos.add(vistaHermanos);
         lstVistaHijos.add(vistaHijos);
         lstVistaDireccion.add(vistaDireccion);
         
+        vistaParentesco.lblBorrarPariente.setVisible(false);
+        vistaHermanos.lblBorrarHermano.setVisible(false);
+        vistaHijos.lblBorrarHijos.setVisible(false);
+        vistaDireccion.lblBorrarDireccion.setVisible(false);
+        
         vistaParentesco.setVisible(true);
         vistaHermanos.setVisible(true);
         vistaHijos.setVisible(true);
         vistaDireccion.setVisible(true);
-        
+        vistaOpcionGuardar.setVisible(true);
     }
 
     /**
@@ -303,7 +340,6 @@ public class PrincipalControlador {
             llenaComboCategorias(pnlParentesco.cmbNivelEstudiosPariente, catNivelEstudios);
             llenaComboCategorias(pnlParentesco.cmbParentesco, catParentesco);
             lstVistaParentesco.get(0).lblAgregarPariente.setVisible(false);
-            System.out.println("Esto es de parentesco");
             helper.agregaJPanel(pnlParentesco, vistaRegistro.pnlParentesco);
         }
         
@@ -335,10 +371,74 @@ public class PrincipalControlador {
             helper.agregaJPanel(pnlHijos, vistaRegistro.pnlHijos);    
         }
         
+        if(componente instanceof VistaRegistroOpcionActualizar){
+            vistaRegistro.pnlOpciones.removeAll();
+            vistaOpcionActualizar = new VistaRegistroOpcionActualizar();
+            vistaOpcionActualizar.setControlador(this);
+            vistaRegistro.pnlOpciones.add(vistaOpcionActualizar, BorderLayout.CENTER);
+            vistaOpcionActualizar.setVisible(true);
+            vistaRegistro.updateUI();
+        }
+        
         addListenerTeclasVistaRegistro();
         vistaRegistro.repaint();
         vista.repaint();
+    }
+    
+    /**
+     * Elimina el ultimo jpanel agregado
+     * @param componente Componente a eliminar 
+     */
+    protected void borraJpanel(JComponent componente) {
+        if(componente instanceof PnlParentesco){
+            int tamanio = lstVistaParentesco.size();
+            helper.borraJpanel(lstVistaParentesco.get(lstVistaParentesco.size() - 1), vistaRegistro.pnlParentesco);
+            lstVistaParentesco.remove(lstVistaParentesco.size() - 1);
+            lstVistaParentesco.get(lstVistaParentesco.size() - 1).lblAgregarPariente.setVisible(true);
+            System.out.println("Esto es de dirección"); 
+            if(tamanio == 1){
+                lstVistaParentesco.get(0).lblBorrarPariente.setVisible(false);
+            }
+        }
         
+        if(componente instanceof PnlDireccion){
+            int tamanio = lstVistaDireccion.size();
+            helper.borraJpanel(lstVistaDireccion.get(tamanio - 1), vistaRegistro.pnlDirecciones);
+            lstVistaDireccion.remove(tamanio - 1);
+            lstVistaDireccion.get(lstVistaDireccion.size() - 1).lblAgregarDireccion.setVisible(true);
+            System.out.println("Esto es de dirección");
+            if(tamanio == 1){
+                lstVistaDireccion.get(0).lblBorrarDireccion.setVisible(false);
+            }
+        }
+        if(componente instanceof PnlHermanos){
+            int tamanio = lstVistaHermanos.size();
+            helper.borraJpanel(lstVistaHermanos.get(lstVistaHermanos.size() - 1), vistaRegistro.pnlHermanos);
+            lstVistaHermanos.remove(tamanio - 1);
+            lstVistaHermanos.get(lstVistaHermanos.size() - 1).lblAgregarHermano.setVisible(true);
+            System.out.println("Esto es de dirección");
+            if(tamanio == 1){
+                lstVistaHermanos.get(tamanio - 1).lblBorrarHermano.setVisible(false);
+            }
+        }
+        
+        if(componente instanceof PnlHijos){
+            int tamanio = lstVistaHijos.size();
+            helper.borraJpanel(lstVistaHijos.get(tamanio - 1), vistaRegistro.pnlHijos);
+            lstVistaHijos.remove(tamanio - 1);
+            lstVistaHijos.get(lstVistaHijos.size() - 1).lblAgregarHijos.setVisible(true);
+            System.out.println("Esto es de dirección");
+            if(tamanio == 1){
+                lstVistaHijos.get(0).lblBorrarHijos.setVisible(false);
+            }
+        }
+        
+        if(componente instanceof VistaRegistroOpcionGuardar){
+        }
+        
+        addListenerTeclasVistaRegistro();
+        vistaRegistro.repaint();
+        vista.repaint();
     }
 
     /**
@@ -355,15 +455,18 @@ public class PrincipalControlador {
                 //Se valida que los correos electronicos sean iguales
                 boolean email = helper.validaEmail(vistaRegistro.txtCorreoBecario.getText(),
                                                     vistaRegistro.txtCorreoBecario2.getText());
-                boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vistaRegistro);
+                boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
                 
                 //Si los email son iguales se procede a tomar los valores e insertarlos
                 if(email && fecha){
                     insertBecario(true);
                 }
-                else if(email == false)
+                else if(email == false){
                     JOptionPane.showMessageDialog(vistaRegistro, "Correos electrónicos diferentes", 
                                                                 "Verifica los correos electrónicos", JOptionPane.WARNING_MESSAGE);
+                    vistaRegistro.txtCorreoBecario.setBackground(Color.ORANGE);
+                    vistaRegistro.txtCorreoBecario2.setBackground(Color.ORANGE);
+                }
                 
             }
         }
@@ -372,9 +475,18 @@ public class PrincipalControlador {
             //Se valida que los correos electronicos sean iguales
             boolean email = helper.validaEmail(vistaRegistro.txtCorreoBecario.getText(),
                                                    vistaRegistro.txtCorreoBecario2.getText());
+            boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
             //Si los email son iguales se procede a tomar los valores e insertarlos
-            if(email)
+            if(email && fecha)
                 insertBecario(false);
+            else if(email == false){
+                JOptionPane.showMessageDialog(vistaRegistro, "Correos electrónicos diferentes", 
+                                                                "Verifica los correos electrónicos", JOptionPane.WARNING_MESSAGE);
+                vistaRegistro.txtCorreoBecario.setBackground(Color.ORANGE);
+                vistaRegistro.txtCorreoBecario2.setBackground(Color.ORANGE);
+            }
+            
+                
         }
 
     }
@@ -405,7 +517,7 @@ public class PrincipalControlador {
         }
         
         //Se obtienen los valores del nuevo becario
-        Becario becario = getDatosBecarioDeFormulario(conexion);
+        Becario becario = getDatosBecarioDeFormulario(conexion, true);
         if(becario == null)
             return;
         
@@ -454,7 +566,7 @@ public class PrincipalControlador {
             }
             
             //Se insertan los datos escolares
-            boolean datosEscolares = modelo.insertDatosEscolares(conexion, idBecario, lstDatosEscolares);
+            boolean datosEscolares = modelo.insertDatosEscolaresBecario(conexion, idBecario, lstDatosEscolares);
             if(datosEscolares == false){
                 throw new SQLException();
             }
@@ -473,6 +585,141 @@ public class PrincipalControlador {
             conexion.commit();
             JOptionPane.showMessageDialog(vista, "Becario registrado correctamente \n"
                     + "Número de folio: " + becario.getFolio(), "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            
+            VistaRegistroOpcionActualizar opcion = new VistaRegistroOpcionActualizar();
+            agregaJPanel(opcion);
+            vistaRegistro.comboBoxPrograma.setEnabled(false);
+            vistaRegistro.cmbEstatus.setEnabled(false);
+            vistaRegistro.txtFolio.setText(becario.getFolio());
+        }
+        catch(SQLException e){
+            try {
+                conexion.rollback();
+            } catch (SQLException ex) {
+                log.crearLog(ex.getMessage());
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JOptionPane.showMessageDialog(vista, "Error al guardar al becario", "Error de inserción", JOptionPane.ERROR_MESSAGE);
+            log.crearLog(e.getMessage());
+        }
+        
+        finally{
+            try {
+                conexion.close();
+            } catch (SQLException ex) {
+                log.crearLog(ex.getMessage());
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }        
+    }
+    
+    /**
+     * Actualiza la informacion del becario en cuestión
+     */
+    protected void UpdateBecario() {
+        boolean vacio = validaCamposVacios();
+        
+        // Si hay campos vacios en el formulario se pregunta si se quiere guardar el becario y llenarlo después
+        if(vacio){
+            int i = JOptionPane.showConfirmDialog(vistaRegistro, "¿Desea guardar y continuar después?", "Alerta, Campos Vacios", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+            if(i == JOptionPane.OK_OPTION){
+                //Se valida que los correos electronicos sean iguales
+                boolean email = helper.validaEmail(vistaRegistro.txtCorreoBecario.getText(),
+                                                    vistaRegistro.txtCorreoBecario2.getText());
+                boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
+                
+                //Si los email son iguales se procede a tomar los valores e insertarlos
+                if(email && fecha){
+                    updateBecario();
+                }
+                else if(email == false)
+                    JOptionPane.showMessageDialog(vistaRegistro, "Correos electrónicos diferentes", 
+                                                                "Verifica los correos electrónicos", JOptionPane.WARNING_MESSAGE);
+                
+            }
+        }
+        //Si el formulario fue llenado en su totalidad...
+        else{
+            //Se valida que los correos electronicos sean iguales
+            boolean email = helper.validaEmail(vistaRegistro.txtCorreoBecario.getText(),
+                                                   vistaRegistro.txtCorreoBecario2.getText());
+            boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
+            //Si los email son iguales se procede a tomar los valores e insertarlos
+            if(email && fecha)
+                updateBecario();
+        }
+    }
+    
+    private void updateBecario() {
+        Conexion conn = new Conexion();
+        Connection conexion = conn.estableceConexion();
+        
+        if(conexion == null){
+            JOptionPane.showMessageDialog(vista, "No se puede conectar a la base de datos, Intentalo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+            log.crearLog(new SQLException("No se pudo conectar a la base de datos").getMessage());
+            return;
+        }
+        
+        Becario becario = getDatosBecarioDeFormulario(conexion, false);
+        
+        List<Direccion> lstDireccionesBecario = getDireccionBecarioDeFormulario(becario.getId());
+        List<Telefono> lstTelefonosBecario = getTelefonoBecarioDeFormulario(becario.getId());
+        List<Padres> lstPadresBecario = getPadresBecarioDeFormulario(becario.getId());
+        List<Hermanos> lstHermanos = getHermanosDeFormulario(becario.getId());
+        List<Hijos> lstHijos = getHijosDeFormulario(becario.getId());
+        DatosEscolares lstDatosEscolares = getDatosEscolaresDeFormulario(becario.getId());
+        Aval lstAval = getAvalDeFormulario(becario.getId(), becario.getFolio());
+        
+        //Se inicia la transacción para la inserción del becario
+        try{
+            conexion.setAutoCommit(false);
+            
+            boolean idBecario = modelo.updateBecario(conexion, becario);
+            //Si no se pudo actualizar el becario
+            if(idBecario == false){
+                throw new SQLException("Error al actualizar los datos del becario");
+            }
+            //Se actualizan las direcciones
+            boolean direccion = modelo.updateDireccionBecario(conexion, becario.getId(), lstDireccionesBecario);
+            if(direccion == false){
+                throw new SQLException("Error al actualizar las direcciones del becario");
+            }
+            //Se actualizan los telefonos
+            boolean telefono = modelo.updateTelefonoBecario(conexion, becario.getId(), lstTelefonosBecario);
+            if(telefono == false){
+                throw new SQLException();
+            }
+            //Se actualizan los padres
+            boolean papas = modelo.updatePapasBecario(conexion, becario.getId(), lstPadresBecario);
+            if(papas == false){
+                throw new SQLException();
+            }
+            //Se actualizan los hermanos
+            boolean hermanos = modelo.updateHermanosBecario(conexion, becario.getId(), lstHermanos);
+            if(hermanos == false){
+                throw new SQLException();
+            }
+            //Se actualizan los hijos
+            boolean hijos = modelo.updateHijosBecario(conexion, becario.getId(), lstHijos);
+            if(hijos == false){
+                throw new SQLException();
+            }
+            
+            //Se actualizan los datos escolares
+            boolean datosEscolares = modelo.updateDatosEscolares(conexion, becario.getId(), lstDatosEscolares);
+            if(datosEscolares == false){
+                throw new SQLException();
+            }
+            
+            //Se actualizan los datos del aval
+            boolean aval = modelo.updateAval(conexion, becario.getId(), lstAval);
+            if(aval == false){
+                throw new SQLException();
+            }
+
+            conexion.commit();
+            JOptionPane.showMessageDialog(vista, "Becario actualizado correctamente \n", "Operacion exitosa", JOptionPane.INFORMATION_MESSAGE);
+
         }
         catch(SQLException e){
             try {
@@ -493,15 +740,15 @@ public class PrincipalControlador {
                 Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
-        
     }
 
     /**
      * Obtiene los datos del becario del formulario de registro
+     * @param conexion Conexion a la base de datos
+     * @param updateOrInsert True para Inserts, False para Updates
      * @return Un becario con sus propiedades
      */
-    private Becario getDatosBecarioDeFormulario(Connection conexion) {
+    private Becario getDatosBecarioDeFormulario(Connection conexion, boolean updateOrInsert) {
         Becario becario = new Becario();
         
         //Se obtiene el id del programa seleccionado
@@ -513,7 +760,10 @@ public class PrincipalControlador {
         becario.setInicialesFolio(inicioFolio);
         //Se obtiene el folio
         //Se obtiene el folio
-        becario.setFolio(modelo.creaFolio(conexion, becario));
+        if(updateOrInsert)
+            becario.setFolio(modelo.creaFolio(conexion, becario));
+        else 
+            becario.setFolio(vistaRegistro.txtFolio.getText());
         //Se obtiene el estatus del becario
         int estatus = vistaRegistro.cmbEstatus.getSelectedIndex();
         if(estatus == 0)
@@ -552,6 +802,15 @@ public class PrincipalControlador {
         //Se obtienen los comentarios
         becario.setObservaciones(vistaRegistro.txtAreaObservaciones.getText());
         
+        //Se obtiene el id del becario en caso de que sea una actualización o eliminación
+        if(updateOrInsert == false){
+            becario.setId(modelo.getIdBecarioPorFolio(conexion, becario.getFolio()));
+            //Se verifica
+            if(becario.getId() == 0){
+                JOptionPane.showMessageDialog(vista, "Error al obtener el identificador del becario, intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                return null;
+            }
+        }
         //Se carga la foto
         if(fileFoto != null){
             Path path = helper.CopiaArchivoADestino(becario.getFolio(), "foto-", fileFoto);
@@ -1087,18 +1346,6 @@ public class PrincipalControlador {
                 vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre,
                 vistaRegistro, EscuchadorCmbBoxCambiado.FECHA_GRADUACION));
         
-//        vistaRegistro.cmboxMesGraduacion.addItemListener(new 
-//        EscuchadorCmbBoxCambiado(vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca, 
-//                vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion, 
-//                vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera, 
-//                vistaRegistro, EscuchadorCmbBoxCambiado.FECHA_GRADUACION));
-//        
-//        vistaRegistro.cmboxAnioGraduacion.addItemListener(new 
-//        EscuchadorCmbBoxCambiado(vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca, 
-//                vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion, 
-//                vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera, 
-//                vistaRegistro, EscuchadorCmbBoxCambiado.FECHA_GRADUACION));
-        
         vistaRegistro.cmboxSemestreInicioBeca.addItemListener(new 
         EscuchadorCmbBoxCambiado(vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca, 
                 vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion,
@@ -1106,5 +1353,9 @@ public class PrincipalControlador {
                 vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre,
                 vistaRegistro, EscuchadorCmbBoxCambiado.FECHA_GRADUACION));
         
+    }
+
+    protected void getBecarioPorFolio(String folio) {
+        Becario becario = modelo.getBecarioPorFolio(folio);
     }
 }
