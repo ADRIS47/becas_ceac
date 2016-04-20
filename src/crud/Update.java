@@ -8,6 +8,9 @@ package crud;
 import pojos.Becario;
 import pojos.CatPrograma;
 import pojos.Direccion;
+import pojos.Hermanos;
+import pojos.Padres;
+import pojos.Telefono;
 
 /**
  *
@@ -42,9 +45,34 @@ public class Update {
      * Actualiza las direcciones del becario
      */
     public static String updateDireccionesBecario = "UPDATE beca_direccion "
-            + "SET " + Direccion.COL_CALLE + "?, " + Direccion.COL_NUM_EXT + " = ?, "
-            + Direccion.COL_NUM_INT + "?, " + Direccion.COL_COLONIA + " = ?, "
-            + Direccion.COL_CODIGO_POSTAL + "?, " + Direccion.COL_CIUDAD + " = ? " 
-            + "WHERE " + Direccion.COL_ID_BECARIO + "? AND " + Direccion.COL_ID + " = ?";
+            + "SET " + Direccion.COL_CALLE + " = ?, " + Direccion.COL_NUM_EXT + " = ?, "
+            + Direccion.COL_NUM_INT + " = ?, " + Direccion.COL_COLONIA + " = ?, "
+            + Direccion.COL_CODIGO_POSTAL + "= ?, " + Direccion.COL_CIUDAD + " = ? " 
+            + "WHERE " + Direccion.COL_ID_BECARIO + " = ? AND " + Direccion.COL_ID + " = ?";
+    
+    /**
+     * Actualiza los telefonos del becario
+     */
+    public static String updateTelefonosBecario = "UPDATE beca_telefono "
+            + "SET " + Telefono.COL_TELEFONO + " = ? "
+            + "WHERE " + Telefono.COL_ID_BECARIO + " = ? AND " + Telefono.COL_ID + " = ?"; 
+    
+    /**
+     * Actualiza los padres del becario
+     */
+    public static String updatePapasBecario = "UPDATE beca_padres "
+            + "SET " + Padres.COL_NOMBRE + " = ?, " + Padres.COL_APATERNO + " = ?, "
+            + Padres.COL_AMATERNO + " = ?, " + Padres.COL_TELEFONO + " = ?, "
+            + Padres.COL_ID_GRADO_ESCOLAR + " = ?, " + Padres.COL_TRABAJA + " = ?, "
+            + Padres.COL_ID_BECARIO + " = ?, " + Padres.COL_ID_PARENTESCO + " = ? "
+            + "WHERE " + Padres.COL_ID_BECARIO + " = ? AND " + Padres.COL_ID + " = ?";
+    
+    /**
+     * Actualiza los hermanos del becario
+     */
+    public static String updateHermanosBecario = "UPDATE beca_hermano "
+            + "SET " + Hermanos.COL_NOMBRE + " = ?, " + Hermanos.COL_APATERNO + " = ?, "
+            + Hermanos.COL_AMATERNO + " = ?, " + Hermanos.COL_ID_GRADO_ESCOLAR + " = ?, "
+            + "WHERE " + Hermanos.COL_ID_BECARIO + " = ? AND " + Hermanos.COL_ID + " = ?";
     
 }

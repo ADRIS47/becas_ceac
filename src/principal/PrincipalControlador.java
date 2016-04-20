@@ -663,16 +663,16 @@ public class PrincipalControlador {
             if(telefono == false){
                 throw new SQLException();
             }
-//            //Se insertan los padres
-//            boolean papas = modelo.insertPapasBecario(conexion, idBecario, lstPadresBecario);
-//            if(papas == false){
-//                throw new SQLException();
-//            }
-//            //Se insertan los hermanos
-//            boolean hermanos = modelo.insertHermanosBecario(conexion, idBecario, lstHermanos);
-//            if(hermanos == false){
-//                throw new SQLException();
-//            }
+            //Se insertan los padres
+            boolean papas = modelo.updatePapasBecario(conexion, becario.getId(), lstPadresBecario);
+            if(papas == false){
+                throw new SQLException();
+            }
+            //Se insertan los hermanos
+            boolean hermanos = modelo.updateHermanosBecario(conexion, becario.getId(), lstHermanos);
+            if(hermanos == false){
+                throw new SQLException();
+            }
 //            //Se insertan los hijos
 //            boolean hijos = modelo.insertHijosBecario(conexion, idBecario, lstHijos);
 //            if(hijos == false){

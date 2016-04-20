@@ -1118,86 +1118,259 @@ public class PrincipalModelo {
         return id;
     }
 
+    /**
+     * Actualiza los telefonos del becario
+     * @param conexion
+     * @param idBecario
+     * @param lstTelefonosBecario
+     * @return 
+     */
     protected boolean updateTelefonoBecario(Connection conexion, long idBecario, List<Telefono> lstTelefonosBecario) {
         boolean response = false;
-//        PreparedStatement ps = null;
-//        ResultSet rs = null;
-//        try{
-//            //Se verifica si existen más direcciones que las que se van a actualizar
-//            ps = conexion.prepareStatement(Consultas.getDireccionesBecario);
-//            ps.setLong(1, idBecario);
-//            rs = ps.executeQuery();
-//            int telefonos = -1;
-//            List<Integer> lstIdTelefonos = new ArrayList <>();
-//            if(rs.next()){
-//                telefonos = rs.getInt(1);
-//                lstIdTelefonos.add(rs.getInt(Direccion.COL_ID));
-//            }
-//            
-//            if(telefonos == -1)
-//                throw new SQLException("No se pudo obtener las direcciones del becario");
-//            
-//            //Si no se tienen direcciones registradas se insertan las nuevas direcciones
-//            if(telefonos == 0){
-//                response = insertDireccionBecario(conexion, idBecario, lstTelefonosBecario);
-//            }
-//            
-//            
-//            //Si existe una sola direccion registrada, se actualiza la primera y la segunda se inserta
-//            else if(telefonos > 0 && telefonos < lstTelefonosBecario.size()){
-//                ps = conexion.prepareStatement(Update.updateDireccionesBecario);
-//                ps.setString(1, lstTelefonosBecario.get(0).getCalle());
-//                ps.setString(2, lstTelefonosBecario.get(0).getNumExt());
-//                ps.setString(3, lstTelefonosBecario.get(0).getNumInt());
-//                ps.setString(4, lstTelefonosBecario.get(0).getColonia());
-//                ps.setInt(5, lstTelefonosBecario.get(0).getCodigoPostal());
-//                ps.setString(6, lstTelefonosBecario.get(0).getCiudad());
-//                ps.setLong(7, idBecario);
-//                ps.setLong(8, lstIdDirecciones.get(0));
-//                int resp = ps.executeUpdate();
-//                //Si la actualizacion fue correcta
-//                if(resp >= 1){
-//                    List<Direccion> nuevaLista = new ArrayList<>();
-//                    nuevaLista.add(lstTelefonosBecario.get(1));
-//                    response = insertDireccionBecario(conexion, idBecario, nuevaLista);
-//                }
-//            }
-//            //Si existen la misma cantidad de registros con la misma cantidad de nuevas direcciones
-//            else if(telefonos > 0 && telefonos == lstTelefonosBecario.size()){
-//                int contador = 0;
-//                for (Telefono telefono : lstTelefonosBecario) {
-//                    ps = conexion.prepareStatement(Update.updateDireccionesBecario);
-//                    ps.setString(1, telefono.getCalle());
-//                    ps.setString(2, telefono.getNumExt());
-//                    ps.setString(3, telefono.getNumInt());
-//                    ps.setString(4, telefono.getColonia());
-//                    ps.setInt(5, telefono.getCodigoPostal());
-//                    ps.setString(6, telefono.getCiudad());
-//                    ps.setLong(7, idBecario);
-//                    ps.setLong(8, lstIdDirecciones.get(contador));
-//                    int resp = ps.executeUpdate();
-//                    //Si la actualizacion fue correcta
-//                    if(resp == 0)
-//                        break;
-//                    contador++;
-//                    //Si ya se actualizo el ultimo registro
-//                    if(contador == 1)
-//                        response = true;
-//                }
-//            }      
-//        }
-//        catch(SQLException e){
-//            log.muestraErrores(e);
-//        }
-//        finally{
-//            try {
-//                ps.close();
-//            } catch (SQLException ex) {
-//                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
-//                log.muestraErrores(ex);
-//            }
-//        }
-//        
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{
+            //Se verifica si existen más direcciones que las que se van a actualizar
+            ps = conexion.prepareStatement(Consultas.getTelefonosBecario);
+            ps.setLong(1, idBecario);
+            rs = ps.executeQuery();
+            int telefonos = -1;
+            List<Integer> lstIdTelefonos = new ArrayList <>();
+            if(rs.next()){
+                telefonos = rs.getInt(1);
+                lstIdTelefonos.add(rs.getInt(Telefono.COL_ID));
+            }
+            
+            if(telefonos == -1)
+                throw new SQLException("No se pudo obtener los teléfonos del becario");
+            
+            //Si no se tienen telefonos registrados se insertan las nuevas telefonos
+            if(telefonos == 0){
+                response = insertTelefonoBecario(conexion, idBecario, lstTelefonosBecario);
+            }
+            
+            
+            //Si existe una sola telefono registrado, se actualiza el primero y el segundo se inserta
+            else if(telefonos > 0 && telefonos < lstTelefonosBecario.size()){
+                ps = conexion.prepareStatement(Update.updateTelefonosBecario);
+                ps.setString(1, lstTelefonosBecario.get(0).getTelefono());
+                ps.setLong(2, idBecario);
+                ps.setLong(3, lstIdTelefonos.get(0));
+                int resp = ps.executeUpdate();
+                //Si la actualizacion fue correcta
+                if(resp >= 1){
+                    List<Telefono> nuevaLista = new ArrayList<>();
+                    nuevaLista.add(lstTelefonosBecario.get(1));
+                    response = insertTelefonoBecario(conexion, idBecario, nuevaLista);
+                }
+            }
+            //Si existen la misma cantidad de registros con la misma cantidad de nuevas direcciones
+            else if(telefonos > 0 && telefonos == lstTelefonosBecario.size()){
+                int contador = 0;
+                for (Telefono telefono : lstTelefonosBecario) {
+                    ps = conexion.prepareStatement(Update.updateTelefonosBecario);
+                    ps.setString(1, telefono.getTelefono());
+                    ps.setLong(2, idBecario);
+                    ps.setLong(3, lstIdTelefonos.get(contador));
+                    int resp = ps.executeUpdate();
+                    //Si la actualizacion fue correcta
+                    if(resp == 0)
+                        break;
+                    contador++;
+                    //Si ya se actualizo el ultimo registro
+                    if(contador == 1)
+                        response = true;
+                }
+            }      
+        }
+        catch(SQLException e){
+            log.muestraErrores(e);
+        }
+        finally{
+            try {
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+                log.muestraErrores(ex);
+            }
+        }
+        
+        return response;
+    }
+
+    /**
+     * Actualiza los papás del becario
+     * @param conexion
+     * @param idBecario
+     * @param lstPadresBecario
+     * @return 
+     */
+    protected boolean updatePapasBecario(Connection conexion, long idBecario, List<Padres> lstPadresBecario) {
+        boolean response = false;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{
+            //Se verifica si existen más direcciones que las que se van a actualizar
+            ps = conexion.prepareStatement(Consultas.getPapasBecario);
+            ps.setLong(1, idBecario);
+            rs = ps.executeQuery();
+            int papas = -1;
+            List<Integer> lstIdPapas= new ArrayList <>();
+            if(rs.next()){
+                papas = rs.getInt(1);
+                lstIdPapas.add(rs.getInt(Telefono.COL_ID));
+            }
+            
+            if(papas == -1)
+                throw new SQLException("No se pudo obtener los padres del becario");
+            
+            //Si no se tienen telefonos registrados se insertan las nuevas telefonos
+            if(papas == 0){
+                response = insertPapasBecario(conexion, idBecario, lstPadresBecario);
+            }
+            
+            
+            //Si existe una sola telefono registrado, se actualiza el primero y el segundo se inserta
+            else if(papas > 0 && papas < lstPadresBecario.size()){
+                ps = conexion.prepareStatement(Update.updatePapasBecario);
+                ps.setString(1, lstPadresBecario.get(0).getNombre());
+                ps.setString(2, lstPadresBecario.get(0).getaPaterno());
+                ps.setString(3, lstPadresBecario.get(0).getaMaterno());
+                ps.setString(4, lstPadresBecario.get(0).getTelefono());
+                ps.setInt(5, lstPadresBecario.get(0).getGradoEscolar());
+                ps.setInt(6, lstPadresBecario.get(0).getTrabaja());
+                ps.setLong(7, idBecario);
+                ps.setLong(8, lstIdPapas.get(0));
+                int resp = ps.executeUpdate();
+                //Si la actualizacion fue correcta
+                if(resp >= 1){
+                    List<Padres> nuevaLista = new ArrayList<>();
+                    nuevaLista.add(lstPadresBecario.get(1));
+                    response = insertPapasBecario(conexion, idBecario, nuevaLista);
+                }
+            }
+            //Si existen la misma cantidad de registros con la misma cantidad de nuevas direcciones
+            else if(papas > 0 && papas == lstPadresBecario.size()){
+                int contador = 0;
+                for (Padres papa : lstPadresBecario) {
+                    ps = conexion.prepareStatement(Update.updatePapasBecario);
+                    ps.setString(1, papa.getNombre());
+                    ps.setString(2, papa.getaPaterno());
+                    ps.setString(3, papa.getaMaterno());
+                    ps.setString(4, papa.getTelefono());
+                    ps.setInt(5, papa.getGradoEscolar());
+                    ps.setInt(6, papa.getTrabaja());
+                    ps.setLong(7, idBecario);
+                    ps.setLong(8, lstIdPapas.get(contador));
+                    int resp = ps.executeUpdate();
+                    //Si la actualizacion fue correcta
+                    if(resp == 0)
+                        break;
+                    contador++;
+                    //Si ya se actualizo el ultimo registro
+                    if(contador == 1)
+                        response = true;
+                }
+            }      
+        }
+        catch(SQLException e){
+            log.muestraErrores(e);
+        }
+        finally{
+            try {
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+                log.muestraErrores(ex);
+            }
+        }
+        
+        return response;
+    }
+
+    /**
+     * Actualiza los hermanos del becario
+     * @param conexion
+     * @param idBecario
+     * @param lstHermanos
+     * @return 
+     */
+    protected boolean updateHermanosBecario(Connection conexion, long idBecario, List<Hermanos> lstHermanos) {
+        boolean response = false;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{
+            //Se verifica si existen más direcciones que las que se van a actualizar
+            ps = conexion.prepareStatement(Consultas.getHermanosBecario);
+            ps.setLong(1, idBecario);
+            rs = ps.executeQuery();
+            int hermanos = -1;
+            List<Integer> lstIdHermanos= new ArrayList <>();
+            if(rs.next()){
+                hermanos = rs.getInt(1);
+                lstIdHermanos.add(rs.getInt(Telefono.COL_ID));
+            }
+            
+            if(hermanos == -1)
+                throw new SQLException("No se pudo obtener los padres del becario");
+            
+            //Si no se tienen telefonos registrados se insertan las nuevas telefonos
+            if(hermanos == 0){
+                response = insertHermanosBecario(conexion, idBecario, lstHermanos);
+            }
+            
+            
+            //Si existe una sola telefono registrado, se actualiza el primero y el segundo se inserta
+            else if(hermanos > 0 && hermanos < lstHermanos.size()){
+                ps = conexion.prepareStatement(Update.updateHermanosBecario);
+                ps.setString(1, lstHermanos.get(0).getNombre());
+                ps.setString(2, lstHermanos.get(0).getAPaterno());
+                ps.setString(3, lstHermanos.get(0).getAMaterno());
+                ps.setInt(4, lstHermanos.get(0).getGradoEscolar());
+                ps.setLong(5, idBecario);
+                ps.setLong(6, lstIdHermanos.get(0));
+                int resp = ps.executeUpdate();
+                //Si la actualizacion fue correcta
+                if(resp >= 1){
+                    List<Hermanos> nuevaLista = new ArrayList<>();
+                    nuevaLista.add(lstHermanos.get(1));
+                    response = insertHermanosBecario(conexion, idBecario, nuevaLista);
+                }
+            }
+            //Si existen la misma cantidad de registros con la misma cantidad de nuevas direcciones
+            else if(hermanos > 0 && hermanos == lstHermanos.size()){
+                int contador = 0;
+                for (Hermanos hermano : lstHermanos) {
+                    ps = conexion.prepareStatement(Update.updateHermanosBecario);
+                    ps.setString(1, hermano.getNombre());
+                    ps.setString(2, hermano.getAPaterno());
+                    ps.setString(3, hermano.getAMaterno());
+                    ps.setInt(4, hermano.getGradoEscolar());
+                    ps.setLong(5, idBecario);
+                    ps.setLong(6, lstIdHermanos.get(contador));
+                    int resp = ps.executeUpdate();
+                    //Si la actualizacion fue correcta
+                    if(resp == 0)
+                        break;
+                    contador++;
+                    //Si ya se actualizo el ultimo registro
+                    if(contador == 1)
+                        response = true;
+                }
+            }      
+        }
+        catch(SQLException e){
+            log.muestraErrores(e);
+        }
+        finally{
+            try {
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+                log.muestraErrores(ex);
+            }
+        }
+        
         return response;
     }
 }
