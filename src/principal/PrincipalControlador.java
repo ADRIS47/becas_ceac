@@ -140,8 +140,14 @@ public class PrincipalControlador {
      * Crea una pantalla VistaRegistro en la pantalla principal con sus respectivos datos
      */
     public void creaVistaRegistro(){
-        vistaRegistro = new VistaRegistro(this);
-        this.setVistaRegistro(vistaRegistro);
+        if(vistaRegistro != null)
+            terminaVistaRegistro();
+        
+        if(vistaRegistro == null){
+            vistaRegistro = new VistaRegistro(this);
+            this.setVistaRegistro(vistaRegistro);
+        }
+        
         List<LinkedHashMap<Integer, String>> lstCategorias = null;
                 
         try {
@@ -158,6 +164,11 @@ public class PrincipalControlador {
         }
         
         addListenerTeclasVistaRegistro();
+        
+        vistaOpcionGuardar = new VistaRegistroOpcionGuardar();
+        vistaOpcionGuardar.setControlador(this);
+        helper.agregaJPanel(vistaOpcionGuardar, vistaRegistro.pnlOpciones);
+        vistaOpcionGuardar.setVisible(true);
         //addListenerArchivosAdjuntos();
         //Helper.getBecaSemestral(vistaRegistro.cmboxSemestresTotalesCarrera, vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre);
         //Helper.getFechaGraduacion(vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca, vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion, vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera);
@@ -165,7 +176,14 @@ public class PrincipalControlador {
         creaPantalla(vistaRegistro);
     }
     
+    /**
+     * Crea la pantalla de busqueda de becarios
+     */
     protected void creaVistaBusqueda() {
+        if(vistaBusqueda != null){
+            terminaVistaBusqueda();
+        }
+        
         vistaBusqueda = new VistaBusqueda();
         this.setVistaBusqueda(vistaBusqueda);
         vistaBusqueda.setControlador(this);
@@ -242,6 +260,18 @@ public class PrincipalControlador {
         controladorPrincipal.iniciaPantallaLogin();
     }
     
+    private void terminaVistaRegistro(){
+        vistaRegistro.removeAll();
+        vaciaLstVistas();
+        vistaRegistro = null;
+    }
+    
+    private void terminaVistaBusqueda(){
+        vistaBusqueda.removeAll();
+        vaciaLstVistas();
+        vistaBusqueda = null;
+    }
+    
     /**
      * Muestra las pantallas dinamicas de VistaRegistro
      */
@@ -250,19 +280,19 @@ public class PrincipalControlador {
         PnlHermanos vistaHermanos = new PnlHermanos();
         PnlHijos vistaHijos = new PnlHijos();
         PnlDireccion vistaDireccion = new PnlDireccion();
-        vistaOpcionGuardar = new VistaRegistroOpcionGuardar();
+        //vistaOpcionGuardar = new VistaRegistroOpcionGuardar();
         
         vistaParentesco.setControlador(this);
         vistaHermanos.setControlador(this);
         vistaHijos.setControlador(this);
         vistaDireccion.setControlador(this);
-        vistaOpcionGuardar.setControlador(this);
+        //vistaOpcionGuardar.setControlador(this);
         
         helper.agregaJPanel(vistaParentesco, vistaRegistro.pnlParentesco);
         helper.agregaJPanel(vistaHermanos, vistaRegistro.pnlHermanos);
         helper.agregaJPanel(vistaHijos, vistaRegistro.pnlHijos);
         helper.agregaJPanel(vistaDireccion, vistaRegistro.pnlDirecciones);
-        helper.agregaJPanel(vistaOpcionGuardar, vistaRegistro.pnlOpciones);
+        //helper.agregaJPanel(vistaOpcionGuardar, vistaRegistro.pnlOpciones);
         
         lstVistaParentesco.add(vistaParentesco);
         lstVistaHermanos.add(vistaHermanos);
@@ -278,7 +308,8 @@ public class PrincipalControlador {
         vistaHermanos.setVisible(true);
         vistaHijos.setVisible(true);
         vistaDireccion.setVisible(true);
-        vistaOpcionGuardar.setVisible(true);
+        //vistaOpcionGuardar.setVisible(true);
+
     }
 
     /**
@@ -1216,7 +1247,7 @@ public class PrincipalControlador {
     
     /**
      * Recorre todos los componentes dentro de un JPanel
-     * @param clave 1: Valida si hay campos vacios
+     * @param clave 1: Valida si hay campos vacios, 2: Vacia los campos
      * @param panel Jpanel a recorrer
      * @return True si encontró campos vacios, false si no
      */
@@ -1224,7 +1255,6 @@ public class PrincipalControlador {
         Component[] componentes = panel.getComponents();
         boolean response = false;
         switch(clave){
-            //Datos generales
             case 1:
                 for (Component componente : componentes) {
                     if(componente instanceof JPanel){
@@ -1241,6 +1271,28 @@ public class PrincipalControlador {
                         }
                     }
                 }   
+                break;
+                
+            case 2:
+//                for (Component componente : componentes) {
+//                    if(componente instanceof JPanel){
+//                        response = recorreJPanel((JPanel)componente, 1);
+//                    }                    
+//                    if (componente instanceof JTextField) 
+//                        ((JTextField) componente).setText("");
+//                    
+//                    if(componente instanceof JComboBox<?>)
+//                        ((JComboBox) componente).setSelectedIndex(0);
+//                    
+//                    if(componente instanceof JLabel)
+//                        ((JLabel) componente).setIcon(null);
+//                }   
+                for (Component componente : componentes) {
+                    if(componente instanceof JPanel){
+                        ((JPanel)componente).removeAll();
+                    }
+                }
+                vaciaLstVistas();
                 break;
         }
         return response;
@@ -1265,6 +1317,24 @@ public class PrincipalControlador {
         }
         
         return response;
+    }
+    
+    private void limpiaPantallaRegistro(){
+                
+        //Si se encuentran campos vacios
+        recorreJPanel(vistaRegistro.pnlDatosGenerales, 2);
+        recorreJPanel(vistaRegistro.pnlParentesco, 2)  ;
+        recorreJPanel(vistaRegistro.pnlInformacionEscolar, 2);  
+        recorreJPanel(vistaRegistro.pnlManejoBeca, 2);
+        recorreJPanel(vistaRegistro.pnlDirecciones, 2);  
+        recorreJPanel(vistaRegistro.pnlCorreos, 2);
+    }
+    
+    private void vaciaLstVistas(){
+        lstVistaHijos.removeAll(lstVistaHijos);
+        lstVistaHermanos.removeAll(lstVistaHermanos);
+        lstVistaParentesco.removeAll(lstVistaParentesco);
+        lstVistaDireccion.removeAll(lstVistaDireccion);
     }
 
     private void addListenerTeclasVistaRegistro() {
@@ -1379,6 +1449,10 @@ public class PrincipalControlador {
         
     }
 
+    /**
+     * Comienza con la busqueda de becarios por folio y crea la pantalla VistaRegistro con la informacion recabada
+     * @param folio 
+     */
     protected void getInfoBecarioPorFolio(String folio) {
         
         Conexion conn = new Conexion();
@@ -1442,14 +1516,23 @@ public class PrincipalControlador {
     private void creaVistaRegistroConDatosBecario(Becario becario, List<Direccion> lstDireccionesBecario, 
             List<Telefono> lstTelefonosBecario, List<Padres> lstPadresBecario, List<Hermanos> lstHermanos, 
             List<Hijos> lstHijos, DatosEscolares lstDatosEscolares, Aval lstAval) {
-        vistaRegistro = new VistaRegistro(this);
+        
+        if(vistaRegistro != null){
+            terminaVistaRegistro();
+        }
+        
+        if(vistaRegistro == null)
+            vistaRegistro = new VistaRegistro(this);
         
         vistaRegistro.pnlOpciones.removeAll();
         vistaOpcionActualizar = new VistaRegistroOpcionActualizar();
         vistaOpcionActualizar.setControlador(this);
-        vistaRegistro.pnlOpciones.add(vistaOpcionActualizar, BorderLayout.CENTER);
         vistaOpcionActualizar.setVisible(true);
-        //vistaRegistro.updateUI();
+        vistaRegistro.pnlOpciones.add(vistaOpcionActualizar, BorderLayout.CENTER);
+        
+        vistaRegistro.updateUI();
+        vista.validate();
+        vista.repaint();
         
         this.setVistaRegistro(vistaRegistro);
         List<LinkedHashMap<Integer, String>> lstCategorias = null;
@@ -1608,9 +1691,9 @@ public class PrincipalControlador {
         vistaRegistro.cmboxCarreraSiNo.setSelectedIndex(becario.getPrimeroConBeca());
         vistaRegistro.cmboxCampoEscuela.setSelectedItem(getItemComboBox(lstDatosEscolares.getIdCampoCarrera(), catCampoEstudio));
         vistaRegistro.cmboxMesInicioBeca.setSelectedIndex(lstDatosEscolares.getMesInicioBeca() - 1);
-        vistaRegistro.cmboxAnioInicioBeca.setSelectedItem(lstDatosEscolares.getAnioInicioBeca());
-        vistaRegistro.cmboxMesGraduacion.setSelectedIndex(lstDatosEscolares.getMesGraduacion());
-        vistaRegistro.cmboxAnioGraduacion.setSelectedItem(lstDatosEscolares.getAnioGraduacion());
+        vistaRegistro.cmboxAnioInicioBeca.setSelectedItem(lstDatosEscolares.getAnioInicioBeca() + "");
+        vistaRegistro.cmboxMesGraduacion.setSelectedIndex(lstDatosEscolares.getMesGraduacion() - 1);
+        vistaRegistro.cmboxAnioGraduacion.setSelectedItem(lstDatosEscolares.getAnioGraduacion() + "");
         vistaRegistro.cmboxEscuelaUniversitaria.setSelectedIndex(lstDatosEscolares.getIdUniversidad() - 1);
         vistaRegistro.cmboxSemestreInicioBeca.setSelectedItem(lstDatosEscolares.getSemestreInicioBeca());
         vistaRegistro.cmboxSemestresTotalesCarrera.setSelectedItem(lstDatosEscolares.getSemestresTotalesCarrera());
