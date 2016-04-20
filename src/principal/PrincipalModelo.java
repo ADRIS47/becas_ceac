@@ -492,6 +492,7 @@ public class PrincipalModelo {
             ps.setString(22, becario.getIdentificacion());
             ps.setString(23, becario.getFolio());
             ps.setInt(24, becario.getIdEstatus());
+            ps.setString(25, becario.getPagare());
             
             int i = ps.executeUpdate();
             if (i == 0) {
@@ -707,11 +708,11 @@ public class PrincipalModelo {
     }
 
     /**
-     * Inserta los datosEscolares del becario
+     * Inserta los aval del becario
      *
      * @param conexion Conexion a la base de datos
      * @param idBecario Id del becario
-     * @param lstHermanos Lista de datosEscolares
+     * @param lstHermanos Lista de aval
      * @return
      */
     protected boolean insertHermanosBecario(Connection conexion, long idBecario, List<Hermanos> lstHermanos) {
@@ -754,10 +755,10 @@ public class PrincipalModelo {
     }
 
     /**
-     * Inserta los datosEscolares del becario
+     * Inserta los aval del becario
      * @param conexion Conexion a la base de datos
      * @param idBecario Id del becario
-     * @param lstHijos Lista de datosEscolares del becario
+     * @param lstHijos Lista de aval del becario
      * @return True si la operacion correcta, False si no
      */
     protected boolean insertHijosBecario(Connection conexion, long idBecario, List<Hijos> lstHijos) {
@@ -1023,7 +1024,7 @@ public class PrincipalModelo {
             }
             
             
-            //Si existe una sola direccion registrada, se actualiza la primera y la segunda se inserta
+            //Si existe una sola hijo registrada, se actualiza la primera y la segunda se inserta
             else if(direcciones > 0 && direcciones < lstTelefonosBecario.size()){
                 ps = conexion.prepareStatement(Update.updateDireccionesBecario);
                 ps.setString(1, lstTelefonosBecario.get(0).getCalle());
@@ -1150,7 +1151,7 @@ public class PrincipalModelo {
             }
             
             
-            //Si existe una sola telefono registrado, se actualiza el primero y el segundo se inserta
+            //Si existe una sola hijo registrado, se actualiza el primero y el segundo se inserta
             else if(telefonos > 0 && telefonos < lstTelefonosBecario.size()){
                 ps = conexion.prepareStatement(Update.updateTelefonosBecario);
                 ps.setString(1, lstTelefonosBecario.get(0).getTelefono());
@@ -1230,7 +1231,7 @@ public class PrincipalModelo {
             }
             
             
-            //Si existe una sola telefono registrado, se actualiza el primero y el segundo se inserta
+            //Si existe una sola hijo registrado, se actualiza el primero y el segundo se inserta
             else if(papas > 0 && papas < lstPadresBecario.size()){
                 ps = conexion.prepareStatement(Update.updatePapasBecario);
                 ps.setString(1, lstPadresBecario.get(0).getNombre());
@@ -1291,7 +1292,7 @@ public class PrincipalModelo {
     }
 
     /**
-     * Actualiza los datosEscolares del becario
+     * Actualiza los aval del becario
      * @param conexion
      * @param idBecario
      * @param lstHermanos
@@ -1322,7 +1323,7 @@ public class PrincipalModelo {
             }
             
             
-            //Si existe una sola telefono registrado, se actualiza el primero y el segundo se inserta
+            //Si existe una sola hijo registrado, se actualiza el primero y el segundo se inserta
             else if(hermanos > 0 && hermanos < lstHermanos.size()){
                 ps = conexion.prepareStatement(Update.updateHermanosBecario);
                 ps.setString(1, lstHermanos.get(0).getNombre());
@@ -1377,7 +1378,7 @@ public class PrincipalModelo {
     }
 
     /**
-     * Actualiza los datosEscolares del becario
+     * Actualiza los aval del becario
      * @param conexion
      * @param idBecario
      * @param lstHijos
@@ -1408,7 +1409,7 @@ public class PrincipalModelo {
             }
             
             
-            //Si existe una sola telefono registrado, se actualiza el primero y el segundo se inserta
+            //Si existe una sola hijo registrado, se actualiza el primero y el segundo se inserta
             else if(hijos > 0 && hijos < lstHijos.size()){
                 ps = conexion.prepareStatement(Update.updateHijosBecario);
                 ps.setString(1, lstHijos.get(0).getNombre());
@@ -1563,15 +1564,12 @@ public class PrincipalModelo {
      * @param folio Numero de folio
      * @return Becario con la informacion encontrada
      */
-    Becario getBecarioPorFolio(String folio) {
+    Becario getBecarioPorFolio(Connection conexion, String folio) {
         Becario becario = null;
-        Conexion conn = new Conexion();
-        Connection conexion = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         
         try {
-            conexion = conn.estableceConexion();
             
             if(conexion == null)
                 throw new SQLException("No se pudo conectar a la base de datos, intentelo de nuevo");
@@ -1582,9 +1580,34 @@ public class PrincipalModelo {
             
             while(rs.next()){
                 becario = new Becario();
+                becario.setId(rs.getLong(Becario.COL_ID));
                 becario.setNombre(rs.getString(Becario.COL_NOMBRE));
+                becario.setApPaterno(rs.getString(Becario.COL_APATERNO));
+                becario.setApMaterno(rs.getString(Becario.COL_AMATERNO));
+                becario.setFecha_nac(rs.getDate(Becario.COL_FECHA_NAC));
+                becario.setIdSexo(rs.getInt(Becario.COL_SEXO));
+                becario.setIdEstadoCivil(rs.getInt(Becario.COL_ESTADO_CIVIL));
+                becario.setTrabaja(rs.getInt(Becario.COL_TRABAJA));
+                becario.setFolio(rs.getString(Becario.COL_FOLIO));
+                becario.setIdPrograma(rs.getInt(Becario.COL_PROGRAMA));
+                becario.setIdEstatus(rs.getInt(Becario.COL_ESTATUS));
+                becario.setIdTipoEstatus(rs.getInt(Becario.COL_TIPO_ESTATUS));
+                becario.setFoto(rs.getString(Becario.COL_FOTO));
+                becario.setEmail(rs.getString(Becario.COL_EMAIL));
+                becario.setPrimeroConBeca(rs.getInt(Becario.COL_PRIMERO_CON_BECA));
+                becario.setNombreConyuge(rs.getString(Becario.COL_NOMBRE_CONYUGE));
+                becario.setApPaternoConyuge(rs.getString(Becario.COL_APATERNO_CONYUGE));
+                becario.setApMaternoConyuge(rs.getString(Becario.COL_AMATERNO_CONYUGE));
+                becario.setTelefonoConyuge(rs.getString(Becario.COL_TELEFONO_CONYUGE));
+                becario.setObservaciones(rs.getString(Becario.COL_OBSERVACIONES));
+                becario.setActaNacimiento(rs.getString(Becario.COL_ACTA_NAC));
+                becario.setSolicitudBeca(rs.getString(Becario.COL_SOLICITUD_BECA));
+                becario.setEnsayo(rs.getString(Becario.COL_ENSAYO));
+                becario.setBoletaInicioBeca(rs.getString(Becario.COL_BOLETA_INICIO_BECA));
+                becario.setContatoBeca(rs.getString(Becario.COL_CONTRATO_BECA));
+                becario.setIdentificacion(rs.getString(Becario.COL_IDENTIFICACION));
+                becario.setPagare(rs.getString(Becario.COL_PAGARE));
             }
-            
             
         } catch (SQLException e) {
             log.muestraErrores(e);
@@ -1593,7 +1616,6 @@ public class PrincipalModelo {
             try {
                 rs.close();
                 ps.close();
-                conexion.close();
             } catch (SQLException ex) {
                 Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
                 log.muestraErrores(ex);
@@ -1602,5 +1624,356 @@ public class PrincipalModelo {
         }
         
         return becario;
+    }
+
+    /**
+     * Obtiene las direcciones del becario por ID del mismo
+     * @param conexion
+     * @param id Id del becario
+     * @return Lista de direcciones del becario
+     */
+    protected List<Direccion> getDireccionesBecario(Connection conexion, long id) {
+        List<Direccion> lstDirecciones = new ArrayList<>();
+        
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        try {
+            
+            if(conexion == null)
+                throw new SQLException("No se pudo conectar a la base de datos, intentelo de nuevo");
+            
+            ps = conexion.prepareStatement(Consultas.getDireccionesBecario);
+            ps.setLong(1, id);
+            System.out.println("Query: " + ps.toString());
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+               Direccion direccion = new Direccion();
+               direccion.setCalle(rs.getString(Direccion.COL_CALLE));
+               direccion.setNumExt(rs.getString(Direccion.COL_NUM_EXT));
+               direccion.setNumInt(rs.getString(Direccion.COL_NUM_INT));
+               direccion.setColonia(rs.getString(Direccion.COL_COLONIA));
+               direccion.setCodigoPostal(rs.getInt(Direccion.COL_CODIGO_POSTAL));
+               direccion.setCiudad(rs.getString(Direccion.COL_CIUDAD));
+               direccion.setId(rs.getLong(Direccion.COL_ID));
+               direccion.setIdBecario(id);
+               lstDirecciones.add(direccion);
+            }
+        } catch (SQLException e) {
+            log.muestraErrores(e);
+        }
+        finally{
+            try {
+                rs.close();
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+                log.muestraErrores(ex);
+            }
+            
+        }
+        
+        return lstDirecciones;
+        
+    }
+
+    /**
+     * Obtiene los telefonos del becario
+     * @param conexion
+     * @param id
+     * @return 
+     */
+    protected List<Telefono> getTelefonosBecario(Connection conexion, long id) {
+        List<Telefono> lstTelefonos = new ArrayList<>();
+        
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        try {
+            
+            if(conexion == null)
+                throw new SQLException("No se pudo conectar a la base de datos, intentelo de nuevo");
+            
+            ps = conexion.prepareStatement(Consultas.getTelefonosBecario);
+            ps.setLong(1, id);
+            System.out.println("Query: " + ps.toString());
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+               Telefono telefono = new Telefono();
+               telefono.setTelefono(rs.getString(Telefono.COL_TELEFONO));
+               telefono.setId(rs.getLong(Telefono.COL_ID));
+               telefono.setIdBecario(id);
+               lstTelefonos.add(telefono);
+            }
+        } catch (SQLException e) {
+            log.muestraErrores(e);
+        }
+        finally{
+            try {
+                rs.close();
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+                log.muestraErrores(ex);
+            }
+            
+        }
+        
+        return lstTelefonos;
+    }
+
+    /**
+     * OBtiene los padres del becario
+     * @param conexion
+     * @param id
+     * @return 
+     */
+    protected List<Padres> getPadresBecario(Connection conexion, long id) {
+        List<Padres> lstPadres = new ArrayList<>();
+        
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        try {
+            
+            if(conexion == null)
+                throw new SQLException("No se pudo conectar a la base de datos, intentelo de nuevo");
+            
+            ps = conexion.prepareStatement(Consultas.getDatosPapasBecario);
+            ps.setLong(1, id);
+            System.out.println("Query: " + ps.toString());
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+               Padres padre = new Padres();
+               padre.setTelefono(rs.getString(Padres.COL_TELEFONO));
+               padre.setId(rs.getLong(Padres.COL_ID));
+               padre.setGradoEscolar(rs.getInt(Padres.COL_ID_GRADO_ESCOLAR));
+               padre.setNombre(rs.getString(Padres.COL_NOMBRE));
+               padre.setParenteco(rs.getInt(Padres.COL_ID_PARENTESCO));
+               padre.setTelefono(rs.getString(Padres.COL_TELEFONO));
+               padre.setTrabaja(rs.getInt(Padres.COL_TRABAJA));
+               padre.setaMaterno(rs.getString(Padres.COL_AMATERNO));
+               padre.setaPaterno(rs.getString(Padres.COL_APATERNO));
+               padre.setIdBecario(id);
+               lstPadres.add(padre);
+            }
+        } catch (SQLException e) {
+            log.muestraErrores(e);
+        }
+        finally{
+            try {
+                rs.close();
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+                log.muestraErrores(ex);
+            }
+            
+        }
+        
+        return lstPadres;
+    }
+
+    /**
+     * Obtiene los hermanos de un becario
+     * @param conexion
+     * @param id
+     * @return 
+     */
+    protected List<Hermanos> getHermanosBecario(Connection conexion, long id) {
+        List<Hermanos> lstHermanos = new ArrayList<>();
+        
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        try {
+            
+            if(conexion == null)
+                throw new SQLException("No se pudo conectar a la base de datos, intentelo de nuevo");
+            
+            ps = conexion.prepareStatement(Consultas.getDatosHermanosBecario);
+            ps.setLong(1, id);
+            System.out.println("Query: " + ps.toString());
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+               Hermanos hermano = new Hermanos();
+               hermano.setId(rs.getLong(Hermanos.COL_ID));
+               hermano.setNombre(rs.getString(Hermanos.COL_NOMBRE));
+               hermano.setAMaterno(rs.getString(Hermanos.COL_AMATERNO));
+               hermano.setAPaterno(rs.getString(Hermanos.COL_APATERNO));
+               hermano.setGradoEscolar(rs.getInt(Hermanos.COL_ID_GRADO_ESCOLAR));
+               hermano.setIdBecario(id);
+               lstHermanos.add(hermano);
+            }
+        } catch (SQLException e) {
+            log.muestraErrores(e);
+        }
+        finally{
+            try {
+                rs.close();
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+                log.muestraErrores(ex);
+            }
+            
+        }
+        
+        return lstHermanos;
+    }
+
+    protected List<Hijos> getHijosBecario(Connection conexion, long id) {
+        List<Hijos> lstHijos = new ArrayList<>();
+        
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        try {
+            
+            if(conexion == null)
+                throw new SQLException("No se pudo conectar a la base de datos, intentelo de nuevo");
+            
+            ps = conexion.prepareStatement(Consultas.getDatosHijosBecario);
+            ps.setLong(1, id);
+            System.out.println("Query: " + ps.toString());
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+               Hijos hijo = new Hijos();
+               hijo.setId(rs.getLong(Hijos.COL_ID));
+               hijo.setNombre(rs.getString(Hijos.COL_NOMBRE));
+               hijo.setAMaterno(rs.getString(Hijos.COL_AMATERNO));
+               hijo.setAPaterno(rs.getString(Hijos.COL_APATERNO));
+               hijo.setFechaNac(rs.getDate(Hijos.COL_FECHA_NAC));
+               hijo.setIdBecario(id);
+               lstHijos.add(hijo);
+            }
+        } catch (SQLException e) {
+            log.muestraErrores(e);
+        }
+        finally{
+            try {
+                rs.close();
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+                log.muestraErrores(ex);
+            }
+            
+        }
+        
+        return lstHijos;
+    }
+
+    /**
+     * Obtiene los datos escolares de un becario
+     * @param conexion
+     * @param id
+     * @return 
+     */
+    protected DatosEscolares getDatosEscolaresBecario(Connection conexion, long id) {
+        DatosEscolares datosEscolares = new DatosEscolares();
+        
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        try {
+            
+            if(conexion == null)
+                throw new SQLException("No se pudo conectar a la base de datos, intentelo de nuevo");
+            
+            ps = conexion.prepareStatement(Consultas.getDatosDatosEscolaresBecario);
+            ps.setLong(1, id);
+            System.out.println("Query: " + ps.toString());
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+               datosEscolares.setId(rs.getLong(DatosEscolares.COL_ID));
+               datosEscolares.setEscuelaProcedencia(rs.getString(DatosEscolares.COL_ESCUELA_PROCEDENCIA));
+               datosEscolares.setIdUniversidad(rs.getInt(DatosEscolares.COL_ID_UNIVERSIDAD));
+               datosEscolares.setIdCampoCarrera(rs.getInt(DatosEscolares.COL_ID_CAMPO_CARRERA));
+               datosEscolares.setNombreCarrera(rs.getString(DatosEscolares.COL_NOMBRE_CARRERA));
+               datosEscolares.setMesInicioBeca(rs.getInt(DatosEscolares.COL_MES_INICIO_BECA));
+               datosEscolares.setAnioInicioBeca(rs.getInt(DatosEscolares.COL_ANIO_INICIO_BECA));
+               datosEscolares.setMesGraduacion(rs.getInt(DatosEscolares.COL_MES_GRADUACION));
+               datosEscolares.setAnioGraduacion(rs.getInt(DatosEscolares.COL_ANIO_GRADUACION));
+               datosEscolares.setSemestresTotalesCarrera(rs.getInt(DatosEscolares.COL_SEMESTRES_TOTALES_BECA));
+               datosEscolares.setSemestreInicioBeca(rs.getInt(DatosEscolares.COL_SEMESTRE_INICIO_BECA));
+               datosEscolares.setCostoCarrera(rs.getInt(DatosEscolares.COL_COSTO_CARRERA));
+               datosEscolares.setBecaTotal(rs.getInt(DatosEscolares.COL_BECA_TOTAL));
+               datosEscolares.setBecaSemestral(rs.getInt(DatosEscolares.COL_BECA_SEMESTRAL));
+               datosEscolares.setCondicionado(rs.getInt(DatosEscolares.COL_CONDICIONADO));
+               datosEscolares.setIdBecario(id);
+            }
+        } catch (SQLException e) {
+            log.muestraErrores(e);
+        }
+        finally{
+            try {
+                rs.close();
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+                log.muestraErrores(ex);
+            }
+            
+        }
+        
+        return datosEscolares;
+    }
+
+    /**
+     * Obtiene el aval del becario
+     * @param conexion
+     * @param id
+     * @return 
+     */
+    protected Aval getAvalBecario(Connection conexion, long id) {
+        Aval aval = new Aval();
+        
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        try {
+            
+            if(conexion == null)
+                throw new SQLException("No se pudo conectar a la base de datos, intentelo de nuevo");
+            
+            ps = conexion.prepareStatement(Consultas.getDatosAvalBecario);
+            ps.setLong(1, id);
+            System.out.println("Query: " + ps.toString());
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+               aval.setId(rs.getLong(Aval.COL_ID));
+               aval.setaPaterno(rs.getString(Aval.COL_APATERNO));
+               aval.setaMaterno(rs.getString(Aval.COL_AMATERNO));
+               aval.setNombre(rs.getString(Aval.COL_NOMBRE));
+               aval.setCalle(rs.getString(Aval.COL_CALLE));
+               aval.setNumExt(rs.getString(Aval.COL_NUM_EXT));
+               aval.setNumInt(rs.getString(Aval.COL_NUM_INT));
+               aval.setColonia(rs.getString(Aval.COL_COLONIA));
+               aval.setIdentificacion(rs.getString(Aval.COL_IDENTIFICACION));
+               aval.setIdBecario(id);
+            }
+        } catch (SQLException e) {
+            log.muestraErrores(e);
+        }
+        finally{
+            try {
+                rs.close();
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+                log.muestraErrores(ex);
+            }
+            
+        }
+        
+        return aval;
     }
 }

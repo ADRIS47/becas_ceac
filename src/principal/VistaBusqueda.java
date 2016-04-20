@@ -170,7 +170,7 @@ public class VistaBusqueda extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarPorFolioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPorFolioActionPerformed
-        controlador.getBecarioPorFolio(txtNumFolio.getText());
+        controlador.getInfoBecarioPorFolio(txtNumFolio.getText());
     }//GEN-LAST:event_btnBuscarPorFolioActionPerformed
 
 
