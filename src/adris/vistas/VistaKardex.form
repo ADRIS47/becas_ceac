@@ -2698,7 +2698,7 @@
                         <Property name="rows" type="int" value="10"/>
                       </Layout>
                       <SubComponents>
-                        <Component class="javax.swing.JTextField" name="TxtSem20">
+                        <Component class="javax.swing.JTextField" name="TxtSemSC1">
                           <Properties>
                             <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="text" type="java.lang.String" value="Enero"/>
@@ -2708,13 +2708,13 @@
                             <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtSem20ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtSemSC1ActionPerformed"/>
                           </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="TxtSem21">
+                        <Component class="javax.swing.JTextField" name="TxtSemSC2">
                           <Properties>
                             <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="text" type="java.lang.String" value="Enero"/>
@@ -2724,13 +2724,13 @@
                             <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtSem21ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtSemSC2ActionPerformed"/>
                           </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="TxtSem22">
+                        <Component class="javax.swing.JTextField" name="TxtSemSC3">
                           <Properties>
                             <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="text" type="java.lang.String" value="Enero"/>
@@ -2740,13 +2740,13 @@
                             <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtSem22ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtSemSC3ActionPerformed"/>
                           </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="TxtSem23">
+                        <Component class="javax.swing.JTextField" name="TxtSemSC4">
                           <Properties>
                             <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="text" type="java.lang.String" value="Enero"/>
@@ -2756,13 +2756,13 @@
                             <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtSem23ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtSemSC4ActionPerformed"/>
                           </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="TxtSem24">
+                        <Component class="javax.swing.JTextField" name="TxtSemSC5">
                           <Properties>
                             <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="text" type="java.lang.String" value="Enero"/>
@@ -2772,13 +2772,13 @@
                             <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtSem24ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtSemSC5ActionPerformed"/>
                           </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="TxtSem25">
+                        <Component class="javax.swing.JTextField" name="TxtSemSC6">
                           <Properties>
                             <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="text" type="java.lang.String" value="Enero"/>
@@ -2788,13 +2788,13 @@
                             <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtSem25ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtSemSC6ActionPerformed"/>
                           </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="TxtSem26">
+                        <Component class="javax.swing.JTextField" name="TxtSemSC7">
                           <Properties>
                             <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="text" type="java.lang.String" value="Enero"/>
@@ -2804,13 +2804,13 @@
                             <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtSem26ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtSemSC7ActionPerformed"/>
                           </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="TxtSem27">
+                        <Component class="javax.swing.JTextField" name="TxtSemSC8">
                           <Properties>
                             <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="text" type="java.lang.String" value="Enero"/>
@@ -2820,13 +2820,13 @@
                             <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtSem27ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtSemSC8ActionPerformed"/>
                           </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="TxtSem28">
+                        <Component class="javax.swing.JTextField" name="TxtSemSC9">
                           <Properties>
                             <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="text" type="java.lang.String" value="Enero"/>
@@ -2836,13 +2836,13 @@
                             <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtSem28ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtSemSC9ActionPerformed"/>
                           </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="TxtSem29">
+                        <Component class="javax.swing.JTextField" name="TxtSemSC10">
                           <Properties>
                             <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="text" type="java.lang.String" value="Enero"/>
@@ -2852,7 +2852,7 @@
                             <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtSem29ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtSemSC10ActionPerformed"/>
                           </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
@@ -2867,7 +2867,7 @@
                         <Property name="rows" type="int" value="10"/>
                       </Layout>
                       <SubComponents>
-                        <Component class="javax.swing.JButton" name="btnAddBoleta1">
+                        <Component class="javax.swing.JButton" name="BtnAddSC1">
                           <Properties>
                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="cc" green="0" red="0" type="rgb"/>
@@ -2875,13 +2875,13 @@
                             <Property name="text" type="java.lang.String" value="Agregar..."/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddBoleta1ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAddSC1ActionPerformed"/>
                           </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JButton" name="btnEliminaBoleta1">
+                        <Component class="javax.swing.JButton" name="BtnEliminaSC1">
                           <Properties>
                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="cc" green="0" red="0" type="rgb"/>
@@ -2892,7 +2892,7 @@
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="txtEstatusBoleta1">
+                        <Component class="javax.swing.JLabel" name="TxtEstatusSC1">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Tahoma" size="11" style="1"/>
@@ -2913,7 +2913,7 @@
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JButton" name="btnAddActa1">
+                        <Component class="javax.swing.JButton" name="BtnAddSC2">
                           <Properties>
                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="0" green="cc" red="0" type="rgb"/>
@@ -2924,7 +2924,7 @@
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JButton" name="btnEliminaActa1">
+                        <Component class="javax.swing.JButton" name="BtnEliminaSC2">
                           <Properties>
                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="0" green="cc" red="0" type="rgb"/>
@@ -2935,7 +2935,7 @@
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="txtEstatusActa1">
+                        <Component class="javax.swing.JLabel" name="TxtEstatusSC2">
                           <Properties>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
@@ -2948,7 +2948,7 @@
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JButton" name="btnAddCarta1">
+                        <Component class="javax.swing.JButton" name="BtnAddSC3">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Agregar..."/>
                           </Properties>
@@ -2956,7 +2956,7 @@
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JButton" name="btnEliminaCarta1">
+                        <Component class="javax.swing.JButton" name="BtnEliminaSC3">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Eliminar Archivo"/>
                           </Properties>
@@ -2964,7 +2964,7 @@
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="txtEstatusCarta1">
+                        <Component class="javax.swing.JLabel" name="TxtEstatusSC3">
                           <Properties>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
@@ -2977,7 +2977,7 @@
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JButton" name="btnAddEnsayo1">
+                        <Component class="javax.swing.JButton" name="BtnAddSC4">
                           <Properties>
                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="cc" green="0" red="0" type="rgb"/>
@@ -2988,7 +2988,7 @@
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JButton" name="btnEliminaEnsayo1">
+                        <Component class="javax.swing.JButton" name="BtnEliminaSC4">
                           <Properties>
                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="cc" green="0" red="0" type="rgb"/>
@@ -2999,7 +2999,7 @@
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="txtEstatusEnsayo1">
+                        <Component class="javax.swing.JLabel" name="TxtEstatusSC4">
                           <Properties>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
@@ -3012,7 +3012,7 @@
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JButton" name="btnAddINEBecario1">
+                        <Component class="javax.swing.JButton" name="BtnAddSC5">
                           <Properties>
                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="0" green="cc" red="0" type="rgb"/>
@@ -3023,7 +3023,7 @@
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JButton" name="btnEliminaINEBecario1">
+                        <Component class="javax.swing.JButton" name="BtnEliminaSC5">
                           <Properties>
                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="0" green="cc" red="0" type="rgb"/>
@@ -3034,7 +3034,7 @@
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="txtEstatusINEBecario1">
+                        <Component class="javax.swing.JLabel" name="TxtEstatusSC5">
                           <Properties>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
@@ -3047,7 +3047,7 @@
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JButton" name="btnAddINEAval1">
+                        <Component class="javax.swing.JButton" name="BtnAddSC6">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Agregar..."/>
                           </Properties>
@@ -3055,7 +3055,7 @@
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JButton" name="btnEliminaINEAval1">
+                        <Component class="javax.swing.JButton" name="BtnEliminaSC6">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Eliminar Archivo"/>
                           </Properties>
@@ -3063,7 +3063,7 @@
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="txtEstatusINEAval1">
+                        <Component class="javax.swing.JLabel" name="TxtEstatusSC6">
                           <Properties>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
@@ -3076,7 +3076,7 @@
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JButton" name="btnAddContrato1">
+                        <Component class="javax.swing.JButton" name="BtnAddSC7">
                           <Properties>
                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="cc" green="0" red="0" type="rgb"/>
@@ -3084,13 +3084,13 @@
                             <Property name="text" type="java.lang.String" value="Agregar..."/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddContrato1ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAddSC7ActionPerformed"/>
                           </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JButton" name="btnEliminaContrato1">
+                        <Component class="javax.swing.JButton" name="BtnEliminaSC7">
                           <Properties>
                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="cc" green="0" red="0" type="rgb"/>
@@ -3098,13 +3098,13 @@
                             <Property name="text" type="java.lang.String" value="Eliminar Archivo"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminaContrato1ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnEliminaSC7ActionPerformed"/>
                           </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="txtEstatusContrato1">
+                        <Component class="javax.swing.JLabel" name="TxtEstatusSC7">
                           <Properties>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
@@ -3117,7 +3117,7 @@
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JButton" name="btnAddPagare3">
+                        <Component class="javax.swing.JButton" name="BtnAddSC8">
                           <Properties>
                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="0" green="cc" red="0" type="rgb"/>
@@ -3128,7 +3128,7 @@
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JButton" name="btnEliminaPagare3">
+                        <Component class="javax.swing.JButton" name="BtnEliminaSC8">
                           <Properties>
                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="0" green="cc" red="0" type="rgb"/>
@@ -3139,7 +3139,7 @@
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="txtEstatusPagare3">
+                        <Component class="javax.swing.JLabel" name="TxtEstatusSC8">
                           <Properties>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
@@ -3152,7 +3152,7 @@
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JButton" name="btnAddPagare4">
+                        <Component class="javax.swing.JButton" name="BtnAddSC9">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Agregar..."/>
                           </Properties>
@@ -3160,7 +3160,7 @@
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JButton" name="btnEliminaPagare4">
+                        <Component class="javax.swing.JButton" name="BtnEliminaSC9">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Eliminar Archivo"/>
                           </Properties>
@@ -3168,7 +3168,7 @@
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="txtEstatusPagare4">
+                        <Component class="javax.swing.JLabel" name="TxtEstatusSC9">
                           <Properties>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
@@ -3181,7 +3181,7 @@
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JButton" name="btnAddPagare5">
+                        <Component class="javax.swing.JButton" name="BtnAddSC10">
                           <Properties>
                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="cc" green="0" red="0" type="rgb"/>
@@ -3192,7 +3192,7 @@
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JButton" name="btnEliminaPagare5">
+                        <Component class="javax.swing.JButton" name="BtnEliminaSC10">
                           <Properties>
                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="cc" green="0" red="0" type="rgb"/>
@@ -3203,7 +3203,7 @@
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="txtEstatusPagare5">
+                        <Component class="javax.swing.JLabel" name="TxtEstatusSC10">
                           <Properties>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
