@@ -441,7 +441,7 @@ public class VistaKardex extends javax.swing.JPanel {
             .addGroup(jpnlAreaBotonesLayout.createSequentialGroup()
                 .addGap(185, 185, 185)
                 .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(47, 47, 47)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1974,7 +1974,7 @@ public class VistaKardex extends javax.swing.JPanel {
     private javax.swing.JButton btnAddActa;
     private javax.swing.JButton btnAddActa1;
     private javax.swing.JButton btnAddBoleta;
-    private javax.swing.JButton btnAddBoleta1;
+    protected javax.swing.JButton btnAddBoleta1;
     private javax.swing.JButton btnAddCarta;
     private javax.swing.JButton btnAddCarta1;
     private javax.swing.JButton btnAddContrato;
@@ -2132,7 +2132,7 @@ public class VistaKardex extends javax.swing.JPanel {
     private javax.swing.JLabel txtEstatusActa;
     private javax.swing.JLabel txtEstatusActa1;
     private javax.swing.JLabel txtEstatusBoleta;
-    private javax.swing.JLabel txtEstatusBoleta1;
+    protected javax.swing.JLabel txtEstatusBoleta1;
     private javax.swing.JLabel txtEstatusCarta;
     private javax.swing.JLabel txtEstatusCarta1;
     private javax.swing.JLabel txtEstatusContrato;
