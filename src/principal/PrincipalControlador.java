@@ -52,6 +52,7 @@ public class PrincipalControlador {
     
     VistaPanelPrincipal vista;
     VistaRegistro vistaRegistro;
+    VistaBusqueda vistaBusqueda;
     PnlPortada vistaPortada;
     VistaRegistroOpcionGuardar vistaOpcionGuardar;
     VistaRegistroOpcionActualizar vistaOpcionActualizar;
@@ -105,6 +106,10 @@ public class PrincipalControlador {
     public void setVistaPortada(PnlPortada vistaPortada) {
         this.vistaPortada = vistaPortada;
     }
+
+    public void setVistaBusqueda(VistaBusqueda vistaBusqueda) {
+        this.vistaBusqueda = vistaBusqueda;
+    }
     
     public void iniciaPantallaPrincipal(){
         vista = new VistaPanelPrincipal(this);
@@ -117,6 +122,8 @@ public class PrincipalControlador {
         this.setVistaPortada(vistaPortada);
         
         creaVistaPortada();
+        
+        vista.setLocationRelativeTo(null);
         
         vista.setVisible(true);
     }
@@ -155,6 +162,14 @@ public class PrincipalControlador {
         //Helper.getFechaGraduacion(vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca, vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion, vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera);
         
         creaPantalla(vistaRegistro);
+    }
+    
+    protected void creaVistaBusqueda() {
+        vistaBusqueda = new VistaBusqueda();
+        this.setVistaBusqueda(vistaBusqueda);
+        vistaBusqueda.setControlador(this);
+        
+        creaPantalla(vistaBusqueda);
     }
     
     /**
@@ -1331,18 +1346,6 @@ public class PrincipalControlador {
                 vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre,
                 vistaRegistro, EscuchadorCmbBoxCambiado.FECHA_GRADUACION));
         
-//        vistaRegistro.cmboxMesGraduacion.addItemListener(new 
-//        EscuchadorCmbBoxCambiado(vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca, 
-//                vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion, 
-//                vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera, 
-//                vistaRegistro, EscuchadorCmbBoxCambiado.FECHA_GRADUACION));
-//        
-//        vistaRegistro.cmboxAnioGraduacion.addItemListener(new 
-//        EscuchadorCmbBoxCambiado(vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca, 
-//                vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion, 
-//                vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera, 
-//                vistaRegistro, EscuchadorCmbBoxCambiado.FECHA_GRADUACION));
-        
         vistaRegistro.cmboxSemestreInicioBeca.addItemListener(new 
         EscuchadorCmbBoxCambiado(vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca, 
                 vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion,
@@ -1350,5 +1353,9 @@ public class PrincipalControlador {
                 vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre,
                 vistaRegistro, EscuchadorCmbBoxCambiado.FECHA_GRADUACION));
         
+    }
+
+    protected void getBecarioPorFolio(String folio) {
+        Becario becario = modelo.getBecarioPorFolio(folio);
     }
 }

@@ -1557,4 +1557,50 @@ public class PrincipalModelo {
         
         return response;
     }
+
+    /**
+     * Obtiene los becarios por número de folio
+     * @param folio Numero de folio
+     * @return Becario con la informacion encontrada
+     */
+    Becario getBecarioPorFolio(String folio) {
+        Becario becario = null;
+        Conexion conn = new Conexion();
+        Connection conexion = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        try {
+            conexion = conn.estableceConexion();
+            
+            if(conexion == null)
+                throw new SQLException("No se pudo conectar a la base de datos, intentelo de nuevo");
+            ps = conexion.prepareStatement(Consultas.getBecarioPorFolio);
+            ps.setString(1, folio);
+            System.out.println("Query: " + ps.toString());
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                becario = new Becario();
+                becario.setNombre(rs.getString(Becario.COL_NOMBRE));
+            }
+            
+            
+        } catch (SQLException e) {
+            log.muestraErrores(e);
+        }
+        finally{
+            try {
+                rs.close();
+                ps.close();
+                conexion.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+                log.muestraErrores(ex);
+            }
+            
+        }
+        
+        return becario;
+    }
 }
