@@ -166,6 +166,8 @@ public class PrincipalControlador {
         
         addListenerTeclasVistaRegistro();
         
+        helper.setAñoActualEnCombo(vistaRegistro.cmboxAnioInicioBeca);
+        
         vistaOpcionGuardar = new VistaRegistroOpcionGuardar();
         vistaOpcionGuardar.setControlador(this);
         helper.agregaJPanel(vistaOpcionGuardar, vistaRegistro.pnlOpciones);

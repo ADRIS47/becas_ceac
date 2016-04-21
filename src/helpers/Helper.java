@@ -281,5 +281,15 @@ public class Helper {
         return fecha;
     }
     
+    /**
+     * Pone el año actual del sistema en un ComboBox
+     * @param combo 
+     */
+    public void setAñoActualEnCombo(JComboBox<String> combo){
+        Calendar calendario = new GregorianCalendar();
+        int year = calendario.get(Calendar.YEAR) - 2007;
+        combo.setSelectedIndex(year);
+    }
+    
     
 }
