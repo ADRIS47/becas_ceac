@@ -38,7 +38,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         txtFolio = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        cmbEstatus = new javax.swing.JComboBox<String>();
+        cmbEstatus = new javax.swing.JComboBox<>();
         pnlNombres = new javax.swing.JPanel();
         txtNombreBecado = new javax.swing.JTextField();
         txtApPaternoBecado = new javax.swing.JTextField();
@@ -106,8 +106,8 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         cmboxMesGraduacion = new javax.swing.JComboBox();
-        cmboxAnioInicioBeca = new javax.swing.JComboBox<String>();
-        cmboxAnioGraduacion = new javax.swing.JComboBox<String>();
+        cmboxAnioInicioBeca = new javax.swing.JComboBox<>();
+        cmboxAnioGraduacion = new javax.swing.JComboBox<>();
         txtNombreCarrera = new javax.swing.JTextField();
         pnlManejoBeca = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -210,7 +210,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(0, 0, 153));
         jLabel3.setText("Estatus:");
 
-        cmbEstatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Becado", "Exalumno" }));
+        cmbEstatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Becado", "Exalumno" }));
 
         javax.swing.GroupLayout pnlProgramaLayout = new javax.swing.GroupLayout(pnlPrograma);
         pnlPrograma.setLayout(pnlProgramaLayout);
@@ -673,9 +673,9 @@ public class VistaRegistro extends javax.swing.JPanel {
         cmboxMesGraduacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
         cmboxMesGraduacion.setEnabled(false);
 
-        cmboxAnioInicioBeca.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
+        cmboxAnioInicioBeca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
 
-        cmboxAnioGraduacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
+        cmboxAnioGraduacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
         cmboxAnioGraduacion.setEnabled(false);
 
         txtNombreCarrera.setName("txtNombreCarrera"); // NOI18N

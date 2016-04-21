@@ -40,6 +40,7 @@ public class Becario {
     String inicialesFolio;
     String contatoBeca;
     String identificacion;
+    String pagare;
     boolean pendiente;
 
     public long getId() {
@@ -265,6 +266,16 @@ public class Becario {
     public void setIdentificacion(String identificacion) {
         this.identificacion = identificacion;
     }
+
+    public String getPagare() {
+        return pagare;
+    }
+
+    public void setPagare(String pagare) {
+        this.pagare = pagare;
+    }
+    
+    
     
     public final static String COL_ID = "id_becario";
     public final static String COL_NOMBRE = "nombre";
@@ -292,5 +303,6 @@ public class Becario {
     public final static String COL_BOLETA_INICIO_BECA = "boleta_inicio_beca";
     public final static String COL_CONTRATO_BECA = "contrato_beca";
     public final static String COL_IDENTIFICACION = "identificacion";
+    public final static String COL_PAGARE = "pagare";
     public final static String COL_PENDIENTE = "pendiente";
 }

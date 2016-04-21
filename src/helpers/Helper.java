@@ -5,10 +5,10 @@
  */
 package helpers;
 
-import index.Index;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -75,10 +75,17 @@ public class Helper {
     }
     
     public void cargaImagenExterna(JLabel etiqueta, Path path){
-        ImageIcon fot = new ImageIcon(path.toString());
-        Icon icono = new ImageIcon(fot.getImage().getScaledInstance(etiqueta.getWidth(), 
+//        ImageIcon fot = new ImageIcon(path.toString());
+//        Icon icono = new ImageIcon(fot.getImage().getScaledInstance(etiqueta.getWidth(), 
+//                etiqueta.getHeight(), Image.SCALE_DEFAULT));
+//        etiqueta.setIcon(icono);
+
+        Image image = Toolkit.getDefaultToolkit().getImage(path.toString());
+        ImageIcon icon = new ImageIcon(image);
+        Icon icono = new ImageIcon(icon.getImage().getScaledInstance(etiqueta.getWidth(), 
                 etiqueta.getHeight(), Image.SCALE_DEFAULT));
         etiqueta.setIcon(icono);
+        
     }
 
     /**

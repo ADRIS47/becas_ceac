@@ -138,7 +138,7 @@ public class PnlHijos extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox cmbEdadHijo;
+    protected javax.swing.JComboBox cmbEdadHijo;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
