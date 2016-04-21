@@ -1245,7 +1245,7 @@ public class PrincipalControlador {
         int anio = Integer.parseInt(fech[2]); 
         int mes = Integer.parseInt(fech[1]); 
         int dia = Integer.parseInt(fech[0]); 
-        Calendar calendario = new GregorianCalendar(anio, mes, dia);
+        Calendar calendario = new GregorianCalendar(anio, mes - 1, dia);
         long result = calendario.getTimeInMillis();
         
         return result;
