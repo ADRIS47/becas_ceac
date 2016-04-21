@@ -1531,8 +1531,6 @@ public class PrincipalControlador {
         vistaRegistro.pnlOpciones.add(vistaOpcionActualizar, BorderLayout.CENTER);
         
         vistaRegistro.updateUI();
-        vista.validate();
-        vista.repaint();
         
         this.setVistaRegistro(vistaRegistro);
         List<LinkedHashMap<Integer, String>> lstCategorias = null;
@@ -1561,6 +1559,9 @@ public class PrincipalControlador {
         vistaRegistro.comboBoxPrograma.setEnabled(false);
         vistaRegistro.cmbEstatus.setEnabled(false);
         creaPantalla(vistaRegistro);
+        
+        Path pathFotografia = Paths.get(becario.getFoto());
+        helper.cargaImagenExterna(vistaRegistro.lblFotografia, pathFotografia);
     }
 
     /**
@@ -1589,8 +1590,7 @@ public class PrincipalControlador {
         vistaRegistro.comboBxTrabajaBecado.setSelectedIndex(becario.getTrabaja());
         vistaRegistro.combobxSexoBecado.setSelectedIndex(becario.getIdSexo() - 1);
         vistaRegistro.combobxCivilBecado.setSelectedIndex(becario.getIdEstadoCivil() - 1);
-        Path pathFotografia = Paths.get(becario.getFoto());
-        //helper.cargaImagenExterna(vistaRegistro.lblFotografia, pathFotografia);
+        
         int contador = 0;
         for (Telefono telefono : lstTelefonosBecario) {
             switch(contador){
