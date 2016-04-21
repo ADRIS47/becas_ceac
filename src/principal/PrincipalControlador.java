@@ -1597,7 +1597,7 @@ public class PrincipalControlador {
         vistaRegistro.txtNombreBecado.setText(becario.getNombre());
         vistaRegistro.txtApPaternoBecado.setText(becario.getApPaterno());
         vistaRegistro.txtApMaternoBecado.setText(becario.getApMaterno());
-        vistaRegistro.txtFechaNacimiento.setText(becario.getFecha_nac().toString());
+        vistaRegistro.txtFechaNacimiento.setText(helper.formateaFechaBD(becario.getFecha_nac()));
         vistaRegistro.comboBxTrabajaBecado.setSelectedIndex(becario.getTrabaja());
         vistaRegistro.combobxSexoBecado.setSelectedIndex(becario.getIdSexo() - 1);
         vistaRegistro.combobxCivilBecado.setSelectedIndex(becario.getIdEstadoCivil() - 1);

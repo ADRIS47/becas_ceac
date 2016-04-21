@@ -15,6 +15,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.sql.Date;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.logging.Level;
@@ -259,4 +260,22 @@ public class Helper {
     public void bajaScrollVertical(JScrollPane scrollPane) {
         scrollPane.getVerticalScrollBar().setValue(scrollPane.getVerticalScrollBar().getMaximum());
     }
+
+    /**
+     * Regresa una fecha en formato humano
+     * @param fecha_nac Fecha a formatear
+     * @return Fecha formateada
+     */
+    public String formateaFechaBD(Date fecha_nac) {
+        String fecha = "";
+        
+        java.util.Date dateJava = new Date(fecha_nac.getTime()) ;
+        Calendar calendario = new GregorianCalendar();
+        calendario.setTime(dateJava);
+        fecha = calendario.get(Calendar.DATE) + "/" + calendario.get(Calendar.MONTH) + "/" + calendario.get(Calendar.YEAR);
+        
+        return fecha;
+    }
+    
+    
 }
