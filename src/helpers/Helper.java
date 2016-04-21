@@ -272,7 +272,11 @@ public class Helper {
         java.util.Date dateJava = new Date(fecha_nac.getTime()) ;
         Calendar calendario = new GregorianCalendar();
         calendario.setTime(dateJava);
-        fecha = calendario.get(Calendar.DATE) + "/" + calendario.get(Calendar.MONTH) + "/" + calendario.get(Calendar.YEAR);
+        
+        String mes = new String(calendario.get(Calendar.MONTH) + 1 + "");
+        if(mes.length() == 1)
+            mes = "0" + mes;
+        fecha = calendario.get(Calendar.DATE) + "/" + mes + "/" + calendario.get(Calendar.YEAR);
         
         return fecha;
     }
