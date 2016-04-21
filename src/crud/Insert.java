@@ -32,12 +32,13 @@ public class Insert {
                     + Becario.COL_BOLETA_INICIO_BECA + ", " + Becario.COL_PENDIENTE + ","
                     + Becario.COL_CONTRATO_BECA + ", " + Becario.COL_IDENTIFICACION + ","
                     + Becario.COL_FOLIO + ", " + Becario.COL_ESTATUS + ","
-                    + Becario.COL_PAGARE + ") "
+                    + Becario.COL_PAGARE + ", "  + Becario.COL_OCUPACION_CONYUGE + ") "
             + "VALUES (?,?,?,?,?,"
                         + "?,?,?,?,?,"
                         + "?,?,?,?,?,"
                         + "?,?,?,?,?,"
-                        + "?, ?,?,?,? )";
+                        + "?,?,?,?,?,"
+                        + "? )";
     
     /**
      * Inserta la direccion del becario
@@ -63,9 +64,10 @@ public class Insert {
             + "(" + Padres.COL_NOMBRE + ",  " + Padres.COL_APATERNO + ", "
             + Padres.COL_AMATERNO + ",  " + Padres.COL_TELEFONO + ", "
             + Padres.COL_ID_GRADO_ESCOLAR + ",  " + Padres.COL_TRABAJA + ", "
-            + Padres.COL_ID_BECARIO + ",  " + Padres.COL_ID_PARENTESCO + ") " 
+            + Padres.COL_ID_BECARIO + ",  " + Padres.COL_ID_PARENTESCO + ", "
+            + Padres.COL_OCUPACION + ") " 
             + "VALUES (?,?,?,?,"
-                        + "?,?,?,?)";
+                        + "?,?,?,?,?)";
     
     
     

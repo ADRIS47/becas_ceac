@@ -161,6 +161,7 @@ public class PrincipalControlador {
             JOptionPane.showMessageDialog(vista, "Error, consulta el registro de errores", 
                     "Error", JOptionPane.ERROR_MESSAGE);
             log.crearLog(ex.getMessage());
+            return;
         }
         
         addListenerTeclasVistaRegistro();
@@ -829,6 +830,7 @@ public class PrincipalControlador {
         becario.setNombreConyuge(vistaRegistro.txtNombreConyuge.getText());
         becario.setApPaternoConyuge(vistaRegistro.txtApPaternoConyuge.getText());
         becario.setApMaternoConyuge(vistaRegistro.txtApMaternoConyuge.getText());
+        becario.setOcupacionConyuge(vistaRegistro.txtOcupacionConyuge.getText());
         //Se obtiene si es el primero con beca
         becario.setPrimeroConBeca(vistaRegistro.cmboxCarreraSiNo.getSelectedIndex());
         //Se obtiene el correo electronico
@@ -1041,6 +1043,8 @@ public class PrincipalControlador {
             String parentesco = (String) panel.cmbParentesco.getSelectedItem();
             //Se asigna el parentesco
             padre.setParenteco(getIdCmbBox(parentesco, catParentesco));
+            //Se asigna la ocupacion
+            padre.setOcupacion(panel.txtOcupacion.getText());
             
             lstResult.add(padre);
         }
@@ -1356,6 +1360,7 @@ public class PrincipalControlador {
         vistaRegistro.txtApPaternoBecado.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtApPaternoBecado));
         vistaRegistro.txtApMaternoBecado.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtApMaternoBecado));
         vistaRegistro.txtTelefonoConyuge.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.TELEFONO, vistaRegistro.txtTelefonoConyuge));
+        vistaRegistro.txtOcupacionConyuge.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtOcupacionConyuge));
         
         //Datos Escolares 
         vistaRegistro.txtNombreCarrera.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtNombreCarrera));
@@ -1418,6 +1423,7 @@ public class PrincipalControlador {
             lstParentesco.txtApMaternoPariente.addKeyListener(new EscuchadorValidaEntrada(lstParentesco, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, lstParentesco.txtApMaternoPariente));
             lstParentesco.txtApPaternoPariente.addKeyListener(new EscuchadorValidaEntrada(lstParentesco, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, lstParentesco.txtApPaternoPariente));
             lstParentesco.txtNombresPariente.addKeyListener(new EscuchadorValidaEntrada(lstParentesco, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, lstParentesco.txtNombresPariente));
+            lstParentesco.txtOcupacion.addKeyListener(new EscuchadorValidaEntrada(lstParentesco, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, lstParentesco.txtOcupacion));
         }
         
         //Datos de fechas de inicio de carrera y graduacion
@@ -1562,8 +1568,11 @@ public class PrincipalControlador {
         vistaRegistro.cmbEstatus.setEnabled(false);
         creaPantalla(vistaRegistro);
         
-        Path pathFotografia = Paths.get(becario.getFoto());
-        helper.cargaImagenExterna(vistaRegistro.lblFotografia, pathFotografia);
+        Path pathFotografia;
+        if(becario.getFoto() != null){
+            pathFotografia = Paths.get(becario.getFoto());
+            helper.cargaImagenExterna(vistaRegistro.lblFotografia, pathFotografia);
+        }
     }
 
     /**
@@ -1646,6 +1655,7 @@ public class PrincipalControlador {
             lstVistaParentesco.get(contador).cmbNivelEstudiosPariente.setSelectedIndex(padre.getGradoEscolar() - 1);
             lstVistaParentesco.get(contador).cmbParentesco.setSelectedIndex(padre.getParenteco() - 1);
             lstVistaParentesco.get(contador).cmbTrabajoActivoPariente.setSelectedIndex(padre.getTrabaja());
+            lstVistaParentesco.get(contador).txtOcupacion.setText(padre.getOcupacion());
             contador++;
         }
         
@@ -1704,26 +1714,37 @@ public class PrincipalControlador {
         vistaRegistro.txtBecaPorSemestre.setText(lstDatosEscolares.getBecaSemestral() + "");
         vistaRegistro.txtAreaObservaciones.setText(becario.getObservaciones());
         
-        //Igualdad de archivos
-        fileActaNacimiento = new File(becario.getActaNacimiento());
-        fileBoleta_calificaciones_inicial = new File(becario.getBoletaInicioBeca());
-        fileCarta_solicitud = new File(becario.getSolicitudBeca());
-        fileContrato = new File(becario.getContatoBeca());
-        fileEnsayo = new File(becario.getEnsayo());
-        fileIneAval = new File(becario.getIdentificacion());
-        fileIneBecario = new File(becario.getIdentificacion());
-        filePagare = new File(becario.getPagare());
-        
-        //Llenado de ArchivosAdjuntos
-        vistaRegistro.lblEstatusActa.setText(fileActaNacimiento.getName());
-        vistaRegistro.lblEstatusBoleta.setText(fileBoleta_calificaciones_inicial.getName());
-        vistaRegistro.lblEstatusCarta.setText(fileCarta_solicitud.getName());
-        vistaRegistro.lblEstatusContrato.setText(fileContrato.getName());
-        vistaRegistro.lblEstatusEnsayo.setText(fileEnsayo.getName());
-        vistaRegistro.lblEstatusINEAval.setText(fileIneAval.getName());
-        vistaRegistro.lblEstatusINEBecario.setText(fileIneBecario.getName());
-        vistaRegistro.lblEstatusPagare.setText(filePagare.getName());
-        
-        
+        //Igualdad de archivos y Llenado de ArchivosAdjuntos        
+        if(becario.getActaNacimiento() != null){
+            fileActaNacimiento = new File(becario.getActaNacimiento());
+            vistaRegistro.lblEstatusActa.setText(fileActaNacimiento.getName());}
+        if(becario.getBoletaInicioBeca() != null){
+            fileBoleta_calificaciones_inicial = new File(becario.getBoletaInicioBeca());
+            vistaRegistro.lblEstatusBoleta.setText(fileBoleta_calificaciones_inicial.getName());
+        }
+        if(becario.getSolicitudBeca() != null){
+            fileCarta_solicitud = new File(becario.getSolicitudBeca());
+            vistaRegistro.lblEstatusCarta.setText(fileCarta_solicitud.getName());
+        }
+        if(becario.getContatoBeca() != null){
+            fileContrato = new File(becario.getContatoBeca());
+            vistaRegistro.lblEstatusContrato.setText(fileContrato.getName());
+        }
+        if(becario.getEnsayo() != null){
+            fileEnsayo = new File(becario.getEnsayo());
+            vistaRegistro.lblEstatusEnsayo.setText(fileEnsayo.getName());
+        }
+        if(lstAval.getIdentificacion() != null){
+            fileIneAval = new File(lstAval.getIdentificacion());
+            vistaRegistro.lblEstatusINEAval.setText(fileIneAval.getName());
+        }
+        if(becario.getIdentificacion() != null){
+            fileIneBecario = new File(becario.getIdentificacion());
+            vistaRegistro.lblEstatusINEBecario.setText(fileIneBecario.getName());
+        }
+        if(becario.getPagare() != null){
+            filePagare = new File(becario.getPagare());
+            vistaRegistro.lblEstatusPagare.setText(filePagare.getName());
+        }
     }
 }

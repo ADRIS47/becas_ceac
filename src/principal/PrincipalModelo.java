@@ -482,6 +482,7 @@ public class PrincipalModelo {
             ps.setString(12, becario.getApPaternoConyuge());
             ps.setString(13, becario.getApMaternoConyuge());
             ps.setString(14, becario.getTelefonoConyuge());
+            ps.setString(26, becario.getOcupacionConyuge());
             ps.setString(15, becario.getObservaciones());
             ps.setString(16, becario.getActaNacimiento());
             ps.setString(17, becario.getSolicitudBeca());
@@ -493,6 +494,7 @@ public class PrincipalModelo {
             ps.setString(23, becario.getFolio());
             ps.setInt(24, becario.getIdEstatus());
             ps.setString(25, becario.getPagare());
+            
             
             int i = ps.executeUpdate();
             if (i == 0) {
@@ -678,6 +680,7 @@ public class PrincipalModelo {
                 ps.setInt(6, papa.getTrabaja());
                 ps.setLong(7, idBecario);
                 ps.setInt(8, papa.getParenteco());
+                ps.setString(9, papa.getOcupacion());
                 int i = ps.executeUpdate();
                 if (i == 0) {
                     throw new SQLException("Error al insertar padres becario: " + ps.toString());
@@ -957,17 +960,19 @@ public class PrincipalModelo {
             ps.setInt(8, becario.getIdEstatus());
             ps.setString(9, becario.getFoto());
             ps.setString(10, becario.getEmail());
-            ps.setInt(12, becario.getPrimeroConBeca());
-            ps.setString(13, becario.getNombreConyuge());
-            ps.setString(14, becario.getApPaternoConyuge());
-            ps.setString(15, becario.getApMaternoConyuge());
-            ps.setString(16, becario.getTelefonoConyuge());
-            ps.setString(17, becario.getObservaciones());
-            ps.setString(18, becario.getActaNacimiento());
-            ps.setString(19, becario.getSolicitudBeca());
-            ps.setString(20, becario.getContatoBeca());
-            ps.setString(21, becario.getIdentificacion());
-            ps.setString(22, becario.getFolio());
+            ps.setInt(11, becario.getPrimeroConBeca());
+            ps.setString(12, becario.getNombreConyuge());
+            ps.setString(13, becario.getApPaternoConyuge());
+            ps.setString(14, becario.getApMaternoConyuge());
+            ps.setString(15, becario.getTelefonoConyuge());
+            ps.setString(16, becario.getObservaciones());
+            ps.setString(17, becario.getActaNacimiento());
+            ps.setString(18, becario.getSolicitudBeca());
+            ps.setString(19, becario.getContatoBeca());
+            ps.setString(20, becario.getIdentificacion());
+            ps.setString(21, becario.getFolio());
+            ps.setString(22, becario.getOcupacionConyuge());
+            ps.setString(23, becario.getFolio());
             
             valor = ps.executeUpdate();
             
@@ -978,14 +983,14 @@ public class PrincipalModelo {
             
         }
         catch(SQLException e){
-            log.crearLog(e.getMessage());
-            System.err.println("Error: " + e.getMessage());
+            log.muestraErrores(e);
+            System.err.println("Error: " + e);
         }
         finally{
             try {
                 ps.close();
             } catch (SQLException ex) {
-                log.crearLog(ex.getSQLState());
+                log.muestraErrores(ex);
                 Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -1137,8 +1142,16 @@ public class PrincipalModelo {
             rs = ps.executeQuery();
             int telefonos = -1;
             List<Integer> lstIdTelefonos = new ArrayList <>();
-            if(rs.next()){
+            while(rs.next()){
                 telefonos = rs.getInt(1);
+            }
+            
+            //Se obtienen los id's de los telefonos
+            ps = conexion.prepareStatement(Consultas.getDatosTelefonosBecario);
+            ps.setLong(1, idBecario);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
                 lstIdTelefonos.add(rs.getInt(Telefono.COL_ID));
             }
             
@@ -1179,7 +1192,7 @@ public class PrincipalModelo {
                         break;
                     contador++;
                     //Si ya se actualizo el ultimo registro
-                    if(contador == 1)
+                    if(contador == lstTelefonosBecario.size())
                         response = true;
                 }
             }      
@@ -1217,9 +1230,17 @@ public class PrincipalModelo {
             rs = ps.executeQuery();
             int papas = -1;
             List<Integer> lstIdPapas= new ArrayList <>();
-            if(rs.next()){
+            while(rs.next()){
                 papas = rs.getInt(1);
-                lstIdPapas.add(rs.getInt(Telefono.COL_ID));
+            }
+            
+            //Se obtienen los id de los papas
+            ps = conexion.prepareStatement(Consultas.getDatosPapasBecario);
+            ps.setLong(1, idBecario);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                lstIdPapas.add(rs.getInt(Padres.COL_ID));
             }
             
             if(papas == -1)
@@ -1271,7 +1292,7 @@ public class PrincipalModelo {
                         break;
                     contador++;
                     //Si ya se actualizo el ultimo registro
-                    if(contador == 1)
+                    if(contador == lstPadresBecario.size())
                         response = true;
                 }
             }      
@@ -1309,9 +1330,16 @@ public class PrincipalModelo {
             rs = ps.executeQuery();
             int hermanos = -1;
             List<Integer> lstIdHermanos= new ArrayList <>();
-            if(rs.next()){
+            while(rs.next()){
                 hermanos = rs.getInt(1);
-                lstIdHermanos.add(rs.getInt(Telefono.COL_ID));
+            }
+            
+            //Se obtienen los ids de los hermanos
+            ps = conexion.prepareStatement(Consultas.getDatosHermanosBecario);
+            ps.setLong(1, idBecario);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                lstIdHermanos.add(rs.getInt(Hermanos.COL_ID));
             }
             
             if(hermanos == -1)
@@ -1357,7 +1385,7 @@ public class PrincipalModelo {
                         break;
                     contador++;
                     //Si ya se actualizo el ultimo registro
-                    if(contador == 1)
+                    if(contador == lstHermanos.size())
                         response = true;
                 }
             }      
@@ -1395,8 +1423,15 @@ public class PrincipalModelo {
             rs = ps.executeQuery();
             int hijos = -1;
             List<Integer> lstIdHijos= new ArrayList <>();
-            if(rs.next()){
+            while(rs.next()){
                 hijos = rs.getInt(1);
+            }
+            
+            //Se obtienen los ids de los hijos
+            ps = conexion.prepareStatement(Consultas.getHijosBecario);
+            ps.setLong(1, idBecario);
+            rs = ps.executeQuery();
+            while(rs.next()){
                 lstIdHijos.add(rs.getInt(Hijos.COL_ID));
             }
             
@@ -1599,6 +1634,7 @@ public class PrincipalModelo {
                 becario.setApPaternoConyuge(rs.getString(Becario.COL_APATERNO_CONYUGE));
                 becario.setApMaternoConyuge(rs.getString(Becario.COL_AMATERNO_CONYUGE));
                 becario.setTelefonoConyuge(rs.getString(Becario.COL_TELEFONO_CONYUGE));
+                becario.setOcupacionConyuge(rs.getString(Becario.COL_OCUPACION_CONYUGE));
                 becario.setObservaciones(rs.getString(Becario.COL_OBSERVACIONES));
                 becario.setActaNacimiento(rs.getString(Becario.COL_ACTA_NAC));
                 becario.setSolicitudBeca(rs.getString(Becario.COL_SOLICITUD_BECA));
@@ -1643,7 +1679,7 @@ public class PrincipalModelo {
             if(conexion == null)
                 throw new SQLException("No se pudo conectar a la base de datos, intentelo de nuevo");
             
-            ps = conexion.prepareStatement(Consultas.getDireccionesBecario);
+            ps = conexion.prepareStatement(Consultas.getDatosDireccionesBecario);
             ps.setLong(1, id);
             System.out.println("Query: " + ps.toString());
             rs = ps.executeQuery();
@@ -1695,7 +1731,7 @@ public class PrincipalModelo {
             if(conexion == null)
                 throw new SQLException("No se pudo conectar a la base de datos, intentelo de nuevo");
             
-            ps = conexion.prepareStatement(Consultas.getTelefonosBecario);
+            ps = conexion.prepareStatement(Consultas.getDatosTelefonosBecario);
             ps.setLong(1, id);
             System.out.println("Query: " + ps.toString());
             rs = ps.executeQuery();
@@ -1757,6 +1793,7 @@ public class PrincipalModelo {
                padre.setTrabaja(rs.getInt(Padres.COL_TRABAJA));
                padre.setaMaterno(rs.getString(Padres.COL_AMATERNO));
                padre.setaPaterno(rs.getString(Padres.COL_APATERNO));
+               padre.setOcupacion(rs.getString(Padres.COL_OCUPACION));
                padre.setIdBecario(id);
                lstPadres.add(padre);
             }

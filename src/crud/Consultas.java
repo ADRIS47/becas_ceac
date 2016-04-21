@@ -87,9 +87,28 @@ public class Consultas {
             + "WHERE " + Direccion.COL_ID_BECARIO + " = ?" ;
     
     /**
+     * Obtiene las direcciones que tiene registradas un becario
+     */
+    public static String getDatosDireccionesBecario = "SELECT "
+            + Direccion.COL_ID + ", " + Direccion.COL_CALLE + ", "
+            + Direccion.COL_NUM_EXT + ", " + Direccion.COL_NUM_INT + ", " 
+            + Direccion.COL_CODIGO_POSTAL + ", " + Direccion.COL_COLONIA + ", " 
+            + Direccion.COL_CIUDAD + " "
+            + " FROM beca_direccion "
+            + "WHERE " + Direccion.COL_ID_BECARIO + " = ?" ;
+    
+    /**
      * Obtiene los telefonos que tiene registrado un becario
      */
     public static String getTelefonosBecario = "SELECT COUNT(*), " 
+            + Telefono.COL_ID + ", " + Telefono.COL_TELEFONO + " "
+            + "FROM beca_telefono "
+            + "WHERE " + Telefono.COL_ID_BECARIO + " = ?";
+    
+    /**
+     * Obtiene los telefonos que tiene registrado un becario
+     */
+    public static String getDatosTelefonosBecario = "SELECT " 
             + Telefono.COL_ID + ", " + Telefono.COL_TELEFONO + " "
             + "FROM beca_telefono "
             + "WHERE " + Telefono.COL_ID_BECARIO + " = ?";
@@ -114,7 +133,7 @@ public class Consultas {
             + Padres.COL_APATERNO + ", " + Padres.COL_AMATERNO + ","
             + Padres.COL_ID_BECARIO + ", " + Padres.COL_ID_GRADO_ESCOLAR + ","
             + Padres.COL_ID_PARENTESCO + ", " + Padres.COL_TELEFONO + ","
-            + Padres.COL_TRABAJA + " "
+            + Padres.COL_TRABAJA + ", " + Padres.COL_OCUPACION + " "
             + "FROM beca_padres "
             + "WHERE " + Padres.COL_ID_BECARIO + " = ?";
     
@@ -205,7 +224,7 @@ public class Consultas {
             + "becario." + Becario.COL_SOLICITUD_BECA +  ", becario." + Becario.COL_ENSAYO +  ", "
             + "becario." + Becario.COL_BOLETA_INICIO_BECA +  ", becario." + Becario.COL_CONTRATO_BECA +  ", "
             + "becario." + Becario.COL_IDENTIFICACION + ", " + Becario.COL_ID + ", "
-            + "becario." + Becario.COL_PAGARE + " "
+            + "becario." + Becario.COL_PAGARE + ", " + Becario.COL_OCUPACION_CONYUGE + " "
             + "FROM beca_becario AS becario "
             + "WHERE becario." + Becario.COL_FOLIO + " = ?";
     

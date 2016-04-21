@@ -222,3 +222,21 @@
 19/4/2016;22:9:0;/home/sabagip
 19/4/2016;22:30:18;/home/sergio/Documentos/becarios/HIS-05
 19/4/2016;22:30:18;No se pudo copiar el archivo Captura de pantalla de 2015-08-30 17:12:09.png    /home/sergio/Documentos/becarios/HIS-05/foto-HIS-05.png
+21/4/2016;13:0:27;SQLError: 42S22
+21/4/2016;13:0:27;ERROR: Code1054
+21/4/2016;13:0:27;Message: Unknown column 'ocupacion_conyuge' in 'field list'
+21/4/2016;13:10:13;Parameter index out of range (22 > number of parameters, which is 21).
+21/4/2016;13:10:14;Error al actualizar los datos del becario
+21/4/2016;13:16:19;No value specified for parameter 11
+21/4/2016;13:16:20;Error al actualizar los datos del becario
+21/4/2016;13:19:55;Error al actualizar los datos del becario
+21/4/2016;13:25:39;null
+21/4/2016;13:50:17;null
+21/4/2016;13:51:25;null
+21/4/2016;13:53:27;null
+21/4/2016;13:56:1;null
+21/4/2016;13:57:21;null
+21/4/2016;13:58:26;null
+21/4/2016;13:59:4;null
+21/4/2016;13:59:57;null
+21/4/2016;14:14:48;null
