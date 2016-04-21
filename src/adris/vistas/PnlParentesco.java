@@ -47,21 +47,21 @@ public class PnlParentesco extends javax.swing.JPanel {
         txtNombresPariente = new javax.swing.JTextField();
         cmbNivelEstudiosPariente = new javax.swing.JComboBox();
         cmbTrabajoActivoPariente = new javax.swing.JComboBox();
+        jLabel1 = new javax.swing.JLabel();
+        txtOcupacionPariente = new javax.swing.JTextField();
         lblAgregarPariente = new javax.swing.JLabel();
 
-        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.setLayout(new java.awt.GridLayout(5, 3));
 
-        jPanel1.setLayout(new java.awt.GridLayout(4, 3));
-
-        lblParentesco.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblParentesco.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         lblParentesco.setText("Parentesco");
         jPanel1.add(lblParentesco);
 
-        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel21.setText("Ap Paterno");
         jPanel1.add(jLabel21);
 
-        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel22.setText("Ap Materno");
         jPanel1.add(jLabel22);
 
@@ -71,15 +71,15 @@ public class PnlParentesco extends javax.swing.JPanel {
         txtApMaternoPariente.setName("txtApMaternoPariente"); // NOI18N
         jPanel1.add(txtApMaternoPariente);
 
-        lblParentesco1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblParentesco1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         lblParentesco1.setText("Nombre(s)");
         jPanel1.add(lblParentesco1);
 
-        lblParentesco2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblParentesco2.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         lblParentesco2.setText("Nivel de Estudios");
         jPanel1.add(lblParentesco2);
 
-        lblParentesco3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblParentesco3.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         lblParentesco3.setText("Trabajo Activo");
         jPanel1.add(lblParentesco3);
 
@@ -94,6 +94,14 @@ public class PnlParentesco extends javax.swing.JPanel {
 
         cmbTrabajoActivoPariente.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "No", "Si" }));
         jPanel1.add(cmbTrabajoActivoPariente);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel1.setText("Ocupación: ");
+        jPanel1.add(jLabel1);
+
+        txtOcupacionPariente.setText("jTextField1");
+        jPanel1.add(txtOcupacionPariente);
 
         lblAgregarPariente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAgregarPariente.setText("Add");
@@ -110,20 +118,20 @@ public class PnlParentesco extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblAgregarPariente, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 625, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblAgregarPariente, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 12, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(lblAgregarPariente)
-                .addGap(48, 48, 48))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleName("Información de padres");
@@ -142,6 +150,7 @@ public class PnlParentesco extends javax.swing.JPanel {
     public javax.swing.JComboBox cmbNivelEstudiosPariente;
     public javax.swing.JComboBox cmbParentesco;
     public javax.swing.JComboBox cmbTrabajoActivoPariente;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JPanel jPanel1;
@@ -153,5 +162,6 @@ public class PnlParentesco extends javax.swing.JPanel {
     protected javax.swing.JTextField txtApMaternoPariente;
     protected javax.swing.JTextField txtApPaternoPariente;
     protected javax.swing.JTextField txtNombresPariente;
+    private javax.swing.JTextField txtOcupacionPariente;
     // End of variables declaration//GEN-END:variables
 }
