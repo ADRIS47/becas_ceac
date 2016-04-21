@@ -32,6 +32,7 @@ public class Becario {
     String apPaternoConyuge;
     String apMaternoConyuge;
     String telefonoConyuge;
+    String ocupacionConyuge;
     String observaciones;
     String actaNacimiento;
     String solicitudBeca;
@@ -195,6 +196,14 @@ public class Becario {
         this.telefonoConyuge = telefonoConyuge;
     }
 
+    public String getOcupacionConyuge() {
+        return ocupacionConyuge;
+    }
+
+    public void setOcupacionConyuge(String ocupacionConyuge) {
+        this.ocupacionConyuge = ocupacionConyuge;
+    }
+
     public String getObservaciones() {
         return observaciones;
     }
@@ -296,6 +305,7 @@ public class Becario {
     public final static String COL_APATERNO_CONYUGE = "ap_paterno_conyuge";
     public final static String COL_AMATERNO_CONYUGE = "ap_materno_conyuge";
     public final static String COL_TELEFONO_CONYUGE = "telefono_conyuge";
+    public final static String COL_OCUPACION_CONYUGE = "ocupacion_conyuge";
     public final static String COL_OBSERVACIONES = "observaciones";
     public final static String COL_ACTA_NAC = "acta_nacimiento";
     public final static String COL_SOLICITUD_BECA = "solicitud_beca";

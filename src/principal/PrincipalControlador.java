@@ -623,6 +623,8 @@ public class PrincipalControlador {
             vistaRegistro.comboBoxPrograma.setEnabled(false);
             vistaRegistro.cmbEstatus.setEnabled(false);
             vistaRegistro.txtFolio.setText(becario.getFolio());
+            
+            vistaRegistro.tbpBecados.setSelectedIndex(0);
         }
         catch(SQLException e){
             try {

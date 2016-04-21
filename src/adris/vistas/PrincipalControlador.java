@@ -402,7 +402,7 @@ public class PrincipalControlador {
                 direccion.setCalle(panel.txtCalleBecado.getText());
                 direccion.setNumExt(panel.txtNumBecado.getText());
                 direccion.setNumInt(panel.txtIntBecado.getText());
-                direccion.setCodigoPostal(panel.txtCpBecado.getText());
+                //direccion.setCodigoPostal(panel.txtCpBecado.getText());
                 direccion.setColonia(panel.txtNumIntBecado.getText());
                 direccion.setCiudad(panel.txtCiudadBecado.getText());
                 direccion.setIdBecario(idBecario);
