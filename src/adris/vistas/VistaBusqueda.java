@@ -52,11 +52,12 @@ public class VistaBusqueda extends javax.swing.JPanel {
         PnlBusqueda1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtNumFolio = new javax.swing.JTextField();
-        btnBuscarPorFolioProgEstatus = new javax.swing.JButton();
+        btnBuscarPorProgEstatus = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
         jLabel8 = new javax.swing.JLabel();
         CmbboxBuscaEstatus = new javax.swing.JComboBox();
+        btnBuscarPorFolio = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(916, 584));
         setPreferredSize(new java.awt.Dimension(916, 584));
@@ -137,10 +138,10 @@ public class VistaBusqueda extends javax.swing.JPanel {
 
         txtNumFolio.setPreferredSize(new java.awt.Dimension(120, 27));
 
-        btnBuscarPorFolioProgEstatus.setText("Buscar");
-        btnBuscarPorFolioProgEstatus.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscarPorProgEstatus.setText("Buscar");
+        btnBuscarPorProgEstatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarPorFolioProgEstatusActionPerformed(evt);
+                btnBuscarPorProgEstatusActionPerformed(evt);
             }
         });
 
@@ -149,27 +150,25 @@ public class VistaBusqueda extends javax.swing.JPanel {
         jLabel7.setText("Programa: ");
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel8.setText("Estatus :");
 
-        CmbboxBuscaEstatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        btnBuscarPorFolio.setText("Buscar por Folio");
+        btnBuscarPorFolio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarPorFolioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PnlBusqueda1Layout = new javax.swing.GroupLayout(PnlBusqueda1);
         PnlBusqueda1.setLayout(PnlBusqueda1Layout);
         PnlBusqueda1Layout.setHorizontalGroup(
             PnlBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PnlBusqueda1Layout.createSequentialGroup()
-                .addGap(149, 149, 149)
-                .addGroup(PnlBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(PnlBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(PnlBusqueda1Layout.createSequentialGroup()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(CmbboxBuscaEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PnlBusqueda1Layout.createSequentialGroup()
+                        .addGap(149, 149, 149)
                         .addGroup(PnlBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(PnlBusqueda1Layout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -178,10 +177,17 @@ public class VistaBusqueda extends javax.swing.JPanel {
                             .addGroup(PnlBusqueda1Layout.createSequentialGroup()
                                 .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                                 .addGap(12, 12, 12)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(68, 68, 68)
-                        .addComponent(btnBuscarPorFolioProgEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60))))
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(PnlBusqueda1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(CmbboxBuscaEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(68, 68, 68)
+                .addGroup(PnlBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBuscarPorProgEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarPorFolio, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(60, 60, 60))
         );
         PnlBusqueda1Layout.setVerticalGroup(
             PnlBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,17 +195,20 @@ public class VistaBusqueda extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(PnlBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNumFolio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PnlBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtNumFolio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBuscarPorFolio, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PnlBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PnlBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnBuscarPorFolioProgEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnBuscarPorProgEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PnlBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CmbboxBuscaEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -224,22 +233,27 @@ public class VistaBusqueda extends javax.swing.JPanel {
                 .addComponent(PnlBusqueda1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBuscarPorFolioProgEstatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPorFolioProgEstatusActionPerformed
+    private void btnBuscarPorProgEstatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPorProgEstatusActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscarPorFolioProgEstatusActionPerformed
+    }//GEN-LAST:event_btnBuscarPorProgEstatusActionPerformed
+
+    private void btnBuscarPorFolioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPorFolioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarPorFolioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     protected javax.swing.JComboBox CmbboxBuscaEstatus;
     private javax.swing.JPanel PnlBusqueda1;
-    private javax.swing.JButton btnBuscarPorFolioProgEstatus;
+    protected javax.swing.JButton btnBuscarPorFolio;
     private javax.swing.JButton btnBuscarPorNombre;
+    protected javax.swing.JButton btnBuscarPorProgEstatus;
     protected javax.swing.JButton btnCargarBecario;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
