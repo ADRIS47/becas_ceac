@@ -5,9 +5,7 @@
  */
 package principal;
 
-import adris.vistas.*;
 import javax.swing.JOptionPane;
-import principal.*;
 
 /**
  *
@@ -57,7 +55,7 @@ public class VistaBusqueda extends javax.swing.JPanel {
         txtNumFolio = new javax.swing.JTextField();
         btnBuscarPorProgEstatus = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        cmbPrograma = new javax.swing.JComboBox();
         jLabel8 = new javax.swing.JLabel();
         CmbboxBuscaEstatus = new javax.swing.JComboBox();
         btnBuscarPorFolio = new javax.swing.JButton();
@@ -99,7 +97,7 @@ public class VistaBusqueda extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Nombre(s)", "Ap. Paterno", "Ap. Materno", "Folio", "Carrera", "Universidad", "Beca Total", "Beca Semestral", "Fecha de Inicio Beca", "Fecha de Graduación"
+                "Nombre(s)", "Ap. Paterno", "Ap. Materno", "Folio", "Carrera", "Universidad", "Beca Total", "Beca Semestral", "Fecha de Inicio", "Fecha de Graduación"
             }
         ) {
             Class[] types = new Class [] {
@@ -117,7 +115,40 @@ public class VistaBusqueda extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        tblResultadoBusqueda.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         jScrollPane1.setViewportView(tblResultadoBusqueda);
+        if (tblResultadoBusqueda.getColumnModel().getColumnCount() > 0) {
+            tblResultadoBusqueda.getColumnModel().getColumn(0).setMinWidth(100);
+            tblResultadoBusqueda.getColumnModel().getColumn(0).setPreferredWidth(150);
+            tblResultadoBusqueda.getColumnModel().getColumn(0).setMaxWidth(200);
+            tblResultadoBusqueda.getColumnModel().getColumn(1).setMinWidth(100);
+            tblResultadoBusqueda.getColumnModel().getColumn(1).setPreferredWidth(150);
+            tblResultadoBusqueda.getColumnModel().getColumn(1).setMaxWidth(200);
+            tblResultadoBusqueda.getColumnModel().getColumn(2).setMinWidth(100);
+            tblResultadoBusqueda.getColumnModel().getColumn(2).setPreferredWidth(150);
+            tblResultadoBusqueda.getColumnModel().getColumn(2).setMaxWidth(200);
+            tblResultadoBusqueda.getColumnModel().getColumn(3).setMinWidth(80);
+            tblResultadoBusqueda.getColumnModel().getColumn(3).setPreferredWidth(100);
+            tblResultadoBusqueda.getColumnModel().getColumn(3).setMaxWidth(130);
+            tblResultadoBusqueda.getColumnModel().getColumn(4).setMinWidth(150);
+            tblResultadoBusqueda.getColumnModel().getColumn(4).setPreferredWidth(230);
+            tblResultadoBusqueda.getColumnModel().getColumn(4).setMaxWidth(280);
+            tblResultadoBusqueda.getColumnModel().getColumn(5).setMinWidth(150);
+            tblResultadoBusqueda.getColumnModel().getColumn(5).setPreferredWidth(230);
+            tblResultadoBusqueda.getColumnModel().getColumn(5).setMaxWidth(280);
+            tblResultadoBusqueda.getColumnModel().getColumn(6).setMinWidth(100);
+            tblResultadoBusqueda.getColumnModel().getColumn(6).setPreferredWidth(130);
+            tblResultadoBusqueda.getColumnModel().getColumn(6).setMaxWidth(200);
+            tblResultadoBusqueda.getColumnModel().getColumn(7).setMinWidth(100);
+            tblResultadoBusqueda.getColumnModel().getColumn(7).setPreferredWidth(130);
+            tblResultadoBusqueda.getColumnModel().getColumn(7).setMaxWidth(200);
+            tblResultadoBusqueda.getColumnModel().getColumn(8).setMinWidth(100);
+            tblResultadoBusqueda.getColumnModel().getColumn(8).setPreferredWidth(130);
+            tblResultadoBusqueda.getColumnModel().getColumn(8).setMaxWidth(200);
+            tblResultadoBusqueda.getColumnModel().getColumn(9).setMinWidth(100);
+            tblResultadoBusqueda.getColumnModel().getColumn(9).setPreferredWidth(160);
+            tblResultadoBusqueda.getColumnModel().getColumn(9).setMaxWidth(200);
+        }
 
         btnCargarBecario.setText("Cargar");
 
@@ -209,7 +240,7 @@ public class VistaBusqueda extends javax.swing.JPanel {
         gridBagConstraints.ipadx = 258;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(6, 12, 0, 0);
-        PnlBusqueda1.add(jComboBox1, gridBagConstraints);
+        PnlBusqueda1.add(cmbPrograma, gridBagConstraints);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -296,7 +327,7 @@ public class VistaBusqueda extends javax.swing.JPanel {
     private javax.swing.JButton btnBuscarPorNombre;
     protected javax.swing.JButton btnBuscarPorProgEstatus;
     protected javax.swing.JButton btnCargarBecario;
-    private javax.swing.JComboBox jComboBox1;
+    protected javax.swing.JComboBox cmbPrograma;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

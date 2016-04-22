@@ -81,6 +81,7 @@ public class PrincipalControlador {
     LinkedHashMap<Integer, String> catNivelEstudios = null;
     LinkedHashMap<Integer, String> catUniversidad = null;
     LinkedHashMap<Integer, String> catCampoEstudio = null;
+    LinkedHashMap<Integer, String> catEstatus = null;
     
     List<PnlHijos> lstVistaHijos = new ArrayList<>();
     List<PnlHermanos> lstVistaHermanos = new ArrayList<>();
@@ -191,6 +192,24 @@ public class PrincipalControlador {
         this.setVistaBusqueda(vistaBusqueda);
         vistaBusqueda.setControlador(this);
         
+        List<LinkedHashMap<Integer, String>> lstCategorias = null;
+                
+        try {
+            //Se obtienen las categorias para llenar la pantalla
+            if(catPrograma == null){
+                lstCategorias = modelo.getCategoriasVistaRegistro();
+                llenaCamposCategoriasVistaBusqueda(lstCategorias);
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(vista, "Error, consulta el registro de errores", 
+                    "Error", JOptionPane.ERROR_MESSAGE);
+            log.crearLog(ex.getMessage());
+            return;
+        }
+        
         creaPantalla(vistaBusqueda);
     }
     
@@ -221,6 +240,7 @@ public class PrincipalControlador {
         catParentesco = lstCategorias.get(4);
         catUniversidad = lstCategorias.get(5);
         catCampoEstudio = lstCategorias.get(6);
+        catEstatus = lstCategorias.get(7);
         
         llenaComboCategorias(vistaRegistro.combobxCivilBecado, catEstadoCivil);
         llenaComboCategorias(vistaRegistro.comboBoxPrograma, catPrograma);
@@ -231,6 +251,25 @@ public class PrincipalControlador {
         llenaComboCategorias(vistaRegistro.cmboxEscuelaUniversitaria, catUniversidad);
         llenaComboCategorias(vistaRegistro.cmboxCampoEscuela, catCampoEstudio);
         
+    }
+    
+    /**
+     * Llena los catalogos de la VistaBusqueda
+     * @param lstCategorias 
+     */
+    private void llenaCamposCategoriasVistaBusqueda(List<LinkedHashMap<Integer, String>> lstCategorias) {
+        //Se separan las categorias
+        catSexo = lstCategorias.get(0);
+        catEstadoCivil = lstCategorias.get(1);
+        catPrograma = lstCategorias.get(2);
+        catNivelEstudios = lstCategorias.get(3);
+        catParentesco = lstCategorias.get(4);
+        catUniversidad = lstCategorias.get(5);
+        catCampoEstudio = lstCategorias.get(6);
+        catEstatus = lstCategorias.get(7);
+        
+        llenaComboCategorias(vistaBusqueda.cmbPrograma, catPrograma);
+        llenaComboCategorias(vistaBusqueda.CmbboxBuscaEstatus, catEstatus);
     }
     
     /**

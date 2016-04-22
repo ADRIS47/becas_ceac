@@ -102,7 +102,7 @@ public class EscuchadorValidaEntrada implements KeyListener {
                 str = str.replace(",", "");
                 resultado[j++] = fuente[i];
                 DecimalFormat formato = new DecimalFormat("###,###,###.##");
-                System.out.println(formato.format(Long.parseLong(str)));
+                //System.out.println(formato.format(Long.parseLong(str)));
                 txtCampo.setText(formato.format(Long.parseLong(str)));
             } 
             else{

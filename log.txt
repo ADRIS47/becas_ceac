@@ -240,3 +240,21 @@
 21/4/2016;13:59:4;null
 21/4/2016;13:59:57;null
 21/4/2016;14:14:48;null
+22/4/2016;9:40:54;SQLError: 42S22
+22/4/2016;9:40:54;ERROR: Code1054
+22/4/2016;9:40:54;Message: Unknown column 'nomobre' in 'field list'
+22/4/2016;9:41:47;SQLError: S0022
+22/4/2016;9:41:47;ERROR: Code0
+22/4/2016;9:41:47;Message: Column 'id_campo_carrera' not found.
+22/4/2016;9:42:31;SQLError: S0022
+22/4/2016;9:42:31;ERROR: Code0
+22/4/2016;9:42:31;Message: Column 'id_campo_carrera' not found.
+22/4/2016;9:43:0;SQLError: S0022
+22/4/2016;9:43:0;ERROR: Code0
+22/4/2016;9:43:0;Message: Column 'id_campo_carrera' not found.
+22/4/2016;9:44:30;SQLError: S0022
+22/4/2016;9:44:30;ERROR: Code0
+22/4/2016;9:44:30;Message: Column 'id_campo_carrera' not found.
+22/4/2016;9:45:9;SQLError: S0022
+22/4/2016;9:45:9;ERROR: Code0
+22/4/2016;9:45:9;Message: Column 'id_campo_carrera' not found.
