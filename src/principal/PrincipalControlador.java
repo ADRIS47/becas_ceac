@@ -1703,24 +1703,24 @@ public class PrincipalControlador {
         vistaRegistro.txtAreaObservaciones.setText(becario.getObservaciones());
         
         //Igualdad de archivos
-        fileActaNacimiento = new File(becario.getActaNacimiento());
-        fileBoleta_calificaciones_inicial = new File(becario.getBoletaInicioBeca());
-        fileCarta_solicitud = new File(becario.getSolicitudBeca());
-        fileContrato = new File(becario.getContatoBeca());
-        fileEnsayo = new File(becario.getEnsayo());
-        fileIneAval = new File(becario.getIdentificacion());
-        fileIneBecario = new File(becario.getIdentificacion());
-        filePagare = new File(becario.getPagare());
+//        fileActaNacimiento = new File(becario.getActaNacimiento());
+//        fileBoleta_calificaciones_inicial = new File(becario.getBoletaInicioBeca());
+//        fileCarta_solicitud = new File(becario.getSolicitudBeca());
+//        fileContrato = new File(becario.getContatoBeca());
+//        fileEnsayo = new File(becario.getEnsayo());
+//        fileIneAval = new File(becario.getIdentificacion());
+//        fileIneBecario = new File(becario.getIdentificacion());
+//        filePagare = new File(becario.getPagare());
         
         //Llenado de ArchivosAdjuntos
-        vistaRegistro.lblEstatusActa.setText(fileActaNacimiento.getName());
-        vistaRegistro.lblEstatusBoleta.setText(fileBoleta_calificaciones_inicial.getName());
-        vistaRegistro.lblEstatusCarta.setText(fileCarta_solicitud.getName());
-        vistaRegistro.lblEstatusContrato.setText(fileContrato.getName());
-        vistaRegistro.lblEstatusEnsayo.setText(fileEnsayo.getName());
-        vistaRegistro.lblEstatusINEAval.setText(fileIneAval.getName());
-        vistaRegistro.lblEstatusINEBecario.setText(fileIneBecario.getName());
-        vistaRegistro.lblEstatusPagare.setText(filePagare.getName());
+//        vistaRegistro.lblEstatusActa.setText(fileActaNacimiento.getName());
+//        vistaRegistro.lblEstatusBoleta.setText(fileBoleta_calificaciones_inicial.getName());
+//        vistaRegistro.lblEstatusCarta.setText(fileCarta_solicitud.getName());
+//        vistaRegistro.lblEstatusContrato.setText(fileContrato.getName());
+//        vistaRegistro.lblEstatusEnsayo.setText(fileEnsayo.getName());
+//        vistaRegistro.lblEstatusINEAval.setText(fileIneAval.getName());
+//        vistaRegistro.lblEstatusINEBecario.setText(fileIneBecario.getName());
+//        vistaRegistro.lblEstatusPagare.setText(filePagare.getName());
         
         
     }
