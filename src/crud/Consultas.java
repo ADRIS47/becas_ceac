@@ -228,8 +228,8 @@ public class Consultas {
             + "becario." + Becario.COL_OBSERVACIONES +  ", becario." + Becario.COL_ACTA_NAC +  ", "
             + "becario." + Becario.COL_SOLICITUD_BECA +  ", becario." + Becario.COL_ENSAYO +  ", "
             + "becario." + Becario.COL_BOLETA_INICIO_BECA +  ", becario." + Becario.COL_CONTRATO_BECA +  ", "
-            + "becario." + Becario.COL_IDENTIFICACION + ", " + Becario.COL_ID + ", "
-            + "becario." + Becario.COL_PAGARE + ", " + Becario.COL_OCUPACION_CONYUGE + " "
+            + "becario." + Becario.COL_IDENTIFICACION + ", becario." + Becario.COL_ID + ", "
+            + "becario." + Becario.COL_PAGARE + ", becario." + Becario.COL_OCUPACION_CONYUGE + " "
             + "FROM beca_becario AS becario "
             + "WHERE becario." + Becario.COL_FOLIO + " = ?";
     
@@ -249,8 +249,12 @@ public class Consultas {
             + "becario." + Becario.COL_OBSERVACIONES +  ", becario." + Becario.COL_ACTA_NAC +  ", "
             + "becario." + Becario.COL_SOLICITUD_BECA +  ", becario." + Becario.COL_ENSAYO +  ", "
             + "becario." + Becario.COL_BOLETA_INICIO_BECA +  ", becario." + Becario.COL_CONTRATO_BECA +  ", "
-            + "becario." + Becario.COL_IDENTIFICACION + ", " + Becario.COL_ID + ", "
-            + "becario." + Becario.COL_PAGARE + ", " + Becario.COL_OCUPACION_CONYUGE + " "
+            + "becario." + Becario.COL_IDENTIFICACION + ", becario." + Becario.COL_ID + ", "
+            + "becario." + Becario.COL_PAGARE + ", becario." + Becario.COL_OCUPACION_CONYUGE + " "
+//            + "uni." + CatUniversidad.COL_NOMBRE  + ", esc." + DatosEscolares.COL_BECA_TOTAL + ", "
+//            + "esc." + DatosEscolares.COL_BECA_SEMESTRAL + ", esc." + DatosEscolares.COL_MES_INICIO_BECA + ", "
+//            + "esc." + DatosEscolares.COL_ANIO_INICIO_BECA + ", esc." + DatosEscolares.COL_MES_GRADUACION + ", "
+//            + "esc." + DatosEscolares.COL_ANIO_GRADUACION + " "
             + "FROM beca_becario AS becario "
             + "WHERE becario." + Becario.COL_PROGRAMA + " = ? AND " + Becario.COL_ESTATUS + " = ?";
     

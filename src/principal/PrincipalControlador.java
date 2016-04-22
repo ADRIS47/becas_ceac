@@ -38,6 +38,7 @@ import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import pojos.Aval;
 import pojos.Becario;
+import pojos.CatUniversidad;
 import pojos.DatosEscolares;
 import pojos.Direccion;
 import pojos.Hermanos;
@@ -1558,6 +1559,9 @@ public class PrincipalControlador {
         Conexion conn = new Conexion();
         Connection conexion = null;
         conexion = conn.estableceConexion();
+        List<Becario> lstBecario = null;
+        List<DatosEscolares> lstDatosEscolares = null;
+        List<CatUniversidad> lstCatUniversidad = null;
         
         if(conexion == null){
             JOptionPane.showMessageDialog(vista, "No se pudo conectar a la base de datos. \n Intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
@@ -1566,8 +1570,8 @@ public class PrincipalControlador {
         
         int idPrograma = getIdCmbBox(programa, catPrograma);
         int idEstatus = getIdCmbBox(estatus, catEstatus);
-        List<Becario> lstBecario = modelo.getBecarioPorProgramaEstatus(conexion, idPrograma, idEstatus);
-        if(lstBecario.size() == 0){
+        lstBecario = modelo.getBecarioPorProgramaEstatus(conexion, idPrograma, idEstatus);
+        if(lstBecario.isEmpty()){
             JOptionPane.showMessageDialog(vista, "No se encontraron Becarios", "No hay registros", JOptionPane.INFORMATION_MESSAGE);
             try {
                 conexion.close();
@@ -1577,6 +1581,19 @@ public class PrincipalControlador {
             }
             return;
         }
+        
+        for (Becario becario : lstBecario) {
+            DatosEscolares datosEscolares = modelo.getDatosEscolaresBecario(conexion, idEstatus);
+            lstDatosEscolares.add(datosEscolares);
+            
+            CatUniversidad universidadBecario = new CatUniversidad();
+            universidadBecario.setId(datosEscolares.getIdUniversidad());
+            universidadBecario.setNombre(getItemComboBox(universidadBecario.getId(), catUniversidad));
+            lstCatUniversidad.add(universidadBecario);
+        }
+        
+        
+        llenaTablaBusqueda(lstBecario, lstDatosEscolares, lstCatUniversidad);
     }
 
     /**
@@ -1816,5 +1833,15 @@ public class PrincipalControlador {
             filePagare = new File(becario.getPagare());
             vistaRegistro.lblEstatusPagare.setText(filePagare.getName());
         }
+    }
+
+    /**
+     * Se encarga de llenar con informacion la tabla de la vistaBusqueda
+     * @param lstBecario lista de becarios encontrados
+     * @param lstDatosEscolares lista de datos escolares correspondiente a cada becario
+     * @param lstCatUniversidad  lista de univerdidades encontradas
+     */
+    private void llenaTablaBusqueda(List<Becario> lstBecario, List<DatosEscolares> lstDatosEscolares, List<CatUniversidad> lstCatUniversidad) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
