@@ -307,7 +307,7 @@ public class VistaBusqueda extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarPorProgEstatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPorProgEstatusActionPerformed
-        // TODO add your handling code here:
+        controlador.getInfoBecarioPorProgramaEstatus(cmbPrograma.getSelectedItem().toString(), CmbboxBuscaEstatus.getSelectedItem().toString());
     }//GEN-LAST:event_btnBuscarPorProgEstatusActionPerformed
 
     private void btnBuscarPorFolioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPorFolioActionPerformed

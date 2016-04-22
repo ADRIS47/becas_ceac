@@ -196,10 +196,8 @@ public class PrincipalControlador {
                 
         try {
             //Se obtienen las categorias para llenar la pantalla
-            if(catPrograma == null){
-                lstCategorias = modelo.getCategoriasVistaRegistro();
-                llenaCamposCategoriasVistaBusqueda(lstCategorias);
-            }
+            lstCategorias = modelo.getCategoriasVistaRegistro();
+            llenaCamposCategoriasVistaBusqueda(lstCategorias);
             
             
         } catch (SQLException ex) {
@@ -1550,6 +1548,36 @@ public class PrincipalControlador {
         }
         
     }
+    
+    /**
+     * Comienza la busqueda de becarios por programa y estatus
+     * @param programa
+     * @param estatus 
+     */
+    protected void getInfoBecarioPorProgramaEstatus(String programa, String estatus) {
+        Conexion conn = new Conexion();
+        Connection conexion = null;
+        conexion = conn.estableceConexion();
+        
+        if(conexion == null){
+            JOptionPane.showMessageDialog(vista, "No se pudo conectar a la base de datos. \n Intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        int idPrograma = getIdCmbBox(programa, catPrograma);
+        int idEstatus = getIdCmbBox(estatus, catEstatus);
+        List<Becario> lstBecario = modelo.getBecarioPorProgramaEstatus(conexion, idPrograma, idEstatus);
+        if(lstBecario.size() == 0){
+            JOptionPane.showMessageDialog(vista, "No se encontraron Becarios", "No hay registros", JOptionPane.INFORMATION_MESSAGE);
+            try {
+                conexion.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+                log.muestraErrores(ex);
+            }
+            return;
+        }
+    }
 
     /**
      * Crea la pantalla VistaRegistro con la informacion de un becario registrado
@@ -1638,7 +1666,8 @@ public class PrincipalControlador {
         vistaRegistro.txtNombreBecado.setText(becario.getNombre());
         vistaRegistro.txtApPaternoBecado.setText(becario.getApPaterno());
         vistaRegistro.txtApMaternoBecado.setText(becario.getApMaterno());
-        vistaRegistro.txtFechaNacimiento.setText(helper.formateaFechaBD(becario.getFecha_nac()));
+        if(becario.getFecha_nac() != null)
+            vistaRegistro.txtFechaNacimiento.setText(helper.formateaFechaBD(becario.getFecha_nac()));
         vistaRegistro.comboBxTrabajaBecado.setSelectedIndex(becario.getTrabaja());
         vistaRegistro.combobxSexoBecado.setSelectedIndex(becario.getIdSexo() - 1);
         vistaRegistro.combobxCivilBecado.setSelectedIndex(becario.getIdEstadoCivil() - 1);

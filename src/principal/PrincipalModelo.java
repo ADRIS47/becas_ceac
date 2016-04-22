@@ -518,7 +518,6 @@ public class PrincipalModelo {
             ps.setString(12, becario.getApPaternoConyuge());
             ps.setString(13, becario.getApMaternoConyuge());
             ps.setString(14, becario.getTelefonoConyuge());
-            ps.setString(26, becario.getOcupacionConyuge());
             ps.setString(15, becario.getObservaciones());
             ps.setString(16, becario.getActaNacimiento());
             ps.setString(17, becario.getSolicitudBeca());
@@ -530,6 +529,8 @@ public class PrincipalModelo {
             ps.setString(23, becario.getFolio());
             ps.setInt(24, becario.getIdEstatus());
             ps.setString(25, becario.getPagare());
+            ps.setString(26, becario.getOcupacionConyuge());
+            ps.setInt(27, becario.getIdPrograma());
             
             
             int i = ps.executeUpdate();
@@ -1696,6 +1697,78 @@ public class PrincipalModelo {
         }
         
         return becario;
+    }
+    
+    /**
+     * Obtiene la informacion de los becarios filtrados por idPrograma y folio
+     * @param conexion
+     * @param idPrograma
+     * @param idEstatus
+     * @return Lista de becarios con la informacion de cada uno de ellos
+     */
+    protected List<Becario> getBecarioPorProgramaEstatus(Connection conexion, int idPrograma, int idEstatus) {
+        List<Becario> lstBecario = new ArrayList<>();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        try {
+            
+            if(conexion == null)
+                throw new SQLException("No se pudo conectar a la base de datos, intentelo de nuevo");
+            ps = conexion.prepareStatement(Consultas.getBecarioPorProgramaEstatus);
+            ps.setInt(1, idPrograma);
+            ps.setInt(2, idEstatus);
+            System.out.println("Query: " + ps.toString());
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                Becario becario = new Becario();
+                becario.setId(rs.getLong(Becario.COL_ID));
+                becario.setNombre(rs.getString(Becario.COL_NOMBRE));
+                becario.setApPaterno(rs.getString(Becario.COL_APATERNO));
+                becario.setApMaterno(rs.getString(Becario.COL_AMATERNO));
+                becario.setFecha_nac(rs.getDate(Becario.COL_FECHA_NAC));
+                becario.setIdSexo(rs.getInt(Becario.COL_SEXO));
+                becario.setIdEstadoCivil(rs.getInt(Becario.COL_ESTADO_CIVIL));
+                becario.setTrabaja(rs.getInt(Becario.COL_TRABAJA));
+                becario.setFolio(rs.getString(Becario.COL_FOLIO));
+                becario.setIdPrograma(rs.getInt(Becario.COL_PROGRAMA));
+                becario.setIdEstatus(rs.getInt(Becario.COL_ESTATUS));
+                becario.setIdTipoEstatus(rs.getInt(Becario.COL_TIPO_ESTATUS));
+                becario.setFoto(rs.getString(Becario.COL_FOTO));
+                becario.setEmail(rs.getString(Becario.COL_EMAIL));
+                becario.setPrimeroConBeca(rs.getInt(Becario.COL_PRIMERO_CON_BECA));
+                becario.setNombreConyuge(rs.getString(Becario.COL_NOMBRE_CONYUGE));
+                becario.setApPaternoConyuge(rs.getString(Becario.COL_APATERNO_CONYUGE));
+                becario.setApMaternoConyuge(rs.getString(Becario.COL_AMATERNO_CONYUGE));
+                becario.setTelefonoConyuge(rs.getString(Becario.COL_TELEFONO_CONYUGE));
+                becario.setOcupacionConyuge(rs.getString(Becario.COL_OCUPACION_CONYUGE));
+                becario.setObservaciones(rs.getString(Becario.COL_OBSERVACIONES));
+                becario.setActaNacimiento(rs.getString(Becario.COL_ACTA_NAC));
+                becario.setSolicitudBeca(rs.getString(Becario.COL_SOLICITUD_BECA));
+                becario.setEnsayo(rs.getString(Becario.COL_ENSAYO));
+                becario.setBoletaInicioBeca(rs.getString(Becario.COL_BOLETA_INICIO_BECA));
+                becario.setContatoBeca(rs.getString(Becario.COL_CONTRATO_BECA));
+                becario.setIdentificacion(rs.getString(Becario.COL_IDENTIFICACION));
+                becario.setPagare(rs.getString(Becario.COL_PAGARE));
+                lstBecario.add(becario);
+            }
+            
+        } catch (SQLException e) {
+            log.muestraErrores(e);
+        }
+        finally{
+            try {
+                rs.close();
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+                log.muestraErrores(ex);
+            }
+            
+        }
+        
+        return lstBecario;
     }
 
     /**

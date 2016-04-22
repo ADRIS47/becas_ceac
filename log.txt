@@ -258,3 +258,9 @@
 22/4/2016;9:45:9;SQLError: S0022
 22/4/2016;9:45:9;ERROR: Code0
 22/4/2016;9:45:9;Message: Column 'id_campo_carrera' not found.
+22/4/2016;10:29:57;SQLError: 07001
+22/4/2016;10:29:57;ERROR: Code0
+22/4/2016;10:29:57;Message: No value specified for parameter 27
+22/4/2016;10:31:22;SQLError: 07001
+22/4/2016;10:31:22;ERROR: Code0
+22/4/2016;10:31:22;Message: No value specified for parameter 27
