@@ -36,6 +36,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
 import pojos.Aval;
 import pojos.Becario;
 import pojos.CatUniversidad;
@@ -1559,9 +1560,9 @@ public class PrincipalControlador {
         Conexion conn = new Conexion();
         Connection conexion = null;
         conexion = conn.estableceConexion();
-        List<Becario> lstBecario = null;
-        List<DatosEscolares> lstDatosEscolares = null;
-        List<CatUniversidad> lstCatUniversidad = null;
+        List<Becario> lstBecario = new ArrayList<>();
+        List<DatosEscolares> lstDatosEscolares = new ArrayList<>();
+        List<CatUniversidad> lstCatUniversidad = new ArrayList<>();
         
         if(conexion == null){
             JOptionPane.showMessageDialog(vista, "No se pudo conectar a la base de datos. \n Intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
@@ -1842,6 +1843,28 @@ public class PrincipalControlador {
      * @param lstCatUniversidad  lista de univerdidades encontradas
      */
     private void llenaTablaBusqueda(List<Becario> lstBecario, List<DatosEscolares> lstDatosEscolares, List<CatUniversidad> lstCatUniversidad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        DefaultTableModel modelo = (DefaultTableModel) vistaBusqueda.tblResultadoBusqueda.getModel();        
+        
+        int rows = modelo.getRowCount();
+        for (int i = 0; i < rows; i++) {
+            modelo.removeRow(i);
+        }
+        
+        int i = 0;
+        for (Becario becario : lstBecario) {
+            modelo.addRow(new String[]{
+                becario.getNombre(), becario.getApPaterno(), becario.getApMaterno(),
+                becario.getFolio(), lstDatosEscolares.get(i).getNombreCarrera(),
+                lstCatUniversidad.get(i).getNombre(), "$" + lstDatosEscolares.get(i).getBecaTotal(),
+                "$" + lstDatosEscolares.get(i).getBecaSemestral(), "" + lstDatosEscolares.get(i).getMesInicioBeca() + 
+                "/" + lstDatosEscolares.get(i).getAnioInicioBeca(), lstDatosEscolares.get(i).getMesGraduacion() +
+                                "/" + lstDatosEscolares.get(i).getAnioGraduacion()
+            });
+            
+            i++;
+        }
+        
+        vistaBusqueda.tblResultadoBusqueda.updateUI();
+        
     }
 }
