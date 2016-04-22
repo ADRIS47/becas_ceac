@@ -17,6 +17,7 @@ public class Hermanos {
     String AMaterno;
     int gradoEscolar;
     long idBecario;
+    String comentario;
 
     public long getId() {
         return id;
@@ -65,6 +66,14 @@ public class Hermanos {
     public void setIdBecario(long idBecario) {
         this.idBecario = idBecario;
     }
+
+    public String getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
+    }
     
     public static final String COL_ID = "id_hermano";
     public static final String COL_NOMBRE = "nombre";
@@ -72,5 +81,6 @@ public class Hermanos {
     public static final String COL_AMATERNO = "ap_materno";
     public static final String COL_ID_GRADO_ESCOLAR = "id_grado_escolar";
     public static final String COL_ID_BECARIO = "id_becario";
+    public static final String COL_COMENTARIOS = "comentario";
     
 }

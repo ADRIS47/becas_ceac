@@ -43,6 +43,11 @@ public class Becario {
     String identificacion;
     String pagare;
     boolean pendiente;
+    String estudioSocioEconomico;
+    String cartaAsignacionBeca;
+    String cuentaBancaria;
+    int idBanco;
+    String clabeInterbancaria;
 
     public long getId() {
         return id;
@@ -283,7 +288,46 @@ public class Becario {
     public void setPagare(String pagare) {
         this.pagare = pagare;
     }
-    
+
+    public String getEstudioSocioEconomico() {
+        return estudioSocioEconomico;
+    }
+
+    public void setEstudioSocioEconomico(String estudioSocioEconomico) {
+        this.estudioSocioEconomico = estudioSocioEconomico;
+    }
+
+    public String getCartaAsignacionBeca() {
+        return cartaAsignacionBeca;
+    }
+
+    public void setCartaAsignacionBeca(String cartaAsignacionBeca) {
+        this.cartaAsignacionBeca = cartaAsignacionBeca;
+    }
+
+    public String getCuentaBancaria() {
+        return cuentaBancaria;
+    }
+
+    public void setCuentaBancaria(String cuentaBancaria) {
+        this.cuentaBancaria = cuentaBancaria;
+    }
+
+    public int getIdBanco() {
+        return idBanco;
+    }
+
+    public void setIdBanco(int idBanco) {
+        this.idBanco = idBanco;
+    }
+
+    public String getClabeInterbancaria() {
+        return clabeInterbancaria;
+    }
+
+    public void setClabeInterbancaria(String clabeInterbancaria) {
+        this.clabeInterbancaria = clabeInterbancaria;
+    }
     
     
     public final static String COL_ID = "id_becario";
@@ -315,4 +359,9 @@ public class Becario {
     public final static String COL_IDENTIFICACION = "identificacion";
     public final static String COL_PAGARE = "pagare";
     public final static String COL_PENDIENTE = "pendiente";
+    public final static String COL_ESTUDIO_SOCIOECONOMICO = "estudio_socioeconomico";
+    public final static String COL_CARTA_ASIGNACION_BECA = "carta_asignacion_beca";
+    public final static String COL_CUENTA_BANCO = "cuenta_bancaria";
+    public final static String COL_ID_BANCO = "id_banco";
+    public final static String COL_CLABE_INTERBANCARIA = "clabe_interbancaria";
 }
