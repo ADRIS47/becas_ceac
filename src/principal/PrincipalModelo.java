@@ -1770,6 +1770,74 @@ public class PrincipalModelo {
         
         return lstBecario;
     }
+    
+    /**
+     * Obtiene una lista de becarios a partir de su nombre y apellido
+     * @param conexion
+     * @param nombre
+     * @param aPaterno
+     * @param aMaterno
+     * @return Lista de becarios que se parecen segun el nombre y el apellido
+     */
+    List<Becario> getBecarioPorNombres(Connection conexion, String nombre, String aPaterno, String aMaterno) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        List<Becario> lstBecario = new ArrayList<>();
+        try{
+            ps = conexion.prepareStatement(Consultas.getBecarioPorNombres);
+            ps.setString(1,"%" + nombre + "%");
+            ps.setString(2, "%" + aPaterno + "%");
+            ps.setString(3, "%" + aMaterno + "%");
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                Becario becario = new Becario();
+                becario.setId(rs.getLong(Becario.COL_ID));
+                becario.setNombre(rs.getString(Becario.COL_NOMBRE));
+                becario.setApPaterno(rs.getString(Becario.COL_APATERNO));
+                becario.setApMaterno(rs.getString(Becario.COL_AMATERNO));
+                becario.setFecha_nac(rs.getDate(Becario.COL_FECHA_NAC));
+                becario.setIdSexo(rs.getInt(Becario.COL_SEXO));
+                becario.setIdEstadoCivil(rs.getInt(Becario.COL_ESTADO_CIVIL));
+                becario.setTrabaja(rs.getInt(Becario.COL_TRABAJA));
+                becario.setFolio(rs.getString(Becario.COL_FOLIO));
+                becario.setIdPrograma(rs.getInt(Becario.COL_PROGRAMA));
+                becario.setIdEstatus(rs.getInt(Becario.COL_ESTATUS));
+                becario.setIdTipoEstatus(rs.getInt(Becario.COL_TIPO_ESTATUS));
+                becario.setFoto(rs.getString(Becario.COL_FOTO));
+                becario.setEmail(rs.getString(Becario.COL_EMAIL));
+                becario.setPrimeroConBeca(rs.getInt(Becario.COL_PRIMERO_CON_BECA));
+                becario.setNombreConyuge(rs.getString(Becario.COL_NOMBRE_CONYUGE));
+                becario.setApPaternoConyuge(rs.getString(Becario.COL_APATERNO_CONYUGE));
+                becario.setApMaternoConyuge(rs.getString(Becario.COL_AMATERNO_CONYUGE));
+                becario.setTelefonoConyuge(rs.getString(Becario.COL_TELEFONO_CONYUGE));
+                becario.setOcupacionConyuge(rs.getString(Becario.COL_OCUPACION_CONYUGE));
+                becario.setObservaciones(rs.getString(Becario.COL_OBSERVACIONES));
+                becario.setActaNacimiento(rs.getString(Becario.COL_ACTA_NAC));
+                becario.setSolicitudBeca(rs.getString(Becario.COL_SOLICITUD_BECA));
+                becario.setEnsayo(rs.getString(Becario.COL_ENSAYO));
+                becario.setBoletaInicioBeca(rs.getString(Becario.COL_BOLETA_INICIO_BECA));
+                becario.setContatoBeca(rs.getString(Becario.COL_CONTRATO_BECA));
+                becario.setIdentificacion(rs.getString(Becario.COL_IDENTIFICACION));
+                becario.setPagare(rs.getString(Becario.COL_PAGARE));
+                lstBecario.add(becario);
+            }
+        } catch (SQLException e) {
+            log.muestraErrores(e);
+        }
+        finally{
+            try {
+                rs.close();
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+                log.muestraErrores(ex);
+            }
+            
+        }
+        
+        return lstBecario;
+    }
 
     /**
      * Obtiene las direcciones del becario por ID del mismo
@@ -2018,10 +2086,10 @@ public class PrincipalModelo {
     /**
      * Obtiene los datos escolares de un becario
      * @param conexion
-     * @param id
+     * @param idBecario
      * @return 
      */
-    protected DatosEscolares getDatosEscolaresBecario(Connection conexion, long id) {
+    protected DatosEscolares getDatosEscolaresBecario(Connection conexion, long idBecario) {
         DatosEscolares datosEscolares = new DatosEscolares();
         
         PreparedStatement ps = null;
@@ -2033,7 +2101,7 @@ public class PrincipalModelo {
                 throw new SQLException("No se pudo conectar a la base de datos, intentelo de nuevo");
             
             ps = conexion.prepareStatement(Consultas.getDatosDatosEscolaresBecario);
-            ps.setLong(1, id);
+            ps.setLong(1, idBecario);
             System.out.println("Query: " + ps.toString());
             rs = ps.executeQuery();
             
@@ -2053,7 +2121,7 @@ public class PrincipalModelo {
                datosEscolares.setBecaTotal(rs.getInt(DatosEscolares.COL_BECA_TOTAL));
                datosEscolares.setBecaSemestral(rs.getInt(DatosEscolares.COL_BECA_SEMESTRAL));
                datosEscolares.setCondicionado(rs.getInt(DatosEscolares.COL_CONDICIONADO));
-               datosEscolares.setIdBecario(id);
+               datosEscolares.setIdBecario(idBecario);
             }
         } catch (SQLException e) {
             log.muestraErrores(e);

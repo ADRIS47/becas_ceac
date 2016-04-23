@@ -34,7 +34,6 @@ public class VistaBusqueda extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel4 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -73,22 +72,24 @@ public class VistaBusqueda extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         btnBuscarPorNombre = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        pnlEvaluado = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblResultadoBusqueda = new javax.swing.JTable();
         btnCargarBecario = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(916, 584));
         setPreferredSize(new java.awt.Dimension(916, 584));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel4.setBackground(new java.awt.Color(0, 0, 255));
 
         jLabel6.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Criterios de búsqueda");
+        jLabel6.setMaximumSize(new java.awt.Dimension(905, 28));
+        jLabel6.setPreferredSize(new java.awt.Dimension(905, 28));
         jPanel4.add(jLabel6);
 
-        add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 896, -1));
+        add(jPanel4);
 
         PnlBuscarFechas.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         PnlBuscarFechas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -169,7 +170,7 @@ public class VistaBusqueda extends javax.swing.JPanel {
                     .addGroup(PnlBuscaFolioLayout.createSequentialGroup()
                         .addGap(67, 67, 67)
                         .addComponent(btnBuscarPorFolio, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         PnlBuscaFolioLayout.setVerticalGroup(
             PnlBuscaFolioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,7 +258,8 @@ public class VistaBusqueda extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(PnlBuscaProgramaEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -273,81 +275,87 @@ public class VistaBusqueda extends javax.swing.JPanel {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado de la búsqueda", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(0, 0, 255))); // NOI18N
         jPanel3.setPreferredSize(new java.awt.Dimension(928, 197));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setMinimumSize(new java.awt.Dimension(928, 180));
-        jPanel1.setPreferredSize(new java.awt.Dimension(928, 100));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(452, 119));
+        pnlEvaluado.setLayout(new javax.swing.BoxLayout(pnlEvaluado, javax.swing.BoxLayout.LINE_AXIS));
 
         tblResultadoBusqueda.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Nombre(s)", "Ap. Paterno", "Ap. Materno", "Folio", "Carrera", "Universidad", "Beca Total", "Beca Semestral", "Fecha de Inicio", "Fecha de Graduación"
+                "Ap. Paterno", "Ap. Materno", "Nombre(s)", "Folio", "Carrera", "Universidad", "Beca Total", "Beca Semestral", "Fecha Inicio", "Fecha Graduación"
             }
         ) {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false
-            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
         });
         tblResultadoBusqueda.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        tblResultadoBusqueda.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        tblResultadoBusqueda.setMinimumSize(new java.awt.Dimension(150, 125));
-        tblResultadoBusqueda.setPreferredSize(new java.awt.Dimension(750, 125));
         jScrollPane1.setViewportView(tblResultadoBusqueda);
         if (tblResultadoBusqueda.getColumnModel().getColumnCount() > 0) {
             tblResultadoBusqueda.getColumnModel().getColumn(0).setMinWidth(100);
-            tblResultadoBusqueda.getColumnModel().getColumn(0).setPreferredWidth(130);
+            tblResultadoBusqueda.getColumnModel().getColumn(0).setPreferredWidth(120);
             tblResultadoBusqueda.getColumnModel().getColumn(0).setMaxWidth(150);
             tblResultadoBusqueda.getColumnModel().getColumn(1).setMinWidth(100);
-            tblResultadoBusqueda.getColumnModel().getColumn(1).setPreferredWidth(130);
+            tblResultadoBusqueda.getColumnModel().getColumn(1).setPreferredWidth(120);
             tblResultadoBusqueda.getColumnModel().getColumn(1).setMaxWidth(150);
             tblResultadoBusqueda.getColumnModel().getColumn(2).setMinWidth(100);
-            tblResultadoBusqueda.getColumnModel().getColumn(2).setPreferredWidth(130);
+            tblResultadoBusqueda.getColumnModel().getColumn(2).setPreferredWidth(120);
             tblResultadoBusqueda.getColumnModel().getColumn(2).setMaxWidth(150);
-            tblResultadoBusqueda.getColumnModel().getColumn(3).setMinWidth(70);
-            tblResultadoBusqueda.getColumnModel().getColumn(3).setPreferredWidth(100);
-            tblResultadoBusqueda.getColumnModel().getColumn(3).setMaxWidth(130);
+            tblResultadoBusqueda.getColumnModel().getColumn(3).setMinWidth(100);
+            tblResultadoBusqueda.getColumnModel().getColumn(3).setPreferredWidth(120);
+            tblResultadoBusqueda.getColumnModel().getColumn(3).setMaxWidth(150);
             tblResultadoBusqueda.getColumnModel().getColumn(4).setMinWidth(150);
             tblResultadoBusqueda.getColumnModel().getColumn(4).setPreferredWidth(200);
-            tblResultadoBusqueda.getColumnModel().getColumn(4).setMaxWidth(250);
+            tblResultadoBusqueda.getColumnModel().getColumn(4).setMaxWidth(200);
             tblResultadoBusqueda.getColumnModel().getColumn(5).setMinWidth(150);
             tblResultadoBusqueda.getColumnModel().getColumn(5).setPreferredWidth(200);
             tblResultadoBusqueda.getColumnModel().getColumn(5).setMaxWidth(250);
-            tblResultadoBusqueda.getColumnModel().getColumn(6).setMinWidth(150);
-            tblResultadoBusqueda.getColumnModel().getColumn(6).setPreferredWidth(170);
-            tblResultadoBusqueda.getColumnModel().getColumn(6).setMaxWidth(200);
-            tblResultadoBusqueda.getColumnModel().getColumn(7).setMinWidth(150);
-            tblResultadoBusqueda.getColumnModel().getColumn(7).setPreferredWidth(170);
-            tblResultadoBusqueda.getColumnModel().getColumn(7).setMaxWidth(200);
+            tblResultadoBusqueda.getColumnModel().getColumn(6).setMinWidth(100);
+            tblResultadoBusqueda.getColumnModel().getColumn(6).setPreferredWidth(120);
+            tblResultadoBusqueda.getColumnModel().getColumn(6).setMaxWidth(150);
+            tblResultadoBusqueda.getColumnModel().getColumn(7).setMinWidth(100);
+            tblResultadoBusqueda.getColumnModel().getColumn(7).setPreferredWidth(120);
+            tblResultadoBusqueda.getColumnModel().getColumn(7).setMaxWidth(150);
             tblResultadoBusqueda.getColumnModel().getColumn(8).setMinWidth(150);
-            tblResultadoBusqueda.getColumnModel().getColumn(8).setPreferredWidth(200);
-            tblResultadoBusqueda.getColumnModel().getColumn(8).setMaxWidth(250);
+            tblResultadoBusqueda.getColumnModel().getColumn(8).setPreferredWidth(170);
+            tblResultadoBusqueda.getColumnModel().getColumn(8).setMaxWidth(200);
             tblResultadoBusqueda.getColumnModel().getColumn(9).setMinWidth(150);
-            tblResultadoBusqueda.getColumnModel().getColumn(9).setPreferredWidth(200);
-            tblResultadoBusqueda.getColumnModel().getColumn(9).setMaxWidth(250);
+            tblResultadoBusqueda.getColumnModel().getColumn(9).setPreferredWidth(170);
+            tblResultadoBusqueda.getColumnModel().getColumn(9).setMaxWidth(200);
         }
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 190));
+        pnlEvaluado.add(jScrollPane1);
 
-        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 887, 200));
+        btnCargarBecario.setText("Cargar Becario");
 
-        btnCargarBecario.setText("Cargar");
-        jPanel3.add(btnCargarBecario, new org.netbeans.lib.awtextra.AbsoluteConstraints(378, 223, 103, -1));
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCargarBecario)
+                .addGap(377, 377, 377))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(pnlEvaluado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 881, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(209, Short.MAX_VALUE)
+                .addComponent(btnCargarBecario)
+                .addContainerGap())
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(pnlEvaluado, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(50, Short.MAX_VALUE)))
+        );
 
         javax.swing.GroupLayout PnlBuscaPrincipalLayout = new javax.swing.GroupLayout(PnlBuscaPrincipal);
         PnlBuscaPrincipal.setLayout(PnlBuscaPrincipalLayout);
@@ -356,8 +364,8 @@ public class VistaBusqueda extends javax.swing.JPanel {
             .addGroup(PnlBuscaPrincipalLayout.createSequentialGroup()
                 .addGroup(PnlBuscaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 893, Short.MAX_VALUE)
-                    .addComponent(PnlBuscarFechas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 893, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PnlBuscarFechas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 881, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PnlBuscaPrincipalLayout.setVerticalGroup(
@@ -367,10 +375,11 @@ public class VistaBusqueda extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PnlBuscarFechas, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        add(PnlBuscaPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 62, 890, -1));
+        add(PnlBuscaPrincipal);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -391,7 +400,7 @@ public class VistaBusqueda extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBuscarPorProgEstatusActionPerformed
 
     private void btnBuscarPorNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPorNombreActionPerformed
-        // TODO add your handling code here:
+        controlador.getInfoBecarioPorNombre(txtNombre.getText(), txtAPaterno.getText(), txtAMaterno.getText());
     }//GEN-LAST:event_btnBuscarPorNombreActionPerformed
 
 
@@ -404,7 +413,7 @@ public class VistaBusqueda extends javax.swing.JPanel {
     protected javax.swing.JButton btnBuscarPorFolio;
     protected javax.swing.JButton btnBuscarPorNombre;
     protected javax.swing.JButton btnBuscarPorProgEstatus;
-    protected javax.swing.JButton btnCargarBecario;
+    private javax.swing.JButton btnCargarBecario;
     protected javax.swing.JComboBox cmbAnioRegistro;
     protected javax.swing.JComboBox cmbMesGraduacion;
     protected javax.swing.JComboBox cmbPrograma;
@@ -426,12 +435,12 @@ public class VistaBusqueda extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel pnlEvaluado;
     protected javax.swing.JTable tblResultadoBusqueda;
     protected javax.swing.JTextField txtAMaterno;
     protected javax.swing.JTextField txtAPaterno;

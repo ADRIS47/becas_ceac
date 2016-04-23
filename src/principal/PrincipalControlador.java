@@ -1406,12 +1406,12 @@ public class PrincipalControlador {
         //Datos Escolares 
         vistaRegistro.txtNombreCarrera.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtNombreCarrera));
         vistaRegistro.txtEscuelaProcedencia.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtEscuelaProcedencia));
-        vistaRegistro.txtCostoCarrera.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.NUMEROS, vistaRegistro.txtCostoCarrera));
-        vistaRegistro.txtBecaAutorizada.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.NUMEROS, vistaRegistro.txtBecaAutorizada));
+        vistaRegistro.txtCostoCarrera.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.DINERO, vistaRegistro.txtCostoCarrera));
+        vistaRegistro.txtBecaAutorizada.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.DINERO, vistaRegistro.txtBecaAutorizada));
         
         //Datos que calculan la beca total semestral
-        vistaRegistro.txtBecaAutorizada.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.NUMEROS, vistaRegistro.txtBecaAutorizada));
-        vistaRegistro.txtCostoCarrera.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.NUMEROS, vistaRegistro.txtCostoCarrera));
+        vistaRegistro.txtBecaAutorizada.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.DINERO, vistaRegistro.txtBecaAutorizada));
+        vistaRegistro.txtCostoCarrera.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.DINERO, vistaRegistro.txtCostoCarrera));
         
         //Datos que calculan la beca total semestral
         vistaRegistro.txtBecaAutorizada.addKeyListener(new EscuchadorCalculaBecaXSemestre(
@@ -1561,8 +1561,7 @@ public class PrincipalControlador {
         Connection conexion = null;
         conexion = conn.estableceConexion();
         List<Becario> lstBecario = new ArrayList<>();
-        List<DatosEscolares> lstDatosEscolares = new ArrayList<>();
-        List<CatUniversidad> lstCatUniversidad = new ArrayList<>();
+        
         
         if(conexion == null){
             JOptionPane.showMessageDialog(vista, "No se pudo conectar a la base de datos. \n Intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
@@ -1574,27 +1573,36 @@ public class PrincipalControlador {
         lstBecario = modelo.getBecarioPorProgramaEstatus(conexion, idPrograma, idEstatus);
         if(lstBecario.isEmpty()){
             JOptionPane.showMessageDialog(vista, "No se encontraron Becarios", "No hay registros", JOptionPane.INFORMATION_MESSAGE);
-            try {
-                conexion.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
-                log.muestraErrores(ex);
-            }
             return;
         }
         
-        for (Becario becario : lstBecario) {
-            DatosEscolares datosEscolares = modelo.getDatosEscolaresBecario(conexion, idEstatus);
-            lstDatosEscolares.add(datosEscolares);
-            
-            CatUniversidad universidadBecario = new CatUniversidad();
-            universidadBecario.setId(datosEscolares.getIdUniversidad());
-            universidadBecario.setNombre(getItemComboBox(universidadBecario.getId(), catUniversidad));
-            lstCatUniversidad.add(universidadBecario);
+        llenaTablaBusqueda(lstBecario, conexion);
+    }
+    
+    /**
+     * Busca a los becarios por sus nombres y apellidos
+     * @param nombre
+     * @param aPaterno
+     * @param aMaterno 
+     */
+    protected void getInfoBecarioPorNombre(String nombre, String aPaterno, String aMaterno) {
+        Conexion conn = new Conexion();
+        Connection conexion = conn.estableceConexion();
+        List<Becario> lstBecario = new ArrayList<>();
+        if(conexion == null){
+            JOptionPane.showMessageDialog(vistaBusqueda, "No se pudo conectar a la base de datos, intentalo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+            log.muestraErrores(new SQLException("No se pudo conectar a la base de datos"));
+            return;
         }
         
+        lstBecario = modelo.getBecarioPorNombres(conexion, nombre, aPaterno, aMaterno);
         
-        llenaTablaBusqueda(lstBecario, lstDatosEscolares, lstCatUniversidad);
+        if(lstBecario.isEmpty()){
+            JOptionPane.showMessageDialog(vista, "No se encontraron Becarios", "No hay registros", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        
+        llenaTablaBusqueda(lstBecario, conexion);
     }
 
     /**
@@ -1837,23 +1845,38 @@ public class PrincipalControlador {
     }
 
     /**
-     * Se encarga de llenar con informacion la tabla de la vistaBusqueda
+     * Se encarga de obtener la información necesaria de cada becario para llenar 
+     * la tabla de la vistaBusqueda.
      * @param lstBecario lista de becarios encontrados
-     * @param lstDatosEscolares lista de datos escolares correspondiente a cada becario
-     * @param lstCatUniversidad  lista de univerdidades encontradas
      */
-    private void llenaTablaBusqueda(List<Becario> lstBecario, List<DatosEscolares> lstDatosEscolares, List<CatUniversidad> lstCatUniversidad) {
+    private void llenaTablaBusqueda(List<Becario> lstBecario, Connection conexion) {
+        
+        List<DatosEscolares> lstDatosEscolares = new ArrayList<>();
+        List<CatUniversidad> lstCatUniversidad = new ArrayList<>();
+        
+        //Se obtiene la información restante para llenar la tabla de resultados
+        for (Becario becario : lstBecario) {
+            DatosEscolares datosEscolares = modelo.getDatosEscolaresBecario(conexion, becario.getId());
+            lstDatosEscolares.add(datosEscolares);
+            
+            CatUniversidad universidadBecario = new CatUniversidad();
+            universidadBecario.setId(datosEscolares.getIdUniversidad());
+            universidadBecario.setNombre(getItemComboBox(universidadBecario.getId(), catUniversidad));
+            lstCatUniversidad.add(universidadBecario);
+        }
+        
         DefaultTableModel modelo = (DefaultTableModel) vistaBusqueda.tblResultadoBusqueda.getModel();        
         
+        //Se borra la información de la tabla
         int rows = modelo.getRowCount();
         for (int i = 0; i < rows; i++) {
             modelo.removeRow(i);
         }
-        
+        //Se inserta la informacion en la tabla
         int i = 0;
         for (Becario becario : lstBecario) {
             modelo.addRow(new String[]{
-                becario.getNombre(), becario.getApPaterno(), becario.getApMaterno(),
+                becario.getApPaterno(), becario.getApMaterno(), becario.getNombre(),
                 becario.getFolio(), lstDatosEscolares.get(i).getNombreCarrera(),
                 lstCatUniversidad.get(i).getNombre(), "$" + lstDatosEscolares.get(i).getBecaTotal(),
                 "$" + lstDatosEscolares.get(i).getBecaSemestral(), "" + lstDatosEscolares.get(i).getMesInicioBeca() + 
@@ -1866,5 +1889,14 @@ public class PrincipalControlador {
         
         vistaBusqueda.tblResultadoBusqueda.updateUI();
         
+        try {
+            conexion.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            log.muestraErrores(ex);
+        }
+        
     }
+
+    
 }
