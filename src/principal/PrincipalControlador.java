@@ -158,7 +158,7 @@ public class PrincipalControlador {
             llenaPanelesVistaRegistro();
             //Se obtienen las categorias para llenar la pantalla
             lstCategorias = modelo.getCategoriasVistaRegistro();
-            llenaCamposCategoriasVistaRegistro(lstCategorias);
+            llenaCamposCategoriasVistaRegistro(lstCategorias, false);
         } catch (SQLException ex) {
             Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(vista, "Error, consulta el registro de errores", 
@@ -211,6 +211,9 @@ public class PrincipalControlador {
         }
         
         creaPantalla(vistaBusqueda);
+        
+        helper.setAñoActualEnCombo(vistaBusqueda.cmbAnioRegistro);
+        helper.setAñoActualEnCombo(vistaBusqueda.cmbanioGraduacion);
     }
     
     /**
@@ -228,10 +231,14 @@ public class PrincipalControlador {
     }
     
     /**
-     * Llena con los datos de las categorias la pantalla VistaRegistro
-     * @param lstCategorias 
+     * Llena con los datos de las categorias la pantalla VistaRegistro, en caso de que 
+     * sea la adicion de un registro NO se carga la categoria Estatus, si es un caso de 
+     * cargar mediante busqueda SI se carga la categoria Estatus
+     * @param lstCategorias
+     * @param bandera True.- Indica que se carga la categoria Estatus,
+     * False.- Indica que no se carga la categoria estatus
      */
-    private void llenaCamposCategoriasVistaRegistro(List<LinkedHashMap<Integer, String>> lstCategorias){
+    private void llenaCamposCategoriasVistaRegistro(List<LinkedHashMap<Integer, String>> lstCategorias, boolean bandera){
         //Se separan las categorias
         catSexo = lstCategorias.get(0);
         catEstadoCivil = lstCategorias.get(1);
@@ -251,6 +258,11 @@ public class PrincipalControlador {
         llenaComboCategorias(vistaRegistro.cmboxEscuelaUniversitaria, catUniversidad);
         llenaComboCategorias(vistaRegistro.cmboxCampoEscuela, catCampoEstudio);
         
+        if(bandera){
+            vistaRegistro.cmbEstatus.removeAllItems();
+            llenaComboCategorias(vistaRegistro.cmbEstatus, catEstatus);
+        }
+            
     }
     
     /**
@@ -1604,6 +1616,18 @@ public class PrincipalControlador {
         
         llenaTablaBusqueda(lstBecario, conexion);
     }
+    
+    /**
+     * Obtiene los datos del becario seleccionado en la tabla de la vistaBusqueda
+     */
+    protected void getInfoBecarioPorTablaBusqueda() {
+        DefaultTableModel modelo = (DefaultTableModel) vistaBusqueda.tblResultadoBusqueda.getModel();
+        int row = vistaBusqueda.tblResultadoBusqueda.getSelectedRow();
+        //Se obtiene el folio del becario seleccionado
+        String folio = modelo.getValueAt(row, 3).toString();
+        
+        getInfoBecarioPorFolio(folio);
+    }
 
     /**
      * Crea la pantalla VistaRegistro con la informacion de un becario registrado
@@ -1643,7 +1667,7 @@ public class PrincipalControlador {
             llenaPanelesVistaRegistro();
             //Se obtienen las categorias para llenar la pantalla
             lstCategorias = modelo.getCategoriasVistaRegistro();
-            llenaCamposCategoriasVistaRegistro(lstCategorias);
+            llenaCamposCategoriasVistaRegistro(lstCategorias, true);
             llenaCamposVistaRegistro(becario, lstDireccionesBecario, lstTelefonosBecario, 
                     lstPadresBecario, lstHermanos, lstHijos, lstDatosEscolares, lstAval);
         } catch (SQLException ex) {
@@ -1896,7 +1920,5 @@ public class PrincipalControlador {
             log.muestraErrores(ex);
         }
         
-    }
-
-    
+    }    
 }

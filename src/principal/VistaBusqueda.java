@@ -38,20 +38,6 @@ public class VistaBusqueda extends javax.swing.JPanel {
         jPanel4 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         PnlBuscaPrincipal = new javax.swing.JPanel();
-        PnlBuscarFechas = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        cmbSemestreRegistro = new javax.swing.JComboBox();
-        jLabel9 = new javax.swing.JLabel();
-        cmbMesGraduacion = new javax.swing.JComboBox();
-        jLabel10 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox();
-        jButton1 = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
-        cmbAnioRegistro = new javax.swing.JComboBox();
-        jLabel12 = new javax.swing.JLabel();
-        cmbanioGraduacion = new javax.swing.JComboBox();
-        jComboBox7 = new javax.swing.JComboBox();
-        jLabel13 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         PnlBuscaFolio = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -71,6 +57,16 @@ public class VistaBusqueda extends javax.swing.JPanel {
         txtNombre = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         btnBuscarPorNombre = new javax.swing.JButton();
+        PnlBuscarFechas = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        cmbSemestreRegistro = new javax.swing.JComboBox();
+        jLabel9 = new javax.swing.JLabel();
+        cmbMesGraduacion = new javax.swing.JComboBox();
+        jButton1 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        cmbAnioRegistro = new javax.swing.JComboBox();
+        jLabel12 = new javax.swing.JLabel();
+        cmbanioGraduacion = new javax.swing.JComboBox();
         jPanel3 = new javax.swing.JPanel();
         pnlEvaluado = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -90,56 +86,6 @@ public class VistaBusqueda extends javax.swing.JPanel {
         jPanel4.add(jLabel6);
 
         add(jPanel4);
-
-        PnlBuscarFechas.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        PnlBuscarFechas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel5.setText("Semestre Registro:");
-        PnlBuscarFechas.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, 19));
-
-        cmbSemestreRegistro.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        PnlBuscarFechas.add(cmbSemestreRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 116, -1));
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel9.setText("Semestre Graduación:");
-        PnlBuscarFechas.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, -1, -1));
-
-        cmbMesGraduacion.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        PnlBuscarFechas.add(cmbMesGraduacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, 117, 20));
-
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel10.setText("Semestre Registro:");
-        PnlBuscarFechas.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 40, -1, -1));
-
-        jComboBox4.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        PnlBuscarFechas.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 30, 135, -1));
-
-        jButton1.setText("Buscar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        PnlBuscarFechas.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 30, -1, -1));
-
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel11.setText("Año:");
-        PnlBuscarFechas.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
-
-        PnlBuscarFechas.add(cmbAnioRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 110, 20));
-
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel12.setText("Año:");
-        PnlBuscarFechas.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, -1, -1));
-
-        PnlBuscarFechas.add(cmbanioGraduacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 60, 117, 20));
-
-        PnlBuscarFechas.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 60, 135, 20));
-
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel13.setText("Año:");
-        PnlBuscarFechas.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, -1, -1));
 
         PnlBuscaFolio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -258,8 +204,7 @@ public class VistaBusqueda extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(PnlBuscaProgramaEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -272,6 +217,47 @@ public class VistaBusqueda extends javax.swing.JPanel {
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
+
+        PnlBuscarFechas.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PnlBuscarFechas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel5.setText("Semestre Registro:");
+        PnlBuscarFechas.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, 19));
+
+        cmbSemestreRegistro.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        cmbSemestreRegistro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        PnlBuscarFechas.add(cmbSemestreRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 116, -1));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel9.setText("Semestre Graduación:");
+        PnlBuscarFechas.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, -1, -1));
+
+        cmbMesGraduacion.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        cmbMesGraduacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        PnlBuscarFechas.add(cmbMesGraduacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 30, 117, 20));
+
+        jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        PnlBuscarFechas.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 30, -1, -1));
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel11.setText("Año:");
+        PnlBuscarFechas.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, -1, -1));
+
+        cmbAnioRegistro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
+        PnlBuscarFechas.add(cmbAnioRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, 110, 20));
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel12.setText("Año:");
+        PnlBuscarFechas.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 60, -1, -1));
+
+        cmbanioGraduacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
+        PnlBuscarFechas.add(cmbanioGraduacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 60, 117, 20));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado de la búsqueda", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(0, 0, 255))); // NOI18N
         jPanel3.setPreferredSize(new java.awt.Dimension(928, 197));
@@ -332,6 +318,11 @@ public class VistaBusqueda extends javax.swing.JPanel {
         pnlEvaluado.add(jScrollPane1);
 
         btnCargarBecario.setText("Cargar Becario");
+        btnCargarBecario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCargarBecarioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -365,7 +356,7 @@ public class VistaBusqueda extends javax.swing.JPanel {
                 .addGroup(PnlBuscaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 893, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(PnlBuscarFechas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 881, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PnlBuscarFechas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PnlBuscaPrincipalLayout.setVerticalGroup(
@@ -403,6 +394,10 @@ public class VistaBusqueda extends javax.swing.JPanel {
         controlador.getInfoBecarioPorNombre(txtNombre.getText(), txtAPaterno.getText(), txtAMaterno.getText());
     }//GEN-LAST:event_btnBuscarPorNombreActionPerformed
 
+    private void btnCargarBecarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarBecarioActionPerformed
+        controlador.getInfoBecarioPorTablaBusqueda();
+    }//GEN-LAST:event_btnCargarBecarioActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     protected javax.swing.JComboBox CmbboxBuscaEstatus;
@@ -420,13 +415,9 @@ public class VistaBusqueda extends javax.swing.JPanel {
     protected javax.swing.JComboBox cmbSemestreRegistro;
     protected javax.swing.JComboBox cmbanioGraduacion;
     private javax.swing.JButton jButton1;
-    protected javax.swing.JComboBox jComboBox4;
-    protected javax.swing.JComboBox jComboBox7;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
