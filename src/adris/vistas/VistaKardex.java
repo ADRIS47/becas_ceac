@@ -464,7 +464,7 @@ public class VistaKardex extends javax.swing.JPanel {
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Pago Febrero");
+        jLabel8.setText("Pago 1");
         jLabel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         PnlEncabezadoKardex.add(jLabel8);
 
@@ -488,7 +488,7 @@ public class VistaKardex extends javax.swing.JPanel {
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel14.setText("Pago Julio");
+        jLabel14.setText("Pago 2");
         jLabel14.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         PnlEncabezadoKardex.add(jLabel14);
 
