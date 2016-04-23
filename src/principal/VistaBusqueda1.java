@@ -5,13 +5,14 @@
  */
 package principal;
 
-import javax.swing.JOptionPane;
+import adris.vistas.*;
+import principal.*;
 
 /**
  *
  * @author sabagip
  */
-public class VistaBusqueda extends javax.swing.JPanel {
+public class VistaBusqueda1 extends javax.swing.JPanel {
     
     PrincipalControlador controlador;
 
@@ -22,7 +23,7 @@ public class VistaBusqueda extends javax.swing.JPanel {
     /**
      * Creates new form VistaBuscar
      */
-    public VistaBusqueda() {
+    public VistaBusqueda1() {
         initComponents();
     }
 
@@ -34,7 +35,6 @@ public class VistaBusqueda extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel4 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -73,10 +73,10 @@ public class VistaBusqueda extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         btnBuscarPorNombre = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        btnCargarBecario = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblResultadoBusqueda = new javax.swing.JTable();
-        btnCargarBecario = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(916, 584));
         setPreferredSize(new java.awt.Dimension(916, 584));
@@ -95,24 +95,24 @@ public class VistaBusqueda extends javax.swing.JPanel {
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel5.setText("Semestre Registro:");
-        PnlBuscarFechas.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, 19));
+        PnlBuscarFechas.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, 19));
 
         cmbSemestreRegistro.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        PnlBuscarFechas.add(cmbSemestreRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 116, -1));
+        PnlBuscarFechas.add(cmbSemestreRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 116, -1));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel9.setText("Semestre Graduación:");
-        PnlBuscarFechas.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, -1, -1));
+        PnlBuscarFechas.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, -1, -1));
 
         cmbMesGraduacion.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        PnlBuscarFechas.add(cmbMesGraduacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, 117, 20));
+        PnlBuscarFechas.add(cmbMesGraduacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 30, 117, 20));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel10.setText("Semestre Registro:");
-        PnlBuscarFechas.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 40, -1, -1));
+        PnlBuscarFechas.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 40, -1, -1));
 
         jComboBox4.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        PnlBuscarFechas.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 30, 135, -1));
+        PnlBuscarFechas.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 30, 135, -1));
 
         jButton1.setText("Buscar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -120,25 +120,25 @@ public class VistaBusqueda extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        PnlBuscarFechas.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 30, -1, -1));
+        PnlBuscarFechas.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 30, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel11.setText("Año:");
-        PnlBuscarFechas.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
+        PnlBuscarFechas.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 58, -1, -1));
 
-        PnlBuscarFechas.add(cmbAnioRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 110, 20));
+        PnlBuscarFechas.add(cmbAnioRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 56, 110, 20));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel12.setText("Año:");
-        PnlBuscarFechas.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, -1, -1));
+        PnlBuscarFechas.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(379, 58, -1, -1));
 
-        PnlBuscarFechas.add(cmbanioGraduacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 60, 117, 20));
+        PnlBuscarFechas.add(cmbanioGraduacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 56, 117, 20));
 
-        PnlBuscarFechas.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 60, 135, 20));
+        PnlBuscarFechas.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(669, 56, 135, 20));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel13.setText("Año:");
-        PnlBuscarFechas.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, -1, -1));
+        PnlBuscarFechas.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 58, -1, -1));
 
         PnlBuscaFolio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -169,7 +169,7 @@ public class VistaBusqueda extends javax.swing.JPanel {
                     .addGroup(PnlBuscaFolioLayout.createSequentialGroup()
                         .addGap(67, 67, 67)
                         .addComponent(btnBuscarPorFolio, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         PnlBuscaFolioLayout.setVerticalGroup(
             PnlBuscaFolioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,7 +257,8 @@ public class VistaBusqueda extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(PnlBuscaProgramaEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -273,10 +274,10 @@ public class VistaBusqueda extends javax.swing.JPanel {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado de la búsqueda", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(0, 0, 255))); // NOI18N
         jPanel3.setPreferredSize(new java.awt.Dimension(928, 197));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setMinimumSize(new java.awt.Dimension(928, 180));
-        jPanel1.setPreferredSize(new java.awt.Dimension(928, 100));
+        btnCargarBecario.setText("Cargar");
+
+        jPanel1.setPreferredSize(new java.awt.Dimension(884, 100));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jScrollPane1.setPreferredSize(new java.awt.Dimension(452, 119));
@@ -305,59 +306,49 @@ public class VistaBusqueda extends javax.swing.JPanel {
             }
         });
         tblResultadoBusqueda.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        tblResultadoBusqueda.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tblResultadoBusqueda.setMinimumSize(new java.awt.Dimension(150, 125));
         tblResultadoBusqueda.setPreferredSize(new java.awt.Dimension(750, 125));
         jScrollPane1.setViewportView(tblResultadoBusqueda);
-        if (tblResultadoBusqueda.getColumnModel().getColumnCount() > 0) {
-            tblResultadoBusqueda.getColumnModel().getColumn(0).setMinWidth(100);
-            tblResultadoBusqueda.getColumnModel().getColumn(0).setPreferredWidth(130);
-            tblResultadoBusqueda.getColumnModel().getColumn(0).setMaxWidth(150);
-            tblResultadoBusqueda.getColumnModel().getColumn(1).setMinWidth(100);
-            tblResultadoBusqueda.getColumnModel().getColumn(1).setPreferredWidth(130);
-            tblResultadoBusqueda.getColumnModel().getColumn(1).setMaxWidth(150);
-            tblResultadoBusqueda.getColumnModel().getColumn(2).setMinWidth(100);
-            tblResultadoBusqueda.getColumnModel().getColumn(2).setPreferredWidth(130);
-            tblResultadoBusqueda.getColumnModel().getColumn(2).setMaxWidth(150);
-            tblResultadoBusqueda.getColumnModel().getColumn(3).setMinWidth(70);
-            tblResultadoBusqueda.getColumnModel().getColumn(3).setPreferredWidth(100);
-            tblResultadoBusqueda.getColumnModel().getColumn(3).setMaxWidth(130);
-            tblResultadoBusqueda.getColumnModel().getColumn(4).setMinWidth(150);
-            tblResultadoBusqueda.getColumnModel().getColumn(4).setPreferredWidth(200);
-            tblResultadoBusqueda.getColumnModel().getColumn(4).setMaxWidth(250);
-            tblResultadoBusqueda.getColumnModel().getColumn(5).setMinWidth(150);
-            tblResultadoBusqueda.getColumnModel().getColumn(5).setPreferredWidth(200);
-            tblResultadoBusqueda.getColumnModel().getColumn(5).setMaxWidth(250);
-            tblResultadoBusqueda.getColumnModel().getColumn(6).setMinWidth(150);
-            tblResultadoBusqueda.getColumnModel().getColumn(6).setPreferredWidth(170);
-            tblResultadoBusqueda.getColumnModel().getColumn(6).setMaxWidth(200);
-            tblResultadoBusqueda.getColumnModel().getColumn(7).setMinWidth(150);
-            tblResultadoBusqueda.getColumnModel().getColumn(7).setPreferredWidth(170);
-            tblResultadoBusqueda.getColumnModel().getColumn(7).setMaxWidth(200);
-            tblResultadoBusqueda.getColumnModel().getColumn(8).setMinWidth(150);
-            tblResultadoBusqueda.getColumnModel().getColumn(8).setPreferredWidth(200);
-            tblResultadoBusqueda.getColumnModel().getColumn(8).setMaxWidth(250);
-            tblResultadoBusqueda.getColumnModel().getColumn(9).setMinWidth(150);
-            tblResultadoBusqueda.getColumnModel().getColumn(9).setPreferredWidth(200);
-            tblResultadoBusqueda.getColumnModel().getColumn(9).setMaxWidth(250);
-        }
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 190));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 150));
 
-        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 887, 200));
-
-        btnCargarBecario.setText("Cargar");
-        jPanel3.add(btnCargarBecario, new org.netbeans.lib.awtextra.AbsoluteConstraints(378, 223, 103, -1));
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(372, 372, 372)
+                .addComponent(btnCargarBecario, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 853, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(43, 43, 43)))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(176, Short.MAX_VALUE)
+                .addComponent(btnCargarBecario)
+                .addGap(10, 10, 10))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(39, Short.MAX_VALUE)))
+        );
 
         javax.swing.GroupLayout PnlBuscaPrincipalLayout = new javax.swing.GroupLayout(PnlBuscaPrincipal);
         PnlBuscaPrincipal.setLayout(PnlBuscaPrincipalLayout);
         PnlBuscaPrincipalLayout.setHorizontalGroup(
             PnlBuscaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PnlBuscaPrincipalLayout.createSequentialGroup()
-                .addGroup(PnlBuscaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 893, Short.MAX_VALUE)
-                    .addComponent(PnlBuscarFechas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 893, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(PnlBuscaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PnlBuscaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 887, Short.MAX_VALUE)
+                        .addComponent(PnlBuscarFechas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 887, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PnlBuscaPrincipalLayout.setVerticalGroup(
@@ -367,28 +358,24 @@ public class VistaBusqueda extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PnlBuscarFechas, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         add(PnlBuscaPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 62, 890, -1));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnBuscarPorProgEstatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPorProgEstatusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarPorProgEstatusActionPerformed
+
+    private void btnBuscarPorFolioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPorFolioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarPorFolioActionPerformed
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void btnBuscarPorFolioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPorFolioActionPerformed
-        if(txtNumFolio.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Debes de ingresar un número de folio", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        else{
-            controlador.getInfoBecarioPorFolio(txtNumFolio.getText());
-        }
-    }//GEN-LAST:event_btnBuscarPorFolioActionPerformed
-
-    private void btnBuscarPorProgEstatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPorProgEstatusActionPerformed
-        controlador.getInfoBecarioPorProgramaEstatus(cmbPrograma.getSelectedItem().toString(), CmbboxBuscaEstatus.getSelectedItem().toString());
-    }//GEN-LAST:event_btnBuscarPorProgEstatusActionPerformed
 
     private void btnBuscarPorNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPorNombreActionPerformed
         // TODO add your handling code here:
@@ -407,7 +394,7 @@ public class VistaBusqueda extends javax.swing.JPanel {
     protected javax.swing.JButton btnCargarBecario;
     protected javax.swing.JComboBox cmbAnioRegistro;
     protected javax.swing.JComboBox cmbMesGraduacion;
-    protected javax.swing.JComboBox cmbPrograma;
+    private javax.swing.JComboBox cmbPrograma;
     protected javax.swing.JComboBox cmbSemestreRegistro;
     protected javax.swing.JComboBox cmbanioGraduacion;
     private javax.swing.JButton jButton1;
