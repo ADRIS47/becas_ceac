@@ -222,6 +222,272 @@
 19/4/2016;22:9:0;/home/sabagip
 19/4/2016;22:30:18;/home/sergio/Documentos/becarios/HIS-05
 19/4/2016;22:30:18;No se pudo copiar el archivo Captura de pantalla de 2015-08-30 17:12:09.png    /home/sergio/Documentos/becarios/HIS-05/foto-HIS-05.png
+21/4/2016;13:0:27;SQLError: 42S22
+21/4/2016;13:0:27;ERROR: Code1054
+21/4/2016;13:0:27;Message: Unknown column 'ocupacion_conyuge' in 'field list'
+21/4/2016;13:10:13;Parameter index out of range (22 > number of parameters, which is 21).
+21/4/2016;13:10:14;Error al actualizar los datos del becario
+21/4/2016;13:16:19;No value specified for parameter 11
+21/4/2016;13:16:20;Error al actualizar los datos del becario
+21/4/2016;13:19:55;Error al actualizar los datos del becario
+21/4/2016;13:25:39;null
+21/4/2016;13:50:17;null
+21/4/2016;13:51:25;null
+21/4/2016;13:53:27;null
+21/4/2016;13:56:1;null
+21/4/2016;13:57:21;null
+21/4/2016;13:58:26;null
+21/4/2016;13:59:4;null
+21/4/2016;13:59:57;null
+21/4/2016;14:14:48;null
+22/4/2016;9:40:54;SQLError: 42S22
+22/4/2016;9:40:54;ERROR: Code1054
+22/4/2016;9:40:54;Message: Unknown column 'nomobre' in 'field list'
+22/4/2016;9:41:47;SQLError: S0022
+22/4/2016;9:41:47;ERROR: Code0
+22/4/2016;9:41:47;Message: Column 'id_campo_carrera' not found.
+22/4/2016;9:42:31;SQLError: S0022
+22/4/2016;9:42:31;ERROR: Code0
+22/4/2016;9:42:31;Message: Column 'id_campo_carrera' not found.
+22/4/2016;9:43:0;SQLError: S0022
+22/4/2016;9:43:0;ERROR: Code0
+22/4/2016;9:43:0;Message: Column 'id_campo_carrera' not found.
+22/4/2016;9:44:30;SQLError: S0022
+22/4/2016;9:44:30;ERROR: Code0
+22/4/2016;9:44:30;Message: Column 'id_campo_carrera' not found.
+22/4/2016;9:45:9;SQLError: S0022
+22/4/2016;9:45:9;ERROR: Code0
+22/4/2016;9:45:9;Message: Column 'id_campo_carrera' not found.
+22/4/2016;10:29:57;SQLError: 07001
+22/4/2016;10:29:57;ERROR: Code0
+22/4/2016;10:29:57;Message: No value specified for parameter 27
+22/4/2016;10:31:22;SQLError: 07001
+22/4/2016;10:31:22;ERROR: Code0
+22/4/2016;10:31:22;Message: No value specified for parameter 27
+2/4/2016;21:49:13;SQLError: 42000
+2/4/2016;21:49:13;ERROR: Code1064
+2/4/2016;21:49:13;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE clave_acceso = 'ser'' at line 1
+3/4/2016;21:2:44;SQLError: 42S22
+3/4/2016;21:2:44;ERROR: Code1054
+3/4/2016;21:2:44;Message: Unknown column 'id_estado_civil' in 'field list'
+3/4/2016;21:4:17;SQLError: 42S22
+3/4/2016;21:4:17;ERROR: Code1054
+3/4/2016;21:4:17;Message: Unknown column 'id_estado_civil' in 'field list'
+6/4/2016;23:47:45;SQLError: S0022
+6/4/2016;23:47:45;ERROR: Code0
+6/4/2016;23:47:45;Message: Column 'id_grado_escolar' not found.
+6/4/2016;23:48:34;SQLError: S0022
+6/4/2016;23:48:34;ERROR: Code0
+6/4/2016;23:48:34;Message: Column 'id_grado_escolar' not found.
+6/4/2016;23:51:12;SQLError: S0022
+6/4/2016;23:51:12;ERROR: Code0
+6/4/2016;23:51:12;Message: Column 'id_grado_escolar' not found.
+9/4/2016;19:10:14;SQLError: 08003
+9/4/2016;19:10:14;ERROR: Code0
+9/4/2016;19:10:14;Message: No operations allowed after connection closed.
+9/4/2016;19:10:32;SQLError: 08003
+9/4/2016;19:10:32;ERROR: Code0
+9/4/2016;19:10:32;Message: No operations allowed after connection closed.
+13/4/2016;0:9:5;You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(s), ap_paterno, ap_materno, fecha_nacimiento, sexo, id_estado_civil, trabaja, f' at line 1
+13/4/2016;0:12:48;You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(s), ap_paterno, ap_materno, fecha_nacimiento, sexo, id_estado_civil, trabaja, f' at line 1
+13/4/2016;0:18:12;You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(s), ap_paterno, ap_materno, fecha_nacimiento, sexo, id_estado_civil, trabaja, f' at line 1
+13/4/2016;0:26:51;Column 'foto' cannot be null
+13/4/2016;0:29:55;Column 'acta_nacimiento' cannot be null
+13/4/2016;0:36:24;Column 'acta_nacimiento' cannot be null
+13/4/2016;0:39:21;Field 'folio' doesn't have a default value
+13/4/2016;0:47:6;SQLError: HY000
+13/4/2016;0:47:6;ERROR: Code1364
+13/4/2016;0:47:6;Message: Field 'folio' doesn't have a default value
+13/4/2016;0:53:2;SQLError: HY000
+13/4/2016;0:53:2;ERROR: Code1364
+13/4/2016;0:53:2;Message: Field 'id_estatus' doesn't have a default value
+13/4/2016;1:0:55;SQLError: 23000
+13/4/2016;1:0:55;ERROR: Code1452
+13/4/2016;1:0:55;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_becario`, CONSTRAINT `fk_beca_becario_beca_cat_sexo1` FOREIGN KEY (`sexo`) REFERENCES `beca_cat_sexo` (`id_genero`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+13/4/2016;9:55:12;SQLError: 23000
+13/4/2016;9:55:12;ERROR: Code1452
+13/4/2016;9:55:12;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_becario`, CONSTRAINT `fk_beca_becario_beca_cat_sexo1` FOREIGN KEY (`sexo`) REFERENCES `beca_cat_sexo` (`id_genero`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+13/4/2016;10:0:48;SQLError: HY000
+13/4/2016;10:0:48;ERROR: Code1366
+13/4/2016;10:0:48;Message: Incorrect integer value: 'asdf' for column 'codigo_postal' at row 1
+13/4/2016;10:7:49;SQLError: HY000
+13/4/2016;10:7:49;ERROR: Code1366
+13/4/2016;10:7:49;Message: Incorrect integer value: 'asdf' for column 'codigo_postal' at row 1
+13/4/2016;10:12:11;SQLError: 23000
+13/4/2016;10:12:11;ERROR: Code1452
+13/4/2016;10:12:11;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_direccion`, CONSTRAINT `fk_beca_direccion_beca_becario1` FOREIGN KEY (`id_becario`) REFERENCES `beca_becario` (`id_becario`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+13/4/2016;10:13:22;SQLError: 23000
+13/4/2016;10:13:22;ERROR: Code1452
+13/4/2016;10:13:22;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_direccion`, CONSTRAINT `fk_beca_direccion_beca_becario1` FOREIGN KEY (`id_becario`) REFERENCES `beca_becario` (`id_becario`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+13/4/2016;10:14:31;SQLError: 23000
+13/4/2016;10:14:31;ERROR: Code1452
+13/4/2016;10:14:31;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_direccion`, CONSTRAINT `fk_beca_direccion_beca_becario1` FOREIGN KEY (`id_becario`) REFERENCES `beca_becario` (`id_becario`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+13/4/2016;10:26:36;SQLError: 42000
+13/4/2016;10:26:36;ERROR: Code1064
+13/4/2016;10:26:36;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(ap_materno,  telefono, (id_grado_escolar,  trabaja, (id_becario,  id_parentesco' at line 1
+13/4/2016;10:27:54;SQLError: 42000
+13/4/2016;10:27:54;ERROR: Code1064
+13/4/2016;10:27:54;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(ap_materno,  telefono, (id_grado_escolar,  trabaja, (id_becario,  id_parentesco' at line 1
+13/4/2016;10:28:52;SQLError: 42000
+13/4/2016;10:28:52;ERROR: Code1064
+13/4/2016;10:28:52;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(ap_materno,  telefono, (id_grado_escolar,  trabaja, (id_becario,  id_parentesco' at line 1
+13/4/2016;10:29:33;SQLError: 42000
+13/4/2016;10:29:33;ERROR: Code1064
+13/4/2016;10:29:33;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(ap_materno,  telefono, (id_grado_escolar,  trabaja, (id_becario,  id_parentesco' at line 1
+13/4/2016;10:30:15;SQLError: 42000
+13/4/2016;10:30:15;ERROR: Code1064
+13/4/2016;10:30:15;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(ap_materno,  telefono, (id_grado_escolar,  trabaja, (id_becario,  id_parentesco' at line 1
+13/4/2016;10:30:58;SQLError: 42000
+13/4/2016;10:30:58;ERROR: Code1064
+13/4/2016;10:30:58;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(ap_materno,  telefono, (id_grado_escolar,  trabaja, (id_becario,  id_parentesco' at line 1
+13/4/2016;10:31:26;SQLError: 42000
+13/4/2016;10:31:26;ERROR: Code1064
+13/4/2016;10:31:26;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(ap_materno,  telefono, (id_grado_escolar,  trabaja, (id_becario,  id_parentesco' at line 1
+13/4/2016;10:32:31;SQLError: 42000
+13/4/2016;10:32:31;ERROR: Code1064
+13/4/2016;10:32:31;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(ap_materno,  telefono, (id_grado_escolar,  trabaja, (id_becario,  id_parentesco' at line 1
+13/4/2016;10:36:12;SQLError: 42000
+13/4/2016;10:36:12;ERROR: Code1064
+13/4/2016;10:36:12;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+13/4/2016;10:36:26;null
+13/4/2016;10:38:1;SQLError: 42000
+13/4/2016;10:38:1;ERROR: Code1064
+13/4/2016;10:38:1;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+13/4/2016;10:38:4;null
+13/4/2016;10:38:33;SQLError: 42000
+13/4/2016;10:38:33;ERROR: Code1064
+13/4/2016;10:38:33;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+13/4/2016;10:38:35;null
+13/4/2016;10:39:19;SQLError: 42000
+13/4/2016;10:39:19;ERROR: Code1064
+13/4/2016;10:39:19;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+13/4/2016;10:39:22;null
+13/4/2016;10:42:24;SQLError: 42S22
+13/4/2016;10:42:24;ERROR: Code1054
+13/4/2016;10:42:24;Message: Unknown column 'ap_paterno' in 'field list'
+13/4/2016;10:42:30;null
+13/4/2016;10:46:35;SQLError: 23000
+13/4/2016;10:46:35;ERROR: Code1048
+13/4/2016;10:46:35;Message: Column 'telefono' cannot be null
+13/4/2016;10:46:39;null
+13/4/2016;10:52:9;SQLError: 42000
+13/4/2016;10:52:9;ERROR: Code1064
+13/4/2016;10:52:9;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(ap_materno,  id_grado_escolar, (id_becario) VALUES ('asdf','asdf','asdf',2,1)' at line 1
+13/4/2016;10:52:12;null
+13/4/2016;10:52:56;SQLError: 42000
+13/4/2016;10:52:56;ERROR: Code1064
+13/4/2016;10:52:56;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(ap_materno,  id_grado_escolar, (id_becario) VALUES ('asdf','asdf','asdf',2,2)' at line 1
+13/4/2016;10:52:59;null
+13/4/2016;10:55:38;SQLError: 42S22
+13/4/2016;10:55:38;ERROR: Code1054
+13/4/2016;10:55:38;Message: Unknown column 'nombre' in 'field list'
+13/4/2016;10:55:42;null
+13/4/2016;10:58:54;SQLError: 42000
+13/4/2016;10:58:54;ERROR: Code1064
+13/4/2016;10:58:54;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'nombre,  ap_paterno, ap_materno,  fecha_nacimiento, id_becario) VALUES ('asdf','' at line 1
+13/4/2016;10:58:59;null
+13/4/2016;10:59:41;SQLError: 42000
+13/4/2016;10:59:41;ERROR: Code1064
+13/4/2016;10:59:41;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'nombre,  ap_paterno, ap_materno,  fecha_nacimiento, id_becario) VALUES ('asdf','' at line 1
+13/4/2016;10:59:43;null
+13/4/2016;11:2:58;SQLError: 42S22
+13/4/2016;11:2:58;ERROR: Code1054
+13/4/2016;11:2:58;Message: Unknown column 'ap_paterno' in 'field list'
+13/4/2016;11:3:0;null
+13/4/2016;11:21:9;SQLError: 42000
+13/4/2016;11:21:9;ERROR: Code1064
+13/4/2016;11:21:9;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'iniciales = 'DEV-'' at line 1
+13/4/2016;11:21:11;null
+14/4/2016;0:52:37;SQLError: 23000
+14/4/2016;0:52:37;ERROR: Code1048
+14/4/2016;0:52:37;Message: Column 'fecha_nacimiento' cannot be null
+14/4/2016;0:57:34;SQLError: 23000
+14/4/2016;0:57:34;ERROR: Code1048
+14/4/2016;0:57:34;Message: Column 'fecha_nacimiento' cannot be null
+14/4/2016;1:1:24;SQLError: HY000
+14/4/2016;1:1:24;ERROR: Code1366
+14/4/2016;1:1:24;Message: Incorrect integer value: '' for column 'codigo_postal' at row 1
+14/4/2016;1:1:26;null
+14/4/2016;14:34:42;SQLError: 42000
+14/4/2016;14:34:42;ERROR: Code1064
+14/4/2016;14:34:42;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(id_campo_carrera, nombre_carrera, (mes_inicio_beca, anio_inicio_beca, (mes_grad' at line 1
+14/4/2016;14:34:44;null
+14/4/2016;14:41:44;SQLError: 42000
+14/4/2016;14:41:44;ERROR: Code1064
+14/4/2016;14:41:44;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(id_campo_carrera, nombre_carrera, (mes_inicio_beca, anio_inicio_beca, (mes_grad' at line 1
+14/4/2016;14:41:49;null
+14/4/2016;14:47:9;SQLError: 42000
+14/4/2016;14:47:9;ERROR: Code1064
+14/4/2016;14:47:9;Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+14/4/2016;14:47:10;null
+14/4/2016;14:51:30;SQLError: 42S22
+14/4/2016;14:51:30;ERROR: Code1054
+14/4/2016;14:51:30;Message: Unknown column 'semestres_totales_beca' in 'field list'
+14/4/2016;14:51:33;null
+14/4/2016;14:57:24;SQLError: 42S22
+14/4/2016;14:57:24;ERROR: Code1054
+14/4/2016;14:57:24;Message: Unknown column 'semestres_totales_beca' in 'field list'
+14/4/2016;14:57:27;null
+14/4/2016;15:2:56;SQLError: 23000
+14/4/2016;15:2:56;ERROR: Code1452
+14/4/2016;15:2:56;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_datos_escolares`, CONSTRAINT `fk_beca_datos_escolares_beca_becario1` FOREIGN KEY (`id_becario`) REFERENCES `beca_becario` (`id_becario`) ON DELETE NO ACTION ON UPDATE N)
+14/4/2016;15:3:0;null
+14/4/2016;15:5:16;SQLError: 23000
+14/4/2016;15:5:16;ERROR: Code1452
+14/4/2016;15:5:16;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_datos_escolares`, CONSTRAINT `fk_beca_datos_escolares_beca_becario1` FOREIGN KEY (`id_becario`) REFERENCES `beca_becario` (`id_becario`) ON DELETE NO ACTION ON UPDATE N)
+14/4/2016;15:5:21;null
+14/4/2016;15:16:51;No se pudo conectar a la Base de datos
+14/4/2016;15:16:58;No se pudo conectar a la Base de datos
+14/4/2016;15:20:6;No se pudo conectar a la Base de datos
+14/4/2016;15:22:27;No se pudo conectar a la Base de datos
+14/4/2016;15:22:52;No se pudo conectar a la Base de datos
+14/4/2016;15:23:4;No se pudo conectar a la Base de datos
+14/4/2016;15:24:48;No se pudo conectar a la Base de datos
+14/4/2016;15:28:0;SQLError: 23000
+14/4/2016;15:28:0;ERROR: Code1452
+14/4/2016;15:28:0;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_datos_escolares`, CONSTRAINT `fk_beca_datos_escolares_beca_becario1` FOREIGN KEY (`id_becario`) REFERENCES `beca_becario` (`id_becario`) ON DELETE NO ACTION ON UPDATE N)
+14/4/2016;15:28:1;null
+14/4/2016;15:32:57;SQLError: 07001
+14/4/2016;15:32:57;ERROR: Code0
+14/4/2016;15:32:57;Message: No value specified for parameter 2
+14/4/2016;15:32:58;null
+14/4/2016;18:17:42;No se pudo conectar a la Base de datos
+15/4/2016;8:54:41;~/Documentos/becarios
+15/4/2016;8:54:41;~/Documentos/becarios
+15/4/2016;9:8:50;~/Documentos/becarios
+15/4/2016;9:8:50;~/Documentos/becarios
+16/4/2016;17:10:44;/home/sergio/Documentos/becarios
+16/4/2016;17:10:44;/home/sergio/Documentos/becarios
+16/4/2016;17:15:21;/home/sergio/Documentos/becarios
+16/4/2016;17:15:21;/home/sergio/Documentos/becarios
+16/4/2016;17:16:37;/home/sergio/Documentos/becarios
+16/4/2016;17:16:37;/home/sergio/Documentos/becarios
+16/4/2016;17:17:30;/home/sergio/Documentos/becarios
+16/4/2016;17:17:30;/home/sergio/Documentos/becarios
+16/4/2016;17:25:22;/home/sergio/Documentos/becarios
+16/4/2016;17:25:22;/home/sergio/Documentos/becarios
+16/4/2016;17:26:26;/home/sergio/Documentos/becarios
+16/4/2016;17:26:26;/home/sergio/Documentos/becarios
+16/4/2016;17:34:1;/home/sergio/Documentos/becarios
+16/4/2016;17:34:1;/home/sergio/Documentos/becarios
+16/4/2016;17:40:56;/home/sergio/Documentos/becarios
+16/4/2016;17:40:56;/home/sergio/Documentos/becarios
+16/4/2016;17:53:47;/home/sergio/Documentos/becarios
+16/4/2016;17:53:47;/home/sergio/Documentos/becarios
+16/4/2016;17:55:11;/home/sergio/Documentos/becarios
+16/4/2016;17:55:11;/home/sergio/Documentos/becarios
+16/4/2016;17:57:56;/home/sergio/Documentos/becarios
+16/4/2016;17:57:56;/home/sergio/Documentos/becarios
+16/4/2016;17:59:29;/home/sergio/Documentos/becarios
+16/4/2016;17:59:29;/home/sergio/Documentos/becarios
+16/4/2016;18:0:9;/home/sergio/Documentos/becarios
+16/4/2016;18:0:9;/home/sergio/Documentos/becarios
+19/4/2016;22:5:31;/home/sergio/Documentos/becarios
+19/4/2016;22:5:31;/home/sergio/Documentos/becarios
+19/4/2016;22:9:0;/home/sabagip
+19/4/2016;22:9:0;/home/sabagip
+19/4/2016;22:30:18;/home/sergio/Documentos/becarios/HIS-05
+19/4/2016;22:30:18;No se pudo copiar el archivo Captura de pantalla de 2015-08-30 17:12:09.png    /home/sergio/Documentos/becarios/HIS-05/foto-HIS-05.png
 21/4/2016;9:38:30;No se pudo conectar a la Base de datos
 23/4/2016;16:38:12;Parameter index out of range (22 > number of parameters, which is 21).
 23/4/2016;16:38:21;Error al actualizar los datos del becario

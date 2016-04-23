@@ -47,6 +47,9 @@ public class PnlParentesco extends javax.swing.JPanel {
         cmbTrabajoActivoPariente = new javax.swing.JComboBox();
         lblAgregarPariente = new javax.swing.JLabel();
         lblBorrarPariente = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        lblParentesco4 = new javax.swing.JLabel();
+        txtOcupacion = new javax.swing.JTextField();
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -112,13 +115,24 @@ public class PnlParentesco extends javax.swing.JPanel {
             }
         });
 
+        jPanel2.setLayout(new java.awt.GridLayout(2, 1));
+
+        lblParentesco4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblParentesco4.setText("Ocupación ");
+        jPanel2.add(lblParentesco4);
+
+        txtOcupacion.setPreferredSize(new java.awt.Dimension(150, 27));
+        jPanel2.add(txtOcupacion);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblAgregarPariente, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -127,15 +141,18 @@ public class PnlParentesco extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(lblAgregarPariente)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblBorrarPariente))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblAgregarPariente)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblBorrarPariente)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleName("Información de padres");
@@ -161,14 +178,17 @@ public class PnlParentesco extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     protected javax.swing.JLabel lblAgregarPariente;
     protected javax.swing.JLabel lblBorrarPariente;
     private javax.swing.JLabel lblParentesco;
     private javax.swing.JLabel lblParentesco1;
     private javax.swing.JLabel lblParentesco2;
     private javax.swing.JLabel lblParentesco3;
+    private javax.swing.JLabel lblParentesco4;
     protected javax.swing.JTextField txtApMaternoPariente;
     protected javax.swing.JTextField txtApPaternoPariente;
     protected javax.swing.JTextField txtNombresPariente;
+    protected javax.swing.JTextField txtOcupacion;
     // End of variables declaration//GEN-END:variables
 }

@@ -110,7 +110,7 @@ public class PrincipalModeloA {
         
         try{
             st = conn.createStatement();
-            rs = st.executeQuery(Consultas.getSexo);
+            rs = st.executeQuery(Consultas.getCatSexo);
             while(rs.next()){
                 CatSexo sexo = new CatSexo();
                 sexo.setId(rs.getInt(CatSexo.COL_ID_GENERO));
@@ -145,7 +145,7 @@ public class PrincipalModeloA {
         try{
             conn = conexion.estableceConexion();
             st = conn.createStatement();
-            rs = st.executeQuery(Consultas.getSexo);
+            rs = st.executeQuery(Consultas.getCatSexo);
             while(rs.next()){
                 CatSexo sexo = new CatSexo();
                 sexo.setId(rs.getInt(CatSexo.COL_ID_GENERO));
@@ -180,7 +180,7 @@ public class PrincipalModeloA {
         
         try{
             st = conn.createStatement();
-            rs = st.executeQuery(Consultas.getEstadoCivil);
+            rs = st.executeQuery(Consultas.getCatEstadoCivil);
             while(rs.next()){
                 CatEstadoCivil edoCivil = new CatEstadoCivil();
                 edoCivil.setId(rs.getInt(CatEstadoCivil.COL_ID_ESTADO_CIVIL));
@@ -218,7 +218,7 @@ public class PrincipalModeloA {
         try{
             conn = conexion.estableceConexion();
             st = conn.createStatement();
-            rs = st.executeQuery(Consultas.getEstadoCivil);
+            rs = st.executeQuery(Consultas.getCatEstadoCivil);
             while(rs.next()){
                 CatEstadoCivil edoCivil = new CatEstadoCivil();
                 edoCivil.setId(rs.getInt(CatEstadoCivil.COL_ID_ESTADO_CIVIL));
@@ -252,7 +252,7 @@ public class PrincipalModeloA {
         ResultSet rs = null;
         try{
             st = conn.createStatement();
-            rs = st.executeQuery(Consultas.getProgramas);
+            rs = st.executeQuery(Consultas.getCatProgramas);
             while(rs.next()){
                 CatPrograma programa = new CatPrograma();
                 programa.setId(rs.getInt(CatPrograma.COL_ID));
@@ -277,7 +277,7 @@ public class PrincipalModeloA {
         ResultSet rs = null;
         try{
             st = conn.createStatement();
-            rs = st.executeQuery(Consultas.getNIvelEstudios);
+            rs = st.executeQuery(Consultas.getCatNIvelEstudios);
             while(rs.next()){
                 CatGradoEscolar grado = new CatGradoEscolar();
                 grado.setId(rs.getInt(CatGradoEscolar.COL_ID));
@@ -302,7 +302,7 @@ public class PrincipalModeloA {
         ResultSet rs = null;
         try{
             st = conn.createStatement();
-            rs = st.executeQuery(Consultas.getParentesco);
+            rs = st.executeQuery(Consultas.getCatParentesco);
             while(rs.next()){
                 CatParentesco parentesco = new CatParentesco();
                 parentesco.setId(rs.getInt(CatParentesco.COL_ID));

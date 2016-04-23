@@ -20,6 +20,7 @@ public class Padres {
     int trabaja;
     long idBecario;
     int parenteco;
+    String ocupacion;
 
     public long getId() {
         return id;
@@ -92,6 +93,14 @@ public class Padres {
     public void setParenteco(int parenteco) {
         this.parenteco = parenteco;
     }
+
+    public String getOcupacion() {
+        return ocupacion;
+    }
+
+    public void setOcupacion(String ocupacion) {
+        this.ocupacion = ocupacion;
+    }
     
     public final static String COL_ID = "id_padre";
     public final static String COL_NOMBRE = "nombre";
@@ -102,5 +111,6 @@ public class Padres {
     public final static String COL_TRABAJA = "trabaja";
     public final static String COL_ID_BECARIO = "id_becario";
     public final static String COL_ID_PARENTESCO = "id_parentesco";
+    public final static String COL_OCUPACION = "ocupacion";
     
 }

@@ -41,7 +41,8 @@ public class Update {
             + Becario.COL_APATERNO_CONYUGE + " = ?, " + Becario.COL_AMATERNO_CONYUGE + "= ?, "
             + Becario.COL_TELEFONO_CONYUGE + " = ?, " + Becario.COL_OBSERVACIONES + "= ?, "
             + Becario.COL_ACTA_NAC + " = ?, " + Becario.COL_SOLICITUD_BECA + "= ?, "
-            + Becario.COL_CONTRATO_BECA + " = ?, " + Becario.COL_IDENTIFICACION + "= ? "
+            + Becario.COL_CONTRATO_BECA + " = ?, " + Becario.COL_IDENTIFICACION + "= ?, "
+            + Becario.COL_FOLIO + " = ?, " + Becario.COL_OCUPACION_CONYUGE + " = ? "
             + "WHERE " + Becario.COL_FOLIO + " = ?";
     
     /**
@@ -96,7 +97,7 @@ public class Update {
             + DatosEscolares.COL_MES_GRADUACION + " = ?, " + DatosEscolares.COL_ANIO_GRADUACION + " = ?, "
             + DatosEscolares.COL_SEMESTRES_TOTALES_BECA + " = ?, " + DatosEscolares.COL_SEMESTRE_INICIO_BECA + " = ?, "
             + DatosEscolares.COL_COSTO_CARRERA + " = ?, " + DatosEscolares.COL_BECA_TOTAL + " = ?, "
-            + DatosEscolares.COL_BECA_SEMESTRAL + " = ?, " + DatosEscolares.COL_CONDICIONADO + " = ?, "
+            + DatosEscolares.COL_BECA_SEMESTRAL + " = ?, " + DatosEscolares.COL_CONDICIONADO + " = ? "
             + "WHERE " + Hijos.COL_ID_BECARIO + " = ?";
     
     /**

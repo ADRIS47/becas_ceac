@@ -7,9 +7,7 @@ package helpers;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import javax.swing.JOptionPane;
+import java.text.DecimalFormat;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -27,6 +25,7 @@ public class EscuchadorValidaEntrada implements KeyListener {
     public final static int TELEFONO = 5;
     public final static int LETRAS_NUMEROS_ESPACIO = 6;
     public final static int FECHA_NACIMIENTO = 7;
+    public final static int DINERO = 8;
     int codigo;
     JTextField txtCampo;
 
@@ -99,8 +98,36 @@ public class EscuchadorValidaEntrada implements KeyListener {
 
         for (int i = 0; i < fuente.length; i++) {
 
+            if ((fuente[i] >= '0' && fuente[i] <= '9') || fuente[i] == ',') {
+                str = str.replace(",", "");
+                resultado[j++] = fuente[i];
+            } 
+            else{
+                error = true;
+                java.awt.Toolkit.getDefaultToolkit().beep();
+            }
+
+            if (error) {
+                txtCampo.setText("");
+                txtCampo.setText(new String(resultado, 0, j));
+            }
+        }
+    }
+    
+    private void evaluaDinero(){
+        String str = txtCampo.getText();
+        char[] fuente = str.toCharArray();
+        char[] resultado = new char[fuente.length];
+        int j = 0;
+        boolean error = false;
+
+        for (int i = 0; i < fuente.length; i++) {
+
             if (fuente[i] >= '0' && fuente[i] <= '9') {
                 resultado[j++] = fuente[i];
+                DecimalFormat formato = new DecimalFormat("###,###,###.##");
+                //System.out.println(formato.format(Long.parseLong(str)));
+                txtCampo.setText(formato.format(Long.parseLong(str)));
             } 
             else{
                 error = true;

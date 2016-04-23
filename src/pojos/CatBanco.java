@@ -9,11 +9,10 @@ package pojos;
  *
  * @author sabagip
  */
-public class CatEstatus {
+public class CatBanco {
     
     int id;
     String nombre;
-    String descripcion;
 
     public int getId() {
         return id;
@@ -30,17 +29,8 @@ public class CatEstatus {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
     
-    public static final String COL_ID = "id_estatus";
+    public static final String COL_ID = "id_banco";
     public static final String COL_NOMBRE = "nombre";
-    public static final String COL_DESCRIPCION = "descripcion";
     
 }
