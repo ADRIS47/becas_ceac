@@ -20,9 +20,9 @@ public class DatosEscolares {
     int anioInicioBeca;
     int mesGraduacion;
     int anioGraduacion;
-    float costoCarrera;
-    float becaTotal;
-    float becaSemestral;
+    int costoCarrera;
+    int becaTotal;
+    int becaSemestral;
     int condicionado;
     long idBecario;
     int semestresTotalesCarrera;
@@ -100,27 +100,27 @@ public class DatosEscolares {
         this.anioGraduacion = anioGraduacion;
     }
 
-    public float getCostoCarrera() {
+    public int getCostoCarrera() {
         return costoCarrera;
     }
 
-    public void setCostoCarrera(float costoCarrera) {
+    public void setCostoCarrera(int costoCarrera) {
         this.costoCarrera = costoCarrera;
     }
 
-    public float getBecaTotal() {
+    public int getBecaTotal() {
         return becaTotal;
     }
 
-    public void setBecaTotal(float becaTotal) {
+    public void setBecaTotal(int becaTotal) {
         this.becaTotal = becaTotal;
     }
 
-    public float getBecaSemestral() {
+    public int getBecaSemestral() {
         return becaSemestral;
     }
 
-    public void setBecaSemestral(float becaSemestral) {
+    public void setBecaSemestral(int becaSemestral) {
         this.becaSemestral = becaSemestral;
     }
 

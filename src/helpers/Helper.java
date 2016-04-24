@@ -83,7 +83,7 @@ public class Helper {
 
             float total = Float.parseFloat(becaAutorizada) / semestres;
 
-            DecimalFormat formato = new DecimalFormat("###,###,###.##");
+            DecimalFormat formato = new DecimalFormat("###,###,###,###");
             txtBecaSemestral.setText(formato.format(total));
         }
         else{

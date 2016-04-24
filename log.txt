@@ -264,3 +264,10 @@
 22/4/2016;10:31:22;SQLError: 07001
 22/4/2016;10:31:22;ERROR: Code0
 22/4/2016;10:31:22;Message: No value specified for parameter 27
+24/4/2016;16:30:29;SQLError: 42S22
+24/4/2016;16:30:29;ERROR: Code1054
+24/4/2016;16:30:29;Message: Unknown column 'estudio_socioeconomico' in 'field list'
+24/4/2016;16:55:39;null
+24/4/2016;16:59:14;null
+24/4/2016;17:1:9;null
+24/4/2016;17:2:10;null

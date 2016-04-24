@@ -1011,12 +1011,9 @@ public class PrincipalModelo {
             ps.setString(20, becario.getIdentificacion());
             ps.setString(21, becario.getFolio());
             ps.setString(22, becario.getOcupacionConyuge());
-            ps.setString(22, becario.getOcupacionConyuge());
-            ps.setString(22, becario.getOcupacionConyuge());
             ps.setString(23, becario.getEstudioSocioEconomico());
             ps.setString(24, becario.getCartaAsignacionBeca());
             ps.setString(25, becario.getFolio());
-            
             valor = ps.executeUpdate();
             
             if(valor == 0){
@@ -1306,8 +1303,9 @@ public class PrincipalModelo {
                 ps.setInt(6, lstPadresBecario.get(0).getTrabaja());
                 ps.setInt(7, lstPadresBecario.get(0).getParenteco());
                 ps.setString(8, lstPadresBecario.get(0).getOcupacion());
-                ps.setLong(9, idBecario);
-                ps.setLong(10, lstIdPapas.get(0));
+                ps.setString(9, lstPadresBecario.get(0).getTelefono());
+                ps.setLong(10, idBecario);
+                ps.setLong(11, lstIdPapas.get(0));
                 int resp = ps.executeUpdate();
                 //Si la actualizacion fue correcta
                 if(resp >= 1){
@@ -1329,8 +1327,9 @@ public class PrincipalModelo {
                     ps.setInt(6, papa.getTrabaja());
                     ps.setInt(7, papa.getParenteco());
                     ps.setString(8, papa.getOcupacion());
-                    ps.setLong(9, idBecario);
-                    ps.setLong(10, lstIdPapas.get(contador));
+                    ps.setString(9, papa.getTelefono());
+                    ps.setLong(10, idBecario);
+                    ps.setLong(11, lstIdPapas.get(contador));
                     int resp = ps.executeUpdate();
                     //Si la actualizacion fue correcta
                     if(resp == 0)

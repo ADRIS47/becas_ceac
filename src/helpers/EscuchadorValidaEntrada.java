@@ -134,8 +134,8 @@ public class EscuchadorValidaEntrada implements KeyListener {
             if (fuente[i] >= '0' && fuente[i] <= '9' || fuente[i] == ',') {
                 
                 resultado[j++] = fuente[i];
-                DecimalFormat formato = new DecimalFormat("###,###,###.##");
-                System.out.println(formato.format(Long.parseLong(str)));
+                DecimalFormat formato = new DecimalFormat("###,###,###,###");
+                //System.out.println(formato.format(Long.parseLong(str)));
                 txtCampo.setText(formato.format(Long.parseLong(str)));
             } 
             else{

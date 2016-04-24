@@ -886,6 +886,7 @@ public class PrincipalControlador {
         becario.setApPaternoConyuge(vistaRegistro.txtApPaternoConyuge.getText());
         becario.setApMaternoConyuge(vistaRegistro.txtApMaternoConyuge.getText());
         becario.setOcupacionConyuge(vistaRegistro.txtOcupacionConyuge.getText());
+        becario.setTelefonoConyuge(vistaRegistro.txtTelefonoConyuge.getText());
         //Se obtiene si es el primero con beca
         becario.setPrimeroConBeca(vistaRegistro.cmboxCarreraSiNo.getSelectedIndex());
         //Se obtiene el correo electronico
@@ -1223,14 +1224,23 @@ public class PrincipalControlador {
         //Se obtiene el semestre de estudio del inicio de la beca
         datos.setSemestreInicioBeca(vistaRegistro.cmboxSemestreInicioBeca.getSelectedIndex() + 1);
         //Se obtiene el total de la beca
-        if(vistaRegistro.txtBecaAutorizada.getText().length() > 0)
-            datos.setBecaTotal(Float.parseFloat(vistaRegistro.txtBecaAutorizada.getText()));
+        if(vistaRegistro.txtBecaAutorizada.getText().length() > 0){
+            String dato = vistaRegistro.txtBecaAutorizada.getText().replace(",", "");
+            dato = dato.replace(".", "");
+            datos.setBecaTotal(Integer.parseInt(dato));
+        }
         //Se obtiene el valor semestral de la beca
-        if(vistaRegistro.txtBecaPorSemestre.getText().length() > 0)
-            datos.setBecaSemestral(Float.parseFloat(vistaRegistro.txtBecaPorSemestre.getText()));
+        if(vistaRegistro.txtBecaPorSemestre.getText().length() > 0){
+            String dato = vistaRegistro.txtBecaPorSemestre.getText().replace(",", "");
+            dato = dato.replace(".", "");
+            datos.setBecaSemestral(Integer.parseInt(dato));
+        }
          //Se obtiene el costo de la carrera
-        if(vistaRegistro.txtCostoCarrera.getText().length() > 0)
-            datos.setBecaSemestral(Float.parseFloat(vistaRegistro.txtCostoCarrera.getText()));
+        if(vistaRegistro.txtCostoCarrera.getText().length() > 0){
+            String dato = vistaRegistro.txtCostoCarrera.getText().replace(",", "");
+            dato = dato.replace(".", "");
+            datos.setCostoCarrera(Integer.parseInt(dato));
+        }
         return datos;
     }
     
@@ -1470,7 +1480,7 @@ public class PrincipalControlador {
                     vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca, 
                     vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion,
                     vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera,
-                    vistaRegistro.txtBecaAutorizada, vistaRegistro.txtCostoCarrera,vistaRegistro.txtBecaPorSemestre,
+                    vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre, vistaRegistro.txtCostoCarrera,
                     vistaRegistro, EscuchadorCmbBoxCambiado.BECA_SEMESTRAL));
         
         //Datos hijos
@@ -1804,6 +1814,7 @@ public class PrincipalControlador {
             lstVistaParentesco.get(contador).cmbParentesco.setSelectedIndex(padre.getParenteco() - 1);
             lstVistaParentesco.get(contador).cmbTrabajoActivoPariente.setSelectedIndex(padre.getTrabaja());
             lstVistaParentesco.get(contador).txtOcupacion.setText(padre.getOcupacion());
+            lstVistaParentesco.get(contador).TxtTelPariente.setText(padre.getTelefono());
             contador++;
         }
         
@@ -1828,6 +1839,7 @@ public class PrincipalControlador {
         vistaRegistro.txtApPaternoConyuge.setText(becario.getApPaternoConyuge());
         vistaRegistro.txtApMaternoConyuge.setText(becario.getApMaternoConyuge());
         vistaRegistro.txtTelefonoConyuge.setText(becario.getTelefonoConyuge());
+        vistaRegistro.txtOcupacionConyuge.setText(becario.getOcupacionConyuge());
         
         //Llenado de hijos
         //Se crean las vistas de hermanos necesarias para la insercion de los datos
@@ -1856,8 +1868,8 @@ public class PrincipalControlador {
         vistaRegistro.cmboxAnioGraduacion.setSelectedItem(lstDatosEscolares.getAnioGraduacion() + "");
         String universidad = getItemComboBox(lstDatosEscolares.getIdUniversidad(), catUniversidad);
         vistaRegistro.cmboxEscuelaUniversitaria.setSelectedItem(universidad);
-        vistaRegistro.cmboxSemestreInicioBeca.setSelectedItem(lstDatosEscolares.getSemestreInicioBeca());
-        vistaRegistro.cmboxSemestresTotalesCarrera.setSelectedItem(lstDatosEscolares.getSemestresTotalesCarrera());
+        vistaRegistro.cmboxSemestreInicioBeca.setSelectedIndex(lstDatosEscolares.getSemestreInicioBeca() - 1);
+        vistaRegistro.cmboxSemestresTotalesCarrera.setSelectedIndex(lstDatosEscolares.getSemestresTotalesCarrera() - 1);
         vistaRegistro.txtCostoCarrera.setText(lstDatosEscolares.getCostoCarrera() + "");
         vistaRegistro.txtBecaAutorizada.setText(lstDatosEscolares.getBecaTotal() + "");
         vistaRegistro.txtBecaPorSemestre.setText(lstDatosEscolares.getBecaSemestral() + "");
@@ -1865,6 +1877,7 @@ public class PrincipalControlador {
         
         //Igualdad de archivos y Llenado de ArchivosAdjuntos        
         if(becario.getActaNacimiento() != null){
+            fileActaNacimiento = null;
             fileActaNacimiento = new File(becario.getActaNacimiento());
             vistaRegistro.lblEstatusActa.setText(fileActaNacimiento.getName());}
         if(becario.getBoletaInicioBeca() != null){
@@ -1872,29 +1885,49 @@ public class PrincipalControlador {
             vistaRegistro.lblEstatusBoleta.setText(fileBoleta_calificaciones_inicial.getName());
         }
         if(becario.getSolicitudBeca() != null){
+            fileCarta_solicitud = null;
             fileCarta_solicitud = new File(becario.getSolicitudBeca());
             vistaRegistro.lblEstatusCarta.setText(fileCarta_solicitud.getName());
         }
         if(becario.getContatoBeca() != null){
+            fileContrato = null;
             fileContrato = new File(becario.getContatoBeca());
             vistaRegistro.lblEstatusContrato.setText(fileContrato.getName());
         }
         if(becario.getEnsayo() != null){
+            fileEnsayo = null;
             fileEnsayo = new File(becario.getEnsayo());
             vistaRegistro.lblEstatusEnsayo.setText(fileEnsayo.getName());
         }
         if(lstAval.getIdentificacion() != null){
+            fileIneAval = null;
             fileIneAval = new File(lstAval.getIdentificacion());
             vistaRegistro.lblEstatusINEAval.setText(fileIneAval.getName());
         }
         if(becario.getIdentificacion() != null){
+            fileIneBecario = null;
             fileIneBecario = new File(becario.getIdentificacion());
             vistaRegistro.lblEstatusINEBecario.setText(fileIneBecario.getName());
         }
         if(becario.getPagare() != null){
+            filePagare = null;
             filePagare = new File(becario.getPagare());
             vistaRegistro.lblEstatusPagare.setText(filePagare.getName());
         }
+        
+//        if(becario.getEstudioSocioEconomico()!= null){
+//            fileEstudioSocioeconomico = null;
+//            fileEstudioSocioeconomico = new File(becario.getEstudioSocioEconomico());
+//            vistaRegistro.lblEstatusEstudioSocioEconomico.setText(fileEstudioSocioeconomico.getName());
+//        }
+//        
+//        if(becario.getCartaAsignacionBeca() != null){
+//            fileCartaAsignacionBeca = null;
+//            fileCartaAsignacionBeca = new File(becario.getCartaAsignacionBeca());
+//            vistaRegistro.lblEstatusCartaAsignacionBeca.setText(fileCartaAsignacionBeca.getName());
+//        }
+        
+        
     }
 
     /**
