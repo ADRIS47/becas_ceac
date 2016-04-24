@@ -1428,12 +1428,12 @@ public class PrincipalControlador {
         //Datos que calculan la beca total semestral
         vistaRegistro.txtBecaAutorizada.addKeyListener(new EscuchadorCalculaBecaXSemestre(
                         vistaRegistro.txtBecaAutorizada, vistaRegistro.cmboxSemestreInicioBeca, 
-                        vistaRegistro.cmboxSemestresTotalesCarrera, vistaRegistro.cmboxAnioInicioBeca , vistaRegistro.txtBecaPorSemestre));
+                        vistaRegistro.cmboxSemestresTotalesCarrera, vistaRegistro.cmboxAnioInicioBeca , vistaRegistro.txtBecaPorSemestre, vistaRegistro.txtCostoCarrera));
         vistaRegistro.cmboxSemestreInicioBeca.addItemListener(new EscuchadorCmbBoxCambiado(
                     vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca, 
                     vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion,
                     vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera,
-                    vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre,
+                    vistaRegistro.txtBecaAutorizada, vistaRegistro.txtCostoCarrera, vistaRegistro.txtBecaPorSemestre,
                     vistaRegistro, EscuchadorCmbBoxCambiado.BECA_SEMESTRAL));
 //        vistaRegistro.cmboxSemestresTotalesCarrera.addItemListener(new EscuchadorCmbBoxCambiado(
 //                    vistaRegistro.cmboxSemestresTotalesCarrera, vistaRegistro.cmboxMesInicioBeca,
@@ -1444,7 +1444,7 @@ public class PrincipalControlador {
                     vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca, 
                     vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion,
                     vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera,
-                    vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre,
+                    vistaRegistro.txtBecaAutorizada, vistaRegistro.txtCostoCarrera,vistaRegistro.txtBecaPorSemestre,
                     vistaRegistro, EscuchadorCmbBoxCambiado.BECA_SEMESTRAL));
         
         //Datos hijos
@@ -1486,28 +1486,28 @@ public class PrincipalControlador {
                 vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion,
                 vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera,
                 vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre,
-                vistaRegistro, EscuchadorCmbBoxCambiado.FECHA_GRADUACION));
+                vistaRegistro.txtCostoCarrera, vistaRegistro, EscuchadorCmbBoxCambiado.FECHA_GRADUACION));
         
         vistaRegistro.cmboxMesInicioBeca.addItemListener(new 
         EscuchadorCmbBoxCambiado(vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca, 
                 vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion,
                 vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera,
                 vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre,
-                vistaRegistro, EscuchadorCmbBoxCambiado.FECHA_GRADUACION));
+                vistaRegistro.txtCostoCarrera, vistaRegistro, EscuchadorCmbBoxCambiado.FECHA_GRADUACION));
         
         vistaRegistro.cmboxAnioInicioBeca.addItemListener(new 
         EscuchadorCmbBoxCambiado(vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca, 
                 vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion,
                 vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera,
                 vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre,
-                vistaRegistro, EscuchadorCmbBoxCambiado.FECHA_GRADUACION));
+                vistaRegistro.txtCostoCarrera, vistaRegistro, EscuchadorCmbBoxCambiado.FECHA_GRADUACION));
         
         vistaRegistro.cmboxSemestreInicioBeca.addItemListener(new 
         EscuchadorCmbBoxCambiado(vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca, 
                 vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion,
                 vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera,
                 vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre,
-                vistaRegistro, EscuchadorCmbBoxCambiado.FECHA_GRADUACION));
+                vistaRegistro.txtCostoCarrera, vistaRegistro, EscuchadorCmbBoxCambiado.FECHA_GRADUACION));
         
     }
 

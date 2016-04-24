@@ -16,7 +16,7 @@ import javax.swing.JTextField;
  */
 public class EscuchadorCalculaBecaXSemestre implements KeyListener {
     
-    JTextField txtBecaAutorizada, txtBecaSemestral;
+    JTextField txtBecaAutorizada, txtBecaSemestral, txtCostoCarrera;
     JComboBox<?> cmbSemestreInicioBeca, cmbAnioInicioBeca, cmbSemestresTotales;
 
     /**
@@ -28,9 +28,11 @@ public class EscuchadorCalculaBecaXSemestre implements KeyListener {
      * @param txtBecaSemestral Campo donde se pondrá el total de la beca semestral
      */
     public EscuchadorCalculaBecaXSemestre(JTextField txtBecaAutorizada, JComboBox<?> cmbSemestreInicioBeca,
-            JComboBox<?> cmbSemestresTotales, JComboBox<?> cmbAnioInicioBeca, JTextField txtBecaSemestral) {
+            JComboBox<?> cmbSemestresTotales, JComboBox<?> cmbAnioInicioBeca, JTextField txtBecaSemestral,
+            JTextField txtCostoCarrera) {
         this.txtBecaAutorizada = txtBecaAutorizada;
         this.txtBecaSemestral = txtBecaSemestral;
+        this.txtCostoCarrera = txtCostoCarrera;
         this.cmbSemestresTotales = cmbSemestresTotales;
         this.cmbSemestreInicioBeca = cmbSemestreInicioBeca;
         this.cmbAnioInicioBeca = cmbAnioInicioBeca;
@@ -51,7 +53,7 @@ public class EscuchadorCalculaBecaXSemestre implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         Helper.getBecaSemestral(cmbSemestresTotales, cmbSemestreInicioBeca, 
-                cmbAnioInicioBeca, txtBecaAutorizada, txtBecaSemestral);
+                cmbAnioInicioBeca, txtBecaAutorizada, txtBecaSemestral, txtCostoCarrera);
     }
     
 }

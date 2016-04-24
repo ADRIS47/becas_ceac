@@ -99,7 +99,7 @@ public class EscuchadorValidaEntrada implements KeyListener {
 
         for (int i = 0; i < fuente.length; i++) {
 
-            if ((fuente[i] >= '0' && fuente[i] <= '9') || fuente[i] == ',') {
+            if ((fuente[i] >= '0' && fuente[i] <= '9')) {
                 str = str.replace(",", "");
                 resultado[j++] = fuente[i];
             } 
@@ -126,12 +126,12 @@ public class EscuchadorValidaEntrada implements KeyListener {
                 
         for (int i = 0; i < fuente.length; i++) {
 
-            if (fuente[i] >= '0' && fuente[i] <= '9') {
+            if (fuente[i] >= '0' && fuente[i] <= '9' || fuente[i] == ',') {
                 
                 resultado[j++] = fuente[i];
-                DecimalFormat formato = new DecimalFormat("###,###,###,###,###,###,###,###,###,###,###,###");
-                //System.out.println(formato.format(Long.parseLong(str)));
-                txtCampo.setText(formato.format(Long.parseLong(new String(resultado, 0, j))));
+                DecimalFormat formato = new DecimalFormat("###,###,###.##");
+                System.out.println(formato.format(Long.parseLong(str)));
+                txtCampo.setText(formato.format(Long.parseLong(str)));
             } 
             else{
                 error = true;
