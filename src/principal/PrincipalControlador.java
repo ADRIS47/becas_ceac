@@ -1737,7 +1737,8 @@ public class PrincipalControlador {
                 List<Hijos> lstHijos, DatosEscolares lstDatosEscolares, Aval lstAval) {
         
         //Llenado de datos generales
-        vistaRegistro.comboBoxPrograma.setSelectedIndex(becario.getIdPrograma());
+        String programa = getItemComboBox(becario.getIdPrograma(), catPrograma);
+        vistaRegistro.comboBoxPrograma.setSelectedItem(programa);
         vistaRegistro.txtFolio.setText(becario.getFolio());
         vistaRegistro.cmbEstatus.setSelectedIndex(becario.getIdEstatus() - 1);
         vistaRegistro.txtNombreBecado.setText(becario.getNombre());
