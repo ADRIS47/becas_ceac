@@ -1853,7 +1853,8 @@ public class PrincipalControlador {
         vistaRegistro.cmboxAnioInicioBeca.setSelectedItem(lstDatosEscolares.getAnioInicioBeca() + "");
         vistaRegistro.cmboxMesGraduacion.setSelectedIndex(lstDatosEscolares.getMesGraduacion() - 1);
         vistaRegistro.cmboxAnioGraduacion.setSelectedItem(lstDatosEscolares.getAnioGraduacion() + "");
-        vistaRegistro.cmboxEscuelaUniversitaria.setSelectedIndex(lstDatosEscolares.getIdUniversidad() - 1);
+        String universidad = getItemComboBox(lstDatosEscolares.getIdUniversidad(), catUniversidad);
+        vistaRegistro.cmboxEscuelaUniversitaria.setSelectedItem(universidad);
         vistaRegistro.cmboxSemestreInicioBeca.setSelectedItem(lstDatosEscolares.getSemestreInicioBeca());
         vistaRegistro.cmboxSemestresTotalesCarrera.setSelectedItem(lstDatosEscolares.getSemestresTotalesCarrera());
         vistaRegistro.txtCostoCarrera.setText(lstDatosEscolares.getCostoCarrera() + "");
