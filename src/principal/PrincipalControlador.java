@@ -72,6 +72,8 @@ public class PrincipalControlador {
     protected File fileIneAval;
     protected File fileContrato;
     protected File filePagare;
+    protected File fileEstudioSocioeconomico;
+    protected File fileCartaAsignacionBeca;
     
     Log log = new Log();
     Helper helper = new Helper();
@@ -995,6 +997,30 @@ public class PrincipalControlador {
                 becario.setPagare(path.toString());
             }
         }
+        
+//        //Se carga el estudio socioeconomico del becario
+//        if(fileEstudioSocioeconomico != null){
+//            Path path = helper.CopiaArchivoADestino(becario.getFolio(), "est_socioeco-", filePagare);
+//            if(path == null){
+//                JOptionPane.showMessageDialog(vista, "Error al copiar el estudio socieconómico", "Error", JOptionPane.ERROR_MESSAGE);
+//                return null;
+//            }
+//            else{
+//                becario.setEstudioSocioEconomico(path.toString());
+//            }
+//        }
+//        
+//        //Se carga la carta de asignacion de beca del becario
+//        if(filePagare != null){
+//            Path path = helper.CopiaArchivoADestino(becario.getFolio(), "asig_beca-", filePagare);
+//            if(path == null){
+//                JOptionPane.showMessageDialog(vista, "Error al copiar la carta de asignación de beca", "Error", JOptionPane.ERROR_MESSAGE);
+//                return null;
+//            }
+//            else{
+//                becario.setCartaAsignacionBeca(path.toString());
+//            }
+//        }
         
         return becario;
     }

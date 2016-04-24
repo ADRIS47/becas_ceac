@@ -531,6 +531,8 @@ public class PrincipalModelo {
             ps.setString(25, becario.getPagare());
             ps.setString(26, becario.getOcupacionConyuge());
             ps.setInt(27, becario.getIdPrograma());
+            ps.setString(28, becario.getEstudioSocioEconomico());
+            ps.setString(29, becario.getCartaAsignacionBeca());
             
             
             int i = ps.executeUpdate();
@@ -1009,7 +1011,11 @@ public class PrincipalModelo {
             ps.setString(20, becario.getIdentificacion());
             ps.setString(21, becario.getFolio());
             ps.setString(22, becario.getOcupacionConyuge());
-            ps.setString(23, becario.getFolio());
+            ps.setString(22, becario.getOcupacionConyuge());
+            ps.setString(22, becario.getOcupacionConyuge());
+            ps.setString(23, becario.getEstudioSocioEconomico());
+            ps.setString(24, becario.getCartaAsignacionBeca());
+            ps.setString(25, becario.getFolio());
             
             valor = ps.executeUpdate();
             
