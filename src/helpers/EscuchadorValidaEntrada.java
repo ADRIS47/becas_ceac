@@ -82,10 +82,11 @@ public class EscuchadorValidaEntrada implements KeyListener {
             case EscuchadorValidaEntrada.FECHA_NACIMIENTO:
                 evaluaFechaNacimiento();
                 break;
+                
+            case EscuchadorValidaEntrada.DINERO:
+                evaluaDinero();
+                break;
         }
-
-        
-
     }
     
     
@@ -116,18 +117,21 @@ public class EscuchadorValidaEntrada implements KeyListener {
     
     private void evaluaDinero(){
         String str = txtCampo.getText();
+        str = str.replace(",", "");
+        str = str.replace(".", "");
         char[] fuente = str.toCharArray();
         char[] resultado = new char[fuente.length];
         int j = 0;
         boolean error = false;
-
+                
         for (int i = 0; i < fuente.length; i++) {
 
             if (fuente[i] >= '0' && fuente[i] <= '9') {
+                
                 resultado[j++] = fuente[i];
-                DecimalFormat formato = new DecimalFormat("###,###,###.##");
+                DecimalFormat formato = new DecimalFormat("###,###,###,###,###,###,###,###,###,###,###,###");
                 //System.out.println(formato.format(Long.parseLong(str)));
-                txtCampo.setText(formato.format(Long.parseLong(str)));
+                txtCampo.setText(formato.format(Long.parseLong(new String(resultado, 0, j))));
             } 
             else{
                 error = true;

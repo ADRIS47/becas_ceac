@@ -126,7 +126,7 @@ public class Consultas {
             + Padres.COL_APATERNO + ", " + Padres.COL_AMATERNO + ","
             + Padres.COL_ID_BECARIO + ", " + Padres.COL_ID_GRADO_ESCOLAR + ","
             + Padres.COL_ID_PARENTESCO + ", " + Padres.COL_TELEFONO + ","
-            + Padres.COL_TRABAJA + " "
+            + Padres.COL_TRABAJA + ", " + Padres.COL_OCUPACION + " "
             + "FROM beca_padres "
             + "WHERE " + Padres.COL_ID_BECARIO + " = ?";
     

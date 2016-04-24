@@ -1082,8 +1082,6 @@ public class PrincipalControlador {
             padre.setaPaterno(panel.txtApPaternoPariente.getText());
             //Se obtiene el apellido materno de la madre
             padre.setaMaterno(panel.txtApMaternoPariente.getText());
-            //Se obtiene si trabaja o no
-            padre.setTrabaja(0);
             //Se obtiene el grado de estudio
             String grado = (String) panel.cmbNivelEstudiosPariente.getSelectedItem();
             //Se asigna el grado de estudio
@@ -1098,6 +1096,8 @@ public class PrincipalControlador {
             padre.setParenteco(getIdCmbBox(parentesco, catParentesco));
             //Se asigna la ocupacion
             padre.setOcupacion(panel.txtOcupacion.getText());
+            //Se asigna el telefono
+            padre.setTelefono(panel.TxtTelPariente.getText());
             
             lstResult.add(padre);
         }
@@ -1477,6 +1477,7 @@ public class PrincipalControlador {
             lstParentesco.txtApPaternoPariente.addKeyListener(new EscuchadorValidaEntrada(lstParentesco, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, lstParentesco.txtApPaternoPariente));
             lstParentesco.txtNombresPariente.addKeyListener(new EscuchadorValidaEntrada(lstParentesco, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, lstParentesco.txtNombresPariente));
             lstParentesco.txtOcupacion.addKeyListener(new EscuchadorValidaEntrada(lstParentesco, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, lstParentesco.txtOcupacion));
+            lstParentesco.TxtTelPariente.addKeyListener(new EscuchadorValidaEntrada(lstParentesco, EscuchadorValidaEntrada.TELEFONO, lstParentesco.TxtTelPariente));
         }
         
         //Datos de fechas de inicio de carrera y graduacion

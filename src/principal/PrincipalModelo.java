@@ -1299,8 +1299,9 @@ public class PrincipalModelo {
                 ps.setInt(5, lstPadresBecario.get(0).getGradoEscolar());
                 ps.setInt(6, lstPadresBecario.get(0).getTrabaja());
                 ps.setInt(7, lstPadresBecario.get(0).getParenteco());
-                ps.setLong(8, idBecario);
-                ps.setLong(9, lstIdPapas.get(0));
+                ps.setString(8, lstPadresBecario.get(0).getOcupacion());
+                ps.setLong(9, idBecario);
+                ps.setLong(10, lstIdPapas.get(0));
                 int resp = ps.executeUpdate();
                 //Si la actualizacion fue correcta
                 if(resp >= 1){
@@ -1321,8 +1322,9 @@ public class PrincipalModelo {
                     ps.setInt(5, papa.getGradoEscolar());
                     ps.setInt(6, papa.getTrabaja());
                     ps.setInt(7, papa.getParenteco());
-                    ps.setLong(8, idBecario);
-                    ps.setLong(9, lstIdPapas.get(contador));
+                    ps.setString(8, papa.getOcupacion());
+                    ps.setLong(9, idBecario);
+                    ps.setLong(10, lstIdPapas.get(contador));
                     int resp = ps.executeUpdate();
                     //Si la actualizacion fue correcta
                     if(resp == 0)

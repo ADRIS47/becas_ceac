@@ -68,7 +68,7 @@ public class Update {
             + "SET " + Padres.COL_NOMBRE + " = ?, " + Padres.COL_APATERNO + " = ?, "
             + Padres.COL_AMATERNO + " = ?, " + Padres.COL_TELEFONO + " = ?, "
             + Padres.COL_ID_GRADO_ESCOLAR + " = ?, " + Padres.COL_TRABAJA + " = ?, "
-            + Padres.COL_ID_PARENTESCO + " = ? "
+            + Padres.COL_ID_PARENTESCO + " = ? " + Padres.COL_OCUPACION + " = ? "
             + "WHERE " + Padres.COL_ID_BECARIO + " = ? AND " + Padres.COL_ID + " = ?";
     
     /**
