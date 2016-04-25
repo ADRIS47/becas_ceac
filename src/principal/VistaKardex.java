@@ -336,7 +336,7 @@ public class VistaKardex extends javax.swing.JPanel {
         txtFolio.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         txtFolio.setForeground(new java.awt.Color(255, 0, 0));
         txtFolio.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtFolio.setText("DI-001");
+        txtFolio.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         txtFolio.setEnabled(false);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -346,7 +346,7 @@ public class VistaKardex extends javax.swing.JPanel {
         txtPrograma.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtPrograma.setForeground(new java.awt.Color(255, 0, 0));
         txtPrograma.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPrograma.setText("COBRANZA");
+        txtPrograma.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         txtPrograma.setEnabled(false);
         txtPrograma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -356,7 +356,7 @@ public class VistaKardex extends javax.swing.JPanel {
 
         txtNombreBecario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtNombreBecario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtNombreBecario.setText("Adriana Perez Bonilla");
+        txtNombreBecario.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         txtNombreBecario.setEnabled(false);
         txtNombreBecario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -425,6 +425,7 @@ public class VistaKardex extends javax.swing.JPanel {
 
         txtFechaGraduacion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtFechaGraduacion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtFechaGraduacion.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         txtFechaGraduacion.setEnabled(false);
         txtFechaGraduacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -438,6 +439,7 @@ public class VistaKardex extends javax.swing.JPanel {
 
         txtCondicion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtCondicion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtCondicion.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         txtCondicion.setEnabled(false);
         txtCondicion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1508,12 +1510,12 @@ public class VistaKardex extends javax.swing.JPanel {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 362, Short.MAX_VALUE)
+            .addGap(0, 417, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(60, Short.MAX_VALUE)
+                    .addContainerGap(39, Short.MAX_VALUE)
                     .addComponent(pnlArchivosAdjuntos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(72, Short.MAX_VALUE)))
+                    .addContainerGap(48, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("Adjuntar Boleta", jPanel1);
@@ -1849,12 +1851,12 @@ public class VistaKardex extends javax.swing.JPanel {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 362, Short.MAX_VALUE)
+            .addGap(0, 417, Short.MAX_VALUE)
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                    .addContainerGap(60, Short.MAX_VALUE)
+                    .addContainerGap(39, Short.MAX_VALUE)
                     .addComponent(pnlArchivosAdjuntos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(72, Short.MAX_VALUE)))
+                    .addContainerGap(48, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("Adjuntar Carta Servicio Comunitario", jPanel4);
@@ -2189,12 +2191,12 @@ public class VistaKardex extends javax.swing.JPanel {
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 362, Short.MAX_VALUE)
+            .addGap(0, 417, Short.MAX_VALUE)
             .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                    .addContainerGap(60, Short.MAX_VALUE)
+                    .addContainerGap(39, Short.MAX_VALUE)
                     .addComponent(pnlArchivosAdjuntos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(72, Short.MAX_VALUE)))
+                    .addContainerGap(48, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("Adjuntar Transferencias", jPanel8);
@@ -2222,7 +2224,7 @@ public class VistaKardex extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jpnlAreaBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(31, 31, 31)))
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
