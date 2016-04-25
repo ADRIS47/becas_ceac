@@ -140,7 +140,7 @@ public class Kardex {
     
     
     
-    public static final String COL_ID_KARDEX = "id_registro";
+    public static final String COL_ID_KARDEX = "id_kardex";
     public static final String COL_NUM_SEMESTRE = "num_semestre";
     public static final String COL_PAGO_INICIO_SEMESTRE = "pago_inicio_semestre";
     public static final String COL_PAGO_FIN_SEMESTRE = "pago_fin_semestre";

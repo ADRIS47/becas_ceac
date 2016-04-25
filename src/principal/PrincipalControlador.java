@@ -1988,6 +1988,7 @@ public class PrincipalControlador {
         Connection conexion = conn.estableceConexion();
         Becario becario = null;
         List<Kardex> lsKardex = null;
+        DatosEscolares datosEscolares = null;
         
         if(conexion == null){
             JOptionPane.showMessageDialog(vistaKardex, "No se pudo conectar a la base de datos");
@@ -1996,13 +1997,14 @@ public class PrincipalControlador {
         
         becario = modelo.getBecarioPorFolio(conexion, folio);
         lsKardex = modelo.getKardexPorIdBecario(conexion, becario.getId());
+        datosEscolares = modelo.getDatosEscolaresBecario(conexion, becario.getId());
         
-        //Se procede a llenar la informacion del kardex
+        //Se procede a llenar la informacion general del becario
         vistaKardex.txtNombreBecario.setText(becario.getApPaterno() + " " + becario.getApMaterno() + " " + becario.getNombre());
         vistaKardex.txtCondicion.setText(getItemComboBox(becario.getIdEstatus(), catEstatus));
         vistaKardex.txtFolio.setText(becario.getFolio());
         vistaKardex.txtPrograma.setText(getItemComboBox(becario.getIdPrograma(), catPrograma));
-        
+        vistaKardex.txtFechaGraduacion.setText(datosEscolares.getMesGraduacion() + "/" + datosEscolares.getAnioGraduacion());
     }
 
     /**
