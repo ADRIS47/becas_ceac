@@ -1983,4 +1983,45 @@ public class PrincipalControlador {
         }
         
     }    
+
+    /**
+     * Abre el archivo seleccionado
+     * @param Clave del tipo de archivo a abrir
+     */
+    protected void abreArchivoAdjunto(int clave) {
+        
+        switch(clave){
+            case Helper.FILE_ACTA_NACIMIENTO:
+                helper.abreArchivoAdjunto(fileActaNacimiento);
+                break;
+            case Helper.FILE_BOLETA_CALIFICACIONES_INICIAL:
+                helper.abreArchivoAdjunto(fileBoleta_calificaciones_inicial);
+                break;
+            case Helper.FILE_CARTA_ASIGNACION_BECA:
+                helper.abreArchivoAdjunto(fileCartaAsignacionBeca);
+                break;
+            case Helper.FILE_CARTA_SOLICITUD:
+                helper.abreArchivoAdjunto(fileCarta_solicitud);
+                break;
+            case Helper.FILE_CONTRATO:
+                helper.abreArchivoAdjunto(fileContrato);
+                break;
+            case Helper.FILE_ENSAYO:
+                helper.abreArchivoAdjunto(fileEnsayo);
+                break;
+            case Helper.FILE_ESTUDIO_SOCIECONOMICO:
+                helper.abreArchivoAdjunto(fileEstudioSocioeconomico);
+                break;
+            case Helper.FILE_INE_AVAL:
+                helper.abreArchivoAdjunto(fileIneAval);
+                break;
+            case Helper.FILE_INE_BECARIO:
+                helper.abreArchivoAdjunto(fileIneBecario);
+                break;
+            case Helper.FILE_PAGARE:
+                helper.abreArchivoAdjunto(filePagare);
+                break;
+        }
+        
+    }
 }

@@ -7,6 +7,7 @@ package helpers;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Desktop;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.File;
@@ -40,6 +41,29 @@ import javax.swing.JTextField;
 public class Helper {
     
     Log log = new Log();
+    
+    protected File fileFoto = null;
+    protected File fileActaNacimiento;
+    protected File fileBoleta_calificaciones_inicial;
+    protected File fileCarta_solicitud;
+    protected File fileEnsayo;
+    protected File fileIneBecario;
+    protected File fileIneAval;
+    protected File fileContrato;
+    protected File filePagare;
+    protected File fileEstudioSocioeconomico;
+    protected File fileCartaAsignacionBeca;
+    
+    public final static int FILE_ACTA_NACIMIENTO = 0;
+    public final static int FILE_BOLETA_CALIFICACIONES_INICIAL = 1;
+    public final static int FILE_CARTA_SOLICITUD = 2;
+    public final static int FILE_ENSAYO = 3;
+    public final static int FILE_INE_BECARIO = 4;
+    public final static int FILE_INE_AVAL = 5;
+    public final static int FILE_CONTRATO = 6;
+    public final static int FILE_PAGARE = 7;
+    public final static int FILE_ESTUDIO_SOCIECONOMICO = 8;
+    public final static int FILE_CARTA_ASIGNACION_BECA = 9;
 
     public static void getFechaGraduacion(JComboBox<?> cmbBoxMesInicioCarrera, JComboBox<?> cmbBoxAnioInicioBeca, JComboBox<?> cmbBoxMesGraduacion, JComboBox<?> cmbBoxAnioGraduacion, JComboBox<?> cmbBoxSemestreInicioBeca, JComboBox<?> cmbBoxTotalSemestres) {
         Calendar graduacion = new GregorianCalendar(Integer.parseInt((String) cmbBoxAnioInicioBeca.getSelectedItem()), 
@@ -321,6 +345,18 @@ public class Helper {
         Calendar calendario = new GregorianCalendar();
         int year = calendario.get(Calendar.YEAR) - 2007;
         combo.setSelectedIndex(year);
+    }
+
+    public void abreArchivoAdjunto(File archivo) {
+        try{ 
+            System.out.println("Archivo: " + archivo.toString());
+            //definiendo la ruta en la propiedad file
+            //Runtime.getRuntime().exec("cmd /c start "+ archivo.toString());
+            Desktop.getDesktop().open(archivo);
+
+        }catch(IOException e){
+            e.printStackTrace();
+        } 
     }
     
     
