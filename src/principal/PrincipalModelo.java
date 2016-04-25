@@ -1791,10 +1791,77 @@ public class PrincipalModelo {
         ResultSet rs = null;
         List<Becario> lstBecario = new ArrayList<>();
         try{
-            ps = conexion.prepareStatement(Consultas.getBecarioPorNombres);
-            ps.setString(1,"%" + nombre + "%");
-            ps.setString(2, "%" + aPaterno + "%");
-            ps.setString(3, "%" + aMaterno + "%");
+            boolean bandera = false;
+            String consulta = Consultas.getBecarioPorNombres;
+            
+            //Se hace la instruccion de WHERE's
+            if(!nombre.equals("") && bandera == false){
+                consulta = consulta.concat("WHERE becario." + Becario.COL_NOMBRE + " LIKE ? ");
+                bandera = true;
+            }
+            
+            
+            if(!aPaterno.equals("") && bandera == false){
+                consulta = consulta.concat("WHERE becario." + Becario.COL_APATERNO + " LIKE ? ");
+                bandera = true;
+            }
+            else if(!aPaterno.equals("") && bandera == true){
+                consulta = consulta.concat("AND becario." + Becario.COL_APATERNO + " LIKE ? ");
+            }
+            
+            if(!aMaterno.equals("") && bandera == false){
+                consulta = consulta.concat("WHERE becario." + Becario.COL_AMATERNO + " LIKE ? ");
+                bandera = true;
+            }
+            else if(!aMaterno.equals("") && bandera == true){
+                consulta = consulta.concat("AND becario." + Becario.COL_AMATERNO + " LIKE ? ");
+            }
+            
+            bandera = false;
+            
+            
+            //Se hace la instruccion de ordenacion ORDER BY
+            if(!nombre.equals("") && bandera == false){
+                consulta = consulta.concat("ORDER BY becario." + Becario.COL_NOMBRE + " ");
+                bandera = true;
+            }
+            
+            if(!aPaterno.equals("") && bandera == false){
+                consulta = consulta.concat("ORDER BY becario." + Becario.COL_APATERNO + " ");
+                bandera = true;
+            }
+            else if(!aPaterno.equals("") && bandera == true){
+                consulta = consulta.concat("AND becario." + Becario.COL_APATERNO + " ");
+            }
+            
+            if(!aMaterno.equals("") && bandera == false){
+                consulta = consulta.concat("ORDER BY becario." + Becario.COL_AMATERNO + " ");
+                bandera = true;
+            }
+            else if(!aMaterno.equals("") && bandera == true){
+                consulta = consulta.concat("AND becario." + Becario.COL_AMATERNO + " ");
+            }
+            
+            ps = conexion.prepareStatement(consulta);
+            
+            //Se hace la instruccion de cambiar parametros
+            int i = 1;
+            bandera = false;
+            if(!nombre.equals("") ){
+                ps.setString(i, "%" + nombre + "%");
+                i++;
+            }
+            
+            if(!aPaterno.equals("") ){
+                ps.setString(i, "%" + aPaterno + "%");
+                i++;
+            }
+            
+            if(!aMaterno.equals("") ){
+                ps.setString(i, "%" + aMaterno + "%");
+                i++;
+            }
+            System.out.println("Consulta: " + ps);
             rs = ps.executeQuery();
             
             while(rs.next()){
