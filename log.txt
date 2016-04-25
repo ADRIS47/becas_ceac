@@ -764,3 +764,4 @@
 21/4/2016;9:38:30;No se pudo conectar a la Base de datos
 23/4/2016;16:38:12;Parameter index out of range (22 > number of parameters, which is 21).
 23/4/2016;16:38:21;Error al actualizar los datos del becario
+25/4/2016;9:54:23;Error al actualizar los datos del becario

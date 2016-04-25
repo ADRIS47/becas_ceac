@@ -1154,6 +1154,8 @@ public class PrincipalControlador {
             hermano.setGradoEscolar(getIdCmbBox(grado, catNivelEstudios));
             //Se obtiene el becario
             hermano.setIdBecario(idBecario);
+            //Se obtienen los comentarios
+            hermano.setComentario(panel.txtAreaComentario.getText());
             //Se agregra a la lista el hijo
             lstResult.add(hermano);
         }
@@ -1831,6 +1833,7 @@ public class PrincipalControlador {
             lstVistaHermanos.get(contador).txtApMaternoPariente.setText(hermano.getAMaterno());
             lstVistaHermanos.get(contador).txtNombresPariente.setText(hermano.getNombre());
             lstVistaHermanos.get(contador).cmbNivelEstudiosHermano.setSelectedIndex(hermano.getGradoEscolar() - 1);
+            lstVistaHermanos.get(contador).txtAreaComentario.setText(hermano.getComentario());
             contador++;
         }
         

@@ -769,6 +769,7 @@ public class PrincipalModelo {
                 ps.setString(3, hermano.getAMaterno());
                 ps.setInt(4, hermano.getGradoEscolar());
                 ps.setLong(5, idBecario);
+                ps.setString(6, hermano.getComentario());
                 int i = ps.executeUpdate();
                 if (i == 0) {
                     throw new SQLException("Error al insertar hermanos becario: " + ps.toString());
@@ -1402,8 +1403,9 @@ public class PrincipalModelo {
                 ps.setString(2, lstHermanos.get(0).getAPaterno());
                 ps.setString(3, lstHermanos.get(0).getAMaterno());
                 ps.setInt(4, lstHermanos.get(0).getGradoEscolar());
-                ps.setLong(5, idBecario);
-                ps.setLong(6, lstIdHermanos.get(0));
+                ps.setString(5, lstHermanos.get(0).getComentario());
+                ps.setLong(6, idBecario);
+                ps.setLong(7, lstIdHermanos.get(0));
                 int resp = ps.executeUpdate();
                 //Si la actualizacion fue correcta
                 if(resp >= 1){
@@ -1421,8 +1423,9 @@ public class PrincipalModelo {
                     ps.setString(2, hermano.getAPaterno());
                     ps.setString(3, hermano.getAMaterno());
                     ps.setInt(4, hermano.getGradoEscolar());
-                    ps.setLong(5, idBecario);
-                    ps.setLong(6, lstIdHermanos.get(contador));
+                    ps.setString(5, hermano.getComentario());
+                    ps.setLong(6, idBecario);
+                    ps.setLong(7, lstIdHermanos.get(contador));
                     int resp = ps.executeUpdate();
                     //Si la actualizacion fue correcta
                     if(resp == 0)
@@ -2094,6 +2097,7 @@ public class PrincipalModelo {
                hermano.setAMaterno(rs.getString(Hermanos.COL_AMATERNO));
                hermano.setAPaterno(rs.getString(Hermanos.COL_APATERNO));
                hermano.setGradoEscolar(rs.getInt(Hermanos.COL_ID_GRADO_ESCOLAR));
+               hermano.setComentario(rs.getString(Hermanos.COL_COMENTARIOS));
                hermano.setIdBecario(id);
                lstHermanos.add(hermano);
             }

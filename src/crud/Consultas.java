@@ -158,7 +158,7 @@ public class Consultas {
     public static String getDatosHermanosBecario = "SELECT " 
             + Hermanos.COL_ID + ", " + Hermanos.COL_NOMBRE + ", "
             + Hermanos.COL_APATERNO + ", " + Hermanos.COL_AMATERNO + ", "
-            + Hermanos.COL_ID_GRADO_ESCOLAR + " "
+            + Hermanos.COL_ID_GRADO_ESCOLAR + ", " + Hermanos.COL_COMENTARIOS + " "
             + "FROM beca_hermano "
             + "WHERE " + Hermanos.COL_ID_BECARIO + " = ?";
     

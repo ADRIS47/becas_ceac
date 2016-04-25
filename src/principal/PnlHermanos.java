@@ -44,6 +44,9 @@ public class PnlHermanos extends javax.swing.JPanel {
         cmbNivelEstudiosHermano = new javax.swing.JComboBox();
         lblAgregarHermano = new javax.swing.JLabel();
         lblBorrarHermano = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtAreaComentario = new javax.swing.JTextPane();
+        jLabel23 = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         setPreferredSize(new java.awt.Dimension(680, 80));
@@ -51,21 +54,25 @@ public class PnlHermanos extends javax.swing.JPanel {
         jPanel1.setLayout(new java.awt.GridLayout(2, 4, 10, 0));
 
         lblParentesco1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblParentesco1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblParentesco1.setText("Nombre(s)");
         jPanel1.add(lblParentesco1);
         jPanel1.add(txtNombresPariente);
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel21.setText("Ap Paterno");
         jPanel1.add(jLabel21);
         jPanel1.add(txtApPaternoPariente);
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel22.setText("Ap Materno");
         jPanel1.add(jLabel22);
         jPanel1.add(txtApMaternoPariente);
 
         lblParentesco5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblParentesco5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblParentesco5.setText("Nivel de Estudios");
         jPanel1.add(lblParentesco5);
 
@@ -89,13 +96,23 @@ public class PnlHermanos extends javax.swing.JPanel {
             }
         });
 
+        jScrollPane1.setViewportView(txtAreaComentario);
+
+        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel23.setText("Comentario");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel23)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblAgregarHermano, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -112,7 +129,11 @@ public class PnlHermanos extends javax.swing.JPanel {
                         .addComponent(lblAgregarHermano)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblBorrarHermano)))
-                .addGap(0, 8, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel23))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -129,13 +150,16 @@ public class PnlHermanos extends javax.swing.JPanel {
     protected javax.swing.JComboBox cmbNivelEstudiosHermano;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     protected javax.swing.JLabel lblAgregarHermano;
     protected javax.swing.JLabel lblBorrarHermano;
     private javax.swing.JLabel lblParentesco1;
     private javax.swing.JLabel lblParentesco5;
     protected javax.swing.JTextField txtApMaternoPariente;
     protected javax.swing.JTextField txtApPaternoPariente;
+    protected javax.swing.JTextPane txtAreaComentario;
     protected javax.swing.JTextField txtNombresPariente;
     // End of variables declaration//GEN-END:variables
 }

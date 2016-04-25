@@ -78,7 +78,8 @@ public class Update {
      */
     public static String updateHermanosBecario = "UPDATE beca_hermano "
             + "SET " + Hermanos.COL_NOMBRE + " = ?, " + Hermanos.COL_APATERNO + " = ?, "
-            + Hermanos.COL_AMATERNO + " = ?, " + Hermanos.COL_ID_GRADO_ESCOLAR + " = ? "
+            + Hermanos.COL_AMATERNO + " = ?, " + Hermanos.COL_ID_GRADO_ESCOLAR + " = ?, "
+            + Hermanos.COL_COMENTARIOS + " = ? "
             + "WHERE " + Hermanos.COL_ID_BECARIO + " = ? AND " + Hermanos.COL_ID + " = ?";
     
     /**
