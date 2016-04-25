@@ -56,6 +56,7 @@ public class PrincipalControlador {
     VistaPanelPrincipal vista;
     VistaRegistro vistaRegistro;
     VistaBusqueda vistaBusqueda;
+    VistaKardex vistaKardex;
     PnlPortada vistaPortada;
     VistaRegistroOpcionGuardar vistaOpcionGuardar;
     VistaRegistroOpcionActualizar vistaOpcionActualizar;
@@ -115,6 +116,10 @@ public class PrincipalControlador {
 
     public void setVistaBusqueda(VistaBusqueda vistaBusqueda) {
         this.vistaBusqueda = vistaBusqueda;
+    }
+
+    public void setVistaKardex(VistaKardex vistaKardex) {
+        this.vistaKardex = vistaKardex;
     }
     
     public void iniciaPantallaPrincipal(){
@@ -216,6 +221,37 @@ public class PrincipalControlador {
         
         helper.setAñoActualEnCombo(vistaBusqueda.cmbAnioRegistro);
         helper.setAñoActualEnCombo(vistaBusqueda.cmbanioGraduacion);
+    }
+    
+    protected void creaVistaKardex(){
+        if(vistaKardex != null){
+            terminaVistaKardex();
+        }
+        
+        vistaKardex = new VistaKardex();
+        this.setVistaKardex(vistaKardex);
+        vistaKardex.setControlador(this);
+        
+//        List<LinkedHashMap<Integer, String>> lstCategorias = null;
+//                
+//        try {
+//            //Se obtienen las categorias para llenar la pantalla
+//            lstCategorias = modelo.getCategoriasVistaRegistro();
+//            llenaCamposCategoriasVistaBusqueda(lstCategorias);
+//            
+//            
+//        } catch (SQLException ex) {
+//            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+//            JOptionPane.showMessageDialog(vista, "Error, consulta el registro de errores", 
+//                    "Error", JOptionPane.ERROR_MESSAGE);
+//            log.crearLog(ex.getMessage());
+//            return;
+//        }
+        
+        creaPantalla(vistaKardex);
+        
+//        helper.setAñoActualEnCombo(vistaBusqueda.cmbAnioRegistro);
+//        helper.setAñoActualEnCombo(vistaBusqueda.cmbanioGraduacion);
     }
     
     /**
@@ -326,6 +362,12 @@ public class PrincipalControlador {
         vistaBusqueda.removeAll();
         vaciaLstVistas();
         vistaBusqueda = null;
+    }
+    
+    private void terminaVistaKardex() {
+        vistaKardex.removeAll();
+        vaciaLstVistas();
+        vistaKardex = null;
     }
     
     /**
@@ -1475,6 +1517,7 @@ public class PrincipalControlador {
                     vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera,
                     vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre, vistaRegistro.txtCostoCarrera,
                     vistaRegistro, EscuchadorCmbBoxCambiado.BECA_SEMESTRAL));
+        
 //        vistaRegistro.cmboxSemestresTotalesCarrera.addItemListener(new EscuchadorCmbBoxCambiado(
 //                    vistaRegistro.cmboxSemestresTotalesCarrera, vistaRegistro.cmboxMesInicioBeca,
 //                    vistaRegistro.cmboxAnioInicioBeca, vistaRegistro.txtBecaAutorizada,

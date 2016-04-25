@@ -23,14 +23,14 @@ public class Conexion {
             return conexion;
         
         //String url = "jdbc:mysql://10.18.222.203:3306/becas_chihuahua?zeroDateTimeBehavior=convertToNull";
-        //String url = "jdbc:mysql://localhost:3306/becas_chihuahua?zeroDateTimeBehavior=convertToNull";
-        String url = "jdbc:mysql://db4free.net:3306/becas_chihuahua?zeroDateTimeBehavior=convertToNull";
+        String url = "jdbc:mysql://localhost:3306/becas_chihuahua?zeroDateTimeBehavior=convertToNull";
+        //String url = "jdbc:mysql://db4free.net:3306/becas_chihuahua?zeroDateTimeBehavior=convertToNull";
         
         //Tiempo que tardara el driver en conectarse a la BD
         try{
             DriverManager.setLoginTimeout(5);
-            conexion = DriverManager.getConnection(url, "becas_root", "HLSyznYWS6");
-            //conexion = DriverManager.getConnection(url, "root", "xxx.1234");
+            //conexion = DriverManager.getConnection(url, "becas_root", "HLSyznYWS6");
+            conexion = DriverManager.getConnection(url, "root", "xxx.1234");
             if (conexion !=null){
                 System.out.println("Conexión a base de datos … Ok");
             }
