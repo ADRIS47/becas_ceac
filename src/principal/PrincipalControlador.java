@@ -44,6 +44,7 @@ import pojos.DatosEscolares;
 import pojos.Direccion;
 import pojos.Hermanos;
 import pojos.Hijos;
+import pojos.Kardex;
 import pojos.Padres;
 import pojos.Telefono;
 
@@ -158,6 +159,10 @@ public class PrincipalControlador {
             this.setVistaRegistro(vistaRegistro);
         }
         
+        if(vistaKardex != null){
+            terminaVistaKardex();
+        }
+        
         List<LinkedHashMap<Integer, String>> lstCategorias = null;
                 
         try {
@@ -197,6 +202,10 @@ public class PrincipalControlador {
             terminaVistaBusqueda();
         }
         
+        if(vistaKardex != null){
+            terminaVistaKardex();
+        }
+        
         vistaBusqueda = new VistaBusqueda();
         this.setVistaBusqueda(vistaBusqueda);
         vistaBusqueda.setControlador(this);
@@ -206,9 +215,7 @@ public class PrincipalControlador {
         try {
             //Se obtienen las categorias para llenar la pantalla
             lstCategorias = modelo.getCategoriasVistaRegistro();
-            llenaCamposCategoriasVistaBusqueda(lstCategorias);
-            
-            
+            llenaCamposCategoriasVistaBusqueda(lstCategorias);            
         } catch (SQLException ex) {
             Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(vista, "Error, consulta el registro de errores", 
@@ -232,26 +239,20 @@ public class PrincipalControlador {
         this.setVistaKardex(vistaKardex);
         vistaKardex.setControlador(this);
         
-//        List<LinkedHashMap<Integer, String>> lstCategorias = null;
-//                
-//        try {
-//            //Se obtienen las categorias para llenar la pantalla
-//            lstCategorias = modelo.getCategoriasVistaRegistro();
-//            llenaCamposCategoriasVistaBusqueda(lstCategorias);
-//            
-//            
-//        } catch (SQLException ex) {
-//            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
-//            JOptionPane.showMessageDialog(vista, "Error, consulta el registro de errores", 
-//                    "Error", JOptionPane.ERROR_MESSAGE);
-//            log.crearLog(ex.getMessage());
-//            return;
-//        }
-        
-        creaPantalla(vistaKardex);
-        
-//        helper.setAñoActualEnCombo(vistaBusqueda.cmbAnioRegistro);
-//        helper.setAñoActualEnCombo(vistaBusqueda.cmbanioGraduacion);
+        //Si no se ha abierto la pantalla vistaRegistro
+        if(vistaRegistro == null){
+            JOptionPane.showMessageDialog(vistaKardex, "Debes de seleccionar un becario");
+            creaVistaBusqueda();
+        }
+        else if(vistaRegistro.txtFolio.getText().equals("")){
+            JOptionPane.showMessageDialog(vistaKardex, "Debes de seleccionar un becario");
+            creaVistaBusqueda();
+        }
+        //Si ya existe un becario en vistaRegistro
+        else{
+            llenaCamposVistaKardex(vistaRegistro.txtFolio.getText());
+            creaPantalla(vistaKardex);
+        }
     }
     
     /**
@@ -1975,6 +1976,32 @@ public class PrincipalControlador {
 //            vistaRegistro.lblEstatusCartaAsignacionBeca.setText(fileCartaAsignacionBeca.getName());
 //        }
         
+        
+    }
+    
+    /**
+     * Llena la vista con la información del becario seleccionado
+     * @param folio 
+     */
+    private void llenaCamposVistaKardex(String folio) {
+        Conexion conn = new Conexion();
+        Connection conexion = conn.estableceConexion();
+        Becario becario = null;
+        List<Kardex> lsKardex = null;
+        
+        if(conexion == null){
+            JOptionPane.showMessageDialog(vistaKardex, "No se pudo conectar a la base de datos");
+            log.muestraErrores(new SQLException("No se pudo conectar a la base de datos"));
+        }
+        
+        becario = modelo.getBecarioPorFolio(conexion, folio);
+        lsKardex = modelo.getKardexPorIdBecario(conexion, becario.getId());
+        
+        //Se procede a llenar la informacion del kardex
+        vistaKardex.txtNombreBecario.setText(becario.getApPaterno() + " " + becario.getApMaterno() + " " + becario.getNombre());
+        vistaKardex.txtCondicion.setText(getItemComboBox(becario.getIdEstatus(), catEstatus));
+        vistaKardex.txtFolio.setText(becario.getFolio());
+        vistaKardex.txtPrograma.setText(getItemComboBox(becario.getIdPrograma(), catPrograma));
         
     }
 

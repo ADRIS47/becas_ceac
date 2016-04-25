@@ -11,6 +11,7 @@ import pojos.DatosEscolares;
 import pojos.Direccion;
 import pojos.Hermanos;
 import pojos.Hijos;
+import pojos.Kardex;
 import pojos.Padres;
 import pojos.Telefono;
 
@@ -292,6 +293,20 @@ public class Consultas {
             + Aval.COL_ID_BECARIO + ", " + Aval.COL_IDENTIFICACION + " " 
             + "FROM beca_aval "
             + "WHERE " + Aval.COL_ID_BECARIO + " = ?";
+    
+    /**
+     * Obtiene los kardex del becario
+     */
+    public static String getKardexBecario = "SELECT "
+            + Kardex.COL_ID_KARDEX + ", " + Kardex.COL_NUM_SEMESTRE + ", "
+            + Kardex.COL_PAGO_INICIO_SEMESTRE + ", " + Kardex.COL_PAGO_FIN_SEMESTRE + ", "
+            + Kardex.COL_PLATICA_1 + ", " + Kardex.COL_PLATICA_2 + ", "
+            + Kardex.COL_PROMEDIO + ", " + Kardex.COL_DESCUENTO + ", "
+            + Kardex.COL_ID_SERVICIO_COMUNITARIO + ", " + Kardex.COL_LUGAR_SERVICIO_COMUNITARIO + ", "
+            + Kardex.COL_BOLETA + ", " + Kardex.COL_CARTA_SERVICIO_COMUNITARIO + ", "
+            + Kardex.COL_ID_BECARIO + ", " + Kardex.COL_PAGO_EXTRA + " "
+            + "FROM beca_kardex "
+            + "WHERE " + Kardex.COL_ID_BECARIO + " = ?";
     
     
 }

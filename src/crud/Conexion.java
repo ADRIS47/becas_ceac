@@ -35,7 +35,6 @@ public class Conexion {
                 System.out.println("Conexión a base de datos … Ok");
             }
         } catch (SQLException e) {
-            
             System.out.println("Error conexion: " + e.getMessage());
         }
         

@@ -37,6 +37,7 @@ import pojos.DatosEscolares;
 import pojos.Direccion;
 import pojos.Hermanos;
 import pojos.Hijos;
+import pojos.Kardex;
 import pojos.Padres;
 import pojos.Telefono;
 
@@ -2267,5 +2268,48 @@ public class PrincipalModelo {
         }
         
         return aval;
+    }
+
+    /**
+     * Obtiene el kardex del becario
+     * @param conexion COnexion a la base de datos
+     * @param idBecario Id del becario que se obtendran sus kardex
+     * @return 
+     */
+    protected List<Kardex> getKardexPorIdBecario(Connection conexion, long idBecario) {
+        List<Kardex> lstKardex = new ArrayList<Kardex>();
+        PreparedStatement ps = null;
+        ResultSet rs = null;    
+        
+        try{
+            ps = conexion.prepareStatement(Consultas.getKardexBecario);
+            ps.setLong(1, idBecario);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                Kardex kardex = new Kardex();
+                kardex.setId_kardex(rs.getLong(Kardex.COL_ID_KARDEX));
+                kardex.setNum_semestre(rs.getInt(Kardex.COL_NUM_SEMESTRE));
+                kardex.setPago_inicio_semestre(rs.getBoolean(Kardex.COL_PAGO_INICIO_SEMESTRE));
+                kardex.setPago_fin_semestre(rs.getBoolean(Kardex.COL_PAGO_FIN_SEMESTRE));
+                kardex.setPlatica1(rs.getBoolean(Kardex.COL_PLATICA_1));
+                kardex.setPlatica2(rs.getBoolean(Kardex.COL_PLATICA_2));
+                kardex.setPromedio(rs.getLong(Kardex.COL_PROMEDIO));
+                kardex.setDescuento(rs.getInt(Kardex.COL_DESCUENTO));
+                kardex.setIdServicioComunitario(rs.getInt(Kardex.COL_ID_SERVICIO_COMUNITARIO));
+                kardex.setLugarServicioComunitario(rs.getString(Kardex.COL_LUGAR_SERVICIO_COMUNITARIO));
+                kardex.setBoleta(rs.getString(Kardex.COL_BOLETA));
+                kardex.setCarta_servicio_comunitario(rs.getString(Kardex.COL_CARTA_SERVICIO_COMUNITARIO));
+                kardex.setId_becario(rs.getLong(Kardex.COL_ID_BECARIO));
+                kardex.setPago_extra(rs.getBoolean(Kardex.COL_PAGO_EXTRA));
+                lstKardex.add(kardex);
+            }
+            
+        }
+        catch(SQLException e){
+            log.muestraErrores(e);
+        }
+        
+        return lstKardex;
     }
 }
