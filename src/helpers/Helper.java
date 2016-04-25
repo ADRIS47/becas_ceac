@@ -7,6 +7,7 @@ package helpers;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Desktop;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.File;
@@ -16,6 +17,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.sql.Date;
+import java.text.DecimalFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.logging.Level;
@@ -39,6 +41,29 @@ import javax.swing.JTextField;
 public class Helper {
     
     Log log = new Log();
+    
+    protected File fileFoto = null;
+    protected File fileActaNacimiento;
+    protected File fileBoleta_calificaciones_inicial;
+    protected File fileCarta_solicitud;
+    protected File fileEnsayo;
+    protected File fileIneBecario;
+    protected File fileIneAval;
+    protected File fileContrato;
+    protected File filePagare;
+    protected File fileEstudioSocioeconomico;
+    protected File fileCartaAsignacionBeca;
+    
+    public final static int FILE_ACTA_NACIMIENTO = 0;
+    public final static int FILE_BOLETA_CALIFICACIONES_INICIAL = 1;
+    public final static int FILE_CARTA_SOLICITUD = 2;
+    public final static int FILE_ENSAYO = 3;
+    public final static int FILE_INE_BECARIO = 4;
+    public final static int FILE_INE_AVAL = 5;
+    public final static int FILE_CONTRATO = 6;
+    public final static int FILE_PAGARE = 7;
+    public final static int FILE_ESTUDIO_SOCIECONOMICO = 8;
+    public final static int FILE_CARTA_ASIGNACION_BECA = 9;
 
     public static void getFechaGraduacion(JComboBox<?> cmbBoxMesInicioCarrera, JComboBox<?> cmbBoxAnioInicioBeca, JComboBox<?> cmbBoxMesGraduacion, JComboBox<?> cmbBoxAnioGraduacion, JComboBox<?> cmbBoxSemestreInicioBeca, JComboBox<?> cmbBoxTotalSemestres) {
         Calendar graduacion = new GregorianCalendar(Integer.parseInt((String) cmbBoxAnioInicioBeca.getSelectedItem()), 
@@ -46,22 +71,53 @@ public class Helper {
 
         graduacion.add(Calendar.MONTH, - Integer.parseInt(cmbBoxSemestreInicioBeca.getSelectedItem().toString()) * 6);
         graduacion.add(Calendar.MONTH, Integer.parseInt((String) cmbBoxTotalSemestres.getSelectedItem()) * 6);      
-
+        graduacion.add(Calendar.MONTH, 5);
+        
         int indexAnioGraduacion = graduacion.get(Calendar.YEAR) - Integer.parseInt(cmbBoxAnioGraduacion.getItemAt(0).toString()) ;
 
         cmbBoxAnioGraduacion.setSelectedIndex(indexAnioGraduacion);
         cmbBoxMesGraduacion.setSelectedIndex(graduacion.get(Calendar.MONTH));
     }
 
+    /**
+     * 
+     * @param cmbSemestresTotales
+     * @param cmbSemestreInicioBeca
+     * @param cmbAnioInicioBeca
+     * @param txtBecaAutorizada
+     * @param txtBecaSemestral
+     * @param txtCostoCarrera 
+     */
     public static void getBecaSemestral(JComboBox<?> cmbSemestresTotales, JComboBox<?> cmbSemestreInicioBeca, 
                     JComboBox<?> cmbAnioInicioBeca, JTextField txtBecaAutorizada, 
-                    JTextField txtBecaSemestral) {
-        String semestresTotales = (String) cmbSemestresTotales.getSelectedItem() + 1;
-        String semestreInicioBeca = (String) cmbSemestreInicioBeca.getSelectedItem();
-        int semestres = Integer.parseInt((String) cmbSemestresTotales.getSelectedItem()) - 
-                Integer.parseInt((String) cmbSemestreInicioBeca.getSelectedItem());
-        float total = Float.parseFloat(txtBecaAutorizada.getText()) / semestres;
-        txtBecaSemestral.setText(total + "");
+                    JTextField txtBecaSemestral, JTextField txtCostoCarrera) {
+        
+        String becaAutorizada = txtBecaAutorizada.getText().replace(",", "");
+        becaAutorizada = becaAutorizada.replace(".", "");
+        String costoCarr = txtCostoCarrera.getText().replace(",", "");
+        costoCarr = costoCarr.replace(".", "");
+        
+        int becaAut = Integer.parseInt(becaAutorizada);
+        int costoCarrera = Integer.parseInt(costoCarr);
+        
+        if(becaAut <= costoCarrera){
+            String semestresTotales = Integer.parseInt(cmbSemestresTotales.getSelectedItem().toString()) + 1 + "";
+            String semestreInicioBeca = (String) cmbSemestreInicioBeca.getSelectedItem();
+            int semestres = Integer.parseInt( semestresTotales) - Integer.parseInt(semestreInicioBeca);
+
+            float total = Float.parseFloat(becaAutorizada) / semestres;
+
+            DecimalFormat formato = new DecimalFormat("###,###,###,###");
+            txtBecaSemestral.setText(formato.format(total));
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Debes de ingresar un valor menor al Costo de Carrera");
+            txtBecaAutorizada.setText(becaAutorizada.substring(0, becaAutorizada.length() - 1));
+            //txtBecaAutorizada.setText("");
+            
+        }
+        
+        
     }
     /**
      * Carga una imagen dentro de un label y la adapta al tamaño de la etiqueta
@@ -289,6 +345,18 @@ public class Helper {
         Calendar calendario = new GregorianCalendar();
         int year = calendario.get(Calendar.YEAR) - 2007;
         combo.setSelectedIndex(year);
+    }
+
+    public void abreArchivoAdjunto(File archivo) {
+        try{ 
+            System.out.println("Archivo: " + archivo.toString());
+            //definiendo la ruta en la propiedad file
+            //Runtime.getRuntime().exec("cmd /c start "+ archivo.toString());
+            Desktop.getDesktop().open(archivo);
+
+        }catch(IOException e){
+            e.printStackTrace();
+        } 
     }
     
     

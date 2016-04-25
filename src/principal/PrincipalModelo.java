@@ -531,6 +531,8 @@ public class PrincipalModelo {
             ps.setString(25, becario.getPagare());
             ps.setString(26, becario.getOcupacionConyuge());
             ps.setInt(27, becario.getIdPrograma());
+            ps.setString(28, becario.getEstudioSocioEconomico());
+            ps.setString(29, becario.getCartaAsignacionBeca());
             
             
             int i = ps.executeUpdate();
@@ -1009,8 +1011,9 @@ public class PrincipalModelo {
             ps.setString(20, becario.getIdentificacion());
             ps.setString(21, becario.getFolio());
             ps.setString(22, becario.getOcupacionConyuge());
-            ps.setString(23, becario.getFolio());
-            
+            ps.setString(23, becario.getEstudioSocioEconomico());
+            ps.setString(24, becario.getCartaAsignacionBeca());
+            ps.setString(25, becario.getFolio());
             valor = ps.executeUpdate();
             
             if(valor == 0){
@@ -1299,8 +1302,10 @@ public class PrincipalModelo {
                 ps.setInt(5, lstPadresBecario.get(0).getGradoEscolar());
                 ps.setInt(6, lstPadresBecario.get(0).getTrabaja());
                 ps.setInt(7, lstPadresBecario.get(0).getParenteco());
-                ps.setLong(8, idBecario);
-                ps.setLong(9, lstIdPapas.get(0));
+                ps.setString(8, lstPadresBecario.get(0).getOcupacion());
+                ps.setString(9, lstPadresBecario.get(0).getTelefono());
+                ps.setLong(10, idBecario);
+                ps.setLong(11, lstIdPapas.get(0));
                 int resp = ps.executeUpdate();
                 //Si la actualizacion fue correcta
                 if(resp >= 1){
@@ -1321,8 +1326,10 @@ public class PrincipalModelo {
                     ps.setInt(5, papa.getGradoEscolar());
                     ps.setInt(6, papa.getTrabaja());
                     ps.setInt(7, papa.getParenteco());
-                    ps.setLong(8, idBecario);
-                    ps.setLong(9, lstIdPapas.get(contador));
+                    ps.setString(8, papa.getOcupacion());
+                    ps.setString(9, papa.getTelefono());
+                    ps.setLong(10, idBecario);
+                    ps.setLong(11, lstIdPapas.get(contador));
                     int resp = ps.executeUpdate();
                     //Si la actualizacion fue correcta
                     if(resp == 0)
@@ -1784,10 +1791,77 @@ public class PrincipalModelo {
         ResultSet rs = null;
         List<Becario> lstBecario = new ArrayList<>();
         try{
-            ps = conexion.prepareStatement(Consultas.getBecarioPorNombres);
-            ps.setString(1,"%" + nombre + "%");
-            ps.setString(2, "%" + aPaterno + "%");
-            ps.setString(3, "%" + aMaterno + "%");
+            boolean bandera = false;
+            String consulta = Consultas.getBecarioPorNombres;
+            
+            //Se hace la instruccion de WHERE's
+            if(!nombre.equals("") && bandera == false){
+                consulta = consulta.concat("WHERE becario." + Becario.COL_NOMBRE + " LIKE ? ");
+                bandera = true;
+            }
+            
+            
+            if(!aPaterno.equals("") && bandera == false){
+                consulta = consulta.concat("WHERE becario." + Becario.COL_APATERNO + " LIKE ? ");
+                bandera = true;
+            }
+            else if(!aPaterno.equals("") && bandera == true){
+                consulta = consulta.concat("AND becario." + Becario.COL_APATERNO + " LIKE ? ");
+            }
+            
+            if(!aMaterno.equals("") && bandera == false){
+                consulta = consulta.concat("WHERE becario." + Becario.COL_AMATERNO + " LIKE ? ");
+                bandera = true;
+            }
+            else if(!aMaterno.equals("") && bandera == true){
+                consulta = consulta.concat("AND becario." + Becario.COL_AMATERNO + " LIKE ? ");
+            }
+            
+            bandera = false;
+            
+            
+            //Se hace la instruccion de ordenacion ORDER BY
+            if(!nombre.equals("") && bandera == false){
+                consulta = consulta.concat("ORDER BY becario." + Becario.COL_NOMBRE + " ");
+                bandera = true;
+            }
+            
+            if(!aPaterno.equals("") && bandera == false){
+                consulta = consulta.concat("ORDER BY becario." + Becario.COL_APATERNO + " ");
+                bandera = true;
+            }
+            else if(!aPaterno.equals("") && bandera == true){
+                consulta = consulta.concat("AND becario." + Becario.COL_APATERNO + " ");
+            }
+            
+            if(!aMaterno.equals("") && bandera == false){
+                consulta = consulta.concat("ORDER BY becario." + Becario.COL_AMATERNO + " ");
+                bandera = true;
+            }
+            else if(!aMaterno.equals("") && bandera == true){
+                consulta = consulta.concat("AND becario." + Becario.COL_AMATERNO + " ");
+            }
+            
+            ps = conexion.prepareStatement(consulta);
+            
+            //Se hace la instruccion de cambiar parametros
+            int i = 1;
+            bandera = false;
+            if(!nombre.equals("") ){
+                ps.setString(i, "%" + nombre + "%");
+                i++;
+            }
+            
+            if(!aPaterno.equals("") ){
+                ps.setString(i, "%" + aPaterno + "%");
+                i++;
+            }
+            
+            if(!aMaterno.equals("") ){
+                ps.setString(i, "%" + aMaterno + "%");
+                i++;
+            }
+            System.out.println("Consulta: " + ps);
             rs = ps.executeQuery();
             
             while(rs.next()){

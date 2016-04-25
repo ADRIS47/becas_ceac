@@ -5,6 +5,8 @@
  */
 package principal;
 
+import helpers.Helper;
+
 /**
  *
  * @author sabagip
@@ -38,7 +40,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         txtFolio = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        cmbEstatus = new javax.swing.JComboBox<>();
+        cmbEstatus = new javax.swing.JComboBox<String>();
         pnlNombres = new javax.swing.JPanel();
         txtNombreBecado = new javax.swing.JTextField();
         txtApPaternoBecado = new javax.swing.JTextField();
@@ -108,8 +110,8 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         cmboxMesGraduacion = new javax.swing.JComboBox();
-        cmboxAnioInicioBeca = new javax.swing.JComboBox<>();
-        cmboxAnioGraduacion = new javax.swing.JComboBox<>();
+        cmboxAnioInicioBeca = new javax.swing.JComboBox<String>();
+        cmboxAnioGraduacion = new javax.swing.JComboBox<String>();
         txtNombreCarrera = new javax.swing.JTextField();
         pnlManejoBeca = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -210,7 +212,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(0, 0, 153));
         jLabel3.setText("Estatus:");
 
-        cmbEstatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Becado", "Exalumno" }));
+        cmbEstatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Becado", "Exalumno" }));
 
         javax.swing.GroupLayout pnlProgramaLayout = new javax.swing.GroupLayout(pnlPrograma);
         pnlPrograma.setLayout(pnlProgramaLayout);
@@ -684,9 +686,9 @@ public class VistaRegistro extends javax.swing.JPanel {
         cmboxMesGraduacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
         cmboxMesGraduacion.setEnabled(false);
 
-        cmboxAnioInicioBeca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
+        cmboxAnioInicioBeca.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
 
-        cmboxAnioGraduacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
+        cmboxAnioGraduacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
         cmboxAnioGraduacion.setEnabled(false);
 
         txtNombreCarrera.setName("txtNombreCarrera"); // NOI18N
@@ -701,46 +703,44 @@ public class VistaRegistro extends javax.swing.JPanel {
         pnlInformacionEscolarLayout.setHorizontalGroup(
             pnlInformacionEscolarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlInformacionEscolarLayout.createSequentialGroup()
-                .addGroup(pnlInformacionEscolarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlInformacionEscolarLayout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jLabel13)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInformacionEscolarLayout.createSequentialGroup()
+                .addGroup(pnlInformacionEscolarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnlInformacionEscolarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlInformacionEscolarLayout.createSequentialGroup()
-                        .addGroup(pnlInformacionEscolarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(pnlInformacionEscolarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cmboxEscuelaUniversitaria, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlInformacionEscolarLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(pnlInformacionEscolarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(pnlInformacionEscolarLayout.createSequentialGroup()
+                                .addComponent(cmboxMesInicioBeca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cmboxEscuelaUniversitaria, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInformacionEscolarLayout.createSequentialGroup()
+                                .addComponent(cmboxAnioInicioBeca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNombreCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel15)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cmboxMesGraduacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cmboxAnioGraduacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(pnlInformacionEscolarLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(txtEscuelaProcedencia, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(cmboxCampoEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnlInformacionEscolarLayout.createSequentialGroup()
+                                .addComponent(txtNombreCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cmboxCarreraSiNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlInformacionEscolarLayout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addGroup(pnlInformacionEscolarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(pnlInformacionEscolarLayout.createSequentialGroup()
-                                        .addComponent(txtEscuelaProcedencia, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(4, 4, 4)
-                                        .addComponent(cmboxCampoEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(pnlInformacionEscolarLayout.createSequentialGroup()
-                                        .addComponent(cmboxMesInicioBeca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(cmboxAnioInicioBeca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(32, 32, 32)
-                                        .addComponent(jLabel15)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(cmboxMesGraduacion, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(cmboxAnioGraduacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addGap(75, 75, 75))
+                                .addComponent(cmboxCarreraSiNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(212, 212, 212))))
         );
         pnlInformacionEscolarLayout.setVerticalGroup(
             pnlInformacionEscolarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -828,6 +828,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel18.setText("Costo Carrera:");
 
+        txtCostoCarrera.setText("0");
         txtCostoCarrera.setName(""); // NOI18N
 
         txtBecaPorSemestre.setDisabledTextColor(new java.awt.Color(60, 60, 60));
@@ -1021,7 +1022,13 @@ public class VistaRegistro extends javax.swing.JPanel {
         lblEstatusBoleta.setForeground(new java.awt.Color(0, 0, 204));
         lblEstatusBoleta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusBoleta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusBoleta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblEstatusBoleta.setEnabled(false);
+        lblEstatusBoleta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusBoletaMouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentos.add(lblEstatusBoleta);
 
         btnAddActa.setForeground(new java.awt.Color(0, 204, 0));
@@ -1045,6 +1052,11 @@ public class VistaRegistro extends javax.swing.JPanel {
         lblEstatusActa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusActa.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusActa.setEnabled(false);
+        lblEstatusActa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusActaMouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentos.add(lblEstatusActa);
 
         btnAddCarta.setText("Agregar...");
@@ -1066,6 +1078,11 @@ public class VistaRegistro extends javax.swing.JPanel {
         lblEstatusCarta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusCarta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusCarta.setEnabled(false);
+        lblEstatusCarta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusCartaMouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentos.add(lblEstatusCarta);
 
         btnAddEnsayo.setForeground(new java.awt.Color(0, 0, 204));
@@ -1089,6 +1106,11 @@ public class VistaRegistro extends javax.swing.JPanel {
         lblEstatusEnsayo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusEnsayo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusEnsayo.setEnabled(false);
+        lblEstatusEnsayo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusEnsayoMouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentos.add(lblEstatusEnsayo);
 
         btnAddINEBecario.setForeground(new java.awt.Color(0, 204, 0));
@@ -1112,6 +1134,11 @@ public class VistaRegistro extends javax.swing.JPanel {
         lblEstatusINEBecario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusINEBecario.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusINEBecario.setEnabled(false);
+        lblEstatusINEBecario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusINEBecarioMouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentos.add(lblEstatusINEBecario);
 
         btnAddINEAval.setText("Agregar...");
@@ -1133,6 +1160,11 @@ public class VistaRegistro extends javax.swing.JPanel {
         lblEstatusINEAval.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusINEAval.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusINEAval.setEnabled(false);
+        lblEstatusINEAval.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusINEAvalMouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentos.add(lblEstatusINEAval);
 
         btnAddContrato.setForeground(new java.awt.Color(0, 0, 204));
@@ -1156,6 +1188,11 @@ public class VistaRegistro extends javax.swing.JPanel {
         lblEstatusContrato.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusContrato.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusContrato.setEnabled(false);
+        lblEstatusContrato.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusContratoMouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentos.add(lblEstatusContrato);
 
         btnAddPagare.setForeground(new java.awt.Color(0, 204, 0));
@@ -1179,6 +1216,11 @@ public class VistaRegistro extends javax.swing.JPanel {
         lblEstatusPagare.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusPagare.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusPagare.setEnabled(false);
+        lblEstatusPagare.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusPagareMouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentos.add(lblEstatusPagare);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -1328,6 +1370,38 @@ public class VistaRegistro extends javax.swing.JPanel {
     private void btnFotografiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFotografiaActionPerformed
         controlador.cargaFotografia();
     }//GEN-LAST:event_btnFotografiaActionPerformed
+
+    private void lblEstatusBoletaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusBoletaMouseClicked
+        controlador.abreArchivoAdjunto(Helper.FILE_BOLETA_CALIFICACIONES_INICIAL);
+    }//GEN-LAST:event_lblEstatusBoletaMouseClicked
+
+    private void lblEstatusActaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusActaMouseClicked
+        controlador.abreArchivoAdjunto(Helper.FILE_ACTA_NACIMIENTO);
+    }//GEN-LAST:event_lblEstatusActaMouseClicked
+
+    private void lblEstatusCartaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusCartaMouseClicked
+        controlador.abreArchivoAdjunto(Helper.FILE_CARTA_SOLICITUD);
+    }//GEN-LAST:event_lblEstatusCartaMouseClicked
+
+    private void lblEstatusEnsayoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusEnsayoMouseClicked
+        controlador.abreArchivoAdjunto(Helper.FILE_ENSAYO);
+    }//GEN-LAST:event_lblEstatusEnsayoMouseClicked
+
+    private void lblEstatusINEBecarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusINEBecarioMouseClicked
+        controlador.abreArchivoAdjunto(Helper.FILE_INE_BECARIO);
+    }//GEN-LAST:event_lblEstatusINEBecarioMouseClicked
+
+    private void lblEstatusINEAvalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusINEAvalMouseClicked
+        controlador.abreArchivoAdjunto(Helper.FILE_INE_AVAL);
+    }//GEN-LAST:event_lblEstatusINEAvalMouseClicked
+
+    private void lblEstatusContratoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusContratoMouseClicked
+        controlador.abreArchivoAdjunto(Helper.FILE_CONTRATO);
+    }//GEN-LAST:event_lblEstatusContratoMouseClicked
+
+    private void lblEstatusPagareMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusPagareMouseClicked
+        controlador.abreArchivoAdjunto(Helper.FILE_PAGARE);
+    }//GEN-LAST:event_lblEstatusPagareMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     protected javax.swing.JButton btnAddActa;

@@ -126,7 +126,7 @@ public class Consultas {
             + Padres.COL_APATERNO + ", " + Padres.COL_AMATERNO + ","
             + Padres.COL_ID_BECARIO + ", " + Padres.COL_ID_GRADO_ESCOLAR + ","
             + Padres.COL_ID_PARENTESCO + ", " + Padres.COL_TELEFONO + ","
-            + Padres.COL_TRABAJA + " "
+            + Padres.COL_TRABAJA + ", " + Padres.COL_OCUPACION + " "
             + "FROM beca_padres "
             + "WHERE " + Padres.COL_ID_BECARIO + " = ?";
     
@@ -276,10 +276,10 @@ public class Consultas {
             + "becario." + Becario.COL_BOLETA_INICIO_BECA +  ", becario." + Becario.COL_CONTRATO_BECA +  ", "
             + "becario." + Becario.COL_IDENTIFICACION + ", becario." + Becario.COL_ID + ", "
             + "becario." + Becario.COL_PAGARE + ", becario." + Becario.COL_OCUPACION_CONYUGE + " "
-            + "FROM beca_becario AS becario "
-            + "WHERE becario." + Becario.COL_NOMBRE + " LIKE ? OR becario." + Becario.COL_APATERNO + " LIKE ? "
-            + "OR becario." + Becario.COL_AMATERNO + " LIKE ? "
-            + "ORDER BY " + Becario.COL_APATERNO + " AND " + Becario.COL_AMATERNO + " AND " + Becario.COL_NOMBRE;
+            + "FROM beca_becario AS becario ";
+//            + "WHERE becario." + Becario.COL_NOMBRE + " LIKE ? OR becario." + Becario.COL_APATERNO + " LIKE ? "
+//            + "OR becario." + Becario.COL_AMATERNO + " LIKE ? "
+//            + "ORDER BY " + Becario.COL_APATERNO + " AND " + Becario.COL_AMATERNO + " AND " + Becario.COL_NOMBRE;
     
     /**
      * Obtiene el aval del becario
