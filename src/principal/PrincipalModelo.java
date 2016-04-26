@@ -1079,10 +1079,10 @@ public class PrincipalModelo {
      * Actualiza o inserta las direcciones del becario
      * @param conexion
      * @param idBecario
-     * @param lstTelefonosBecario
+     * @param lstDireccionesBecario
      * @return True si operacion exitosa, False si no
      */
-    protected boolean updateDireccionBecario(Connection conexion, long idBecario, List<Direccion> lstTelefonosBecario) {
+    protected boolean updateDireccionBecario(Connection conexion, long idBecario, List<Direccion> lstDireccionesBecario) {
         boolean response = false;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -1095,6 +1095,12 @@ public class PrincipalModelo {
             List<Integer> lstIdDirecciones = new ArrayList <>();
             if(rs.next()){
                 direcciones = rs.getInt(1);
+            }
+            
+            ps = conexion.prepareStatement(Consultas.getDatosDireccionesBecario);
+            ps.setLong(1, idBecario);
+            rs = ps.executeQuery();
+            while(rs.next()){
                 lstIdDirecciones.add(rs.getInt(Direccion.COL_ID));
             }
             
@@ -1103,33 +1109,33 @@ public class PrincipalModelo {
             
             //Si no se tienen direcciones registradas se insertan las nuevas direcciones
             if(direcciones == 0){
-                response = insertDireccionBecario(conexion, idBecario, lstTelefonosBecario);
+                response = insertDireccionBecario(conexion, idBecario, lstDireccionesBecario);
             }
             
             
             //Si existe una sola hijo registrada, se actualiza la primera y la segunda se inserta
-            else if(direcciones > 0 && direcciones < lstTelefonosBecario.size()){
+            else if(direcciones > 0 && direcciones < lstDireccionesBecario.size()){
                 ps = conexion.prepareStatement(Update.updateDireccionesBecario);
-                ps.setString(1, lstTelefonosBecario.get(0).getCalle());
-                ps.setString(2, lstTelefonosBecario.get(0).getNumExt());
-                ps.setString(3, lstTelefonosBecario.get(0).getNumInt());
-                ps.setString(4, lstTelefonosBecario.get(0).getColonia());
-                ps.setInt(5, lstTelefonosBecario.get(0).getCodigoPostal());
-                ps.setString(6, lstTelefonosBecario.get(0).getCiudad());
+                ps.setString(1, lstDireccionesBecario.get(0).getCalle());
+                ps.setString(2, lstDireccionesBecario.get(0).getNumExt());
+                ps.setString(3, lstDireccionesBecario.get(0).getNumInt());
+                ps.setString(4, lstDireccionesBecario.get(0).getColonia());
+                ps.setInt(5, lstDireccionesBecario.get(0).getCodigoPostal());
+                ps.setString(6, lstDireccionesBecario.get(0).getCiudad());
                 ps.setLong(7, idBecario);
                 ps.setLong(8, lstIdDirecciones.get(0));
                 int resp = ps.executeUpdate();
                 //Si la actualizacion fue correcta
                 if(resp >= 1){
                     List<Direccion> nuevaLista = new ArrayList<>();
-                    nuevaLista.add(lstTelefonosBecario.get(1));
+                    nuevaLista.add(lstDireccionesBecario.get(1));
                     response = insertDireccionBecario(conexion, idBecario, nuevaLista);
                 }
             }
             //Si existen la misma cantidad de registros con la misma cantidad de nuevas direcciones
-            else if(direcciones > 0 && direcciones == lstTelefonosBecario.size()){
+            else if(direcciones > 0 && direcciones == lstDireccionesBecario.size()){
                 int contador = 0;
-                for (Direccion direccion : lstTelefonosBecario) {
+                for (Direccion direccion : lstDireccionesBecario) {
                     ps = conexion.prepareStatement(Update.updateDireccionesBecario);
                     ps.setString(1, direccion.getCalle());
                     ps.setString(2, direccion.getNumExt());
