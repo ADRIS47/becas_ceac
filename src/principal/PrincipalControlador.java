@@ -1406,7 +1406,8 @@ public class PrincipalControlador {
      * Recorre todos los componentes dentro de un JPanel
      * @param clave 1: Valida si hay campos vacios, 2: Vacia los campos,
      * 3: Asigna listeners a los JTextField de pnlKardex de vistaKardex,
-     * 4: Asigna listeners a los JtextField de pnlInformacionBancaria de VistaKardex
+     * 4: Asigna listeners a los JtextField de pnlInformacionBancaria de VistaKardex,
+     * 5: Deshabilita los componentes que contiene un jpanel
      * @param panel Jpanel a recorrer
      * @return True si encontró campos vacios, false si no
      */
@@ -1461,16 +1462,53 @@ public class PrincipalControlador {
                         response = recorreJPanel((JPanel)componente, 4);
                     }                    
                     if (componente instanceof JTextField) {
-//                        ((JTextField) componente).setBackground(Color.ORANGE);
-//                        response = true;
                         JTextField txtCampo = ((JTextField) componente);
                         txtCampo.addKeyListener(new EscuchadorValidaEntrada(vistaKardex, EscuchadorValidaEntrada.NUMEROS, txtCampo));
                     }
                 }
-                
                 break;
         }
         return response;
+    }
+    
+    private void deshabilitaSemestresKardex(JPanel pnlPanel, int semestresHabilitados, int contador){
+        Component[] componentes = pnlPanel.getComponents();
+        
+        for (Component componente : componentes) {
+            
+            if(componente instanceof JPanel && contador > semestresHabilitados){
+                contador++;
+                deshabilitaSemestresKardex((JPanel) componente, semestresHabilitados, contador);
+            }
+            else if(componente instanceof JPanel && contador <= semestresHabilitados){
+                contador++;
+                deshabilitaSemestresKardex((JPanel) componente, semestresHabilitados, contador);
+            }
+            
+            if(contador > semestresHabilitados){
+//                Color color = new Color(255, 0,0);
+//                componente.setBackground(color);
+                componente.setVisible(false);
+            }
+            
+        }
+        
+//        if(contador > semestresHabilitados){
+//            for (Component componente : componentes) {
+//                if(componente instanceof JPanel){
+//                    contador++;
+//                    deshabilitaSemestresKardex((JPanel) componente, semestresHabilitados, contador);
+//                }
+//                else
+//                    componente.setEnabled(false);
+//            }
+//        }
+//        else{
+//            contador++;
+//            deshabilitaSemestresKardex(pnlPanel, semestresHabilitados, contador);
+//        }
+        
+        
     }
 
     /**
@@ -2049,6 +2087,13 @@ public class PrincipalControlador {
         vistaKardex.TxtFldNoCuenta.setText(becario.getCuentaBancaria());
         vistaKardex.TxtFldClabeBanco.setText(becario.getClabeInterbancaria());
         
+        //Se procede a deshabilitar los semestres que aun no tienen que llenarse
+        int semestresHabilitados = helper.getTotalSemestresporHabilitarKardex(datosEscolares.getMesInicioBeca(), 
+                datosEscolares.getAnioInicioBeca(), datosEscolares.getSemestreInicioBeca(), 
+                datosEscolares.getSemestresTotalesCarrera());
+        
+        deshabilitaSemestresKardex(vistaKardex.PnlKardex, semestresHabilitados + 1, 0);
+        
         
     }
 
@@ -2108,7 +2153,7 @@ public class PrincipalControlador {
 
     /**
      * Abre el archivo seleccionado
-     * @param Clave del tipo de archivo a abrir
+     * @param clave del tipo de archivo a abrir
      */
     protected void abreArchivoAdjunto(int clave) {
         

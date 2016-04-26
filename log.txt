@@ -801,3 +801,21 @@
 26/4/2016;9:53:8;SQLError: HY000
 26/4/2016;9:53:8;ERROR: Code1364
 26/4/2016;9:53:8;Message: Field 'beca_cat_banco_id_banco' doesn't have a default value
+26/4/2016;12:28:40;Nombre de categoria no encontrado
+26/4/2016;12:29:5;Nombre de categoria no encontrado
+26/4/2016;12:30:24;Nombre de categoria no encontrado
+26/4/2016;12:30:57;Nombre de categoria no encontrado
+26/4/2016;12:41:12;Nombre de categoria no encontrado
+26/4/2016;12:41:23;Nombre de categoria no encontrado
+26/4/2016;12:42:4;Nombre de categoria no encontrado
+26/4/2016;12:42:50;Nombre de categoria no encontrado
+26/4/2016;12:43:12;Nombre de categoria no encontrado
+26/4/2016;12:44:5;Nombre de categoria no encontrado
+26/4/2016;12:48:38;Nombre de categoria no encontrado
+26/4/2016;12:50:6;Nombre de categoria no encontrado
+26/4/2016;12:51:2;Nombre de categoria no encontrado
+26/4/2016;12:51:52;Nombre de categoria no encontrado
+26/4/2016;12:52:37;Nombre de categoria no encontrado
+26/4/2016;12:53:3;Nombre de categoria no encontrado
+26/4/2016;12:54:4;Nombre de categoria no encontrado
+26/4/2016;12:54:40;Nombre de categoria no encontrado

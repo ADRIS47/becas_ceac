@@ -359,5 +359,29 @@ public class Helper {
         } 
     }
     
-    
+    /**
+     * Obtiene el total de semestres que se pueden llenar para el registro del kardex
+     * @param mesInicioBeca
+     * @param anioInicioBeca
+     * @param semestreInicioBeca
+     * @param semestresTotales
+     * @return Regresa el total de semestres a habilitar
+     */
+    public int getTotalSemestresporHabilitarKardex(int mesInicioBeca, int anioInicioBeca, int semestreInicioBeca, int semestresTotales){
+        int response = 0;
+        Calendar inicio = new GregorianCalendar(anioInicioBeca, mesInicioBeca, 1);
+        Calendar hoy = new GregorianCalendar();
+        
+        //Se calcula la fecha en la que se inició la beca
+        inicio.add(Calendar.MONTH, (semestreInicioBeca * 6));
+        
+        //Se calculan los semestres que han pasado desde que se inició la beca
+        hoy.add(Calendar.YEAR, - inicio.get(Calendar.YEAR));
+        int semestresTranscurridos = hoy.get(Calendar.YEAR) * 2; 
+        
+        if(semestresTranscurridos <= semestresTotales)
+            return semestresTranscurridos;
+        else
+            return semestresTotales;
+    }
 }
