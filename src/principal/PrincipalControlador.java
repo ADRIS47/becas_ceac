@@ -2233,22 +2233,39 @@ public class PrincipalControlador {
             log.muestraErrores(new SQLException("No se pudo conectar a la base de datos, intentelo de nuevo"));
             return;
         }
-        
-        Becario becario = modelo.getBecarioPorFolio(conexion, vistaKardex.txtFolio.getText());
-        int idBanco = getIdCmbBox((String)vistaKardex.cmbNombreBanco.getSelectedItem(), catBancos);
-        //Se actualiza el becario con la informacion bancaria
-        response = modelo.updateInfoBanco(conexion, becario.getId(), idBanco, vistaKardex.TxtFldNoCuenta.getText(), 
-                        vistaKardex.TxtFldClabeBanco.getText());
-        
-        List<Kardex> lstKardex = getInfoKardex();
-        
-        if(response == false){
-            JOptionPane.showMessageDialog(vistaKardex, "No se pudo actualizar el kardex del becario, intentelo más tarde", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
+        try{
+            conexion.setAutoCommit(false);
+            
+            Becario becario = modelo.getBecarioPorFolio(conexion, vistaKardex.txtFolio.getText());
+            int idBanco = getIdCmbBox((String)vistaKardex.cmbNombreBanco.getSelectedItem(), catBancos);
+            //Se actualiza el becario con la informacion bancaria
+            response = modelo.updateInfoBanco(conexion, becario.getId(), idBanco, vistaKardex.TxtFldNoCuenta.getText(), 
+                            vistaKardex.TxtFldClabeBanco.getText());
+            //Se verifica que se actualizaron los datos bancarios
+            if(response == false){
+                JOptionPane.showMessageDialog(vistaKardex, "No se pudo actualizar el kardex del becario, intentelo más tarde", "Error", JOptionPane.ERROR_MESSAGE);
+                conexion.rollback();
+                return;
+            }
+            
+            List<Kardex> lstKardex = getInfoKardex();
+            //System.out.println("Tamanio: " + lstKardex.size());
+            
+            if(response){
+                conexion.commit();
+                JOptionPane.showMessageDialog(vistaKardex, "¡Kardex actualizado!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            }
         }
-        
-        if(response){
-            JOptionPane.showMessageDialog(vistaKardex, "¡Kardex actualizado!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+        catch(SQLException e){
+            log.muestraErrores(e);
+        }
+        finally{
+            try{
+                conexion.close();
+            }
+            catch(SQLException e){
+                log.muestraErrores(e);
+            }
         }
         
     }
