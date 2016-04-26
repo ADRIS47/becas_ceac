@@ -50,7 +50,7 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAreaBotones = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jtabKardex = new javax.swing.JTabbedPane();
         PnlKardex = new javax.swing.JPanel();
         PnlEncabezadoKardex = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -607,7 +607,6 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF1.add(ChkbxPFeb1);
 
         TxtHrServ1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ1.setText("6");
         TxtHrServ1.setBorder(null);
         PnlKardexF1.add(TxtHrServ1);
 
@@ -626,13 +625,11 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF1.add(jCheckBox1);
 
         TxtProm1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm1.setText("9");
         TxtProm1.setBorder(null);
         PnlKardexF1.add(TxtProm1);
 
         TxtDesc1.setEditable(false);
         TxtDesc1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtDesc1.setText("2");
         TxtDesc1.setBorder(null);
         PnlKardexF1.add(TxtDesc1);
 
@@ -659,7 +656,6 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF2.add(ChkbxPFeb2);
 
         TxtHrServ2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ2.setText("6");
         TxtHrServ2.setBorder(null);
         TxtHrServ2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -683,13 +679,11 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF2.add(jCheckBox2);
 
         TxtProm2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm2.setText("9");
         TxtProm2.setBorder(null);
         PnlKardexF2.add(TxtProm2);
 
         TxtDesc2.setEditable(false);
         TxtDesc2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtDesc2.setText("2");
         TxtDesc2.setBorder(null);
         PnlKardexF2.add(TxtDesc2);
 
@@ -716,7 +710,6 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF3.add(ChkbxPFeb3);
 
         TxtHrServ3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ3.setText("6");
         TxtHrServ3.setBorder(null);
         PnlKardexF3.add(TxtHrServ3);
 
@@ -740,13 +733,11 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF3.add(jCheckBox3);
 
         TxtProm3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm3.setText("9");
         TxtProm3.setBorder(null);
         PnlKardexF3.add(TxtProm3);
 
         TxtDesc3.setEditable(false);
         TxtDesc3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtDesc3.setText("2");
         TxtDesc3.setBorder(null);
         PnlKardexF3.add(TxtDesc3);
 
@@ -778,7 +769,6 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF4.add(ChkbxPFeb4);
 
         TxtHrServ4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ4.setText("6");
         TxtHrServ4.setBorder(null);
         PnlKardexF4.add(TxtHrServ4);
 
@@ -802,13 +792,11 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF4.add(jCheckBox4);
 
         TxtProm4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm4.setText("9");
         TxtProm4.setBorder(null);
         PnlKardexF4.add(TxtProm4);
 
         jTextField13.setEditable(false);
         jTextField13.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField13.setText("2");
         jTextField13.setBorder(null);
         PnlKardexF4.add(jTextField13);
 
@@ -835,7 +823,6 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF5.add(ChkbxPFeb5);
 
         TxtHrServ5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ5.setText("6");
         TxtHrServ5.setBorder(null);
         PnlKardexF5.add(TxtHrServ5);
 
@@ -854,13 +841,11 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF5.add(jCheckBox5);
 
         TxtProm5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm5.setText("9");
         TxtProm5.setBorder(null);
         PnlKardexF5.add(TxtProm5);
 
         TxtDesc5.setEditable(false);
         TxtDesc5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtDesc5.setText("2");
         TxtDesc5.setBorder(null);
         PnlKardexF5.add(TxtDesc5);
 
@@ -887,7 +872,6 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF6.add(ChkbxPFeb6);
 
         TxtHrServ6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ6.setText("6");
         TxtHrServ6.setBorder(null);
         PnlKardexF6.add(TxtHrServ6);
 
@@ -906,13 +890,11 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF6.add(jCheckBox6);
 
         TxtProm6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm6.setText("9");
         TxtProm6.setBorder(null);
         PnlKardexF6.add(TxtProm6);
 
         TxtDesc6.setEditable(false);
         TxtDesc6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtDesc6.setText("2");
         TxtDesc6.setBorder(null);
         PnlKardexF6.add(TxtDesc6);
 
@@ -939,7 +921,6 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF7.add(ChkbxPFeb7);
 
         TxtHrServ7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ7.setText("6");
         TxtHrServ7.setBorder(null);
         PnlKardexF7.add(TxtHrServ7);
 
@@ -958,13 +939,11 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF7.add(jCheckBox7);
 
         TxtProm7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm7.setText("9");
         TxtProm7.setBorder(null);
         PnlKardexF7.add(TxtProm7);
 
         TxtDesc7.setEditable(false);
         TxtDesc7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtDesc7.setText("2");
         TxtDesc7.setBorder(null);
         PnlKardexF7.add(TxtDesc7);
 
@@ -991,7 +970,6 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF8.add(ChkbxPFeb8);
 
         TxtHrServ8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ8.setText("6");
         TxtHrServ8.setBorder(null);
         PnlKardexF8.add(TxtHrServ8);
 
@@ -1010,13 +988,11 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF8.add(jCheckBox8);
 
         TxtProm8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm8.setText("9");
         TxtProm8.setBorder(null);
         PnlKardexF8.add(TxtProm8);
 
         TxtDesc8.setEditable(false);
         TxtDesc8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtDesc8.setText("2");
         TxtDesc8.setBorder(null);
         PnlKardexF8.add(TxtDesc8);
 
@@ -1048,7 +1024,6 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF9.add(ChkbxPFeb9);
 
         TxtHrServ9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ9.setText("6");
         TxtHrServ9.setBorder(null);
         PnlKardexF9.add(TxtHrServ9);
 
@@ -1068,13 +1043,11 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF9.add(jCheckBox9);
 
         TxtProm9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm9.setText("9");
         TxtProm9.setBorder(null);
         PnlKardexF9.add(TxtProm9);
 
         TxtDesc9.setEditable(false);
         TxtDesc9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtDesc9.setText("2");
         TxtDesc9.setBorder(null);
         PnlKardexF9.add(TxtDesc9);
 
@@ -1101,7 +1074,6 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF11.add(ChkbxPFeb10);
 
         TxtHrServ10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ10.setText("6");
         TxtHrServ10.setBorder(null);
         PnlKardexF11.add(TxtHrServ10);
 
@@ -1120,13 +1092,11 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF11.add(jCheckBox10);
 
         TxtProm10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm10.setText("9");
         TxtProm10.setBorder(null);
         PnlKardexF11.add(TxtProm10);
 
         TxtDesc10.setEditable(false);
         TxtDesc10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtDesc10.setText("2");
         TxtDesc10.setBorder(null);
         PnlKardexF11.add(TxtDesc10);
 
@@ -1177,7 +1147,7 @@ public class VistaKardex extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Registro Semestral", PnlKardex);
+        jtabKardex.addTab("Registro Semestral", PnlKardex);
 
         pnlArchivosAdjuntos.setBorder(javax.swing.BorderFactory.createTitledBorder("Carga Semestral"));
 
@@ -1510,15 +1480,15 @@ public class VistaKardex extends javax.swing.JPanel {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 417, Short.MAX_VALUE)
+            .addGap(0, 386, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(39, Short.MAX_VALUE)
+                    .addContainerGap(74, Short.MAX_VALUE)
                     .addComponent(pnlArchivosAdjuntos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(48, Short.MAX_VALUE)))
+                    .addContainerGap(82, Short.MAX_VALUE)))
         );
 
-        jTabbedPane1.addTab("Adjuntar Boleta", jPanel1);
+        jtabKardex.addTab("Adjuntar Boleta", jPanel1);
 
         pnlArchivosAdjuntos1.setBorder(javax.swing.BorderFactory.createTitledBorder("Carga Semestral"));
 
@@ -1851,15 +1821,15 @@ public class VistaKardex extends javax.swing.JPanel {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 417, Short.MAX_VALUE)
+            .addGap(0, 386, Short.MAX_VALUE)
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                    .addContainerGap(39, Short.MAX_VALUE)
+                    .addContainerGap(74, Short.MAX_VALUE)
                     .addComponent(pnlArchivosAdjuntos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(48, Short.MAX_VALUE)))
+                    .addContainerGap(82, Short.MAX_VALUE)))
         );
 
-        jTabbedPane1.addTab("Adjuntar Carta Servicio Comunitario", jPanel4);
+        jtabKardex.addTab("Adjuntar Carta Servicio Comunitario", jPanel4);
 
         pnlArchivosAdjuntos2.setBorder(javax.swing.BorderFactory.createTitledBorder("Carga Semestral"));
 
@@ -2191,15 +2161,15 @@ public class VistaKardex extends javax.swing.JPanel {
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 417, Short.MAX_VALUE)
+            .addGap(0, 386, Short.MAX_VALUE)
             .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                    .addContainerGap(39, Short.MAX_VALUE)
+                    .addContainerGap(74, Short.MAX_VALUE)
                     .addComponent(pnlArchivosAdjuntos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(48, Short.MAX_VALUE)))
+                    .addContainerGap(82, Short.MAX_VALUE)))
         );
 
-        jTabbedPane1.addTab("Adjuntar Transferencias", jPanel8);
+        jtabKardex.addTab("Adjuntar Transferencias", jPanel8);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -2208,7 +2178,7 @@ public class VistaKardex extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 875, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtabKardex, javax.swing.GroupLayout.PREFERRED_SIZE, 875, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(PnlInfoBecario, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -2224,7 +2194,7 @@ public class VistaKardex extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jpnlAreaBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(31, 31, 31)))
-                .addComponent(jTabbedPane1)
+                .addComponent(jtabKardex, javax.swing.GroupLayout.DEFAULT_SIZE, 423, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -2561,7 +2531,7 @@ public class VistaKardex extends javax.swing.JPanel {
     private javax.swing.JPanel PnlInfBecarioD;
     private javax.swing.JPanel PnlInfBecarioI;
     private javax.swing.JPanel PnlInfoBecario;
-    private javax.swing.JPanel PnlKardex;
+    protected javax.swing.JPanel PnlKardex;
     private javax.swing.JPanel PnlKardexF1;
     private javax.swing.JPanel PnlKardexF11;
     private javax.swing.JPanel PnlKardexF2;
@@ -2736,7 +2706,6 @@ public class VistaKardex extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JTabbedPane jTabbedPane1;
     protected javax.swing.JTextField jTextField13;
     private javax.swing.JPanel jpnlAccionesDocumentos;
     private javax.swing.JPanel jpnlAccionesDocumentos1;
@@ -2745,6 +2714,7 @@ public class VistaKardex extends javax.swing.JPanel {
     private javax.swing.JPanel jpnlListaDocumentos;
     private javax.swing.JPanel jpnlListaDocumentos1;
     private javax.swing.JPanel jpnlListaDocumentos2;
+    protected javax.swing.JTabbedPane jtabKardex;
     private javax.swing.JPanel pnlArchivosAdjuntos;
     private javax.swing.JPanel pnlArchivosAdjuntos1;
     private javax.swing.JPanel pnlArchivosAdjuntos2;

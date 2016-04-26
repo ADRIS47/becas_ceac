@@ -252,6 +252,8 @@ public class PrincipalControlador {
         else{
             llenaCamposVistaKardex(vistaRegistro.txtFolio.getText());
             creaPantalla(vistaKardex);
+            //Se asignan los listeners
+            recorreJPanel(vistaKardex.PnlKardex, 3);
         }
     }
     
@@ -1387,7 +1389,8 @@ public class PrincipalControlador {
     
     /**
      * Recorre todos los componentes dentro de un JPanel
-     * @param clave 1: Valida si hay campos vacios, 2: Vacia los campos
+     * @param clave 1: Valida si hay campos vacios, 2: Vacia los campos,
+     * 3: Asigna listeners a los JTextField de VistaKardex
      * @param panel Jpanel a recorrer
      * @return True si encontró campos vacios, false si no
      */
@@ -1414,25 +1417,26 @@ public class PrincipalControlador {
                 break;
                 
             case 2:
-//                for (Component componente : componentes) {
-//                    if(componente instanceof JPanel){
-//                        response = recorreJPanel((JPanel)componente, 1);
-//                    }                    
-//                    if (componente instanceof JTextField) 
-//                        ((JTextField) componente).setText("");
-//                    
-//                    if(componente instanceof JComboBox<?>)
-//                        ((JComboBox) componente).setSelectedIndex(0);
-//                    
-//                    if(componente instanceof JLabel)
-//                        ((JLabel) componente).setIcon(null);
-//                }   
                 for (Component componente : componentes) {
                     if(componente instanceof JPanel){
                         ((JPanel)componente).removeAll();
                     }
                 }
                 vaciaLstVistas();
+                break;
+                
+            case 3:
+                for (Component componente : componentes) {
+                    if(componente instanceof JPanel){
+                        response = recorreJPanel((JPanel)componente, 3);
+                    }                    
+                    if (componente instanceof JTextField) {
+//                        ((JTextField) componente).setBackground(Color.ORANGE);
+//                        response = true;
+                        JTextField txtCampo = ((JTextField) componente);
+                        txtCampo.addKeyListener(new EscuchadorValidaEntrada(vistaKardex, EscuchadorValidaEntrada.DECIMALES, txtCampo));
+                    }
+                }
                 break;
         }
         return response;

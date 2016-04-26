@@ -27,6 +27,7 @@ public class EscuchadorValidaEntrada implements KeyListener {
     public final static int FECHA_NACIMIENTO = 7;
     public final static int DINERO = 8;
     public final static int CODIGO_POSTAL = 9;
+    public final static int DECIMALES = 10;
     int codigo;
     JTextField txtCampo;
 
@@ -90,6 +91,10 @@ public class EscuchadorValidaEntrada implements KeyListener {
                 
             case EscuchadorValidaEntrada.CODIGO_POSTAL:
                 evaluaCodigoPostal();
+                break;
+                
+            case EscuchadorValidaEntrada.DECIMALES:
+                evaluaDecimales();
                 break;
         }
     }
@@ -314,10 +319,6 @@ public class EscuchadorValidaEntrada implements KeyListener {
                 txtCampo.setText(new String(resultado, 0, 10));
             }
         }
-
-
-        
-        
         
     }
     
@@ -347,6 +348,30 @@ public class EscuchadorValidaEntrada implements KeyListener {
                     txtCampo.setText("");
                     txtCampo.setText(new String(resultado, 0, j));
                 }
+            }
+        }
+    }
+
+    private void evaluaDecimales() {
+        String str = txtCampo.getText();
+        char[] fuente = str.toCharArray();
+        char[] resultado = new char[fuente.length];
+        int j = 0;
+        boolean error = false;
+
+        for (int i = 0; i < fuente.length; i++) {
+
+            if ((fuente[i] >= '0' && fuente[i] <= '9' || fuente[i] == '.')) {
+                resultado[j++] = fuente[i];
+            } 
+            else{
+                error = true;
+                java.awt.Toolkit.getDefaultToolkit().beep();
+            }
+
+            if (error) {
+                txtCampo.setText("");
+                txtCampo.setText(new String(resultado, 0, j));
             }
         }
     }
