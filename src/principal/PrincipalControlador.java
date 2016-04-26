@@ -28,6 +28,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ButtonModel;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFileChooser;
@@ -254,6 +255,8 @@ public class PrincipalControlador {
             creaPantalla(vistaKardex);
             //Se asignan los listeners
             recorreJPanel(vistaKardex.PnlKardex, 3);
+            //Se validan los semestres que deben de habilitarse
+            
         }
     }
     
@@ -2103,6 +2106,18 @@ public class PrincipalControlador {
                 helper.abreArchivoAdjunto(filePagare);
                 break;
         }
+        
+    }
+
+    /**
+     * Toma la seleccion de la pestaña registro semestral de la pantalla vistaKardex
+     * y lo guarda en la base de datos
+     */
+    protected void guardaKardex() {
+        int seleccion = Integer.parseInt(vistaKardex.rbtnGroupKardex.getSelection().getActionCommand());
+        JPanel panel = (JPanel) vistaKardex.PnlKardex.getComponent(seleccion);
+        JTextField txtCampo = (JTextField) panel.getComponent(3);
+        txtCampo.setText("Esto es una prueba");
         
     }
 }
