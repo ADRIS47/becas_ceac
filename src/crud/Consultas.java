@@ -7,10 +7,12 @@ package crud;
 
 import pojos.Aval;
 import pojos.Becario;
+import pojos.CatBanco;
 import pojos.DatosEscolares;
 import pojos.Direccion;
 import pojos.Hermanos;
 import pojos.Hijos;
+import pojos.Kardex;
 import pojos.Padres;
 import pojos.Telefono;
 
@@ -64,6 +66,11 @@ public class Consultas {
      * Obtiene el catalogo de estatus
      */
     public static String getCatEstatus = "SELECT id_estatus, nombre, descripcion FROM beca_cat_estatus";
+    
+    /**
+     * Obtiene la categorias de bancos
+     */
+    public static String getCatBancos = "SELECT " + CatBanco.COL_ID + ", " + CatBanco.COL_NOMBRE  + " FROM beca_cat_banco ORDER BY " + CatBanco.COL_NOMBRE;
     
     /**
      * Obtiene las iniciales del programa seleccionado
@@ -158,7 +165,7 @@ public class Consultas {
     public static String getDatosHermanosBecario = "SELECT " 
             + Hermanos.COL_ID + ", " + Hermanos.COL_NOMBRE + ", "
             + Hermanos.COL_APATERNO + ", " + Hermanos.COL_AMATERNO + ", "
-            + Hermanos.COL_ID_GRADO_ESCOLAR + " "
+            + Hermanos.COL_ID_GRADO_ESCOLAR + ", " + Hermanos.COL_COMENTARIOS + " "
             + "FROM beca_hermano "
             + "WHERE " + Hermanos.COL_ID_BECARIO + " = ?";
     
@@ -229,7 +236,9 @@ public class Consultas {
             + "becario." + Becario.COL_SOLICITUD_BECA +  ", becario." + Becario.COL_ENSAYO +  ", "
             + "becario." + Becario.COL_BOLETA_INICIO_BECA +  ", becario." + Becario.COL_CONTRATO_BECA +  ", "
             + "becario." + Becario.COL_IDENTIFICACION + ", becario." + Becario.COL_ID + ", "
-            + "becario." + Becario.COL_PAGARE + ", becario." + Becario.COL_OCUPACION_CONYUGE + " "
+            + "becario." + Becario.COL_PAGARE + ", becario." + Becario.COL_OCUPACION_CONYUGE + ", "
+            + "becario." + Becario.COL_ID_BANCO + ", becario." + Becario.COL_CUENTA_BANCO + ", "
+            + "becario." + Becario.COL_CLABE_INTERBANCARIA + " "
             + "FROM beca_becario AS becario "
             + "WHERE becario." + Becario.COL_FOLIO + " = ?";
     
@@ -250,9 +259,9 @@ public class Consultas {
             + "becario." + Becario.COL_SOLICITUD_BECA +  ", becario." + Becario.COL_ENSAYO +  ", "
             + "becario." + Becario.COL_BOLETA_INICIO_BECA +  ", becario." + Becario.COL_CONTRATO_BECA +  ", "
             + "becario." + Becario.COL_IDENTIFICACION + ", becario." + Becario.COL_ID + ", "
-            + "becario." + Becario.COL_PAGARE + ", becario." + Becario.COL_OCUPACION_CONYUGE + " "
-//            + "uni." + CatUniversidad.COL_NOMBRE  + ", esc." + DatosEscolares.COL_BECA_TOTAL + ", "
-//            + "esc." + DatosEscolares.COL_BECA_SEMESTRAL + ", esc." + DatosEscolares.COL_MES_INICIO_BECA + ", "
+            + "becario." + Becario.COL_PAGARE + ", becario." + Becario.COL_OCUPACION_CONYUGE + ", "
+            + "becario." + Becario.COL_ID_BANCO + ", becario." + Becario.COL_CUENTA_BANCO + ", "
+            + "becario." + Becario.COL_CLABE_INTERBANCARIA + " "
 //            + "esc." + DatosEscolares.COL_ANIO_INICIO_BECA + ", esc." + DatosEscolares.COL_MES_GRADUACION + ", "
 //            + "esc." + DatosEscolares.COL_ANIO_GRADUACION + " "
             + "FROM beca_becario AS becario "
@@ -275,7 +284,9 @@ public class Consultas {
             + "becario." + Becario.COL_SOLICITUD_BECA +  ", becario." + Becario.COL_ENSAYO +  ", "
             + "becario." + Becario.COL_BOLETA_INICIO_BECA +  ", becario." + Becario.COL_CONTRATO_BECA +  ", "
             + "becario." + Becario.COL_IDENTIFICACION + ", becario." + Becario.COL_ID + ", "
-            + "becario." + Becario.COL_PAGARE + ", becario." + Becario.COL_OCUPACION_CONYUGE + " "
+            + "becario." + Becario.COL_PAGARE + ", becario." + Becario.COL_OCUPACION_CONYUGE + ", "
+            + "becario." + Becario.COL_ID_BANCO + ", becario." + Becario.COL_CUENTA_BANCO + ", "
+            + "becario." + Becario.COL_CLABE_INTERBANCARIA + " "
             + "FROM beca_becario AS becario ";
 //            + "WHERE becario." + Becario.COL_NOMBRE + " LIKE ? OR becario." + Becario.COL_APATERNO + " LIKE ? "
 //            + "OR becario." + Becario.COL_AMATERNO + " LIKE ? "
@@ -292,6 +303,28 @@ public class Consultas {
             + Aval.COL_ID_BECARIO + ", " + Aval.COL_IDENTIFICACION + " " 
             + "FROM beca_aval "
             + "WHERE " + Aval.COL_ID_BECARIO + " = ?";
+    
+    /**
+     * Obtiene los kardex del becario
+     */
+    public static String getKardexBecario = "SELECT "
+            + Kardex.COL_ID_KARDEX + ", " + Kardex.COL_NUM_SEMESTRE + ", "
+            + Kardex.COL_PAGO_INICIO_SEMESTRE + ", " + Kardex.COL_PAGO_FIN_SEMESTRE + ", "
+            + Kardex.COL_PLATICA_1 + ", " + Kardex.COL_PLATICA_2 + ", "
+            + Kardex.COL_PROMEDIO + ", " + Kardex.COL_DESCUENTO + ", "
+            + Kardex.COL_ID_SERVICIO_COMUNITARIO + ", " + Kardex.COL_LUGAR_SERVICIO_COMUNITARIO + ", "
+            + Kardex.COL_BOLETA + ", " + Kardex.COL_CARTA_SERVICIO_COMUNITARIO + ", "
+            + Kardex.COL_ID_BECARIO + ", " + Kardex.COL_PAGO_EXTRA + " "
+            + "FROM beca_kardex "
+            + "WHERE " + Kardex.COL_ID_BECARIO + " = ?";
+    
+    /**
+     * Obtiene la informacion bancaria del becario
+     */
+    public static String getInfoBancariaPorIdBecario = "SELECT " + Becario.COL_ID_BANCO + ", "
+            + Becario.COL_CUENTA_BANCO + ", " + Becario.COL_CLABE_INTERBANCARIA + " "
+            + "FROM beca_becario "
+            + "WHERE " + Becario.COL_ID + " = ?";
     
     
 }

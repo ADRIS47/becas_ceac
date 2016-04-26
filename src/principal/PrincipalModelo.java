@@ -25,6 +25,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import pojos.Aval;
 import pojos.Becario;
+import pojos.CatBanco;
 import pojos.CatCampoCarrera;
 import pojos.CatEstadoCivil;
 import pojos.CatEstatus;
@@ -37,6 +38,7 @@ import pojos.DatosEscolares;
 import pojos.Direccion;
 import pojos.Hermanos;
 import pojos.Hijos;
+import pojos.Kardex;
 import pojos.Padres;
 import pojos.Telefono;
 
@@ -91,6 +93,7 @@ public class PrincipalModelo {
         LinkedHashMap<Integer, String> catUniversidad = new LinkedHashMap<>();
         LinkedHashMap<Integer, String> catCampoEstudio = new LinkedHashMap<>();
         LinkedHashMap<Integer, String> catEstatus = new LinkedHashMap<>();
+        LinkedHashMap<Integer, String> catBancos = new LinkedHashMap<>();
 
         Conexion conexion = new Conexion();
         Connection conn = null;
@@ -107,6 +110,7 @@ public class PrincipalModelo {
         catUniversidad = getCatUniversidades(conn);
         catCampoEstudio = getCatCampoEstudio(conn);
         catEstatus = getCatEstatus(conn);
+        catBancos = getCatBancos(conn);
 
         //Se llena la lista con las categorias
         result.add(catSexo);
@@ -117,6 +121,7 @@ public class PrincipalModelo {
         result.add(catUniversidad);
         result.add(catCampoEstudio);
         result.add(catEstatus);
+        result.add(catBancos);
 
         conn.close();
         return result;
@@ -391,7 +396,7 @@ public class PrincipalModelo {
     }
 
     /**
-     * Obtiene el catalogo de estatus de estudio
+     * Obtiene el catalogo de banco de estudio
      *
      * @param conn Conexion a la base de datos
      * @return Lista de campos de estudio
@@ -424,9 +429,9 @@ public class PrincipalModelo {
     }
     
     /**
-     * Obtiene el catalogo de estatus
+     * Obtiene el catalogo de banco
      * @param conn COneixon a la BD
-     * @return Lista con el catalogo de los estatus
+     * @return Lista con el catalogo de los banco
      */
     private LinkedHashMap<Integer, String> getCatEstatus(Connection conn) {
         LinkedHashMap<Integer, String> catEstatus = new LinkedHashMap<>();
@@ -453,6 +458,38 @@ public class PrincipalModelo {
         }
 
         return catEstatus;
+    }
+    
+    /**
+     * Obtiene las categorias de los bancos
+     * @param conn COnexion a la base de datos
+     * @return 
+     */
+    private LinkedHashMap<Integer, String> getCatBancos(Connection conn) {
+        LinkedHashMap<Integer, String> catBanco = new LinkedHashMap<>();
+        Statement st = null;
+        ResultSet rs = null;
+        try {
+            st = conn.createStatement();
+            rs = st.executeQuery(Consultas.getCatBancos);
+            while (rs.next()) {
+                CatBanco banco = new CatBanco();
+                banco.setId(rs.getInt(CatBanco.COL_ID));
+                banco.setNombre(rs.getString(CatBanco.COL_NOMBRE));
+                catBanco.put(banco.getId(), banco.getNombre());
+            }
+        } catch (SQLException e) {
+            muestraErrores(e);
+        } finally {
+            try {
+                rs.close();
+                st.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        return catBanco;
     }
 
     /**
@@ -769,6 +806,7 @@ public class PrincipalModelo {
                 ps.setString(3, hermano.getAMaterno());
                 ps.setInt(4, hermano.getGradoEscolar());
                 ps.setLong(5, idBecario);
+                ps.setString(6, hermano.getComentario());
                 int i = ps.executeUpdate();
                 if (i == 0) {
                     throw new SQLException("Error al insertar hermanos becario: " + ps.toString());
@@ -1402,8 +1440,9 @@ public class PrincipalModelo {
                 ps.setString(2, lstHermanos.get(0).getAPaterno());
                 ps.setString(3, lstHermanos.get(0).getAMaterno());
                 ps.setInt(4, lstHermanos.get(0).getGradoEscolar());
-                ps.setLong(5, idBecario);
-                ps.setLong(6, lstIdHermanos.get(0));
+                ps.setString(5, lstHermanos.get(0).getComentario());
+                ps.setLong(6, idBecario);
+                ps.setLong(7, lstIdHermanos.get(0));
                 int resp = ps.executeUpdate();
                 //Si la actualizacion fue correcta
                 if(resp >= 1){
@@ -1421,8 +1460,9 @@ public class PrincipalModelo {
                     ps.setString(2, hermano.getAPaterno());
                     ps.setString(3, hermano.getAMaterno());
                     ps.setInt(4, hermano.getGradoEscolar());
-                    ps.setLong(5, idBecario);
-                    ps.setLong(6, lstIdHermanos.get(contador));
+                    ps.setString(5, hermano.getComentario());
+                    ps.setLong(6, idBecario);
+                    ps.setLong(7, lstIdHermanos.get(contador));
                     int resp = ps.executeUpdate();
                     //Si la actualizacion fue correcta
                     if(resp == 0)
@@ -1687,6 +1727,9 @@ public class PrincipalModelo {
                 becario.setContatoBeca(rs.getString(Becario.COL_CONTRATO_BECA));
                 becario.setIdentificacion(rs.getString(Becario.COL_IDENTIFICACION));
                 becario.setPagare(rs.getString(Becario.COL_PAGARE));
+                becario.setIdBanco(rs.getInt(Becario.COL_ID_BANCO));
+                becario.setCuentaBancaria(rs.getString(Becario.COL_CUENTA_BANCO));
+                becario.setClabeInterbancaria(rs.getString(Becario.COL_CLABE_INTERBANCARIA));
             }
             
         } catch (SQLException e) {
@@ -1758,6 +1801,9 @@ public class PrincipalModelo {
                 becario.setContatoBeca(rs.getString(Becario.COL_CONTRATO_BECA));
                 becario.setIdentificacion(rs.getString(Becario.COL_IDENTIFICACION));
                 becario.setPagare(rs.getString(Becario.COL_PAGARE));
+                becario.setIdBanco(rs.getInt(Becario.COL_ID_BANCO));
+                becario.setCuentaBancaria(rs.getString(Becario.COL_CUENTA_BANCO));
+                becario.setClabeInterbancaria(rs.getString(Becario.COL_CLABE_INTERBANCARIA));
                 lstBecario.add(becario);
             }
             
@@ -1894,6 +1940,9 @@ public class PrincipalModelo {
                 becario.setContatoBeca(rs.getString(Becario.COL_CONTRATO_BECA));
                 becario.setIdentificacion(rs.getString(Becario.COL_IDENTIFICACION));
                 becario.setPagare(rs.getString(Becario.COL_PAGARE));
+                becario.setIdBanco(rs.getInt(Becario.COL_ID_BANCO));
+                becario.setCuentaBancaria(rs.getString(Becario.COL_CUENTA_BANCO));
+                becario.setClabeInterbancaria(rs.getString(Becario.COL_CLABE_INTERBANCARIA));
                 lstBecario.add(becario);
             }
         } catch (SQLException e) {
@@ -2094,6 +2143,7 @@ public class PrincipalModelo {
                hermano.setAMaterno(rs.getString(Hermanos.COL_AMATERNO));
                hermano.setAPaterno(rs.getString(Hermanos.COL_APATERNO));
                hermano.setGradoEscolar(rs.getInt(Hermanos.COL_ID_GRADO_ESCOLAR));
+               hermano.setComentario(rs.getString(Hermanos.COL_COMENTARIOS));
                hermano.setIdBecario(id);
                lstHermanos.add(hermano);
             }
@@ -2263,5 +2313,86 @@ public class PrincipalModelo {
         }
         
         return aval;
+    }
+
+    /**
+     * Obtiene el kardex del becario
+     * @param conexion COnexion a la base de datos
+     * @param idBecario Id del becario que se obtendran sus kardex
+     * @return 
+     */
+    protected List<Kardex> getKardexPorIdBecario(Connection conexion, long idBecario) {
+        List<Kardex> lstKardex = new ArrayList<Kardex>();
+        PreparedStatement ps = null;
+        ResultSet rs = null;    
+        
+        try{
+            ps = conexion.prepareStatement(Consultas.getKardexBecario);
+            ps.setLong(1, idBecario);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                Kardex kardex = new Kardex();
+                kardex.setId_kardex(rs.getLong(Kardex.COL_ID_KARDEX));
+                kardex.setNum_semestre(rs.getInt(Kardex.COL_NUM_SEMESTRE));
+                kardex.setPago_inicio_semestre(rs.getBoolean(Kardex.COL_PAGO_INICIO_SEMESTRE));
+                kardex.setPago_fin_semestre(rs.getBoolean(Kardex.COL_PAGO_FIN_SEMESTRE));
+                kardex.setPlatica1(rs.getBoolean(Kardex.COL_PLATICA_1));
+                kardex.setPlatica2(rs.getBoolean(Kardex.COL_PLATICA_2));
+                kardex.setPromedio(rs.getLong(Kardex.COL_PROMEDIO));
+                kardex.setDescuento(rs.getInt(Kardex.COL_DESCUENTO));
+                kardex.setIdServicioComunitario(rs.getInt(Kardex.COL_ID_SERVICIO_COMUNITARIO));
+                kardex.setLugarServicioComunitario(rs.getString(Kardex.COL_LUGAR_SERVICIO_COMUNITARIO));
+                kardex.setBoleta(rs.getString(Kardex.COL_BOLETA));
+                kardex.setCarta_servicio_comunitario(rs.getString(Kardex.COL_CARTA_SERVICIO_COMUNITARIO));
+                kardex.setId_becario(rs.getLong(Kardex.COL_ID_BECARIO));
+                kardex.setPago_extra(rs.getBoolean(Kardex.COL_PAGO_EXTRA));
+                lstKardex.add(kardex);
+            }
+            
+        }
+        catch(SQLException e){
+            log.muestraErrores(e);
+        }
+        
+        return lstKardex;
+    }
+
+    /**
+     * Actualiza la informacion bancaria del becario
+     * @param conexion
+     * @param idBecario
+     * @param idBanco
+     * @param noCuenta
+     * @param claveInterbancaria 
+     */
+    protected boolean updateInfoBanco(Connection conexion, long idBecario, int idBanco, String noCuenta, String claveInterbancaria) {
+        PreparedStatement ps = null;
+        int result = 0;
+        boolean response = false;
+        try{
+            ps = conexion.prepareStatement(Update.updateCuentaBancariaBecario);
+            ps.setInt(1, idBanco);
+            ps.setString(2, noCuenta);
+            ps.setString(3, claveInterbancaria);
+            ps.setLong(4, idBecario);
+            result = ps.executeUpdate();
+            
+            if(result > 0){
+                response = true;
+            }
+        }
+        catch(SQLException e){
+            log.muestraErrores(e);
+        }
+        finally{
+            try {
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        return response;
     }
 }

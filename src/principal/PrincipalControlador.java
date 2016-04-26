@@ -44,6 +44,7 @@ import pojos.DatosEscolares;
 import pojos.Direccion;
 import pojos.Hermanos;
 import pojos.Hijos;
+import pojos.Kardex;
 import pojos.Padres;
 import pojos.Telefono;
 
@@ -56,6 +57,7 @@ public class PrincipalControlador {
     VistaPanelPrincipal vista;
     VistaRegistro vistaRegistro;
     VistaBusqueda vistaBusqueda;
+    VistaKardex vistaKardex;
     PnlPortada vistaPortada;
     VistaRegistroOpcionGuardar vistaOpcionGuardar;
     VistaRegistroOpcionActualizar vistaOpcionActualizar;
@@ -86,6 +88,7 @@ public class PrincipalControlador {
     LinkedHashMap<Integer, String> catUniversidad = null;
     LinkedHashMap<Integer, String> catCampoEstudio = null;
     LinkedHashMap<Integer, String> catEstatus = null;
+    LinkedHashMap<Integer, String> catBancos = null;
     
     List<PnlHijos> lstVistaHijos = new ArrayList<>();
     List<PnlHermanos> lstVistaHermanos = new ArrayList<>();
@@ -115,6 +118,10 @@ public class PrincipalControlador {
 
     public void setVistaBusqueda(VistaBusqueda vistaBusqueda) {
         this.vistaBusqueda = vistaBusqueda;
+    }
+
+    public void setVistaKardex(VistaKardex vistaKardex) {
+        this.vistaKardex = vistaKardex;
     }
     
     public void iniciaPantallaPrincipal(){
@@ -151,6 +158,10 @@ public class PrincipalControlador {
         if(vistaRegistro == null){
             vistaRegistro = new VistaRegistro(this);
             this.setVistaRegistro(vistaRegistro);
+        }
+        
+        if(vistaKardex != null){
+            terminaVistaKardex();
         }
         
         List<LinkedHashMap<Integer, String>> lstCategorias = null;
@@ -192,6 +203,10 @@ public class PrincipalControlador {
             terminaVistaBusqueda();
         }
         
+        if(vistaKardex != null){
+            terminaVistaKardex();
+        }
+        
         vistaBusqueda = new VistaBusqueda();
         this.setVistaBusqueda(vistaBusqueda);
         vistaBusqueda.setControlador(this);
@@ -201,9 +216,7 @@ public class PrincipalControlador {
         try {
             //Se obtienen las categorias para llenar la pantalla
             lstCategorias = modelo.getCategoriasVistaRegistro();
-            llenaCamposCategoriasVistaBusqueda(lstCategorias);
-            
-            
+            llenaCamposCategoriasVistaBusqueda(lstCategorias);            
         } catch (SQLException ex) {
             Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(vista, "Error, consulta el registro de errores", 
@@ -216,6 +229,37 @@ public class PrincipalControlador {
         
         helper.setAñoActualEnCombo(vistaBusqueda.cmbAnioRegistro);
         helper.setAñoActualEnCombo(vistaBusqueda.cmbanioGraduacion);
+    }
+    
+    protected void creaVistaKardex(){
+        if(vistaKardex != null){
+            terminaVistaKardex();
+        }
+        
+        vistaKardex = new VistaKardex();
+        this.setVistaKardex(vistaKardex);
+        vistaKardex.setControlador(this);
+        
+        //Si no se ha abierto la pantalla vistaRegistro
+        if(vistaRegistro == null){
+            JOptionPane.showMessageDialog(vistaKardex, "Debes de seleccionar un becario");
+            creaVistaBusqueda();
+        }
+        else if(vistaRegistro.txtFolio.getText().equals("")){
+            JOptionPane.showMessageDialog(vistaKardex, "Debes de seleccionar un becario");
+            creaVistaBusqueda();
+        }
+        //Si ya existe un becario en vistaRegistro
+        else{
+            llenaCamposVistaKardex(vistaRegistro.txtFolio.getText());
+            creaPantalla(vistaKardex);
+            //Se asignan los listeners al panel pnlKardex
+            recorreJPanel(vistaKardex.PnlKardex, 3);
+            //Se asignan los listeners al panel pnlInformacionBancaria
+            recorreJPanel(vistaKardex.pnlInformacionBancaria, 4);
+            //Se validan los semestres que deben de habilitarse
+            
+        }
     }
     
     /**
@@ -250,6 +294,7 @@ public class PrincipalControlador {
         catUniversidad = lstCategorias.get(5);
         catCampoEstudio = lstCategorias.get(6);
         catEstatus = lstCategorias.get(7);
+        catBancos = lstCategorias.get(8);
         
         llenaComboCategorias(vistaRegistro.combobxCivilBecado, catEstadoCivil);
         llenaComboCategorias(vistaRegistro.comboBoxPrograma, catPrograma);
@@ -281,9 +326,18 @@ public class PrincipalControlador {
         catUniversidad = lstCategorias.get(5);
         catCampoEstudio = lstCategorias.get(6);
         catEstatus = lstCategorias.get(7);
+        catBancos = lstCategorias.get(8);
         
         llenaComboCategorias(vistaBusqueda.cmbPrograma, catPrograma);
         llenaComboCategorias(vistaBusqueda.CmbboxBuscaEstatus, catEstatus);
+    }
+    
+    /**
+     * Llena los catalogos de la VistaKardex
+     */
+    private void llenaCamposCategoriasVistaKardex() {
+        
+        llenaComboCategorias(vistaKardex.cmbNombreBanco, catBancos);
     }
     
     /**
@@ -326,6 +380,12 @@ public class PrincipalControlador {
         vistaBusqueda.removeAll();
         vaciaLstVistas();
         vistaBusqueda = null;
+    }
+    
+    private void terminaVistaKardex() {
+        vistaKardex.removeAll();
+        vaciaLstVistas();
+        vistaKardex = null;
     }
     
     /**
@@ -1154,6 +1214,8 @@ public class PrincipalControlador {
             hermano.setGradoEscolar(getIdCmbBox(grado, catNivelEstudios));
             //Se obtiene el becario
             hermano.setIdBecario(idBecario);
+            //Se obtienen los comentarios
+            hermano.setComentario(panel.txtAreaComentario.getText());
             //Se agregra a la lista el hijo
             lstResult.add(hermano);
         }
@@ -1342,7 +1404,10 @@ public class PrincipalControlador {
     
     /**
      * Recorre todos los componentes dentro de un JPanel
-     * @param clave 1: Valida si hay campos vacios, 2: Vacia los campos
+     * @param clave 1: Valida si hay campos vacios, 2: Vacia los campos,
+     * 3: Asigna listeners a los JTextField de pnlKardex de vistaKardex,
+     * 4: Asigna listeners a los JtextField de pnlInformacionBancaria de VistaKardex,
+     * 5: Deshabilita los componentes que contiene un jpanel
      * @param panel Jpanel a recorrer
      * @return True si encontró campos vacios, false si no
      */
@@ -1369,19 +1434,6 @@ public class PrincipalControlador {
                 break;
                 
             case 2:
-//                for (Component componente : componentes) {
-//                    if(componente instanceof JPanel){
-//                        response = recorreJPanel((JPanel)componente, 1);
-//                    }                    
-//                    if (componente instanceof JTextField) 
-//                        ((JTextField) componente).setText("");
-//                    
-//                    if(componente instanceof JComboBox<?>)
-//                        ((JComboBox) componente).setSelectedIndex(0);
-//                    
-//                    if(componente instanceof JLabel)
-//                        ((JLabel) componente).setIcon(null);
-//                }   
                 for (Component componente : componentes) {
                     if(componente instanceof JPanel){
                         ((JPanel)componente).removeAll();
@@ -1389,8 +1441,58 @@ public class PrincipalControlador {
                 }
                 vaciaLstVistas();
                 break;
+                
+            case 3:
+                for (Component componente : componentes) {
+                    if(componente instanceof JPanel){
+                        response = recorreJPanel((JPanel)componente, 3);
+                    }                    
+                    if (componente instanceof JTextField) {
+//                        ((JTextField) componente).setBackground(Color.ORANGE);
+//                        response = true;
+                        JTextField txtCampo = ((JTextField) componente);
+                        txtCampo.addKeyListener(new EscuchadorValidaEntrada(vistaKardex.PnlKardex, EscuchadorValidaEntrada.DECIMALES, txtCampo));
+                    }
+                }
+                break;
+                
+            case 4 :                
+                for (Component componente : componentes) {
+                    if(componente instanceof JPanel){
+                        response = recorreJPanel((JPanel)componente, 4);
+                    }                    
+                    if (componente instanceof JTextField) {
+                        JTextField txtCampo = ((JTextField) componente);
+                        txtCampo.addKeyListener(new EscuchadorValidaEntrada(vistaKardex, EscuchadorValidaEntrada.NUMEROS, txtCampo));
+                    }
+                }
+                break;
         }
         return response;
+    }
+    
+    private void deshabilitaSemestresKardex(JPanel pnlPanel, int semestresHabilitados, int contador){
+        Component[] componentes = pnlPanel.getComponents();
+        
+        for (Component componente : componentes) {
+            
+            if(componente instanceof JPanel && contador > semestresHabilitados){
+                contador++;
+                deshabilitaSemestresKardex((JPanel) componente, semestresHabilitados, contador);
+            }
+            else if(componente instanceof JPanel && contador <= semestresHabilitados){
+                contador++;
+                deshabilitaSemestresKardex((JPanel) componente, semestresHabilitados, contador);
+            }
+            
+            if(contador > semestresHabilitados){
+//                Color color = new Color(255, 0,0);
+//                componente.setBackground(color);
+                componente.setVisible(false);
+            }
+            
+        }       
+        
     }
 
     /**
@@ -1464,13 +1566,16 @@ public class PrincipalControlador {
         //Datos que calculan la beca total semestral
         vistaRegistro.txtBecaAutorizada.addKeyListener(new EscuchadorCalculaBecaXSemestre(
                         vistaRegistro.txtBecaAutorizada, vistaRegistro.cmboxSemestreInicioBeca, 
-                        vistaRegistro.cmboxSemestresTotalesCarrera, vistaRegistro.cmboxAnioInicioBeca , vistaRegistro.txtBecaPorSemestre, vistaRegistro.txtCostoCarrera));
+                        vistaRegistro.cmboxSemestresTotalesCarrera, vistaRegistro.cmboxAnioInicioBeca , 
+                        vistaRegistro.txtBecaPorSemestre, vistaRegistro.txtCostoCarrera));
+        
         vistaRegistro.cmboxSemestreInicioBeca.addItemListener(new EscuchadorCmbBoxCambiado(
                     vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca, 
                     vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion,
                     vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera,
-                    vistaRegistro.txtBecaAutorizada, vistaRegistro.txtCostoCarrera, vistaRegistro.txtBecaPorSemestre,
+                    vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre, vistaRegistro.txtCostoCarrera,
                     vistaRegistro, EscuchadorCmbBoxCambiado.BECA_SEMESTRAL));
+        
 //        vistaRegistro.cmboxSemestresTotalesCarrera.addItemListener(new EscuchadorCmbBoxCambiado(
 //                    vistaRegistro.cmboxSemestresTotalesCarrera, vistaRegistro.cmboxMesInicioBeca,
 //                    vistaRegistro.cmboxAnioInicioBeca, vistaRegistro.txtBecaAutorizada,
@@ -1538,12 +1643,12 @@ public class PrincipalControlador {
                 vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre,
                 vistaRegistro.txtCostoCarrera, vistaRegistro, EscuchadorCmbBoxCambiado.FECHA_GRADUACION));
         
-        vistaRegistro.cmboxSemestreInicioBeca.addItemListener(new 
-        EscuchadorCmbBoxCambiado(vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca, 
-                vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion,
-                vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera,
-                vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre,
-                vistaRegistro.txtCostoCarrera, vistaRegistro, EscuchadorCmbBoxCambiado.FECHA_GRADUACION));
+//        vistaRegistro.cmboxSemestreInicioBeca.addItemListener(new 
+//        EscuchadorCmbBoxCambiado(vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca, 
+//                vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion,
+//                vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera,
+//                vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre,
+//                vistaRegistro.txtCostoCarrera, vistaRegistro, EscuchadorCmbBoxCambiado.FECHA_GRADUACION));
         
     }
 
@@ -1831,6 +1936,7 @@ public class PrincipalControlador {
             lstVistaHermanos.get(contador).txtApMaternoPariente.setText(hermano.getAMaterno());
             lstVistaHermanos.get(contador).txtNombresPariente.setText(hermano.getNombre());
             lstVistaHermanos.get(contador).cmbNivelEstudiosHermano.setSelectedIndex(hermano.getGradoEscolar() - 1);
+            lstVistaHermanos.get(contador).txtAreaComentario.setText(hermano.getComentario());
             contador++;
         }
         
@@ -1929,6 +2035,51 @@ public class PrincipalControlador {
         
         
     }
+    
+    /**
+     * Llena la vista con la información del becario seleccionado
+     * @param folio 
+     */
+    private void llenaCamposVistaKardex(String folio) {
+        Conexion conn = new Conexion();
+        Connection conexion = conn.estableceConexion();
+        Becario becario = null;
+        List<Kardex> lsKardex = null;
+        DatosEscolares datosEscolares = null;
+        
+        if(conexion == null){
+            JOptionPane.showMessageDialog(vistaKardex, "No se pudo conectar a la base de datos");
+            log.muestraErrores(new SQLException("No se pudo conectar a la base de datos"));
+        }
+        
+        llenaComboCategorias(vistaKardex.cmbNombreBanco, catBancos);
+        
+        becario = modelo.getBecarioPorFolio(conexion, folio);
+        lsKardex = modelo.getKardexPorIdBecario(conexion, becario.getId());
+        datosEscolares = modelo.getDatosEscolaresBecario(conexion, becario.getId());
+        
+        //Se procede a llenar la informacion general del becario
+        vistaKardex.txtNombreBecario.setText(becario.getApPaterno() + " " + becario.getApMaterno() + " " + becario.getNombre());
+        vistaKardex.txtCondicion.setText(getItemComboBox(becario.getIdEstatus(), catEstatus));
+        vistaKardex.txtFolio.setText(becario.getFolio());
+        vistaKardex.txtPrograma.setText(getItemComboBox(becario.getIdPrograma(), catPrograma));
+        vistaKardex.txtFechaGraduacion.setText(datosEscolares.getMesGraduacion() + "/" + datosEscolares.getAnioGraduacion());
+        
+        //Se procede a llenar la informacion bancaria del becario
+        String banco = getItemComboBox(becario.getIdBanco(), catBancos);
+        vistaKardex.cmbNombreBanco.setSelectedItem(banco);
+        vistaKardex.TxtFldNoCuenta.setText(becario.getCuentaBancaria());
+        vistaKardex.TxtFldClabeBanco.setText(becario.getClabeInterbancaria());
+        
+        //Se procede a deshabilitar los semestres que aun no tienen que llenarse
+        int semestresHabilitados = helper.getTotalSemestresporHabilitarKardex(datosEscolares.getMesInicioBeca(), 
+                datosEscolares.getAnioInicioBeca(), datosEscolares.getSemestreInicioBeca(), 
+                datosEscolares.getSemestresTotalesCarrera());
+        
+        deshabilitaSemestresKardex(vistaKardex.PnlKardex, semestresHabilitados, 0);
+        
+        
+    }
 
     /**
      * Se encarga de obtener la información necesaria de cada becario para llenar 
@@ -1986,7 +2137,7 @@ public class PrincipalControlador {
 
     /**
      * Abre el archivo seleccionado
-     * @param Clave del tipo de archivo a abrir
+     * @param clave del tipo de archivo a abrir
      */
     protected void abreArchivoAdjunto(int clave) {
         
@@ -2021,6 +2172,41 @@ public class PrincipalControlador {
             case Helper.FILE_PAGARE:
                 helper.abreArchivoAdjunto(filePagare);
                 break;
+        }
+        
+    }
+
+    /**
+     * Toma la seleccion de la pestaña registro semestral de la pantalla vistaKardex
+     * y lo guarda en la base de datos
+     */
+    protected void guardaKardex() {
+        /*int seleccion = Integer.parseInt(vistaKardex.rbtnGroupKardex.getSelection().getActionCommand());
+        JPanel panel = (JPanel) vistaKardex.PnlKardex.getComponent(seleccion);
+        JTextField txtCampo = (JTextField) panel.getComponent(3);
+        txtCampo.setText("Esto es una prueba");*/
+        
+        Conexion conn = new Conexion();
+        Connection conexion = conn.estableceConexion();
+        boolean response = false;
+        if(conexion == null){
+            JOptionPane.showMessageDialog(vistaKardex, "No se pudo conectar a la base de datos, intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+            log.muestraErrores(new SQLException("No se pudo conectar a la base de datos, intentelo de nuevo"));
+            return;
+        }
+        Becario becario = modelo.getBecarioPorFolio(conexion, vistaKardex.txtFolio.getText());
+        int idBanco = getIdCmbBox((String)vistaKardex.cmbNombreBanco.getSelectedItem(), catBancos);
+        //Se actualiza el becario con la informacion bancaria
+        response = modelo.updateInfoBanco(conexion, becario.getId(), idBanco, vistaKardex.TxtFldNoCuenta.getText(), 
+                        vistaKardex.TxtFldClabeBanco.getText());
+        
+        if(response == false){
+            JOptionPane.showMessageDialog(vistaKardex, "No se pudo actualizar el kardex del becario, intentelo más tarde", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if(response){
+            JOptionPane.showMessageDialog(vistaKardex, "¡Kardex actualizado!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
         }
         
     }

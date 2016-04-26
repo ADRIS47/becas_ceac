@@ -78,7 +78,8 @@ public class Update {
      */
     public static String updateHermanosBecario = "UPDATE beca_hermano "
             + "SET " + Hermanos.COL_NOMBRE + " = ?, " + Hermanos.COL_APATERNO + " = ?, "
-            + Hermanos.COL_AMATERNO + " = ?, " + Hermanos.COL_ID_GRADO_ESCOLAR + " = ? "
+            + Hermanos.COL_AMATERNO + " = ?, " + Hermanos.COL_ID_GRADO_ESCOLAR + " = ?, "
+            + Hermanos.COL_COMENTARIOS + " = ? "
             + "WHERE " + Hermanos.COL_ID_BECARIO + " = ? AND " + Hermanos.COL_ID + " = ?";
     
     /**
@@ -111,5 +112,13 @@ public class Update {
             + Aval.COL_NUM_EXT + " = ?, " + Aval.COL_NUM_INT + " = ?, "
             + Aval.COL_COLONIA + " = ?, " + Aval.COL_IDENTIFICACION + " = ? "
             + "WHERE " + Aval.COL_ID_BECARIO + " = ? ";
+    
+    /**
+     * Se actualizan los datos bancarios del becario
+     */
+    public static String updateCuentaBancariaBecario = "UPDATE beca_becario "
+            + "SET " + Becario.COL_ID_BANCO + " = ?, " + Becario.COL_CUENTA_BANCO + " = ?, "
+            + Becario.COL_CLABE_INTERBANCARIA + " = ? "
+            + "WHERE " + Becario.COL_ID + " = ?";
     
 }

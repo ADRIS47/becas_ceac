@@ -97,6 +97,11 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
         btnKardex.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnKardex.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/kardex.png"))); // NOI18N
         btnKardex.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnKardex.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKardexActionPerformed(evt);
+            }
+        });
 
         btnCobranza.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnCobranza.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adris/vistas/cobranza.png"))); // NOI18N
@@ -185,6 +190,10 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
     private void btnBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusquedaActionPerformed
         controlador.creaVistaBusqueda();
     }//GEN-LAST:event_btnBusquedaActionPerformed
+
+    private void btnKardexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKardexActionPerformed
+        controlador.creaVistaKardex();
+    }//GEN-LAST:event_btnKardexActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

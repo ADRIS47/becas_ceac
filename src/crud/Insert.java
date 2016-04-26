@@ -83,8 +83,8 @@ public class Insert {
     public static String insertHermanoBecario = "INSERT INTO beca_hermano "
             + "(" + Hermanos.COL_NOMBRE + ",  " + Hermanos.COL_APATERNO + ", "
             + Hermanos.COL_AMATERNO + ",  " + Hermanos.COL_ID_GRADO_ESCOLAR + ", "
-            + Hermanos.COL_ID_BECARIO + ") "
-            + "VALUES (?,?,?,?,?)";
+            + Hermanos.COL_ID_BECARIO + ", "  + Hermanos.COL_COMENTARIOS + ") "
+            + "VALUES (?,?,?,?,?,?)";
     
     /**
      * Inserta un hijo del becario
