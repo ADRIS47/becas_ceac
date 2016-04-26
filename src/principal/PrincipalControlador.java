@@ -2279,15 +2279,21 @@ public class PrincipalControlador {
                 JTextField txtPromedio = (JTextField) panel.getComponent(8);
                 JTextField txtDescuento = (JTextField) panel.getComponent(9);
                 
-                Kardex kardex = lstKardex.get(i - 1);
+                Kardex kardex = new Kardex();
                 kardex.setPago_inicio_semestre(chkPago1.isSelected());
-                kardex.setHorasServicio(Integer.parseInt(txtHorasServicio.getText()));
+                if(!txtHorasServicio.getText().equals("")){
+                    kardex.setHorasServicio(Integer.parseInt(txtHorasServicio.getText()));
+                }
                 kardex.setPlatica1(chkPlatica1.isSelected());
                 kardex.setPlatica2(chkPlatica2.isSelected());
                 kardex.setPago_fin_semestre(chkPago2.isSelected());
                 kardex.setPago_extra(chkPagoExtra.isSelected());
-                kardex.setPromedio(Float.parseFloat(txtPromedio.getText()));
-                kardex.setDescuento(Integer.parseInt(txtDescuento.getText()));
+                if(!txtPromedio.getText().equals("")){
+                    kardex.setPromedio(Float.parseFloat(txtPromedio.getText()));
+                }
+                if(!txtDescuento.getText().equals("")){
+                    kardex.setDescuento(Integer.parseInt(txtDescuento.getText()));
+                }
                 lstKardex.add(kardex);
             }
             
