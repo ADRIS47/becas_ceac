@@ -689,6 +689,7 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF1.add(ChkbxPFeb1);
 
         TxtHrServ1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtHrServ1.setText("0");
         TxtHrServ1.setBorder(null);
         PnlKardexF1.add(TxtHrServ1);
 
@@ -707,11 +708,13 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF1.add(jCheckBox1);
 
         TxtProm1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtProm1.setText("0");
         TxtProm1.setBorder(null);
         PnlKardexF1.add(TxtProm1);
 
         TxtDesc1.setEditable(false);
         TxtDesc1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtDesc1.setText("0");
         TxtDesc1.setBorder(null);
         PnlKardexF1.add(TxtDesc1);
 
@@ -741,6 +744,7 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF2.add(ChkbxPFeb2);
 
         TxtHrServ2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtHrServ2.setText("0");
         TxtHrServ2.setBorder(null);
         TxtHrServ2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -764,11 +768,13 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF2.add(jCheckBox2);
 
         TxtProm2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtProm2.setText("0");
         TxtProm2.setBorder(null);
         PnlKardexF2.add(TxtProm2);
 
         TxtDesc2.setEditable(false);
         TxtDesc2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtDesc2.setText("0");
         TxtDesc2.setBorder(null);
         PnlKardexF2.add(TxtDesc2);
 
@@ -798,6 +804,7 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF3.add(ChkbxPFeb3);
 
         TxtHrServ3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtHrServ3.setText("0");
         TxtHrServ3.setBorder(null);
         PnlKardexF3.add(TxtHrServ3);
 
@@ -821,11 +828,13 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF3.add(jCheckBox3);
 
         TxtProm3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtProm3.setText("0");
         TxtProm3.setBorder(null);
         PnlKardexF3.add(TxtProm3);
 
         TxtDesc3.setEditable(false);
         TxtDesc3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtDesc3.setText("0");
         TxtDesc3.setBorder(null);
         PnlKardexF3.add(TxtDesc3);
 
@@ -860,6 +869,7 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF4.add(ChkbxPFeb4);
 
         TxtHrServ4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtHrServ4.setText("0");
         TxtHrServ4.setBorder(null);
         PnlKardexF4.add(TxtHrServ4);
 
@@ -883,11 +893,13 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF4.add(jCheckBox4);
 
         TxtProm4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtProm4.setText("0");
         TxtProm4.setBorder(null);
         PnlKardexF4.add(TxtProm4);
 
         jTextField13.setEditable(false);
         jTextField13.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField13.setText("0");
         jTextField13.setBorder(null);
         PnlKardexF4.add(jTextField13);
 
@@ -917,6 +929,7 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF5.add(ChkbxPFeb5);
 
         TxtHrServ5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtHrServ5.setText("0");
         TxtHrServ5.setBorder(null);
         PnlKardexF5.add(TxtHrServ5);
 
@@ -935,11 +948,13 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF5.add(jCheckBox5);
 
         TxtProm5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtProm5.setText("0");
         TxtProm5.setBorder(null);
         PnlKardexF5.add(TxtProm5);
 
         TxtDesc5.setEditable(false);
         TxtDesc5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtDesc5.setText("0");
         TxtDesc5.setBorder(null);
         PnlKardexF5.add(TxtDesc5);
 
@@ -969,6 +984,7 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF6.add(ChkbxPFeb6);
 
         TxtHrServ6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtHrServ6.setText("0");
         TxtHrServ6.setBorder(null);
         PnlKardexF6.add(TxtHrServ6);
 
@@ -987,11 +1003,13 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF6.add(jCheckBox6);
 
         TxtProm6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtProm6.setText("0");
         TxtProm6.setBorder(null);
         PnlKardexF6.add(TxtProm6);
 
         TxtDesc6.setEditable(false);
         TxtDesc6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtDesc6.setText("0");
         TxtDesc6.setBorder(null);
         PnlKardexF6.add(TxtDesc6);
 
@@ -1021,6 +1039,7 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF7.add(ChkbxPFeb7);
 
         TxtHrServ7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtHrServ7.setText("0");
         TxtHrServ7.setBorder(null);
         PnlKardexF7.add(TxtHrServ7);
 
@@ -1039,11 +1058,13 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF7.add(jCheckBox7);
 
         TxtProm7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtProm7.setText("0");
         TxtProm7.setBorder(null);
         PnlKardexF7.add(TxtProm7);
 
         TxtDesc7.setEditable(false);
         TxtDesc7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtDesc7.setText("0");
         TxtDesc7.setBorder(null);
         PnlKardexF7.add(TxtDesc7);
 
@@ -1073,6 +1094,7 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF8.add(ChkbxPFeb8);
 
         TxtHrServ8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtHrServ8.setText("0");
         TxtHrServ8.setBorder(null);
         PnlKardexF8.add(TxtHrServ8);
 
@@ -1091,11 +1113,13 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF8.add(jCheckBox8);
 
         TxtProm8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtProm8.setText("0");
         TxtProm8.setBorder(null);
         PnlKardexF8.add(TxtProm8);
 
         TxtDesc8.setEditable(false);
         TxtDesc8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtDesc8.setText("0");
         TxtDesc8.setBorder(null);
         PnlKardexF8.add(TxtDesc8);
 
@@ -1130,6 +1154,7 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF9.add(ChkbxPFeb9);
 
         TxtHrServ9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtHrServ9.setText("0");
         TxtHrServ9.setBorder(null);
         PnlKardexF9.add(TxtHrServ9);
 
@@ -1149,11 +1174,13 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF9.add(jCheckBox9);
 
         TxtProm9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtProm9.setText("0");
         TxtProm9.setBorder(null);
         PnlKardexF9.add(TxtProm9);
 
         TxtDesc9.setEditable(false);
         TxtDesc9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtDesc9.setText("0");
         TxtDesc9.setBorder(null);
         PnlKardexF9.add(TxtDesc9);
 
@@ -1183,6 +1210,7 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF10.add(ChkbxPFeb10);
 
         TxtHrServ10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtHrServ10.setText("0");
         TxtHrServ10.setBorder(null);
         PnlKardexF10.add(TxtHrServ10);
 
@@ -1201,11 +1229,13 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF10.add(jCheckBox10);
 
         TxtProm10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtProm10.setText("0");
         TxtProm10.setBorder(null);
         PnlKardexF10.add(TxtProm10);
 
         TxtDesc10.setEditable(false);
         TxtDesc10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtDesc10.setText("0");
         TxtDesc10.setBorder(null);
         PnlKardexF10.add(TxtDesc10);
 
@@ -1235,6 +1265,7 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF11.add(ChkbxPFeb11);
 
         TxtHrServ11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtHrServ11.setText("0");
         TxtHrServ11.setBorder(null);
         PnlKardexF11.add(TxtHrServ11);
 
@@ -1253,11 +1284,13 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF11.add(jCheckBox11);
 
         TxtProm11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtProm11.setText("0");
         TxtProm11.setBorder(null);
         PnlKardexF11.add(TxtProm11);
 
         TxtDesc11.setEditable(false);
         TxtDesc11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtDesc11.setText("0");
         TxtDesc11.setBorder(null);
         PnlKardexF11.add(TxtDesc11);
 

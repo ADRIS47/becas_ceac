@@ -2228,27 +2228,46 @@ public class PrincipalControlador {
         Conexion conn = new Conexion();
         Connection conexion = conn.estableceConexion();
         boolean response = false;
+        int semestres = 0;
         if(conexion == null){
             JOptionPane.showMessageDialog(vistaKardex, "No se pudo conectar a la base de datos, intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
             log.muestraErrores(new SQLException("No se pudo conectar a la base de datos, intentelo de nuevo"));
             return;
         }
-        
-        Becario becario = modelo.getBecarioPorFolio(conexion, vistaKardex.txtFolio.getText());
-        int idBanco = getIdCmbBox((String)vistaKardex.cmbNombreBanco.getSelectedItem(), catBancos);
-        //Se actualiza el becario con la informacion bancaria
-        response = modelo.updateInfoBanco(conexion, becario.getId(), idBanco, vistaKardex.TxtFldNoCuenta.getText(), 
-                        vistaKardex.TxtFldClabeBanco.getText());
-        
-        List<Kardex> lstKardex = getInfoKardex();
-        
-        if(response == false){
-            JOptionPane.showMessageDialog(vistaKardex, "No se pudo actualizar el kardex del becario, intentelo más tarde", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        
-        if(response){
+        try{
+            conexion.setAutoCommit(false);
+            
+            Becario becario = modelo.getBecarioPorFolio(conexion, vistaKardex.txtFolio.getText());
+            int idBanco = getIdCmbBox((String)vistaKardex.cmbNombreBanco.getSelectedItem(), catBancos);
+            //Se actualiza el becario con la informacion bancaria
+            response = modelo.updateInfoBanco(conexion, becario.getId(), idBanco, vistaKardex.TxtFldNoCuenta.getText(), 
+                            vistaKardex.TxtFldClabeBanco.getText());
+            //Se verifica que se actualizaron los datos bancarios
+            if(response == false){
+                JOptionPane.showMessageDialog(vistaKardex, "No se pudo actualizar el kardex del becario, intentelo más tarde", "Error", JOptionPane.ERROR_MESSAGE);
+                conexion.rollback();
+                return;
+            }
+            
+            List<Kardex> lstKardex = getInfoKardex();
+            //System.out.println("Tamanio: " + lstKardex.size());
+            
+            //SE DEBE DE TRAER LOS DATOS ESCOLARES DEL BECARIO PARA PODER EVALUAR EL TOTAL DE SEMESTRES HABILITADOS
+            semestres = helper.getTotalSemestresporHabilitarKardex(idBanco, idBanco, idBanco, idBanco);
+            conexion.commit();
             JOptionPane.showMessageDialog(vistaKardex, "¡Kardex actualizado!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            
+        }
+        catch(SQLException e){
+            log.muestraErrores(e);
+        }
+        finally{
+            try{
+                conexion.close();
+            }
+            catch(SQLException e){
+                log.muestraErrores(e);
+            }
         }
         
     }
@@ -2279,15 +2298,21 @@ public class PrincipalControlador {
                 JTextField txtPromedio = (JTextField) panel.getComponent(8);
                 JTextField txtDescuento = (JTextField) panel.getComponent(9);
                 
-                Kardex kardex = lstKardex.get(i - 1);
+                Kardex kardex = new Kardex();
                 kardex.setPago_inicio_semestre(chkPago1.isSelected());
-                kardex.setHorasServicio(Integer.parseInt(txtHorasServicio.getText()));
+                if(!txtHorasServicio.getText().equals("")){
+                    kardex.setHorasServicio(Integer.parseInt(txtHorasServicio.getText()));
+                }
                 kardex.setPlatica1(chkPlatica1.isSelected());
                 kardex.setPlatica2(chkPlatica2.isSelected());
                 kardex.setPago_fin_semestre(chkPago2.isSelected());
                 kardex.setPago_extra(chkPagoExtra.isSelected());
-                kardex.setPromedio(Float.parseFloat(txtPromedio.getText()));
-                kardex.setDescuento(Integer.parseInt(txtDescuento.getText()));
+                if(!txtPromedio.getText().equals("")){
+                    kardex.setPromedio(Float.parseFloat(txtPromedio.getText()));
+                }
+                if(!txtDescuento.getText().equals("")){
+                    kardex.setDescuento(Integer.parseInt(txtDescuento.getText()));
+                }
                 lstKardex.add(kardex);
             }
             
