@@ -1104,21 +1104,6 @@ public class PrincipalModelo {
                 lstIdDirecciones.add(rs.getInt(Direccion.COL_ID));
             }
             
-//            int telefonos = -1;
-//            List<Integer> lstIdTelefonos = new ArrayList <>();
-//            while(rs.next()){
-//                telefonos = rs.getInt(1);
-//            }
-//            
-//            //Se obtienen los id's de los telefonos
-//            ps = conexion.prepareStatement(Consultas.getDatosTelefonosBecario);
-//            ps.setLong(1, idBecario);
-//            rs = ps.executeQuery();
-//            
-//            while(rs.next()){
-//                lstIdTelefonos.add(rs.getInt(Telefono.COL_ID));
-//            }
-            
             if(direcciones == -1)
                 throw new SQLException("No se pudo obtener las direcciones del becario");
             
