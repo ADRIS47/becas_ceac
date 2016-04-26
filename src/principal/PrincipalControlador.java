@@ -2228,6 +2228,7 @@ public class PrincipalControlador {
         Conexion conn = new Conexion();
         Connection conexion = conn.estableceConexion();
         boolean response = false;
+        int semestres = 0;
         if(conexion == null){
             JOptionPane.showMessageDialog(vistaKardex, "No se pudo conectar a la base de datos, intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
             log.muestraErrores(new SQLException("No se pudo conectar a la base de datos, intentelo de nuevo"));
@@ -2251,10 +2252,11 @@ public class PrincipalControlador {
             List<Kardex> lstKardex = getInfoKardex();
             //System.out.println("Tamanio: " + lstKardex.size());
             
-            if(response){
-                conexion.commit();
-                JOptionPane.showMessageDialog(vistaKardex, "¡Kardex actualizado!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-            }
+            //SE DEBE DE TRAER LOS DATOS ESCOLARES DEL BECARIO PARA PODER EVALUAR EL TOTAL DE SEMESTRES HABILITADOS
+            semestres = helper.getTotalSemestresporHabilitarKardex(idBanco, idBanco, idBanco, idBanco);
+            conexion.commit();
+            JOptionPane.showMessageDialog(vistaKardex, "¡Kardex actualizado!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            
         }
         catch(SQLException e){
             log.muestraErrores(e);
