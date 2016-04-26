@@ -827,3 +827,4 @@
 26/4/2016;14:31:7;Nombre de categoria no encontrado
 26/4/2016;14:32:16;Nombre de categoria no encontrado
 26/4/2016;14:32:56;Nombre de categoria no encontrado
+26/4/2016;15:1:26;Nombre de categoria no encontrado
