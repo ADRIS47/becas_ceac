@@ -382,6 +382,6 @@ public class Helper {
         if(semestresTranscurridos <= semestresTotales)
             return semestresTranscurridos;
         else
-            return semestresTotales;
+            return semestresTotales + 1;
     }
 }

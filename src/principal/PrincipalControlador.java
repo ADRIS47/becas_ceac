@@ -1491,23 +1491,7 @@ public class PrincipalControlador {
                 componente.setVisible(false);
             }
             
-        }
-        
-//        if(contador > semestresHabilitados){
-//            for (Component componente : componentes) {
-//                if(componente instanceof JPanel){
-//                    contador++;
-//                    deshabilitaSemestresKardex((JPanel) componente, semestresHabilitados, contador);
-//                }
-//                else
-//                    componente.setEnabled(false);
-//            }
-//        }
-//        else{
-//            contador++;
-//            deshabilitaSemestresKardex(pnlPanel, semestresHabilitados, contador);
-//        }
-        
+        }       
         
     }
 
@@ -2092,7 +2076,7 @@ public class PrincipalControlador {
                 datosEscolares.getAnioInicioBeca(), datosEscolares.getSemestreInicioBeca(), 
                 datosEscolares.getSemestresTotalesCarrera());
         
-        deshabilitaSemestresKardex(vistaKardex.PnlKardex, semestresHabilitados + 1, 0);
+        deshabilitaSemestresKardex(vistaKardex.PnlKardex, semestresHabilitados, 0);
         
         
     }
