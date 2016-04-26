@@ -25,6 +25,7 @@ public class Kardex {
     String carta_servicio_comunitario;
     long id_becario;
     boolean pago_extra;
+    int horasServicio;
 
     public long getId_kardex() {
         return id_kardex;
@@ -136,9 +137,15 @@ public class Kardex {
 
     public void setLugarServicioComunitario(String lugarServicioComunitario) {
         this.lugarServicioComunitario = lugarServicioComunitario;
+    }   
+
+    public int getHorasServicio() {
+        return horasServicio;
     }
-    
-    
+
+    public void setHorasServicio(int horasServicio) {
+        this.horasServicio = horasServicio;
+    }    
     
     public static final String COL_ID_KARDEX = "id_kardex";
     public static final String COL_NUM_SEMESTRE = "num_semestre";
@@ -154,5 +161,6 @@ public class Kardex {
     public static final String COL_CARTA_SERVICIO_COMUNITARIO = "carta_servicio_comunitario";
     public static final String COL_ID_BECARIO = "id_becario";
     public static final String COL_PAGO_EXTRA = "pago_extra";
+    public static final String COL_HORAS_SERVICIO = "horas_servicio";
     
 }

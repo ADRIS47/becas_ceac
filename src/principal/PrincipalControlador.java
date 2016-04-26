@@ -28,6 +28,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFileChooser;
@@ -1471,6 +1472,43 @@ public class PrincipalControlador {
         return response;
     }
     
+    private void llenaPnlKardex(List<Kardex> lstKardex){
+        
+        Component[] componentes = vistaKardex.PnlKardex.getComponents();
+        int i = 0;
+        for (Component componente : componentes) {
+            if(i == 0){
+                i++;
+                continue;
+            }
+            if(componente instanceof JPanel){
+                JPanel panel = (JPanel) componente;
+                
+                JTextField txtSemestre = (JTextField) panel.getComponent(1);
+                JCheckBox chkPago1 = (JCheckBox) panel.getComponent(2);
+                JTextField txtHorasServicio = (JTextField) panel.getComponent(3);
+                JCheckBox chkPlatica1 = (JCheckBox) panel.getComponent(4);
+                JCheckBox chkPlatica2 = (JCheckBox) panel.getComponent(5);
+                JCheckBox chkPago2 = (JCheckBox) panel.getComponent(6);
+                JCheckBox chkPagoExtra = (JCheckBox) panel.getComponent(7);
+                JTextField txtPromedio = (JTextField) panel.getComponent(8);
+                JTextField txtDescuento = (JTextField) panel.getComponent(9);
+                
+                Kardex kardex = lstKardex.get(i - 1);
+                chkPago1.setSelected(kardex.isPlatica1());
+                txtHorasServicio.setText(kardex.getHorasServicio() + "");
+                chkPlatica1.setSelected(kardex.isPlatica1());
+                chkPlatica2.setSelected(kardex.isPlatica2());
+                chkPago1.setSelected(kardex.isPago_inicio_semestre());
+                chkPago2.setSelected(kardex.isPago_fin_semestre());
+                chkPagoExtra.setSelected(kardex.isPago_extra());
+                txtPromedio.setText(kardex.getPromedio() + "");
+                txtDescuento.setText(kardex.getDescuento() + "");
+            }
+            
+        }
+    }
+    
     private void deshabilitaSemestresKardex(JPanel pnlPanel, int semestresHabilitados, int contador){
         Component[] componentes = pnlPanel.getComponents();
         
@@ -2044,7 +2082,7 @@ public class PrincipalControlador {
         Conexion conn = new Conexion();
         Connection conexion = conn.estableceConexion();
         Becario becario = null;
-        List<Kardex> lsKardex = null;
+        List<Kardex> lstKardex = null;
         DatosEscolares datosEscolares = null;
         
         if(conexion == null){
@@ -2055,7 +2093,7 @@ public class PrincipalControlador {
         llenaComboCategorias(vistaKardex.cmbNombreBanco, catBancos);
         
         becario = modelo.getBecarioPorFolio(conexion, folio);
-        lsKardex = modelo.getKardexPorIdBecario(conexion, becario.getId());
+        lstKardex = modelo.getKardexPorIdBecario(conexion, becario.getId());
         datosEscolares = modelo.getDatosEscolaresBecario(conexion, becario.getId());
         
         //Se procede a llenar la informacion general del becario
@@ -2077,7 +2115,8 @@ public class PrincipalControlador {
                 datosEscolares.getSemestresTotalesCarrera());
         
         deshabilitaSemestresKardex(vistaKardex.PnlKardex, semestresHabilitados, 0);
-        
+        if(lstKardex.size() > 0)
+            llenaPnlKardex(lstKardex);
         
     }
 
@@ -2180,7 +2219,7 @@ public class PrincipalControlador {
      * Toma la seleccion de la pestaña registro semestral de la pantalla vistaKardex
      * y lo guarda en la base de datos
      */
-    protected void guardaKardex() {
+    protected void updateKardexBecario() {
         /*int seleccion = Integer.parseInt(vistaKardex.rbtnGroupKardex.getSelection().getActionCommand());
         JPanel panel = (JPanel) vistaKardex.PnlKardex.getComponent(seleccion);
         JTextField txtCampo = (JTextField) panel.getComponent(3);
@@ -2194,11 +2233,14 @@ public class PrincipalControlador {
             log.muestraErrores(new SQLException("No se pudo conectar a la base de datos, intentelo de nuevo"));
             return;
         }
+        
         Becario becario = modelo.getBecarioPorFolio(conexion, vistaKardex.txtFolio.getText());
         int idBanco = getIdCmbBox((String)vistaKardex.cmbNombreBanco.getSelectedItem(), catBancos);
         //Se actualiza el becario con la informacion bancaria
         response = modelo.updateInfoBanco(conexion, becario.getId(), idBanco, vistaKardex.TxtFldNoCuenta.getText(), 
                         vistaKardex.TxtFldClabeBanco.getText());
+        
+        List<Kardex> lstKardex = getInfoKardex();
         
         if(response == false){
             JOptionPane.showMessageDialog(vistaKardex, "No se pudo actualizar el kardex del becario, intentelo más tarde", "Error", JOptionPane.ERROR_MESSAGE);
@@ -2209,5 +2251,47 @@ public class PrincipalControlador {
             JOptionPane.showMessageDialog(vistaKardex, "¡Kardex actualizado!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
         }
         
+    }
+    
+    /**
+     * Recorre todos los datos que estan en el kardex para luego insertarlos en la base de datos
+     * @return Lista de kardex, cada elemento es un semestre
+     */
+    private List<Kardex> getInfoKardex(){
+        List<Kardex> lstKardex = new ArrayList<>();
+        Component[] componentes = vistaKardex.PnlKardex.getComponents();
+        int i = 0;
+        for (Component componente : componentes) {
+            if(i == 0){
+                i++;
+                continue;
+            }
+            if(componente instanceof JPanel){
+                JPanel panel = (JPanel) componente;
+                
+                JTextField txtSemestre = (JTextField) panel.getComponent(1);
+                JCheckBox chkPago1 = (JCheckBox) panel.getComponent(2);
+                JTextField txtHorasServicio = (JTextField) panel.getComponent(3);
+                JCheckBox chkPlatica1 = (JCheckBox) panel.getComponent(4);
+                JCheckBox chkPlatica2 = (JCheckBox) panel.getComponent(5);
+                JCheckBox chkPago2 = (JCheckBox) panel.getComponent(6);
+                JCheckBox chkPagoExtra = (JCheckBox) panel.getComponent(7);
+                JTextField txtPromedio = (JTextField) panel.getComponent(8);
+                JTextField txtDescuento = (JTextField) panel.getComponent(9);
+                
+                Kardex kardex = lstKardex.get(i - 1);
+                kardex.setPago_inicio_semestre(chkPago1.isSelected());
+                kardex.setHorasServicio(Integer.parseInt(txtHorasServicio.getText()));
+                kardex.setPlatica1(chkPlatica1.isSelected());
+                kardex.setPlatica2(chkPlatica2.isSelected());
+                kardex.setPago_fin_semestre(chkPago2.isSelected());
+                kardex.setPago_extra(chkPagoExtra.isSelected());
+                kardex.setPromedio(Float.parseFloat(txtPromedio.getText()));
+                kardex.setDescuento(Integer.parseInt(txtDescuento.getText()));
+                lstKardex.add(kardex);
+            }
+            
+        }
+        return lstKardex;
     }
 }

@@ -2884,7 +2884,7 @@ public class VistaKardex extends javax.swing.JPanel {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        controlador.guardaKardex();
+        controlador.updateKardexBecario();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void TxtSemestre11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtSemestre11ActionPerformed
