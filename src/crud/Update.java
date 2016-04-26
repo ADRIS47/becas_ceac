@@ -113,4 +113,12 @@ public class Update {
             + Aval.COL_COLONIA + " = ?, " + Aval.COL_IDENTIFICACION + " = ? "
             + "WHERE " + Aval.COL_ID_BECARIO + " = ? ";
     
+    /**
+     * Se actualizan los datos bancarios del becario
+     */
+    public static String updateCuentaBancariaBecario = "UPDATE beca_becario "
+            + "SET " + Becario.COL_ID_BANCO + " = ?, " + Becario.COL_CUENTA_BANCO + " = ?, "
+            + Becario.COL_CLABE_INTERBANCARIA + " = ? "
+            + "WHERE " + Becario.COL_ID + " = ?";
+    
 }

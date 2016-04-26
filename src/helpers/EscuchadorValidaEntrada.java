@@ -289,36 +289,36 @@ public class EscuchadorValidaEntrada implements KeyListener {
 //            }
 //        }
 
-        String str = txtCampo.getText();
-        char[] fuente = str.toCharArray();
-        char[] resultado = new char[fuente.length];
-        int j = 0;
-        boolean error = false;
-
-        for (int i = 0; i < fuente.length; i++) {
-
-            if ((fuente[i] >= '0' && fuente[i] <= '9') ||
-                     fuente[i] == '/') {
-                resultado[j++] = fuente[i];
-                if(str.length() == 2){
-                    txtCampo.setText(resultado.toString() + "/");
-                }
-            } 
-            else{
-                error = true;
-                java.awt.Toolkit.getDefaultToolkit().beep();
-            }
-
-            if (error) {
-                txtCampo.setText("");
-                txtCampo.setText(new String(resultado, 0, j));
-            }
-            
-            if(i == 10){
-                txtCampo.setText("");
-                txtCampo.setText(new String(resultado, 0, 10));
-            }
-        }
+//        String str = txtCampo.getText();
+//        char[] fuente = str.toCharArray();
+//        char[] resultado = new char[fuente.length];
+//        int j = 0;
+//        boolean error = false;
+//
+//        for (int i = 0; i < fuente.length; i++) {
+//
+//            if ((fuente[i] >= '0' && fuente[i] <= '9') ||
+//                     fuente[i] == '/') {
+//                resultado[j++] = fuente[i];
+//                if(str.length() == 2){
+//                    txtCampo.setText(resultado.toString() + "/");
+//                }
+//            } 
+//            else{
+//                error = true;
+//                java.awt.Toolkit.getDefaultToolkit().beep();
+//            }
+//
+//            if (error) {
+//                txtCampo.setText("");
+//                txtCampo.setText(new String(resultado, 0, j));
+//            }
+//            
+//            if(i == 10){
+//                txtCampo.setText("");
+//                txtCampo.setText(new String(resultado, 0, 10));
+//            }
+//        }
         
     }
     

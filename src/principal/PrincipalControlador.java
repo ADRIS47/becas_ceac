@@ -28,7 +28,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ButtonModel;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFileChooser;
@@ -89,6 +88,7 @@ public class PrincipalControlador {
     LinkedHashMap<Integer, String> catUniversidad = null;
     LinkedHashMap<Integer, String> catCampoEstudio = null;
     LinkedHashMap<Integer, String> catEstatus = null;
+    LinkedHashMap<Integer, String> catBancos = null;
     
     List<PnlHijos> lstVistaHijos = new ArrayList<>();
     List<PnlHermanos> lstVistaHermanos = new ArrayList<>();
@@ -253,8 +253,10 @@ public class PrincipalControlador {
         else{
             llenaCamposVistaKardex(vistaRegistro.txtFolio.getText());
             creaPantalla(vistaKardex);
-            //Se asignan los listeners
+            //Se asignan los listeners al panel pnlKardex
             recorreJPanel(vistaKardex.PnlKardex, 3);
+            //Se asignan los listeners al panel pnlInformacionBancaria
+            recorreJPanel(vistaKardex.pnlInformacionBancaria, 4);
             //Se validan los semestres que deben de habilitarse
             
         }
@@ -292,6 +294,7 @@ public class PrincipalControlador {
         catUniversidad = lstCategorias.get(5);
         catCampoEstudio = lstCategorias.get(6);
         catEstatus = lstCategorias.get(7);
+        catBancos = lstCategorias.get(8);
         
         llenaComboCategorias(vistaRegistro.combobxCivilBecado, catEstadoCivil);
         llenaComboCategorias(vistaRegistro.comboBoxPrograma, catPrograma);
@@ -323,9 +326,18 @@ public class PrincipalControlador {
         catUniversidad = lstCategorias.get(5);
         catCampoEstudio = lstCategorias.get(6);
         catEstatus = lstCategorias.get(7);
+        catBancos = lstCategorias.get(8);
         
         llenaComboCategorias(vistaBusqueda.cmbPrograma, catPrograma);
         llenaComboCategorias(vistaBusqueda.CmbboxBuscaEstatus, catEstatus);
+    }
+    
+    /**
+     * Llena los catalogos de la VistaKardex
+     */
+    private void llenaCamposCategoriasVistaKardex() {
+        
+        llenaComboCategorias(vistaKardex.cmbNombreBanco, catBancos);
     }
     
     /**
@@ -1393,7 +1405,8 @@ public class PrincipalControlador {
     /**
      * Recorre todos los componentes dentro de un JPanel
      * @param clave 1: Valida si hay campos vacios, 2: Vacia los campos,
-     * 3: Asigna listeners a los JTextField de VistaKardex
+     * 3: Asigna listeners a los JTextField de pnlKardex de vistaKardex,
+     * 4: Asigna listeners a los JtextField de pnlInformacionBancaria de VistaKardex
      * @param panel Jpanel a recorrer
      * @return True si encontró campos vacios, false si no
      */
@@ -1437,9 +1450,24 @@ public class PrincipalControlador {
 //                        ((JTextField) componente).setBackground(Color.ORANGE);
 //                        response = true;
                         JTextField txtCampo = ((JTextField) componente);
-                        txtCampo.addKeyListener(new EscuchadorValidaEntrada(vistaKardex, EscuchadorValidaEntrada.DECIMALES, txtCampo));
+                        txtCampo.addKeyListener(new EscuchadorValidaEntrada(vistaKardex.PnlKardex, EscuchadorValidaEntrada.DECIMALES, txtCampo));
                     }
                 }
+                break;
+                
+            case 4 :                
+                for (Component componente : componentes) {
+                    if(componente instanceof JPanel){
+                        response = recorreJPanel((JPanel)componente, 4);
+                    }                    
+                    if (componente instanceof JTextField) {
+//                        ((JTextField) componente).setBackground(Color.ORANGE);
+//                        response = true;
+                        JTextField txtCampo = ((JTextField) componente);
+                        txtCampo.addKeyListener(new EscuchadorValidaEntrada(vistaKardex, EscuchadorValidaEntrada.NUMEROS, txtCampo));
+                    }
+                }
+                
                 break;
         }
         return response;
@@ -2002,6 +2030,8 @@ public class PrincipalControlador {
             log.muestraErrores(new SQLException("No se pudo conectar a la base de datos"));
         }
         
+        llenaComboCategorias(vistaKardex.cmbNombreBanco, catBancos);
+        
         becario = modelo.getBecarioPorFolio(conexion, folio);
         lsKardex = modelo.getKardexPorIdBecario(conexion, becario.getId());
         datosEscolares = modelo.getDatosEscolaresBecario(conexion, becario.getId());
@@ -2012,6 +2042,14 @@ public class PrincipalControlador {
         vistaKardex.txtFolio.setText(becario.getFolio());
         vistaKardex.txtPrograma.setText(getItemComboBox(becario.getIdPrograma(), catPrograma));
         vistaKardex.txtFechaGraduacion.setText(datosEscolares.getMesGraduacion() + "/" + datosEscolares.getAnioGraduacion());
+        
+        //Se procede a llenar la informacion bancaria del becario
+        String banco = getItemComboBox(becario.getIdBanco(), catBancos);
+        vistaKardex.cmbNombreBanco.setSelectedItem(banco);
+        vistaKardex.TxtFldNoCuenta.setText(becario.getCuentaBancaria());
+        vistaKardex.TxtFldClabeBanco.setText(becario.getClabeInterbancaria());
+        
+        
     }
 
     /**
@@ -2114,10 +2152,33 @@ public class PrincipalControlador {
      * y lo guarda en la base de datos
      */
     protected void guardaKardex() {
-        int seleccion = Integer.parseInt(vistaKardex.rbtnGroupKardex.getSelection().getActionCommand());
+        /*int seleccion = Integer.parseInt(vistaKardex.rbtnGroupKardex.getSelection().getActionCommand());
         JPanel panel = (JPanel) vistaKardex.PnlKardex.getComponent(seleccion);
         JTextField txtCampo = (JTextField) panel.getComponent(3);
-        txtCampo.setText("Esto es una prueba");
+        txtCampo.setText("Esto es una prueba");*/
+        
+        Conexion conn = new Conexion();
+        Connection conexion = conn.estableceConexion();
+        boolean response = false;
+        if(conexion == null){
+            JOptionPane.showMessageDialog(vistaKardex, "No se pudo conectar a la base de datos, intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+            log.muestraErrores(new SQLException("No se pudo conectar a la base de datos, intentelo de nuevo"));
+            return;
+        }
+        Becario becario = modelo.getBecarioPorFolio(conexion, vistaKardex.txtFolio.getText());
+        int idBanco = getIdCmbBox((String)vistaKardex.cmbNombreBanco.getSelectedItem(), catBancos);
+        //Se actualiza el becario con la informacion bancaria
+        response = modelo.updateInfoBanco(conexion, becario.getId(), idBanco, vistaKardex.TxtFldNoCuenta.getText(), 
+                        vistaKardex.TxtFldClabeBanco.getText());
+        
+        if(response == false){
+            JOptionPane.showMessageDialog(vistaKardex, "No se pudo actualizar el kardex del becario, intentelo más tarde", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if(response){
+            JOptionPane.showMessageDialog(vistaKardex, "¡Kardex actualizado!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+        }
         
     }
 }

@@ -765,3 +765,39 @@
 23/4/2016;16:38:12;Parameter index out of range (22 > number of parameters, which is 21).
 23/4/2016;16:38:21;Error al actualizar los datos del becario
 25/4/2016;9:54:23;Error al actualizar los datos del becario
+26/4/2016;9:40:50;SQLError: S0022
+26/4/2016;9:40:50;ERROR: Code0
+26/4/2016;9:40:50;Message: Column 'id_estatus' not found.
+26/4/2016;9:40:53;SQLError: S0022
+26/4/2016;9:40:53;ERROR: Code0
+26/4/2016;9:40:53;Message: Column 'id_estatus' not found.
+26/4/2016;9:43:15;SQLError: S0022
+26/4/2016;9:43:15;ERROR: Code0
+26/4/2016;9:43:15;Message: Column 'id_estatus' not found.
+26/4/2016;9:43:54;SQLError: S0022
+26/4/2016;9:43:54;ERROR: Code0
+26/4/2016;9:43:54;Message: Column 'id_estatus' not found.
+26/4/2016;9:44:1;SQLError: S0022
+26/4/2016;9:44:1;ERROR: Code0
+26/4/2016;9:44:1;Message: Column 'id_estatus' not found.
+26/4/2016;9:44:19;SQLError: S0022
+26/4/2016;9:44:19;ERROR: Code0
+26/4/2016;9:44:19;Message: Column 'id_estatus' not found.
+26/4/2016;9:45:4;SQLError: S0022
+26/4/2016;9:45:4;ERROR: Code0
+26/4/2016;9:45:4;Message: Column 'id_estatus' not found.
+26/4/2016;9:46:26;SQLError: S0022
+26/4/2016;9:46:26;ERROR: Code0
+26/4/2016;9:46:26;Message: Column 'id_estatus' not found.
+26/4/2016;9:46:40;SQLError: S0022
+26/4/2016;9:46:40;ERROR: Code0
+26/4/2016;9:46:40;Message: Column 'id_estatus' not found.
+26/4/2016;9:47:48;SQLError: S0022
+26/4/2016;9:47:48;ERROR: Code0
+26/4/2016;9:47:48;Message: Column 'id_estatus' not found.
+26/4/2016;9:53:5;SQLError: HY000
+26/4/2016;9:53:5;ERROR: Code1364
+26/4/2016;9:53:5;Message: Field 'beca_cat_banco_id_banco' doesn't have a default value
+26/4/2016;9:53:8;SQLError: HY000
+26/4/2016;9:53:8;ERROR: Code1364
+26/4/2016;9:53:8;Message: Field 'beca_cat_banco_id_banco' doesn't have a default value
