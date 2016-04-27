@@ -5,6 +5,7 @@
  */
 package helpers;
 
+import index.Index;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Desktop;
@@ -279,33 +280,38 @@ public class Helper {
 
     public void validaRutaInicial() {
         String sistemaOperativo = System.getProperty("os.name");
-        String rutaPrincipal = null;
+        //String rutaPrincipal = "";
         String separador = System.getProperty("file.separator");
-        String homeUsuario = System.getProperty("user.home");
+        //String homeUsuario = System.getProperty("user.home");
         System.out.println("SO: " + sistemaOperativo);
         
-        rutaPrincipal = System.getProperty("user.home") + separador + "becas" + separador + "becarios" + separador;
+        if(sistemaOperativo.toUpperCase().contains("WIN")){
+            Index.RUTA_BASE = "C:\\SIBEC";
+        }
+        else if(sistemaOperativo.toUpperCase().contains("LIN")){
+            Index.RUTA_BASE = System.getProperty("user.home") + separador + "SIBEC";
+        }
         
-        Path pathRutaPrincipal = Paths.get(homeUsuario);
-        Path pathRutaBecas =  Paths.get(pathRutaPrincipal + separador + "becas");
-        Path pathRutaBecarios =  Paths.get(pathRutaPrincipal + separador + "becas" + separador + "becarios");
+        Index.RUTA_SISTEMA = separador + "becarios" + separador;
+                
+        Path pathRutaPrincipal = Paths.get(Index.RUTA_BASE);
+        Path pathRutaSistema =  Paths.get(Index.RUTA_BASE + separador + Index.RUTA_SISTEMA + separador);
         
         System.out.println("RutaPrincipal: " + pathRutaPrincipal);
-        System.out.println("Path becas: "  + pathRutaBecas);
-        System.out.println("Path becarios: "  + pathRutaBecarios );
+        System.out.println("Path becas: "  + pathRutaSistema);
         
-        if(!Files.exists(Paths.get(pathRutaBecas.toString()))){
+        if(!Files.exists(pathRutaPrincipal)){
             try {
-                Files.createDirectory(Paths.get(pathRutaBecas.toString()));
+                Files.createDirectory(pathRutaPrincipal);
             } catch (IOException ex) {
                 log.crearLog(ex.getMessage());
                 Logger.getLogger(Helper.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         
-        if(!Files.exists(Paths.get(pathRutaBecarios.toString()))){
+        if(!Files.exists(pathRutaSistema)){
             try {
-                Files.createDirectory(Paths.get(pathRutaBecarios.toString()));
+                Files.createDirectory(pathRutaSistema);
             } catch (IOException ex) {
                 log.crearLog(ex.getMessage());
                 Logger.getLogger(Helper.class.getName()).log(Level.SEVERE, null, ex);
@@ -383,5 +389,9 @@ public class Helper {
             return semestresTranscurridos;
         else
             return semestresTotales + 1;
+    }
+
+    public void tomaRutaBase() {
+        
     }
 }

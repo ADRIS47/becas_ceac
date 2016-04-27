@@ -30,5 +30,7 @@ public class Index {
     }
     
     
-    public static final String RUTA_BASE = System.getProperty("user.home");
+    //public static String RUTA_BASE = System.getProperty("user.home");
+    public static String RUTA_BASE = "";
+    public static String RUTA_SISTEMA = "";
 }
