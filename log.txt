@@ -846,3 +846,14 @@
 26/4/2016;21:49:31;No se pudo copiar el archivo 12-05-2015 CV Sergio Betancourt.pdf    /home/sabagip/SIBEC/becarios/HIS-01/boleta_inicial-HIS-01.pdf
 26/4/2016;21:50:7;/becarios/HIS-01
 26/4/2016;21:50:34;No se pudo copiar el archivo 12-05-2015 CV Sergio Betancourt.pdf    /home/sabagip/SIBEC/becarios/HIS-01/boleta_inicial-HIS-01.pdf
+27/4/2016;9:1:45;No se pudo copiar el archivo boleta_inicial-HIS-01.pdf    /media/sergio/Windows7_OS/Users/Sergio Betancourt/Documents/NetBeansProjects/freelance/becas_ceac/HIS-01/boleta_inicial-HIS-01.pdf
+27/4/2016;9:2:50;No se pudo copiar el archivo boleta_inicial-HIS-01.pdf    /media/sergio/Windows7_OS/Users/Sergio Betancourt/Documents/NetBeansProjects/freelance/becas_ceac/HIS-01/boleta_inicial-HIS-01.pdf
+27/4/2016;9:3:18;No se pudo copiar el archivo boleta_inicial-HIS-01.pdf    /media/sergio/Windows7_OS/Users/Sergio Betancourt/Documents/NetBeansProjects/freelance/becas_ceac/HIS-01/boleta_inicial-HIS-01.pdf
+27/4/2016;9:4:56;No se pudo copiar el archivo boleta_inicial-HIS-01.pdf    /media/sergio/Windows7_OS/Users/Sergio Betancourt/Documents/NetBeansProjects/freelance/becas_ceac/HIS-01/boleta_inicial-HIS-01.pdf
+27/4/2016;9:10:14;No se pudo copiar el archivo boleta_inicial-HIS-01.pdf    /media/sergio/Windows7_OS/Users/Sergio Betancourt/Documents/NetBeansProjects/freelance/becas_ceac/HIS-01/boleta_inicial-HIS-01.pdf
+27/4/2016;9:15:0;No se pudo copiar el archivo boleta_inicial-HIS-01.pdf    /media/sergio/Windows7_OS/Users/Sergio Betancourt/Documents/NetBeansProjects/freelance/becas_ceac/HIS-01/boleta_inicial-HIS-01.pdf
+27/4/2016;9:16:52;No se pudo copiar el archivo boleta_inicial-HIS-01.pdf    /media/sergio/Windows7_OS/Users/Sergio Betancourt/Documents/NetBeansProjects/freelance/becas_ceac/HIS-01/boleta_inicial-HIS-01.pdf
+27/4/2016;9:17:59;No se pudo copiar el archivo boleta_inicial-HIS-01.pdf    /media/sergio/Windows7_OS/Users/Sergio Betancourt/Documents/NetBeansProjects/freelance/becas_ceac/HIS-01/boleta_inicial-HIS-01.pdf
+27/4/2016;9:18:18;No se pudo copiar el archivo boleta_inicial-HIS-01.pdf    /media/sergio/Windows7_OS/Users/Sergio Betancourt/Documents/NetBeansProjects/freelance/becas_ceac/HIS-01/boleta_inicial-HIS-01.pdf
+27/4/2016;9:19:3;No se pudo copiar el archivo boleta_inicial-HIS-01.pdf    /media/sergio/Windows7_OS/Users/Sergio Betancourt/Documents/NetBeansProjects/freelance/becas_ceac/HIS-01/boleta_inicial-HIS-01.pdf
+27/4/2016;9:23:49;No se pudo copiar el archivo boleta_inicial-HIS-01.pdf    /media/sergio/Windows7_OS/Users/Sergio Betancourt/Documents/NetBeansProjects/freelance/becas_ceac/HIS-01/boleta_inicial-HIS-01.pdf

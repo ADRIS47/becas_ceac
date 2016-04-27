@@ -145,6 +145,8 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel40 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
         jpnlAccionesDocumentos = new javax.swing.JPanel();
         btnAddBoleta = new javax.swing.JButton();
         btnEliminaBoleta = new javax.swing.JButton();
@@ -170,6 +172,12 @@ public class VistaRegistro extends javax.swing.JPanel {
         btnAddPagare = new javax.swing.JButton();
         btnEliminaPagare = new javax.swing.JButton();
         lblEstatusPagare = new javax.swing.JLabel();
+        btnAddEstudioSocioEconomico = new javax.swing.JButton();
+        btnEliminaEstudioSocioEconomico = new javax.swing.JButton();
+        lblEstatusEstudioSocioEconomico = new javax.swing.JLabel();
+        btnAddCartaAsignacionBeca = new javax.swing.JButton();
+        btnEliminaCartaAsignacionBeca = new javax.swing.JButton();
+        lblEstatusCartaAsignacionBeca = new javax.swing.JLabel();
         pnlOpciones = new javax.swing.JPanel();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
@@ -957,56 +965,57 @@ public class VistaRegistro extends javax.swing.JPanel {
         );
 
         jpnlListaDocumentos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jpnlListaDocumentos.setLayout(new java.awt.GridLayout(8, 1));
+        jpnlListaDocumentos.setLayout(new java.awt.GridLayout(10, 1));
 
         jLabel36.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel36.setForeground(new java.awt.Color(0, 0, 204));
-        jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel36.setText("Boleta de calificaciones Inicial");
         jLabel36.setAutoscrolls(true);
         jpnlListaDocumentos.add(jLabel36);
 
         jLabel37.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel37.setForeground(new java.awt.Color(0, 204, 0));
-        jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel37.setText("Acta de Nacimiento del Becario");
         jpnlListaDocumentos.add(jLabel37);
 
         jLabel38.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel38.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel38.setText("Carta de solicitud de Beca");
         jpnlListaDocumentos.add(jLabel38);
 
         jLabel41.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel41.setForeground(new java.awt.Color(0, 0, 204));
-        jLabel41.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel41.setText("Ensayo");
         jpnlListaDocumentos.add(jLabel41);
 
         jLabel39.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel39.setForeground(new java.awt.Color(0, 204, 0));
-        jLabel39.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel39.setText("Identificacion Oficial Becario (INE)");
         jpnlListaDocumentos.add(jLabel39);
 
         jLabel40.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel40.setText("Identificacion Oficial Aval (INE)");
         jpnlListaDocumentos.add(jLabel40);
 
         jLabel42.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel42.setForeground(new java.awt.Color(0, 0, 204));
-        jLabel42.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel42.setText("Contrato Beca");
         jpnlListaDocumentos.add(jLabel42);
 
         jLabel35.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel35.setForeground(new java.awt.Color(0, 204, 0));
-        jLabel35.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel35.setText("Documento Pagaré Beca");
         jpnlListaDocumentos.add(jLabel35);
 
-        jpnlAccionesDocumentos.setLayout(new java.awt.GridLayout(8, 3));
+        jLabel46.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel46.setText("Estudio Socio Económico");
+        jpnlListaDocumentos.add(jLabel46);
+
+        jLabel47.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel47.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel47.setText("Carta Asignacion de Beca");
+        jpnlListaDocumentos.add(jLabel47);
+
+        jpnlAccionesDocumentos.setLayout(new java.awt.GridLayout(10, 3));
 
         btnAddBoleta.setForeground(new java.awt.Color(0, 0, 204));
         btnAddBoleta.setText("Agregar...");
@@ -1231,21 +1240,71 @@ public class VistaRegistro extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentos.add(lblEstatusPagare);
 
+        btnAddEstudioSocioEconomico.setText("Agregar...");
+        btnAddEstudioSocioEconomico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddEstudioSocioEconomicoActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos.add(btnAddEstudioSocioEconomico);
+
+        btnEliminaEstudioSocioEconomico.setText("Eliminar Archivo");
+        btnEliminaEstudioSocioEconomico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminaEstudioSocioEconomicoActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos.add(btnEliminaEstudioSocioEconomico);
+
+        lblEstatusEstudioSocioEconomico.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusEstudioSocioEconomico.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusEstudioSocioEconomico.setEnabled(false);
+        jpnlAccionesDocumentos.add(lblEstatusEstudioSocioEconomico);
+
+        btnAddCartaAsignacionBeca.setForeground(new java.awt.Color(0, 0, 204));
+        btnAddCartaAsignacionBeca.setText("Agregar...");
+        btnAddCartaAsignacionBeca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddCartaAsignacionBecaActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos.add(btnAddCartaAsignacionBeca);
+
+        btnEliminaCartaAsignacionBeca.setForeground(new java.awt.Color(0, 0, 204));
+        btnEliminaCartaAsignacionBeca.setText("Eliminar Archivo");
+        btnEliminaCartaAsignacionBeca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminaCartaAsignacionBecaActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos.add(btnEliminaCartaAsignacionBeca);
+
+        lblEstatusCartaAsignacionBeca.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusCartaAsignacionBeca.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusCartaAsignacionBeca.setEnabled(false);
+        jpnlAccionesDocumentos.add(lblEstatusCartaAsignacionBeca);
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addComponent(jpnlListaDocumentos, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(383, 383, 383)
                 .addComponent(jpnlAccionesDocumentos, javax.swing.GroupLayout.PREFERRED_SIZE, 355, Short.MAX_VALUE))
+            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel6Layout.createSequentialGroup()
+                    .addComponent(jpnlListaDocumentos, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 366, Short.MAX_VALUE)))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpnlListaDocumentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addComponent(jpnlAccionesDocumentos, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel6Layout.createSequentialGroup()
+                    .addComponent(jpnlListaDocumentos, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 39, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout pnlArchivosAdjuntosLayout = new javax.swing.GroupLayout(pnlArchivosAdjuntos);
@@ -1291,7 +1350,7 @@ public class VistaRegistro extends javax.swing.JPanel {
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(tbpBecados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(tbpBecados, javax.swing.GroupLayout.DEFAULT_SIZE, 552, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(pnlOpciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1411,20 +1470,40 @@ public class VistaRegistro extends javax.swing.JPanel {
         controlador.abreArchivoAdjunto(Helper.FILE_PAGARE);
     }//GEN-LAST:event_lblEstatusPagareMouseClicked
 
+    private void btnAddCartaAsignacionBecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCartaAsignacionBecaActionPerformed
+        controlador.fileCartaAsignacionBeca = controlador.cargaDocumento(controlador.fileCartaAsignacionBeca, lblEstatusCartaAsignacionBeca);
+    }//GEN-LAST:event_btnAddCartaAsignacionBecaActionPerformed
+
+    private void btnAddEstudioSocioEconomicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddEstudioSocioEconomicoActionPerformed
+        controlador.fileEstudioSocioeconomico = controlador.cargaDocumento(controlador.fileEstudioSocioeconomico, lblEstatusEstudioSocioEconomico);
+    }//GEN-LAST:event_btnAddEstudioSocioEconomicoActionPerformed
+
+    private void btnEliminaEstudioSocioEconomicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaEstudioSocioEconomicoActionPerformed
+        controlador.fileEstudioSocioeconomico = controlador.borraDocumento(controlador.fileEstudioSocioeconomico, lblEstatusEstudioSocioEconomico);
+    }//GEN-LAST:event_btnEliminaEstudioSocioEconomicoActionPerformed
+
+    private void btnEliminaCartaAsignacionBecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaCartaAsignacionBecaActionPerformed
+        controlador.fileCartaAsignacionBeca = controlador.borraDocumento(controlador.fileCartaAsignacionBeca, lblEstatusCartaAsignacionBeca);
+    }//GEN-LAST:event_btnEliminaCartaAsignacionBecaActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     protected javax.swing.JButton btnAddActa;
     protected javax.swing.JButton btnAddBoleta;
     protected javax.swing.JButton btnAddCarta;
+    protected javax.swing.JButton btnAddCartaAsignacionBeca;
     protected javax.swing.JButton btnAddContrato;
     protected javax.swing.JButton btnAddEnsayo;
+    protected javax.swing.JButton btnAddEstudioSocioEconomico;
     protected javax.swing.JButton btnAddINEAval;
     protected javax.swing.JButton btnAddINEBecario;
     protected javax.swing.JButton btnAddPagare;
     protected javax.swing.JButton btnEliminaActa;
     protected javax.swing.JButton btnEliminaBoleta;
     protected javax.swing.JButton btnEliminaCarta;
+    protected javax.swing.JButton btnEliminaCartaAsignacionBeca;
     protected javax.swing.JButton btnEliminaContrato;
     protected javax.swing.JButton btnEliminaEnsayo;
+    protected javax.swing.JButton btnEliminaEstudioSocioEconomico;
     protected javax.swing.JButton btnEliminaINEAval;
     protected javax.swing.JButton btnEliminaINEBecario;
     protected javax.swing.JButton btnEliminaPagare;
@@ -1484,6 +1563,8 @@ public class VistaRegistro extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1500,8 +1581,10 @@ public class VistaRegistro extends javax.swing.JPanel {
     protected javax.swing.JLabel lblEstatusActa;
     protected javax.swing.JLabel lblEstatusBoleta;
     protected javax.swing.JLabel lblEstatusCarta;
+    protected javax.swing.JLabel lblEstatusCartaAsignacionBeca;
     protected javax.swing.JLabel lblEstatusContrato;
     protected javax.swing.JLabel lblEstatusEnsayo;
+    protected javax.swing.JLabel lblEstatusEstudioSocioEconomico;
     protected javax.swing.JLabel lblEstatusINEAval;
     protected javax.swing.JLabel lblEstatusINEBecario;
     protected javax.swing.JLabel lblEstatusPagare;

@@ -1067,29 +1067,29 @@ public class PrincipalControlador {
             }
         }
         
-//        //Se carga el estudio socioeconomico del becario
-//        if(fileEstudioSocioeconomico != null){
-//            Path path = helper.CopiaArchivoADestino(becario.getFolio(), "est_socioeco-", filePagare);
-//            if(path == null){
-//                JOptionPane.showMessageDialog(vista, "Error al copiar el estudio socieconómico", "Error", JOptionPane.ERROR_MESSAGE);
-//                return null;
-//            }
-//            else{
-//                becario.setEstudioSocioEconomico(path.toString());
-//            }
-//        }
-//        
-//        //Se carga la carta de asignacion de beca del becario
-//        if(filePagare != null){
-//            Path path = helper.CopiaArchivoADestino(becario.getFolio(), "asig_beca-", filePagare);
-//            if(path == null){
-//                JOptionPane.showMessageDialog(vista, "Error al copiar la carta de asignación de beca", "Error", JOptionPane.ERROR_MESSAGE);
-//                return null;
-//            }
-//            else{
-//                becario.setCartaAsignacionBeca(path.toString());
-//            }
-//        }
+        //Se carga el estudio socioeconomico del becario
+        if(fileEstudioSocioeconomico != null){
+            Path path = helper.CopiaArchivoADestino(becario.getFolio(), "est_socioeco-", filePagare);
+            if(path == null){
+                JOptionPane.showMessageDialog(vista, "Error al copiar el estudio socieconómico", "Error", JOptionPane.ERROR_MESSAGE);
+                return null;
+            }
+            else{
+                becario.setEstudioSocioEconomico(becario.getFolio() + Index.SEPARADOR + path.getFileName().toString());
+            }
+        }
+        
+        //Se carga la carta de asignacion de beca del becario
+        if(fileCartaAsignacionBeca != null){
+            Path path = helper.CopiaArchivoADestino(becario.getFolio(), "asig_beca-", fileCartaAsignacionBeca);
+            if(path == null){
+                JOptionPane.showMessageDialog(vista, "Error al copiar la carta de asignación de beca", "Error", JOptionPane.ERROR_MESSAGE);
+                return null;
+            }
+            else{
+                becario.setCartaAsignacionBeca(becario.getFolio() + Index.SEPARADOR + path.getFileName().toString());
+            }
+        }
         
         return becario;
     }
@@ -2030,9 +2030,11 @@ public class PrincipalControlador {
         if(becario.getActaNacimiento() != null){
             fileActaNacimiento = null;
             fileActaNacimiento = new File(Index.RUTA_FINAL + becario.getActaNacimiento());
-            vistaRegistro.lblEstatusActa.setText(fileActaNacimiento.getName());}
+            vistaRegistro.lblEstatusActa.setText(fileActaNacimiento.getName());
+        }
         if(becario.getBoletaInicioBeca() != null){
-            fileBoleta_calificaciones_inicial = new File(becario.getBoletaInicioBeca());
+            fileBoleta_calificaciones_inicial = null;
+            fileBoleta_calificaciones_inicial = new File(Index.RUTA_FINAL + becario.getBoletaInicioBeca());
             vistaRegistro.lblEstatusBoleta.setText(fileBoleta_calificaciones_inicial.getName());
         }
         if(becario.getSolicitudBeca() != null){
@@ -2066,17 +2068,17 @@ public class PrincipalControlador {
             vistaRegistro.lblEstatusPagare.setText(filePagare.getName());
         }
         
-//        if(becario.getEstudioSocioEconomico()!= null){
-//            fileEstudioSocioeconomico = null;
-//            fileEstudioSocioeconomico = new File(becario.getEstudioSocioEconomico());
-//            vistaRegistro.lblEstatusEstudioSocioEconomico.setText(fileEstudioSocioeconomico.getName());
-//        }
-//        
-//        if(becario.getCartaAsignacionBeca() != null){
-//            fileCartaAsignacionBeca = null;
-//            fileCartaAsignacionBeca = new File(becario.getCartaAsignacionBeca());
-//            vistaRegistro.lblEstatusCartaAsignacionBeca.setText(fileCartaAsignacionBeca.getName());
-//        }
+        if(becario.getEstudioSocioEconomico()!= null){
+            fileEstudioSocioeconomico = null;
+            fileEstudioSocioeconomico = new File(Index.RUTA_FINAL + becario.getEstudioSocioEconomico());
+            vistaRegistro.lblEstatusEstudioSocioEconomico.setText(fileEstudioSocioeconomico.getName());
+        }
+        
+        if(becario.getCartaAsignacionBeca() != null){
+            fileCartaAsignacionBeca = null;
+            fileCartaAsignacionBeca = new File(Index.RUTA_FINAL + becario.getCartaAsignacionBeca());
+            vistaRegistro.lblEstatusCartaAsignacionBeca.setText(fileCartaAsignacionBeca.getName());
+        }
         
         
     }

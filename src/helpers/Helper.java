@@ -243,9 +243,7 @@ public class Helper {
      * @return Archivo con los datos de 
      */
     public Path CopiaArchivoADestino(String folioBecario, String tipoDocumento, File archivo){
-        //String sistemaOperativo = System.getProperty("os.name");
-        //String rutaPrincipal = null;
-        //String separador = System.getProperty("file.separator");
+        
         String extension = archivo.getName().substring(archivo.getName().length() - 4, archivo.getName().length());
         
         //Se verifica si ya existe el directorio del nuevo becario y si no, lo crea
