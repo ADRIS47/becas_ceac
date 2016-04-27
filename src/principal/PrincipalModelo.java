@@ -978,8 +978,9 @@ public class PrincipalModelo {
                 ps.setFloat(12, lstDatosEscolares.getBecaTotal());
                 ps.setFloat(13, lstDatosEscolares.getBecaSemestral());
                 ps.setInt(14, lstDatosEscolares.getCondicionado());
-                ps.setInt(15, lstDatosEscolares.getIdTipoEscuela());
-                ps.setLong(16, idBecario);
+                ps.setLong(15, idBecario);
+                ps.setInt(16, lstDatosEscolares.getIdTipoEscuela());
+                
                 int i = ps.executeUpdate();
                 if (i == 0) {
                     throw new SQLException("Error al insertar los datos escolares del becario: " + ps.toString());

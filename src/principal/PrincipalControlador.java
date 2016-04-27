@@ -2254,7 +2254,9 @@ public class PrincipalControlador {
             conexion.setAutoCommit(false);
             
             Becario becario = modelo.getBecarioPorFolio(conexion, vistaKardex.txtFolio.getText());
+            DatosEscolares datosEscolares = modelo.getDatosEscolaresBecario(conexion, becario.getId());
             int idBanco = getIdCmbBox((String)vistaKardex.cmbNombreBanco.getSelectedItem(), catBancos);
+            
             //Se actualiza el becario con la informacion bancaria
             response = modelo.updateInfoBanco(conexion, becario.getId(), idBanco, vistaKardex.TxtFldNoCuenta.getText(), 
                             vistaKardex.TxtFldClabeBanco.getText());
@@ -2269,7 +2271,13 @@ public class PrincipalControlador {
             //System.out.println("Tamanio: " + lstKardex.size());
             
             //SE DEBE DE TRAER LOS DATOS ESCOLARES DEL BECARIO PARA PODER EVALUAR EL TOTAL DE SEMESTRES HABILITADOS
-            semestres = helper.getTotalSemestresporHabilitarKardex(idBanco, idBanco, idBanco, idBanco);
+            semestres = helper.getTotalSemestresporHabilitarKardex(datosEscolares.getMesInicioBeca(), 
+                    datosEscolares.getAnioInicioBeca(), datosEscolares.getSemestreInicioBeca(), 
+                    datosEscolares.getSemestresTotalesCarrera()); 
+            System.out.println("Tamanio: " + lstKardex.size());
+            lstKardex = getDatosKardexBecario(lstKardex, semestres);
+            System.out.println("Tamanio: " + lstKardex.size());
+            
             conexion.commit();
             JOptionPane.showMessageDialog(vistaKardex, "¡Kardex actualizado!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             
@@ -2334,5 +2342,21 @@ public class PrincipalControlador {
             
         }
         return lstKardex;
+    }
+    
+    /**
+     * Toma los semestres a evaluar de la pantalla VistaKardex
+     * @param lstKardex Lista con toda la informacion de la pantalla 
+     * @param semestres
+     * @return 
+     */
+    private List<Kardex> getDatosKardexBecario(List<Kardex> lstKardex, int semestres){
+        List<Kardex> lstResult = new ArrayList<>();
+        
+        for (int i = 0; i <= semestres; i++) {
+            lstResult.add(lstKardex.get(i));
+        }
+        
+        return lstResult;
     }
 }

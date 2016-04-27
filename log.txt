@@ -872,3 +872,75 @@
 27/4/2016;10:4:41;Nombre de categoria no encontrado
 27/4/2016;10:9:7;Nombre de categoria no encontrado
 27/4/2016;10:10:32;Nombre de categoria no encontrado
+27/4/2016;12:47:50;Nombre de categoria no encontrado
+27/4/2016;12:47:50;Nombre de categoria no encontrado
+27/4/2016;12:53:48;Nombre de categoria no encontrado
+27/4/2016;13:2:56;Nombre de categoria no encontrado
+27/4/2016;13:23:18;Nombre de categoria no encontrado
+27/4/2016;13:23:37;Nombre de categoria no encontrado
+27/4/2016;13:23:44;Nombre de categoria no encontrado
+27/4/2016;13:23:44;Nombre de categoria no encontrado
+27/4/2016;13:23:44;Nombre de categoria no encontrado
+27/4/2016;13:24:0;Nombre de categoria no encontrado
+27/4/2016;13:24:3;Nombre de categoria no encontrado
+27/4/2016;13:24:3;Nombre de categoria no encontrado
+27/4/2016;13:24:3;Nombre de categoria no encontrado
+27/4/2016;13:24:27;Nombre de categoria no encontrado
+27/4/2016;13:24:31;Nombre de categoria no encontrado
+27/4/2016;13:24:31;Nombre de categoria no encontrado
+27/4/2016;13:24:31;Nombre de categoria no encontrado
+27/4/2016;13:24:38;Nombre de categoria no encontrado
+27/4/2016;13:24:45;Nombre de categoria no encontrado
+27/4/2016;13:24:45;Nombre de categoria no encontrado
+27/4/2016;13:24:45;Nombre de categoria no encontrado
+27/4/2016;13:24:49;Nombre de categoria no encontrado
+27/4/2016;13:28:26;SQLError: 23000
+27/4/2016;13:28:26;ERROR: Code1452
+27/4/2016;13:28:26;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_datos_escolares`, CONSTRAINT `fk_beca_datos_escolares_beca_tipo_escuela1` FOREIGN KEY (`id_tipo_escuela`) REFERENCES `beca_tipo_escuela` (`id_tipo_escuela`) ON DELETE N)
+27/4/2016;13:28:28;null
+27/4/2016;13:28:46;SQLError: 23000
+27/4/2016;13:28:46;ERROR: Code1452
+27/4/2016;13:28:46;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_datos_escolares`, CONSTRAINT `fk_beca_datos_escolares_beca_tipo_escuela1` FOREIGN KEY (`id_tipo_escuela`) REFERENCES `beca_tipo_escuela` (`id_tipo_escuela`) ON DELETE N)
+27/4/2016;13:28:47;null
+27/4/2016;13:30:56;SQLError: 23000
+27/4/2016;13:30:56;ERROR: Code1452
+27/4/2016;13:30:56;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_datos_escolares`, CONSTRAINT `fk_beca_datos_escolares_beca_tipo_escuela1` FOREIGN KEY (`id_tipo_escuela`) REFERENCES `beca_tipo_escuela` (`id_tipo_escuela`) ON DELETE N)
+27/4/2016;13:30:59;null
+27/4/2016;13:31:13;SQLError: 23000
+27/4/2016;13:31:13;ERROR: Code1452
+27/4/2016;13:31:13;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_datos_escolares`, CONSTRAINT `fk_beca_datos_escolares_beca_tipo_escuela1` FOREIGN KEY (`id_tipo_escuela`) REFERENCES `beca_tipo_escuela` (`id_tipo_escuela`) ON DELETE N)
+27/4/2016;13:31:14;null
+27/4/2016;13:32:30;SQLError: 23000
+27/4/2016;13:32:30;ERROR: Code1452
+27/4/2016;13:32:30;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_datos_escolares`, CONSTRAINT `fk_beca_datos_escolares_beca_tipo_escuela1` FOREIGN KEY (`id_tipo_escuela`) REFERENCES `beca_tipo_escuela` (`id_tipo_escuela`) ON DELETE N)
+27/4/2016;13:32:32;null
+27/4/2016;13:34:3;SQLError: 23000
+27/4/2016;13:34:3;ERROR: Code1452
+27/4/2016;13:34:3;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_datos_escolares`, CONSTRAINT `fk_beca_datos_escolares_beca_tipo_escuela1` FOREIGN KEY (`id_tipo_escuela`) REFERENCES `beca_tipo_escuela` (`id_tipo_escuela`) ON DELETE N)
+27/4/2016;13:34:4;null
+27/4/2016;13:34:26;SQLError: 23000
+27/4/2016;13:34:26;ERROR: Code1452
+27/4/2016;13:34:26;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_datos_escolares`, CONSTRAINT `fk_beca_datos_escolares_beca_tipo_escuela1` FOREIGN KEY (`id_tipo_escuela`) REFERENCES `beca_tipo_escuela` (`id_tipo_escuela`) ON DELETE N)
+27/4/2016;13:34:27;null
+27/4/2016;13:35:1;SQLError: 23000
+27/4/2016;13:35:1;ERROR: Code1452
+27/4/2016;13:35:1;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_datos_escolares`, CONSTRAINT `fk_beca_datos_escolares_beca_tipo_escuela1` FOREIGN KEY (`id_tipo_escuela`) REFERENCES `beca_tipo_escuela` (`id_tipo_escuela`) ON DELETE N)
+27/4/2016;13:35:2;null
+27/4/2016;13:46:57;SQLError: 23000
+27/4/2016;13:46:57;ERROR: Code1452
+27/4/2016;13:46:57;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_datos_escolares`, CONSTRAINT `fk_beca_datos_escolares_beca_tipo_escuela1` FOREIGN KEY (`id_tipo_escuela`) REFERENCES `beca_tipo_escuela` (`id_tipo_escuela`) ON DELETE N)
+27/4/2016;13:46:58;null
+27/4/2016;13:52:41;SQLError: 23000
+27/4/2016;13:52:41;ERROR: Code1452
+27/4/2016;13:52:41;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_datos_escolares`, CONSTRAINT `fk_beca_datos_escolares_beca_tipo_escuela1` FOREIGN KEY (`id_tipo_escuela`) REFERENCES `beca_tipo_escuela` (`id_tipo_escuela`) ON DELETE N)
+27/4/2016;13:52:42;null
+27/4/2016;13:55:9;SQLError: 23000
+27/4/2016;13:55:9;ERROR: Code1452
+27/4/2016;13:55:9;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_datos_escolares`, CONSTRAINT `fk_beca_datos_escolares_beca_tipo_escuela1` FOREIGN KEY (`id_tipo_escuela`) REFERENCES `beca_tipo_escuela` (`id_tipo_escuela`) ON DELETE N)
+27/4/2016;13:55:10;null
+27/4/2016;13:55:27;SQLError: 23000
+27/4/2016;13:55:27;ERROR: Code1452
+27/4/2016;13:55:27;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_datos_escolares`, CONSTRAINT `fk_beca_datos_escolares_beca_tipo_escuela1` FOREIGN KEY (`id_tipo_escuela`) REFERENCES `beca_tipo_escuela` (`id_tipo_escuela`) ON DELETE N)
+27/4/2016;13:55:27;null
+27/4/2016;13:56:7;Nombre de categoria no encontrado
+27/4/2016;13:56:7;Nombre de categoria no encontrado
