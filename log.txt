@@ -836,3 +836,13 @@
 26/4/2016;18:7:29;ERROR: Code1452
 26/4/2016;18:7:29;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_datos_escolares`, CONSTRAINT `fk_beca_datos_escolares_beca_tipo_escuela1` FOREIGN KEY (`id_tipo_escuela`) REFERENCES `beca_tipo_escuela` (`id_tipo_escuela`) ON DELETE N)
 26/4/2016;18:7:30;null
+26/4/2016;21:45:1;/becarios/HIS-01
+26/4/2016;21:45:1;No se pudo copiar el archivo Fe_de_erratas_2da_Edicion.pdf    /becarios/HIS-01/boleta_inicial-HIS-01.pdf
+26/4/2016;21:46:29;/becarios/HIS-01
+26/4/2016;21:47:1;No se pudo copiar el archivo 12-05-2015 CV Sergio Betancourt.pdf    /becarios/HIS-01/boleta_inicial-HIS-01.pdf
+26/4/2016;21:48:1;/becarios/HIS-01
+26/4/2016;21:48:22;No se pudo copiar el archivo 12-05-2015 CV Sergio Betancourt.pdf    /home/sabagip/SIBEC/becarios/HIS-01/boleta_inicial-HIS-01.pdf
+26/4/2016;21:49:27;/becarios/HIS-01
+26/4/2016;21:49:31;No se pudo copiar el archivo 12-05-2015 CV Sergio Betancourt.pdf    /home/sabagip/SIBEC/becarios/HIS-01/boleta_inicial-HIS-01.pdf
+26/4/2016;21:50:7;/becarios/HIS-01
+26/4/2016;21:50:34;No se pudo copiar el archivo 12-05-2015 CV Sergio Betancourt.pdf    /home/sabagip/SIBEC/becarios/HIS-01/boleta_inicial-HIS-01.pdf

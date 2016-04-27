@@ -238,23 +238,22 @@ public class Helper {
     /**
      * Crea la ruta del archivo y lo guarda
      * @param folioBecario Folio que tendrá el becario
-     * @param tipoDocumento Tipo de documento que se guardará
+     * @param tipoDocumento Tipo de documento que se guardará (actaNacimienot = acta-, Pagaré = pagare-)
      * @param archivo Archivo que se pretende copiar
      * @return Archivo con los datos de 
      */
     public Path CopiaArchivoADestino(String folioBecario, String tipoDocumento, File archivo){
-        String sistemaOperativo = System.getProperty("os.name");
-        String rutaPrincipal = null;
-        String separador = System.getProperty("file.separator");
+        //String sistemaOperativo = System.getProperty("os.name");
+        //String rutaPrincipal = null;
+        //String separador = System.getProperty("file.separator");
         String extension = archivo.getName().substring(archivo.getName().length() - 4, archivo.getName().length());
         
-        rutaPrincipal = System.getProperty("user.home") + separador + "becas" + separador + "becarios" + separador;
         //Se verifica si ya existe el directorio del nuevo becario y si no, lo crea
-        verificaDirectorio(Paths.get(rutaPrincipal + folioBecario));
+        verificaDirectorio(Paths.get(Index.RUTA_BASE + Index.RUTA_SISTEMA + folioBecario));
         
         
         Path de = Paths.get(archivo.getAbsolutePath());
-        Path a = Paths.get(rutaPrincipal + folioBecario + separador + tipoDocumento + folioBecario + extension);
+        Path a = Paths.get(Index.RUTA_BASE + Index.RUTA_SISTEMA + folioBecario + Index.SEPARADOR + tipoDocumento + folioBecario + extension);
         try {
             Files.copy(de, a, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException ex) {
@@ -281,7 +280,7 @@ public class Helper {
     public void validaRutaInicial() {
         String sistemaOperativo = System.getProperty("os.name");
         //String rutaPrincipal = "";
-        String separador = System.getProperty("file.separator");
+        Index.SEPARADOR = System.getProperty("file.separator");
         //String homeUsuario = System.getProperty("user.home");
         System.out.println("SO: " + sistemaOperativo);
         
@@ -289,13 +288,14 @@ public class Helper {
             Index.RUTA_BASE = "C:\\SIBEC";
         }
         else if(sistemaOperativo.toUpperCase().contains("LIN")){
-            Index.RUTA_BASE = System.getProperty("user.home") + separador + "SIBEC";
+            Index.RUTA_BASE = System.getProperty("user.home") + Index.SEPARADOR + "SIBEC";
         }
         
-        Index.RUTA_SISTEMA = separador + "becarios" + separador;
+        Index.RUTA_SISTEMA = Index.SEPARADOR + "becarios" + Index.SEPARADOR;
+        Index.RUTA_FINAL =Index.RUTA_BASE + Index.SEPARADOR + Index.RUTA_SISTEMA + Index.SEPARADOR;
                 
         Path pathRutaPrincipal = Paths.get(Index.RUTA_BASE);
-        Path pathRutaSistema =  Paths.get(Index.RUTA_BASE + separador + Index.RUTA_SISTEMA + separador);
+        Path pathRutaSistema =  Paths.get(Index.RUTA_BASE + Index.SEPARADOR + Index.RUTA_SISTEMA + Index.SEPARADOR);
         
         System.out.println("RutaPrincipal: " + pathRutaPrincipal);
         System.out.println("Path becas: "  + pathRutaSistema);

@@ -430,7 +430,7 @@ public class PrincipalControlador {
     }
 
     /**
-     * Carga la fotografía del becario
+     * Elige la fotografía del becario a partir de un JFILECHooser
      */
     protected void cargaFotografia() {
         JFileChooser selector = new JFileChooser();
@@ -444,6 +444,9 @@ public class PrincipalControlador {
         }
     }
     
+    /**
+     * Elige el documento del becario a partir de un JFILECHooser
+     */
     protected File cargaDocumento(File archivo, JLabel lblEstatus){
         JFileChooser selector = new JFileChooser();
         FileNameExtensionFilter filtro = new FileNameExtensionFilter("PDF", "pdf");
@@ -972,7 +975,7 @@ public class PrincipalControlador {
                 return null;
             }
             else{
-                becario.setFoto(path.toString());
+                becario.setFoto(becario.getFolio() + Index.SEPARADOR + path.getFileName().toString());
             }
         }
         
@@ -983,8 +986,8 @@ public class PrincipalControlador {
                 JOptionPane.showMessageDialog(vista, "Error al copiar el acta de nacimiento", "Error", JOptionPane.ERROR_MESSAGE);
                 return null;
             }
-            else{
-                becario.setActaNacimiento(path.toString());
+            else{                
+                becario.setActaNacimiento(becario.getFolio() + Index.SEPARADOR + path.getFileName().toString());
             }
         }
         
@@ -992,11 +995,11 @@ public class PrincipalControlador {
         if(fileBoleta_calificaciones_inicial != null){
             Path path = helper.CopiaArchivoADestino(becario.getFolio(), "boleta_inicial-", fileBoleta_calificaciones_inicial);
             if(path == null){
-                JOptionPane.showMessageDialog(vista, "Error al copiar la bolea", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(vista, "Error al copiar la boleta", "Error", JOptionPane.ERROR_MESSAGE);
                 return null;
             }
             else{
-                becario.setBoletaInicioBeca(path.toString());
+                becario.setBoletaInicioBeca(becario.getFolio() + Index.SEPARADOR + path.getFileName().toString());
             }
         }
         
@@ -1008,7 +1011,7 @@ public class PrincipalControlador {
                 return null;
             }
             else{
-                becario.setSolicitudBeca(path.toString());
+                becario.setSolicitudBeca(becario.getFolio() + Index.SEPARADOR + path.getFileName().toString());
             }
         }
     
@@ -1020,7 +1023,7 @@ public class PrincipalControlador {
                 return null;
             }
             else{
-                becario.setContatoBeca(path.toString());
+                becario.setContatoBeca(becario.getFolio() + Index.SEPARADOR + path.getFileName().toString());
             }
         }
         
@@ -1032,7 +1035,7 @@ public class PrincipalControlador {
                 return null;
             }
             else{
-                becario.setEnsayo(path.toString());
+                becario.setEnsayo(becario.getFolio() + Index.SEPARADOR + path.getFileName().toString());
             }
         }
         
@@ -1044,7 +1047,7 @@ public class PrincipalControlador {
                 return null;
             }
             else{
-                becario.setIdentificacion(path.toString());
+                becario.setIdentificacion(becario.getFolio() + Index.SEPARADOR + path.getFileName().toString());
             }
         }
         
@@ -1056,7 +1059,7 @@ public class PrincipalControlador {
                 return null;
             }
             else{
-                becario.setPagare(path.toString());
+                becario.setPagare(becario.getFolio() + Index.SEPARADOR + path.getFileName().toString());
             }
         }
         
@@ -2022,7 +2025,7 @@ public class PrincipalControlador {
         //Igualdad de archivos y Llenado de ArchivosAdjuntos        
         if(becario.getActaNacimiento() != null){
             fileActaNacimiento = null;
-            fileActaNacimiento = new File(becario.getActaNacimiento());
+            fileActaNacimiento = new File(Index.RUTA_FINAL + becario.getActaNacimiento());
             vistaRegistro.lblEstatusActa.setText(fileActaNacimiento.getName());}
         if(becario.getBoletaInicioBeca() != null){
             fileBoleta_calificaciones_inicial = new File(becario.getBoletaInicioBeca());
@@ -2030,32 +2033,32 @@ public class PrincipalControlador {
         }
         if(becario.getSolicitudBeca() != null){
             fileCarta_solicitud = null;
-            fileCarta_solicitud = new File(becario.getSolicitudBeca());
+            fileCarta_solicitud = new File(Index.RUTA_FINAL + becario.getSolicitudBeca());
             vistaRegistro.lblEstatusCarta.setText(fileCarta_solicitud.getName());
         }
         if(becario.getContatoBeca() != null){
             fileContrato = null;
-            fileContrato = new File(becario.getContatoBeca());
+            fileContrato = new File(Index.RUTA_FINAL + becario.getContatoBeca());
             vistaRegistro.lblEstatusContrato.setText(fileContrato.getName());
         }
         if(becario.getEnsayo() != null){
             fileEnsayo = null;
-            fileEnsayo = new File(becario.getEnsayo());
+            fileEnsayo = new File(Index.RUTA_FINAL + becario.getEnsayo());
             vistaRegistro.lblEstatusEnsayo.setText(fileEnsayo.getName());
         }
         if(lstAval.getIdentificacion() != null){
             fileIneAval = null;
-            fileIneAval = new File(lstAval.getIdentificacion());
+            fileIneAval = new File(Index.RUTA_FINAL + lstAval.getIdentificacion());
             vistaRegistro.lblEstatusINEAval.setText(fileIneAval.getName());
         }
         if(becario.getIdentificacion() != null){
             fileIneBecario = null;
-            fileIneBecario = new File(becario.getIdentificacion());
+            fileIneBecario = new File(Index.RUTA_FINAL + becario.getIdentificacion());
             vistaRegistro.lblEstatusINEBecario.setText(fileIneBecario.getName());
         }
         if(becario.getPagare() != null){
             filePagare = null;
-            filePagare = new File(becario.getPagare());
+            filePagare = new File(Index.RUTA_FINAL + becario.getPagare());
             vistaRegistro.lblEstatusPagare.setText(filePagare.getName());
         }
         

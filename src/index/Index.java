@@ -31,6 +31,21 @@ public class Index {
     
     
     //public static String RUTA_BASE = System.getProperty("user.home");
+    /**
+     * Indica la ruta del servidor donde se alojan los archivos
+     */
     public static String RUTA_BASE = "";
+    /**
+     * Indica la ruta general del sistema, abarca desde la ruta base hasta SIBEC/BECARIOS/
+     */
     public static String RUTA_SISTEMA = "";
+    /**
+     * Indica el separador de archivos del sistema operativo
+     */
+    public static String SEPARADOR = "";
+    
+    /**
+     * Indica la ruta final donde se alojará el sistema
+     */
+    public static String RUTA_FINAL = "";
 }
