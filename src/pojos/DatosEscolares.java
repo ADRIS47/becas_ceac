@@ -69,12 +69,12 @@ public class DatosEscolares {
         this.nombreCarrera = nombreCarrera;
     }
 
-    public int getSemestreInicioBeca() {
+    public int getMesInicioBeca() {
         return mesInicioBeca;
     }
 
-    public void setSemestreInicioBeca(int semestreInicioBeca) {
-        this.mesInicioBeca = semestreInicioBeca;
+    public void setMesInicioBeca(int mesInicioBeca) {
+        this.mesInicioBeca = mesInicioBeca;
     }
 
     public int getAnioInicioBeca() {
@@ -141,20 +141,20 @@ public class DatosEscolares {
         this.idBecario = idBecario;
     }
 
-    public int getMesInicioBeca() {
-        return mesInicioBeca;
-    }
-
-    public void setMesInicioBeca(int mesInicioBeca) {
-        this.mesInicioBeca = mesInicioBeca;
-    }
-
     public int getSemestresTotalesCarrera() {
         return semestresTotalesCarrera;
     }
 
     public void setSemestresTotalesCarrera(int semestresTotalesCarrera) {
         this.semestresTotalesCarrera = semestresTotalesCarrera;
+    }
+
+    public int getSemestreInicioBeca() {
+        return semestreInicioBeca;
+    }
+
+    public void setSemestreInicioBeca(int semestreInicioBeca) {
+        this.semestreInicioBeca = semestreInicioBeca;
     }
 
     public int getIdTipoEscuela() {
