@@ -1533,7 +1533,7 @@ public class PrincipalControlador {
             }
             else if(componente instanceof JPanel && contador <= semestresHabilitados){
                 contador++;
-                deshabilitaSemestresKardex((JPanel) componente, semestresHabilitados, contador);
+                //deshabilitaSemestresKardex((JPanel) componente, semestresHabilitados, contador);
             }
             
             if(contador > semestresHabilitados){

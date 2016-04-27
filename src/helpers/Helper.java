@@ -373,18 +373,25 @@ public class Helper {
      */
     public int getTotalSemestresporHabilitarKardex(int mesInicioBeca, int anioInicioBeca, int semestreInicioBeca, int semestresTotales){
         int response = 0;
-        Calendar inicio = new GregorianCalendar(anioInicioBeca, mesInicioBeca, 1);
+        Calendar inicio = Calendar.getInstance();
+        inicio.set(anioInicioBeca, mesInicioBeca, 1);
+        //System.out.println("Inicio1: " + inicio.getTimeInMillis());
         Calendar hoy = new GregorianCalendar();
+        //System.out.println("hoy1: " + hoy.getTimeInMillis());
         
         //Se calcula la fecha en la que se inició la beca
-        inicio.add(Calendar.MONTH, (semestreInicioBeca * 6));
+        inicio.add(Calendar.MONTH, ((semestreInicioBeca - 1) * 6));
+        //System.out.println("Inicio2: " + inicio.getTimeInMillis());
         
         //Se calculan los semestres que han pasado desde que se inició la beca
-        hoy.add(Calendar.YEAR, - inicio.get(Calendar.YEAR));
-        int semestresTranscurridos = hoy.get(Calendar.YEAR) * 2; 
+        long distancia = hoy.getTimeInMillis() - inicio.getTimeInMillis();
+        long timeStampMesesTranscurridos = hoy.getTimeInMillis() - distancia;
+        System.out.println("Calendario: " + ((distancia / (1000 * 60 * 60 * 24 * 30) * -1)) / 12); 
+        //semestresTranscurridos = ( fecha / (milisegundos * segundos * minutos * horas * dias) * -1) / mesesXAño 
+        int semestresTranscurridos = (int) (distancia / (1000 * 60 * 60 * 24 * 30) * -1) / 12;
         
         if(semestresTranscurridos <= semestresTotales)
-            return semestresTranscurridos;
+            return semestresTranscurridos + 1;
         else
             return semestresTotales + 1;
     }
