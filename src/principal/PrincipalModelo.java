@@ -1051,7 +1051,11 @@ public class PrincipalModelo {
             ps.setString(22, becario.getOcupacionConyuge());
             ps.setString(23, becario.getEstudioSocioEconomico());
             ps.setString(24, becario.getCartaAsignacionBeca());
-            ps.setString(25, becario.getFolio());
+            ps.setInt(25, becario.getIdPrograma());
+            ps.setString(26, becario.getEnsayo());
+            ps.setString(27, becario.getBoletaInicioBeca());
+            ps.setString(28, becario.getPagare());
+            ps.setString(29, becario.getFolio());
             valor = ps.executeUpdate();
             
             if(valor == 0){

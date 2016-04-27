@@ -804,6 +804,10 @@ public class PrincipalControlador {
         }
     }
     
+    /**
+     * Actualiza los datos de la vista registro del becario
+     * 
+     */
     private void updateBecario() {
         Conexion conn = new Conexion();
         Connection conexion = conn.estableceConexion();

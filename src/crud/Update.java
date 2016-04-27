@@ -43,7 +43,10 @@ public class Update {
             + Becario.COL_ACTA_NAC + " = ?, " + Becario.COL_SOLICITUD_BECA + "= ?, "
             + Becario.COL_CONTRATO_BECA + " = ?, " + Becario.COL_IDENTIFICACION + "= ?, "
             + Becario.COL_FOLIO + " = ?, " + Becario.COL_OCUPACION_CONYUGE + " = ?, "
-            + Becario.COL_ESTUDIO_SOCIOECONOMICO + " = ?, " + Becario.COL_CARTA_ASIGNACION_BECA + " = ? "
+            + Becario.COL_ESTUDIO_SOCIOECONOMICO + " = ?, " + Becario.COL_CARTA_ASIGNACION_BECA + " = ?, "
+            ///////////////////////////////////////////////
+            + Becario.COL_PROGRAMA + " = ?, " + Becario.COL_ENSAYO + " = ?, "
+            + Becario.COL_BOLETA_INICIO_BECA + " = ?, " + Becario.COL_PAGARE + " = ? "
             + "WHERE " + Becario.COL_FOLIO + " = ?";
     
     /**
