@@ -103,7 +103,8 @@ public class Update {
             + DatosEscolares.COL_MES_GRADUACION + " = ?, " + DatosEscolares.COL_ANIO_GRADUACION + " = ?, "
             + DatosEscolares.COL_SEMESTRES_TOTALES_BECA + " = ?, " + DatosEscolares.COL_SEMESTRE_INICIO_BECA + " = ?, "
             + DatosEscolares.COL_COSTO_CARRERA + " = ?, " + DatosEscolares.COL_BECA_TOTAL + " = ?, "
-            + DatosEscolares.COL_BECA_SEMESTRAL + " = ?, " + DatosEscolares.COL_CONDICIONADO + " = ? "
+            + DatosEscolares.COL_BECA_SEMESTRAL + " = ?, " + DatosEscolares.COL_CONDICIONADO + " = ?, "
+            + DatosEscolares.COL_ID_TIPO_ESCUELA + " = ? "
             + "WHERE " + Hijos.COL_ID_BECARIO + " = ?";
     
     /**

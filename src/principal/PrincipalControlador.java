@@ -90,6 +90,7 @@ public class PrincipalControlador {
     LinkedHashMap<Integer, String> catCampoEstudio = null;
     LinkedHashMap<Integer, String> catEstatus = null;
     LinkedHashMap<Integer, String> catBancos = null;
+    LinkedHashMap<Integer, String> catTipoEscuela = null;
     
     List<PnlHijos> lstVistaHijos = new ArrayList<>();
     List<PnlHermanos> lstVistaHermanos = new ArrayList<>();
@@ -296,6 +297,7 @@ public class PrincipalControlador {
         catCampoEstudio = lstCategorias.get(6);
         catEstatus = lstCategorias.get(7);
         catBancos = lstCategorias.get(8);
+        catTipoEscuela = lstCategorias.get(9);
         
         llenaComboCategorias(vistaRegistro.combobxCivilBecado, catEstadoCivil);
         llenaComboCategorias(vistaRegistro.comboBoxPrograma, catPrograma);
@@ -305,6 +307,7 @@ public class PrincipalControlador {
         llenaComboCategorias(lstVistaParentesco.get(0).cmbParentesco, catParentesco);
         llenaComboCategorias(vistaRegistro.cmboxEscuelaUniversitaria, catUniversidad);
         llenaComboCategorias(vistaRegistro.cmboxCampoEscuela, catCampoEstudio);
+        llenaComboCategorias(vistaRegistro.cmbTipoEscuela, catTipoEscuela);
         
         if(bandera){
             vistaRegistro.cmbEstatus.removeAllItems();
@@ -1276,7 +1279,10 @@ public class PrincipalControlador {
         //Se asigna la universidad
         datos.setIdUniversidad(getIdCmbBox(universidad, catUniversidad));
         
-
+        //Se obtiene si la universidad es publica o privada
+        String tipoEscuela = (String) vistaRegistro.cmbTipoEscuela.getSelectedItem();
+        
+        datos.setIdTipoEscuela(getIdCmbBox(tipoEscuela, catTipoEscuela));
         //Se obtiene el nombre de la preparatoria
         datos.setEscuelaProcedencia(vistaRegistro.txtEscuelaProcedencia.getText());
         
@@ -2025,6 +2031,7 @@ public class PrincipalControlador {
         vistaRegistro.txtBecaAutorizada.setText(lstDatosEscolares.getBecaTotal() + "");
         vistaRegistro.txtBecaPorSemestre.setText(lstDatosEscolares.getBecaSemestral() + "");
         vistaRegistro.txtAreaObservaciones.setText(becario.getObservaciones());
+        vistaRegistro.cmbTipoEscuela.setSelectedItem(getItemComboBox(lstDatosEscolares.getIdTipoEscuela(), catTipoEscuela));
         
         //Igualdad de archivos y Llenado de ArchivosAdjuntos        
         if(becario.getActaNacimiento() != null){

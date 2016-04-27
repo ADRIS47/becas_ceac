@@ -106,10 +106,11 @@ public class Insert {
             + DatosEscolares.COL_SEMESTRES_TOTALES_BECA + ", " + DatosEscolares.COL_SEMESTRE_INICIO_BECA + ", "
             + DatosEscolares.COL_COSTO_CARRERA + ", " + DatosEscolares.COL_BECA_TOTAL + ", "
             + DatosEscolares.COL_BECA_SEMESTRAL + ", " + DatosEscolares.COL_CONDICIONADO + ", "
-            + DatosEscolares.COL_ID_BECARIO + ") "
+            + DatosEscolares.COL_ID_BECARIO + ", " + DatosEscolares.COL_ID_TIPO_ESCUELA + ") "
             + "VALUES (?,?,?,?,?,"
                         + "?,?,?,?,?,"
-                        + "?,?,?,?,?)";
+                        + "?,?,?,?,?,"
+                        + "?)";
     
     /**
      * Inserta el aval del becario

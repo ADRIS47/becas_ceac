@@ -27,6 +27,7 @@ public class DatosEscolares {
     long idBecario;
     int semestresTotalesCarrera;
     int semestreInicioBeca;
+    int idTipoEscuela;
 
     public long getId() {
         return id;
@@ -155,9 +156,14 @@ public class DatosEscolares {
     public void setSemestresTotalesCarrera(int semestresTotalesCarrera) {
         this.semestresTotalesCarrera = semestresTotalesCarrera;
     }
-    
-    
-    
+
+    public int getIdTipoEscuela() {
+        return idTipoEscuela;
+    }
+
+    public void setIdTipoEscuela(int idTipoEscuela) {
+        this.idTipoEscuela = idTipoEscuela;
+    }
     
     public static final String COL_ID = "id_dato_escolar";
     public static final String COL_ESCUELA_PROCEDENCIA = "escuela_procedencia";
@@ -175,6 +181,7 @@ public class DatosEscolares {
     public static final String COL_ID_BECARIO = "id_becario";
     public static final String COL_SEMESTRES_TOTALES_BECA = "semestres_totales_carrera";
     public static final String COL_SEMESTRE_INICIO_BECA = "semestre_inicio_beca";
+    public static final String COL_ID_TIPO_ESCUELA = "id_tipo_escuela";
     
     
 }

@@ -859,3 +859,16 @@
 27/4/2016;9:18:18;No se pudo copiar el archivo boleta_inicial-HIS-01.pdf    /media/sergio/Windows7_OS/Users/Sergio Betancourt/Documents/NetBeansProjects/freelance/becas_ceac/HIS-01/boleta_inicial-HIS-01.pdf
 27/4/2016;9:19:3;No se pudo copiar el archivo boleta_inicial-HIS-01.pdf    /media/sergio/Windows7_OS/Users/Sergio Betancourt/Documents/NetBeansProjects/freelance/becas_ceac/HIS-01/boleta_inicial-HIS-01.pdf
 27/4/2016;9:23:49;No se pudo copiar el archivo boleta_inicial-HIS-01.pdf    /media/sergio/Windows7_OS/Users/Sergio Betancourt/Documents/NetBeansProjects/freelance/becas_ceac/HIS-01/boleta_inicial-HIS-01.pdf
+27/4/2016;9:50:14;SQLError: 42S22
+27/4/2016;9:50:14;ERROR: Code1054
+27/4/2016;9:50:14;Message: Unknown column 'nombre' in 'field list'
+27/4/2016;10:1:7;Nombre de categoria no encontrado
+27/4/2016;10:1:16;Nombre de categoria no encontrado
+27/4/2016;10:1:58;SQLError: 23000
+27/4/2016;10:1:58;ERROR: Code1452
+27/4/2016;10:1:58;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_datos_escolares`, CONSTRAINT `fk_beca_datos_escolares_1` FOREIGN KEY (`id_tipo_escuela`) REFERENCES `beca_tipo_escuela` (`id_tipo_escuela`) ON DELETE NO ACTION ON UPDAT)
+27/4/2016;10:1:59;null
+27/4/2016;10:4:31;Nombre de categoria no encontrado
+27/4/2016;10:4:41;Nombre de categoria no encontrado
+27/4/2016;10:9:7;Nombre de categoria no encontrado
+27/4/2016;10:10:32;Nombre de categoria no encontrado
