@@ -31,6 +31,7 @@ public class Conexion {
             DriverManager.setLoginTimeout(5);
             //conexion = DriverManager.getConnection(url, "becas_root", "HLSyznYWS6");
             conexion = DriverManager.getConnection(url, "root", "xxx.1234");
+            //conexion = DriverManager.getConnection(url, "root", "HsSLgx0kYCA");
             if (conexion !=null){
                 System.out.println("Conexión a base de datos … Ok");
             }
