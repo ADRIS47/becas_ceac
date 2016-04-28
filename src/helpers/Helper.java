@@ -5,6 +5,7 @@
  */
 package helpers;
 
+import index.Index;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Desktop;
@@ -237,23 +238,20 @@ public class Helper {
     /**
      * Crea la ruta del archivo y lo guarda
      * @param folioBecario Folio que tendrá el becario
-     * @param tipoDocumento Tipo de documento que se guardará
+     * @param tipoDocumento Tipo de documento que se guardará (actaNacimienot = acta-, Pagaré = pagare-)
      * @param archivo Archivo que se pretende copiar
      * @return Archivo con los datos de 
      */
     public Path CopiaArchivoADestino(String folioBecario, String tipoDocumento, File archivo){
-        String sistemaOperativo = System.getProperty("os.name");
-        String rutaPrincipal = null;
-        String separador = System.getProperty("file.separator");
+        
         String extension = archivo.getName().substring(archivo.getName().length() - 4, archivo.getName().length());
         
-        rutaPrincipal = System.getProperty("user.home") + separador + "becas" + separador + "becarios" + separador;
         //Se verifica si ya existe el directorio del nuevo becario y si no, lo crea
-        verificaDirectorio(Paths.get(rutaPrincipal + folioBecario));
+        verificaDirectorio(Paths.get(Index.RUTA_BASE + Index.RUTA_SISTEMA + folioBecario));
         
         
         Path de = Paths.get(archivo.getAbsolutePath());
-        Path a = Paths.get(rutaPrincipal + folioBecario + separador + tipoDocumento + folioBecario + extension);
+        Path a = Paths.get(Index.RUTA_BASE + Index.RUTA_SISTEMA + folioBecario + Index.SEPARADOR + tipoDocumento + folioBecario + extension);
         try {
             Files.copy(de, a, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException ex) {
@@ -279,33 +277,39 @@ public class Helper {
 
     public void validaRutaInicial() {
         String sistemaOperativo = System.getProperty("os.name");
-        String rutaPrincipal = null;
-        String separador = System.getProperty("file.separator");
-        String homeUsuario = System.getProperty("user.home");
+        //String rutaPrincipal = "";
+        Index.SEPARADOR = System.getProperty("file.separator");
+        //String homeUsuario = System.getProperty("user.home");
         System.out.println("SO: " + sistemaOperativo);
         
-        rutaPrincipal = System.getProperty("user.home") + separador + "becas" + separador + "becarios" + separador;
+        if(sistemaOperativo.toUpperCase().contains("WIN")){
+            Index.RUTA_BASE = "C:\\SIBEC";
+        }
+        else if(sistemaOperativo.toUpperCase().contains("LIN")){
+            Index.RUTA_BASE = System.getProperty("user.home") + Index.SEPARADOR + "SIBEC";
+        }
         
-        Path pathRutaPrincipal = Paths.get(homeUsuario);
-        Path pathRutaBecas =  Paths.get(pathRutaPrincipal + separador + "becas");
-        Path pathRutaBecarios =  Paths.get(pathRutaPrincipal + separador + "becas" + separador + "becarios");
+        Index.RUTA_SISTEMA = Index.SEPARADOR + "becarios" + Index.SEPARADOR;
+        Index.RUTA_FINAL =Index.RUTA_BASE + Index.SEPARADOR + Index.RUTA_SISTEMA + Index.SEPARADOR;
+                
+        Path pathRutaPrincipal = Paths.get(Index.RUTA_BASE);
+        Path pathRutaSistema =  Paths.get(Index.RUTA_BASE + Index.SEPARADOR + Index.RUTA_SISTEMA + Index.SEPARADOR);
         
         System.out.println("RutaPrincipal: " + pathRutaPrincipal);
-        System.out.println("Path becas: "  + pathRutaBecas);
-        System.out.println("Path becarios: "  + pathRutaBecarios );
+        System.out.println("Path becas: "  + pathRutaSistema);
         
-        if(!Files.exists(Paths.get(pathRutaBecas.toString()))){
+        if(!Files.exists(pathRutaPrincipal)){
             try {
-                Files.createDirectory(Paths.get(pathRutaBecas.toString()));
+                Files.createDirectory(pathRutaPrincipal);
             } catch (IOException ex) {
                 log.crearLog(ex.getMessage());
                 Logger.getLogger(Helper.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         
-        if(!Files.exists(Paths.get(pathRutaBecarios.toString()))){
+        if(!Files.exists(pathRutaSistema)){
             try {
-                Files.createDirectory(Paths.get(pathRutaBecarios.toString()));
+                Files.createDirectory(pathRutaSistema);
             } catch (IOException ex) {
                 log.crearLog(ex.getMessage());
                 Logger.getLogger(Helper.class.getName()).log(Level.SEVERE, null, ex);
@@ -369,19 +373,33 @@ public class Helper {
      */
     public int getTotalSemestresporHabilitarKardex(int mesInicioBeca, int anioInicioBeca, int semestreInicioBeca, int semestresTotales){
         int response = 0;
-        Calendar inicio = new GregorianCalendar(anioInicioBeca, mesInicioBeca, 1);
+        Calendar inicio = Calendar.getInstance();
+        inicio.set(anioInicioBeca, mesInicioBeca, 1);
+        //System.out.println("Inicio1: " + inicio.getTimeInMillis());
         Calendar hoy = new GregorianCalendar();
+        //System.out.println("hoy1: " + hoy.getTimeInMillis());
         
         //Se calcula la fecha en la que se inició la beca
-        inicio.add(Calendar.MONTH, (semestreInicioBeca * 6));
+        inicio.add(Calendar.MONTH, ((semestreInicioBeca - 1) * 6));
+        //System.out.println("Inicio2: " + inicio.getTimeInMillis());
         
         //Se calculan los semestres que han pasado desde que se inició la beca
-        hoy.add(Calendar.YEAR, - inicio.get(Calendar.YEAR));
-        int semestresTranscurridos = hoy.get(Calendar.YEAR) * 2; 
+        long distancia = hoy.getTimeInMillis() - inicio.getTimeInMillis();
+        //System.out.println("Semestres: " + ((distancia / (1000 * 60 * 60 * 24 * 30) * -1)) / -12); 
+        //semestresTranscurridos = ( fecha / (milisegundos * segundos * minutos * horas * dias) * -1) / mesesXAño 
+        int semestresTranscurridos = (int) (distancia / (1000 * 60 * 60 * 24 * 30)) / -12;
+        
+        if(semestresTranscurridos > 2){
+            semestresTranscurridos++;
+        }
         
         if(semestresTranscurridos <= semestresTotales)
-            return semestresTranscurridos;
+            return semestresTranscurridos + 1;
         else
             return semestresTotales + 1;
+    }
+
+    public void tomaRutaBase() {
+        
     }
 }
