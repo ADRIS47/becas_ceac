@@ -2468,8 +2468,26 @@ public class PrincipalModelo {
             if(totalKardex == 0){
                 for (Kardex kardex : lstKardex) {
                     ps = conexion.prepareStatement(Insert.insertKardexBecario);
-                    
+                    ps.setInt(1, kardex.getNum_semestre());
+                    ps.setBoolean(2, kardex.isPago_inicio_semestre());
+                    ps.setBoolean(3, kardex.isPago_fin_semestre());
+                    ps.setBoolean(4, kardex.isPlatica1());
+                    ps.setBoolean(5, kardex.isPlatica2());
+                    ps.setFloat(6, kardex.getPromedio());
+                    ps.setFloat(7, kardex.getDescuento());
+                    ps.setInt(8, kardex.getIdServicioComunitario());
+                    ps.setString(9, kardex.getLugarServicioComunitario());
+                    ps.setString(10, kardex.getBoleta());
+                    ps.setString(11, kardex.getCarta_servicio_comunitario());
+                    ps.setBoolean(12, kardex.isPago_extra());
+                    ps.setInt(13, kardex.getHorasServicio());
+                    ps.setLong(14, idBecario);
+                    int result = ps.executeUpdate();
+                    if(result == 0){
+                        return response;
+                    }
                 }
+                response = true;
             }
             
         }

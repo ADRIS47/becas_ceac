@@ -127,5 +127,12 @@ public class Insert {
             + "(" + Kardex.COL_NUM_SEMESTRE + ", " + Kardex.COL_PAGO_INICIO_SEMESTRE + ", "
             + Kardex.COL_PAGO_FIN_SEMESTRE + ", " + Kardex.COL_PLATICA_1 + ", "
             + Kardex.COL_PLATICA_2 + ", " + Kardex.COL_PROMEDIO + ", "
-            + Kardex.COL_DESCUENTO + ", " + Kardex.COL_ID_SERVICIO_COMUNITARIO + ", ";
+            + Kardex.COL_DESCUENTO + ", " + Kardex.COL_ID_SERVICIO_COMUNITARIO + ", "
+            + Kardex.COL_LUGAR_SERVICIO_COMUNITARIO + ", " + Kardex.COL_BOLETA + ", "
+            + Kardex.COL_CARTA_SERVICIO_COMUNITARIO + ", " + Kardex.COL_PAGO_EXTRA + ", "
+            + Kardex.COL_HORAS_SERVICIO + ", " + Kardex.COL_ID_BECARIO + ") "
+            + "VALUES (" 
+            + "?,?,?,?,?,"
+            + "?,?,?,?,?,"
+            + "?,?,?,?)";
 }

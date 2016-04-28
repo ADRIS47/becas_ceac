@@ -2278,6 +2278,12 @@ public class PrincipalControlador {
             
             //Se procede a insertar o actualizar el kardex del becario
             response = modelo.insertOrUpdateKardexBecario(conexion, lstKardex, becario.getId());
+            //Se verifica que se actualizaron los datos bancarios
+            if(response == false){
+                JOptionPane.showMessageDialog(vistaKardex, "No se pudo actualizar el kardex del becario, intentelo más tarde", "Error", JOptionPane.ERROR_MESSAGE);
+                conexion.rollback();
+                return;
+            }
             conexion.commit();
             JOptionPane.showMessageDialog(vistaKardex, "¡Kardex actualizado!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             
