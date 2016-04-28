@@ -819,6 +819,7 @@
 26/4/2016;12:53:3;Nombre de categoria no encontrado
 26/4/2016;12:54:4;Nombre de categoria no encontrado
 26/4/2016;12:54:40;Nombre de categoria no encontrado
+26/4/2016;14:55:10;Nombre de categoria no encontrado
 26/4/2016;13:49:58;Nombre de categoria no encontrado
 26/4/2016;13:51:8;Nombre de categoria no encontrado
 26/4/2016;14:31:3;Nombre de categoria no encontrado
@@ -826,6 +827,7 @@
 26/4/2016;14:31:7;Nombre de categoria no encontrado
 26/4/2016;14:32:16;Nombre de categoria no encontrado
 26/4/2016;14:32:56;Nombre de categoria no encontrado
+26/4/2016;15:1:26;Nombre de categoria no encontrado
 26/4/2016;15:7:16;Nombre de categoria no encontrado
 26/4/2016;15:10:33;Nombre de categoria no encontrado
 26/4/2016;18:6:53;SQLError: 23000
@@ -846,3 +848,176 @@
 26/4/2016;21:49:31;No se pudo copiar el archivo 12-05-2015 CV Sergio Betancourt.pdf    /home/sabagip/SIBEC/becarios/HIS-01/boleta_inicial-HIS-01.pdf
 26/4/2016;21:50:7;/becarios/HIS-01
 26/4/2016;21:50:34;No se pudo copiar el archivo 12-05-2015 CV Sergio Betancourt.pdf    /home/sabagip/SIBEC/becarios/HIS-01/boleta_inicial-HIS-01.pdf
+27/4/2016;9:1:45;No se pudo copiar el archivo boleta_inicial-HIS-01.pdf    /media/sergio/Windows7_OS/Users/Sergio Betancourt/Documents/NetBeansProjects/freelance/becas_ceac/HIS-01/boleta_inicial-HIS-01.pdf
+27/4/2016;9:2:50;No se pudo copiar el archivo boleta_inicial-HIS-01.pdf    /media/sergio/Windows7_OS/Users/Sergio Betancourt/Documents/NetBeansProjects/freelance/becas_ceac/HIS-01/boleta_inicial-HIS-01.pdf
+27/4/2016;9:3:18;No se pudo copiar el archivo boleta_inicial-HIS-01.pdf    /media/sergio/Windows7_OS/Users/Sergio Betancourt/Documents/NetBeansProjects/freelance/becas_ceac/HIS-01/boleta_inicial-HIS-01.pdf
+27/4/2016;9:4:56;No se pudo copiar el archivo boleta_inicial-HIS-01.pdf    /media/sergio/Windows7_OS/Users/Sergio Betancourt/Documents/NetBeansProjects/freelance/becas_ceac/HIS-01/boleta_inicial-HIS-01.pdf
+27/4/2016;9:10:14;No se pudo copiar el archivo boleta_inicial-HIS-01.pdf    /media/sergio/Windows7_OS/Users/Sergio Betancourt/Documents/NetBeansProjects/freelance/becas_ceac/HIS-01/boleta_inicial-HIS-01.pdf
+27/4/2016;9:15:0;No se pudo copiar el archivo boleta_inicial-HIS-01.pdf    /media/sergio/Windows7_OS/Users/Sergio Betancourt/Documents/NetBeansProjects/freelance/becas_ceac/HIS-01/boleta_inicial-HIS-01.pdf
+27/4/2016;9:16:52;No se pudo copiar el archivo boleta_inicial-HIS-01.pdf    /media/sergio/Windows7_OS/Users/Sergio Betancourt/Documents/NetBeansProjects/freelance/becas_ceac/HIS-01/boleta_inicial-HIS-01.pdf
+27/4/2016;9:17:59;No se pudo copiar el archivo boleta_inicial-HIS-01.pdf    /media/sergio/Windows7_OS/Users/Sergio Betancourt/Documents/NetBeansProjects/freelance/becas_ceac/HIS-01/boleta_inicial-HIS-01.pdf
+27/4/2016;9:18:18;No se pudo copiar el archivo boleta_inicial-HIS-01.pdf    /media/sergio/Windows7_OS/Users/Sergio Betancourt/Documents/NetBeansProjects/freelance/becas_ceac/HIS-01/boleta_inicial-HIS-01.pdf
+27/4/2016;9:19:3;No se pudo copiar el archivo boleta_inicial-HIS-01.pdf    /media/sergio/Windows7_OS/Users/Sergio Betancourt/Documents/NetBeansProjects/freelance/becas_ceac/HIS-01/boleta_inicial-HIS-01.pdf
+27/4/2016;9:23:49;No se pudo copiar el archivo boleta_inicial-HIS-01.pdf    /media/sergio/Windows7_OS/Users/Sergio Betancourt/Documents/NetBeansProjects/freelance/becas_ceac/HIS-01/boleta_inicial-HIS-01.pdf
+27/4/2016;9:50:14;SQLError: 42S22
+27/4/2016;9:50:14;ERROR: Code1054
+27/4/2016;9:50:14;Message: Unknown column 'nombre' in 'field list'
+27/4/2016;10:1:7;Nombre de categoria no encontrado
+27/4/2016;10:1:16;Nombre de categoria no encontrado
+27/4/2016;10:1:58;SQLError: 23000
+27/4/2016;10:1:58;ERROR: Code1452
+27/4/2016;10:1:58;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_datos_escolares`, CONSTRAINT `fk_beca_datos_escolares_1` FOREIGN KEY (`id_tipo_escuela`) REFERENCES `beca_tipo_escuela` (`id_tipo_escuela`) ON DELETE NO ACTION ON UPDAT)
+27/4/2016;10:1:59;null
+27/4/2016;10:4:31;Nombre de categoria no encontrado
+27/4/2016;10:4:41;Nombre de categoria no encontrado
+27/4/2016;10:9:7;Nombre de categoria no encontrado
+27/4/2016;10:10:32;Nombre de categoria no encontrado
+27/4/2016;12:47:50;Nombre de categoria no encontrado
+27/4/2016;12:47:50;Nombre de categoria no encontrado
+27/4/2016;12:53:48;Nombre de categoria no encontrado
+27/4/2016;13:2:56;Nombre de categoria no encontrado
+27/4/2016;13:23:18;Nombre de categoria no encontrado
+27/4/2016;13:23:37;Nombre de categoria no encontrado
+27/4/2016;13:23:44;Nombre de categoria no encontrado
+27/4/2016;13:23:44;Nombre de categoria no encontrado
+27/4/2016;13:23:44;Nombre de categoria no encontrado
+27/4/2016;13:24:0;Nombre de categoria no encontrado
+27/4/2016;13:24:3;Nombre de categoria no encontrado
+27/4/2016;13:24:3;Nombre de categoria no encontrado
+27/4/2016;13:24:3;Nombre de categoria no encontrado
+27/4/2016;13:24:27;Nombre de categoria no encontrado
+27/4/2016;13:24:31;Nombre de categoria no encontrado
+27/4/2016;13:24:31;Nombre de categoria no encontrado
+27/4/2016;13:24:31;Nombre de categoria no encontrado
+27/4/2016;13:24:38;Nombre de categoria no encontrado
+27/4/2016;13:24:45;Nombre de categoria no encontrado
+27/4/2016;13:24:45;Nombre de categoria no encontrado
+27/4/2016;13:24:45;Nombre de categoria no encontrado
+27/4/2016;13:24:49;Nombre de categoria no encontrado
+27/4/2016;13:28:26;SQLError: 23000
+27/4/2016;13:28:26;ERROR: Code1452
+27/4/2016;13:28:26;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_datos_escolares`, CONSTRAINT `fk_beca_datos_escolares_beca_tipo_escuela1` FOREIGN KEY (`id_tipo_escuela`) REFERENCES `beca_tipo_escuela` (`id_tipo_escuela`) ON DELETE N)
+27/4/2016;13:28:28;null
+27/4/2016;13:28:46;SQLError: 23000
+27/4/2016;13:28:46;ERROR: Code1452
+27/4/2016;13:28:46;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_datos_escolares`, CONSTRAINT `fk_beca_datos_escolares_beca_tipo_escuela1` FOREIGN KEY (`id_tipo_escuela`) REFERENCES `beca_tipo_escuela` (`id_tipo_escuela`) ON DELETE N)
+27/4/2016;13:28:47;null
+27/4/2016;13:30:56;SQLError: 23000
+27/4/2016;13:30:56;ERROR: Code1452
+27/4/2016;13:30:56;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_datos_escolares`, CONSTRAINT `fk_beca_datos_escolares_beca_tipo_escuela1` FOREIGN KEY (`id_tipo_escuela`) REFERENCES `beca_tipo_escuela` (`id_tipo_escuela`) ON DELETE N)
+27/4/2016;13:30:59;null
+27/4/2016;13:31:13;SQLError: 23000
+27/4/2016;13:31:13;ERROR: Code1452
+27/4/2016;13:31:13;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_datos_escolares`, CONSTRAINT `fk_beca_datos_escolares_beca_tipo_escuela1` FOREIGN KEY (`id_tipo_escuela`) REFERENCES `beca_tipo_escuela` (`id_tipo_escuela`) ON DELETE N)
+27/4/2016;13:31:14;null
+27/4/2016;13:32:30;SQLError: 23000
+27/4/2016;13:32:30;ERROR: Code1452
+27/4/2016;13:32:30;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_datos_escolares`, CONSTRAINT `fk_beca_datos_escolares_beca_tipo_escuela1` FOREIGN KEY (`id_tipo_escuela`) REFERENCES `beca_tipo_escuela` (`id_tipo_escuela`) ON DELETE N)
+27/4/2016;13:32:32;null
+27/4/2016;13:34:3;SQLError: 23000
+27/4/2016;13:34:3;ERROR: Code1452
+27/4/2016;13:34:3;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_datos_escolares`, CONSTRAINT `fk_beca_datos_escolares_beca_tipo_escuela1` FOREIGN KEY (`id_tipo_escuela`) REFERENCES `beca_tipo_escuela` (`id_tipo_escuela`) ON DELETE N)
+27/4/2016;13:34:4;null
+27/4/2016;13:34:26;SQLError: 23000
+27/4/2016;13:34:26;ERROR: Code1452
+27/4/2016;13:34:26;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_datos_escolares`, CONSTRAINT `fk_beca_datos_escolares_beca_tipo_escuela1` FOREIGN KEY (`id_tipo_escuela`) REFERENCES `beca_tipo_escuela` (`id_tipo_escuela`) ON DELETE N)
+27/4/2016;13:34:27;null
+27/4/2016;13:35:1;SQLError: 23000
+27/4/2016;13:35:1;ERROR: Code1452
+27/4/2016;13:35:1;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_datos_escolares`, CONSTRAINT `fk_beca_datos_escolares_beca_tipo_escuela1` FOREIGN KEY (`id_tipo_escuela`) REFERENCES `beca_tipo_escuela` (`id_tipo_escuela`) ON DELETE N)
+27/4/2016;13:35:2;null
+27/4/2016;13:46:57;SQLError: 23000
+27/4/2016;13:46:57;ERROR: Code1452
+27/4/2016;13:46:57;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_datos_escolares`, CONSTRAINT `fk_beca_datos_escolares_beca_tipo_escuela1` FOREIGN KEY (`id_tipo_escuela`) REFERENCES `beca_tipo_escuela` (`id_tipo_escuela`) ON DELETE N)
+27/4/2016;13:46:58;null
+27/4/2016;13:52:41;SQLError: 23000
+27/4/2016;13:52:41;ERROR: Code1452
+27/4/2016;13:52:41;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_datos_escolares`, CONSTRAINT `fk_beca_datos_escolares_beca_tipo_escuela1` FOREIGN KEY (`id_tipo_escuela`) REFERENCES `beca_tipo_escuela` (`id_tipo_escuela`) ON DELETE N)
+27/4/2016;13:52:42;null
+27/4/2016;13:55:9;SQLError: 23000
+27/4/2016;13:55:9;ERROR: Code1452
+27/4/2016;13:55:9;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_datos_escolares`, CONSTRAINT `fk_beca_datos_escolares_beca_tipo_escuela1` FOREIGN KEY (`id_tipo_escuela`) REFERENCES `beca_tipo_escuela` (`id_tipo_escuela`) ON DELETE N)
+27/4/2016;13:55:10;null
+27/4/2016;13:55:27;SQLError: 23000
+27/4/2016;13:55:27;ERROR: Code1452
+27/4/2016;13:55:27;Message: Cannot add or update a child row: a foreign key constraint fails (`becas_chihuahua`.`beca_datos_escolares`, CONSTRAINT `fk_beca_datos_escolares_beca_tipo_escuela1` FOREIGN KEY (`id_tipo_escuela`) REFERENCES `beca_tipo_escuela` (`id_tipo_escuela`) ON DELETE N)
+27/4/2016;13:55:27;null
+27/4/2016;13:56:7;Nombre de categoria no encontrado
+27/4/2016;13:56:7;Nombre de categoria no encontrado
+27/4/2016;13:56:53;Nombre de categoria no encontrado
+27/4/2016;13:56:53;Nombre de categoria no encontrado
+27/4/2016;13:56:56;Nombre de categoria no encontrado
+27/4/2016;13:56:56;Nombre de categoria no encontrado
+27/4/2016;13:56:56;Nombre de categoria no encontrado
+27/4/2016;13:57:2;Nombre de categoria no encontrado
+27/4/2016;13:57:2;Nombre de categoria no encontrado
+27/4/2016;13:57:4;Nombre de categoria no encontrado
+27/4/2016;13:57:4;Nombre de categoria no encontrado
+27/4/2016;13:57:4;Nombre de categoria no encontrado
+27/4/2016;13:57:8;null
+27/4/2016;13:59:53;null
+27/4/2016;14:0:12;null
+27/4/2016;14:3:39;Nombre de categoria no encontrado
+27/4/2016;14:5:17;Nombre de categoria no encontrado
+27/4/2016;14:5:24;Nombre de categoria no encontrado
+27/4/2016;14:41:7;Nombre de categoria no encontrado
+27/4/2016;14:41:7;Nombre de categoria no encontrado
+27/4/2016;14:41:10;Nombre de categoria no encontrado
+27/4/2016;14:41:23;Nombre de categoria no encontrado
+27/4/2016;14:47:48;Nombre de categoria no encontrado
+27/4/2016;14:48:4;Nombre de categoria no encontrado
+27/4/2016;14:48:21;Nombre de categoria no encontrado
+27/4/2016;14:48:39;Nombre de categoria no encontrado
+27/4/2016;14:49:7;Nombre de categoria no encontrado
+27/4/2016;14:52:54;Nombre de categoria no encontrado
+27/4/2016;14:59:48;Nombre de categoria no encontrado
+27/4/2016;15:1:41;Nombre de categoria no encontrado
+27/4/2016;15:6:9;Nombre de categoria no encontrado
+27/4/2016;15:7:3;Nombre de categoria no encontrado
+27/4/2016;15:7:37;Nombre de categoria no encontrado
+27/4/2016;15:12:55;Nombre de categoria no encontrado
+27/4/2016;15:14:32;Nombre de categoria no encontrado
+27/4/2016;15:15:31;Nombre de categoria no encontrado
+27/4/2016;15:15:43;Nombre de categoria no encontrado
+27/4/2016;15:16:25;Nombre de categoria no encontrado
+27/4/2016;15:23:25;Nombre de categoria no encontrado
+27/4/2016;15:24:35;Nombre de categoria no encontrado
+27/4/2016;15:25:22;Nombre de categoria no encontrado
+27/4/2016;15:29:30;Nombre de categoria no encontrado
+27/4/2016;15:32:16;Nombre de categoria no encontrado
+27/4/2016;15:33:2;Nombre de categoria no encontrado
+27/4/2016;16:11:49;Nombre de categoria no encontrado
+27/4/2016;16:12:9;Nombre de categoria no encontrado
+27/4/2016;16:17:30;Nombre de categoria no encontrado
+27/4/2016;16:17:33;Nombre de categoria no encontrado
+27/4/2016;16:19:51;Nombre de categoria no encontrado
+27/4/2016;16:20:26;Nombre de categoria no encontrado
+27/4/2016;16:24:13;Nombre de categoria no encontrado
+27/4/2016;16:24:30;Nombre de categoria no encontrado
+27/4/2016;16:29:52;Nombre de categoria no encontrado
+27/4/2016;16:30:27;Nombre de categoria no encontrado
+27/4/2016;16:31:0;Nombre de categoria no encontrado
+27/4/2016;16:31:35;Nombre de categoria no encontrado
+27/4/2016;16:31:36;Nombre de categoria no encontrado
+27/4/2016;16:31:59;Nombre de categoria no encontrado
+27/4/2016;16:38:57;Nombre de categoria no encontrado
+27/4/2016;16:39:8;Nombre de categoria no encontrado
+27/4/2016;17:0:46;Nombre de categoria no encontrado
+27/4/2016;17:1:3;Nombre de categoria no encontrado
+27/4/2016;17:2:36;Nombre de categoria no encontrado
+27/4/2016;17:2:56;Nombre de categoria no encontrado
+27/4/2016;17:3:40;Nombre de categoria no encontrado
+27/4/2016;17:3:58;Nombre de categoria no encontrado
+27/4/2016;17:6:29;Nombre de categoria no encontrado
+27/4/2016;17:7:9;Nombre de categoria no encontrado
+27/4/2016;17:8:11;Nombre de categoria no encontrado
+27/4/2016;17:9:26;Nombre de categoria no encontrado
+27/4/2016;17:10:33;Nombre de categoria no encontrado
+27/4/2016;17:11:14;Nombre de categoria no encontrado
+27/4/2016;17:11:38;Nombre de categoria no encontrado
+27/4/2016;17:11:59;Nombre de categoria no encontrado
+27/4/2016;17:12:22;Nombre de categoria no encontrado
+27/4/2016;17:12:49;Nombre de categoria no encontrado
+27/4/2016;17:13:7;Nombre de categoria no encontrado
+27/4/2016;17:13:35;Nombre de categoria no encontrado
+27/4/2016;17:13:42;Nombre de categoria no encontrado

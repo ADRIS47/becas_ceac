@@ -90,6 +90,7 @@ public class PrincipalControlador {
     LinkedHashMap<Integer, String> catCampoEstudio = null;
     LinkedHashMap<Integer, String> catEstatus = null;
     LinkedHashMap<Integer, String> catBancos = null;
+    LinkedHashMap<Integer, String> catTipoEscuela = null;
     
     List<PnlHijos> lstVistaHijos = new ArrayList<>();
     List<PnlHermanos> lstVistaHermanos = new ArrayList<>();
@@ -296,6 +297,7 @@ public class PrincipalControlador {
         catCampoEstudio = lstCategorias.get(6);
         catEstatus = lstCategorias.get(7);
         catBancos = lstCategorias.get(8);
+        catTipoEscuela = lstCategorias.get(9);
         
         llenaComboCategorias(vistaRegistro.combobxCivilBecado, catEstadoCivil);
         llenaComboCategorias(vistaRegistro.comboBoxPrograma, catPrograma);
@@ -305,6 +307,7 @@ public class PrincipalControlador {
         llenaComboCategorias(lstVistaParentesco.get(0).cmbParentesco, catParentesco);
         llenaComboCategorias(vistaRegistro.cmboxEscuelaUniversitaria, catUniversidad);
         llenaComboCategorias(vistaRegistro.cmboxCampoEscuela, catCampoEstudio);
+        llenaComboCategorias(vistaRegistro.cmbTipoEscuela, catTipoEscuela);
         
         if(bandera){
             vistaRegistro.cmbEstatus.removeAllItems();
@@ -804,6 +807,10 @@ public class PrincipalControlador {
         }
     }
     
+    /**
+     * Actualiza los datos de la vista registro del becario
+     * 
+     */
     private void updateBecario() {
         Conexion conn = new Conexion();
         Connection conexion = conn.estableceConexion();
@@ -1063,29 +1070,29 @@ public class PrincipalControlador {
             }
         }
         
-//        //Se carga el estudio socioeconomico del becario
-//        if(fileEstudioSocioeconomico != null){
-//            Path path = helper.CopiaArchivoADestino(becario.getFolio(), "est_socioeco-", filePagare);
-//            if(path == null){
-//                JOptionPane.showMessageDialog(vista, "Error al copiar el estudio socieconómico", "Error", JOptionPane.ERROR_MESSAGE);
-//                return null;
-//            }
-//            else{
-//                becario.setEstudioSocioEconomico(path.toString());
-//            }
-//        }
-//        
-//        //Se carga la carta de asignacion de beca del becario
-//        if(filePagare != null){
-//            Path path = helper.CopiaArchivoADestino(becario.getFolio(), "asig_beca-", filePagare);
-//            if(path == null){
-//                JOptionPane.showMessageDialog(vista, "Error al copiar la carta de asignación de beca", "Error", JOptionPane.ERROR_MESSAGE);
-//                return null;
-//            }
-//            else{
-//                becario.setCartaAsignacionBeca(path.toString());
-//            }
-//        }
+        //Se carga el estudio socioeconomico del becario
+        if(fileEstudioSocioeconomico != null){
+            Path path = helper.CopiaArchivoADestino(becario.getFolio(), "est_socioeco-", filePagare);
+            if(path == null){
+                JOptionPane.showMessageDialog(vista, "Error al copiar el estudio socieconómico", "Error", JOptionPane.ERROR_MESSAGE);
+                return null;
+            }
+            else{
+                becario.setEstudioSocioEconomico(becario.getFolio() + Index.SEPARADOR + path.getFileName().toString());
+            }
+        }
+        
+        //Se carga la carta de asignacion de beca del becario
+        if(fileCartaAsignacionBeca != null){
+            Path path = helper.CopiaArchivoADestino(becario.getFolio(), "asig_beca-", fileCartaAsignacionBeca);
+            if(path == null){
+                JOptionPane.showMessageDialog(vista, "Error al copiar la carta de asignación de beca", "Error", JOptionPane.ERROR_MESSAGE);
+                return null;
+            }
+            else{
+                becario.setCartaAsignacionBeca(becario.getFolio() + Index.SEPARADOR + path.getFileName().toString());
+            }
+        }
         
         return becario;
     }
@@ -1272,7 +1279,10 @@ public class PrincipalControlador {
         //Se asigna la universidad
         datos.setIdUniversidad(getIdCmbBox(universidad, catUniversidad));
         
-
+        //Se obtiene si la universidad es publica o privada
+        String tipoEscuela = (String) vistaRegistro.cmbTipoEscuela.getSelectedItem();
+        
+        datos.setIdTipoEscuela(getIdCmbBox(tipoEscuela, catTipoEscuela));
         //Se obtiene el nombre de la preparatoria
         datos.setEscuelaProcedencia(vistaRegistro.txtEscuelaProcedencia.getText());
         
@@ -1523,7 +1533,7 @@ public class PrincipalControlador {
             }
             else if(componente instanceof JPanel && contador <= semestresHabilitados){
                 contador++;
-                deshabilitaSemestresKardex((JPanel) componente, semestresHabilitados, contador);
+                //deshabilitaSemestresKardex((JPanel) componente, semestresHabilitados, contador);
             }
             
             if(contador > semestresHabilitados){
@@ -2009,7 +2019,7 @@ public class PrincipalControlador {
         vistaRegistro.txtEscuelaProcedencia.setText(lstDatosEscolares.getEscuelaProcedencia());
         vistaRegistro.cmboxCarreraSiNo.setSelectedIndex(becario.getPrimeroConBeca());
         vistaRegistro.cmboxCampoEscuela.setSelectedItem(getItemComboBox(lstDatosEscolares.getIdCampoCarrera(), catCampoEstudio));
-        vistaRegistro.cmboxMesInicioBeca.setSelectedIndex(lstDatosEscolares.getMesInicioBeca() - 1);
+        vistaRegistro.cmboxMesInicioBeca.setSelectedIndex(lstDatosEscolares.getMesInicioBeca());
         vistaRegistro.cmboxAnioInicioBeca.setSelectedItem(lstDatosEscolares.getAnioInicioBeca() + "");
         vistaRegistro.cmboxMesGraduacion.setSelectedIndex(lstDatosEscolares.getMesGraduacion() - 1);
         vistaRegistro.cmboxAnioGraduacion.setSelectedItem(lstDatosEscolares.getAnioGraduacion() + "");
@@ -2021,14 +2031,17 @@ public class PrincipalControlador {
         vistaRegistro.txtBecaAutorizada.setText(lstDatosEscolares.getBecaTotal() + "");
         vistaRegistro.txtBecaPorSemestre.setText(lstDatosEscolares.getBecaSemestral() + "");
         vistaRegistro.txtAreaObservaciones.setText(becario.getObservaciones());
+        vistaRegistro.cmbTipoEscuela.setSelectedItem(getItemComboBox(lstDatosEscolares.getIdTipoEscuela(), catTipoEscuela));
         
         //Igualdad de archivos y Llenado de ArchivosAdjuntos        
         if(becario.getActaNacimiento() != null){
             fileActaNacimiento = null;
             fileActaNacimiento = new File(Index.RUTA_FINAL + becario.getActaNacimiento());
-            vistaRegistro.lblEstatusActa.setText(fileActaNacimiento.getName());}
+            vistaRegistro.lblEstatusActa.setText(fileActaNacimiento.getName());
+        }
         if(becario.getBoletaInicioBeca() != null){
-            fileBoleta_calificaciones_inicial = new File(becario.getBoletaInicioBeca());
+            fileBoleta_calificaciones_inicial = null;
+            fileBoleta_calificaciones_inicial = new File(Index.RUTA_FINAL + becario.getBoletaInicioBeca());
             vistaRegistro.lblEstatusBoleta.setText(fileBoleta_calificaciones_inicial.getName());
         }
         if(becario.getSolicitudBeca() != null){
@@ -2062,17 +2075,17 @@ public class PrincipalControlador {
             vistaRegistro.lblEstatusPagare.setText(filePagare.getName());
         }
         
-//        if(becario.getEstudioSocioEconomico()!= null){
-//            fileEstudioSocioeconomico = null;
-//            fileEstudioSocioeconomico = new File(becario.getEstudioSocioEconomico());
-//            vistaRegistro.lblEstatusEstudioSocioEconomico.setText(fileEstudioSocioeconomico.getName());
-//        }
-//        
-//        if(becario.getCartaAsignacionBeca() != null){
-//            fileCartaAsignacionBeca = null;
-//            fileCartaAsignacionBeca = new File(becario.getCartaAsignacionBeca());
-//            vistaRegistro.lblEstatusCartaAsignacionBeca.setText(fileCartaAsignacionBeca.getName());
-//        }
+        if(becario.getEstudioSocioEconomico()!= null){
+            fileEstudioSocioeconomico = null;
+            fileEstudioSocioeconomico = new File(Index.RUTA_FINAL + becario.getEstudioSocioEconomico());
+            vistaRegistro.lblEstatusEstudioSocioEconomico.setText(fileEstudioSocioeconomico.getName());
+        }
+        
+        if(becario.getCartaAsignacionBeca() != null){
+            fileCartaAsignacionBeca = null;
+            fileCartaAsignacionBeca = new File(Index.RUTA_FINAL + becario.getCartaAsignacionBeca());
+            vistaRegistro.lblEstatusCartaAsignacionBeca.setText(fileCartaAsignacionBeca.getName());
+        }
         
         
     }
@@ -2241,7 +2254,9 @@ public class PrincipalControlador {
             conexion.setAutoCommit(false);
             
             Becario becario = modelo.getBecarioPorFolio(conexion, vistaKardex.txtFolio.getText());
+            DatosEscolares datosEscolares = modelo.getDatosEscolaresBecario(conexion, becario.getId());
             int idBanco = getIdCmbBox((String)vistaKardex.cmbNombreBanco.getSelectedItem(), catBancos);
+            
             //Se actualiza el becario con la informacion bancaria
             response = modelo.updateInfoBanco(conexion, becario.getId(), idBanco, vistaKardex.TxtFldNoCuenta.getText(), 
                             vistaKardex.TxtFldClabeBanco.getText());
@@ -2255,8 +2270,14 @@ public class PrincipalControlador {
             List<Kardex> lstKardex = getInfoKardex();
             //System.out.println("Tamanio: " + lstKardex.size());
             
-            //SE DEBE DE TRAER LOS DATOS ESCOLARES DEL BECARIO PARA PODER EVALUAR EL TOTAL DE SEMESTRES HABILITADOS
-            semestres = helper.getTotalSemestresporHabilitarKardex(idBanco, idBanco, idBanco, idBanco);
+            //se obtienen los datos de los semestres habilitados
+            semestres = helper.getTotalSemestresporHabilitarKardex(datosEscolares.getMesInicioBeca(), 
+                    datosEscolares.getAnioInicioBeca(), datosEscolares.getSemestreInicioBeca(), 
+                    datosEscolares.getSemestresTotalesCarrera()) - 1; 
+            lstKardex = getDatosKardexBecario(lstKardex, semestres);
+            
+            //Se procede a insertar o actualizar el kardex del becario
+            response = modelo.insertOrUpdateKardexBecario(conexion, lstKardex, becario.getId());
             conexion.commit();
             JOptionPane.showMessageDialog(vistaKardex, "¡Kardex actualizado!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             
@@ -2321,5 +2342,21 @@ public class PrincipalControlador {
             
         }
         return lstKardex;
+    }
+    
+    /**
+     * Toma los semestres a evaluar de la pantalla VistaKardex
+     * @param lstKardex Lista con toda la informacion de la pantalla 
+     * @param semestres
+     * @return 
+     */
+    private List<Kardex> getDatosKardexBecario(List<Kardex> lstKardex, int semestres){
+        List<Kardex> lstResult = new ArrayList<>();
+        
+        for (int i = 0; i < semestres; i++) {
+            lstResult.add(lstKardex.get(i));
+        }
+        
+        return lstResult;
     }
 }

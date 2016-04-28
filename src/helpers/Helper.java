@@ -243,9 +243,7 @@ public class Helper {
      * @return Archivo con los datos de 
      */
     public Path CopiaArchivoADestino(String folioBecario, String tipoDocumento, File archivo){
-        //String sistemaOperativo = System.getProperty("os.name");
-        //String rutaPrincipal = null;
-        //String separador = System.getProperty("file.separator");
+        
         String extension = archivo.getName().substring(archivo.getName().length() - 4, archivo.getName().length());
         
         //Se verifica si ya existe el directorio del nuevo becario y si no, lo crea
@@ -375,18 +373,28 @@ public class Helper {
      */
     public int getTotalSemestresporHabilitarKardex(int mesInicioBeca, int anioInicioBeca, int semestreInicioBeca, int semestresTotales){
         int response = 0;
-        Calendar inicio = new GregorianCalendar(anioInicioBeca, mesInicioBeca, 1);
+        Calendar inicio = Calendar.getInstance();
+        inicio.set(anioInicioBeca, mesInicioBeca, 1);
+        //System.out.println("Inicio1: " + inicio.getTimeInMillis());
         Calendar hoy = new GregorianCalendar();
+        //System.out.println("hoy1: " + hoy.getTimeInMillis());
         
         //Se calcula la fecha en la que se inició la beca
-        inicio.add(Calendar.MONTH, (semestreInicioBeca * 6));
+        inicio.add(Calendar.MONTH, ((semestreInicioBeca - 1) * 6));
+        //System.out.println("Inicio2: " + inicio.getTimeInMillis());
         
         //Se calculan los semestres que han pasado desde que se inició la beca
-        hoy.add(Calendar.YEAR, - inicio.get(Calendar.YEAR));
-        int semestresTranscurridos = hoy.get(Calendar.YEAR) * 2; 
+        long distancia = hoy.getTimeInMillis() - inicio.getTimeInMillis();
+        //System.out.println("Semestres: " + ((distancia / (1000 * 60 * 60 * 24 * 30) * -1)) / -12); 
+        //semestresTranscurridos = ( fecha / (milisegundos * segundos * minutos * horas * dias) * -1) / mesesXAño 
+        int semestresTranscurridos = (int) (distancia / (1000 * 60 * 60 * 24 * 30)) / -12;
+        
+        if(semestresTranscurridos > 2){
+            semestresTranscurridos++;
+        }
         
         if(semestresTranscurridos <= semestresTotales)
-            return semestresTranscurridos;
+            return semestresTranscurridos + 1;
         else
             return semestresTotales + 1;
     }

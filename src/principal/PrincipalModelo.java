@@ -33,6 +33,7 @@ import pojos.CatGradoEscolar;
 import pojos.CatParentesco;
 import pojos.CatPrograma;
 import pojos.CatSexo;
+import pojos.CatTipoEscuela;
 import pojos.CatUniversidad;
 import pojos.DatosEscolares;
 import pojos.Direccion;
@@ -94,6 +95,7 @@ public class PrincipalModelo {
         LinkedHashMap<Integer, String> catCampoEstudio = new LinkedHashMap<>();
         LinkedHashMap<Integer, String> catEstatus = new LinkedHashMap<>();
         LinkedHashMap<Integer, String> catBancos = new LinkedHashMap<>();
+        LinkedHashMap<Integer, String> catTipoEscuela = new LinkedHashMap<>();
 
         Conexion conexion = new Conexion();
         Connection conn = null;
@@ -111,6 +113,7 @@ public class PrincipalModelo {
         catCampoEstudio = getCatCampoEstudio(conn);
         catEstatus = getCatEstatus(conn);
         catBancos = getCatBancos(conn);
+        catTipoEscuela = getCatTipoEscuela(conn);
 
         //Se llena la lista con las categorias
         result.add(catSexo);
@@ -122,6 +125,7 @@ public class PrincipalModelo {
         result.add(catCampoEstudio);
         result.add(catEstatus);
         result.add(catBancos);
+        result.add(catTipoEscuela);
 
         conn.close();
         return result;
@@ -396,7 +400,7 @@ public class PrincipalModelo {
     }
 
     /**
-     * Obtiene el catalogo de banco de estudio
+     * Obtiene el catalogo de tipoEscuela de estudio
      *
      * @param conn Conexion a la base de datos
      * @return Lista de campos de estudio
@@ -429,9 +433,9 @@ public class PrincipalModelo {
     }
     
     /**
-     * Obtiene el catalogo de banco
+     * Obtiene el catalogo de tipoEscuela
      * @param conn COneixon a la BD
-     * @return Lista con el catalogo de los banco
+     * @return Lista con el catalogo de los tipoEscuela
      */
     private LinkedHashMap<Integer, String> getCatEstatus(Connection conn) {
         LinkedHashMap<Integer, String> catEstatus = new LinkedHashMap<>();
@@ -523,6 +527,37 @@ public class PrincipalModelo {
             }
         }
         return result;
+    }
+            
+    /**
+     * Obtiene las iniciales del programa seleccionado
+     *
+     * @return
+     */
+    protected LinkedHashMap<Integer, String> getCatTipoEscuela(Connection conn) {
+        LinkedHashMap<Integer, String> catTipoEscuela = new LinkedHashMap<>();
+        Statement st = null;
+        ResultSet rs = null;
+        try {
+            st = conn.createStatement();
+            rs = st.executeQuery(Consultas.getCatTipoEscuela);
+            while (rs.next()) {
+                CatTipoEscuela tipoEscuela = new CatTipoEscuela();
+                tipoEscuela.setId(rs.getInt(CatTipoEscuela.COL_ID));
+                tipoEscuela.setNombre(rs.getString(CatTipoEscuela.COL_NOMBRE));
+                catTipoEscuela.put(tipoEscuela.getId(), tipoEscuela.getNombre());
+            }
+        } catch (SQLException e) {
+            muestraErrores(e);
+        } finally {
+            try {
+                rs.close();
+                st.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return catTipoEscuela;
     }
 
     /**
@@ -944,6 +979,8 @@ public class PrincipalModelo {
                 ps.setFloat(13, lstDatosEscolares.getBecaSemestral());
                 ps.setInt(14, lstDatosEscolares.getCondicionado());
                 ps.setLong(15, idBecario);
+                ps.setInt(16, lstDatosEscolares.getIdTipoEscuela());
+                
                 int i = ps.executeUpdate();
                 if (i == 0) {
                     throw new SQLException("Error al insertar los datos escolares del becario: " + ps.toString());
@@ -1051,7 +1088,11 @@ public class PrincipalModelo {
             ps.setString(22, becario.getOcupacionConyuge());
             ps.setString(23, becario.getEstudioSocioEconomico());
             ps.setString(24, becario.getCartaAsignacionBeca());
-            ps.setString(25, becario.getFolio());
+            ps.setInt(25, becario.getIdPrograma());
+            ps.setString(26, becario.getEnsayo());
+            ps.setString(27, becario.getBoletaInicioBeca());
+            ps.setString(28, becario.getPagare());
+            ps.setString(29, becario.getFolio());
             valor = ps.executeUpdate();
             
             if(valor == 0){
@@ -1616,7 +1657,8 @@ public class PrincipalModelo {
             ps.setFloat(12, lstDatosEscolares.getBecaTotal());
             ps.setFloat(13, lstDatosEscolares.getBecaSemestral());
             ps.setInt(14, lstDatosEscolares.getCondicionado());
-            ps.setLong(15, idBecario);
+            ps.setInt(15, lstDatosEscolares.getIdTipoEscuela());
+            ps.setLong(16, idBecario);
             int resp = ps.executeUpdate();
             //Si la actualizacion fue correcta
             if(resp == 0)
@@ -2251,6 +2293,7 @@ public class PrincipalModelo {
                datosEscolares.setBecaTotal(rs.getInt(DatosEscolares.COL_BECA_TOTAL));
                datosEscolares.setBecaSemestral(rs.getInt(DatosEscolares.COL_BECA_SEMESTRAL));
                datosEscolares.setCondicionado(rs.getInt(DatosEscolares.COL_CONDICIONADO));
+               datosEscolares.setIdTipoEscuela(rs.getInt(DatosEscolares.COL_ID_TIPO_ESCUELA));
                datosEscolares.setIdBecario(idBecario);
             }
         } catch (SQLException e) {
@@ -2396,6 +2439,49 @@ public class PrincipalModelo {
                 ps.close();
             } catch (SQLException ex) {
                 Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        return response;
+    }
+    
+    /**
+     * Inserta o Actualiza los kardex del becario seleccionado.
+     * @param conexion
+     * @param lstKardex
+     * @return True si exitoso, false si no
+     */
+    protected boolean insertOrUpdateKardexBecario(Connection conexion, List<Kardex> lstKardex, long idBecario){
+        boolean response = false;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        int totalKardex = 0;
+        try{
+            ps = conexion.prepareStatement(Consultas.getTotalKardexPorSemestre);
+            ps.setLong(1, idBecario);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                totalKardex = rs.getInt(1);
+            }
+            //Si aún no se tiene registros semestrales del kardex del becario entonces se insertan todos los campos
+            if(totalKardex == 0){
+                for (Kardex kardex : lstKardex) {
+                    ps = conexion.prepareStatement(Insert.insertKardexBecario);
+                    
+                }
+            }
+            
+        }
+        catch(SQLException e){
+            log.muestraErrores(e);
+        }
+        finally{
+            try{
+                ps.close();
+            }
+            catch(SQLException e){
+                log.muestraErrores(e);
             }
         }
         

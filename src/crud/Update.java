@@ -43,7 +43,10 @@ public class Update {
             + Becario.COL_ACTA_NAC + " = ?, " + Becario.COL_SOLICITUD_BECA + "= ?, "
             + Becario.COL_CONTRATO_BECA + " = ?, " + Becario.COL_IDENTIFICACION + "= ?, "
             + Becario.COL_FOLIO + " = ?, " + Becario.COL_OCUPACION_CONYUGE + " = ?, "
-            + Becario.COL_ESTUDIO_SOCIOECONOMICO + " = ?, " + Becario.COL_CARTA_ASIGNACION_BECA + " = ? "
+            + Becario.COL_ESTUDIO_SOCIOECONOMICO + " = ?, " + Becario.COL_CARTA_ASIGNACION_BECA + " = ?, "
+            ///////////////////////////////////////////////
+            + Becario.COL_PROGRAMA + " = ?, " + Becario.COL_ENSAYO + " = ?, "
+            + Becario.COL_BOLETA_INICIO_BECA + " = ?, " + Becario.COL_PAGARE + " = ? "
             + "WHERE " + Becario.COL_FOLIO + " = ?";
     
     /**
@@ -100,7 +103,8 @@ public class Update {
             + DatosEscolares.COL_MES_GRADUACION + " = ?, " + DatosEscolares.COL_ANIO_GRADUACION + " = ?, "
             + DatosEscolares.COL_SEMESTRES_TOTALES_BECA + " = ?, " + DatosEscolares.COL_SEMESTRE_INICIO_BECA + " = ?, "
             + DatosEscolares.COL_COSTO_CARRERA + " = ?, " + DatosEscolares.COL_BECA_TOTAL + " = ?, "
-            + DatosEscolares.COL_BECA_SEMESTRAL + " = ?, " + DatosEscolares.COL_CONDICIONADO + " = ? "
+            + DatosEscolares.COL_BECA_SEMESTRAL + " = ?, " + DatosEscolares.COL_CONDICIONADO + " = ?, "
+            + DatosEscolares.COL_ID_TIPO_ESCUELA + " = ? "
             + "WHERE " + Hijos.COL_ID_BECARIO + " = ?";
     
     /**

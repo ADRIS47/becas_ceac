@@ -8,6 +8,7 @@ package crud;
 import pojos.Aval;
 import pojos.Becario;
 import pojos.CatBanco;
+import pojos.CatTipoEscuela;
 import pojos.DatosEscolares;
 import pojos.Direccion;
 import pojos.Hermanos;
@@ -86,6 +87,11 @@ public class Consultas {
      * Obtiene el id de un becario a partir de su folio
      */
     public static String getIdBecarioPorFolio = "SELECT " + Becario.COL_ID + " FROM beca_becario WHERE " + Becario.COL_FOLIO + " = ?";
+    
+    /**
+     * Obtiene la lista de categorias de tipo escuela
+     */
+    public static String getCatTipoEscuela = "SELECT " + CatTipoEscuela.COL_ID + ", " + CatTipoEscuela.COL_NOMBRE + " FROM beca_tipo_escuela";
     
     /**
      * Obtiene las direcciones que tiene registradas un becario
@@ -200,7 +206,8 @@ public class Consultas {
             + DatosEscolares.COL_ANIO_GRADUACION + ", " + DatosEscolares.COL_SEMESTRES_TOTALES_BECA + ", "
             + DatosEscolares.COL_SEMESTRE_INICIO_BECA + ", " + DatosEscolares.COL_COSTO_CARRERA + ", "
             + DatosEscolares.COL_BECA_TOTAL + ", " + DatosEscolares.COL_BECA_SEMESTRAL + ", "
-            + DatosEscolares.COL_CONDICIONADO + ", " + DatosEscolares.COL_ID_BECARIO + " " 
+            + DatosEscolares.COL_CONDICIONADO + ", " + DatosEscolares.COL_ID_BECARIO + ", "
+            + DatosEscolares.COL_ID_TIPO_ESCUELA + " " 
             + "FROM beca_datos_escolares "
             + "WHERE " + DatosEscolares.COL_ID_BECARIO + " = ?";
     
@@ -215,7 +222,8 @@ public class Consultas {
             + DatosEscolares.COL_ANIO_GRADUACION + ", " + DatosEscolares.COL_SEMESTRES_TOTALES_BECA + ", "
             + DatosEscolares.COL_SEMESTRE_INICIO_BECA + ", " + DatosEscolares.COL_COSTO_CARRERA + ", "
             + DatosEscolares.COL_BECA_TOTAL + ", " + DatosEscolares.COL_BECA_SEMESTRAL + ", "
-            + DatosEscolares.COL_CONDICIONADO + ", " + DatosEscolares.COL_ID_BECARIO + " " 
+            + DatosEscolares.COL_CONDICIONADO + ", " + DatosEscolares.COL_ID_BECARIO + ", "
+            + DatosEscolares.COL_ID_TIPO_ESCUELA + " " 
             + "FROM beca_datos_escolares "
             + "WHERE " + DatosEscolares.COL_ID_BECARIO + " = ?";
     
@@ -325,6 +333,11 @@ public class Consultas {
             + Becario.COL_CUENTA_BANCO + ", " + Becario.COL_CLABE_INTERBANCARIA + " "
             + "FROM beca_becario "
             + "WHERE " + Becario.COL_ID + " = ?";
+    
+    /**
+     * Obtiene el total de kardex registrados que tiene el becario
+     */
+    public static String getTotalKardexPorSemestre = "SELECT COUNT(*) FROM beca_kardex WHERE id_becario = ?";
     
     
 }
