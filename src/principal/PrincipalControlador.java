@@ -7,6 +7,7 @@ package principal;
 
 import crud.Conexion;
 import helpers.EscuchadorCalculaBecaXSemestre;
+import helpers.EscuchadorCalculaDescuentoSemestral;
 import helpers.EscuchadorCmbBoxCambiado;
 import helpers.EscuchadorValidaEntrada;
 import helpers.Helper;
@@ -26,6 +27,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JCheckBox;
@@ -253,13 +255,17 @@ public class PrincipalControlador {
         }
         //Si ya existe un becario en vistaRegistro
         else{
-            llenaCamposVistaKardex(vistaRegistro.txtFolio.getText());
-            creaPantalla(vistaKardex);
+            
             //Se asignan los listeners al panel pnlKardex
             recorreJPanel(vistaKardex.PnlKardex, 3);
+            recorreJPanel(vistaKardex.PnlKardex, 6);
             //Se asignan los listeners al panel pnlInformacionBancaria
             recorreJPanel(vistaKardex.pnlInformacionBancaria, 4);
             //Se validan los semestres que deben de habilitarse
+            
+            llenaCamposVistaKardex(vistaRegistro.txtFolio.getText());
+            creaPantalla(vistaKardex);
+            
             
         }
     }
@@ -1421,7 +1427,8 @@ public class PrincipalControlador {
      * @param clave 1: Valida si hay campos vacios, 2: Vacia los campos,
      * 3: Asigna listeners a los JTextField de pnlKardex de vistaKardex,
      * 4: Asigna listeners a los JtextField de pnlInformacionBancaria de VistaKardex,
-     * 5: Deshabilita los componentes que contiene un jpanel
+     * 5: Deshabilita los componentes que contiene un jpanel.
+     * 6: Asigna listeners para evaluar el descuento por semestre
      * @param panel Jpanel a recorrer
      * @return True si encontró campos vacios, false si no
      */
@@ -1481,15 +1488,45 @@ public class PrincipalControlador {
                     }
                 }
                 break;
+                
+            case 6:
+                int i = -1;
+                for (Component componente : componentes) {
+                    if(i == -1){
+                        i++;
+                        continue;
+                    }
+                    
+                    if(componente instanceof JPanel){
+                        JPanel jPanel =  ((JPanel) componente);
+                        
+                        
+                        JCheckBox chkPlatica1 = (JCheckBox) jPanel.getComponent(4);
+                        JCheckBox chkPlatica2 = (JCheckBox) jPanel.getComponent(5);
+                        JTextField txtPromedio = (JTextField) jPanel.getComponent(8);
+                        JTextField txtDescuento = (JTextField) jPanel.getComponent(9);
+                        
+                        chkPlatica1.addItemListener(new EscuchadorCmbBoxCambiado(chkPlatica1, chkPlatica2, 
+                                txtPromedio, txtDescuento, EscuchadorCmbBoxCambiado.DESCUENTO_BECA));
+                        chkPlatica2.addItemListener(new EscuchadorCmbBoxCambiado(chkPlatica1, chkPlatica2, 
+                                txtPromedio, txtDescuento, EscuchadorCmbBoxCambiado.DESCUENTO_BECA));
+                        txtPromedio.addKeyListener(new EscuchadorCalculaDescuentoSemestral(chkPlatica1, 
+                                chkPlatica2, txtPromedio, txtDescuento));
+                        
+                    }    
+                }
+                break;
         }
         return response;
     }
     
     /**
      * Llena con la informacion del kardex del becario la tabla del kardex
-     * @param lstKardex 
+     * @param lstKardex
+     * @param lstFechaSemestre Indica las fechas iniciales de cada semestre
+     * @param semestresHabilitados
      */
-    private void llenaPnlKardex(List<Kardex> lstKardex){
+    private void llenaPnlKardex(List<Kardex> lstKardex, List<Calendar> lstFechaSemestre, int semestresHabilitados){
         
         Component[] componentes = vistaKardex.PnlKardex.getComponents();
         int i = -1;
@@ -1513,6 +1550,9 @@ public class PrincipalControlador {
                 JTextField txtDescuento = (JTextField) panel.getComponent(9);
                 
                 Kardex kardex = lstKardex.get(i);
+                Calendar fecha = lstFechaSemestre.get(i);
+                
+                txtSemestre.setText(fecha.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault()) + "/" + fecha.get(Calendar.YEAR));
                 chkPago1.setSelected(kardex.isPlatica1());
                 txtHorasServicio.setText(kardex.getHorasServicio() + "");
                 chkPlatica1.setSelected(kardex.isPlatica1());
@@ -1521,9 +1561,9 @@ public class PrincipalControlador {
                 chkPago2.setSelected(kardex.isPago_fin_semestre());
                 chkPagoExtra.setSelected(kardex.isPago_extra());
                 txtPromedio.setText(kardex.getPromedio() + "");
-                txtDescuento.setText(kardex.getDescuento() + "");
+                txtDescuento.setText(kardex.getDescuento() + "%");
                 
-                if(i == lstKardex.size() - 1 ){
+                if(i == lstFechaSemestre.size() -1 ){
                     break;
                 }
                 i++;
@@ -2122,6 +2162,9 @@ public class PrincipalControlador {
         lstKardex = modelo.getKardexPorIdBecario(conexion, becario.getId());
         datosEscolares = modelo.getDatosEscolaresBecario(conexion, becario.getId());
         
+        //Se generan los semestres del becario a partir de su fecha de inicio de la beca
+        List<Calendar> lstFechaSemestres = Helper.getFechaSemestres(datosEscolares);
+
         //Se procede a llenar la informacion general del becario
         vistaKardex.txtNombreBecario.setText(becario.getApPaterno() + " " + becario.getApMaterno() + " " + becario.getNombre());
         vistaKardex.txtCondicion.setText(getItemComboBox(becario.getIdEstatus(), catEstatus));
@@ -2142,8 +2185,15 @@ public class PrincipalControlador {
         
         deshabilitaSemestresKardex(vistaKardex.PnlKardex, semestresHabilitados, 0);
         if(lstKardex.size() > 0)
-            llenaPnlKardex(lstKardex);
+            llenaPnlKardex(lstKardex, lstFechaSemestres, semestresHabilitados);
         
+        
+        try{
+            conexion.close();
+        }
+        catch(SQLException e){
+            log.muestraErrores(e);
+        }
     }
 
     /**
@@ -2355,7 +2405,8 @@ public class PrincipalControlador {
                     kardex.setPromedio(Float.parseFloat(txtPromedio.getText()));
                 }
                 if(!txtDescuento.getText().equals("")){
-                    kardex.setDescuento(Integer.parseInt(txtDescuento.getText()));
+                    String descuento = txtDescuento.getText().replace("%", "");
+                    kardex.setDescuento(Integer.parseInt(descuento));
                 }
                 lstKardex.add(kardex);
             }

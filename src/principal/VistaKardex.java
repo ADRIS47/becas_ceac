@@ -676,6 +676,7 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtSemestre1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemestre1.setText("Enero");
         TxtSemestre1.setBorder(null);
+        TxtSemestre1.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre1.setEnabled(false);
         TxtSemestre1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -686,6 +687,11 @@ public class VistaKardex extends javax.swing.JPanel {
 
         ChkbxPFeb1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         ChkbxPFeb1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ChkbxPFeb1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                ChkbxPFeb1ItemStateChanged(evt);
+            }
+        });
         PnlKardexF1.add(ChkbxPFeb1);
 
         TxtHrServ1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -731,6 +737,7 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtSemestre2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemestre2.setText("Enero");
         TxtSemestre2.setBorder(null);
+        TxtSemestre2.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre2.setEnabled(false);
         TxtSemestre2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -791,6 +798,7 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtSemestre3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemestre3.setText("Enero");
         TxtSemestre3.setBorder(null);
+        TxtSemestre3.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre3.setEnabled(false);
         TxtSemestre3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -856,6 +864,7 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtSemestre4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemestre4.setText("Enero");
         TxtSemestre4.setBorder(null);
+        TxtSemestre4.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre4.setEnabled(false);
         TxtSemestre4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -916,6 +925,7 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtSemestre5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemestre5.setText("Enero");
         TxtSemestre5.setBorder(null);
+        TxtSemestre5.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre5.setEnabled(false);
         TxtSemestre5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -971,6 +981,7 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtSemestre6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemestre6.setText("Enero");
         TxtSemestre6.setBorder(null);
+        TxtSemestre6.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre6.setEnabled(false);
         TxtSemestre6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1026,6 +1037,7 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtSemestre7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemestre7.setText("Enero");
         TxtSemestre7.setBorder(null);
+        TxtSemestre7.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre7.setEnabled(false);
         TxtSemestre7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1081,6 +1093,7 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtSemestre8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemestre8.setText("Enero");
         TxtSemestre8.setBorder(null);
+        TxtSemestre8.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre8.setEnabled(false);
         TxtSemestre8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1141,6 +1154,7 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtSemestre9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemestre9.setText("Enero");
         TxtSemestre9.setBorder(null);
+        TxtSemestre9.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre9.setEnabled(false);
         TxtSemestre9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1197,6 +1211,7 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtSemestre10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemestre10.setText("Enero");
         TxtSemestre10.setBorder(null);
+        TxtSemestre10.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre10.setEnabled(false);
         TxtSemestre10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1252,6 +1267,7 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtSemestre11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemestre11.setText("Enero");
         TxtSemestre11.setBorder(null);
+        TxtSemestre11.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre11.setEnabled(false);
         TxtSemestre11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1307,6 +1323,7 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtSemestre12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemestre12.setText("Enero");
         TxtSemestre12.setBorder(null);
+        TxtSemestre12.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre12.setEnabled(false);
         TxtSemestre12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1646,7 +1663,7 @@ public class VistaKardex extends javax.swing.JPanel {
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpnlListaDocumentos, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+            .addComponent(jpnlListaDocumentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jpnlAccionesDocumentos, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
@@ -1683,7 +1700,7 @@ public class VistaKardex extends javax.swing.JPanel {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
+            .addGap(0, 370, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
@@ -1987,7 +2004,7 @@ public class VistaKardex extends javax.swing.JPanel {
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpnlListaDocumentos1, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+            .addComponent(jpnlListaDocumentos1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jpnlAccionesDocumentos1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
@@ -2024,7 +2041,7 @@ public class VistaKardex extends javax.swing.JPanel {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
+            .addGap(0, 370, Short.MAX_VALUE)
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
                     .addContainerGap()
@@ -2707,7 +2724,7 @@ public class VistaKardex extends javax.swing.JPanel {
                 .addComponent(PnlInfoBecario, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jpnlAreaBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -2726,8 +2743,8 @@ public class VistaKardex extends javax.swing.JPanel {
                 .addContainerGap(411, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(185, Short.MAX_VALUE)
-                    .addComponent(jtabKardex, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(165, Short.MAX_VALUE)
+                    .addComponent(jtabKardex, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap()))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -3031,6 +3048,10 @@ public class VistaKardex extends javax.swing.JPanel {
     private void BtnEliminaTn17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaTn17ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnEliminaTn17ActionPerformed
+
+    private void ChkbxPFeb1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ChkbxPFeb1ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ChkbxPFeb1ItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

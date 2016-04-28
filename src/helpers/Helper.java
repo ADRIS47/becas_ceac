@@ -27,6 +27,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
@@ -34,6 +35,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+import pojos.DatosEscolares;
 
 /**
  *
@@ -394,12 +396,80 @@ public class Helper {
         }
         
         if(semestresTranscurridos <= semestresTotales)
-            return semestresTranscurridos + 1;
+            return semestresTranscurridos ;
         else
-            return semestresTotales + 1;
+            return semestresTotales ;
     }
 
-    public void tomaRutaBase() {
+    public static void getDescuentoSemestral(JCheckBox chkPlatica1, JCheckBox chkPlatica2, 
+            JTextField txtPromedio, JTextField txtDescuento){
+        int descuento = 0;
         
+        if(chkPlatica1.isSelected())
+            descuento = descuento + 2;
+        
+        if(chkPlatica2.isSelected()){
+            descuento = descuento + 2;
+        }
+        
+        if(!txtPromedio.getText().equals("")){
+            float valor = Float.parseFloat(txtPromedio.getText());
+            if(valor >= 9){
+                descuento = descuento + 2;
+            }
+        }
+        
+        txtDescuento.setText(descuento + "%");
+    }
+    
+    public static java.util.List<Calendar> getFechaSemestres(DatosEscolares datosEscolares){
+        java.util.List<Calendar> lstFechasSemestres = new java.util.ArrayList<>();
+        
+        //Se comienzan a calcular el inicio de cada semestre del becario
+        int mesInicio = datosEscolares.getMesInicioBeca();
+        //Se igualan los meses para que se comience en Enero o Agosto
+        if(mesInicio > 7)
+            mesInicio = 7;
+        if(mesInicio < 7)
+            mesInicio = 0;
+        
+        int mesGraduacion = datosEscolares.getMesGraduacion();
+        //Se igualan los meses para que se comience en Enero o Agosto
+        if(mesGraduacion > 7)
+            mesGraduacion = 7;
+        if(mesGraduacion < 7)
+            mesGraduacion = 0;
+        
+        //Se obtiene la fecha cuando inició la carrera el becario
+        Calendar fechaInicio = new GregorianCalendar(datosEscolares.getAnioInicioBeca(), mesInicio, 1);
+        //System.out.println("Fecha inicio: " + fechaInicio.getTime());
+        //Se le suman los semestres cursados antes de tener la beca
+        fechaInicio.add(Calendar.MONTH, (datosEscolares.getSemestreInicioBeca() - 1) * 6);
+        //System.out.println("Fecha con inicio beca: " + fechaInicio.getTime());
+        
+        //Se toma la fecha de graduacion del becario
+        Calendar fechaGraduacion = new GregorianCalendar(datosEscolares.getAnioGraduacion(), mesGraduacion, 1);
+        
+        //Se comienzan a generar los meses de inicio de semestre
+        long fechaInicial = fechaInicio.getTimeInMillis();
+        long fechaGrad = fechaGraduacion.getTimeInMillis();
+        while(fechaInicial <= fechaGrad){
+            Calendar aux = new GregorianCalendar();
+            aux.setTimeInMillis(fechaInicial);
+            int mesAux = 0;
+            mesAux = aux.get(Calendar.MONTH);
+            if(mesAux > 7)
+                mesAux = 7;
+            if(mesAux < 7)
+                mesAux = 0;
+            aux.set(Calendar.MONTH, mesAux);
+            
+            lstFechasSemestres.add(aux);
+            fechaInicio.add(Calendar.MONTH, 6   );
+            fechaInicial = fechaInicio.getTimeInMillis();
+            System.out.println("Nueva Fecha: " + fechaInicial);
+        }
+        
+        return lstFechasSemestres;
     }
 }

@@ -7,8 +7,7 @@ package helpers;
 
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -18,7 +17,8 @@ import javax.swing.JTextField;
  * @author sabagip
  */
 public class EscuchadorCmbBoxCambiado implements ItemListener{
-
+    
+    //Variables para el calculo de la fecha de graduacion y la beca semestral
     JComboBox<?> cmbBoxMesInicioBeca;
     JComboBox<?> cmbBoxAnioInicioBeca;
     JComboBox<?> cmbBoxMesGraduacion;
@@ -28,16 +28,23 @@ public class EscuchadorCmbBoxCambiado implements ItemListener{
     JTextField txtBecaAutorizada; 
     JTextField txtBecaSemestral;
     JTextField txtCostoCarrera;
-    
-    
     JPanel panel;
+    
+    
+    //Variables para el calculo del descuento acumulado
+    JCheckBox chkPlatica1; 
+    JCheckBox chkPlatica2; 
+    JTextField txtPromedio; 
+    JTextField txtDescuento;
+    
     int codigo;
     
     public final static int FECHA_GRADUACION = 1;
     public final static int BECA_SEMESTRAL = 2;
+    public final static int DESCUENTO_BECA = 3;
     
     /**
-     * Se utiliza cuando se va a calcular el año de graduacion
+     * Se utiliza cuando se va a calcular la fecha de graduacion y la beca semestral
      * @param cmbBoxMesInicioBeca
      * @param cmbBoxAnioInicioBeca
      * @param cmbBoxMesGraduacion
@@ -67,6 +74,28 @@ public class EscuchadorCmbBoxCambiado implements ItemListener{
         this.panel = panel;
         this.codigo = codigo;
     }
+
+    /**
+     * Se utiliza cuando se va a calcular el descuento del kardex
+     * @param chkPlatica1
+     * @param chkPlatica2
+     * @param txtPromedio
+     * @param txtDescuento
+     * @param codigo
+     */
+    public EscuchadorCmbBoxCambiado(JCheckBox chkPlatica1, JCheckBox chkPlatica2, 
+            JTextField txtPromedio, JTextField txtDescuento, int codigo) {
+        this.chkPlatica1 = chkPlatica1;
+        this.chkPlatica2 = chkPlatica2;
+        this.txtPromedio = txtPromedio;
+        this.txtDescuento = txtDescuento;
+        this.codigo = codigo;
+    }
+    
+    
+    
+    
+    
 
     /**
      * Se utiliza cuando se va a agregar el escuchador de calcular beca semestral
@@ -104,6 +133,10 @@ public class EscuchadorCmbBoxCambiado implements ItemListener{
             case EscuchadorCmbBoxCambiado.BECA_SEMESTRAL:
                 Helper.getBecaSemestral(cmbBoxTotalSemestres, cmbBoxSemestreInicioBeca,
                         cmbBoxAnioInicioBeca, txtBecaAutorizada, txtBecaSemestral, txtCostoCarrera);
+                break;
+                
+            case EscuchadorCmbBoxCambiado.DESCUENTO_BECA:
+                Helper.getDescuentoSemestral(chkPlatica1, chkPlatica2, txtPromedio, txtDescuento);
                 break;
         }
         
