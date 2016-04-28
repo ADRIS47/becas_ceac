@@ -2388,7 +2388,7 @@ public class PrincipalModelo {
                 kardex.setPago_fin_semestre(rs.getBoolean(Kardex.COL_PAGO_FIN_SEMESTRE));
                 kardex.setPlatica1(rs.getBoolean(Kardex.COL_PLATICA_1));
                 kardex.setPlatica2(rs.getBoolean(Kardex.COL_PLATICA_2));
-                kardex.setPromedio(rs.getLong(Kardex.COL_PROMEDIO));
+                kardex.setPromedio(rs.getFloat(Kardex.COL_PROMEDIO));
                 kardex.setDescuento(rs.getInt(Kardex.COL_DESCUENTO));
                 kardex.setIdServicioComunitario(rs.getInt(Kardex.COL_ID_SERVICIO_COMUNITARIO));
                 kardex.setLugarServicioComunitario(rs.getString(Kardex.COL_LUGAR_SERVICIO_COMUNITARIO));

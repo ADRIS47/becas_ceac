@@ -1485,16 +1485,21 @@ public class PrincipalControlador {
         return response;
     }
     
+    /**
+     * Llena con la informacion del kardex del becario la tabla del kardex
+     * @param lstKardex 
+     */
     private void llenaPnlKardex(List<Kardex> lstKardex){
         
         Component[] componentes = vistaKardex.PnlKardex.getComponents();
-        int i = 0;
+        int i = -1;
         for (Component componente : componentes) {
-            if(i == 0){
+            if(i == -1){
                 i++;
                 continue;
             }
             if(componente instanceof JPanel){
+                
                 JPanel panel = (JPanel) componente;
                 
                 JTextField txtSemestre = (JTextField) panel.getComponent(1);
@@ -1507,7 +1512,7 @@ public class PrincipalControlador {
                 JTextField txtPromedio = (JTextField) panel.getComponent(8);
                 JTextField txtDescuento = (JTextField) panel.getComponent(9);
                 
-                Kardex kardex = lstKardex.get(i - 1);
+                Kardex kardex = lstKardex.get(i);
                 chkPago1.setSelected(kardex.isPlatica1());
                 txtHorasServicio.setText(kardex.getHorasServicio() + "");
                 chkPlatica1.setSelected(kardex.isPlatica1());
@@ -1517,6 +1522,11 @@ public class PrincipalControlador {
                 chkPagoExtra.setSelected(kardex.isPago_extra());
                 txtPromedio.setText(kardex.getPromedio() + "");
                 txtDescuento.setText(kardex.getDescuento() + "");
+                
+                if(i == lstKardex.size() - 1 ){
+                    break;
+                }
+                i++;
             }
             
         }
@@ -2252,14 +2262,17 @@ public class PrincipalControlador {
         }
         try{
             conexion.setAutoCommit(false);
-            
+            //Se obtienen los datos del becario
             Becario becario = modelo.getBecarioPorFolio(conexion, vistaKardex.txtFolio.getText());
+            //Se obienen los datos escolares del becario
             DatosEscolares datosEscolares = modelo.getDatosEscolaresBecario(conexion, becario.getId());
+            //Se obtiene el id del banco al que se le pagará al becario
             int idBanco = getIdCmbBox((String)vistaKardex.cmbNombreBanco.getSelectedItem(), catBancos);
             
             //Se actualiza el becario con la informacion bancaria
             response = modelo.updateInfoBanco(conexion, becario.getId(), idBanco, vistaKardex.TxtFldNoCuenta.getText(), 
                             vistaKardex.TxtFldClabeBanco.getText());
+            
             //Se verifica que se actualizaron los datos bancarios
             if(response == false){
                 JOptionPane.showMessageDialog(vistaKardex, "No se pudo actualizar el kardex del becario, intentelo más tarde", "Error", JOptionPane.ERROR_MESSAGE);
@@ -2267,6 +2280,7 @@ public class PrincipalControlador {
                 return;
             }
             
+            //Se obtiene la información del kardex del becario
             List<Kardex> lstKardex = getInfoKardex();
             //System.out.println("Tamanio: " + lstKardex.size());
             
