@@ -385,10 +385,13 @@ public class Helper {
         
         //Se calculan los semestres que han pasado desde que se inició la beca
         long distancia = hoy.getTimeInMillis() - inicio.getTimeInMillis();
-        long timeStampMesesTranscurridos = hoy.getTimeInMillis() - distancia;
-        System.out.println("Calendario: " + ((distancia / (1000 * 60 * 60 * 24 * 30) * -1)) / 12); 
+        //System.out.println("Semestres: " + ((distancia / (1000 * 60 * 60 * 24 * 30) * -1)) / -12); 
         //semestresTranscurridos = ( fecha / (milisegundos * segundos * minutos * horas * dias) * -1) / mesesXAño 
-        int semestresTranscurridos = (int) (distancia / (1000 * 60 * 60 * 24 * 30) * -1) / 12;
+        int semestresTranscurridos = (int) (distancia / (1000 * 60 * 60 * 24 * 30)) / -12;
+        
+        if(semestresTranscurridos > 2){
+            semestresTranscurridos++;
+        }
         
         if(semestresTranscurridos <= semestresTotales)
             return semestresTranscurridos + 1;

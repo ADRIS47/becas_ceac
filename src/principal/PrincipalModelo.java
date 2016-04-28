@@ -2444,4 +2444,47 @@ public class PrincipalModelo {
         
         return response;
     }
+    
+    /**
+     * Inserta o Actualiza los kardex del becario seleccionado.
+     * @param conexion
+     * @param lstKardex
+     * @return True si exitoso, false si no
+     */
+    protected boolean insertOrUpdateKardexBecario(Connection conexion, List<Kardex> lstKardex, long idBecario){
+        boolean response = false;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        int totalKardex = 0;
+        try{
+            ps = conexion.prepareStatement(Consultas.getTotalKardexPorSemestre);
+            ps.setLong(1, idBecario);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                totalKardex = rs.getInt(1);
+            }
+            //Si aún no se tiene registros semestrales del kardex del becario entonces se insertan todos los campos
+            if(totalKardex == 0){
+                for (Kardex kardex : lstKardex) {
+                    ps = conexion.prepareStatement(Insert.insertKardexBecario);
+                    
+                }
+            }
+            
+        }
+        catch(SQLException e){
+            log.muestraErrores(e);
+        }
+        finally{
+            try{
+                ps.close();
+            }
+            catch(SQLException e){
+                log.muestraErrores(e);
+            }
+        }
+        
+        return response;
+    }
 }

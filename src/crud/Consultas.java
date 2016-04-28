@@ -334,5 +334,10 @@ public class Consultas {
             + "FROM beca_becario "
             + "WHERE " + Becario.COL_ID + " = ?";
     
+    /**
+     * Obtiene el total de kardex registrados que tiene el becario
+     */
+    public static String getTotalKardexPorSemestre = "SELECT COUNT(*) FROM beca_kardex WHERE id_becario = ?";
+    
     
 }

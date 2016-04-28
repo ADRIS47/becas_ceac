@@ -2270,14 +2270,14 @@ public class PrincipalControlador {
             List<Kardex> lstKardex = getInfoKardex();
             //System.out.println("Tamanio: " + lstKardex.size());
             
-            //SE DEBE DE TRAER LOS DATOS ESCOLARES DEL BECARIO PARA PODER EVALUAR EL TOTAL DE SEMESTRES HABILITADOS
+            //se obtienen los datos de los semestres habilitados
             semestres = helper.getTotalSemestresporHabilitarKardex(datosEscolares.getMesInicioBeca(), 
                     datosEscolares.getAnioInicioBeca(), datosEscolares.getSemestreInicioBeca(), 
-                    datosEscolares.getSemestresTotalesCarrera()); 
-            System.out.println("Tamanio: " + lstKardex.size());
+                    datosEscolares.getSemestresTotalesCarrera()) - 1; 
             lstKardex = getDatosKardexBecario(lstKardex, semestres);
-            System.out.println("Tamanio: " + lstKardex.size());
             
+            //Se procede a insertar o actualizar el kardex del becario
+            response = modelo.insertOrUpdateKardexBecario(conexion, lstKardex, becario.getId());
             conexion.commit();
             JOptionPane.showMessageDialog(vistaKardex, "¡Kardex actualizado!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             
@@ -2353,7 +2353,7 @@ public class PrincipalControlador {
     private List<Kardex> getDatosKardexBecario(List<Kardex> lstKardex, int semestres){
         List<Kardex> lstResult = new ArrayList<>();
         
-        for (int i = 0; i <= semestres; i++) {
+        for (int i = 0; i < semestres; i++) {
             lstResult.add(lstKardex.get(i));
         }
         

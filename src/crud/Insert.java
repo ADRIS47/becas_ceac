@@ -11,6 +11,7 @@ import pojos.DatosEscolares;
 import pojos.Direccion;
 import pojos.Hermanos;
 import pojos.Hijos;
+import pojos.Kardex;
 import pojos.Padres;
 import pojos.Telefono;
 
@@ -119,4 +120,12 @@ public class Insert {
             + "(" + Aval.COL_IDENTIFICACION + ", " + Aval.COL_ID_BECARIO + ") "
             + "VALUES (?,?)";
     
+    /**
+     * Inserta el un semestre del kardex del becario
+     */
+    public static String insertKardexBecario = "INSERT INTO beca_kardex "
+            + "(" + Kardex.COL_NUM_SEMESTRE + ", " + Kardex.COL_PAGO_INICIO_SEMESTRE + ", "
+            + Kardex.COL_PAGO_FIN_SEMESTRE + ", " + Kardex.COL_PLATICA_1 + ", "
+            + Kardex.COL_PLATICA_2 + ", " + Kardex.COL_PROMEDIO + ", "
+            + Kardex.COL_DESCUENTO + ", " + Kardex.COL_ID_SERVICIO_COMUNITARIO + ", ";
 }
