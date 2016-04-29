@@ -1549,21 +1549,24 @@ public class PrincipalControlador {
                 JTextField txtPromedio = (JTextField) panel.getComponent(8);
                 JTextField txtDescuento = (JTextField) panel.getComponent(9);
                 
-                Kardex kardex = lstKardex.get(i);
                 Calendar fecha = lstFechaSemestre.get(i);
-                
+                if(i < lstKardex.size()){
+                    Kardex kardex = lstKardex.get(i);
+
+                    System.out.println("Fecha controlador: " + fecha.getTime());
+                    
+                    chkPago1.setSelected(kardex.isPlatica1());
+                    txtHorasServicio.setText(kardex.getHorasServicio() + "");
+                    chkPlatica1.setSelected(kardex.isPlatica1());
+                    chkPlatica2.setSelected(kardex.isPlatica2());
+                    chkPago1.setSelected(kardex.isPago_inicio_semestre());
+                    chkPago2.setSelected(kardex.isPago_fin_semestre());
+                    chkPagoExtra.setSelected(kardex.isPago_extra());
+                    txtPromedio.setText(kardex.getPromedio() + "");
+                    txtDescuento.setText(kardex.getDescuento() + "%");
+                }
                 txtSemestre.setText(fecha.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault()) + "/" + fecha.get(Calendar.YEAR));
-                chkPago1.setSelected(kardex.isPlatica1());
-                txtHorasServicio.setText(kardex.getHorasServicio() + "");
-                chkPlatica1.setSelected(kardex.isPlatica1());
-                chkPlatica2.setSelected(kardex.isPlatica2());
-                chkPago1.setSelected(kardex.isPago_inicio_semestre());
-                chkPago2.setSelected(kardex.isPago_fin_semestre());
-                chkPagoExtra.setSelected(kardex.isPago_extra());
-                txtPromedio.setText(kardex.getPromedio() + "");
-                txtDescuento.setText(kardex.getDescuento() + "%");
-                
-                if(i == lstKardex.size() -1 ){
+                if(i == lstFechaSemestre.size() -1 ){
                     break;
                 }
                 i++;
@@ -2163,7 +2166,7 @@ public class PrincipalControlador {
         datosEscolares = modelo.getDatosEscolaresBecario(conexion, becario.getId());
         
         //Se generan los semestres del becario a partir de su fecha de inicio de la beca
-        List<Calendar> lstFechaSemestres = Helper.getFechaSemestres(datosEscolares);
+        List<Calendar> lstFechaSemestres = helper.getFechaSemestres(datosEscolares);
 
         //Se procede a llenar la informacion general del becario
         vistaKardex.txtNombreBecario.setText(becario.getApPaterno() + " " + becario.getApMaterno() + " " + becario.getNombre());
@@ -2179,13 +2182,12 @@ public class PrincipalControlador {
         vistaKardex.TxtFldClabeBanco.setText(becario.getClabeInterbancaria());
         
         //Se procede a deshabilitar los semestres que aun no tienen que llenarse
-        int semestresHabilitados = helper.getTotalSemestresporHabilitarKardex(datosEscolares.getMesInicioBeca(), 
-                datosEscolares.getAnioInicioBeca(), datosEscolares.getSemestreInicioBeca(), 
+        int semestresHabilitados = helper.getTotalSemestresporHabilitarKardex(datosEscolares.getSemestreInicioBeca(), 
                 datosEscolares.getSemestresTotalesCarrera());
         
         deshabilitaSemestresKardex(vistaKardex.PnlKardex, semestresHabilitados, 0);
         if(lstKardex.size() > 0)
-            //llenaPnlKardex(lstKardex, lstFechaSemestres, semestresHabilitados);
+            llenaPnlKardex(lstKardex, lstFechaSemestres, semestresHabilitados);
         
         
         try{
@@ -2335,8 +2337,7 @@ public class PrincipalControlador {
             //System.out.println("Tamanio: " + lstKardex.size());
             
             //se obtienen los datos de los semestres habilitados
-            semestres = helper.getTotalSemestresporHabilitarKardex(datosEscolares.getMesInicioBeca(), 
-                    datosEscolares.getAnioInicioBeca(), datosEscolares.getSemestreInicioBeca(), 
+            semestres = helper.getTotalSemestresporHabilitarKardex(datosEscolares.getSemestreInicioBeca(), 
                     datosEscolares.getSemestresTotalesCarrera()) - 1; 
             lstKardex = getDatosKardexBecario(lstKardex, semestres);
             

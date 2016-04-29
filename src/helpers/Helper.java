@@ -373,48 +373,12 @@ public class Helper {
      * @param semestresTotales
      * @return Regresa el total de semestres a habilitar
      */
-    public int getTotalSemestresporHabilitarKardex(int mesInicioBeca, int anioInicioBeca, 
-            int semestreInicioBeca, int semestresTotales){
-        int response = 0;
-        Calendar inicio = Calendar.getInstance();
-        
-        if(mesInicioBeca < 6)
-            mesInicioBeca = 0;
-        else if(mesInicioBeca >= 6)
-            mesInicioBeca = 7;
-        
-        inicio.set(anioInicioBeca, mesInicioBeca, 1);
-        //System.out.println("Inicio1: " + inicio.getTimeInMillis());
-        Calendar hoy = new GregorianCalendar();
-        //System.out.println("hoy1: " + hoy.getTimeInMillis());
-        
-        //Se calcula la fecha en la que se inició la beca
-        inicio.add(Calendar.MONTH, (semestreInicioBeca - 1 ) * 6);
-        //System.out.println("Inicio2: " + inicio.getTimeInMillis());
-        
-        if(inicio.get(Calendar.MONTH) < 6)
-            inicio.set(Calendar.MONTH, 0);
-        else if(inicio.get(Calendar.MONTH) >= 6)
-            inicio.set(Calendar.MONTH, 7);
-        
-        //Se calculan los semestres que han pasado desde que se inició la beca
-        long distancia = hoy.getTimeInMillis() - inicio.getTimeInMillis();
-        //System.out.println("Semestres: " + ((distancia / (1000 * 60 * 60 * 24 * 30) * -1)) / -12); 
-        //semestresTranscurridos = ( fecha / (milisegundos * segundos * minutos * horas * dias) * -1) / mesesXAño 
-        int semestresTranscurridos =  Math.round(distancia / (1000 * 60 * 60 * 24 * 30) / -12) ;
-        
-//        if(semestresTranscurridos > 2){
-            semestresTranscurridos++;
-//        }
-        
-        if(semestresTranscurridos < semestresTotales)
-            return semestresTranscurridos + 1;
-        else if(semestresTranscurridos == semestresTotales)
-            return semestresTranscurridos + 1;
-        else            
-            return semestresTotales ;
+    public int getTotalSemestresporHabilitarKardex(int semestreInicioBeca, int semestresTotales){
+        semestresTotales += 1;
+        semestreInicioBeca -= 1;
+        return semestresTotales - semestreInicioBeca;
     }
-
+    
     public static void getDescuentoSemestral(JCheckBox chkPlatica1, JCheckBox chkPlatica2, 
             JTextField txtPromedio, JTextField txtDescuento){
         int descuento = 0;
@@ -436,8 +400,22 @@ public class Helper {
         txtDescuento.setText(descuento + "%");
     }
     
-    public static java.util.List<Calendar> getFechaSemestres(DatosEscolares datosEscolares){
+    /**
+     * Se comienzan a evaluar las fechas tentativas de los inicios de semestre
+     * @param datosEscolares
+     * @return 
+     */
+    public java.util.List<Calendar> getFechaSemestres(DatosEscolares datosEscolares){
         java.util.List<Calendar> lstFechasSemestres = new java.util.ArrayList<>();
+        
+        int semestresTranscurridos = getTotalSemestresporHabilitarKardex(datosEscolares.getSemestreInicioBeca(), 
+                datosEscolares.getSemestresTotalesCarrera());
+        semestresTranscurridos -= 1;
+        
+        //Se llena la primer posicion que se brincará al recorrel la lista
+        //lstFechasSemestres.add(null);
+        
+        
         
         //Se comienzan a calcular el inicio de cada semestre del becario
         int mesInicio = datosEscolares.getMesInicioBeca();
@@ -449,33 +427,37 @@ public class Helper {
         
         //Se obtiene la fecha de inicio de la carrera y se calcula la fecha de inicio de beca
         Calendar inicio = new GregorianCalendar(datosEscolares.getAnioInicioBeca(), mesInicio, 1);
-        inicio.add(Calendar.MONTH, datosEscolares.getSemestreInicioBeca() * 6);
-        
-        //Se toma la fecha actual y se le resta a la fecha de inicio de beca        
-        Calendar hoy = new GregorianCalendar();
-        int mesHoy = hoy.get(Calendar.MONTH);
-        //Se igualan los meses para que se comience en Enero o Agosto
-        if(mesHoy >= 6)
-            mesHoy = 7;
-        if(mesHoy < 6)
-            mesHoy = 0;
-        hoy.set(Calendar.MONTH, mesHoy);
-        hoy.add(Calendar.MONTH, datosEscolares.getSemestreInicioBeca() * 6);
-        
-        //Se obtiene la diferencia entre el dia de hoy y la fecha de inicio de la beca
-        long distancia = hoy.getTimeInMillis() - inicio.getTimeInMillis();
-        
-        int semestresTranscurridos = (int) (distancia / (1000 * 60 * 60 * 24 * 30)) / -12;
-        
-        for(int i = 0; i <= semestresTranscurridos; i++){
-            lstFechasSemestres.add(inicio);
-            inicio.add(Calendar.MONTH, 6);
-            int mes = hoy.get(Calendar.MONTH);
-            if(mes >= 6)
-                mes = 7;
-            if(mes < 6)
-                mes = 0;
-            inicio.set(Calendar.MONTH, mes);
+//        System.out.println("INicio: " + inicio.getTime());
+//        inicio.add(Calendar.MONTH, semestresTranscurridos * 6);
+//        System.out.println("INicio2: " + inicio.getTime());
+        for(int i = 0; i <=  semestresTranscurridos + 9; i++){
+            if(i < (datosEscolares.getSemestreInicioBeca() - 1)){
+                inicio.add(Calendar.MONTH, 6);
+           
+                int mes = inicio.get(Calendar.MONTH);
+                if(mes >= 6)
+                    mes = 7;
+                if(mes < 6)
+                    mes = 0;
+                inicio.set(Calendar.MONTH, mes);
+            }
+            else{
+                Calendar aux = new GregorianCalendar();
+                aux.setTime(inicio.getTime());
+                lstFechasSemestres.add(aux);
+                inicio.add(Calendar.MONTH, 6);
+           
+                int mes = inicio.get(Calendar.MONTH);
+                if(mes >= 6)
+                    mes = 7;
+                if(mes < 6)
+                    mes = 0;
+                inicio.set(Calendar.MONTH, mes);
+                
+                System.out.println("Antes de agregar fecha a lista: " + aux.getTime());
+                
+            }
+            
         }
         return lstFechasSemestres;
     }
