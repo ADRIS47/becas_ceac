@@ -1021,3 +1021,18 @@
 27/4/2016;17:13:7;Nombre de categoria no encontrado
 27/4/2016;17:13:35;Nombre de categoria no encontrado
 27/4/2016;17:13:42;Nombre de categoria no encontrado
+27/4/2016;21:28:28;SQLError: 42S02
+27/4/2016;21:28:28;ERROR: Code1146
+27/4/2016;21:28:28;Message: Table 'becas_chihuahua.beca_tipo_escuela' doesn't exist
+27/4/2016;21:34:23;SQLError: 42S02
+27/4/2016;21:34:23;ERROR: Code1146
+27/4/2016;21:34:23;Message: Table 'becas_chihuahua.beca_tipo_escuela' doesn't exist
+27/4/2016;21:36:51;SQLError: 42S02
+27/4/2016;21:36:51;ERROR: Code1146
+27/4/2016;21:36:51;Message: Table 'becas_chihuahua.beca_tipo_escuela' doesn't exist
+27/4/2016;21:36:52;SQLError: 42S02
+27/4/2016;21:36:52;ERROR: Code1146
+27/4/2016;21:36:52;Message: Table 'becas_chihuahua.beca_tipo_escuela' doesn't exist
+27/4/2016;21:37:32;SQLError: 42S02
+27/4/2016;21:37:32;ERROR: Code1146
+27/4/2016;21:37:32;Message: Table 'becas_chihuahua.beca_tipo_escuela' doesn't exist
