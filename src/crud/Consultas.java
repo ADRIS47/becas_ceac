@@ -8,7 +8,9 @@ package crud;
 import pojos.Aval;
 import pojos.Becario;
 import pojos.CatBanco;
+import pojos.CatLugarServicioComunitario;
 import pojos.CatTipoEscuela;
+import pojos.CatTipoServicioSocial;
 import pojos.DatosEscolares;
 import pojos.Direccion;
 import pojos.Hermanos;
@@ -92,6 +94,21 @@ public class Consultas {
      * Obtiene la lista de categorias de tipo escuela
      */
     public static String getCatTipoEscuela = "SELECT " + CatTipoEscuela.COL_ID + ", " + CatTipoEscuela.COL_NOMBRE + " FROM beca_tipo_escuela";
+    
+    
+    /**
+     * Obtiene la lista de categorias de tipo de servicio social
+     */
+    public static String getCatTipoServicioSocial = "SELECT " + CatTipoServicioSocial.COL_ID + ", " 
+                    + CatTipoServicioSocial.COL_NOMBRE + " FROM beca_cat_servicio_comunitario "
+                    + "ORDER BY " + CatTipoServicioSocial.COL_NOMBRE;
+    
+    /**
+     * Obtiene la lista de categorias de tipo de servicio comunitario
+     */
+    public static String getCatLugarServicioSocial = "SELECT " + CatLugarServicioComunitario.COL_ID + ", "
+            + CatLugarServicioComunitario.COL_NOMBRE + " FROM beca_cat_lugar_servicio_comunitario "
+            + "ORDER BY " + CatLugarServicioComunitario.COL_NOMBRE;
     
     /**
      * Obtiene las direcciones que tiene registradas un becario

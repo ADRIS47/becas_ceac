@@ -1155,3 +1155,36 @@
 27/4/2016;21:37:32;SQLError: 42S02
 27/4/2016;21:37:32;ERROR: Code1146
 27/4/2016;21:37:32;Message: Table 'becas_chihuahua.beca_tipo_escuela' doesn't exist
+29/4/2016;14:49:38;SQLError: 42S02
+29/4/2016;14:49:38;ERROR: Code1146
+29/4/2016;14:49:38;Message: Table 'becas_chihuahua.beca_cat_servicio_social' doesn't exist
+29/4/2016;14:49:39;SQLError: 42S02
+29/4/2016;14:49:39;ERROR: Code1146
+29/4/2016;14:49:39;Message: Table 'becas_chihuahua.beca_cat_servicio_social' doesn't exist
+29/4/2016;14:56:45;SQLError: 42S02
+29/4/2016;14:56:45;ERROR: Code1146
+29/4/2016;14:56:45;Message: Table 'becas_chihuahua.beca_cat_servicio_social' doesn't exist
+29/4/2016;14:56:46;SQLError: 42S02
+29/4/2016;14:56:46;ERROR: Code1146
+29/4/2016;14:56:46;Message: Table 'becas_chihuahua.beca_cat_servicio_social' doesn't exist
+29/4/2016;14:57:47;SQLError: S0022
+29/4/2016;14:57:47;ERROR: Code0
+29/4/2016;14:57:47;Message: Column 'id_tipo_escuela' not found.
+29/4/2016;14:57:47;SQLError: S0022
+29/4/2016;14:57:47;ERROR: Code0
+29/4/2016;14:57:47;Message: Column 'id_tipo_escuela' not found.
+29/4/2016;14:57:51;SQLError: S0022
+29/4/2016;14:57:51;ERROR: Code0
+29/4/2016;14:57:51;Message: Column 'id_tipo_escuela' not found.
+29/4/2016;14:57:51;SQLError: S0022
+29/4/2016;14:57:51;ERROR: Code0
+29/4/2016;14:57:51;Message: Column 'id_tipo_escuela' not found.
+29/4/2016;15:13:28;SQLError: S0022
+29/4/2016;15:13:28;ERROR: Code0
+29/4/2016;15:13:28;Message: Column 'id_tipo_escuela' not found.
+29/4/2016;15:13:28;SQLError: S0022
+29/4/2016;15:13:28;ERROR: Code0
+29/4/2016;15:13:28;Message: Column 'id_tipo_escuela' not found.
+29/4/2016;15:15:53;SQLError: S0022
+29/4/2016;15:15:53;ERROR: Code0
+29/4/2016;15:15:53;Message: Column 'id_tipo_escuela' not found.

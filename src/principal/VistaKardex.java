@@ -608,9 +608,13 @@ public class VistaKardex extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jScrollPane1.setMaximumSize(new java.awt.Dimension(750, 750));
+
         PnlKardex.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Kardex Becario", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+        PnlKardex.setMaximumSize(new java.awt.Dimension(738, 425));
         PnlKardex.setLayout(new java.awt.GridLayout(13, 1));
 
+        PnlEncabezadoKardex.setMaximumSize(new java.awt.Dimension(726, 16));
         PnlEncabezadoKardex.setLayout(new java.awt.GridLayout(1, 11));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 9)); // NOI18N
@@ -682,10 +686,10 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardex.add(PnlEncabezadoKardex);
 
         PnlKardexF1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PnlKardexF1.setMaximumSize(new java.awt.Dimension(726, 16));
         PnlKardexF1.setLayout(new java.awt.GridLayout(1, 11));
 
         TxtSemestre1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemestre1.setText("Enero");
         TxtSemestre1.setBorder(null);
         TxtSemestre1.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre1.setEnabled(false);
@@ -702,7 +706,6 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtHrServ1.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtHrServ1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ1.setText("6");
         TxtHrServ1.setBorder(null);
         PnlKardexF1.add(TxtHrServ1);
 
@@ -728,24 +731,23 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtProm1.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtProm1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm1.setText("9");
         TxtProm1.setBorder(null);
         PnlKardexF1.add(TxtProm1);
 
         TxtDesc1.setEditable(false);
         TxtDesc1.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtDesc1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtDesc1.setText("2");
+        TxtDesc1.setText("0%");
         TxtDesc1.setBorder(null);
         PnlKardexF1.add(TxtDesc1);
 
         PnlKardex.add(PnlKardexF1);
 
         PnlKardexF2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PnlKardexF2.setMaximumSize(new java.awt.Dimension(726, 16));
         PnlKardexF2.setLayout(new java.awt.GridLayout(1, 11));
 
         TxtSemestre2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemestre2.setText("Enero");
         TxtSemestre2.setBorder(null);
         TxtSemestre2.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre2.setEnabled(false);
@@ -762,7 +764,6 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtHrServ2.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtHrServ2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ2.setText("6");
         TxtHrServ2.setBorder(null);
         TxtHrServ2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -793,24 +794,23 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtProm2.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtProm2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm2.setText("9");
         TxtProm2.setBorder(null);
         PnlKardexF2.add(TxtProm2);
 
         TxtDesc2.setEditable(false);
         TxtDesc2.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtDesc2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtDesc2.setText("2");
+        TxtDesc2.setText("0%");
         TxtDesc2.setBorder(null);
         PnlKardexF2.add(TxtDesc2);
 
         PnlKardex.add(PnlKardexF2);
 
         PnlKardexF3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PnlKardexF3.setMaximumSize(new java.awt.Dimension(726, 16));
         PnlKardexF3.setLayout(new java.awt.GridLayout(1, 11));
 
         TxtSemestre3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemestre3.setText("Enero");
         TxtSemestre3.setBorder(null);
         TxtSemestre3.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre3.setEnabled(false);
@@ -827,7 +827,6 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtHrServ3.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtHrServ3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ3.setText("6");
         TxtHrServ3.setBorder(null);
         PnlKardexF3.add(TxtHrServ3);
 
@@ -858,24 +857,23 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtProm3.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtProm3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm3.setText("9");
         TxtProm3.setBorder(null);
         PnlKardexF3.add(TxtProm3);
 
         TxtDesc3.setEditable(false);
         TxtDesc3.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtDesc3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtDesc3.setText("2");
+        TxtDesc3.setText("0%");
         TxtDesc3.setBorder(null);
         PnlKardexF3.add(TxtDesc3);
 
         PnlKardex.add(PnlKardexF3);
 
         PnlKardexF4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PnlKardexF4.setMaximumSize(new java.awt.Dimension(726, 16));
         PnlKardexF4.setLayout(new java.awt.GridLayout(1, 11));
 
         TxtSemestre4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemestre4.setText("Enero");
         TxtSemestre4.setBorder(null);
         TxtSemestre4.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre4.setEnabled(false);
@@ -892,7 +890,6 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtHrServ4.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtHrServ4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ4.setText("6");
         TxtHrServ4.setBorder(null);
         PnlKardexF4.add(TxtHrServ4);
 
@@ -923,24 +920,24 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtProm4.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtProm4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm4.setText("9");
         TxtProm4.setBorder(null);
         PnlKardexF4.add(TxtProm4);
 
         jTextField13.setEditable(false);
         jTextField13.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         jTextField13.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField13.setText("2");
+        jTextField13.setText("0%");
         jTextField13.setBorder(null);
         PnlKardexF4.add(jTextField13);
 
         PnlKardex.add(PnlKardexF4);
 
         PnlKardexF5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PnlKardexF5.setMaximumSize(new java.awt.Dimension(726, 16));
+        PnlKardexF5.setPreferredSize(new java.awt.Dimension(726, 16));
         PnlKardexF5.setLayout(new java.awt.GridLayout(1, 10));
 
         TxtSemestre5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemestre5.setText("Enero");
         TxtSemestre5.setBorder(null);
         TxtSemestre5.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre5.setEnabled(false);
@@ -957,7 +954,6 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtHrServ5.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtHrServ5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ5.setText("6");
         TxtHrServ5.setBorder(null);
         PnlKardexF5.add(TxtHrServ5);
 
@@ -983,24 +979,24 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtProm5.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtProm5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm5.setText("9");
         TxtProm5.setBorder(null);
         PnlKardexF5.add(TxtProm5);
 
         TxtDesc5.setEditable(false);
         TxtDesc5.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtDesc5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtDesc5.setText("2");
+        TxtDesc5.setText("0%");
         TxtDesc5.setBorder(null);
         PnlKardexF5.add(TxtDesc5);
 
         PnlKardex.add(PnlKardexF5);
 
         PnlKardexF6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PnlKardexF6.setMaximumSize(new java.awt.Dimension(726, 16));
+        PnlKardexF6.setPreferredSize(new java.awt.Dimension(726, 16));
         PnlKardexF6.setLayout(new java.awt.GridLayout(1, 11));
 
         TxtSemestre6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemestre6.setText("Enero");
         TxtSemestre6.setBorder(null);
         TxtSemestre6.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre6.setEnabled(false);
@@ -1017,7 +1013,6 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtHrServ6.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtHrServ6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ6.setText("6");
         TxtHrServ6.setBorder(null);
         PnlKardexF6.add(TxtHrServ6);
 
@@ -1043,24 +1038,24 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtProm6.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtProm6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm6.setText("9");
         TxtProm6.setBorder(null);
         PnlKardexF6.add(TxtProm6);
 
         TxtDesc6.setEditable(false);
         TxtDesc6.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtDesc6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtDesc6.setText("2");
+        TxtDesc6.setText("0%");
         TxtDesc6.setBorder(null);
         PnlKardexF6.add(TxtDesc6);
 
         PnlKardex.add(PnlKardexF6);
 
         PnlKardexF7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PnlKardexF7.setMaximumSize(new java.awt.Dimension(726, 16));
+        PnlKardexF7.setPreferredSize(new java.awt.Dimension(726, 16));
         PnlKardexF7.setLayout(new java.awt.GridLayout(1, 11));
 
         TxtSemestre7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemestre7.setText("Enero");
         TxtSemestre7.setBorder(null);
         TxtSemestre7.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre7.setEnabled(false);
@@ -1077,7 +1072,6 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtHrServ7.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtHrServ7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ7.setText("6");
         TxtHrServ7.setBorder(null);
         PnlKardexF7.add(TxtHrServ7);
 
@@ -1103,24 +1097,24 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtProm7.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtProm7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm7.setText("9");
         TxtProm7.setBorder(null);
         PnlKardexF7.add(TxtProm7);
 
         TxtDesc7.setEditable(false);
         TxtDesc7.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtDesc7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtDesc7.setText("2");
+        TxtDesc7.setText("0%");
         TxtDesc7.setBorder(null);
         PnlKardexF7.add(TxtDesc7);
 
         PnlKardex.add(PnlKardexF7);
+        PnlKardexF7.getAccessibleContext().setAccessibleDescription("");
 
         PnlKardexF8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PnlKardexF8.setMaximumSize(new java.awt.Dimension(726, 16));
         PnlKardexF8.setLayout(new java.awt.GridLayout(1, 11));
 
         TxtSemestre8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemestre8.setText("Enero");
         TxtSemestre8.setBorder(null);
         TxtSemestre8.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre8.setEnabled(false);
@@ -1137,7 +1131,6 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtHrServ8.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtHrServ8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ8.setText("6");
         TxtHrServ8.setBorder(null);
         PnlKardexF8.add(TxtHrServ8);
 
@@ -1163,24 +1156,23 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtProm8.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtProm8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm8.setText("9");
         TxtProm8.setBorder(null);
         PnlKardexF8.add(TxtProm8);
 
         TxtDesc8.setEditable(false);
         TxtDesc8.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtDesc8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtDesc8.setText("2");
+        TxtDesc8.setText("0%");
         TxtDesc8.setBorder(null);
         PnlKardexF8.add(TxtDesc8);
 
         PnlKardex.add(PnlKardexF8);
 
         PnlKardexF9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PnlKardexF9.setMaximumSize(new java.awt.Dimension(726, 16));
         PnlKardexF9.setLayout(new java.awt.GridLayout(1, 11));
 
         TxtSemestre9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemestre9.setText("Enero");
         TxtSemestre9.setBorder(null);
         TxtSemestre9.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre9.setEnabled(false);
@@ -1197,7 +1189,6 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtHrServ9.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtHrServ9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ9.setText("6");
         TxtHrServ9.setBorder(null);
         PnlKardexF9.add(TxtHrServ9);
 
@@ -1224,24 +1215,23 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtProm9.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtProm9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm9.setText("9");
         TxtProm9.setBorder(null);
         PnlKardexF9.add(TxtProm9);
 
         TxtDesc9.setEditable(false);
         TxtDesc9.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtDesc9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtDesc9.setText("2");
+        TxtDesc9.setText("0%");
         TxtDesc9.setBorder(null);
         PnlKardexF9.add(TxtDesc9);
 
         PnlKardex.add(PnlKardexF9);
 
         PnlKardexF11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PnlKardexF11.setMaximumSize(new java.awt.Dimension(726, 16));
         PnlKardexF11.setLayout(new java.awt.GridLayout(1, 11));
 
         TxtSemestre10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemestre10.setText("Enero");
         TxtSemestre10.setBorder(null);
         TxtSemestre10.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre10.setEnabled(false);
@@ -1258,7 +1248,6 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtHrServ10.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtHrServ10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ10.setText("6");
         TxtHrServ10.setBorder(null);
         PnlKardexF11.add(TxtHrServ10);
 
@@ -1283,24 +1272,23 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtProm10.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtProm10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm10.setText("9");
         TxtProm10.setBorder(null);
         PnlKardexF11.add(TxtProm10);
 
         TxtDesc10.setEditable(false);
         TxtDesc10.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtDesc10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtDesc10.setText("2");
+        TxtDesc10.setText("0%");
         TxtDesc10.setBorder(null);
         PnlKardexF11.add(TxtDesc10);
 
         PnlKardex.add(PnlKardexF11);
 
         PnlKardexF12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PnlKardexF12.setMaximumSize(new java.awt.Dimension(726, 16));
         PnlKardexF12.setLayout(new java.awt.GridLayout(1, 11));
 
         TxtSemestre11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemestre11.setText("Enero");
         TxtSemestre11.setBorder(null);
         TxtSemestre11.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre11.setEnabled(false);
@@ -1317,7 +1305,6 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtHrServ11.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtHrServ11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ11.setText("6");
         TxtHrServ11.setBorder(null);
         PnlKardexF12.add(TxtHrServ11);
 
@@ -1342,24 +1329,23 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtProm11.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtProm11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm11.setText("9");
         TxtProm11.setBorder(null);
         PnlKardexF12.add(TxtProm11);
 
         TxtDesc11.setEditable(false);
         TxtDesc11.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtDesc11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtDesc11.setText("2");
+        TxtDesc11.setText("0%");
         TxtDesc11.setBorder(null);
         PnlKardexF12.add(TxtDesc11);
 
         PnlKardex.add(PnlKardexF12);
 
         PnlKardexF13.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PnlKardexF13.setMaximumSize(new java.awt.Dimension(726, 16));
         PnlKardexF13.setLayout(new java.awt.GridLayout(1, 11));
 
         TxtSemestre12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemestre12.setText("Enero");
         TxtSemestre12.setBorder(null);
         TxtSemestre12.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre12.setEnabled(false);
@@ -1376,7 +1362,6 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtHrServ12.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtHrServ12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ12.setText("6");
         TxtHrServ12.setBorder(null);
         PnlKardexF13.add(TxtHrServ12);
 
@@ -1401,14 +1386,13 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtProm12.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtProm12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm12.setText("9");
         TxtProm12.setBorder(null);
         PnlKardexF13.add(TxtProm12);
 
         TxtDesc12.setEditable(false);
         TxtDesc12.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtDesc12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtDesc12.setText("2");
+        TxtDesc12.setText("0%");
         TxtDesc12.setBorder(null);
         PnlKardexF13.add(TxtDesc12);
 
@@ -1749,7 +1733,7 @@ public class VistaKardex extends javax.swing.JPanel {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 427, Short.MAX_VALUE)
+            .addGap(0, 354, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
@@ -2090,7 +2074,7 @@ public class VistaKardex extends javax.swing.JPanel {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 427, Short.MAX_VALUE)
+            .addGap(0, 354, Short.MAX_VALUE)
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
                     .addContainerGap()
@@ -2667,8 +2651,8 @@ public class VistaKardex extends javax.swing.JPanel {
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpnlListaDocumentos4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jpnlAccionesDocumentos2, javax.swing.GroupLayout.PREFERRED_SIZE, 247, Short.MAX_VALUE)
+            .addComponent(jpnlListaDocumentos4, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
+            .addComponent(jpnlAccionesDocumentos2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jpnlListaDocumentos5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE))
             .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2691,7 +2675,7 @@ public class VistaKardex extends javax.swing.JPanel {
                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pnlInformacionBancaria.setBorder(javax.swing.BorderFactory.createTitledBorder("Informacion Bancaria"));
@@ -2757,7 +2741,7 @@ public class VistaKardex extends javax.swing.JPanel {
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pnlInformacionBancaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlTransferenciasAdjuntas2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -2770,15 +2754,13 @@ public class VistaKardex extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(PnlInfoBecario, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jpnlAreaBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jtabKardex, javax.swing.GroupLayout.PREFERRED_SIZE, 914, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(PnlInfoBecario, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jpnlAreaBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtabKardex, javax.swing.GroupLayout.PREFERRED_SIZE, 914, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2789,12 +2771,8 @@ public class VistaKardex extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jpnlAreaBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(31, 31, 31)))
-                .addContainerGap(476, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(173, Short.MAX_VALUE)
-                    .addComponent(jtabKardex, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap()))
+                .addComponent(jtabKardex, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -3162,78 +3140,78 @@ public class VistaKardex extends javax.swing.JPanel {
     protected javax.swing.JButton BtnEliminaTn7;
     protected javax.swing.JButton BtnEliminaTn8;
     protected javax.swing.JButton BtnEliminaTn9;
-    private javax.swing.JCheckBox ChkbxPAgo1;
-    private javax.swing.JCheckBox ChkbxPAgo10;
+    protected javax.swing.JCheckBox ChkbxPAgo1;
+    protected javax.swing.JCheckBox ChkbxPAgo10;
     protected javax.swing.JCheckBox ChkbxPAgo11;
     protected javax.swing.JCheckBox ChkbxPAgo12;
-    private javax.swing.JCheckBox ChkbxPAgo2;
-    private javax.swing.JCheckBox ChkbxPAgo3;
-    private javax.swing.JCheckBox ChkbxPAgo4;
-    private javax.swing.JCheckBox ChkbxPAgo5;
-    private javax.swing.JCheckBox ChkbxPAgo6;
-    private javax.swing.JCheckBox ChkbxPAgo7;
-    private javax.swing.JCheckBox ChkbxPAgo8;
-    private javax.swing.JCheckBox ChkbxPAgo9;
-    private javax.swing.JCheckBox ChkbxPFeb1;
-    private javax.swing.JCheckBox ChkbxPFeb10;
+    protected javax.swing.JCheckBox ChkbxPAgo2;
+    protected javax.swing.JCheckBox ChkbxPAgo3;
+    protected javax.swing.JCheckBox ChkbxPAgo4;
+    protected javax.swing.JCheckBox ChkbxPAgo5;
+    protected javax.swing.JCheckBox ChkbxPAgo6;
+    protected javax.swing.JCheckBox ChkbxPAgo7;
+    protected javax.swing.JCheckBox ChkbxPAgo8;
+    protected javax.swing.JCheckBox ChkbxPAgo9;
+    protected javax.swing.JCheckBox ChkbxPFeb1;
+    protected javax.swing.JCheckBox ChkbxPFeb10;
     protected javax.swing.JCheckBox ChkbxPFeb11;
     protected javax.swing.JCheckBox ChkbxPFeb12;
-    private javax.swing.JCheckBox ChkbxPFeb2;
-    private javax.swing.JCheckBox ChkbxPFeb3;
-    private javax.swing.JCheckBox ChkbxPFeb4;
-    private javax.swing.JCheckBox ChkbxPFeb5;
-    private javax.swing.JCheckBox ChkbxPFeb6;
-    private javax.swing.JCheckBox ChkbxPFeb7;
-    private javax.swing.JCheckBox ChkbxPFeb8;
-    private javax.swing.JCheckBox ChkbxPFeb9;
-    private javax.swing.JCheckBox ChkbxPlatica1;
-    private javax.swing.JCheckBox ChkbxPlatica10;
+    protected javax.swing.JCheckBox ChkbxPFeb2;
+    protected javax.swing.JCheckBox ChkbxPFeb3;
+    protected javax.swing.JCheckBox ChkbxPFeb4;
+    protected javax.swing.JCheckBox ChkbxPFeb5;
+    protected javax.swing.JCheckBox ChkbxPFeb6;
+    protected javax.swing.JCheckBox ChkbxPFeb7;
+    protected javax.swing.JCheckBox ChkbxPFeb8;
+    protected javax.swing.JCheckBox ChkbxPFeb9;
+    protected javax.swing.JCheckBox ChkbxPlatica1;
+    protected javax.swing.JCheckBox ChkbxPlatica10;
     protected javax.swing.JCheckBox ChkbxPlatica11;
     protected javax.swing.JCheckBox ChkbxPlatica12;
-    private javax.swing.JCheckBox ChkbxPlatica2;
-    private javax.swing.JCheckBox ChkbxPlatica21;
-    private javax.swing.JCheckBox ChkbxPlatica210;
+    protected javax.swing.JCheckBox ChkbxPlatica2;
+    protected javax.swing.JCheckBox ChkbxPlatica21;
+    protected javax.swing.JCheckBox ChkbxPlatica210;
     protected javax.swing.JCheckBox ChkbxPlatica211;
     protected javax.swing.JCheckBox ChkbxPlatica212;
-    private javax.swing.JCheckBox ChkbxPlatica22;
-    private javax.swing.JCheckBox ChkbxPlatica23;
-    private javax.swing.JCheckBox ChkbxPlatica24;
-    private javax.swing.JCheckBox ChkbxPlatica25;
-    private javax.swing.JCheckBox ChkbxPlatica26;
-    private javax.swing.JCheckBox ChkbxPlatica27;
-    private javax.swing.JCheckBox ChkbxPlatica28;
-    private javax.swing.JCheckBox ChkbxPlatica29;
-    private javax.swing.JCheckBox ChkbxPlatica3;
-    private javax.swing.JCheckBox ChkbxPlatica4;
-    private javax.swing.JCheckBox ChkbxPlatica5;
-    private javax.swing.JCheckBox ChkbxPlatica6;
-    private javax.swing.JCheckBox ChkbxPlatica7;
-    private javax.swing.JCheckBox ChkbxPlatica8;
-    private javax.swing.JCheckBox ChkbxPlatica9;
-    private javax.swing.JComboBox CmbBxLugarSC1;
-    private javax.swing.JComboBox CmbBxLugarSC10;
+    protected javax.swing.JCheckBox ChkbxPlatica22;
+    protected javax.swing.JCheckBox ChkbxPlatica23;
+    protected javax.swing.JCheckBox ChkbxPlatica24;
+    protected javax.swing.JCheckBox ChkbxPlatica25;
+    protected javax.swing.JCheckBox ChkbxPlatica26;
+    protected javax.swing.JCheckBox ChkbxPlatica27;
+    protected javax.swing.JCheckBox ChkbxPlatica28;
+    protected javax.swing.JCheckBox ChkbxPlatica29;
+    protected javax.swing.JCheckBox ChkbxPlatica3;
+    protected javax.swing.JCheckBox ChkbxPlatica4;
+    protected javax.swing.JCheckBox ChkbxPlatica5;
+    protected javax.swing.JCheckBox ChkbxPlatica6;
+    protected javax.swing.JCheckBox ChkbxPlatica7;
+    protected javax.swing.JCheckBox ChkbxPlatica8;
+    protected javax.swing.JCheckBox ChkbxPlatica9;
+    protected javax.swing.JComboBox CmbBxLugarSC1;
+    protected javax.swing.JComboBox CmbBxLugarSC10;
     protected javax.swing.JComboBox CmbBxLugarSC11;
     protected javax.swing.JComboBox CmbBxLugarSC12;
-    private javax.swing.JComboBox CmbBxLugarSC2;
-    private javax.swing.JComboBox CmbBxLugarSC3;
-    private javax.swing.JComboBox CmbBxLugarSC4;
-    private javax.swing.JComboBox CmbBxLugarSC5;
-    private javax.swing.JComboBox CmbBxLugarSC6;
-    private javax.swing.JComboBox CmbBxLugarSC7;
-    private javax.swing.JComboBox CmbBxLugarSC8;
-    private javax.swing.JComboBox CmbBxLugarSC9;
-    private javax.swing.JComboBox CmbBxTipoSC1;
-    private javax.swing.JComboBox CmbBxTipoSC10;
+    protected javax.swing.JComboBox CmbBxLugarSC2;
+    protected javax.swing.JComboBox CmbBxLugarSC3;
+    protected javax.swing.JComboBox CmbBxLugarSC4;
+    protected javax.swing.JComboBox CmbBxLugarSC5;
+    protected javax.swing.JComboBox CmbBxLugarSC6;
+    protected javax.swing.JComboBox CmbBxLugarSC7;
+    protected javax.swing.JComboBox CmbBxLugarSC8;
+    protected javax.swing.JComboBox CmbBxLugarSC9;
+    protected javax.swing.JComboBox CmbBxTipoSC1;
+    protected javax.swing.JComboBox CmbBxTipoSC10;
     protected javax.swing.JComboBox CmbBxTipoSC11;
     protected javax.swing.JComboBox CmbBxTipoSC12;
-    private javax.swing.JComboBox CmbBxTipoSC2;
-    private javax.swing.JComboBox CmbBxTipoSC3;
-    private javax.swing.JComboBox CmbBxTipoSC4;
-    private javax.swing.JComboBox CmbBxTipoSC5;
-    private javax.swing.JComboBox CmbBxTipoSC6;
-    private javax.swing.JComboBox CmbBxTipoSC7;
-    private javax.swing.JComboBox CmbBxTipoSC8;
-    private javax.swing.JComboBox CmbBxTipoSC9;
+    protected javax.swing.JComboBox CmbBxTipoSC2;
+    protected javax.swing.JComboBox CmbBxTipoSC3;
+    protected javax.swing.JComboBox CmbBxTipoSC4;
+    protected javax.swing.JComboBox CmbBxTipoSC5;
+    protected javax.swing.JComboBox CmbBxTipoSC6;
+    protected javax.swing.JComboBox CmbBxTipoSC7;
+    protected javax.swing.JComboBox CmbBxTipoSC8;
+    protected javax.swing.JComboBox CmbBxTipoSC9;
     private javax.swing.JPanel PnlEncabezadoKardex;
     private javax.swing.JPanel PnlInfBecarioD;
     private javax.swing.JPanel PnlInfBecarioI;
@@ -3261,17 +3239,17 @@ public class VistaKardex extends javax.swing.JPanel {
     protected javax.swing.JTextField TxtBoletaSemestre7;
     protected javax.swing.JTextField TxtBoletaSemestre8;
     protected javax.swing.JTextField TxtBoletaSemestre9;
-    private javax.swing.JTextField TxtDesc1;
-    private javax.swing.JTextField TxtDesc10;
+    protected javax.swing.JTextField TxtDesc1;
+    protected javax.swing.JTextField TxtDesc10;
     protected javax.swing.JTextField TxtDesc11;
     protected javax.swing.JTextField TxtDesc12;
-    private javax.swing.JTextField TxtDesc2;
-    private javax.swing.JTextField TxtDesc3;
-    private javax.swing.JTextField TxtDesc5;
-    private javax.swing.JTextField TxtDesc6;
-    private javax.swing.JTextField TxtDesc7;
-    private javax.swing.JTextField TxtDesc8;
-    private javax.swing.JTextField TxtDesc9;
+    protected javax.swing.JTextField TxtDesc2;
+    protected javax.swing.JTextField TxtDesc3;
+    protected javax.swing.JTextField TxtDesc5;
+    protected javax.swing.JTextField TxtDesc6;
+    protected javax.swing.JTextField TxtDesc7;
+    protected javax.swing.JTextField TxtDesc8;
+    protected javax.swing.JTextField TxtDesc9;
     protected javax.swing.JLabel TxtEstatusSC1;
     protected javax.swing.JLabel TxtEstatusSC10;
     protected javax.swing.JLabel TxtEstatusSC11;
@@ -3304,30 +3282,30 @@ public class VistaKardex extends javax.swing.JPanel {
     protected javax.swing.JLabel TxtEstatusSC9;
     protected javax.swing.JTextField TxtFldClabeBanco;
     protected javax.swing.JTextField TxtFldNoCuenta;
-    private javax.swing.JTextField TxtHrServ1;
-    private javax.swing.JTextField TxtHrServ10;
+    protected javax.swing.JTextField TxtHrServ1;
+    protected javax.swing.JTextField TxtHrServ10;
     protected javax.swing.JTextField TxtHrServ11;
     protected javax.swing.JTextField TxtHrServ12;
-    private javax.swing.JTextField TxtHrServ2;
-    private javax.swing.JTextField TxtHrServ3;
-    private javax.swing.JTextField TxtHrServ4;
-    private javax.swing.JTextField TxtHrServ5;
-    private javax.swing.JTextField TxtHrServ6;
-    private javax.swing.JTextField TxtHrServ7;
-    private javax.swing.JTextField TxtHrServ8;
-    private javax.swing.JTextField TxtHrServ9;
-    private javax.swing.JTextField TxtProm1;
-    private javax.swing.JTextField TxtProm10;
+    protected javax.swing.JTextField TxtHrServ2;
+    protected javax.swing.JTextField TxtHrServ3;
+    protected javax.swing.JTextField TxtHrServ4;
+    protected javax.swing.JTextField TxtHrServ5;
+    protected javax.swing.JTextField TxtHrServ6;
+    protected javax.swing.JTextField TxtHrServ7;
+    protected javax.swing.JTextField TxtHrServ8;
+    protected javax.swing.JTextField TxtHrServ9;
+    protected javax.swing.JTextField TxtProm1;
+    protected javax.swing.JTextField TxtProm10;
     protected javax.swing.JTextField TxtProm11;
     protected javax.swing.JTextField TxtProm12;
-    private javax.swing.JTextField TxtProm2;
-    private javax.swing.JTextField TxtProm3;
-    private javax.swing.JTextField TxtProm4;
-    private javax.swing.JTextField TxtProm5;
-    private javax.swing.JTextField TxtProm6;
-    private javax.swing.JTextField TxtProm7;
-    private javax.swing.JTextField TxtProm8;
-    private javax.swing.JTextField TxtProm9;
+    protected javax.swing.JTextField TxtProm2;
+    protected javax.swing.JTextField TxtProm3;
+    protected javax.swing.JTextField TxtProm4;
+    protected javax.swing.JTextField TxtProm5;
+    protected javax.swing.JTextField TxtProm6;
+    protected javax.swing.JTextField TxtProm7;
+    protected javax.swing.JTextField TxtProm8;
+    protected javax.swing.JTextField TxtProm9;
     protected javax.swing.JTextField TxtSemSC1;
     protected javax.swing.JTextField TxtSemSC10;
     protected javax.swing.JTextField TxtSemSC12;
@@ -3393,18 +3371,18 @@ public class VistaKardex extends javax.swing.JPanel {
     protected javax.swing.JButton btnGuardar;
     protected javax.swing.JButton btnSalir;
     protected javax.swing.JComboBox<String> cmbNombreBanco;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox10;
+    protected javax.swing.JCheckBox jCheckBox1;
+    protected javax.swing.JCheckBox jCheckBox10;
     protected javax.swing.JCheckBox jCheckBox11;
     protected javax.swing.JCheckBox jCheckBox12;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JCheckBox jCheckBox6;
-    private javax.swing.JCheckBox jCheckBox7;
-    private javax.swing.JCheckBox jCheckBox8;
-    private javax.swing.JCheckBox jCheckBox9;
+    protected javax.swing.JCheckBox jCheckBox2;
+    protected javax.swing.JCheckBox jCheckBox3;
+    protected javax.swing.JCheckBox jCheckBox4;
+    protected javax.swing.JCheckBox jCheckBox5;
+    protected javax.swing.JCheckBox jCheckBox6;
+    protected javax.swing.JCheckBox jCheckBox7;
+    protected javax.swing.JCheckBox jCheckBox8;
+    protected javax.swing.JCheckBox jCheckBox9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -3443,7 +3421,7 @@ public class VistaKardex extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField13;
+    protected javax.swing.JTextField jTextField13;
     private javax.swing.JPanel jpnlAccionesDocumentos;
     private javax.swing.JPanel jpnlAccionesDocumentos1;
     private javax.swing.JPanel jpnlAccionesDocumentos2;

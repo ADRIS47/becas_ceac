@@ -12,6 +12,7 @@ import pojos.DatosEscolares;
 import pojos.Direccion;
 import pojos.Hermanos;
 import pojos.Hijos;
+import pojos.Kardex;
 import pojos.Padres;
 import pojos.Telefono;
 
@@ -125,4 +126,14 @@ public class Update {
             + Becario.COL_CLABE_INTERBANCARIA + " = ? "
             + "WHERE " + Becario.COL_ID + " = ?";
     
+    
+    public static String updateKardexBecario = "UPDATE beca_becario "
+            + "SET " + Kardex.COL_NUM_SEMESTRE + " = ?, " + Kardex.COL_PAGO_INICIO_SEMESTRE + " = ?, "
+            + Kardex.COL_PAGO_FIN_SEMESTRE + " = ?, " + Kardex.COL_PLATICA_1 + " = ?, "
+            + Kardex.COL_PLATICA_2 + " = ?, " + Kardex.COL_PROMEDIO + " = ?, "
+            + Kardex.COL_DESCUENTO + " = ?, " + Kardex.COL_ID_SERVICIO_COMUNITARIO + " = ?, " 
+            + Kardex.COL_LUGAR_SERVICIO_COMUNITARIO + " = ?, " + Kardex.COL_BOLETA + " = ?, "
+            + Kardex.COL_CARTA_SERVICIO_COMUNITARIO + " = ?, " + Kardex.COL_PAGO_EXTRA + " = ?, "
+            + Kardex.COL_HORAS_SERVICIO + " = ? "
+            + "WHERE " + Becario.COL_ID + " = ?";
 }

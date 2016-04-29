@@ -30,10 +30,12 @@ import pojos.CatCampoCarrera;
 import pojos.CatEstadoCivil;
 import pojos.CatEstatus;
 import pojos.CatGradoEscolar;
+import pojos.CatLugarServicioComunitario;
 import pojos.CatParentesco;
 import pojos.CatPrograma;
 import pojos.CatSexo;
 import pojos.CatTipoEscuela;
+import pojos.CatTipoServicioSocial;
 import pojos.CatUniversidad;
 import pojos.DatosEscolares;
 import pojos.Direccion;
@@ -96,6 +98,8 @@ public class PrincipalModelo {
         LinkedHashMap<Integer, String> catEstatus = new LinkedHashMap<>();
         LinkedHashMap<Integer, String> catBancos = new LinkedHashMap<>();
         LinkedHashMap<Integer, String> catTipoEscuela = new LinkedHashMap<>();
+        LinkedHashMap<Integer, String> catTipoServicioSocial = new LinkedHashMap<>();
+        LinkedHashMap<Integer, String> catLugarServicioSocial = new LinkedHashMap<>();
 
         Conexion conexion = new Conexion();
         Connection conn = null;
@@ -114,6 +118,8 @@ public class PrincipalModelo {
         catEstatus = getCatEstatus(conn);
         catBancos = getCatBancos(conn);
         catTipoEscuela = getCatTipoEscuela(conn);
+        catTipoServicioSocial = getCatTipoServicioComunitario(conn);
+        catLugarServicioSocial = getCatLugarServicioSocial(conn);
 
         //Se llena la lista con las categorias
         result.add(catSexo);
@@ -126,6 +132,8 @@ public class PrincipalModelo {
         result.add(catEstatus);
         result.add(catBancos);
         result.add(catTipoEscuela);
+        result.add(catTipoServicioSocial);
+        result.add(catLugarServicioSocial);
 
         conn.close();
         return result;
@@ -558,6 +566,68 @@ public class PrincipalModelo {
             }
         }
         return catTipoEscuela;
+    }
+    
+    /**
+     * Obtiene las categorias del tipo de servicio social
+     * @param conn
+     * @return 
+     */
+    private LinkedHashMap<Integer, String> getCatTipoServicioComunitario(Connection conn){
+        LinkedHashMap<Integer, String> catTipoServicioComunitario = new LinkedHashMap<>();
+        Statement st = null;
+        ResultSet rs = null;
+        try {
+            st = conn.createStatement();
+            rs = st.executeQuery(Consultas.getCatTipoServicioSocial);
+            while (rs.next()) {
+                CatTipoServicioSocial tipoEscuela = new CatTipoServicioSocial();
+                tipoEscuela.setId(rs.getInt(CatTipoServicioSocial.COL_ID));
+                tipoEscuela.setNombre(rs.getString(CatTipoServicioSocial.COL_NOMBRE));
+                catTipoServicioComunitario.put(tipoEscuela.getId(), tipoEscuela.getNombre());
+            }
+        } catch (SQLException e) {
+            muestraErrores(e);
+        } finally {
+            try {
+                rs.close();
+                st.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return catTipoServicioComunitario;
+    }
+    
+    /**
+     * Obtiene la categoria de los lugares donde se puede hacer el servicio social
+     * @param conn
+     * @return 
+     */
+    private LinkedHashMap<Integer, String> getCatLugarServicioSocial(Connection conn){
+        LinkedHashMap<Integer, String> catLugarServicioComunitario = new LinkedHashMap<>();
+        Statement st = null;
+        ResultSet rs = null;
+        try {
+            st = conn.createStatement();
+            rs = st.executeQuery(Consultas.getCatLugarServicioSocial);
+            while (rs.next()) {
+                CatLugarServicioComunitario tipoEscuela = new CatLugarServicioComunitario();
+                tipoEscuela.setId(rs.getInt(CatLugarServicioComunitario.COL_ID));
+                tipoEscuela.setNombre(rs.getString(CatLugarServicioComunitario.COL_NOMBRE));
+                catLugarServicioComunitario.put(tipoEscuela.getId(), tipoEscuela.getNombre());
+            }
+        } catch (SQLException e) {
+            muestraErrores(e);
+        } finally {
+            try {
+                rs.close();
+                st.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return catLugarServicioComunitario;
     }
 
     /**
@@ -2449,9 +2519,12 @@ public class PrincipalModelo {
      * Inserta o Actualiza los kardex del becario seleccionado.
      * @param conexion
      * @param lstKardex
+     * @param idBecario
+     * @param semestresTotales
      * @return True si exitoso, false si no
      */
-    protected boolean insertOrUpdateKardexBecario(Connection conexion, List<Kardex> lstKardex, long idBecario){
+    protected boolean insertOrUpdateKardexBecario(Connection conexion, List<Kardex> lstKardex, 
+            long idBecario){
         boolean response = false;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -2488,6 +2561,28 @@ public class PrincipalModelo {
                     }
                 }
                 response = true;
+            }
+            //Su existen menos kardex registrados que el total de semestres a registrar
+            else{
+                //Se recorren los kardex actualizables
+                for (Kardex kardex : lstKardex) {
+                    ps = conexion.prepareStatement(Update.updateKardexBecario);
+                    ps.setInt(1, kardex.getNum_semestre());
+                    ps.setBoolean(2, kardex.isPago_inicio_semestre());
+                    ps.setBoolean(3, kardex.isPago_fin_semestre());
+                    ps.setBoolean(4, kardex.isPlatica1());
+                    ps.setBoolean(5, kardex.isPlatica2());
+                    ps.setFloat(6, kardex.getPromedio());
+                    ps.setFloat(7, kardex.getDescuento());
+                    ps.setInt(8, kardex.getIdServicioComunitario());
+                    ps.setString(9, kardex.getLugarServicioComunitario());
+                    ps.setString(10, kardex.getBoleta());
+                    ps.setString(11, kardex.getCarta_servicio_comunitario());
+                    ps.setBoolean(12, kardex.isPago_extra());
+                    ps.setInt(13, kardex.getHorasServicio());
+                    ps.setLong(14, idBecario);
+                    int result = ps.executeUpdate();
+                }        
             }
             
         }

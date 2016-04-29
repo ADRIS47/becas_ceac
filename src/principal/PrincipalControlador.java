@@ -93,6 +93,8 @@ public class PrincipalControlador {
     LinkedHashMap<Integer, String> catEstatus = null;
     LinkedHashMap<Integer, String> catBancos = null;
     LinkedHashMap<Integer, String> catTipoEscuela = null;
+    LinkedHashMap<Integer, String> catTipoServicioSocial = null;
+    LinkedHashMap<Integer, String> catLugarServicioSocial = null;
     
     List<PnlHijos> lstVistaHijos = new ArrayList<>();
     List<PnlHermanos> lstVistaHermanos = new ArrayList<>();
@@ -304,6 +306,8 @@ public class PrincipalControlador {
         catEstatus = lstCategorias.get(7);
         catBancos = lstCategorias.get(8);
         catTipoEscuela = lstCategorias.get(9);
+        catTipoServicioSocial = lstCategorias.get(10);
+        catLugarServicioSocial = lstCategorias.get(11);
         
         llenaComboCategorias(vistaRegistro.combobxCivilBecado, catEstadoCivil);
         llenaComboCategorias(vistaRegistro.comboBoxPrograma, catPrograma);
@@ -1542,6 +1546,8 @@ public class PrincipalControlador {
                 JTextField txtSemestre = (JTextField) panel.getComponent(0);
                 JCheckBox chkPago1 = (JCheckBox) panel.getComponent(1);
                 JTextField txtHorasServicio = (JTextField) panel.getComponent(2);
+                JComboBox<String> cmbTipoServicioSocial = (JComboBox<String>) panel.getComponent(3);
+                JComboBox<String> cmbLugarServicioSocial = (JComboBox<String>) panel.getComponent(4);
                 JCheckBox chkPlatica1 = (JCheckBox) panel.getComponent(5);
                 JCheckBox chkPlatica2 = (JCheckBox) panel.getComponent(6);
                 JCheckBox chkPago2 = (JCheckBox) panel.getComponent(7);
@@ -1566,6 +1572,8 @@ public class PrincipalControlador {
                     txtDescuento.setText(kardex.getDescuento() + "%");
                 }
                 txtSemestre.setText(fecha.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault()) + "/" + fecha.get(Calendar.YEAR));
+                llenaComboCategorias(cmbTipoServicioSocial, catTipoServicioSocial);
+                    llenaComboCategorias(cmbLugarServicioSocial, catLugarServicioSocial);
                 if(i == lstFechaSemestre.size() -1 ){
                     break;
                 }
@@ -2186,7 +2194,7 @@ public class PrincipalControlador {
                 datosEscolares.getSemestresTotalesCarrera());
         
         deshabilitaSemestresKardex(vistaKardex.PnlKardex, semestresHabilitados, 0);
-        if(lstKardex.size() > 0)
+        //if(lstKardex.size() > 0)
             llenaPnlKardex(lstKardex, lstFechaSemestres, semestresHabilitados);
         
         

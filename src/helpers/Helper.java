@@ -430,7 +430,7 @@ public class Helper {
 //        System.out.println("INicio: " + inicio.getTime());
 //        inicio.add(Calendar.MONTH, semestresTranscurridos * 6);
 //        System.out.println("INicio2: " + inicio.getTime());
-        for(int i = 0; i <=  semestresTranscurridos + 9; i++){
+        for(int i = 0; i <=  semestresTranscurridos ; i++){
             if(i < (datosEscolares.getSemestreInicioBeca() - 1)){
                 inicio.add(Calendar.MONTH, 6);
            
