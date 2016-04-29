@@ -1563,7 +1563,7 @@ public class PrincipalControlador {
                 txtPromedio.setText(kardex.getPromedio() + "");
                 txtDescuento.setText(kardex.getDescuento() + "%");
                 
-                if(i == lstFechaSemestre.size() -1 ){
+                if(i == lstKardex.size() -1 ){
                     break;
                 }
                 i++;
@@ -2185,7 +2185,7 @@ public class PrincipalControlador {
         
         deshabilitaSemestresKardex(vistaKardex.PnlKardex, semestresHabilitados, 0);
         if(lstKardex.size() > 0)
-            llenaPnlKardex(lstKardex, lstFechaSemestres, semestresHabilitados);
+            //llenaPnlKardex(lstKardex, lstFechaSemestres, semestresHabilitados);
         
         
         try{

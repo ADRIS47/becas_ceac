@@ -1045,3 +1045,4 @@
 27/4/2016;22:35:36;Nombre de categoria no encontrado
 28/4/2016;11:19:25;Nombre de categoria no encontrado
 28/4/2016;11:23:40;Nombre de categoria no encontrado
+28/4/2016;16:37:54;Error al actualizar las direcciones del becario

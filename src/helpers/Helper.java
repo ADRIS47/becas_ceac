@@ -373,31 +373,45 @@ public class Helper {
      * @param semestresTotales
      * @return Regresa el total de semestres a habilitar
      */
-    public int getTotalSemestresporHabilitarKardex(int mesInicioBeca, int anioInicioBeca, int semestreInicioBeca, int semestresTotales){
+    public int getTotalSemestresporHabilitarKardex(int mesInicioBeca, int anioInicioBeca, 
+            int semestreInicioBeca, int semestresTotales){
         int response = 0;
         Calendar inicio = Calendar.getInstance();
+        
+        if(mesInicioBeca < 6)
+            mesInicioBeca = 0;
+        else if(mesInicioBeca >= 6)
+            mesInicioBeca = 7;
+        
         inicio.set(anioInicioBeca, mesInicioBeca, 1);
         //System.out.println("Inicio1: " + inicio.getTimeInMillis());
         Calendar hoy = new GregorianCalendar();
         //System.out.println("hoy1: " + hoy.getTimeInMillis());
         
         //Se calcula la fecha en la que se inició la beca
-        inicio.add(Calendar.MONTH, ((semestreInicioBeca - 1) * 6));
+        inicio.add(Calendar.MONTH, (semestreInicioBeca - 1 ) * 6);
         //System.out.println("Inicio2: " + inicio.getTimeInMillis());
+        
+        if(inicio.get(Calendar.MONTH) < 6)
+            inicio.set(Calendar.MONTH, 0);
+        else if(inicio.get(Calendar.MONTH) >= 6)
+            inicio.set(Calendar.MONTH, 7);
         
         //Se calculan los semestres que han pasado desde que se inició la beca
         long distancia = hoy.getTimeInMillis() - inicio.getTimeInMillis();
         //System.out.println("Semestres: " + ((distancia / (1000 * 60 * 60 * 24 * 30) * -1)) / -12); 
         //semestresTranscurridos = ( fecha / (milisegundos * segundos * minutos * horas * dias) * -1) / mesesXAño 
-        int semestresTranscurridos = (int) (distancia / (1000 * 60 * 60 * 24 * 30)) / -12;
+        int semestresTranscurridos =  Math.round(distancia / (1000 * 60 * 60 * 24 * 30) / -12) ;
         
-        if(semestresTranscurridos > 2){
+//        if(semestresTranscurridos > 2){
             semestresTranscurridos++;
-        }
+//        }
         
-        if(semestresTranscurridos <= semestresTotales)
-            return semestresTranscurridos ;
-        else
+        if(semestresTranscurridos < semestresTotales)
+            return semestresTranscurridos + 1;
+        else if(semestresTranscurridos == semestresTotales)
+            return semestresTranscurridos + 1;
+        else            
             return semestresTotales ;
     }
 
@@ -428,48 +442,41 @@ public class Helper {
         //Se comienzan a calcular el inicio de cada semestre del becario
         int mesInicio = datosEscolares.getMesInicioBeca();
         //Se igualan los meses para que se comience en Enero o Agosto
-        if(mesInicio > 7)
+        if(mesInicio >= 6)
             mesInicio = 7;
-        if(mesInicio < 7)
+        if(mesInicio < 6)
             mesInicio = 0;
         
-        int mesGraduacion = datosEscolares.getMesGraduacion();
+        //Se obtiene la fecha de inicio de la carrera y se calcula la fecha de inicio de beca
+        Calendar inicio = new GregorianCalendar(datosEscolares.getAnioInicioBeca(), mesInicio, 1);
+        inicio.add(Calendar.MONTH, datosEscolares.getSemestreInicioBeca() * 6);
+        
+        //Se toma la fecha actual y se le resta a la fecha de inicio de beca        
+        Calendar hoy = new GregorianCalendar();
+        int mesHoy = hoy.get(Calendar.MONTH);
         //Se igualan los meses para que se comience en Enero o Agosto
-        if(mesGraduacion > 7)
-            mesGraduacion = 7;
-        if(mesGraduacion < 7)
-            mesGraduacion = 0;
+        if(mesHoy >= 6)
+            mesHoy = 7;
+        if(mesHoy < 6)
+            mesHoy = 0;
+        hoy.set(Calendar.MONTH, mesHoy);
+        hoy.add(Calendar.MONTH, datosEscolares.getSemestreInicioBeca() * 6);
         
-        //Se obtiene la fecha cuando inició la carrera el becario
-        Calendar fechaInicio = new GregorianCalendar(datosEscolares.getAnioInicioBeca(), mesInicio, 1);
-        //System.out.println("Fecha inicio: " + fechaInicio.getTime());
-        //Se le suman los semestres cursados antes de tener la beca
-        fechaInicio.add(Calendar.MONTH, (datosEscolares.getSemestreInicioBeca() - 1) * 6);
-        //System.out.println("Fecha con inicio beca: " + fechaInicio.getTime());
+        //Se obtiene la diferencia entre el dia de hoy y la fecha de inicio de la beca
+        long distancia = hoy.getTimeInMillis() - inicio.getTimeInMillis();
         
-        //Se toma la fecha de graduacion del becario
-        Calendar fechaGraduacion = new GregorianCalendar(datosEscolares.getAnioGraduacion(), mesGraduacion, 1);
+        int semestresTranscurridos = (int) (distancia / (1000 * 60 * 60 * 24 * 30)) / -12;
         
-        //Se comienzan a generar los meses de inicio de semestre
-        long fechaInicial = fechaInicio.getTimeInMillis();
-        long fechaGrad = fechaGraduacion.getTimeInMillis();
-        while(fechaInicial <= fechaGrad){
-            Calendar aux = new GregorianCalendar();
-            aux.setTimeInMillis(fechaInicial);
-            int mesAux = 0;
-            mesAux = aux.get(Calendar.MONTH);
-            if(mesAux > 7)
-                mesAux = 7;
-            if(mesAux < 7)
-                mesAux = 0;
-            aux.set(Calendar.MONTH, mesAux);
-            
-            lstFechasSemestres.add(aux);
-            fechaInicio.add(Calendar.MONTH, 6   );
-            fechaInicial = fechaInicio.getTimeInMillis();
-            System.out.println("Nueva Fecha: " + fechaInicial);
+        for(int i = 0; i <= semestresTranscurridos; i++){
+            lstFechasSemestres.add(inicio);
+            inicio.add(Calendar.MONTH, 6);
+            int mes = hoy.get(Calendar.MONTH);
+            if(mes >= 6)
+                mes = 7;
+            if(mes < 6)
+                mes = 0;
+            inicio.set(Calendar.MONTH, mes);
         }
-        
         return lstFechasSemestres;
     }
 }
