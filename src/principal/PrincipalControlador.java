@@ -2391,15 +2391,15 @@ public class PrincipalControlador {
             if(componente instanceof JPanel){
                 JPanel panel = (JPanel) componente;
                 
-                JTextField txtSemestre = (JTextField) panel.getComponent(1);
-                JCheckBox chkPago1 = (JCheckBox) panel.getComponent(2);
-                JTextField txtHorasServicio = (JTextField) panel.getComponent(3);
-                JCheckBox chkPlatica1 = (JCheckBox) panel.getComponent(4);
-                JCheckBox chkPlatica2 = (JCheckBox) panel.getComponent(5);
-                JCheckBox chkPago2 = (JCheckBox) panel.getComponent(6);
-                JCheckBox chkPagoExtra = (JCheckBox) panel.getComponent(7);
-                JTextField txtPromedio = (JTextField) panel.getComponent(8);
-                JTextField txtDescuento = (JTextField) panel.getComponent(9);
+                JTextField txtSemestre = (JTextField) panel.getComponent(0);
+                JCheckBox chkPago1 = (JCheckBox) panel.getComponent(1);
+                JTextField txtHorasServicio = (JTextField) panel.getComponent(2);
+                JCheckBox chkPlatica1 = (JCheckBox) panel.getComponent(5);
+                JCheckBox chkPlatica2 = (JCheckBox) panel.getComponent(6);
+                JCheckBox chkPago2 = (JCheckBox) panel.getComponent(7);
+                JCheckBox chkPagoExtra = (JCheckBox) panel.getComponent(8);
+                JTextField txtPromedio = (JTextField) panel.getComponent(9);
+                JTextField txtDescuento = (JTextField) panel.getComponent(10);
                 
                 Kardex kardex = new Kardex();
                 kardex.setPago_inicio_semestre(chkPago1.isSelected());

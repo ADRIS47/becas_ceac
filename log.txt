@@ -1188,3 +1188,13 @@
 29/4/2016;15:15:53;SQLError: S0022
 29/4/2016;15:15:53;ERROR: Code0
 29/4/2016;15:15:53;Message: Column 'id_tipo_escuela' not found.
+30/4/2016;17:41:58;Nombre de categoria no encontrado
+30/4/2016;17:41:58;Nombre de categoria no encontrado
+30/4/2016;17:43:0;Nombre de categoria no encontrado
+30/4/2016;17:43:0;Nombre de categoria no encontrado
+30/4/2016;17:47:33;Error al actualizar las direcciones del becario
+30/4/2016;17:47:57;Error al actualizar las direcciones del becario
+30/4/2016;17:48:18;Nombre de categoria no encontrado
+30/4/2016;17:48:18;Nombre de categoria no encontrado
+30/4/2016;17:50:30;Nombre de categoria no encontrado
+30/4/2016;17:50:30;Nombre de categoria no encontrado
