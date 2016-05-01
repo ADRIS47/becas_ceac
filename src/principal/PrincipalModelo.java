@@ -2466,6 +2466,7 @@ public class PrincipalModelo {
                 kardex.setCarta_servicio_comunitario(rs.getString(Kardex.COL_CARTA_SERVICIO_COMUNITARIO));
                 kardex.setId_becario(rs.getLong(Kardex.COL_ID_BECARIO));
                 kardex.setPago_extra(rs.getBoolean(Kardex.COL_PAGO_EXTRA));
+                kardex.setHorasServicio(rs.getInt(Kardex.COL_HORAS_SERVICIO));
                 lstKardex.add(kardex);
             }
             
