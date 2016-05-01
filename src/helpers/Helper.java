@@ -392,7 +392,7 @@ public class Helper {
         
         if(!txtPromedio.getText().equals("")){
             float valor = Float.parseFloat(txtPromedio.getText());
-            if(valor >= 9){
+            if(valor >= 90){
                 descuento = descuento + 2;
             }
         }
