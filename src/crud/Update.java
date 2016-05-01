@@ -127,7 +127,7 @@ public class Update {
             + "WHERE " + Becario.COL_ID + " = ?";
     
     
-    public static String updateKardexBecario = "UPDATE beca_becario "
+    public static String updateKardexBecario = "UPDATE beca_kardex "
             + "SET " + Kardex.COL_NUM_SEMESTRE + " = ?, " + Kardex.COL_PAGO_INICIO_SEMESTRE + " = ?, "
             + Kardex.COL_PAGO_FIN_SEMESTRE + " = ?, " + Kardex.COL_PLATICA_1 + " = ?, "
             + Kardex.COL_PLATICA_2 + " = ?, " + Kardex.COL_PROMEDIO + " = ?, "
@@ -135,5 +135,5 @@ public class Update {
             + Kardex.COL_LUGAR_SERVICIO_COMUNITARIO + " = ?, " + Kardex.COL_BOLETA + " = ?, "
             + Kardex.COL_CARTA_SERVICIO_COMUNITARIO + " = ?, " + Kardex.COL_PAGO_EXTRA + " = ?, "
             + Kardex.COL_HORAS_SERVICIO + " = ? "
-            + "WHERE " + Becario.COL_ID + " = ?";
+            + "WHERE " + Becario.COL_ID + " = ? AND " + Kardex.COL_ID_KARDEX + " = ?";
 }

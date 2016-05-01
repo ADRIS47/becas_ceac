@@ -2461,7 +2461,7 @@ public class PrincipalModelo {
                 kardex.setPromedio(rs.getFloat(Kardex.COL_PROMEDIO));
                 kardex.setDescuento(rs.getInt(Kardex.COL_DESCUENTO));
                 kardex.setIdServicioComunitario(rs.getInt(Kardex.COL_ID_SERVICIO_COMUNITARIO));
-                kardex.setLugarServicioComunitario(rs.getString(Kardex.COL_LUGAR_SERVICIO_COMUNITARIO));
+                kardex.setLugarServicioComunitario(rs.getInt(Kardex.COL_LUGAR_SERVICIO_COMUNITARIO));
                 kardex.setBoleta(rs.getString(Kardex.COL_BOLETA));
                 kardex.setCarta_servicio_comunitario(rs.getString(Kardex.COL_CARTA_SERVICIO_COMUNITARIO));
                 kardex.setId_becario(rs.getLong(Kardex.COL_ID_BECARIO));
@@ -2530,15 +2530,17 @@ public class PrincipalModelo {
         ResultSet rs = null;
         int totalKardex = 0;
         try{
-            ps = conexion.prepareStatement(Consultas.getTotalKardexPorSemestre);
+            ps = conexion.prepareStatement(Consultas.getKardexBecario);
             ps.setLong(1, idBecario);
             rs = ps.executeQuery();
+            List<Long> idsKardex = new ArrayList<>();
             
             while(rs.next()){
-                totalKardex = rs.getInt(1);
+                idsKardex.add(rs.getLong(Kardex.COL_ID_KARDEX));
             }
+            
             //Si aún no se tiene registros semestrales del kardex del becario entonces se insertan todos los campos
-            if(totalKardex == 0){
+            if(idsKardex.isEmpty()){
                 for (Kardex kardex : lstKardex) {
                     ps = conexion.prepareStatement(Insert.insertKardexBecario);
                     ps.setInt(1, kardex.getNum_semestre());
@@ -2549,7 +2551,7 @@ public class PrincipalModelo {
                     ps.setFloat(6, kardex.getPromedio());
                     ps.setFloat(7, kardex.getDescuento());
                     ps.setInt(8, kardex.getIdServicioComunitario());
-                    ps.setString(9, kardex.getLugarServicioComunitario());
+                    ps.setInt(9, kardex.getLugarServicioComunitario());
                     ps.setString(10, kardex.getBoleta());
                     ps.setString(11, kardex.getCarta_servicio_comunitario());
                     ps.setBoolean(12, kardex.isPago_extra());
@@ -2564,6 +2566,7 @@ public class PrincipalModelo {
             }
             //Su existen menos kardex registrados que el total de semestres a registrar
             else{
+                int i = 0;
                 //Se recorren los kardex actualizables
                 for (Kardex kardex : lstKardex) {
                     ps = conexion.prepareStatement(Update.updateKardexBecario);
@@ -2575,15 +2578,22 @@ public class PrincipalModelo {
                     ps.setFloat(6, kardex.getPromedio());
                     ps.setFloat(7, kardex.getDescuento());
                     ps.setInt(8, kardex.getIdServicioComunitario());
-                    ps.setString(9, kardex.getLugarServicioComunitario());
+                    ps.setInt(9, kardex.getLugarServicioComunitario());
                     ps.setString(10, kardex.getBoleta());
                     ps.setString(11, kardex.getCarta_servicio_comunitario());
                     ps.setBoolean(12, kardex.isPago_extra());
                     ps.setInt(13, kardex.getHorasServicio());
                     ps.setLong(14, idBecario);
+                    ps.setLong(15, idsKardex.get(i));
                     int result = ps.executeUpdate();
+                    
+                    if(result == 0)
+                        throw new SQLException("Error al actualizar el kardex del becario: " + ps.toString());
+                    i++;
                 }        
             }
+            
+            response = true;
             
         }
         catch(SQLException e){

@@ -42,6 +42,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import pojos.Aval;
 import pojos.Becario;
+import pojos.CatLugarServicioComunitario;
 import pojos.CatUniversidad;
 import pojos.DatosEscolares;
 import pojos.Direccion;
@@ -1555,6 +1556,9 @@ public class PrincipalControlador {
                 JTextField txtPromedio = (JTextField) panel.getComponent(9);
                 JTextField txtDescuento = (JTextField) panel.getComponent(10);
                 
+                llenaComboCategorias(cmbTipoServicioSocial, catTipoServicioSocial);
+                llenaComboCategorias(cmbLugarServicioSocial, catLugarServicioSocial);
+                
                 Calendar fecha = lstFechaSemestre.get(i);
                 if(i < lstKardex.size()){
                     Kardex kardex = lstKardex.get(i);
@@ -1570,10 +1574,12 @@ public class PrincipalControlador {
                     chkPagoExtra.setSelected(kardex.isPago_extra());
                     txtPromedio.setText(kardex.getPromedio() + "");
                     txtDescuento.setText(kardex.getDescuento() + "%");
+                    
+                    cmbTipoServicioSocial.setSelectedItem(getItemComboBox(kardex.getIdServicioComunitario(), catTipoServicioSocial));
+                    cmbLugarServicioSocial.setSelectedItem(getItemComboBox(kardex.getLugarServicioComunitario(), catLugarServicioSocial));
                 }
                 txtSemestre.setText(fecha.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault()) + "/" + fecha.get(Calendar.YEAR));
-                llenaComboCategorias(cmbTipoServicioSocial, catTipoServicioSocial);
-                    llenaComboCategorias(cmbLugarServicioSocial, catLugarServicioSocial);
+                
                 if(i == lstFechaSemestre.size() -1 ){
                     break;
                 }
@@ -2340,13 +2346,15 @@ public class PrincipalControlador {
                 return;
             }
             
-            //Se obtiene la información del kardex del becario
-            List<Kardex> lstKardex = getInfoKardex();
-            //System.out.println("Tamanio: " + lstKardex.size());
-            
             //se obtienen los datos de los semestres habilitados
             semestres = helper.getTotalSemestresporHabilitarKardex(datosEscolares.getSemestreInicioBeca(), 
-                    datosEscolares.getSemestresTotalesCarrera()) - 1; 
+                    datosEscolares.getSemestresTotalesCarrera()) - 1;
+            
+            //Se obtiene la información del kardex del becario
+            List<Kardex> lstKardex = getInfoKardex(semestres);
+            //System.out.println("Tamanio: " + lstKardex.size());
+            
+             
             lstKardex = getDatosKardexBecario(lstKardex, semestres);
             
             //Se procede a insertar o actualizar el kardex del becario
@@ -2377,14 +2385,15 @@ public class PrincipalControlador {
     
     /**
      * Recorre todos los datos que estan en el kardex para luego insertarlos en la base de datos
+     * @param  semestresTotales Total de semestres de estudio del becario
      * @return Lista de kardex, cada elemento es un semestre
      */
-    private List<Kardex> getInfoKardex(){
+    private List<Kardex> getInfoKardex(int semestresTotales){
         List<Kardex> lstKardex = new ArrayList<>();
         Component[] componentes = vistaKardex.PnlKardex.getComponents();
-        int i = 0;
+        int i = -1;
         for (Component componente : componentes) {
-            if(i == 0){
+            if(i == -1){
                 i++;
                 continue;
             }
@@ -2394,6 +2403,8 @@ public class PrincipalControlador {
                 JTextField txtSemestre = (JTextField) panel.getComponent(0);
                 JCheckBox chkPago1 = (JCheckBox) panel.getComponent(1);
                 JTextField txtHorasServicio = (JTextField) panel.getComponent(2);
+                JComboBox cmbTipoServicioComunitario = (JComboBox) panel.getComponent(3);
+                JComboBox cmbLugarServicioComunitario = (JComboBox) panel.getComponent(4);
                 JCheckBox chkPlatica1 = (JCheckBox) panel.getComponent(5);
                 JCheckBox chkPlatica2 = (JCheckBox) panel.getComponent(6);
                 JCheckBox chkPago2 = (JCheckBox) panel.getComponent(7);
@@ -2408,6 +2419,10 @@ public class PrincipalControlador {
                 }
                 kardex.setPlatica1(chkPlatica1.isSelected());
                 kardex.setPlatica2(chkPlatica2.isSelected());
+                int idServicioComunitario = getIdCmbBox((String) cmbTipoServicioComunitario.getSelectedItem(), catTipoServicioSocial);
+                kardex.setIdServicioComunitario(idServicioComunitario);
+                int idLugarServicioComunitario = getIdCmbBox((String) cmbLugarServicioComunitario.getSelectedItem(), catLugarServicioSocial);
+                kardex.setLugarServicioComunitario(idLugarServicioComunitario);
                 kardex.setPago_fin_semestre(chkPago2.isSelected());
                 kardex.setPago_extra(chkPagoExtra.isSelected());
                 if(!txtPromedio.getText().equals("")){
@@ -2418,6 +2433,11 @@ public class PrincipalControlador {
                     kardex.setDescuento(Integer.parseInt(descuento));
                 }
                 lstKardex.add(kardex);
+                
+                //Se verifica que no se exceda la obtencion de semestres
+                if(i == semestresTotales - 1)
+                    break;
+                i++;
             }
             
         }

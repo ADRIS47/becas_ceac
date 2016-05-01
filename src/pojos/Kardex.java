@@ -20,7 +20,7 @@ public class Kardex {
     float promedio;
     int descuento;
     int idServicioComunitario;
-    String lugarServicioComunitario;
+    int lugarServicioComunitario;
     String boleta;
     String carta_servicio_comunitario;
     long id_becario;
@@ -131,11 +131,11 @@ public class Kardex {
         this.idServicioComunitario = idServicioComunitario;
     }
 
-    public String getLugarServicioComunitario() {
+    public int getLugarServicioComunitario() {
         return lugarServicioComunitario;
     }
 
-    public void setLugarServicioComunitario(String lugarServicioComunitario) {
+    public void setLugarServicioComunitario(int lugarServicioComunitario) {
         this.lugarServicioComunitario = lugarServicioComunitario;
     }   
 

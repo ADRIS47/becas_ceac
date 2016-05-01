@@ -404,7 +404,7 @@ public class VistaKardex extends javax.swing.JPanel {
         jLabel17 = new javax.swing.JLabel();
         TxtFldNoCuenta = new javax.swing.JTextField();
         TxtFldClabeBanco = new javax.swing.JTextField();
-        cmbNombreBanco = new javax.swing.JComboBox<>();
+        cmbNombreBanco = new javax.swing.JComboBox<String>();
 
         setPreferredSize(new java.awt.Dimension(916, 584));
 
@@ -608,7 +608,9 @@ public class VistaKardex extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jScrollPane1.setMaximumSize(new java.awt.Dimension(750, 750));
+        jtabKardex.setMaximumSize(new java.awt.Dimension(917, 464));
+
+        jScrollPane1.setMaximumSize(new java.awt.Dimension(740, 427));
 
         PnlKardex.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Kardex Becario", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         PnlKardex.setMaximumSize(new java.awt.Dimension(738, 425));
@@ -690,7 +692,6 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF1.setLayout(new java.awt.GridLayout(1, 11));
 
         TxtSemestre1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemestre1.setBorder(null);
         TxtSemestre1.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre1.setEnabled(false);
         TxtSemestre1.addActionListener(new java.awt.event.ActionListener() {
@@ -706,7 +707,6 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtHrServ1.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtHrServ1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ1.setBorder(null);
         PnlKardexF1.add(TxtHrServ1);
 
         CmbBxTipoSC1.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
@@ -731,14 +731,12 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtProm1.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtProm1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm1.setBorder(null);
         PnlKardexF1.add(TxtProm1);
 
         TxtDesc1.setEditable(false);
         TxtDesc1.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtDesc1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtDesc1.setText("0%");
-        TxtDesc1.setBorder(null);
         PnlKardexF1.add(TxtDesc1);
 
         PnlKardex.add(PnlKardexF1);
@@ -748,7 +746,6 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF2.setLayout(new java.awt.GridLayout(1, 11));
 
         TxtSemestre2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemestre2.setBorder(null);
         TxtSemestre2.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre2.setEnabled(false);
         TxtSemestre2.addActionListener(new java.awt.event.ActionListener() {
@@ -764,7 +761,6 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtHrServ2.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtHrServ2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ2.setBorder(null);
         TxtHrServ2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtHrServ2ActionPerformed(evt);
@@ -794,14 +790,12 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtProm2.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtProm2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm2.setBorder(null);
         PnlKardexF2.add(TxtProm2);
 
         TxtDesc2.setEditable(false);
         TxtDesc2.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtDesc2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtDesc2.setText("0%");
-        TxtDesc2.setBorder(null);
         PnlKardexF2.add(TxtDesc2);
 
         PnlKardex.add(PnlKardexF2);
@@ -811,7 +805,6 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF3.setLayout(new java.awt.GridLayout(1, 11));
 
         TxtSemestre3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemestre3.setBorder(null);
         TxtSemestre3.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre3.setEnabled(false);
         TxtSemestre3.addActionListener(new java.awt.event.ActionListener() {
@@ -827,7 +820,6 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtHrServ3.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtHrServ3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ3.setBorder(null);
         PnlKardexF3.add(TxtHrServ3);
 
         CmbBxTipoSC3.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
@@ -857,14 +849,12 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtProm3.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtProm3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm3.setBorder(null);
         PnlKardexF3.add(TxtProm3);
 
         TxtDesc3.setEditable(false);
         TxtDesc3.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtDesc3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtDesc3.setText("0%");
-        TxtDesc3.setBorder(null);
         PnlKardexF3.add(TxtDesc3);
 
         PnlKardex.add(PnlKardexF3);
@@ -874,7 +864,6 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF4.setLayout(new java.awt.GridLayout(1, 11));
 
         TxtSemestre4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemestre4.setBorder(null);
         TxtSemestre4.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre4.setEnabled(false);
         TxtSemestre4.addActionListener(new java.awt.event.ActionListener() {
@@ -890,7 +879,6 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtHrServ4.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtHrServ4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ4.setBorder(null);
         PnlKardexF4.add(TxtHrServ4);
 
         CmbBxTipoSC4.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
@@ -920,14 +908,12 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtProm4.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtProm4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm4.setBorder(null);
         PnlKardexF4.add(TxtProm4);
 
         jTextField13.setEditable(false);
         jTextField13.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         jTextField13.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField13.setText("0%");
-        jTextField13.setBorder(null);
         PnlKardexF4.add(jTextField13);
 
         PnlKardex.add(PnlKardexF4);
@@ -938,7 +924,6 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF5.setLayout(new java.awt.GridLayout(1, 10));
 
         TxtSemestre5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemestre5.setBorder(null);
         TxtSemestre5.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre5.setEnabled(false);
         TxtSemestre5.addActionListener(new java.awt.event.ActionListener() {
@@ -954,7 +939,6 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtHrServ5.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtHrServ5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ5.setBorder(null);
         PnlKardexF5.add(TxtHrServ5);
 
         CmbBxTipoSC5.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
@@ -979,14 +963,12 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtProm5.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtProm5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm5.setBorder(null);
         PnlKardexF5.add(TxtProm5);
 
         TxtDesc5.setEditable(false);
         TxtDesc5.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtDesc5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtDesc5.setText("0%");
-        TxtDesc5.setBorder(null);
         PnlKardexF5.add(TxtDesc5);
 
         PnlKardex.add(PnlKardexF5);
@@ -997,7 +979,6 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF6.setLayout(new java.awt.GridLayout(1, 11));
 
         TxtSemestre6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemestre6.setBorder(null);
         TxtSemestre6.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre6.setEnabled(false);
         TxtSemestre6.addActionListener(new java.awt.event.ActionListener() {
@@ -1013,7 +994,6 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtHrServ6.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtHrServ6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ6.setBorder(null);
         PnlKardexF6.add(TxtHrServ6);
 
         CmbBxTipoSC6.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
@@ -1038,14 +1018,12 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtProm6.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtProm6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm6.setBorder(null);
         PnlKardexF6.add(TxtProm6);
 
         TxtDesc6.setEditable(false);
         TxtDesc6.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtDesc6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtDesc6.setText("0%");
-        TxtDesc6.setBorder(null);
         PnlKardexF6.add(TxtDesc6);
 
         PnlKardex.add(PnlKardexF6);
@@ -1056,7 +1034,6 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF7.setLayout(new java.awt.GridLayout(1, 11));
 
         TxtSemestre7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemestre7.setBorder(null);
         TxtSemestre7.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre7.setEnabled(false);
         TxtSemestre7.addActionListener(new java.awt.event.ActionListener() {
@@ -1072,7 +1049,6 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtHrServ7.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtHrServ7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ7.setBorder(null);
         PnlKardexF7.add(TxtHrServ7);
 
         CmbBxTipoSC7.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
@@ -1097,14 +1073,12 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtProm7.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtProm7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm7.setBorder(null);
         PnlKardexF7.add(TxtProm7);
 
         TxtDesc7.setEditable(false);
         TxtDesc7.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtDesc7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtDesc7.setText("0%");
-        TxtDesc7.setBorder(null);
         PnlKardexF7.add(TxtDesc7);
 
         PnlKardex.add(PnlKardexF7);
@@ -1115,7 +1089,6 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF8.setLayout(new java.awt.GridLayout(1, 11));
 
         TxtSemestre8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemestre8.setBorder(null);
         TxtSemestre8.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre8.setEnabled(false);
         TxtSemestre8.addActionListener(new java.awt.event.ActionListener() {
@@ -1131,7 +1104,6 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtHrServ8.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtHrServ8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ8.setBorder(null);
         PnlKardexF8.add(TxtHrServ8);
 
         CmbBxTipoSC8.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
@@ -1156,14 +1128,12 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtProm8.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtProm8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm8.setBorder(null);
         PnlKardexF8.add(TxtProm8);
 
         TxtDesc8.setEditable(false);
         TxtDesc8.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtDesc8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtDesc8.setText("0%");
-        TxtDesc8.setBorder(null);
         PnlKardexF8.add(TxtDesc8);
 
         PnlKardex.add(PnlKardexF8);
@@ -1173,7 +1143,6 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF9.setLayout(new java.awt.GridLayout(1, 11));
 
         TxtSemestre9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemestre9.setBorder(null);
         TxtSemestre9.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre9.setEnabled(false);
         TxtSemestre9.addActionListener(new java.awt.event.ActionListener() {
@@ -1189,7 +1158,6 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtHrServ9.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtHrServ9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ9.setBorder(null);
         PnlKardexF9.add(TxtHrServ9);
 
         CmbBxTipoSC9.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
@@ -1215,14 +1183,12 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtProm9.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtProm9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm9.setBorder(null);
         PnlKardexF9.add(TxtProm9);
 
         TxtDesc9.setEditable(false);
         TxtDesc9.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtDesc9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtDesc9.setText("0%");
-        TxtDesc9.setBorder(null);
         PnlKardexF9.add(TxtDesc9);
 
         PnlKardex.add(PnlKardexF9);
@@ -1232,7 +1198,6 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF11.setLayout(new java.awt.GridLayout(1, 11));
 
         TxtSemestre10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemestre10.setBorder(null);
         TxtSemestre10.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre10.setEnabled(false);
         TxtSemestre10.addActionListener(new java.awt.event.ActionListener() {
@@ -1248,7 +1213,6 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtHrServ10.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtHrServ10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ10.setBorder(null);
         PnlKardexF11.add(TxtHrServ10);
 
         PnlKardexF11.add(CmbBxTipoSC10);
@@ -1272,14 +1236,12 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtProm10.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtProm10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm10.setBorder(null);
         PnlKardexF11.add(TxtProm10);
 
         TxtDesc10.setEditable(false);
         TxtDesc10.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtDesc10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtDesc10.setText("0%");
-        TxtDesc10.setBorder(null);
         PnlKardexF11.add(TxtDesc10);
 
         PnlKardex.add(PnlKardexF11);
@@ -1289,7 +1251,6 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF12.setLayout(new java.awt.GridLayout(1, 11));
 
         TxtSemestre11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemestre11.setBorder(null);
         TxtSemestre11.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre11.setEnabled(false);
         TxtSemestre11.addActionListener(new java.awt.event.ActionListener() {
@@ -1305,7 +1266,6 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtHrServ11.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtHrServ11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ11.setBorder(null);
         PnlKardexF12.add(TxtHrServ11);
 
         PnlKardexF12.add(CmbBxTipoSC11);
@@ -1329,14 +1289,12 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtProm11.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtProm11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm11.setBorder(null);
         PnlKardexF12.add(TxtProm11);
 
         TxtDesc11.setEditable(false);
         TxtDesc11.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtDesc11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtDesc11.setText("0%");
-        TxtDesc11.setBorder(null);
         PnlKardexF12.add(TxtDesc11);
 
         PnlKardex.add(PnlKardexF12);
@@ -1346,7 +1304,6 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF13.setLayout(new java.awt.GridLayout(1, 11));
 
         TxtSemestre12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemestre12.setBorder(null);
         TxtSemestre12.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre12.setEnabled(false);
         TxtSemestre12.addActionListener(new java.awt.event.ActionListener() {
@@ -1362,7 +1319,6 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtHrServ12.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtHrServ12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtHrServ12.setBorder(null);
         PnlKardexF13.add(TxtHrServ12);
 
         PnlKardexF13.add(CmbBxTipoSC12);
@@ -1386,14 +1342,12 @@ public class VistaKardex extends javax.swing.JPanel {
 
         TxtProm12.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtProm12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtProm12.setBorder(null);
         PnlKardexF13.add(TxtProm12);
 
         TxtDesc12.setEditable(false);
         TxtDesc12.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtDesc12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtDesc12.setText("0%");
-        TxtDesc12.setBorder(null);
         PnlKardexF13.add(TxtDesc12);
 
         PnlKardex.add(PnlKardexF13);
