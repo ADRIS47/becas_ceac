@@ -404,7 +404,7 @@ public class VistaKardex extends javax.swing.JPanel {
         jLabel17 = new javax.swing.JLabel();
         TxtFldNoCuenta = new javax.swing.JTextField();
         TxtFldClabeBanco = new javax.swing.JTextField();
-        cmbNombreBanco = new javax.swing.JComboBox<String>();
+        cmbNombreBanco = new javax.swing.JComboBox<>();
 
         setPreferredSize(new java.awt.Dimension(916, 584));
 
@@ -1522,7 +1522,6 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtbxEstatusBoleta1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtbxEstatusBoleta1.setForeground(new java.awt.Color(0, 0, 204));
         TxtbxEstatusBoleta1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TxtbxEstatusBoleta1.setText("OK");
         TxtbxEstatusBoleta1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         TxtbxEstatusBoleta1.setEnabled(false);
         jpnlAccionesDocumentos.add(TxtbxEstatusBoleta1);
@@ -1863,7 +1862,6 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtEstatusSC1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtEstatusSC1.setForeground(new java.awt.Color(0, 0, 204));
         TxtEstatusSC1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TxtEstatusSC1.setText("OK");
         TxtEstatusSC1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         TxtEstatusSC1.setEnabled(false);
         jpnlAccionesDocumentos1.add(TxtEstatusSC1);

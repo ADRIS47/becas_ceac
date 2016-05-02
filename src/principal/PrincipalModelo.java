@@ -2551,8 +2551,10 @@ public class PrincipalModelo {
                     ps.setBoolean(5, kardex.isPlatica2());
                     ps.setFloat(6, kardex.getPromedio());
                     ps.setFloat(7, kardex.getDescuento());
-                    ps.setInt(8, kardex.getIdServicioComunitario());
-                    ps.setInt(9, kardex.getLugarServicioComunitario());
+//                    ps.setInt(8, kardex.getIdServicioComunitario());
+//                    ps.setInt(9, kardex.getLugarServicioComunitario());
+                    ps.setInt(9, kardex.getIdServicioComunitario());
+                    ps.setInt(8, kardex.getLugarServicioComunitario());
                     ps.setString(10, kardex.getBoleta());
                     ps.setString(11, kardex.getCarta_servicio_comunitario());
                     ps.setBoolean(12, kardex.isPago_extra());
@@ -2578,8 +2580,10 @@ public class PrincipalModelo {
                     ps.setBoolean(5, kardex.isPlatica2());
                     ps.setFloat(6, kardex.getPromedio());
                     ps.setFloat(7, kardex.getDescuento());
-                    ps.setInt(8, kardex.getIdServicioComunitario());
-                    ps.setInt(9, kardex.getLugarServicioComunitario());
+//                    ps.setInt(8, kardex.getIdServicioComunitario());
+//                    ps.setInt(9, kardex.getLugarServicioComunitario());
+                    ps.setInt(8, kardex.getLugarServicioComunitario());
+                    ps.setInt(9, kardex.getIdServicioComunitario());
                     ps.setString(10, kardex.getBoleta());
                     ps.setString(11, kardex.getCarta_servicio_comunitario());
                     ps.setBoolean(12, kardex.isPago_extra());
