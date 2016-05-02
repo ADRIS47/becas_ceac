@@ -227,6 +227,8 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtBoletaSemestre8 = new javax.swing.JTextField();
         TxtBoletaSemestre9 = new javax.swing.JTextField();
         TxtBoletaSemestre10 = new javax.swing.JTextField();
+        TxtBoletaSemestre11 = new javax.swing.JTextField();
+        TxtBoletaSemestre12 = new javax.swing.JTextField();
         jpnlAccionesDocumentos = new javax.swing.JPanel();
         BtnAddBoleta1 = new javax.swing.JButton();
         btnEliminaBoleta01 = new javax.swing.JButton();
@@ -258,6 +260,12 @@ public class VistaKardex extends javax.swing.JPanel {
         BtnAddBoleta10 = new javax.swing.JButton();
         btnEliminaBoleta10 = new javax.swing.JButton();
         TxtbxEstatusBoleta10 = new javax.swing.JLabel();
+        BtnAddBoleta11 = new javax.swing.JButton();
+        btnEliminaBoleta11 = new javax.swing.JButton();
+        TxtbxEstatusBoleta11 = new javax.swing.JLabel();
+        BtnAddBoleta12 = new javax.swing.JButton();
+        btnEliminaBoleta12 = new javax.swing.JButton();
+        TxtbxEstatusBoleta12 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         pnlArchivosAdjuntos1 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -276,6 +284,8 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtSemSC8 = new javax.swing.JTextField();
         TxtSemSC9 = new javax.swing.JTextField();
         TxtSemSC10 = new javax.swing.JTextField();
+        TxtSemSC11 = new javax.swing.JTextField();
+        TxtSemSC21 = new javax.swing.JTextField();
         jpnlAccionesDocumentos1 = new javax.swing.JPanel();
         BtnAddSC1 = new javax.swing.JButton();
         BtnEliminaSC1 = new javax.swing.JButton();
@@ -307,6 +317,12 @@ public class VistaKardex extends javax.swing.JPanel {
         BtnAddSC10 = new javax.swing.JButton();
         BtnEliminaSC10 = new javax.swing.JButton();
         TxtEstatusSC10 = new javax.swing.JLabel();
+        BtnAddSC11 = new javax.swing.JButton();
+        BtnEliminaSC11 = new javax.swing.JButton();
+        TxtEstatusSC31 = new javax.swing.JLabel();
+        BtnAddSC12 = new javax.swing.JButton();
+        BtnEliminaSC12 = new javax.swing.JButton();
+        TxtEstatusSC32 = new javax.swing.JLabel();
         jPanel14 = new javax.swing.JPanel();
         pnlTransferenciasAdjuntas2 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
@@ -1392,7 +1408,7 @@ public class VistaKardex extends javax.swing.JPanel {
         );
 
         jpnlListaDocumentos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jpnlListaDocumentos.setLayout(new java.awt.GridLayout(10, 1));
+        jpnlListaDocumentos.setLayout(new java.awt.GridLayout(12, 1));
 
         TxtBoletaSemestre1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtBoletaSemestre1.setText("Enero");
@@ -1504,7 +1520,29 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentos.add(TxtBoletaSemestre10);
 
-        jpnlAccionesDocumentos.setLayout(new java.awt.GridLayout(10, 3));
+        TxtBoletaSemestre11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtBoletaSemestre11.setText("Enero");
+        TxtBoletaSemestre11.setBorder(null);
+        TxtBoletaSemestre11.setEnabled(false);
+        TxtBoletaSemestre11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtBoletaSemestre11ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos.add(TxtBoletaSemestre11);
+
+        TxtBoletaSemestre12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtBoletaSemestre12.setText("Enero");
+        TxtBoletaSemestre12.setBorder(null);
+        TxtBoletaSemestre12.setEnabled(false);
+        TxtBoletaSemestre12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtBoletaSemestre12ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos.add(TxtBoletaSemestre12);
+
+        jpnlAccionesDocumentos.setLayout(new java.awt.GridLayout(12, 3));
 
         BtnAddBoleta1.setForeground(new java.awt.Color(0, 0, 204));
         BtnAddBoleta1.setText("Agregar...");
@@ -1638,6 +1676,30 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtbxEstatusBoleta10.setEnabled(false);
         jpnlAccionesDocumentos.add(TxtbxEstatusBoleta10);
 
+        BtnAddBoleta11.setForeground(new java.awt.Color(0, 0, 204));
+        BtnAddBoleta11.setText("Agregar...");
+        jpnlAccionesDocumentos.add(BtnAddBoleta11);
+
+        btnEliminaBoleta11.setForeground(new java.awt.Color(0, 0, 204));
+        btnEliminaBoleta11.setText("Eliminar Archivo");
+        jpnlAccionesDocumentos.add(btnEliminaBoleta11);
+
+        TxtbxEstatusBoleta11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        TxtbxEstatusBoleta11.setEnabled(false);
+        jpnlAccionesDocumentos.add(TxtbxEstatusBoleta11);
+
+        BtnAddBoleta12.setForeground(new java.awt.Color(0, 0, 204));
+        BtnAddBoleta12.setText("Agregar...");
+        jpnlAccionesDocumentos.add(BtnAddBoleta12);
+
+        btnEliminaBoleta12.setForeground(new java.awt.Color(0, 0, 204));
+        btnEliminaBoleta12.setText("Eliminar Archivo");
+        jpnlAccionesDocumentos.add(btnEliminaBoleta12);
+
+        TxtbxEstatusBoleta12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        TxtbxEstatusBoleta12.setEnabled(false);
+        jpnlAccionesDocumentos.add(TxtbxEstatusBoleta12);
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -1732,7 +1794,7 @@ public class VistaKardex extends javax.swing.JPanel {
         );
 
         jpnlListaDocumentos1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jpnlListaDocumentos1.setLayout(new java.awt.GridLayout(10, 1));
+        jpnlListaDocumentos1.setLayout(new java.awt.GridLayout(12, 1));
 
         TxtSemSC1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC1.setText("Enero");
@@ -1844,7 +1906,29 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentos1.add(TxtSemSC10);
 
-        jpnlAccionesDocumentos1.setLayout(new java.awt.GridLayout(10, 3));
+        TxtSemSC11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtSemSC11.setText("Enero");
+        TxtSemSC11.setBorder(null);
+        TxtSemSC11.setEnabled(false);
+        TxtSemSC11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSemSC11ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos1.add(TxtSemSC11);
+
+        TxtSemSC21.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtSemSC21.setText("Enero");
+        TxtSemSC21.setBorder(null);
+        TxtSemSC21.setEnabled(false);
+        TxtSemSC21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSemSC21ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos1.add(TxtSemSC21);
+
+        jpnlAccionesDocumentos1.setLayout(new java.awt.GridLayout(12, 3));
 
         BtnAddSC1.setForeground(new java.awt.Color(0, 0, 204));
         BtnAddSC1.setText("Agregar...");
@@ -1977,6 +2061,30 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtEstatusSC10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         TxtEstatusSC10.setEnabled(false);
         jpnlAccionesDocumentos1.add(TxtEstatusSC10);
+
+        BtnAddSC11.setForeground(new java.awt.Color(0, 0, 204));
+        BtnAddSC11.setText("Agregar...");
+        jpnlAccionesDocumentos1.add(BtnAddSC11);
+
+        BtnEliminaSC11.setForeground(new java.awt.Color(0, 0, 204));
+        BtnEliminaSC11.setText("Eliminar Archivo");
+        jpnlAccionesDocumentos1.add(BtnEliminaSC11);
+
+        TxtEstatusSC31.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        TxtEstatusSC31.setEnabled(false);
+        jpnlAccionesDocumentos1.add(TxtEstatusSC31);
+
+        BtnAddSC12.setForeground(new java.awt.Color(0, 0, 204));
+        BtnAddSC12.setText("Agregar...");
+        jpnlAccionesDocumentos1.add(BtnAddSC12);
+
+        BtnEliminaSC12.setForeground(new java.awt.Color(0, 0, 204));
+        BtnEliminaSC12.setText("Eliminar Archivo");
+        jpnlAccionesDocumentos1.add(BtnEliminaSC12);
+
+        TxtEstatusSC32.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        TxtEstatusSC32.setEnabled(false);
+        jpnlAccionesDocumentos1.add(TxtEstatusSC32);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -3020,10 +3128,28 @@ public class VistaKardex extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtSemestre12ActionPerformed
 
+    private void TxtBoletaSemestre11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtBoletaSemestre11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtBoletaSemestre11ActionPerformed
+
+    private void TxtBoletaSemestre12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtBoletaSemestre12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtBoletaSemestre12ActionPerformed
+
+    private void TxtSemSC11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtSemSC11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtSemSC11ActionPerformed
+
+    private void TxtSemSC21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtSemSC21ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtSemSC21ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     protected javax.swing.JButton BtnAddBoleta1;
     protected javax.swing.JButton BtnAddBoleta10;
+    protected javax.swing.JButton BtnAddBoleta11;
+    protected javax.swing.JButton BtnAddBoleta12;
     protected javax.swing.JButton BtnAddBoleta2;
     protected javax.swing.JButton BtnAddBoleta3;
     protected javax.swing.JButton BtnAddBoleta4;
@@ -3034,6 +3160,8 @@ public class VistaKardex extends javax.swing.JPanel {
     protected javax.swing.JButton BtnAddBoleta9;
     protected javax.swing.JButton BtnAddSC1;
     protected javax.swing.JButton BtnAddSC10;
+    protected javax.swing.JButton BtnAddSC11;
+    protected javax.swing.JButton BtnAddSC12;
     protected javax.swing.JButton BtnAddSC2;
     protected javax.swing.JButton BtnAddSC3;
     protected javax.swing.JButton BtnAddSC4;
@@ -3064,6 +3192,8 @@ public class VistaKardex extends javax.swing.JPanel {
     protected javax.swing.JButton BtnAddSTn9;
     protected javax.swing.JButton BtnEliminaSC1;
     protected javax.swing.JButton BtnEliminaSC10;
+    protected javax.swing.JButton BtnEliminaSC11;
+    protected javax.swing.JButton BtnEliminaSC12;
     protected javax.swing.JButton BtnEliminaSC2;
     protected javax.swing.JButton BtnEliminaSC3;
     protected javax.swing.JButton BtnEliminaSC4;
@@ -3183,6 +3313,8 @@ public class VistaKardex extends javax.swing.JPanel {
     private javax.swing.JPanel PnlKardexF9;
     protected javax.swing.JTextField TxtBoletaSemestre1;
     protected javax.swing.JTextField TxtBoletaSemestre10;
+    protected javax.swing.JTextField TxtBoletaSemestre11;
+    protected javax.swing.JTextField TxtBoletaSemestre12;
     protected javax.swing.JTextField TxtBoletaSemestre2;
     protected javax.swing.JTextField TxtBoletaSemestre3;
     protected javax.swing.JTextField TxtBoletaSemestre4;
@@ -3226,6 +3358,8 @@ public class VistaKardex extends javax.swing.JPanel {
     protected javax.swing.JLabel TxtEstatusSC29;
     protected javax.swing.JLabel TxtEstatusSC3;
     protected javax.swing.JLabel TxtEstatusSC30;
+    protected javax.swing.JLabel TxtEstatusSC31;
+    protected javax.swing.JLabel TxtEstatusSC32;
     protected javax.swing.JLabel TxtEstatusSC4;
     protected javax.swing.JLabel TxtEstatusSC5;
     protected javax.swing.JLabel TxtEstatusSC6;
@@ -3260,6 +3394,7 @@ public class VistaKardex extends javax.swing.JPanel {
     protected javax.swing.JTextField TxtProm9;
     protected javax.swing.JTextField TxtSemSC1;
     protected javax.swing.JTextField TxtSemSC10;
+    protected javax.swing.JTextField TxtSemSC11;
     protected javax.swing.JTextField TxtSemSC12;
     protected javax.swing.JTextField TxtSemSC13;
     protected javax.swing.JTextField TxtSemSC14;
@@ -3270,6 +3405,7 @@ public class VistaKardex extends javax.swing.JPanel {
     protected javax.swing.JTextField TxtSemSC19;
     protected javax.swing.JTextField TxtSemSC2;
     protected javax.swing.JTextField TxtSemSC20;
+    protected javax.swing.JTextField TxtSemSC21;
     protected javax.swing.JTextField TxtSemSC22;
     protected javax.swing.JTextField TxtSemSC23;
     protected javax.swing.JTextField TxtSemSC24;
@@ -3302,6 +3438,8 @@ public class VistaKardex extends javax.swing.JPanel {
     private javax.swing.JTextField TxtSemestre9;
     protected javax.swing.JLabel TxtbxEstatusBoleta1;
     protected javax.swing.JLabel TxtbxEstatusBoleta10;
+    protected javax.swing.JLabel TxtbxEstatusBoleta11;
+    protected javax.swing.JLabel TxtbxEstatusBoleta12;
     protected javax.swing.JLabel TxtbxEstatusBoleta2;
     private javax.swing.JLabel TxtbxEstatusBoleta3;
     protected javax.swing.JLabel TxtbxEstatusBoleta4;
@@ -3312,6 +3450,8 @@ public class VistaKardex extends javax.swing.JPanel {
     protected javax.swing.JLabel TxtbxEstatusBoleta9;
     protected javax.swing.JButton btnEliminaBoleta01;
     protected javax.swing.JButton btnEliminaBoleta10;
+    protected javax.swing.JButton btnEliminaBoleta11;
+    protected javax.swing.JButton btnEliminaBoleta12;
     protected javax.swing.JButton btnEliminaBoleta2;
     protected javax.swing.JButton btnEliminaBoleta3;
     protected javax.swing.JButton btnEliminaBoleta4;
