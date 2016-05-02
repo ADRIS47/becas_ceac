@@ -30,6 +30,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
@@ -42,7 +43,6 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import pojos.Aval;
 import pojos.Becario;
-import pojos.CatLugarServicioComunitario;
 import pojos.CatUniversidad;
 import pojos.DatosEscolares;
 import pojos.Direccion;
@@ -1531,7 +1531,7 @@ public class PrincipalControlador {
      * @param lstFechaSemestre Indica las fechas iniciales de cada semestre
      * @param semestresHabilitados
      */
-    private void llenaPnlKardex(List<Kardex> lstKardex, List<Calendar> lstFechaSemestre, int semestresHabilitados){
+    private void llenaPnlKardex(List<Kardex> lstKardex, List<Calendar> lstFechaSemestre){
         
         Component[] componentes = vistaKardex.PnlKardex.getComponents();
         int i = -1;
@@ -1589,27 +1589,145 @@ public class PrincipalControlador {
         }
     }
     
-    private void deshabilitaSemestresKardex(JPanel pnlPanel, int semestresHabilitados, int contador){
+    /**
+     * Llena los paneles de las boletas y carga semestral con los datos del becario
+     * @param lstKardex
+     * @param lstFechaSemestre Indica las fechas iniciales de cada semestre
+     * @param codigo 1.- Llena con la informacion de la pestaña de las boletas
+     * 2.- Llena con la informacion de la pestaña de las cargas semestrales
+     */
+    private void llenaPnlBoletaOCargaSemestral(List<Kardex> lstKardex, List<Calendar> lstFechaSemestre, int codigo){
+        JPanel pnlSemestres = null;
+        JPanel pnlAcciones = null;
+        int tamanio = lstFechaSemestre.size();
+        Component[] componentes = null;
+        int i = 0;
+        switch(codigo){
+            case 1:
+                pnlSemestres = vistaKardex.jpnlListaDocumentosBoleta;
+                pnlAcciones = vistaKardex.jpnlAccionesDocumentosBoleta;
+                
+                componentes = pnlAcciones.getComponents();
+                i = 0;
+                for (Component componente : componentes) {
+                    if(componente instanceof JLabel){
+                        JLabel etiqueta = (JLabel) componente;
+                        Kardex kardex = lstKardex.get(i);
+                        etiqueta.setText(kardex.getBoleta());
+                        i++;
+                    }
+
+                    if(i == tamanio -1)
+                        break;
+                }
+                
+                break;
+            
+            case 2:
+                pnlSemestres = vistaKardex.jpnlListaDocumentosServicioComunitario;
+                pnlAcciones = vistaKardex.jpnlAccionesDocumentosServicioComunitario;
+                
+                componentes = pnlAcciones.getComponents();
+                i = 0;
+                for (Component componente : componentes) {
+                    if(componente instanceof JLabel){
+                        JLabel etiqueta = (JLabel) componente;
+                        Kardex kardex = lstKardex.get(i);
+                        etiqueta.setText(kardex.getCarta_servicio_comunitario());
+                        i++;
+                    }
+                    if(i == tamanio -1)
+                        break;
+                }
+                break;
+                
+        }
+        
+        //Se procede a llenar los semestres
+        componentes = pnlSemestres.getComponents();
+        i = 0;
+        for (Component componente : componentes) {
+            JTextField txtSemestre = (JTextField) componente;
+            Calendar calendario = lstFechaSemestre.get(i);
+            
+            txtSemestre.setText(calendario.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault()) + "/" + calendario.get(Calendar.YEAR));
+            
+            if(i == tamanio - 1)
+                break;
+            i++;
+        }
+        
+    }
+    
+    /**
+     * Deshabilita los componentes de los jpanel de la vistaKardex
+     * @param pnlPanel
+     * @param semestresHabilitados
+     * @param contador
+     * @param codigo 1.- Deshabilita los componentes del pnlKardex
+     * 2.- Deshabilita los componentes de la pestaña de boletas y carga semestral en 
+     * el apartado de semestres
+     * 3.- Deshabilita los componentes de la pestaña de boletas y carga semestral en 
+     * el apartado de acciones y estatus
+     */
+    private void deshabilitaSemestresKardex(JPanel pnlPanel, int semestresHabilitados, 
+                    int contador, int codigo){
         Component[] componentes = pnlPanel.getComponents();
         
-        for (Component componente : componentes) {
-            
-            if(componente instanceof JPanel && contador > semestresHabilitados){
-                contador++;
-                deshabilitaSemestresKardex((JPanel) componente, semestresHabilitados, contador);
-            }
-            else if(componente instanceof JPanel && contador <= semestresHabilitados){
-                contador++;
-                //deshabilitaSemestresKardex((JPanel) componente, semestresHabilitados, contador);
-            }
-            
-            if(contador > semestresHabilitados){
-//                Color color = new Color(255, 0,0);
-//                componente.setBackground(color);
-                componente.setVisible(false);
-            }
-            
-        }       
+        switch(codigo){
+            //Desabilita los componentes del pnlKardex
+            case 1:
+                for (Component componente : componentes) {
+
+                    if(componente instanceof JPanel && contador > semestresHabilitados){
+                        contador++;
+                        deshabilitaSemestresKardex((JPanel) componente, semestresHabilitados, contador, 1);
+                    }
+                    else if(componente instanceof JPanel && contador <= semestresHabilitados){
+                        contador++;
+                        //deshabilitaSemestresKardex((JPanel) componente, semestresHabilitados, contador);
+                    }
+
+                    if(contador > semestresHabilitados){
+//                        Color color = new Color(255, 0,0);
+//                        componente.setBackground(color);
+                        componente.setVisible(false);
+                    }
+
+                }       
+                break;
+                
+            case 2:
+                for (Component componente : componentes) {
+
+                    if(componente instanceof JTextField && contador <= semestresHabilitados)
+                        contador++;
+
+                    if(contador > semestresHabilitados){
+//                        Color color = new Color(255, 0,0);
+//                        componente.setBackground(color);
+                        if(componente instanceof JTextField)
+                            componente.setVisible(false);
+                    }
+
+                }       
+                break;
+            case 3:
+                for (Component componente : componentes) {
+                    
+                    if((componente instanceof JButton || componente instanceof JLabel) && contador <= semestresHabilitados)
+                        contador++;
+
+                    if(contador > semestresHabilitados){
+//                        Color color = new Color(255, 0,0);
+//                        componente.setBackground(color);
+                        if(componente instanceof JButton || componente instanceof JLabel)
+                            componente.setVisible(false);
+                    }
+
+                }       
+                break;
+        }
         
     }
 
@@ -2195,14 +2313,24 @@ public class PrincipalControlador {
         vistaKardex.TxtFldNoCuenta.setText(becario.getCuentaBancaria());
         vistaKardex.TxtFldClabeBanco.setText(becario.getClabeInterbancaria());
         
-        //Se procede a deshabilitar los semestres que aun no tienen que llenarse
+        //Se toman los semestres activos del becario
         int semestresHabilitados = helper.getTotalSemestresporHabilitarKardex(datosEscolares.getSemestreInicioBeca(), 
                 datosEscolares.getSemestresTotalesCarrera());
+        //Se procede a deshabilitar los semestres que aun no tienen que llenarse
+        deshabilitaSemestresKardex(vistaKardex.PnlKardex, semestresHabilitados, 0, 1);
+        //Se llena el pnlKardex
+        llenaPnlKardex(lstKardex, lstFechaSemestres);
         
-        deshabilitaSemestresKardex(vistaKardex.PnlKardex, semestresHabilitados, 0);
-        //if(lstKardex.size() > 0)
-            llenaPnlKardex(lstKardex, lstFechaSemestres, semestresHabilitados);
-        
+        //Se procede a deshabilitar los semestres de la pestaña adjuntar boleta en el 
+        //apartado de semestres y acciones
+        deshabilitaSemestresKardex(vistaKardex.jpnlListaDocumentosBoleta, semestresHabilitados - 1, 0, 2);
+        deshabilitaSemestresKardex(vistaKardex.jpnlAccionesDocumentosBoleta, (semestresHabilitados - 1) * 3, 0, 3);
+        llenaPnlBoletaOCargaSemestral(lstKardex, lstFechaSemestres, 1);
+        //Se procede a deshabilitar los semestres de la pastaña adjuntar carga semestral 
+        //en el apartado de semestres y acciones
+        deshabilitaSemestresKardex(vistaKardex.jpnlListaDocumentosServicioComunitario, semestresHabilitados - 1, 0, 2);
+        deshabilitaSemestresKardex(vistaKardex.jpnlAccionesDocumentosServicioComunitario, (semestresHabilitados - 1) * 3, 0, 3);
+        llenaPnlBoletaOCargaSemestral(lstKardex, lstFechaSemestres, 2);
         
         try{
             conexion.close();
