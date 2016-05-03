@@ -420,7 +420,7 @@ public class VistaKardex extends javax.swing.JPanel {
         jLabel17 = new javax.swing.JLabel();
         TxtFldNoCuenta = new javax.swing.JTextField();
         TxtFldClabeBanco = new javax.swing.JTextField();
-        cmbNombreBanco = new javax.swing.JComboBox<>();
+        cmbNombreBanco = new javax.swing.JComboBox<String>();
 
         setPreferredSize(new java.awt.Dimension(916, 584));
 
@@ -1284,6 +1284,7 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtHrServ11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         PnlKardexF12.add(TxtHrServ11);
 
+        CmbBxTipoSC11.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         PnlKardexF12.add(CmbBxTipoSC11);
 
         CmbBxLugarSC11.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
@@ -1337,6 +1338,7 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtHrServ12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         PnlKardexF13.add(TxtHrServ12);
 
+        CmbBxTipoSC12.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         PnlKardexF13.add(CmbBxTipoSC12);
 
         CmbBxLugarSC12.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
@@ -1782,7 +1784,7 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusBoleta10.setEnabled(false);
         jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta10);
 
-        BtnAddBoleta11.setForeground(new java.awt.Color(0, 0, 204));
+        BtnAddBoleta11.setForeground(new java.awt.Color(0, 204, 0));
         BtnAddBoleta11.setText("Agregar...");
         BtnAddBoleta11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1791,7 +1793,7 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentosBoleta.add(BtnAddBoleta11);
 
-        btnEliminaBoleta11.setForeground(new java.awt.Color(0, 0, 204));
+        btnEliminaBoleta11.setForeground(new java.awt.Color(0, 204, 0));
         btnEliminaBoleta11.setText("Eliminar Archivo");
         btnEliminaBoleta11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1805,7 +1807,6 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusBoleta11.setEnabled(false);
         jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta11);
 
-        BtnAddBoleta12.setForeground(new java.awt.Color(0, 0, 204));
         BtnAddBoleta12.setText("Agregar...");
         BtnAddBoleta12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1814,7 +1815,6 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentosBoleta.add(BtnAddBoleta12);
 
-        btnEliminaBoleta12.setForeground(new java.awt.Color(0, 0, 204));
         btnEliminaBoleta12.setText("Eliminar Archivo");
         btnEliminaBoleta12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2286,7 +2286,7 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusSC10.setEnabled(false);
         jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC10);
 
-        BtnAddSC11.setForeground(new java.awt.Color(0, 0, 204));
+        BtnAddSC11.setForeground(new java.awt.Color(0, 204, 0));
         BtnAddSC11.setText("Agregar...");
         BtnAddSC11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2295,7 +2295,7 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentosServicioComunitario.add(BtnAddSC11);
 
-        BtnEliminaSC11.setForeground(new java.awt.Color(0, 0, 204));
+        BtnEliminaSC11.setForeground(new java.awt.Color(0, 204, 0));
         BtnEliminaSC11.setText("Eliminar Archivo");
         jpnlAccionesDocumentosServicioComunitario.add(BtnEliminaSC11);
 
@@ -2304,7 +2304,6 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusSC11.setEnabled(false);
         jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC11);
 
-        BtnAddSC12.setForeground(new java.awt.Color(0, 0, 204));
         BtnAddSC12.setText("Agregar...");
         BtnAddSC12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2313,7 +2312,6 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentosServicioComunitario.add(BtnAddSC12);
 
-        BtnEliminaSC12.setForeground(new java.awt.Color(0, 0, 204));
         BtnEliminaSC12.setText("Eliminar Archivo");
         jpnlAccionesDocumentosServicioComunitario.add(BtnEliminaSC12);
 
@@ -2952,7 +2950,7 @@ public class VistaKardex extends javax.swing.JPanel {
             .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jpnlListaDocumentos5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE))
             .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jpnlAccionesDocumentos3, javax.swing.GroupLayout.PREFERRED_SIZE, 247, Short.MAX_VALUE))
+                .addComponent(jpnlAccionesDocumentos3, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnlTransferenciasAdjuntas2Layout = new javax.swing.GroupLayout(pnlTransferenciasAdjuntas2);
