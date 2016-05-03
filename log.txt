@@ -1284,3 +1284,27 @@
 2/5/2016;20:6:47;SQLError: 42S02
 2/5/2016;20:6:47;ERROR: Code1146
 2/5/2016;20:6:47;Message: Table 'becas_chihuahua.beca_cat_servicio_comunitario' doesn't exist
+2/5/2016;22:49:40;Nombre de categoria no encontrado
+2/5/2016;22:49:40;Nombre de categoria no encontrado
+2/5/2016;22:49:43;Nombre de categoria no encontrado
+2/5/2016;22:50:4;Nombre de categoria no encontrado
+2/5/2016;22:50:4;Nombre de categoria no encontrado
+2/5/2016;22:53:8;Nombre de categoria no encontrado
+2/5/2016;22:53:8;Nombre de categoria no encontrado
+2/5/2016;22:53:22;Nombre de categoria no encontrado
+2/5/2016;22:53:22;Nombre de categoria no encontrado
+2/5/2016;22:59:32;Nombre de categoria no encontrado
+2/5/2016;22:59:32;Nombre de categoria no encontrado
+2/5/2016;23:4:24;Nombre de categoria no encontrado
+2/5/2016;23:4:24;Nombre de categoria no encontrado
+2/5/2016;23:12:25;Nombre de categoria no encontrado
+2/5/2016;23:12:25;Nombre de categoria no encontrado
+2/5/2016;23:13:24;Nombre de categoria no encontrado
+2/5/2016;23:13:24;Nombre de categoria no encontrado
+2/5/2016;23:13:53;No se pudo copiar el archivo carta_servicio_comunitario_7-HIS-03.pdf    /media/sabagip/OS/Users/SergioAlan/Documents/NetBeansProjects/freelance/becas_ceac/HIS-03/carta_servicio_comunitario_7-HIS-03.pdf
+2/5/2016;23:15:15;Nombre de categoria no encontrado
+2/5/2016;23:15:15;Nombre de categoria no encontrado
+2/5/2016;23:17:19;Nombre de categoria no encontrado
+2/5/2016;23:17:19;Nombre de categoria no encontrado
+2/5/2016;23:19:54;Nombre de categoria no encontrado
+2/5/2016;23:19:54;Nombre de categoria no encontrado

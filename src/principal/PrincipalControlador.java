@@ -247,6 +247,8 @@ public class PrincipalControlador {
         if (vistaKardex != null) {
             terminaVistaKardex();
         }
+        
+        vaciaLstFiles();
 
         vistaKardex = new VistaKardex();
         this.setVistaKardex(vistaKardex);
@@ -2398,6 +2400,8 @@ public class PrincipalControlador {
 
         becario = modelo.getBecarioPorFolio(conexion, folio);
         lstKardex = modelo.getKardexPorIdBecario(conexion, becario.getId());
+        
+        addFilesKardex(lstKardex);
         datosEscolares = modelo.getDatosEscolaresBecario(conexion, becario.getId());
 
         //Se generan los semestres del becario a partir de su fecha de inicio de la beca
@@ -2587,9 +2591,12 @@ public class PrincipalControlador {
             //System.out.println("Tamanio: " + lstKardex.size());
 
             lstKardex = getDatosKardexBecario(lstKardex, semestres);
+            
+            //Se agregan los archivos a los kardex correspondientes
+            lstKardex = helper.putArchivosKardexBecario(lstKardex, lstFilesBoletas, lstFilesCartaServCom, becario);
 
             //Se procede a insertar o actualizar el kardex del becario
-            response = modelo.insertOrUpdateKardexBecario(conexion, lstKardex, becario.getId());
+            response = modelo.insertOrUpdateKardexBecario(conexion, lstKardex, lstFilesBoletas, lstFilesCartaServCom, becario);
             //Se verifica que se actualizaron los datos bancarios
             if (response == false) {
                 JOptionPane.showMessageDialog(vistaKardex, "No se pudo actualizar el kardex del becario, intentelo más tarde", "Error", JOptionPane.ERROR_MESSAGE);
@@ -2690,5 +2697,34 @@ public class PrincipalControlador {
         }
 
         return lstResult;
+    }
+
+    /**
+     * Iguala a null todos los archivos de boletas y cartas de servicio comunitario
+     */
+    private void vaciaLstFiles() {
+        for (File boleta : lstFilesBoletas) {
+            boleta = null;
+        }
+        for (File carta : lstFilesCartaServCom) {
+            carta = null;
+        }
+    }
+
+    /**
+     * Llena los arreglos que contienen los archivos del kardex, boletas, cartas servicio comunitario
+     * @param lstKardexs
+     */
+    private void addFilesKardex(List<Kardex> lstKardexs) {
+        int i = 0;
+        for (Kardex kardex : lstKardexs) {
+            if(kardex.getBoleta() != null)
+                lstFilesBoletas[i] = new File(Index.RUTA_BASE + Index.RUTA_SISTEMA + kardex.getBoleta());
+            
+            if(kardex.getCarta_servicio_comunitario() != null)
+                lstFilesCartaServCom[i] = new File(Index.RUTA_BASE + Index.RUTA_SISTEMA + kardex.getCarta_servicio_comunitario());
+            
+            i++;
+        }
     }
 }

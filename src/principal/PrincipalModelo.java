@@ -11,6 +11,7 @@ import crud.Insert;
 import crud.Update;
 import helpers.Helper;
 import helpers.Log;
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -2525,14 +2526,14 @@ public class PrincipalModelo {
      * @return True si exitoso, false si no
      */
     protected boolean insertOrUpdateKardexBecario(Connection conexion, List<Kardex> lstKardex, 
-            long idBecario){
+            File[] lstFilesBoletas, File[] lstFilesCartaServCom ,Becario becario){
         boolean response = false;
         PreparedStatement ps = null;
         ResultSet rs = null;
         int totalKardex = 0;
         try{
             ps = conexion.prepareStatement(Consultas.getKardexBecario);
-            ps.setLong(1, idBecario);
+            ps.setLong(1, becario.getId());
             rs = ps.executeQuery();
             List<Long> idsKardex = new ArrayList<>();
             
@@ -2559,7 +2560,7 @@ public class PrincipalModelo {
                     ps.setString(11, kardex.getCarta_servicio_comunitario());
                     ps.setBoolean(12, kardex.isPago_extra());
                     ps.setInt(13, kardex.getHorasServicio());
-                    ps.setLong(14, idBecario);
+                    ps.setLong(14, becario.getId());
                     int result = ps.executeUpdate();
                     if(result == 0){
                         return response;
@@ -2588,7 +2589,7 @@ public class PrincipalModelo {
                     ps.setString(11, kardex.getCarta_servicio_comunitario());
                     ps.setBoolean(12, kardex.isPago_extra());
                     ps.setInt(13, kardex.getHorasServicio());
-                    ps.setLong(14, idBecario);
+                    ps.setLong(14, becario.getId());
                     ps.setLong(15, idsKardex.get(i));
                     int result = ps.executeUpdate();
                     

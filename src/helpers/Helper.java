@@ -21,6 +21,7 @@ import java.sql.Date;
 import java.text.DecimalFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -35,7 +36,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+import pojos.Becario;
 import pojos.DatosEscolares;
+import pojos.Kardex;
 
 /**
  *
@@ -264,6 +267,67 @@ public class Helper {
         
         return a;
         
+    }
+    
+    /**
+     * Adiciona los archivos del kardex del becario a su respectivo semestre
+     * @param lstKardexs
+     * @param lstFilesBoletas
+     * @param lstFilesCartaServCom
+     * @return 
+     */
+    public List<Kardex> putArchivosKardexBecario(List<Kardex> lstKardexs, File[] lstFilesBoletas, 
+                    File[] lstFilesCartaServCom, Becario becario) {
+        
+        int i = 0;
+        for (Kardex kardex : lstKardexs) {
+            
+            //Si existe la boleta a copiar
+            if(lstFilesBoletas[i] != null){
+            //Se obtiene la boleta y se copia al directorio
+                String extension = lstFilesBoletas[i].getName().substring(lstFilesBoletas[i].getName().length() - 4, 
+                                lstFilesBoletas[i].getName().length());
+
+                Path de = Paths.get(lstFilesBoletas[i].getAbsolutePath());
+                Path a = Paths.get(Index.RUTA_BASE + Index.RUTA_SISTEMA + becario.getFolio() + Index.SEPARADOR + 
+                        "boleta_" + i + "-" + becario.getFolio() + extension);
+
+                try {
+                    Files.copy(de, a, StandardCopyOption.REPLACE_EXISTING);
+                    kardex.setBoleta(becario.getFolio() + Index.SEPARADOR + a.getFileName().toString());
+                } catch (IOException ex) {
+                    a = null;
+                    log.crearLog("No se pudo copiar la boleta " + lstFilesBoletas[i].getName() + "    " + ex.getMessage());
+                    Logger.getLogger(Helper.class.getName()).log(Level.SEVERE, null, ex);
+                    return null;
+                }
+            }
+            
+            //Si existe la boleta a copiar
+            if(lstFilesCartaServCom[i] != null){
+                //Se obtiene la carta de servicio comunitario y se copia al directorio del becario
+                String extension = lstFilesCartaServCom[i].getName().substring(lstFilesCartaServCom[i].getName().length() - 4, 
+                                lstFilesCartaServCom[i].getName().length());
+
+                Path de = Paths.get(lstFilesCartaServCom[i].getAbsolutePath());
+                Path a = Paths.get(Index.RUTA_BASE + Index.RUTA_SISTEMA + becario.getFolio() + Index.SEPARADOR + 
+                        "serv_com_" + i + "-" + becario.getFolio() + extension);
+
+                try {
+                    Files.copy(de, a, StandardCopyOption.REPLACE_EXISTING);
+                    kardex.setCarta_servicio_comunitario(becario.getFolio() + Index.SEPARADOR + a.getFileName().toString());
+                } catch (IOException ex) {
+                    a = null;
+                    log.crearLog("No se pudo copiar la carta de servicio comunitario " + lstFilesCartaServCom[i].getName() + "    " + ex.getMessage());
+                    Logger.getLogger(Helper.class.getName()).log(Level.SEVERE, null, ex);
+                    return null;
+                }
+            }
+            
+            i++;
+        }
+        
+        return lstKardexs;
     }
 
     private void verificaDirectorio(Path rutaDirectorio) {
