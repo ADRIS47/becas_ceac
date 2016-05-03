@@ -2846,11 +2846,14 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Eliminar archivo"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminaBoleta01ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="TxtbxEstatusBoleta1">
+                        <Component class="javax.swing.JLabel" name="lblEstatusBoleta1">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Tahoma" size="11" style="1"/>
@@ -2877,6 +2880,9 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Agregar..."/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAddBoleta2ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
@@ -2888,12 +2894,16 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Eliminar Archivo"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminaBoleta2ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="TxtbxEstatusBoleta2">
+                        <Component class="javax.swing.JLabel" name="lblEstatusBoleta2">
                           <Properties>
+                            <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
@@ -2909,6 +2919,9 @@
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Agregar..."/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAddBoleta3ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
@@ -2917,12 +2930,16 @@
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Eliminar Archivo"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminaBoleta3ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="TxtbxEstatusBoleta3">
+                        <Component class="javax.swing.JLabel" name="lblEstatusBoleta3">
                           <Properties>
+                            <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
@@ -2938,6 +2955,9 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Agregar..."/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAddBoleta4ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
@@ -2949,12 +2969,16 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Eliminar Archivo"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminaBoleta4ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="TxtbxEstatusBoleta4">
+                        <Component class="javax.swing.JLabel" name="lblEstatusBoleta4">
                           <Properties>
+                            <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
@@ -2973,6 +2997,9 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Agregar..."/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAddBoleta5ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
@@ -2984,12 +3011,16 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Eliminar Archivo"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminaBoleta5ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="TxtbxEstatusBoleta5">
+                        <Component class="javax.swing.JLabel" name="lblEstatusBoleta5">
                           <Properties>
+                            <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
@@ -3005,6 +3036,9 @@
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Agregar..."/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAddBoleta6ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
@@ -3013,12 +3047,16 @@
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Eliminar Archivo"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminaBoleta6ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="TxtbxEstatusBoleta6">
+                        <Component class="javax.swing.JLabel" name="lblEstatusBoleta6">
                           <Properties>
+                            <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
@@ -3058,8 +3096,9 @@
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="TxtbxEstatusBoleta7">
+                        <Component class="javax.swing.JLabel" name="lblEstatusBoleta7">
                           <Properties>
+                            <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
@@ -3078,6 +3117,9 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Agregar..."/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAddBoleta8ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
@@ -3089,12 +3131,16 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Eliminar Archivo"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminaBoleta8ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="TxtbxEstatusBoleta8">
+                        <Component class="javax.swing.JLabel" name="lblEstatusBoleta8">
                           <Properties>
+                            <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
@@ -3110,6 +3156,9 @@
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Agregar..."/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAddBoleta9ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
@@ -3118,12 +3167,16 @@
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Eliminar Archivo"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminaBoleta9ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="TxtbxEstatusBoleta9">
+                        <Component class="javax.swing.JLabel" name="lblEstatusBoleta9">
                           <Properties>
+                            <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
@@ -3142,6 +3195,9 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Agregar..."/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAddBoleta10ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
@@ -3153,12 +3209,16 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Eliminar Archivo"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminaBoleta10ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="TxtbxEstatusBoleta10">
+                        <Component class="javax.swing.JLabel" name="lblEstatusBoleta10">
                           <Properties>
+                            <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
@@ -3177,6 +3237,9 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Agregar..."/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAddBoleta11ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
@@ -3188,12 +3251,16 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Eliminar Archivo"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminaBoleta11ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="TxtbxEstatusBoleta11">
+                        <Component class="javax.swing.JLabel" name="lblEstatusBoleta11">
                           <Properties>
+                            <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
@@ -3212,6 +3279,9 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Agregar..."/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAddBoleta12ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
@@ -3223,12 +3293,16 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Eliminar Archivo"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminaBoleta12ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="TxtbxEstatusBoleta12">
+                        <Component class="javax.swing.JLabel" name="lblEstatusBoleta12">
                           <Properties>
+                            <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
@@ -3672,11 +3746,14 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Eliminar archivo"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnEliminaSC1ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="TxtEstatusSC1">
+                        <Component class="javax.swing.JLabel" name="lblEstatusSC1">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Tahoma" size="11" style="1"/>
@@ -3703,6 +3780,9 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Agregar..."/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAddSC2ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
@@ -3714,12 +3794,16 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Eliminar Archivo"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnEliminaSC2ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="TxtEstatusSC2">
+                        <Component class="javax.swing.JLabel" name="lblEstatusSC2">
                           <Properties>
+                            <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
@@ -3735,6 +3819,9 @@
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Agregar..."/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAddSC3ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
@@ -3743,12 +3830,16 @@
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Eliminar Archivo"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnEliminaSC3ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="TxtEstatusSC3">
+                        <Component class="javax.swing.JLabel" name="lblEstatusSC3">
                           <Properties>
+                            <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
@@ -3767,6 +3858,9 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Agregar..."/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAddSC4ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
@@ -3778,12 +3872,16 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Eliminar Archivo"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnEliminaSC4ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="TxtEstatusSC4">
+                        <Component class="javax.swing.JLabel" name="lblEstatusSC4">
                           <Properties>
+                            <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
@@ -3802,6 +3900,9 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Agregar..."/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAddSC5ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
@@ -3813,12 +3914,16 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Eliminar Archivo"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnEliminaSC5ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="TxtEstatusSC5">
+                        <Component class="javax.swing.JLabel" name="lblEstatusSC5">
                           <Properties>
+                            <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
@@ -3834,6 +3939,9 @@
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Agregar..."/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAddSC6ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
@@ -3842,12 +3950,16 @@
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Eliminar Archivo"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnEliminaSC6ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="TxtEstatusSC6">
+                        <Component class="javax.swing.JLabel" name="lblEstatusSC6">
                           <Properties>
+                            <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
@@ -3887,8 +3999,9 @@
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="TxtEstatusSC7">
+                        <Component class="javax.swing.JLabel" name="lblEstatusSC7">
                           <Properties>
+                            <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
@@ -3907,6 +4020,9 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Agregar..."/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAddSC8ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
@@ -3918,12 +4034,16 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Eliminar Archivo"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnEliminaSC8ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="TxtEstatusSC8">
+                        <Component class="javax.swing.JLabel" name="lblEstatusSC8">
                           <Properties>
+                            <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
@@ -3939,6 +4059,9 @@
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Agregar..."/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAddSC9ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
@@ -3951,8 +4074,9 @@
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="TxtEstatusSC9">
+                        <Component class="javax.swing.JLabel" name="lblEstatusSC9">
                           <Properties>
+                            <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
@@ -3971,6 +4095,9 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Agregar..."/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAddSC10ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
@@ -3986,8 +4113,9 @@
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="TxtEstatusSC10">
+                        <Component class="javax.swing.JLabel" name="lblEstatusSC10">
                           <Properties>
+                            <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
@@ -4006,6 +4134,9 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Agregar..."/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAddSC11ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
@@ -4021,8 +4152,9 @@
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="TxtEstatusSC31">
+                        <Component class="javax.swing.JLabel" name="lblEstatusSC11">
                           <Properties>
+                            <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
@@ -4041,6 +4173,9 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Agregar..."/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAddSC12ActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
@@ -4056,8 +4191,9 @@
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="TxtEstatusSC32">
+                        <Component class="javax.swing.JLabel" name="lblEstatusSC12">
                           <Properties>
+                            <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>

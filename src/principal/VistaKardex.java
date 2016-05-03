@@ -232,40 +232,40 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentosBoleta = new javax.swing.JPanel();
         BtnAddBoleta1 = new javax.swing.JButton();
         btnEliminaBoleta01 = new javax.swing.JButton();
-        TxtbxEstatusBoleta1 = new javax.swing.JLabel();
+        lblEstatusBoleta1 = new javax.swing.JLabel();
         BtnAddBoleta2 = new javax.swing.JButton();
         btnEliminaBoleta2 = new javax.swing.JButton();
-        TxtbxEstatusBoleta2 = new javax.swing.JLabel();
+        lblEstatusBoleta2 = new javax.swing.JLabel();
         BtnAddBoleta3 = new javax.swing.JButton();
         btnEliminaBoleta3 = new javax.swing.JButton();
-        TxtbxEstatusBoleta3 = new javax.swing.JLabel();
+        lblEstatusBoleta3 = new javax.swing.JLabel();
         BtnAddBoleta4 = new javax.swing.JButton();
         btnEliminaBoleta4 = new javax.swing.JButton();
-        TxtbxEstatusBoleta4 = new javax.swing.JLabel();
+        lblEstatusBoleta4 = new javax.swing.JLabel();
         BtnAddBoleta5 = new javax.swing.JButton();
         btnEliminaBoleta5 = new javax.swing.JButton();
-        TxtbxEstatusBoleta5 = new javax.swing.JLabel();
+        lblEstatusBoleta5 = new javax.swing.JLabel();
         BtnAddBoleta6 = new javax.swing.JButton();
         btnEliminaBoleta6 = new javax.swing.JButton();
-        TxtbxEstatusBoleta6 = new javax.swing.JLabel();
+        lblEstatusBoleta6 = new javax.swing.JLabel();
         BtnAddBoleta7 = new javax.swing.JButton();
         btnEliminaBoleta7 = new javax.swing.JButton();
-        TxtbxEstatusBoleta7 = new javax.swing.JLabel();
+        lblEstatusBoleta7 = new javax.swing.JLabel();
         BtnAddBoleta8 = new javax.swing.JButton();
         btnEliminaBoleta8 = new javax.swing.JButton();
-        TxtbxEstatusBoleta8 = new javax.swing.JLabel();
+        lblEstatusBoleta8 = new javax.swing.JLabel();
         BtnAddBoleta9 = new javax.swing.JButton();
         btnEliminaBoleta9 = new javax.swing.JButton();
-        TxtbxEstatusBoleta9 = new javax.swing.JLabel();
+        lblEstatusBoleta9 = new javax.swing.JLabel();
         BtnAddBoleta10 = new javax.swing.JButton();
         btnEliminaBoleta10 = new javax.swing.JButton();
-        TxtbxEstatusBoleta10 = new javax.swing.JLabel();
+        lblEstatusBoleta10 = new javax.swing.JLabel();
         BtnAddBoleta11 = new javax.swing.JButton();
         btnEliminaBoleta11 = new javax.swing.JButton();
-        TxtbxEstatusBoleta11 = new javax.swing.JLabel();
+        lblEstatusBoleta11 = new javax.swing.JLabel();
         BtnAddBoleta12 = new javax.swing.JButton();
         btnEliminaBoleta12 = new javax.swing.JButton();
-        TxtbxEstatusBoleta12 = new javax.swing.JLabel();
+        lblEstatusBoleta12 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         pnlArchivosAdjuntos1 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -289,40 +289,40 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentosServicioComunitario = new javax.swing.JPanel();
         BtnAddSC1 = new javax.swing.JButton();
         BtnEliminaSC1 = new javax.swing.JButton();
-        TxtEstatusSC1 = new javax.swing.JLabel();
+        lblEstatusSC1 = new javax.swing.JLabel();
         BtnAddSC2 = new javax.swing.JButton();
         BtnEliminaSC2 = new javax.swing.JButton();
-        TxtEstatusSC2 = new javax.swing.JLabel();
+        lblEstatusSC2 = new javax.swing.JLabel();
         BtnAddSC3 = new javax.swing.JButton();
         BtnEliminaSC3 = new javax.swing.JButton();
-        TxtEstatusSC3 = new javax.swing.JLabel();
+        lblEstatusSC3 = new javax.swing.JLabel();
         BtnAddSC4 = new javax.swing.JButton();
         BtnEliminaSC4 = new javax.swing.JButton();
-        TxtEstatusSC4 = new javax.swing.JLabel();
+        lblEstatusSC4 = new javax.swing.JLabel();
         BtnAddSC5 = new javax.swing.JButton();
         BtnEliminaSC5 = new javax.swing.JButton();
-        TxtEstatusSC5 = new javax.swing.JLabel();
+        lblEstatusSC5 = new javax.swing.JLabel();
         BtnAddSC6 = new javax.swing.JButton();
         BtnEliminaSC6 = new javax.swing.JButton();
-        TxtEstatusSC6 = new javax.swing.JLabel();
+        lblEstatusSC6 = new javax.swing.JLabel();
         BtnAddSC7 = new javax.swing.JButton();
         BtnEliminaSC7 = new javax.swing.JButton();
-        TxtEstatusSC7 = new javax.swing.JLabel();
+        lblEstatusSC7 = new javax.swing.JLabel();
         BtnAddSC8 = new javax.swing.JButton();
         BtnEliminaSC8 = new javax.swing.JButton();
-        TxtEstatusSC8 = new javax.swing.JLabel();
+        lblEstatusSC8 = new javax.swing.JLabel();
         BtnAddSC9 = new javax.swing.JButton();
         BtnEliminaSC9 = new javax.swing.JButton();
-        TxtEstatusSC9 = new javax.swing.JLabel();
+        lblEstatusSC9 = new javax.swing.JLabel();
         BtnAddSC10 = new javax.swing.JButton();
         BtnEliminaSC10 = new javax.swing.JButton();
-        TxtEstatusSC10 = new javax.swing.JLabel();
+        lblEstatusSC10 = new javax.swing.JLabel();
         BtnAddSC11 = new javax.swing.JButton();
         BtnEliminaSC11 = new javax.swing.JButton();
-        TxtEstatusSC31 = new javax.swing.JLabel();
+        lblEstatusSC11 = new javax.swing.JLabel();
         BtnAddSC12 = new javax.swing.JButton();
         BtnEliminaSC12 = new javax.swing.JButton();
-        TxtEstatusSC32 = new javax.swing.JLabel();
+        lblEstatusSC12 = new javax.swing.JLabel();
         jPanel14 = new javax.swing.JPanel();
         pnlTransferenciasAdjuntas2 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
@@ -1567,70 +1567,130 @@ public class VistaKardex extends javax.swing.JPanel {
 
         btnEliminaBoleta01.setForeground(new java.awt.Color(0, 0, 204));
         btnEliminaBoleta01.setText("Eliminar archivo");
+        btnEliminaBoleta01.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminaBoleta01ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(btnEliminaBoleta01);
 
-        TxtbxEstatusBoleta1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        TxtbxEstatusBoleta1.setForeground(new java.awt.Color(0, 0, 204));
-        TxtbxEstatusBoleta1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TxtbxEstatusBoleta1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtbxEstatusBoleta1.setEnabled(false);
-        jpnlAccionesDocumentosBoleta.add(TxtbxEstatusBoleta1);
+        lblEstatusBoleta1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblEstatusBoleta1.setForeground(new java.awt.Color(0, 0, 204));
+        lblEstatusBoleta1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusBoleta1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusBoleta1.setEnabled(false);
+        jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta1);
 
         BtnAddBoleta2.setForeground(new java.awt.Color(0, 204, 0));
         BtnAddBoleta2.setText("Agregar...");
+        BtnAddBoleta2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddBoleta2ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(BtnAddBoleta2);
 
         btnEliminaBoleta2.setForeground(new java.awt.Color(0, 204, 0));
         btnEliminaBoleta2.setText("Eliminar Archivo");
+        btnEliminaBoleta2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminaBoleta2ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(btnEliminaBoleta2);
 
-        TxtbxEstatusBoleta2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtbxEstatusBoleta2.setEnabled(false);
-        jpnlAccionesDocumentosBoleta.add(TxtbxEstatusBoleta2);
+        lblEstatusBoleta2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusBoleta2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusBoleta2.setEnabled(false);
+        jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta2);
 
         BtnAddBoleta3.setText("Agregar...");
+        BtnAddBoleta3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddBoleta3ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(BtnAddBoleta3);
 
         btnEliminaBoleta3.setText("Eliminar Archivo");
+        btnEliminaBoleta3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminaBoleta3ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(btnEliminaBoleta3);
 
-        TxtbxEstatusBoleta3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtbxEstatusBoleta3.setEnabled(false);
-        jpnlAccionesDocumentosBoleta.add(TxtbxEstatusBoleta3);
+        lblEstatusBoleta3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusBoleta3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusBoleta3.setEnabled(false);
+        jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta3);
 
         BtnAddBoleta4.setForeground(new java.awt.Color(0, 0, 204));
         BtnAddBoleta4.setText("Agregar...");
+        BtnAddBoleta4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddBoleta4ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(BtnAddBoleta4);
 
         btnEliminaBoleta4.setForeground(new java.awt.Color(0, 0, 204));
         btnEliminaBoleta4.setText("Eliminar Archivo");
+        btnEliminaBoleta4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminaBoleta4ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(btnEliminaBoleta4);
 
-        TxtbxEstatusBoleta4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtbxEstatusBoleta4.setEnabled(false);
-        jpnlAccionesDocumentosBoleta.add(TxtbxEstatusBoleta4);
+        lblEstatusBoleta4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusBoleta4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusBoleta4.setEnabled(false);
+        jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta4);
 
         BtnAddBoleta5.setForeground(new java.awt.Color(0, 204, 0));
         BtnAddBoleta5.setText("Agregar...");
+        BtnAddBoleta5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddBoleta5ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(BtnAddBoleta5);
 
         btnEliminaBoleta5.setForeground(new java.awt.Color(0, 204, 0));
         btnEliminaBoleta5.setText("Eliminar Archivo");
+        btnEliminaBoleta5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminaBoleta5ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(btnEliminaBoleta5);
 
-        TxtbxEstatusBoleta5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtbxEstatusBoleta5.setEnabled(false);
-        jpnlAccionesDocumentosBoleta.add(TxtbxEstatusBoleta5);
+        lblEstatusBoleta5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusBoleta5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusBoleta5.setEnabled(false);
+        jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta5);
 
         BtnAddBoleta6.setText("Agregar...");
+        BtnAddBoleta6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddBoleta6ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(BtnAddBoleta6);
 
         btnEliminaBoleta6.setText("Eliminar Archivo");
+        btnEliminaBoleta6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminaBoleta6ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(btnEliminaBoleta6);
 
-        TxtbxEstatusBoleta6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtbxEstatusBoleta6.setEnabled(false);
-        jpnlAccionesDocumentosBoleta.add(TxtbxEstatusBoleta6);
+        lblEstatusBoleta6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusBoleta6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusBoleta6.setEnabled(false);
+        jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta6);
 
         BtnAddBoleta7.setForeground(new java.awt.Color(0, 0, 204));
         BtnAddBoleta7.setText("Agregar...");
@@ -1650,67 +1710,123 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentosBoleta.add(btnEliminaBoleta7);
 
-        TxtbxEstatusBoleta7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtbxEstatusBoleta7.setEnabled(false);
-        jpnlAccionesDocumentosBoleta.add(TxtbxEstatusBoleta7);
+        lblEstatusBoleta7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusBoleta7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusBoleta7.setEnabled(false);
+        jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta7);
 
         BtnAddBoleta8.setForeground(new java.awt.Color(0, 204, 0));
         BtnAddBoleta8.setText("Agregar...");
+        BtnAddBoleta8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddBoleta8ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(BtnAddBoleta8);
 
         btnEliminaBoleta8.setForeground(new java.awt.Color(0, 204, 0));
         btnEliminaBoleta8.setText("Eliminar Archivo");
+        btnEliminaBoleta8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminaBoleta8ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(btnEliminaBoleta8);
 
-        TxtbxEstatusBoleta8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtbxEstatusBoleta8.setEnabled(false);
-        jpnlAccionesDocumentosBoleta.add(TxtbxEstatusBoleta8);
+        lblEstatusBoleta8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusBoleta8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusBoleta8.setEnabled(false);
+        jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta8);
 
         BtnAddBoleta9.setText("Agregar...");
+        BtnAddBoleta9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddBoleta9ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(BtnAddBoleta9);
 
         btnEliminaBoleta9.setText("Eliminar Archivo");
+        btnEliminaBoleta9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminaBoleta9ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(btnEliminaBoleta9);
 
-        TxtbxEstatusBoleta9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtbxEstatusBoleta9.setEnabled(false);
-        jpnlAccionesDocumentosBoleta.add(TxtbxEstatusBoleta9);
+        lblEstatusBoleta9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusBoleta9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusBoleta9.setEnabled(false);
+        jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta9);
 
         BtnAddBoleta10.setForeground(new java.awt.Color(0, 0, 204));
         BtnAddBoleta10.setText("Agregar...");
+        BtnAddBoleta10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddBoleta10ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(BtnAddBoleta10);
 
         btnEliminaBoleta10.setForeground(new java.awt.Color(0, 0, 204));
         btnEliminaBoleta10.setText("Eliminar Archivo");
+        btnEliminaBoleta10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminaBoleta10ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(btnEliminaBoleta10);
 
-        TxtbxEstatusBoleta10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtbxEstatusBoleta10.setEnabled(false);
-        jpnlAccionesDocumentosBoleta.add(TxtbxEstatusBoleta10);
+        lblEstatusBoleta10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusBoleta10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusBoleta10.setEnabled(false);
+        jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta10);
 
         BtnAddBoleta11.setForeground(new java.awt.Color(0, 0, 204));
         BtnAddBoleta11.setText("Agregar...");
+        BtnAddBoleta11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddBoleta11ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(BtnAddBoleta11);
 
         btnEliminaBoleta11.setForeground(new java.awt.Color(0, 0, 204));
         btnEliminaBoleta11.setText("Eliminar Archivo");
+        btnEliminaBoleta11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminaBoleta11ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(btnEliminaBoleta11);
 
-        TxtbxEstatusBoleta11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtbxEstatusBoleta11.setEnabled(false);
-        jpnlAccionesDocumentosBoleta.add(TxtbxEstatusBoleta11);
+        lblEstatusBoleta11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusBoleta11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusBoleta11.setEnabled(false);
+        jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta11);
 
         BtnAddBoleta12.setForeground(new java.awt.Color(0, 0, 204));
         BtnAddBoleta12.setText("Agregar...");
+        BtnAddBoleta12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddBoleta12ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(BtnAddBoleta12);
 
         btnEliminaBoleta12.setForeground(new java.awt.Color(0, 0, 204));
         btnEliminaBoleta12.setText("Eliminar Archivo");
+        btnEliminaBoleta12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminaBoleta12ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(btnEliminaBoleta12);
 
-        TxtbxEstatusBoleta12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtbxEstatusBoleta12.setEnabled(false);
-        jpnlAccionesDocumentosBoleta.add(TxtbxEstatusBoleta12);
+        lblEstatusBoleta12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusBoleta12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusBoleta12.setEnabled(false);
+        jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta12);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -1965,70 +2081,130 @@ public class VistaKardex extends javax.swing.JPanel {
 
         BtnEliminaSC1.setForeground(new java.awt.Color(0, 0, 204));
         BtnEliminaSC1.setText("Eliminar archivo");
+        BtnEliminaSC1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaSC1ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(BtnEliminaSC1);
 
-        TxtEstatusSC1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        TxtEstatusSC1.setForeground(new java.awt.Color(0, 0, 204));
-        TxtEstatusSC1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TxtEstatusSC1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtEstatusSC1.setEnabled(false);
-        jpnlAccionesDocumentosServicioComunitario.add(TxtEstatusSC1);
+        lblEstatusSC1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblEstatusSC1.setForeground(new java.awt.Color(0, 0, 204));
+        lblEstatusSC1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusSC1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusSC1.setEnabled(false);
+        jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC1);
 
         BtnAddSC2.setForeground(new java.awt.Color(0, 204, 0));
         BtnAddSC2.setText("Agregar...");
+        BtnAddSC2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddSC2ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(BtnAddSC2);
 
         BtnEliminaSC2.setForeground(new java.awt.Color(0, 204, 0));
         BtnEliminaSC2.setText("Eliminar Archivo");
+        BtnEliminaSC2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaSC2ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(BtnEliminaSC2);
 
-        TxtEstatusSC2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtEstatusSC2.setEnabled(false);
-        jpnlAccionesDocumentosServicioComunitario.add(TxtEstatusSC2);
+        lblEstatusSC2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusSC2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusSC2.setEnabled(false);
+        jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC2);
 
         BtnAddSC3.setText("Agregar...");
+        BtnAddSC3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddSC3ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(BtnAddSC3);
 
         BtnEliminaSC3.setText("Eliminar Archivo");
+        BtnEliminaSC3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaSC3ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(BtnEliminaSC3);
 
-        TxtEstatusSC3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtEstatusSC3.setEnabled(false);
-        jpnlAccionesDocumentosServicioComunitario.add(TxtEstatusSC3);
+        lblEstatusSC3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusSC3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusSC3.setEnabled(false);
+        jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC3);
 
         BtnAddSC4.setForeground(new java.awt.Color(0, 0, 204));
         BtnAddSC4.setText("Agregar...");
+        BtnAddSC4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddSC4ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(BtnAddSC4);
 
         BtnEliminaSC4.setForeground(new java.awt.Color(0, 0, 204));
         BtnEliminaSC4.setText("Eliminar Archivo");
+        BtnEliminaSC4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaSC4ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(BtnEliminaSC4);
 
-        TxtEstatusSC4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtEstatusSC4.setEnabled(false);
-        jpnlAccionesDocumentosServicioComunitario.add(TxtEstatusSC4);
+        lblEstatusSC4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusSC4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusSC4.setEnabled(false);
+        jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC4);
 
         BtnAddSC5.setForeground(new java.awt.Color(0, 204, 0));
         BtnAddSC5.setText("Agregar...");
+        BtnAddSC5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddSC5ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(BtnAddSC5);
 
         BtnEliminaSC5.setForeground(new java.awt.Color(0, 204, 0));
         BtnEliminaSC5.setText("Eliminar Archivo");
+        BtnEliminaSC5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaSC5ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(BtnEliminaSC5);
 
-        TxtEstatusSC5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtEstatusSC5.setEnabled(false);
-        jpnlAccionesDocumentosServicioComunitario.add(TxtEstatusSC5);
+        lblEstatusSC5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusSC5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusSC5.setEnabled(false);
+        jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC5);
 
         BtnAddSC6.setText("Agregar...");
+        BtnAddSC6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddSC6ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(BtnAddSC6);
 
         BtnEliminaSC6.setText("Eliminar Archivo");
+        BtnEliminaSC6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaSC6ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(BtnEliminaSC6);
 
-        TxtEstatusSC6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtEstatusSC6.setEnabled(false);
-        jpnlAccionesDocumentosServicioComunitario.add(TxtEstatusSC6);
+        lblEstatusSC6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusSC6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusSC6.setEnabled(false);
+        jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC6);
 
         BtnAddSC7.setForeground(new java.awt.Color(0, 0, 204));
         BtnAddSC7.setText("Agregar...");
@@ -2048,67 +2224,103 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentosServicioComunitario.add(BtnEliminaSC7);
 
-        TxtEstatusSC7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtEstatusSC7.setEnabled(false);
-        jpnlAccionesDocumentosServicioComunitario.add(TxtEstatusSC7);
+        lblEstatusSC7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusSC7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusSC7.setEnabled(false);
+        jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC7);
 
         BtnAddSC8.setForeground(new java.awt.Color(0, 204, 0));
         BtnAddSC8.setText("Agregar...");
+        BtnAddSC8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddSC8ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(BtnAddSC8);
 
         BtnEliminaSC8.setForeground(new java.awt.Color(0, 204, 0));
         BtnEliminaSC8.setText("Eliminar Archivo");
+        BtnEliminaSC8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaSC8ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(BtnEliminaSC8);
 
-        TxtEstatusSC8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtEstatusSC8.setEnabled(false);
-        jpnlAccionesDocumentosServicioComunitario.add(TxtEstatusSC8);
+        lblEstatusSC8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusSC8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusSC8.setEnabled(false);
+        jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC8);
 
         BtnAddSC9.setText("Agregar...");
+        BtnAddSC9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddSC9ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(BtnAddSC9);
 
         BtnEliminaSC9.setText("Eliminar Archivo");
         jpnlAccionesDocumentosServicioComunitario.add(BtnEliminaSC9);
 
-        TxtEstatusSC9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtEstatusSC9.setEnabled(false);
-        jpnlAccionesDocumentosServicioComunitario.add(TxtEstatusSC9);
+        lblEstatusSC9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusSC9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusSC9.setEnabled(false);
+        jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC9);
 
         BtnAddSC10.setForeground(new java.awt.Color(0, 0, 204));
         BtnAddSC10.setText("Agregar...");
+        BtnAddSC10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddSC10ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(BtnAddSC10);
 
         BtnEliminaSC10.setForeground(new java.awt.Color(0, 0, 204));
         BtnEliminaSC10.setText("Eliminar Archivo");
         jpnlAccionesDocumentosServicioComunitario.add(BtnEliminaSC10);
 
-        TxtEstatusSC10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtEstatusSC10.setEnabled(false);
-        jpnlAccionesDocumentosServicioComunitario.add(TxtEstatusSC10);
+        lblEstatusSC10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusSC10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusSC10.setEnabled(false);
+        jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC10);
 
         BtnAddSC11.setForeground(new java.awt.Color(0, 0, 204));
         BtnAddSC11.setText("Agregar...");
+        BtnAddSC11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddSC11ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(BtnAddSC11);
 
         BtnEliminaSC11.setForeground(new java.awt.Color(0, 0, 204));
         BtnEliminaSC11.setText("Eliminar Archivo");
         jpnlAccionesDocumentosServicioComunitario.add(BtnEliminaSC11);
 
-        TxtEstatusSC31.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtEstatusSC31.setEnabled(false);
-        jpnlAccionesDocumentosServicioComunitario.add(TxtEstatusSC31);
+        lblEstatusSC11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusSC11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusSC11.setEnabled(false);
+        jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC11);
 
         BtnAddSC12.setForeground(new java.awt.Color(0, 0, 204));
         BtnAddSC12.setText("Agregar...");
+        BtnAddSC12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddSC12ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(BtnAddSC12);
 
         BtnEliminaSC12.setForeground(new java.awt.Color(0, 0, 204));
         BtnEliminaSC12.setText("Eliminar Archivo");
         jpnlAccionesDocumentosServicioComunitario.add(BtnEliminaSC12);
 
-        TxtEstatusSC32.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtEstatusSC32.setEnabled(false);
-        jpnlAccionesDocumentosServicioComunitario.add(TxtEstatusSC32);
+        lblEstatusSC12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEstatusSC12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEstatusSC12.setEnabled(false);
+        jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC12);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -2877,15 +3089,15 @@ public class VistaKardex extends javax.swing.JPanel {
     }//GEN-LAST:event_txtCondicionActionPerformed
 
     private void BtnAddBoleta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddBoleta1ActionPerformed
-        // TODO add your handling code here:
+        controlador.cargaBoletaOCartaServCom(0, lblEstatusBoleta1, 1);
     }//GEN-LAST:event_BtnAddBoleta1ActionPerformed
 
     private void BtnAddBoleta7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddBoleta7ActionPerformed
-        // TODO add your handling code here:
+        controlador.cargaBoletaOCartaServCom(6, lblEstatusBoleta7, 1);
     }//GEN-LAST:event_BtnAddBoleta7ActionPerformed
 
     private void btnEliminaBoleta7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaBoleta7ActionPerformed
-        // TODO add your handling code here:
+        controlador.borraBoletaOrCartaServCom(6, lblEstatusBoleta7, 1);
     }//GEN-LAST:event_btnEliminaBoleta7ActionPerformed
 
     private void TxtBoletaSemestre1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtBoletaSemestre1ActionPerformed
@@ -2969,15 +3181,15 @@ public class VistaKardex extends javax.swing.JPanel {
     }//GEN-LAST:event_TxtSemSC10ActionPerformed
 
     private void BtnAddSC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSC1ActionPerformed
-        // TODO add your handling code here:
+        controlador.cargaBoletaOCartaServCom(0, lblEstatusSC1, 2);
     }//GEN-LAST:event_BtnAddSC1ActionPerformed
 
     private void BtnAddSC7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSC7ActionPerformed
-        // TODO add your handling code here:
+        controlador.cargaBoletaOCartaServCom(6, lblEstatusSC7, 2);
     }//GEN-LAST:event_BtnAddSC7ActionPerformed
 
     private void BtnEliminaSC7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaSC7ActionPerformed
-        // TODO add your handling code here:
+        controlador.borraBoletaOrCartaServCom(6, lblEstatusSC7, 2);
     }//GEN-LAST:event_BtnEliminaSC7ActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
@@ -3167,6 +3379,158 @@ public class VistaKardex extends javax.swing.JPanel {
     private void TxtSemSC21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtSemSC21ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtSemSC21ActionPerformed
+
+    private void BtnAddSC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSC2ActionPerformed
+        controlador.cargaBoletaOCartaServCom(1, lblEstatusSC2, 2);
+    }//GEN-LAST:event_BtnAddSC2ActionPerformed
+
+    private void BtnAddSC3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSC3ActionPerformed
+        controlador.cargaBoletaOCartaServCom(2, lblEstatusSC3, 2);
+    }//GEN-LAST:event_BtnAddSC3ActionPerformed
+
+    private void BtnAddSC4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSC4ActionPerformed
+        controlador.cargaBoletaOCartaServCom(3, lblEstatusSC4, 2);
+    }//GEN-LAST:event_BtnAddSC4ActionPerformed
+
+    private void BtnAddSC5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSC5ActionPerformed
+        controlador.cargaBoletaOCartaServCom(4, lblEstatusSC5, 2);
+    }//GEN-LAST:event_BtnAddSC5ActionPerformed
+
+    private void BtnAddSC6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSC6ActionPerformed
+        controlador.cargaBoletaOCartaServCom(5, lblEstatusSC6, 2);
+    }//GEN-LAST:event_BtnAddSC6ActionPerformed
+
+    private void BtnAddSC8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSC8ActionPerformed
+        controlador.cargaBoletaOCartaServCom(7, lblEstatusSC8, 2);
+    }//GEN-LAST:event_BtnAddSC8ActionPerformed
+
+    private void BtnAddSC9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSC9ActionPerformed
+        controlador.cargaBoletaOCartaServCom(8, lblEstatusSC9, 2);
+    }//GEN-LAST:event_BtnAddSC9ActionPerformed
+
+    private void BtnAddSC10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSC10ActionPerformed
+        controlador.cargaBoletaOCartaServCom(9, lblEstatusSC10, 2);
+    }//GEN-LAST:event_BtnAddSC10ActionPerformed
+
+    private void BtnAddSC11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSC11ActionPerformed
+        controlador.cargaBoletaOCartaServCom(10, lblEstatusSC11, 2);
+    }//GEN-LAST:event_BtnAddSC11ActionPerformed
+
+    private void BtnAddSC12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSC12ActionPerformed
+        controlador.cargaBoletaOCartaServCom(11, lblEstatusSC12, 2);
+    }//GEN-LAST:event_BtnAddSC12ActionPerformed
+
+    private void BtnAddBoleta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddBoleta2ActionPerformed
+        controlador.cargaBoletaOCartaServCom(1, lblEstatusBoleta2, 1);
+    }//GEN-LAST:event_BtnAddBoleta2ActionPerformed
+
+    private void BtnAddBoleta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddBoleta3ActionPerformed
+        controlador.cargaBoletaOCartaServCom(2, lblEstatusBoleta3, 1);
+    }//GEN-LAST:event_BtnAddBoleta3ActionPerformed
+
+    private void BtnAddBoleta4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddBoleta4ActionPerformed
+        controlador.cargaBoletaOCartaServCom(3, lblEstatusBoleta4, 1);
+    }//GEN-LAST:event_BtnAddBoleta4ActionPerformed
+
+    private void BtnAddBoleta5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddBoleta5ActionPerformed
+        controlador.cargaBoletaOCartaServCom(4, lblEstatusBoleta5, 1);
+    }//GEN-LAST:event_BtnAddBoleta5ActionPerformed
+
+    private void BtnAddBoleta6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddBoleta6ActionPerformed
+        controlador.cargaBoletaOCartaServCom(5, lblEstatusBoleta6, 1);
+    }//GEN-LAST:event_BtnAddBoleta6ActionPerformed
+
+    private void BtnAddBoleta8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddBoleta8ActionPerformed
+        controlador.cargaBoletaOCartaServCom(7, lblEstatusBoleta8, 1);
+    }//GEN-LAST:event_BtnAddBoleta8ActionPerformed
+
+    private void BtnAddBoleta9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddBoleta9ActionPerformed
+        controlador.cargaBoletaOCartaServCom(8, lblEstatusBoleta9, 1);
+    }//GEN-LAST:event_BtnAddBoleta9ActionPerformed
+
+    private void BtnAddBoleta10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddBoleta10ActionPerformed
+        controlador.cargaBoletaOCartaServCom(9, lblEstatusBoleta10, 1);
+    }//GEN-LAST:event_BtnAddBoleta10ActionPerformed
+
+    private void BtnAddBoleta11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddBoleta11ActionPerformed
+        controlador.cargaBoletaOCartaServCom(10, lblEstatusBoleta11, 1);
+    }//GEN-LAST:event_BtnAddBoleta11ActionPerformed
+
+    private void BtnAddBoleta12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddBoleta12ActionPerformed
+        controlador.cargaBoletaOCartaServCom(11, lblEstatusBoleta12, 1);
+    }//GEN-LAST:event_BtnAddBoleta12ActionPerformed
+
+    private void btnEliminaBoleta01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaBoleta01ActionPerformed
+        controlador.borraBoletaOrCartaServCom(0, lblEstatusBoleta1, 1);
+    }//GEN-LAST:event_btnEliminaBoleta01ActionPerformed
+
+    private void btnEliminaBoleta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaBoleta2ActionPerformed
+        controlador.borraBoletaOrCartaServCom(1, lblEstatusBoleta2, 1);
+    }//GEN-LAST:event_btnEliminaBoleta2ActionPerformed
+
+    private void btnEliminaBoleta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaBoleta3ActionPerformed
+        controlador.borraBoletaOrCartaServCom(2, lblEstatusBoleta3, 1);
+    }//GEN-LAST:event_btnEliminaBoleta3ActionPerformed
+
+    private void btnEliminaBoleta4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaBoleta4ActionPerformed
+        controlador.borraBoletaOrCartaServCom(3, lblEstatusBoleta4, 1);
+    }//GEN-LAST:event_btnEliminaBoleta4ActionPerformed
+
+    private void btnEliminaBoleta5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaBoleta5ActionPerformed
+        controlador.borraBoletaOrCartaServCom(4, lblEstatusBoleta5, 1);
+    }//GEN-LAST:event_btnEliminaBoleta5ActionPerformed
+
+    private void btnEliminaBoleta6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaBoleta6ActionPerformed
+        controlador.borraBoletaOrCartaServCom(5, lblEstatusBoleta6, 1);
+    }//GEN-LAST:event_btnEliminaBoleta6ActionPerformed
+
+    private void btnEliminaBoleta8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaBoleta8ActionPerformed
+        controlador.borraBoletaOrCartaServCom(7, lblEstatusBoleta8, 1);
+    }//GEN-LAST:event_btnEliminaBoleta8ActionPerformed
+
+    private void btnEliminaBoleta9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaBoleta9ActionPerformed
+        controlador.borraBoletaOrCartaServCom(8, lblEstatusBoleta9, 1);
+    }//GEN-LAST:event_btnEliminaBoleta9ActionPerformed
+
+    private void btnEliminaBoleta10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaBoleta10ActionPerformed
+        controlador.borraBoletaOrCartaServCom(9, lblEstatusBoleta10, 1);
+    }//GEN-LAST:event_btnEliminaBoleta10ActionPerformed
+
+    private void btnEliminaBoleta11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaBoleta11ActionPerformed
+        controlador.borraBoletaOrCartaServCom(10, lblEstatusBoleta11, 1);
+    }//GEN-LAST:event_btnEliminaBoleta11ActionPerformed
+
+    private void btnEliminaBoleta12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaBoleta12ActionPerformed
+        controlador.borraBoletaOrCartaServCom(11, lblEstatusBoleta12, 1);
+    }//GEN-LAST:event_btnEliminaBoleta12ActionPerformed
+
+    private void BtnEliminaSC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaSC1ActionPerformed
+        controlador.borraBoletaOrCartaServCom(0, lblEstatusSC1, 2);
+    }//GEN-LAST:event_BtnEliminaSC1ActionPerformed
+
+    private void BtnEliminaSC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaSC2ActionPerformed
+        controlador.borraBoletaOrCartaServCom(1, lblEstatusSC2, 2);
+    }//GEN-LAST:event_BtnEliminaSC2ActionPerformed
+
+    private void BtnEliminaSC3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaSC3ActionPerformed
+        controlador.borraBoletaOrCartaServCom(2, lblEstatusSC3, 2);
+    }//GEN-LAST:event_BtnEliminaSC3ActionPerformed
+
+    private void BtnEliminaSC4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaSC4ActionPerformed
+        controlador.borraBoletaOrCartaServCom(3, lblEstatusSC4, 2);
+    }//GEN-LAST:event_BtnEliminaSC4ActionPerformed
+
+    private void BtnEliminaSC5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaSC5ActionPerformed
+        controlador.borraBoletaOrCartaServCom(4, lblEstatusSC5, 2);
+    }//GEN-LAST:event_BtnEliminaSC5ActionPerformed
+
+    private void BtnEliminaSC6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaSC6ActionPerformed
+        controlador.borraBoletaOrCartaServCom(5, lblEstatusSC6, 2);
+    }//GEN-LAST:event_BtnEliminaSC6ActionPerformed
+
+    private void BtnEliminaSC8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaSC8ActionPerformed
+        controlador.borraBoletaOrCartaServCom(7, lblEstatusSC8, 2);
+    }//GEN-LAST:event_BtnEliminaSC8ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -3358,8 +3722,6 @@ public class VistaKardex extends javax.swing.JPanel {
     protected javax.swing.JTextField TxtDesc7;
     protected javax.swing.JTextField TxtDesc8;
     protected javax.swing.JTextField TxtDesc9;
-    protected javax.swing.JLabel TxtEstatusSC1;
-    protected javax.swing.JLabel TxtEstatusSC10;
     protected javax.swing.JLabel TxtEstatusSC11;
     protected javax.swing.JLabel TxtEstatusSC12;
     protected javax.swing.JLabel TxtEstatusSC13;
@@ -3369,7 +3731,6 @@ public class VistaKardex extends javax.swing.JPanel {
     protected javax.swing.JLabel TxtEstatusSC17;
     protected javax.swing.JLabel TxtEstatusSC18;
     protected javax.swing.JLabel TxtEstatusSC19;
-    protected javax.swing.JLabel TxtEstatusSC2;
     protected javax.swing.JLabel TxtEstatusSC20;
     protected javax.swing.JLabel TxtEstatusSC21;
     protected javax.swing.JLabel TxtEstatusSC22;
@@ -3380,16 +3741,7 @@ public class VistaKardex extends javax.swing.JPanel {
     protected javax.swing.JLabel TxtEstatusSC27;
     protected javax.swing.JLabel TxtEstatusSC28;
     protected javax.swing.JLabel TxtEstatusSC29;
-    protected javax.swing.JLabel TxtEstatusSC3;
     protected javax.swing.JLabel TxtEstatusSC30;
-    protected javax.swing.JLabel TxtEstatusSC31;
-    protected javax.swing.JLabel TxtEstatusSC32;
-    protected javax.swing.JLabel TxtEstatusSC4;
-    protected javax.swing.JLabel TxtEstatusSC5;
-    protected javax.swing.JLabel TxtEstatusSC6;
-    protected javax.swing.JLabel TxtEstatusSC7;
-    protected javax.swing.JLabel TxtEstatusSC8;
-    protected javax.swing.JLabel TxtEstatusSC9;
     protected javax.swing.JTextField TxtFldClabeBanco;
     protected javax.swing.JTextField TxtFldNoCuenta;
     protected javax.swing.JTextField TxtHrServ1;
@@ -3460,18 +3812,6 @@ public class VistaKardex extends javax.swing.JPanel {
     private javax.swing.JTextField TxtSemestre7;
     private javax.swing.JTextField TxtSemestre8;
     private javax.swing.JTextField TxtSemestre9;
-    protected javax.swing.JLabel TxtbxEstatusBoleta1;
-    protected javax.swing.JLabel TxtbxEstatusBoleta10;
-    protected javax.swing.JLabel TxtbxEstatusBoleta11;
-    protected javax.swing.JLabel TxtbxEstatusBoleta12;
-    protected javax.swing.JLabel TxtbxEstatusBoleta2;
-    private javax.swing.JLabel TxtbxEstatusBoleta3;
-    protected javax.swing.JLabel TxtbxEstatusBoleta4;
-    protected javax.swing.JLabel TxtbxEstatusBoleta5;
-    protected javax.swing.JLabel TxtbxEstatusBoleta6;
-    protected javax.swing.JLabel TxtbxEstatusBoleta7;
-    protected javax.swing.JLabel TxtbxEstatusBoleta8;
-    protected javax.swing.JLabel TxtbxEstatusBoleta9;
     protected javax.swing.JButton btnEliminaBoleta01;
     protected javax.swing.JButton btnEliminaBoleta10;
     protected javax.swing.JButton btnEliminaBoleta11;
@@ -3548,6 +3888,30 @@ public class VistaKardex extends javax.swing.JPanel {
     protected javax.swing.JPanel jpnlListaDocumentosBoleta;
     protected javax.swing.JPanel jpnlListaDocumentosServicioComunitario;
     protected javax.swing.JTabbedPane jtabKardex;
+    protected javax.swing.JLabel lblEstatusBoleta1;
+    protected javax.swing.JLabel lblEstatusBoleta10;
+    protected javax.swing.JLabel lblEstatusBoleta11;
+    protected javax.swing.JLabel lblEstatusBoleta12;
+    protected javax.swing.JLabel lblEstatusBoleta2;
+    private javax.swing.JLabel lblEstatusBoleta3;
+    protected javax.swing.JLabel lblEstatusBoleta4;
+    protected javax.swing.JLabel lblEstatusBoleta5;
+    protected javax.swing.JLabel lblEstatusBoleta6;
+    protected javax.swing.JLabel lblEstatusBoleta7;
+    protected javax.swing.JLabel lblEstatusBoleta8;
+    protected javax.swing.JLabel lblEstatusBoleta9;
+    protected javax.swing.JLabel lblEstatusSC1;
+    protected javax.swing.JLabel lblEstatusSC10;
+    protected javax.swing.JLabel lblEstatusSC11;
+    protected javax.swing.JLabel lblEstatusSC12;
+    protected javax.swing.JLabel lblEstatusSC2;
+    protected javax.swing.JLabel lblEstatusSC3;
+    protected javax.swing.JLabel lblEstatusSC4;
+    protected javax.swing.JLabel lblEstatusSC5;
+    protected javax.swing.JLabel lblEstatusSC6;
+    protected javax.swing.JLabel lblEstatusSC7;
+    protected javax.swing.JLabel lblEstatusSC8;
+    protected javax.swing.JLabel lblEstatusSC9;
     private javax.swing.JPanel pnlArchivosAdjuntos;
     private javax.swing.JPanel pnlArchivosAdjuntos1;
     protected javax.swing.JPanel pnlInformacionBancaria;
