@@ -1308,3 +1308,15 @@
 2/5/2016;23:17:19;Nombre de categoria no encontrado
 2/5/2016;23:19:54;Nombre de categoria no encontrado
 2/5/2016;23:19:54;Nombre de categoria no encontrado
+2/5/2016;23:38:28;Nombre de categoria no encontrado
+2/5/2016;23:38:28;Nombre de categoria no encontrado
+2/5/2016;23:38:47;Nombre de categoria no encontrado
+2/5/2016;23:38:47;Nombre de categoria no encontrado
+2/5/2016;23:38:55;Nombre de categoria no encontrado
+2/5/2016;23:38:55;Nombre de categoria no encontrado
+2/5/2016;23:43:58;Nombre de categoria no encontrado
+2/5/2016;23:43:58;Nombre de categoria no encontrado
+2/5/2016;23:44:1;Nombre de categoria no encontrado
+2/5/2016;23:45:16;Nombre de categoria no encontrado
+2/5/2016;23:45:16;Nombre de categoria no encontrado
+2/5/2016;23:45:20;Nombre de categoria no encontrado

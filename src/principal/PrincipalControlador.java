@@ -1700,6 +1700,8 @@ public class PrincipalControlador {
                 pnlSemestres = vistaKardex.jpnlListaDocumentosBoleta;
                 pnlAcciones = vistaKardex.jpnlAccionesDocumentosBoleta;
 
+                if(lstKardex.isEmpty())
+                    break;
                 componentes = pnlAcciones.getComponents();
                 i = 0;
                 for (Component componente : componentes) {
@@ -1720,6 +1722,9 @@ public class PrincipalControlador {
             case 2:
                 pnlSemestres = vistaKardex.jpnlListaDocumentosServicioComunitario;
                 pnlAcciones = vistaKardex.jpnlAccionesDocumentosServicioComunitario;
+                
+                if(lstKardex.isEmpty())
+                    break;
 
                 componentes = pnlAcciones.getComponents();
                 i = 0;
