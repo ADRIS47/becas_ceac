@@ -420,7 +420,7 @@ public class VistaKardex extends javax.swing.JPanel {
         jLabel17 = new javax.swing.JLabel();
         TxtFldNoCuenta = new javax.swing.JTextField();
         TxtFldClabeBanco = new javax.swing.JTextField();
-        cmbNombreBanco = new javax.swing.JComboBox<>();
+        cmbNombreBanco = new javax.swing.JComboBox<String>();
 
         setPreferredSize(new java.awt.Dimension(916, 584));
 
@@ -2261,6 +2261,11 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentosServicioComunitario.add(BtnAddSC9);
 
         BtnEliminaSC9.setText("Eliminar Archivo");
+        BtnEliminaSC9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaSC9ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(BtnEliminaSC9);
 
         lblEstatusSC9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -2279,6 +2284,11 @@ public class VistaKardex extends javax.swing.JPanel {
 
         BtnEliminaSC10.setForeground(new java.awt.Color(0, 0, 204));
         BtnEliminaSC10.setText("Eliminar Archivo");
+        BtnEliminaSC10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaSC10ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(BtnEliminaSC10);
 
         lblEstatusSC10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -2297,6 +2307,11 @@ public class VistaKardex extends javax.swing.JPanel {
 
         BtnEliminaSC11.setForeground(new java.awt.Color(0, 0, 204));
         BtnEliminaSC11.setText("Eliminar Archivo");
+        BtnEliminaSC11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaSC11ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(BtnEliminaSC11);
 
         lblEstatusSC11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -2315,6 +2330,11 @@ public class VistaKardex extends javax.swing.JPanel {
 
         BtnEliminaSC12.setForeground(new java.awt.Color(0, 0, 204));
         BtnEliminaSC12.setText("Eliminar Archivo");
+        BtnEliminaSC12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaSC12ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(BtnEliminaSC12);
 
         lblEstatusSC12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -3531,6 +3551,22 @@ public class VistaKardex extends javax.swing.JPanel {
     private void BtnEliminaSC8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaSC8ActionPerformed
         controlador.borraBoletaOrCartaServCom(7, lblEstatusSC8, 2);
     }//GEN-LAST:event_BtnEliminaSC8ActionPerformed
+
+    private void BtnEliminaSC9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaSC9ActionPerformed
+        controlador.borraBoletaOrCartaServCom(8, lblEstatusSC9, 2);
+    }//GEN-LAST:event_BtnEliminaSC9ActionPerformed
+
+    private void BtnEliminaSC10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaSC10ActionPerformed
+        controlador.borraBoletaOrCartaServCom(9, lblEstatusSC10, 2);
+    }//GEN-LAST:event_BtnEliminaSC10ActionPerformed
+
+    private void BtnEliminaSC11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaSC11ActionPerformed
+        controlador.borraBoletaOrCartaServCom(10, lblEstatusSC11, 2);
+    }//GEN-LAST:event_BtnEliminaSC11ActionPerformed
+
+    private void BtnEliminaSC12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaSC12ActionPerformed
+        controlador.borraBoletaOrCartaServCom(11, lblEstatusSC12, 2);
+    }//GEN-LAST:event_BtnEliminaSC12ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
