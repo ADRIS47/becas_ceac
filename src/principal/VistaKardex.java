@@ -1587,6 +1587,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusBoleta1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusBoleta1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusBoleta1.setEnabled(false);
+        lblEstatusBoleta1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusBoleta1MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta1);
 
         BtnAddBoleta2.setForeground(new java.awt.Color(0, 204, 0));
@@ -1610,6 +1615,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusBoleta2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusBoleta2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusBoleta2.setEnabled(false);
+        lblEstatusBoleta2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusBoleta2MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta2);
 
         BtnAddBoleta3.setText("Agregar...");
@@ -1631,6 +1641,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusBoleta3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusBoleta3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusBoleta3.setEnabled(false);
+        lblEstatusBoleta3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusBoleta3MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta3);
 
         BtnAddBoleta4.setForeground(new java.awt.Color(0, 0, 204));
@@ -1654,6 +1669,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusBoleta4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusBoleta4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusBoleta4.setEnabled(false);
+        lblEstatusBoleta4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusBoleta4MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta4);
 
         BtnAddBoleta5.setForeground(new java.awt.Color(0, 204, 0));
@@ -1677,6 +1697,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusBoleta5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusBoleta5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusBoleta5.setEnabled(false);
+        lblEstatusBoleta5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusBoleta5MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta5);
 
         BtnAddBoleta6.setText("Agregar...");
@@ -1698,6 +1723,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusBoleta6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusBoleta6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusBoleta6.setEnabled(false);
+        lblEstatusBoleta6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusBoleta6MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta6);
 
         BtnAddBoleta7.setForeground(new java.awt.Color(0, 0, 204));
@@ -1721,6 +1751,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusBoleta7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusBoleta7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusBoleta7.setEnabled(false);
+        lblEstatusBoleta7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusBoleta7MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta7);
 
         BtnAddBoleta8.setForeground(new java.awt.Color(0, 204, 0));
@@ -1744,6 +1779,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusBoleta8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusBoleta8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusBoleta8.setEnabled(false);
+        lblEstatusBoleta8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusBoleta8MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta8);
 
         BtnAddBoleta9.setText("Agregar...");
@@ -1765,6 +1805,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusBoleta9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusBoleta9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusBoleta9.setEnabled(false);
+        lblEstatusBoleta9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusBoleta9MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta9);
 
         BtnAddBoleta10.setForeground(new java.awt.Color(0, 0, 204));
@@ -1788,6 +1833,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusBoleta10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusBoleta10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusBoleta10.setEnabled(false);
+        lblEstatusBoleta10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusBoleta10MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta10);
 
         BtnAddBoleta11.setForeground(new java.awt.Color(0, 204, 0));
@@ -1811,6 +1861,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusBoleta11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusBoleta11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusBoleta11.setEnabled(false);
+        lblEstatusBoleta11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusBoleta11MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta11);
 
         BtnAddBoleta12.setText("Agregar...");
@@ -1832,6 +1887,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusBoleta12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusBoleta12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusBoleta12.setEnabled(false);
+        lblEstatusBoleta12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusBoleta12MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta12);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -2101,6 +2161,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusSC1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusSC1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusSC1.setEnabled(false);
+        lblEstatusSC1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusSC1MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC1);
 
         BtnAddSC2.setForeground(new java.awt.Color(0, 204, 0));
@@ -2124,6 +2189,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusSC2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusSC2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusSC2.setEnabled(false);
+        lblEstatusSC2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusSC2MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC2);
 
         BtnAddSC3.setText("Agregar...");
@@ -2145,6 +2215,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusSC3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusSC3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusSC3.setEnabled(false);
+        lblEstatusSC3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusSC3MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC3);
 
         BtnAddSC4.setForeground(new java.awt.Color(0, 0, 204));
@@ -2168,6 +2243,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusSC4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusSC4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusSC4.setEnabled(false);
+        lblEstatusSC4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusSC4MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC4);
 
         BtnAddSC5.setForeground(new java.awt.Color(0, 204, 0));
@@ -2191,6 +2271,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusSC5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusSC5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusSC5.setEnabled(false);
+        lblEstatusSC5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusSC5MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC5);
 
         BtnAddSC6.setText("Agregar...");
@@ -2212,6 +2297,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusSC6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusSC6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusSC6.setEnabled(false);
+        lblEstatusSC6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusSC6MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC6);
 
         BtnAddSC7.setForeground(new java.awt.Color(0, 0, 204));
@@ -2235,6 +2325,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusSC7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusSC7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusSC7.setEnabled(false);
+        lblEstatusSC7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusSC7MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC7);
 
         BtnAddSC8.setForeground(new java.awt.Color(0, 204, 0));
@@ -2258,6 +2353,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusSC8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusSC8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusSC8.setEnabled(false);
+        lblEstatusSC8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusSC8MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC8);
 
         BtnAddSC9.setText("Agregar...");
@@ -2279,6 +2379,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusSC9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusSC9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusSC9.setEnabled(false);
+        lblEstatusSC9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusSC9MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC9);
 
         BtnAddSC10.setForeground(new java.awt.Color(0, 0, 204));
@@ -2302,6 +2407,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusSC10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusSC10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusSC10.setEnabled(false);
+        lblEstatusSC10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusSC10MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC10);
 
         BtnAddSC11.setForeground(new java.awt.Color(0, 204, 0));
@@ -2325,6 +2435,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusSC11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusSC11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusSC11.setEnabled(false);
+        lblEstatusSC11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusSC11MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC11);
 
         BtnAddSC12.setText("Agregar...");
@@ -2346,6 +2461,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusSC12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusSC12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusSC12.setEnabled(false);
+        lblEstatusSC12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusSC12MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC12);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -2499,14 +2619,14 @@ public class VistaKardex extends javax.swing.JPanel {
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+            .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel48, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel49, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel47, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel46, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel48, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel49, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel47, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jpnlListaDocumentos4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -3594,6 +3714,102 @@ public class VistaKardex extends javax.swing.JPanel {
     private void BtnEliminaSC12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaSC12ActionPerformed
         controlador.borraBoletaOrCartaServCom(11, lblEstatusSC12, 2);
     }//GEN-LAST:event_BtnEliminaSC12ActionPerformed
+
+    private void lblEstatusBoleta1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusBoleta1MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(1, 0);
+    }//GEN-LAST:event_lblEstatusBoleta1MouseClicked
+
+    private void lblEstatusBoleta2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusBoleta2MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(1, 1);
+    }//GEN-LAST:event_lblEstatusBoleta2MouseClicked
+
+    private void lblEstatusBoleta3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusBoleta3MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(1, 2);
+    }//GEN-LAST:event_lblEstatusBoleta3MouseClicked
+
+    private void lblEstatusBoleta4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusBoleta4MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(1, 3);
+    }//GEN-LAST:event_lblEstatusBoleta4MouseClicked
+
+    private void lblEstatusBoleta5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusBoleta5MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(1, 4);
+    }//GEN-LAST:event_lblEstatusBoleta5MouseClicked
+
+    private void lblEstatusBoleta6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusBoleta6MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(1, 5);
+    }//GEN-LAST:event_lblEstatusBoleta6MouseClicked
+
+    private void lblEstatusBoleta7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusBoleta7MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(1, 6);
+    }//GEN-LAST:event_lblEstatusBoleta7MouseClicked
+
+    private void lblEstatusBoleta8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusBoleta8MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(1, 7);
+    }//GEN-LAST:event_lblEstatusBoleta8MouseClicked
+
+    private void lblEstatusBoleta9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusBoleta9MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(1, 8);
+    }//GEN-LAST:event_lblEstatusBoleta9MouseClicked
+
+    private void lblEstatusBoleta10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusBoleta10MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(1, 9);
+    }//GEN-LAST:event_lblEstatusBoleta10MouseClicked
+
+    private void lblEstatusBoleta11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusBoleta11MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(1, 10);
+    }//GEN-LAST:event_lblEstatusBoleta11MouseClicked
+
+    private void lblEstatusBoleta12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusBoleta12MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(1, 11);
+    }//GEN-LAST:event_lblEstatusBoleta12MouseClicked
+
+    private void lblEstatusSC1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusSC1MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(2, 0);
+    }//GEN-LAST:event_lblEstatusSC1MouseClicked
+
+    private void lblEstatusSC2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusSC2MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(2, 1);
+    }//GEN-LAST:event_lblEstatusSC2MouseClicked
+
+    private void lblEstatusSC3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusSC3MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(2, 2);
+    }//GEN-LAST:event_lblEstatusSC3MouseClicked
+
+    private void lblEstatusSC4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusSC4MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(2, 3);
+    }//GEN-LAST:event_lblEstatusSC4MouseClicked
+
+    private void lblEstatusSC5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusSC5MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(2, 4);
+    }//GEN-LAST:event_lblEstatusSC5MouseClicked
+
+    private void lblEstatusSC6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusSC6MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(2, 5);
+    }//GEN-LAST:event_lblEstatusSC6MouseClicked
+
+    private void lblEstatusSC7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusSC7MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(2, 6);
+    }//GEN-LAST:event_lblEstatusSC7MouseClicked
+
+    private void lblEstatusSC8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusSC8MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(2, 7);
+    }//GEN-LAST:event_lblEstatusSC8MouseClicked
+
+    private void lblEstatusSC9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusSC9MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(2, 8);
+    }//GEN-LAST:event_lblEstatusSC9MouseClicked
+
+    private void lblEstatusSC10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusSC10MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(2, 9);
+    }//GEN-LAST:event_lblEstatusSC10MouseClicked
+
+    private void lblEstatusSC11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusSC11MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(2, 10);
+    }//GEN-LAST:event_lblEstatusSC11MouseClicked
+
+    private void lblEstatusSC12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusSC12MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(2, 3);
+    }//GEN-LAST:event_lblEstatusSC12MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -2545,7 +2545,39 @@ public class PrincipalControlador {
                 helper.abreArchivoAdjunto(filePagare);
                 break;
         }
-
+    }
+    
+    /**
+     * Abre los archivos boleta, carta de servicio comunitario o Transferencia bancaria
+     * según sea el caso
+     * @param tipoArchivo 1.- Boleta, 
+     * 2.- Carta servicio comunitario.
+     * 3.- Transferencia Bancaria
+     * @param posicion Indica la posicion del arreglo de archivos
+     */
+    protected void abreBoletaCartaServComTransferencia(int tipoArchivo, int posicion){
+        switch(tipoArchivo){
+            case 1:
+                if(lstFilesBoletas[posicion] == null)
+                    JOptionPane.showMessageDialog(vistaKardex, "Debes de cargar Boleta", "Error", JOptionPane.ERROR_MESSAGE);
+                else
+                    helper.abreArchivoAdjunto(lstFilesBoletas[posicion]);
+                break;
+                
+            case 2:
+                if(lstFilesCartaServCom[posicion] == null)
+                    JOptionPane.showMessageDialog(vistaKardex, "Debes de cargar Carta", "Error", JOptionPane.ERROR_MESSAGE);
+                else
+                    helper.abreArchivoAdjunto(lstFilesCartaServCom[posicion]);
+                break;
+                
+            case 3:
+//                if(lstFilesBoletas[posicion] == null)
+//                    JOptionPane.showMessageDialog(vistaKardex, "Debes de cargar una boleta", "Error", JOptionPane.ERROR_MESSAGE);
+//                else
+                //helper.abreArchivoAdjunto(lstFilesBoletas[posicion]);
+                break;
+        }
     }
 
     /**

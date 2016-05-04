@@ -2884,6 +2884,9 @@
                                 </Property>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblEstatusBoleta1MouseClicked"/>
+                              </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                               </AuxValues>
@@ -2926,6 +2929,9 @@
                                 </Property>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblEstatusBoleta2MouseClicked"/>
+                              </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                               </AuxValues>
@@ -2962,6 +2968,9 @@
                                 </Property>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblEstatusBoleta3MouseClicked"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="BtnAddBoleta4">
                               <Properties>
@@ -3001,6 +3010,9 @@
                                 </Property>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblEstatusBoleta4MouseClicked"/>
+                              </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                               </AuxValues>
@@ -3043,6 +3055,9 @@
                                 </Property>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblEstatusBoleta5MouseClicked"/>
+                              </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                               </AuxValues>
@@ -3079,6 +3094,9 @@
                                 </Property>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblEstatusBoleta6MouseClicked"/>
+                              </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                               </AuxValues>
@@ -3121,6 +3139,9 @@
                                 </Property>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblEstatusBoleta7MouseClicked"/>
+                              </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                               </AuxValues>
@@ -3163,6 +3184,9 @@
                                 </Property>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblEstatusBoleta8MouseClicked"/>
+                              </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                               </AuxValues>
@@ -3199,6 +3223,9 @@
                                 </Property>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblEstatusBoleta9MouseClicked"/>
+                              </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                               </AuxValues>
@@ -3241,6 +3268,9 @@
                                 </Property>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblEstatusBoleta10MouseClicked"/>
+                              </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                               </AuxValues>
@@ -3283,6 +3313,9 @@
                                 </Property>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblEstatusBoleta11MouseClicked"/>
+                              </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                               </AuxValues>
@@ -3319,6 +3352,9 @@
                                 </Property>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblEstatusBoleta12MouseClicked"/>
+                              </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                               </AuxValues>
@@ -3783,6 +3819,9 @@
                                 </Property>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblEstatusSC1MouseClicked"/>
+                              </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                               </AuxValues>
@@ -3825,6 +3864,9 @@
                                 </Property>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblEstatusSC2MouseClicked"/>
+                              </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                               </AuxValues>
@@ -3861,6 +3903,9 @@
                                 </Property>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblEstatusSC3MouseClicked"/>
+                              </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                               </AuxValues>
@@ -3903,6 +3948,9 @@
                                 </Property>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblEstatusSC4MouseClicked"/>
+                              </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                               </AuxValues>
@@ -3945,6 +3993,9 @@
                                 </Property>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblEstatusSC5MouseClicked"/>
+                              </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                               </AuxValues>
@@ -3981,6 +4032,9 @@
                                 </Property>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblEstatusSC6MouseClicked"/>
+                              </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                               </AuxValues>
@@ -4023,6 +4077,9 @@
                                 </Property>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblEstatusSC7MouseClicked"/>
+                              </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                               </AuxValues>
@@ -4065,6 +4122,9 @@
                                 </Property>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblEstatusSC8MouseClicked"/>
+                              </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                               </AuxValues>
@@ -4101,6 +4161,9 @@
                                 </Property>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblEstatusSC9MouseClicked"/>
+                              </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                               </AuxValues>
@@ -4143,6 +4206,9 @@
                                 </Property>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblEstatusSC10MouseClicked"/>
+                              </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                               </AuxValues>
@@ -4185,6 +4251,9 @@
                                 </Property>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblEstatusSC11MouseClicked"/>
+                              </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                               </AuxValues>
@@ -4221,6 +4290,9 @@
                                 </Property>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblEstatusSC12MouseClicked"/>
+                              </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                               </AuxValues>
@@ -4433,15 +4505,15 @@
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                              <Component id="jLabel48" alignment="3" max="32767" attributes="0"/>
+                              <Component id="jLabel49" alignment="3" max="32767" attributes="0"/>
+                              <Component id="jLabel47" alignment="3" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel45" alignment="3" max="32767" attributes="0"/>
                               <Component id="jLabel46" alignment="3" max="32767" attributes="0"/>
                               <Component id="jLabel44" alignment="3" max="32767" attributes="0"/>
-                              <Group type="103" alignment="3" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel48" alignment="3" max="32767" attributes="0"/>
-                                  <Component id="jLabel49" alignment="3" max="32767" attributes="0"/>
-                                  <Component id="jLabel47" alignment="3" max="32767" attributes="0"/>
-                              </Group>
                           </Group>
                       </Group>
                     </DimensionLayout>
