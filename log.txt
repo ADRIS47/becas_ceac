@@ -1281,3 +1281,6 @@
 2/5/2016;20:6:47;SQLError: 42S02
 2/5/2016;20:6:47;ERROR: Code1146
 2/5/2016;20:6:47;Message: Table 'becas_chihuahua.beca_cat_servicio_comunitario' doesn't exist
+2/5/2016;21:23:47;SQLError: 42S02
+2/5/2016;21:23:47;ERROR: Code1146
+2/5/2016;21:23:47;Message: Table 'becas_chihuahua.beca_cat_servicio_comunitario' doesn't exist
