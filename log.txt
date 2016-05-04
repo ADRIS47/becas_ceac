@@ -1326,3 +1326,11 @@
 3/5/2016;22:24:39;Nombre de categoria no encontrado
 3/5/2016;22:30:6;Nombre de categoria no encontrado
 3/5/2016;22:30:6;Nombre de categoria no encontrado
+3/5/2016;23:5:47;Nombre de categoria no encontrado
+3/5/2016;23:5:47;Nombre de categoria no encontrado
+3/5/2016;23:41:55;Nombre de categoria no encontrado
+3/5/2016;23:41:55;Nombre de categoria no encontrado
+3/5/2016;23:45:48;Nombre de categoria no encontrado
+3/5/2016;23:45:48;Nombre de categoria no encontrado
+3/5/2016;23:46:3;Nombre de categoria no encontrado
+3/5/2016;23:46:3;Nombre de categoria no encontrado

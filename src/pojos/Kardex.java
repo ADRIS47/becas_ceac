@@ -26,7 +26,9 @@ public class Kardex {
     long id_becario;
     boolean pago_extra;
     int horasServicio;
-
+    String transferencia1;
+    String transferencia2;
+    
     public long getId_kardex() {
         return id_kardex;
     }
@@ -145,7 +147,23 @@ public class Kardex {
 
     public void setHorasServicio(int horasServicio) {
         this.horasServicio = horasServicio;
-    }    
+    }
+
+    public String getTransferencia1() {
+        return transferencia1;
+    }
+
+    public void setTransferencia1(String transferencia1) {
+        this.transferencia1 = transferencia1;
+    }
+
+    public String getTransferencia2() {
+        return transferencia2;
+    }
+
+    public void setTransferencia2(String transferencia2) {
+        this.transferencia2 = transferencia2;
+    }
     
     public static final String COL_ID_KARDEX = "id_kardex";
     public static final String COL_NUM_SEMESTRE = "num_semestre";
@@ -162,5 +180,7 @@ public class Kardex {
     public static final String COL_ID_BECARIO = "id_becario";
     public static final String COL_PAGO_EXTRA = "pago_extra";
     public static final String COL_HORAS_SERVICIO = "horas_servicio";
+    public static final String COL_TRANSFERENCIA_1 = "transferencia1";
+    public static final String COL_TRANSFERENCIA_2 = "transferencia2";
     
 }

@@ -130,9 +130,11 @@ public class Insert {
             + Kardex.COL_DESCUENTO + ", " + Kardex.COL_ID_SERVICIO_COMUNITARIO + ", "
             + Kardex.COL_LUGAR_SERVICIO_COMUNITARIO + ", " + Kardex.COL_BOLETA + ", "
             + Kardex.COL_CARTA_SERVICIO_COMUNITARIO + ", " + Kardex.COL_PAGO_EXTRA + ", "
-            + Kardex.COL_HORAS_SERVICIO + ", " + Kardex.COL_ID_BECARIO + ") "
+            + Kardex.COL_HORAS_SERVICIO + ", " + Kardex.COL_ID_BECARIO + ", "
+            + Kardex.COL_TRANSFERENCIA_1 + ", " + Kardex.COL_TRANSFERENCIA_2 + ") "
             + "VALUES (" 
             + "?,?,?,?,?,"
             + "?,?,?,?,?,"
-            + "?,?,?,?)";
+            + "?,?,?,?,?,"
+            + "?)";
 }

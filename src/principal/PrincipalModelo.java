@@ -2561,6 +2561,8 @@ public class PrincipalModelo {
                     ps.setBoolean(12, kardex.isPago_extra());
                     ps.setInt(13, kardex.getHorasServicio());
                     ps.setLong(14, becario.getId());
+                    ps.setString(15, kardex.getTransferencia1());
+                    ps.setString(16, kardex.getTransferencia2());
                     int result = ps.executeUpdate();
                     if(result == 0){
                         return response;
@@ -2589,8 +2591,10 @@ public class PrincipalModelo {
                     ps.setString(11, kardex.getCarta_servicio_comunitario());
                     ps.setBoolean(12, kardex.isPago_extra());
                     ps.setInt(13, kardex.getHorasServicio());
-                    ps.setLong(14, becario.getId());
-                    ps.setLong(15, idsKardex.get(i));
+                    ps.setString(14, kardex.getTransferencia1());
+                    ps.setString(15, kardex.getTransferencia2());
+                    ps.setLong(16, becario.getId());
+                    ps.setLong(17, idsKardex.get(i));
                     int result = ps.executeUpdate();
                     
                     if(result == 0)

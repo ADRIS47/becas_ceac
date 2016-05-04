@@ -104,6 +104,7 @@ public class PrincipalControlador {
 
     File[] lstFilesBoletas = new File[12];
     File[] lstFilesCartaServCom = new File[12];
+    File[] lstFilesTransferencias = new File[24];
 
     public static void main(String[] args) {
         PrincipalControlador prueba = new PrincipalControlador();
@@ -500,8 +501,9 @@ public class PrincipalControlador {
      * @param lblEstatus Etiqueta de estatus a cambiar
      * @param codigo 1.- Carga las boletas.
      * 2.- Carga las cartas del servicio comunitario
+     * 3.- Carga los comprobantes de las transferencias
      */
-    protected void cargaBoletaOCartaServCom(int semestre, JLabel lblEstatus, int codigo) {
+    protected void cargaBoletaOCartaServComTransferencia(int semestre, JLabel lblEstatus, int codigo) {
         JFileChooser selector = new JFileChooser();
         FileNameExtensionFilter filtro = new FileNameExtensionFilter("PDF", "pdf");
         selector.setFileFilter(filtro);
@@ -545,6 +547,24 @@ public class PrincipalControlador {
                 }
                 
                 break;
+                
+            case 3:
+                if (select == JFileChooser.APPROVE_OPTION) {
+                    archivo = selector.getSelectedFile();
+                    String nombreArchivo = archivo.getName();
+                    String extension = nombreArchivo.substring(nombreArchivo.length() - 3, nombreArchivo.length());
+                    if (!extension.equals("pdf")
+                            && !extension.equals("PDF")) {
+                        JOptionPane.showMessageDialog(vista, "Debes de seleccionar archivos con la extension PDF", "Error", JOptionPane.ERROR_MESSAGE);
+                        lblEstatus.setText("ERROR");
+                        archivo = null;
+                    } else {
+                        //JOptionPane.showMessageDialog(vista, "Debes de seleccionar archivos con la extension PDF", "Error", JOptionPane.ERROR_MESSAGE);
+                        lstFilesTransferencias[semestre] = archivo;
+                        lblEstatus.setText("¡OK!");
+                    }
+                }
+                break;
         }
     }
 
@@ -568,7 +588,7 @@ public class PrincipalControlador {
      * @param codigo 1.- Carga las boletas.
      * 2.- Carga las cartas del servicio comunitario
      */
-    protected void borraBoletaOrCartaServCom(int semestre, JLabel etiqueta, int codigo){
+    protected void borraBoletaOrCartaServComTransferencia(int semestre, JLabel etiqueta, int codigo){
         
         switch(codigo){
             case 1:
@@ -580,6 +600,10 @@ public class PrincipalControlador {
                 lstFilesCartaServCom[semestre] = null;
                 etiqueta.setText("¡Borrado!");
                 break;
+                
+            case 3:
+                lstFilesTransferencias[semestre] = null;
+                etiqueta.setText("¡Borrado!");
         }
     }
 
@@ -1766,10 +1790,13 @@ public class PrincipalControlador {
      * @param pnlPanel
      * @param semestresHabilitados
      * @param contador
-     * @param codigo 1.- Deshabilita los componentes del pnlKardex 2.-
-     * Deshabilita los componentes de la pestaña de boletas y carga semestral en
-     * el apartado de semestres 3.- Deshabilita los componentes de la pestaña de
-     * boletas y carga semestral en el apartado de acciones y estatus
+     * @param codigo 1.- Deshabilita los componentes del pnlKardex 
+     * 2.- Deshabilita los componentes de la pestaña de boletas y carga semestral en
+     * el apartado de semestres 
+     * 3.- Deshabilita los componentes de la pestaña de
+     * boletas y carga semestral en el apartado de acciones y estatus.
+     * 4.- Deshabilita los componentes de la pestaña de transferencias en el apartado
+     * Carga semestral
      */
     private void deshabilitaSemestresKardex(JPanel pnlPanel, int semestresHabilitados,
             int contador, int codigo) {
@@ -1822,6 +1849,25 @@ public class PrincipalControlador {
                     }
 
                     if (contador > semestresHabilitados) {
+//                        Color color = new Color(255, 0,0);
+//                        componente.setBackground(color);
+                        if (componente instanceof JButton || componente instanceof JLabel) {
+                            componente.setVisible(false);
+                        }
+                    }
+
+                }
+                break;
+                
+            case 4:
+                int i = 0;
+                for (Component componente : componentes) {
+                    i = contador / 2;
+                    if ((componente instanceof JButton || componente instanceof JLabel) && i <= semestresHabilitados) {
+                        contador++;
+                    }
+
+                    if (i > semestresHabilitados) {
 //                        Color color = new Color(255, 0,0);
 //                        componente.setBackground(color);
                         if (componente instanceof JButton || componente instanceof JLabel) {
@@ -2443,6 +2489,12 @@ public class PrincipalControlador {
         deshabilitaSemestresKardex(vistaKardex.jpnlListaDocumentosServicioComunitario, semestresHabilitados - 1, 0, 2);
         deshabilitaSemestresKardex(vistaKardex.jpnlAccionesDocumentosServicioComunitario, (semestresHabilitados - 1) * 3, 0, 3);
         llenaPnlBoletaOCargaSemestral(lstKardex, lstFechaSemestres, 2);
+        
+        //Se procede a deshabilitar los semestres de la pestaña transferencias en el 
+        //apartado carga semestral
+        deshabilitaSemestresKardex(vistaKardex.jpnlListaDocumentos4, (semestresHabilitados - 1) / 2, 0, 4);
+        deshabilitaSemestresKardex(vistaKardex.jpnlListaDocumentos5, (semestresHabilitados - 1) - ((semestresHabilitados - 1) / 2), 0, 4);
+        
 
         try {
             conexion.close();
@@ -2630,7 +2682,7 @@ public class PrincipalControlador {
             lstKardex = getDatosKardexBecario(lstKardex, semestres);
             
             //Se agregan los archivos a los kardex correspondientes
-            lstKardex = helper.putArchivosKardexBecario(lstKardex, lstFilesBoletas, lstFilesCartaServCom, becario);
+            lstKardex = helper.putArchivosKardexBecario(lstKardex, lstFilesBoletas, lstFilesCartaServCom, lstFilesTransferencias, becario);
 
             //Se procede a insertar o actualizar el kardex del becario
             response = modelo.insertOrUpdateKardexBecario(conexion, lstKardex, lstFilesBoletas, lstFilesCartaServCom, becario);
