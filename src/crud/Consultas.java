@@ -371,6 +371,6 @@ public class Consultas {
     /**
      * Obtiene todos los datos de un catalogo por el nombre de la tabla
      */
-    public static String getCatalogoPorNombreTabla = "SELECT * FROM ?"   ;
+    public static String getCatalogoPorNombreTabla = "SELECT * FROM "   ;
     
 }

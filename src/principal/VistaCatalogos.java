@@ -122,24 +122,10 @@ public class VistaCatalogos extends javax.swing.JPanel {
         TblDescripcionCatalogo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         TblDescripcionCatalogo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null}
+
             },
             new String [] {
-                "Descripción"
+                "Nombre"
             }
         ));
         jScrollPane1.setViewportView(TblDescripcionCatalogo);

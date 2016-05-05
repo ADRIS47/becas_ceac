@@ -2690,7 +2690,11 @@ public class PrincipalControlador {
         
         lstCatalogoTabla = modelo.getDatosCatalogo(conexion, nombreTabla);
         
+        DefaultTableModel modeloTabla = (DefaultTableModel) vistaCatalogos.TblDescripcionCatalogo.getModel();
         
+        for (CatCategorias catalogo : lstCatalogoTabla) {
+            modeloTabla.addRow(new String[]{catalogo.getNombre()});
+        }
         
         try{
             conexion.close();

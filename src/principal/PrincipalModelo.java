@@ -2688,13 +2688,12 @@ public class PrincipalModelo {
      */
     List<CatCategorias> getDatosCatalogo(Connection conexion, String nombreTabla) {
         List<CatCategorias> lstInfoCatalogo = new ArrayList<>();
-        PreparedStatement ps = null;
+        Statement ps = null;
         ResultSet rs = null;
         
         try{
-            ps = conexion.prepareStatement(Consultas.getCatalogoPorNombreTabla);
-            ps.setString(1, nombreTabla);
-            rs = ps.executeQuery();
+            ps = conexion.createStatement();
+            rs = ps.executeQuery(Consultas.getCatalogoPorNombreTabla + nombreTabla);
             
             while(rs.next()){
                 CatCategorias catalogo = new CatCategorias();
