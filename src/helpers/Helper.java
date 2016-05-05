@@ -19,6 +19,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.sql.Date;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -280,6 +281,7 @@ public class Helper {
                     File[] lstFilesCartaServCom, File[] lstFilesTransferencias, Becario becario) {
         
         int i = 0;
+        List<Kardex> lstResult = new ArrayList<>();
         for (Kardex kardex : lstKardexs) {
             
             //Si existe la boleta a copiar
@@ -323,45 +325,65 @@ public class Helper {
                     return null;
                 }
             }
-            int posicion = 0;
-            if(i % 2 == 0){
-                boolean bandera = false;
-                for (int j = i - 1; j <= i; j++) {
-                    if(j == 0)
-                        posicion = Math.round(j / 2);
-                    
-                    else
-                        posicion = j;
-                    
-                    
-                    //Si existe la transferencia a copiar
-                    if(lstFilesTransferencias[posicion] != null){
-                        //Se obtiene la carta de servicio comunitario y se copia al directorio del becario
-                        String extension = lstFilesTransferencias[posicion].getName().substring(lstFilesTransferencias[posicion].getName().length() - 4, 
-                                        lstFilesTransferencias[posicion].getName().length());
+            //Se agregan los archivos de transferencias
+            int posicionInicial = i * 2;
+            int posicionFinal = (i * 2) + 1;
+            int contador = 0;
+            for (int j = posicionInicial; j <= posicionFinal ; j++) {          
+                //Si existe la primer transferencia
+                if(contador == 0 && lstFilesTransferencias[posicionInicial] != null){
+                    //Se obtiene la carta de servicio comunitario y se copia al directorio del becario
+                    String extension = lstFilesTransferencias[posicionInicial].getName().substring(lstFilesTransferencias[posicionInicial].getName().length() - 4, 
+                                    lstFilesTransferencias[posicionInicial].getName().length());
 
-                        Path de = Paths.get(lstFilesTransferencias[posicion].getAbsolutePath());
+                    Path de = Paths.get(lstFilesTransferencias[posicionInicial].getAbsolutePath());
+                    Path a = Paths.get(Index.RUTA_BASE + Index.RUTA_SISTEMA + becario.getFolio() + Index.SEPARADOR + 
+                            "transferencia_" + posicionInicial + "-" + becario.getFolio() + extension);
+
+                    try {
+                        Files.copy(de, a, StandardCopyOption.REPLACE_EXISTING);
+
+                        kardex.setTransferencia1(becario.getFolio() + Index.SEPARADOR + a.getFileName().toString());
+
+                    } catch (IOException ex) {
+                        a = null;
+                        log.crearLog("No se pudo copiar la carta de servicio comunitario " + lstFilesTransferencias[posicionInicial].getName() + "    " + ex.getMessage());
+                        Logger.getLogger(Helper.class.getName()).log(Level.SEVERE, null, ex);
+                        return null;
+                    }
+                }
+                //Si existe la segunda transferencia
+                else if(contador != 0 && lstFilesTransferencias[posicionFinal] != null){
+                    //Si existe la transferencia a copiar
+                    if(lstFilesTransferencias[posicionFinal] != null){
+                        //Se obtiene la carta de servicio comunitario y se copia al directorio del becario
+                        String extension = lstFilesTransferencias[posicionFinal].getName().substring(lstFilesTransferencias[posicionFinal].getName().length() - 4, 
+                                        lstFilesTransferencias[posicionFinal].getName().length());
+
+                        Path de = Paths.get(lstFilesTransferencias[posicionFinal].getAbsolutePath());
                         Path a = Paths.get(Index.RUTA_BASE + Index.RUTA_SISTEMA + becario.getFolio() + Index.SEPARADOR + 
-                                "transferencia_" + posicion + "-" + becario.getFolio() + extension);
+                                "transferencia_" + posicionFinal + "-" + becario.getFolio() + extension);
 
                         try {
                             Files.copy(de, a, StandardCopyOption.REPLACE_EXISTING);
-                            kardex.setCarta_servicio_comunitario(becario.getFolio() + Index.SEPARADOR + a.getFileName().toString());
-                        } catch (IOException ex) {
+
+                            kardex.setTransferencia2(becario.getFolio() + Index.SEPARADOR + a.getFileName().toString());
+                        } 
+                        catch (IOException ex) {
                             a = null;
-                            log.crearLog("No se pudo copiar la carta de servicio comunitario " + lstFilesTransferencias[posicion].getName() + "    " + ex.getMessage());
+                            log.crearLog("No se pudo copiar la carta de servicio comunitario " + lstFilesTransferencias[posicionFinal].getName() + "    " + ex.getMessage());
                             Logger.getLogger(Helper.class.getName()).log(Level.SEVERE, null, ex);
                             return null;
                         }
                     }
                 }
-                
-                
+                contador++;
             }
             i++;
+            lstResult.add(kardex);
         }
         
-        return lstKardexs;
+        return lstResult;
     }
 
     private void verificaDirectorio(Path rutaDirectorio) {
