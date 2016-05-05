@@ -1721,6 +1721,7 @@ public class PrincipalControlador {
         int tamanio = lstFechaSemestre.size();
         Component[] componentes = null;
         int i = 0;
+        int g = 0;
         switch (codigo) {
             case 1:
                 pnlSemestres = vistaKardex.jpnlListaDocumentosBoleta;
@@ -1775,20 +1776,22 @@ public class PrincipalControlador {
 
                 componentes = pnlAcciones.getComponents();
                 i = 0;
+                g = 0;
                 for (Component componente : componentes) {
-                    if (componente instanceof JTextField) {
-                        for (int j = 0; j <= 1; j++) {
-                            JTextField txtSemestre = (JTextField) componente;
-                            Kardex kardex = lstKardex.get(i);
-                            if(j == 0)
-                                txtSemestre.setText(kardex.getTransferencia1());
-                            else
-                                txtSemestre.setText(kardex.getTransferencia2());
+                    if (componente instanceof JLabel) {
+                        
+                        JLabel txtSemestre = (JLabel) componente;
+                        Kardex kardex = lstKardex.get(g);
+                        if(i % 2 == 0)
+                            txtSemestre.setText(kardex.getTransferencia1());
+                        else{
+                            txtSemestre.setText(kardex.getTransferencia2());
+                            g++;
                         }
                             
                         i++;
                     }
-                    if (i == tamanio - 1) {
+                    if (i == (tamanio * 2) - 1) {
                         break;
                     }
                 }
@@ -1801,21 +1804,24 @@ public class PrincipalControlador {
                     break;
 
                 componentes = pnlAcciones.getComponents();
-                i = 5;
+                i = 0;
+                g = 5;
                 for (Component componente : componentes) {
-                    if (componente instanceof JTextField) {
-                        for (int j = 0; j <= 1; j++) {
-                            JTextField txtSemestre = (JTextField) componente;
-                            Kardex kardex = lstKardex.get(i);
-                            if(j == 0)
-                                txtSemestre.setText(kardex.getTransferencia1());
-                            else
-                                txtSemestre.setText(kardex.getTransferencia2());
+                    if (componente instanceof JLabel) {
+                        
+                        JLabel txtSemestre = (JLabel) componente;
+                        Kardex kardex = lstKardex.get(g);
+                        if(i % 2 == 0)
+                            txtSemestre.setText(kardex.getTransferencia1());
+                        else{
+                            txtSemestre.setText(kardex.getTransferencia2());
+                            g++;
                         }
-                            
-                        i++;
+                        
+                        i++; 
+                        
                     }
-                    if (i == tamanio - 1) {
+                    if (i == (tamanio * 2)- 1) {
                         break;
                     }
                 }
@@ -2606,11 +2612,17 @@ public class PrincipalControlador {
         //Se deshabilitan los 30 botones y labels restantes
         deshabilitaSemestresKardex(vistaKardex.jpnlAccionesDocumentos3, ((semestresHabilitados - 1) * 6) - 30, 0, 3);
         
+        //Se asignan las transacciones al arreglo lstFilesTransferencias
+        addTransferenciasAArreglo(lstKardex);
+        
         //Se llenan los primeros 10 jtextfield
         llenaPnlBoletaOCargaSemestral(lstKardex, lstFechaSemestres, 3);
         //Se llenan los jtextfield restantes
         if(semestresHabilitados - 1 > 4)
             llenaPnlBoletaOCargaSemestral(lstKardex, lstFechaSemestres, 4);
+        
+        //Se llenan las primeras 10 transferencias
+        
 
         try {
             conexion.close();
@@ -2727,23 +2739,23 @@ public class PrincipalControlador {
         switch(tipoArchivo){
             case 1:
                 if(lstFilesBoletas[posicion] == null)
-                    JOptionPane.showMessageDialog(vistaKardex, "Debes de cargar Boleta", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(vistaKardex, "Debe de cargar Boleta", "Error", JOptionPane.ERROR_MESSAGE);
                 else
                     helper.abreArchivoAdjunto(lstFilesBoletas[posicion]);
                 break;
                 
             case 2:
                 if(lstFilesCartaServCom[posicion] == null)
-                    JOptionPane.showMessageDialog(vistaKardex, "Debes de cargar Carta", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(vistaKardex, "Debe de cargar Carta", "Error", JOptionPane.ERROR_MESSAGE);
                 else
                     helper.abreArchivoAdjunto(lstFilesCartaServCom[posicion]);
                 break;
                 
             case 3:
-//                if(lstFilesBoletas[posicion] == null)
-//                    JOptionPane.showMessageDialog(vistaKardex, "Debes de cargar una boleta", "Error", JOptionPane.ERROR_MESSAGE);
-//                else
-                //helper.abreArchivoAdjunto(lstFilesBoletas[posicion]);
+                if(lstFilesTransferencias[posicion] == null)
+                    JOptionPane.showMessageDialog(vistaKardex, "Debe de cargar la Transferencia", "Error", JOptionPane.ERROR_MESSAGE);
+                else
+                helper.abreArchivoAdjunto(lstFilesTransferencias[posicion]);
                 break;
         }
     }
@@ -2914,6 +2926,10 @@ public class PrincipalControlador {
         for (File carta : lstFilesCartaServCom) {
             carta = null;
         }
+        for (File transferencia : lstFilesTransferencias) {
+            transferencia = null;
+        }
+    
     }
 
     /**
@@ -2930,6 +2946,29 @@ public class PrincipalControlador {
                 lstFilesCartaServCom[i] = new File(Index.RUTA_BASE + Index.RUTA_SISTEMA + kardex.getCarta_servicio_comunitario());
             
             i++;
+        }
+    }
+
+    /**
+     * Se encarga de llenar el arreglo que almacena todos los archivos
+     * @param lstKardexs Lista de todos los kardex del becario
+     */
+    private void addTransferenciasAArreglo(List<Kardex> lstKardexs) {
+        int i = 0;
+        for (Kardex Kardex : lstKardexs) {
+            for (int j = 0; j <= 1; j++) {
+                if(j == 0){
+                    if(Kardex.getTransferencia1() != null)
+                        lstFilesTransferencias[i] = new File(Index.RUTA_BASE + Index.SEPARADOR + 
+                            Index.RUTA_SISTEMA + Index.SEPARADOR + Kardex.getTransferencia1());
+                }
+                else{
+                    if(Kardex.getTransferencia2() != null)
+                        lstFilesTransferencias[i] = new File(Index.RUTA_BASE + Index.SEPARADOR + 
+                            Index.RUTA_SISTEMA + Index.SEPARADOR + Kardex.getTransferencia2());
+                }
+                i++;
+            }  
         }
     }
 }

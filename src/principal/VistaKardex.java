@@ -1944,7 +1944,7 @@ public class VistaKardex extends javax.swing.JPanel {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 356, Short.MAX_VALUE)
+            .addGap(0, 427, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
@@ -2519,7 +2519,7 @@ public class VistaKardex extends javax.swing.JPanel {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -2573,6 +2573,7 @@ public class VistaKardex extends javax.swing.JPanel {
         );
 
         pnlTransferenciasAdjuntas2.setBorder(javax.swing.BorderFactory.createTitledBorder("Carga Semestral"));
+        pnlTransferenciasAdjuntas2.setMaximumSize(new java.awt.Dimension(894, 348));
 
         jLabel44.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel44.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -2629,13 +2630,18 @@ public class VistaKardex extends javax.swing.JPanel {
                 .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel16.setPreferredSize(new java.awt.Dimension(870, 270));
+
         jpnlListaDocumentos4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jpnlListaDocumentos4.setMaximumSize(new java.awt.Dimension(141, 174));
         jpnlListaDocumentos4.setLayout(new java.awt.GridLayout(10, 1));
 
         TxtSemSC22.setBackground(new java.awt.Color(0, 204, 51));
         TxtSemSC22.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         TxtSemSC22.setText("Transf 1 Semestre1");
         TxtSemSC22.setBorder(null);
+        TxtSemSC22.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC22.setEnabled(false);
         TxtSemSC22.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtSemSC22ActionPerformed(evt);
@@ -2647,6 +2653,8 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtSemSC12.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         TxtSemSC12.setText("Transf 2 Semestre 1");
         TxtSemSC12.setBorder(null);
+        TxtSemSC12.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC12.setEnabled(false);
         TxtSemSC12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtSemSC12ActionPerformed(evt);
@@ -2658,6 +2666,8 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtSemSC13.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         TxtSemSC13.setText("Transf 1 Semestre 2");
         TxtSemSC13.setBorder(null);
+        TxtSemSC13.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC13.setEnabled(false);
         TxtSemSC13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtSemSC13ActionPerformed(evt);
@@ -2669,6 +2679,8 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtSemSC14.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         TxtSemSC14.setText("Transf 2 Semestre 2");
         TxtSemSC14.setBorder(null);
+        TxtSemSC14.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC14.setEnabled(false);
         TxtSemSC14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtSemSC14ActionPerformed(evt);
@@ -2680,6 +2692,8 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtSemSC15.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         TxtSemSC15.setText("Transf 1 Semestre 3");
         TxtSemSC15.setBorder(null);
+        TxtSemSC15.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC15.setEnabled(false);
         TxtSemSC15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtSemSC15ActionPerformed(evt);
@@ -2691,6 +2705,8 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtSemSC16.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         TxtSemSC16.setText("Transf 2 Semestre 3");
         TxtSemSC16.setBorder(null);
+        TxtSemSC16.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC16.setEnabled(false);
         TxtSemSC16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtSemSC16ActionPerformed(evt);
@@ -2702,6 +2718,8 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtSemSC17.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         TxtSemSC17.setText("Transf 1 Semestre 4");
         TxtSemSC17.setBorder(null);
+        TxtSemSC17.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC17.setEnabled(false);
         TxtSemSC17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtSemSC17ActionPerformed(evt);
@@ -2713,6 +2731,8 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtSemSC18.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         TxtSemSC18.setText("Transf 2 Semestre 4");
         TxtSemSC18.setBorder(null);
+        TxtSemSC18.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC18.setEnabled(false);
         TxtSemSC18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtSemSC18ActionPerformed(evt);
@@ -2724,6 +2744,8 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtSemSC19.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         TxtSemSC19.setText("Transf 1 Semestre 5");
         TxtSemSC19.setBorder(null);
+        TxtSemSC19.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC19.setEnabled(false);
         TxtSemSC19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtSemSC19ActionPerformed(evt);
@@ -2736,6 +2758,8 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtSemSC20.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         TxtSemSC20.setText("Trasnf 2 Semestre 5");
         TxtSemSC20.setBorder(null);
+        TxtSemSC20.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC20.setEnabled(false);
         TxtSemSC20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtSemSC20ActionPerformed(evt);
@@ -2743,6 +2767,7 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentos4.add(TxtSemSC20);
 
+        jpnlAccionesDocumentos2.setMaximumSize(new java.awt.Dimension(240, 290));
         jpnlAccionesDocumentos2.setLayout(new java.awt.GridLayout(10, 3));
 
         BtnAddSTn1.setForeground(new java.awt.Color(0, 204, 51));
@@ -2766,9 +2791,13 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtEstatusSC11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtEstatusSC11.setForeground(new java.awt.Color(0, 0, 204));
         TxtEstatusSC11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TxtEstatusSC11.setText("OK");
         TxtEstatusSC11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         TxtEstatusSC11.setEnabled(false);
+        TxtEstatusSC11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC11MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentos2.add(TxtEstatusSC11);
 
         BtnAddSTn2.setForeground(new java.awt.Color(51, 255, 51));
@@ -2789,8 +2818,14 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentos2.add(BtnEliminaTn2);
 
+        TxtEstatusSC12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TxtEstatusSC12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         TxtEstatusSC12.setEnabled(false);
+        TxtEstatusSC12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC12MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentos2.add(TxtEstatusSC12);
 
         BtnAddSTn3.setForeground(new java.awt.Color(0, 0, 204));
@@ -2811,8 +2846,14 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentos2.add(BtnEliminaTn3);
 
+        TxtEstatusSC13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TxtEstatusSC13.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         TxtEstatusSC13.setEnabled(false);
+        TxtEstatusSC13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC13MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentos2.add(TxtEstatusSC13);
 
         BtnAddSTn4.setForeground(new java.awt.Color(51, 51, 255));
@@ -2833,8 +2874,14 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentos2.add(BtnEliminaTn4);
 
+        TxtEstatusSC14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TxtEstatusSC14.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         TxtEstatusSC14.setEnabled(false);
+        TxtEstatusSC14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC14MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentos2.add(TxtEstatusSC14);
 
         BtnAddSTn5.setForeground(new java.awt.Color(255, 102, 0));
@@ -2855,8 +2902,14 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentos2.add(BtnEliminaTn5);
 
+        TxtEstatusSC15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TxtEstatusSC15.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         TxtEstatusSC15.setEnabled(false);
+        TxtEstatusSC15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC15MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentos2.add(TxtEstatusSC15);
 
         BtnAddSTn6.setForeground(new java.awt.Color(255, 102, 51));
@@ -2877,8 +2930,14 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentos2.add(BtnEliminaTn6);
 
+        TxtEstatusSC16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TxtEstatusSC16.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         TxtEstatusSC16.setEnabled(false);
+        TxtEstatusSC16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC16MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentos2.add(TxtEstatusSC16);
 
         BtnAddSTn7.setForeground(new java.awt.Color(0, 204, 51));
@@ -2899,8 +2958,14 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentos2.add(BtnEliminaTn7);
 
+        TxtEstatusSC17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TxtEstatusSC17.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         TxtEstatusSC17.setEnabled(false);
+        TxtEstatusSC17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC17MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentos2.add(TxtEstatusSC17);
 
         BtnAddSTn8.setForeground(new java.awt.Color(51, 255, 51));
@@ -2921,8 +2986,14 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentos2.add(BtnEliminaTn8);
 
+        TxtEstatusSC18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TxtEstatusSC18.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         TxtEstatusSC18.setEnabled(false);
+        TxtEstatusSC18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC18MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentos2.add(TxtEstatusSC18);
 
         BtnAddSTn9.setForeground(new java.awt.Color(0, 0, 204));
@@ -2943,8 +3014,14 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentos2.add(BtnEliminaTn9);
 
+        TxtEstatusSC19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TxtEstatusSC19.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         TxtEstatusSC19.setEnabled(false);
+        TxtEstatusSC19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC19MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentos2.add(TxtEstatusSC19);
 
         BtnAddSTn10.setForeground(new java.awt.Color(51, 51, 255));
@@ -2965,17 +3042,26 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentos2.add(BtnEliminaTn10);
 
+        TxtEstatusSC20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TxtEstatusSC20.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         TxtEstatusSC20.setEnabled(false);
+        TxtEstatusSC20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC20MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentos2.add(TxtEstatusSC20);
 
         jpnlListaDocumentos5.setBorder(null);
+        jpnlListaDocumentos5.setMaximumSize(new java.awt.Dimension(145, 170));
         jpnlListaDocumentos5.setLayout(new java.awt.GridLayout(10, 1));
 
         TxtSemSC23.setBackground(new java.awt.Color(0, 204, 51));
         TxtSemSC23.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         TxtSemSC23.setText("Transf 1 Semestre 6");
         TxtSemSC23.setBorder(null);
+        TxtSemSC23.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC23.setEnabled(false);
         TxtSemSC23.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtSemSC23ActionPerformed(evt);
@@ -2987,6 +3073,8 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtSemSC24.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         TxtSemSC24.setText("Transf 2 Semestre 6");
         TxtSemSC24.setBorder(null);
+        TxtSemSC24.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC24.setEnabled(false);
         TxtSemSC24.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtSemSC24ActionPerformed(evt);
@@ -2998,6 +3086,8 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtSemSC25.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         TxtSemSC25.setText("Transf 1 Semestre 7");
         TxtSemSC25.setBorder(null);
+        TxtSemSC25.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC25.setEnabled(false);
         TxtSemSC25.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtSemSC25ActionPerformed(evt);
@@ -3009,6 +3099,8 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtSemSC26.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         TxtSemSC26.setText("Transf 2 Semestre 7");
         TxtSemSC26.setBorder(null);
+        TxtSemSC26.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC26.setEnabled(false);
         TxtSemSC26.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtSemSC26ActionPerformed(evt);
@@ -3020,6 +3112,8 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtSemSC27.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         TxtSemSC27.setText("Transf 1 Semestre 8");
         TxtSemSC27.setBorder(null);
+        TxtSemSC27.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC27.setEnabled(false);
         TxtSemSC27.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtSemSC27ActionPerformed(evt);
@@ -3031,6 +3125,8 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtSemSC28.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         TxtSemSC28.setText("Transf 2 Semestre 8");
         TxtSemSC28.setBorder(null);
+        TxtSemSC28.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC28.setEnabled(false);
         TxtSemSC28.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtSemSC28ActionPerformed(evt);
@@ -3042,6 +3138,8 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtSemSC29.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         TxtSemSC29.setText("Transf 1 Semestre 9");
         TxtSemSC29.setBorder(null);
+        TxtSemSC29.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC29.setEnabled(false);
         TxtSemSC29.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtSemSC29ActionPerformed(evt);
@@ -3053,6 +3151,8 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtSemSC30.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         TxtSemSC30.setText("Transf 2 Semestre 9");
         TxtSemSC30.setBorder(null);
+        TxtSemSC30.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC30.setEnabled(false);
         TxtSemSC30.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtSemSC30ActionPerformed(evt);
@@ -3064,6 +3164,8 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtSemSC31.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         TxtSemSC31.setText("Transf 1 Semestre 10");
         TxtSemSC31.setBorder(null);
+        TxtSemSC31.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC31.setEnabled(false);
         TxtSemSC31.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtSemSC31ActionPerformed(evt);
@@ -3076,6 +3178,8 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtSemSC32.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         TxtSemSC32.setText("Trasnf 2 Semestre 10");
         TxtSemSC32.setBorder(null);
+        TxtSemSC32.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC32.setEnabled(false);
         TxtSemSC32.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtSemSC32ActionPerformed(evt);
@@ -3083,6 +3187,7 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentos5.add(TxtSemSC32);
 
+        jpnlAccionesDocumentos3.setMaximumSize(new java.awt.Dimension(240, 290));
         jpnlAccionesDocumentos3.setLayout(new java.awt.GridLayout(10, 3));
 
         BtnAddSTn11.setForeground(new java.awt.Color(0, 204, 51));
@@ -3106,9 +3211,13 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtEstatusSC21.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtEstatusSC21.setForeground(new java.awt.Color(0, 0, 204));
         TxtEstatusSC21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TxtEstatusSC21.setText("OK");
         TxtEstatusSC21.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         TxtEstatusSC21.setEnabled(false);
+        TxtEstatusSC21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC21MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentos3.add(TxtEstatusSC21);
 
         BtnAddSTn12.setForeground(new java.awt.Color(51, 255, 51));
@@ -3129,8 +3238,14 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentos3.add(BtnEliminaTn12);
 
+        TxtEstatusSC22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TxtEstatusSC22.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         TxtEstatusSC22.setEnabled(false);
+        TxtEstatusSC22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC22MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentos3.add(TxtEstatusSC22);
 
         BtnAddSTn13.setForeground(new java.awt.Color(0, 0, 204));
@@ -3151,8 +3266,14 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentos3.add(BtnEliminaTn13);
 
+        TxtEstatusSC23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TxtEstatusSC23.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         TxtEstatusSC23.setEnabled(false);
+        TxtEstatusSC23.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC23MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentos3.add(TxtEstatusSC23);
 
         BtnAddSTn14.setForeground(new java.awt.Color(51, 51, 255));
@@ -3173,8 +3294,14 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentos3.add(BtnEliminaTn14);
 
+        TxtEstatusSC24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TxtEstatusSC24.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         TxtEstatusSC24.setEnabled(false);
+        TxtEstatusSC24.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC24MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentos3.add(TxtEstatusSC24);
 
         BtnAddSTn15.setForeground(new java.awt.Color(255, 102, 0));
@@ -3195,8 +3322,14 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentos3.add(BtnEliminaTn15);
 
+        TxtEstatusSC25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TxtEstatusSC25.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         TxtEstatusSC25.setEnabled(false);
+        TxtEstatusSC25.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC25MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentos3.add(TxtEstatusSC25);
 
         BtnAddSTn16.setForeground(new java.awt.Color(255, 102, 51));
@@ -3217,8 +3350,14 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentos3.add(BtnEliminaTn16);
 
+        TxtEstatusSC26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TxtEstatusSC26.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         TxtEstatusSC26.setEnabled(false);
+        TxtEstatusSC26.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC26MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentos3.add(TxtEstatusSC26);
 
         BtnAddSTn17.setForeground(new java.awt.Color(0, 204, 51));
@@ -3239,8 +3378,14 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentos3.add(BtnEliminaTn17);
 
+        TxtEstatusSC27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TxtEstatusSC27.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         TxtEstatusSC27.setEnabled(false);
+        TxtEstatusSC27.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC27MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentos3.add(TxtEstatusSC27);
 
         BtnAddSTn18.setForeground(new java.awt.Color(51, 255, 51));
@@ -3261,8 +3406,14 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentos3.add(BtnEliminaTn18);
 
+        TxtEstatusSC28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TxtEstatusSC28.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         TxtEstatusSC28.setEnabled(false);
+        TxtEstatusSC28.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC28MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentos3.add(TxtEstatusSC28);
 
         BtnAddSTn19.setForeground(new java.awt.Color(0, 0, 204));
@@ -3283,8 +3434,14 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentos3.add(BtnEliminaTn19);
 
+        TxtEstatusSC29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TxtEstatusSC29.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         TxtEstatusSC29.setEnabled(false);
+        TxtEstatusSC29.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC29MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentos3.add(TxtEstatusSC29);
 
         BtnAddSTn20.setForeground(new java.awt.Color(51, 51, 255));
@@ -3305,8 +3462,14 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentos3.add(BtnEliminaTn20);
 
+        TxtEstatusSC30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TxtEstatusSC30.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         TxtEstatusSC30.setEnabled(false);
+        TxtEstatusSC30.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC30MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentos3.add(TxtEstatusSC30);
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
@@ -3314,29 +3477,31 @@ public class VistaKardex extends javax.swing.JPanel {
         jPanel16Layout.setHorizontalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel16Layout.createSequentialGroup()
-                .addComponent(jpnlListaDocumentos4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jpnlListaDocumentos4, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpnlAccionesDocumentos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(478, Short.MAX_VALUE))
+                .addComponent(jpnlAccionesDocumentos2, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(448, Short.MAX_VALUE))
             .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel16Layout.createSequentialGroup()
                     .addGap(425, 425, 425)
-                    .addComponent(jpnlListaDocumentos5, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(284, Short.MAX_VALUE)))
+                    .addComponent(jpnlListaDocumentos5, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(326, Short.MAX_VALUE)))
             .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
-                    .addContainerGap(553, Short.MAX_VALUE)
-                    .addComponent(jpnlAccionesDocumentos3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(50, 50, 50)))
+                    .addContainerGap(569, Short.MAX_VALUE)
+                    .addComponent(jpnlAccionesDocumentos3, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpnlListaDocumentos4, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
-            .addComponent(jpnlAccionesDocumentos2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jpnlListaDocumentos4, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jpnlAccionesDocumentos2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jpnlListaDocumentos5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE))
+                .addComponent(jpnlListaDocumentos5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jpnlAccionesDocumentos3, javax.swing.GroupLayout.PREFERRED_SIZE, 247, Short.MAX_VALUE))
+                .addGroup(jPanel16Layout.createSequentialGroup()
+                    .addComponent(jpnlAccionesDocumentos3, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 48, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout pnlTransferenciasAdjuntas2Layout = new javax.swing.GroupLayout(pnlTransferenciasAdjuntas2);
@@ -3346,16 +3511,17 @@ public class VistaKardex extends javax.swing.JPanel {
             .addGroup(pnlTransferenciasAdjuntas2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlTransferenciasAdjuntas2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pnlTransferenciasAdjuntas2Layout.createSequentialGroup()
+                        .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         pnlTransferenciasAdjuntas2Layout.setVerticalGroup(
             pnlTransferenciasAdjuntas2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTransferenciasAdjuntas2Layout.createSequentialGroup()
                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
@@ -3364,9 +3530,9 @@ public class VistaKardex extends javax.swing.JPanel {
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlInformacionBancaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlTransferenciasAdjuntas2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pnlInformacionBancaria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlTransferenciasAdjuntas2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel14Layout.setVerticalGroup(
@@ -3375,8 +3541,7 @@ public class VistaKardex extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(pnlInformacionBancaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlTransferenciasAdjuntas2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(pnlTransferenciasAdjuntas2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jtabKardex.addTab("Adjuntar Transferencias", jPanel14);
@@ -3400,11 +3565,10 @@ public class VistaKardex extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PnlInfoBecario, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jpnlAreaBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)))
-                .addComponent(jtabKardex, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jpnlAreaBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PnlInfoBecario, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jtabKardex, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -4116,6 +4280,86 @@ public class VistaKardex extends javax.swing.JPanel {
     private void BtnEliminaTn20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaTn20ActionPerformed
         controlador.borraBoletaOrCartaServComTransferencia(19, TxtEstatusSC30, 3);
     }//GEN-LAST:event_BtnEliminaTn20ActionPerformed
+
+    private void TxtEstatusSC11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC11MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 0);
+    }//GEN-LAST:event_TxtEstatusSC11MouseClicked
+
+    private void TxtEstatusSC12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC12MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 1);
+    }//GEN-LAST:event_TxtEstatusSC12MouseClicked
+
+    private void TxtEstatusSC13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC13MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 2);
+    }//GEN-LAST:event_TxtEstatusSC13MouseClicked
+
+    private void TxtEstatusSC14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC14MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 3);
+    }//GEN-LAST:event_TxtEstatusSC14MouseClicked
+
+    private void TxtEstatusSC15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC15MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 4);
+    }//GEN-LAST:event_TxtEstatusSC15MouseClicked
+
+    private void TxtEstatusSC16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC16MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 5);
+    }//GEN-LAST:event_TxtEstatusSC16MouseClicked
+
+    private void TxtEstatusSC17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC17MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 6);
+    }//GEN-LAST:event_TxtEstatusSC17MouseClicked
+
+    private void TxtEstatusSC18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC18MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 7);
+    }//GEN-LAST:event_TxtEstatusSC18MouseClicked
+
+    private void TxtEstatusSC19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC19MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 8);
+    }//GEN-LAST:event_TxtEstatusSC19MouseClicked
+
+    private void TxtEstatusSC20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC20MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 9);
+    }//GEN-LAST:event_TxtEstatusSC20MouseClicked
+
+    private void TxtEstatusSC21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC21MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 10);
+    }//GEN-LAST:event_TxtEstatusSC21MouseClicked
+
+    private void TxtEstatusSC22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC22MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 11);
+    }//GEN-LAST:event_TxtEstatusSC22MouseClicked
+
+    private void TxtEstatusSC23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC23MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 12);
+    }//GEN-LAST:event_TxtEstatusSC23MouseClicked
+
+    private void TxtEstatusSC24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC24MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 13);
+    }//GEN-LAST:event_TxtEstatusSC24MouseClicked
+
+    private void TxtEstatusSC25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC25MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 14);
+    }//GEN-LAST:event_TxtEstatusSC25MouseClicked
+
+    private void TxtEstatusSC26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC26MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 15);
+    }//GEN-LAST:event_TxtEstatusSC26MouseClicked
+
+    private void TxtEstatusSC27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC27MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 16);
+    }//GEN-LAST:event_TxtEstatusSC27MouseClicked
+
+    private void TxtEstatusSC28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC28MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 17);
+    }//GEN-LAST:event_TxtEstatusSC28MouseClicked
+
+    private void TxtEstatusSC29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC29MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 18);
+    }//GEN-LAST:event_TxtEstatusSC29MouseClicked
+
+    private void TxtEstatusSC30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC30MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 19);
+    }//GEN-LAST:event_TxtEstatusSC30MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

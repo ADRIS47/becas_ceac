@@ -2468,6 +2468,8 @@ public class PrincipalModelo {
                 kardex.setId_becario(rs.getLong(Kardex.COL_ID_BECARIO));
                 kardex.setPago_extra(rs.getBoolean(Kardex.COL_PAGO_EXTRA));
                 kardex.setHorasServicio(rs.getInt(Kardex.COL_HORAS_SERVICIO));
+                kardex.setTransferencia1(rs.getString(Kardex.COL_TRANSFERENCIA_1));
+                kardex.setTransferencia2(rs.getString(Kardex.COL_TRANSFERENCIA_2));
                 lstKardex.add(kardex);
             }
             
