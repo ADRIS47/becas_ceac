@@ -2328,10 +2328,11 @@ public class PrincipalControlador {
         vistaRegistro.cmbEstatus.setEnabled(false);
         creaPantalla(vistaRegistro);
 
-        Path pathFotografia;
-        if (becario.getFoto() != null) {
-            pathFotografia = Paths.get(becario.getFoto());
-            helper.cargaImagenExterna(vistaRegistro.lblFotografia, pathFotografia);
+        //
+        if(becario.getFoto() != null){
+            fileFoto = null;
+            fileFoto = new File(Index.RUTA_FINAL + becario.getFoto());
+            helper.cargaImagenExterna(vistaRegistro.lblFotografia, fileFoto.toPath());
         }
     }
 
@@ -2366,7 +2367,7 @@ public class PrincipalControlador {
         vistaRegistro.comboBxTrabajaBecado.setSelectedIndex(becario.getTrabaja());
         vistaRegistro.combobxSexoBecado.setSelectedIndex(becario.getIdSexo() - 1);
         vistaRegistro.combobxCivilBecado.setSelectedIndex(becario.getIdEstadoCivil() - 1);
-
+        
         int contador = 0;
         for (Telefono telefono : lstTelefonosBecario) {
             switch (contador) {
@@ -2483,7 +2484,7 @@ public class PrincipalControlador {
         vistaRegistro.txtBecaPorSemestre.setText(lstDatosEscolares.getBecaSemestral() + "");
         vistaRegistro.txtAreaObservaciones.setText(becario.getObservaciones());
         vistaRegistro.cmbTipoEscuela.setSelectedItem(getItemComboBox(lstDatosEscolares.getIdTipoEscuela(), catTipoEscuela));
-
+        
         //Igualdad de archivos y Llenado de ArchivosAdjuntos        
         if (becario.getActaNacimiento() != null) {
             fileActaNacimiento = null;
