@@ -43,6 +43,7 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
         btnCobranza = new javax.swing.JButton();
         btnReportes = new javax.swing.JButton();
         btnBusqueda = new javax.swing.JButton();
+        btnBusqueda1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Control de Becas");
@@ -88,7 +89,7 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
 
         btnBecarios.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnBecarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/REGISTRO.png"))); // NOI18N
-        btnBecarios.setToolTipText("registro");
+        btnBecarios.setToolTipText("Accesar Registro Becario");
         btnBecarios.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBecarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,18 +99,27 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
 
         btnKardex.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnKardex.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/kardex.png"))); // NOI18N
+        btnKardex.setToolTipText("Acceso Kardex Becario");
         btnKardex.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         btnCobranza.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnCobranza.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adris/vistas/cobranza.png"))); // NOI18N
+        btnCobranza.setToolTipText("Acceso Cobranza");
         btnCobranza.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         btnReportes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnReportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adris/vistas/reportes.png"))); // NOI18N
+        btnReportes.setToolTipText("Acceso Reportes");
 
         btnBusqueda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adris/vistas/busqueda.png"))); // NOI18N
+        btnBusqueda.setToolTipText("Busqueda Becarios");
         btnBusqueda.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        btnBusqueda1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnBusqueda1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adris/vistas/catalogo.png"))); // NOI18N
+        btnBusqueda1.setToolTipText("Acceso a Catalogos");
+        btnBusqueda1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -122,7 +132,8 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
                     .addComponent(btnCobranza, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnBecarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnKardex, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnBusqueda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnBusqueda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnBusqueda1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -138,6 +149,8 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
                 .addComponent(btnReportes)
                 .addGap(18, 18, 18)
                 .addComponent(btnBusqueda)
+                .addGap(18, 18, 18)
+                .addComponent(btnBusqueda1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -183,6 +196,7 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
     protected javax.swing.JScrollPane ScrollpnlOpciones;
     private javax.swing.JButton btnBecarios;
     private javax.swing.JButton btnBusqueda;
+    private javax.swing.JButton btnBusqueda1;
     private javax.swing.JButton btnCobranza;
     private javax.swing.JButton btnKardex;
     private javax.swing.JButton btnReportes;
