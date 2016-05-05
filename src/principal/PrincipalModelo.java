@@ -28,6 +28,7 @@ import pojos.Aval;
 import pojos.Becario;
 import pojos.CatBanco;
 import pojos.CatCampoCarrera;
+import pojos.CatCategorias;
 import pojos.CatEstadoCivil;
 import pojos.CatEstatus;
 import pojos.CatGradoEscolar;
@@ -101,6 +102,7 @@ public class PrincipalModelo {
         LinkedHashMap<Integer, String> catTipoEscuela = new LinkedHashMap<>();
         LinkedHashMap<Integer, String> catTipoServicioSocial = new LinkedHashMap<>();
         LinkedHashMap<Integer, String> catLugarServicioSocial = new LinkedHashMap<>();
+        LinkedHashMap<Integer, String> catCatalogos = new LinkedHashMap<>();
 
         Conexion conexion = new Conexion();
         Connection conn = null;
@@ -121,6 +123,7 @@ public class PrincipalModelo {
         catTipoEscuela = getCatTipoEscuela(conn);
         catTipoServicioSocial = getCatTipoServicioComunitario(conn);
         catLugarServicioSocial = getCatLugarServicioSocial(conn);
+        catCatalogos = getCatCategorias(conn);
 
         //Se llena la lista con las categorias
         result.add(catSexo);
@@ -135,6 +138,7 @@ public class PrincipalModelo {
         result.add(catTipoEscuela);
         result.add(catTipoServicioSocial);
         result.add(catLugarServicioSocial);
+        result.add(catCatalogos);
 
         conn.close();
         return result;
@@ -409,7 +413,7 @@ public class PrincipalModelo {
     }
 
     /**
-     * Obtiene el catalogo de tipoEscuela de estudio
+     * Obtiene el catalogo de categoria de estudio
      *
      * @param conn Conexion a la base de datos
      * @return Lista de campos de estudio
@@ -442,9 +446,9 @@ public class PrincipalModelo {
     }
     
     /**
-     * Obtiene el catalogo de tipoEscuela
+     * Obtiene el catalogo de categoria
      * @param conn COneixon a la BD
-     * @return Lista con el catalogo de los tipoEscuela
+     * @return Lista con el catalogo de los categoria
      */
     private LinkedHashMap<Integer, String> getCatEstatus(Connection conn) {
         LinkedHashMap<Integer, String> catEstatus = new LinkedHashMap<>();
@@ -631,6 +635,32 @@ public class PrincipalModelo {
         return catLugarServicioComunitario;
     }
 
+    protected LinkedHashMap<Integer, String> getCatCategorias(Connection conn){
+        LinkedHashMap<Integer, String> catCategorias = new LinkedHashMap<>();
+        Statement st = null;
+        ResultSet rs = null;
+        try {
+            st = conn.createStatement();
+            rs = st.executeQuery(Consultas.getCatCatalogos);
+            while (rs.next()) {
+                CatCategorias categoria = new CatCategorias();
+                categoria.setId(rs.getInt(CatCategorias.COL_ID));
+                categoria.setNombre(rs.getString(CatCategorias.COL_NOMBRE));
+                catCategorias.put(categoria.getId(), categoria.getNombre());
+            }
+        } catch (SQLException e) {
+            muestraErrores(e);
+        } finally {
+            try {
+                rs.close();
+                st.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return catCategorias;
+    }
+    
     /**
      * Inserta un nuevo becario en la base de datos
      *
@@ -2621,5 +2651,61 @@ public class PrincipalModelo {
         }
         
         return response;
+    }
+
+    /**
+     * Obtiene los registros de las tablas
+     * @param conexion Conexion a la base de datos
+     * @param idTabla id de la tabla
+     * @return Nombre de la tabla
+     */
+    protected String getNombreTabla(Connection conexion, int idTabla) {
+        String nombre = "";
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        try{
+            ps = conexion.prepareStatement(Consultas.getNombreCatalogo);
+            ps.setInt(1, idTabla);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                nombre = rs.getString(CatCategorias.COL_NOMBRE_TABLA);
+            }
+        }
+        catch(SQLException e){
+            log.muestraErrores(e);
+        }
+        
+        return nombre;
+    }
+
+    /**
+     * Obtiene todos los registros de un catalogo según el nombre de la tabla
+     * @param conexion
+     * @param nombreTabla
+     * @return 
+     */
+    List<CatCategorias> getDatosCatalogo(Connection conexion, String nombreTabla) {
+        List<CatCategorias> lstInfoCatalogo = new ArrayList<>();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        try{
+            ps = conexion.prepareStatement(Consultas.getCatalogoPorNombreTabla);
+            ps.setString(1, nombreTabla);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                CatCategorias catalogo = new CatCategorias();
+                catalogo.setId(rs.getInt(1));
+                catalogo.setNombre(rs.getString(2));
+                lstInfoCatalogo.add(catalogo);
+            }
+        }
+        catch(SQLException e){
+            log.muestraErrores(e);
+        }
+        return lstInfoCatalogo;
     }
 }

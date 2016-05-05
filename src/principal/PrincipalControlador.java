@@ -43,6 +43,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import pojos.Aval;
 import pojos.Becario;
+import pojos.CatCategorias;
 import pojos.CatUniversidad;
 import pojos.DatosEscolares;
 import pojos.Direccion;
@@ -62,6 +63,8 @@ public class PrincipalControlador {
     VistaRegistro vistaRegistro;
     VistaBusqueda vistaBusqueda;
     VistaKardex vistaKardex;
+    VistaCatalogos vistaCatalogos;
+    
     PnlPortada vistaPortada;
     VistaRegistroOpcionGuardar vistaOpcionGuardar;
     VistaRegistroOpcionActualizar vistaOpcionActualizar;
@@ -96,6 +99,9 @@ public class PrincipalControlador {
     LinkedHashMap<Integer, String> catTipoEscuela = null;
     LinkedHashMap<Integer, String> catTipoServicioSocial = null;
     LinkedHashMap<Integer, String> catLugarServicioSocial = null;
+    LinkedHashMap<Integer, String> catCatalogos = null;
+    
+    List<CatCategorias> lstCatalogoTabla = null;
 
     List<PnlHijos> lstVistaHijos = new ArrayList<>();
     List<PnlHermanos> lstVistaHermanos = new ArrayList<>();
@@ -133,6 +139,14 @@ public class PrincipalControlador {
 
     public void setVistaKardex(VistaKardex vistaKardex) {
         this.vistaKardex = vistaKardex;
+    }
+
+    public VistaCatalogos getVistaCatalogos() {
+        return vistaCatalogos;
+    }
+
+    public void setVistaCatalogos(VistaCatalogos vistaCatalogos) {
+        this.vistaCatalogos = vistaCatalogos;
     }
 
     public void iniciaPantallaPrincipal() {
@@ -277,6 +291,23 @@ public class PrincipalControlador {
 
         }
     }
+    
+    /**
+     * Crea la vista de los catalogos
+     */
+    protected void creaVistaCatalogos() {
+        if (vistaCatalogos != null) {
+            terminaVistaCatalogos();
+        }
+
+        vistaCatalogos = new VistaCatalogos();
+        this.setVistaCatalogos(vistaCatalogos);
+        vistaCatalogos.setControlador(this);
+        
+        llenaCamposVistaCategorias();
+
+        creaPantalla(vistaCatalogos);
+    }
 
     /**
      * Crea una pantalla dentro del panel pnlOpciones
@@ -316,6 +347,7 @@ public class PrincipalControlador {
         catTipoEscuela = lstCategorias.get(9);
         catTipoServicioSocial = lstCategorias.get(10);
         catLugarServicioSocial = lstCategorias.get(11);
+        catCatalogos = lstCategorias.get(12);
 
         llenaComboCategorias(vistaRegistro.combobxCivilBecado, catEstadoCivil);
         llenaComboCategorias(vistaRegistro.comboBoxPrograma, catPrograma);
@@ -409,6 +441,12 @@ public class PrincipalControlador {
         vistaKardex.removeAll();
         vaciaLstVistas();
         vistaKardex = null;
+    }
+    
+    private void terminaVistaCatalogos() {
+        vistaCatalogos.removeAll();
+        vaciaLstVistas();
+        vistaCatalogos = null;
     }
 
     /**
@@ -1066,7 +1104,7 @@ public class PrincipalControlador {
         String sexo = (String) vistaRegistro.combobxSexoBecado.getSelectedItem();
         //Se obtiene el id del sexo
         becario.setIdSexo(getIdCmbBox(sexo, catSexo));
-        //Se obtiene el nombre del becario
+        //Se obtiene el nombreTabla del becario
         becario.setNombre(vistaRegistro.txtNombreBecado.getText());
         //Se obtiene el ap paterno del becario
         becario.setApPaterno(vistaRegistro.txtApPaternoBecado.getText());
@@ -1293,7 +1331,7 @@ public class PrincipalControlador {
         List<Padres> lstResult = new ArrayList<>();
         for (PnlParentesco panel : lstVistaParentesco) {
             Padres padre = new Padres();
-            //Se obtiene el nombre del hijo
+            //Se obtiene el nombreTabla del hijo
             padre.setNombre(panel.txtNombresPariente.getText());
             //Se obtiene el apellido paterno del hijo
             padre.setaPaterno(panel.txtApPaternoPariente.getText());
@@ -1333,7 +1371,7 @@ public class PrincipalControlador {
 
         for (PnlHermanos panel : lstVistaHermanos) {
             Hermanos hermano = new Hermanos();
-            //Se obtiene el nombre del hijo
+            //Se obtiene el nombreTabla del hijo
             hermano.setNombre(panel.txtNombresPariente.getText());
             //Se obtiene el apellido paterno
             hermano.setAPaterno(panel.txtApPaternoPariente.getText());
@@ -1365,7 +1403,7 @@ public class PrincipalControlador {
 
         for (PnlHijos panel : lstVistaHijos) {
             Hijos hijo = new Hijos();
-            //Se obtiene el nombre del hijo
+            //Se obtiene el nombreTabla del hijo
             hijo.setNombre(panel.txtNombreHIjo.getText());
             //Se obtiene el apellido paterno
             hijo.setAPaterno(panel.txtApPaternoHijo.getText());
@@ -1390,7 +1428,7 @@ public class PrincipalControlador {
      */
     private DatosEscolares getDatosEscolaresDeFormulario(long idBecario) {
         DatosEscolares datos = new DatosEscolares();
-        //Se obtiene el nombre de la carrera
+        //Se obtiene el nombreTabla de la carrera
         datos.setNombreCarrera(vistaRegistro.txtNombreCarrera.getText());
         //Se obtiene el campo de la carrera
         String campo = (String) vistaRegistro.cmboxCampoEscuela.getSelectedItem();
@@ -1405,7 +1443,7 @@ public class PrincipalControlador {
         String tipoEscuela = (String) vistaRegistro.cmbTipoEscuela.getSelectedItem();
 
         datos.setIdTipoEscuela(getIdCmbBox(tipoEscuela, catTipoEscuela));
-        //Se obtiene el nombre de la preparatoria
+        //Se obtiene el nombreTabla de la preparatoria
         datos.setEscuelaProcedencia(vistaRegistro.txtEscuelaProcedencia.getText());
 
         //Se obtiene el mes de inicio de la beca
@@ -1501,7 +1539,7 @@ public class PrincipalControlador {
     }
 
     /**
-     * Obtiene el nombre de un item de un combo box
+     * Obtiene el nombreTabla de un item de un combo box
      *
      * @param id
      * @param categorias
@@ -1562,7 +1600,7 @@ public class PrincipalControlador {
                         response = recorreJPanel((JPanel) componente, 1);
                     }
                     if (componente instanceof JTextField) {
-                        //Si el campo tiene un nombre quiere decir que puede estar vacio
+                        //Si el campo tiene un nombreTabla quiere decir que puede estar vacio
                         if (((JTextField) componente).getName() != null) {
                             continue;
                         }
@@ -2629,6 +2667,36 @@ public class PrincipalControlador {
             conexion.close();
         } catch (SQLException e) {
             log.muestraErrores(e);
+        }
+    }
+    
+    /**
+     * Llena los combo box de las categorias
+     */
+    private void llenaCamposVistaCategorias() {
+        Conexion conn = new Conexion();
+        Connection conexion = conn.estableceConexion();
+        
+        if(lstCatalogoTabla != null)
+            lstCatalogoTabla.clear();
+        
+        if(catCatalogos == null || catCatalogos.isEmpty())
+            catCatalogos = modelo.getCatCategorias(conexion);
+        llenaComboCategorias(vistaCatalogos.cmbTipoCatalogo, catCatalogos);
+        
+        int id = getIdCmbBox((String) vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), catCatalogos);
+        
+        String nombreTabla = modelo.getNombreTabla(conexion, id);
+        
+        lstCatalogoTabla = modelo.getDatosCatalogo(conexion, nombreTabla);
+        
+        
+        
+        try{
+            conexion.close();
+        }
+        catch(SQLException e){
+            
         }
     }
 

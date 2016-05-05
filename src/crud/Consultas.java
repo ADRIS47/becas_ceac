@@ -8,6 +8,7 @@ package crud;
 import pojos.Aval;
 import pojos.Becario;
 import pojos.CatBanco;
+import pojos.CatCategorias;
 import pojos.CatLugarServicioComunitario;
 import pojos.CatTipoEscuela;
 import pojos.CatTipoServicioSocial;
@@ -95,6 +96,10 @@ public class Consultas {
      */
     public static String getCatTipoEscuela = "SELECT " + CatTipoEscuela.COL_ID + ", " + CatTipoEscuela.COL_NOMBRE + " FROM beca_tipo_escuela";
     
+    /**
+     * Obtiene la lista de las categorias
+     */
+    public static String getCatCatalogos = "SELECT " + CatCategorias.COL_ID + ", " + CatCategorias.COL_NOMBRE + " FROM beca_cat_catalogos";
     
     /**
      * Obtiene la lista de categorias de tipo de servicio social
@@ -356,7 +361,16 @@ public class Consultas {
     /**
      * Obtiene el total de kardex registrados que tiene el becario
      */
-    public static String getTotalKardexPorSemestre = "SELECT COUNT(*) FROM beca_kardex WHERE id_becario = ?";
+    public static String getTotalKardexPorSemestre = "SELECT COUNT(*) FROM beca_kardex WHERE id_becario = ?";    
     
+    /**
+     * Obtiene el nombre de un catalogo según su id
+     */
+    public static String getNombreCatalogo = "SELECT " + CatCategorias.COL_NOMBRE_TABLA + " FROM beca_cat_catalogos WHERE " + CatCategorias.COL_ID + " = ?";
+    
+    /**
+     * Obtiene todos los datos de un catalogo por el nombre de la tabla
+     */
+    public static String getCatalogoPorNombreTabla = "SELECT * FROM ?"   ;
     
 }

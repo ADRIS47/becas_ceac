@@ -2826,3 +2826,14 @@
 5/5/2016;14:47:54;Nombre de categoria no encontrado
 5/5/2016;15:0:2;Nombre de categoria no encontrado
 5/5/2016;15:0:2;Nombre de categoria no encontrado
+5/5/2016;15:46:58;Nombre de categoria no encontrado
+5/5/2016;15:46:58;Nombre de categoria no encontrado
+5/5/2016;16:20:47;SQLError: 42S02
+5/5/2016;16:20:47;ERROR: Code1146
+5/5/2016;16:20:47;Message: Table 'becas_chihuahua.beca_cat_categorias' doesn't exist
+5/5/2016;16:21:27;SQLError: S0022
+5/5/2016;16:21:27;ERROR: Code0
+5/5/2016;16:21:27;Message: Column 'id_lugar_servicio_comunitario' not found.
+5/5/2016;16:22:40;SQLError: S0022
+5/5/2016;16:22:40;ERROR: Code0
+5/5/2016;16:22:40;Message: Column 'id_lugar_servicio_comunitario' not found.

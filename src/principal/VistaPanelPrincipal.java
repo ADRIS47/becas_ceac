@@ -41,6 +41,7 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
         btnCobranza = new javax.swing.JButton();
         btnReportes = new javax.swing.JButton();
         btnBusqueda = new javax.swing.JButton();
+        btnCatalogos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Control de Becas");
@@ -120,18 +121,29 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btnCatalogos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnCatalogos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adris/vistas/catalogo.png"))); // NOI18N
+        btnCatalogos.setToolTipText("Acceso a Catalogos");
+        btnCatalogos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnCatalogos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCatalogosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnReportes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCobranza, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnBecarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnKardex, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnBusqueda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnReportes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCobranza, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnBecarios, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnKardex, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnBusqueda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCatalogos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -147,6 +159,8 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
                 .addComponent(btnReportes)
                 .addGap(18, 18, 18)
                 .addComponent(btnBusqueda)
+                .addGap(18, 18, 18)
+                .addComponent(btnCatalogos)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -195,11 +209,16 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
         controlador.creaVistaKardex();
     }//GEN-LAST:event_btnKardexActionPerformed
 
+    private void btnCatalogosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCatalogosActionPerformed
+        controlador.creaVistaCatalogos();
+    }//GEN-LAST:event_btnCatalogosActionPerformed
+
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     protected javax.swing.JScrollPane ScrollpnlOpciones;
     private javax.swing.JButton btnBecarios;
     private javax.swing.JButton btnBusqueda;
+    private javax.swing.JButton btnCatalogos;
     private javax.swing.JButton btnCobranza;
     private javax.swing.JButton btnKardex;
     private javax.swing.JButton btnReportes;
