@@ -1712,6 +1712,8 @@ public class PrincipalControlador {
      * @param lstFechaSemestre Indica las fechas iniciales de cada semestre
      * @param codigo 1.- Llena con la informacion de la pestaña de las boletas
      * 2.- Llena con la informacion de la pestaña de las cargas semestrales
+     * 3.- LLena con la informacion a los primeros 10 transferencias de la pestaña adjuntar transferencias
+     * 4.- LLena con la informacion a las restantes 10 transferencias de la pestaña adjuntar transferencias 
      */
     private void llenaPnlBoletaOCargaSemestral(List<Kardex> lstKardex, List<Calendar> lstFechaSemestre, int codigo) {
         JPanel pnlSemestres = null;
@@ -1764,24 +1766,126 @@ public class PrincipalControlador {
                     }
                 }
                 break;
+                
+            case 3:
+                pnlSemestres = vistaKardex.jpnlListaDocumentos4;
+                pnlAcciones = vistaKardex.jpnlAccionesDocumentos2;
+                if(lstKardex.isEmpty())
+                    break;
 
-        }
-
-        //Se procede a llenar los semestres
-        componentes = pnlSemestres.getComponents();
-        i = 0;
-        for (Component componente : componentes) {
-            JTextField txtSemestre = (JTextField) componente;
-            Calendar calendario = lstFechaSemestre.get(i);
-
-            txtSemestre.setText(calendario.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault()) + "/" + calendario.get(Calendar.YEAR));
-
-            if (i == tamanio - 1) {
+                componentes = pnlAcciones.getComponents();
+                i = 0;
+                for (Component componente : componentes) {
+                    if (componente instanceof JTextField) {
+                        for (int j = 0; j <= 1; j++) {
+                            JTextField txtSemestre = (JTextField) componente;
+                            Kardex kardex = lstKardex.get(i);
+                            if(j == 0)
+                                txtSemestre.setText(kardex.getTransferencia1());
+                            else
+                                txtSemestre.setText(kardex.getTransferencia2());
+                        }
+                            
+                        i++;
+                    }
+                    if (i == tamanio - 1) {
+                        break;
+                    }
+                }
                 break;
-            }
-            i++;
-        }
+                
+            case 4:
+                pnlSemestres = vistaKardex.jpnlListaDocumentos5;
+                pnlAcciones = vistaKardex.jpnlAccionesDocumentos3;
+                if(lstKardex.isEmpty())
+                    break;
 
+                componentes = pnlAcciones.getComponents();
+                i = 5;
+                for (Component componente : componentes) {
+                    if (componente instanceof JTextField) {
+                        for (int j = 0; j <= 1; j++) {
+                            JTextField txtSemestre = (JTextField) componente;
+                            Kardex kardex = lstKardex.get(i);
+                            if(j == 0)
+                                txtSemestre.setText(kardex.getTransferencia1());
+                            else
+                                txtSemestre.setText(kardex.getTransferencia2());
+                        }
+                            
+                        i++;
+                    }
+                    if (i == tamanio - 1) {
+                        break;
+                    }
+                }
+                break;
+
+        }
+        //Se agregan los semestres de las boletas y cartas de servicio comunitario
+        if(codigo == 1 || codigo == 2){
+            //Se procede a llenar los semestres
+            componentes = pnlSemestres.getComponents();
+            i = 0;
+            for (Component componente : componentes) {
+                JTextField txtSemestre = (JTextField) componente;
+                Calendar calendario = lstFechaSemestre.get(i);
+
+                txtSemestre.setText(calendario.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault()) + "/" + calendario.get(Calendar.YEAR));
+
+                if (i == tamanio - 1) {
+                    break;
+                }
+                i++;
+            }
+        }
+        //Se llenan los primeros 5 semestres de las transferencias bancarias
+        else if(codigo == 3){
+            //Se procede a llenar los semestres
+            componentes = pnlSemestres.getComponents();
+            i = 0;
+            boolean bandera = false;
+            for (Component componente : componentes) {
+                int semestre = i/2;
+                JTextField txtSemestre = (JTextField) componente;
+                Calendar calendario = lstFechaSemestre.get(semestre);
+                if(bandera == false){
+                    txtSemestre.setText("Transf 1 " + calendario.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault()) + "/" + calendario.get(Calendar.YEAR));
+                    bandera =true;
+                }
+                else{
+                    txtSemestre.setText("Transf 2 " + calendario.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault()) + "/" + calendario.get(Calendar.YEAR));
+                    bandera = false;
+                }
+                if (i == (tamanio * 2) - 1) {
+                    break;
+                }
+                i++;
+            }
+        }
+        else if(codigo == 4){
+            //Se procede a llenar los semestres
+            componentes = pnlSemestres.getComponents();
+            i = 10;
+            boolean bandera = false;
+            for (Component componente : componentes) {
+                int semestre = (i/2) - 1;
+                JTextField txtSemestre = (JTextField) componente;
+                Calendar calendario = lstFechaSemestre.get(semestre + 1);
+                if(bandera == false){
+                    txtSemestre.setText("Transf 1 " + calendario.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault()) + "/" + calendario.get(Calendar.YEAR));
+                    bandera =true;
+                }
+                else{
+                    txtSemestre.setText("Transf 2 " + calendario.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault()) + "/" + calendario.get(Calendar.YEAR));
+                    bandera = false;
+                }
+                if (i == (tamanio * 2 ) - 1) {
+                    break;
+                }
+                i++;
+            }
+        }
     }
 
     /**
@@ -2492,9 +2596,21 @@ public class PrincipalControlador {
         
         //Se procede a deshabilitar los semestres de la pestaña transferencias en el 
         //apartado carga semestral
-        deshabilitaSemestresKardex(vistaKardex.jpnlListaDocumentos4, (semestresHabilitados - 1) / 2, 0, 4);
-        deshabilitaSemestresKardex(vistaKardex.jpnlListaDocumentos5, (semestresHabilitados - 1) - ((semestresHabilitados - 1) / 2), 0, 4);
+        //Se deshabilitan los primeros 10 jtextField
+        deshabilitaSemestresKardex(vistaKardex.jpnlListaDocumentos4, (semestresHabilitados - 1) * 2, 0, 2);
+        //Se deshabilitan los primeros 30 botones y label
+        deshabilitaSemestresKardex(vistaKardex.jpnlAccionesDocumentos2, (semestresHabilitados - 1) * 6, 0, 3);
+
+        //Se deshabilitan los 10 jtextField restantes
+        deshabilitaSemestresKardex(vistaKardex.jpnlListaDocumentos5, ((semestresHabilitados - 1) * 2) - 10, 0, 2);
+        //Se deshabilitan los 30 botones y labels restantes
+        deshabilitaSemestresKardex(vistaKardex.jpnlAccionesDocumentos3, ((semestresHabilitados - 1) * 6) - 30, 0, 3);
         
+        //Se llenan los primeros 10 jtextfield
+        llenaPnlBoletaOCargaSemestral(lstKardex, lstFechaSemestres, 3);
+        //Se llenan los jtextfield restantes
+        if(semestresHabilitados - 1 > 4)
+            llenaPnlBoletaOCargaSemestral(lstKardex, lstFechaSemestres, 4);
 
         try {
             conexion.close();

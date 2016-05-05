@@ -2969,7 +2969,7 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtEstatusSC20.setEnabled(false);
         jpnlAccionesDocumentos2.add(TxtEstatusSC20);
 
-        jpnlListaDocumentos5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jpnlListaDocumentos5.setBorder(null);
         jpnlListaDocumentos5.setLayout(new java.awt.GridLayout(10, 1));
 
         TxtSemSC23.setBackground(new java.awt.Color(0, 204, 51));
