@@ -781,15 +781,15 @@ public class PrincipalControlador {
     private void insertBecario(boolean bandera) {
 
         //Se crean las variables donde se alojaran los archivos adjuntos
-        File fileFotoDest;
-        File fileActaNacimientoDest;
-        File fileBoleta_calificaciones_inicialDest;
-        File fileCarta_solicitudDest;
-        File fileEnsayoDest;
-        File fileIneBecarioDest;
-        File fileIneAvalDest;
-        File fileContratoDest;
-        File filePagareDest;
+//        File fileFotoDest;
+//        File fileActaNacimientoDest;
+//        File fileBoleta_calificaciones_inicialDest;
+//        File fileCarta_solicitudDest;
+//        File fileEnsayoDest;
+//        File fileIneBecarioDest;
+//        File fileIneAvalDest;
+//        File fileContratoDest;
+//        File filePagareDest;
 
         Conexion conn = new Conexion();
         Connection conexion = conn.estableceConexion();

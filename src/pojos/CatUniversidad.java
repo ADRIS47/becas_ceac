@@ -14,6 +14,7 @@ public class CatUniversidad {
     int id;
     String nombre;
     String descripcion;
+    int id_tipo_escuela;
 
     public int getId() {
         return id;
@@ -38,9 +39,18 @@ public class CatUniversidad {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+    public int getId_tipo_escuela() {
+        return id_tipo_escuela;
+    }
+
+    public void setId_tipo_escuela(int id_tipo_escuela) {
+        this.id_tipo_escuela = id_tipo_escuela;
+    }
     
     public final static String COL_ID = "id_universidad";
     public final static String COL_NOMBRE = "nombre";
     public final static String COL_DESCRIPCION = "descripcion";
+    public final static String COL_ID_TIPO_ESCUELA = "id_tipo_escuela";
     
 }

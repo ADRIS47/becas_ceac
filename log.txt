@@ -2814,3 +2814,15 @@
 5/5/2016;14:27:33;Nombre de categoria no encontrado
 5/5/2016;14:28:48;Nombre de categoria no encontrado
 5/5/2016;14:28:48;Nombre de categoria no encontrado
+5/5/2016;14:40:17;Nombre de categoria no encontrado
+5/5/2016;14:40:17;Nombre de categoria no encontrado
+5/5/2016;14:43:56;Nombre de categoria no encontrado
+5/5/2016;14:43:56;Nombre de categoria no encontrado
+5/5/2016;14:44:16;Nombre de categoria no encontrado
+5/5/2016;14:44:16;Nombre de categoria no encontrado
+5/5/2016;14:47:37;Nombre de categoria no encontrado
+5/5/2016;14:47:37;Nombre de categoria no encontrado
+5/5/2016;14:47:54;Nombre de categoria no encontrado
+5/5/2016;14:47:54;Nombre de categoria no encontrado
+5/5/2016;15:0:2;Nombre de categoria no encontrado
+5/5/2016;15:0:2;Nombre de categoria no encontrado
