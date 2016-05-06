@@ -46,6 +46,8 @@ public class VistaCatalogos extends javax.swing.JPanel {
         BtnEliminarDescripcionCatalogo = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TblDescripcionCatalogo = new javax.swing.JTable();
+        btnAgregarFila = new javax.swing.JButton();
+        btnEliminarFila = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(916, 584));
 
@@ -136,6 +138,22 @@ public class VistaCatalogos extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(TblDescripcionCatalogo);
 
+        btnAgregarFila.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/table_add.png"))); // NOI18N
+        btnAgregarFila.setText("Agregar Fila");
+        btnAgregarFila.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarFilaActionPerformed(evt);
+            }
+        });
+
+        btnEliminarFila.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/table_delete.png"))); // NOI18N
+        btnEliminarFila.setText("Eliminar Fila");
+        btnEliminarFila.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarFilaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -149,7 +167,11 @@ public class VistaCatalogos extends javax.swing.JPanel {
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(197, 197, 197)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAgregarFila)
+                            .addComponent(btnEliminarFila))))
                 .addContainerGap(109, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -159,9 +181,17 @@ public class VistaCatalogos extends javax.swing.JPanel {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(btnAgregarFila)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnEliminarFila)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -174,12 +204,22 @@ public class VistaCatalogos extends javax.swing.JPanel {
             controlador.llenaCamposVistaCategorias();
     }//GEN-LAST:event_cmbTipoCatalogoItemStateChanged
 
+    private void btnAgregarFilaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarFilaActionPerformed
+        controlador.agregarFilaTabla(TblDescripcionCatalogo);
+    }//GEN-LAST:event_btnAgregarFilaActionPerformed
+
+    private void btnEliminarFilaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarFilaActionPerformed
+        controlador.eliminaFilaTabla(TblDescripcionCatalogo);
+    }//GEN-LAST:event_btnEliminarFilaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     protected javax.swing.JButton BtnAddDescripcionCatalogo;
     protected javax.swing.JButton BtnEliminarDescripcionCatalogo;
     protected javax.swing.JTable TblDescripcionCatalogo;
     protected javax.swing.JTextField TxtFldDescripcionCatalogo;
+    protected javax.swing.JButton btnAgregarFila;
+    protected javax.swing.JButton btnEliminarFila;
     protected javax.swing.JComboBox cmbTipoCatalogo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

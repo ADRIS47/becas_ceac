@@ -38,6 +38,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableColumnModel;
@@ -3060,5 +3061,21 @@ public class PrincipalControlador {
                 i++;
             }  
         }
+    }
+
+    /**
+     * Agrega una fila a la tabla indicada
+     * @param TblDescripcionCatalogo Tabla a agregar la fila
+     */
+    protected void agregarFilaTabla(JTable tabla) {
+        helper.agregaFilaTabla(tabla);
+    }
+
+    /**
+     * Elimina una fila a la tabla indicada
+     * @param TblDescripcionCatalogo 
+     */
+    protected void eliminaFilaTabla(JTable tabla) {
+        helper.eliminaFilaTabla(tabla);
     }
 }

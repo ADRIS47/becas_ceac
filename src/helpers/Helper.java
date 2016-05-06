@@ -36,7 +36,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 import pojos.Becario;
 import pojos.DatosEscolares;
 import pojos.Kardex;
@@ -580,5 +582,24 @@ public class Helper {
             
         }
         return lstFechasSemestres;
+    }
+
+    /**
+     * Agrega una fila a la tabla seleccionada
+     * @param tabla 
+     */
+    public void agregaFilaTabla(JTable tabla) {
+        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        modelo.addRow(new String[]{});
+    }
+    
+    /**
+     * Agrega una fila a la tabla seleccionada
+     * @param tabla 
+     */
+    public void eliminaFilaTabla(JTable tabla) {
+        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        int filas = modelo.getRowCount();
+        modelo.removeRow(filas - 1);
     }
 }
