@@ -2704,6 +2704,8 @@ public class PrincipalModelo {
                 CatCategorias catalogo = new CatCategorias();
                 catalogo.setId(rs.getInt(1));
                 catalogo.setNombre(rs.getString(2));
+                if(nombreTabla.contains("universidad"))
+                    catalogo.setNombreTabla(rs.getString(3));
                 lstInfoCatalogo.add(catalogo);
             }
         }

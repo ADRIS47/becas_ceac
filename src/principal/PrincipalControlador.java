@@ -40,6 +40,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableColumnModel;
 import javax.swing.table.DefaultTableModel;
 import pojos.Aval;
 import pojos.Becario;
@@ -2683,11 +2684,6 @@ public class PrincipalControlador {
             if(vistaCatalogos.cmbTipoCatalogo.getSelectedIndex() < 0)
                 llenaComboCategorias(vistaCatalogos.cmbTipoCatalogo, catCatalogos);
             
-            //vistaCatalogos.cmbTipoCatalogo.removeAllItems();
-            
-            
-            
-            
             String seleccion = (String) vistaCatalogos.cmbTipoCatalogo.getSelectedItem();
             int idTabla = getIdCmbBox(seleccion, catCatalogos);
             String nombreTabla = modelo.getNombreTabla(conexion, idTabla);
@@ -2696,16 +2692,26 @@ public class PrincipalControlador {
             
             
             DefaultTableModel tblModel = (DefaultTableModel) vistaCatalogos.TblDescripcionCatalogo.getModel();
+            DefaultTableColumnModel columnModel = (DefaultTableColumnModel) vistaCatalogos.TblDescripcionCatalogo.getColumnModel();
             
             int filas = tblModel.getRowCount();
             for (int i = 0; i < filas; i++) {
                 tblModel.removeRow(0);
             }
             
+            if(vistaCatalogos.TblDescripcionCatalogo.getColumnModel().getColumnCount() > 1)
+                vistaCatalogos.TblDescripcionCatalogo.getColumnModel().removeColumn(vistaCatalogos.TblDescripcionCatalogo.getColumnModel().getColumn(1));
+            
+            if(lstCategorias.get(0).getNombreTabla() != null)
+                tblModel.addColumn("Tipo de Escuela");
+                
+            
+            
             
             for (CatCategorias categoria : lstCategorias) {
                 tblModel.addRow(new String[]{categoria.getNombre()});
             }
+            tblModel.addRow(new String[]{});
             
             try{
                 conexion.close();
