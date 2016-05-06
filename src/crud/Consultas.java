@@ -295,7 +295,8 @@ public class Consultas {
 //            + "esc." + DatosEscolares.COL_ANIO_INICIO_BECA + ", esc." + DatosEscolares.COL_MES_GRADUACION + ", "
 //            + "esc." + DatosEscolares.COL_ANIO_GRADUACION + " "
             + "FROM beca_becario AS becario "
-            + "WHERE becario." + Becario.COL_PROGRAMA + " = ? AND " + Becario.COL_ESTATUS + " = ?";
+            + "WHERE becario." + Becario.COL_PROGRAMA + " = ? AND " + Becario.COL_ESTATUS + " = ? "
+            + "AND becario." + Becario.COL_ACTIVO + " = 1";
     
     /**
      * Obtiene a los becarios a partir de su nombre y apellido

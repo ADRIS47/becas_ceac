@@ -2020,6 +2020,13 @@ public class PrincipalModelo {
                 consulta = consulta.concat("AND becario." + Becario.COL_AMATERNO + " LIKE ? ");
             }
             
+            if(bandera == false){
+                consulta = consulta.concat("WHERE becario." + Becario.COL_ACTIVO + " = 1");
+            }
+            else{
+                consulta = consulta.concat("AND becario." + Becario.COL_ACTIVO + " = 1");
+            }
+            
             bandera = false;
             
             
@@ -2045,6 +2052,8 @@ public class PrincipalModelo {
                 consulta = consulta.concat("AND becario." + Becario.COL_AMATERNO + " ");
             }
             
+            
+            //System.out.println("Consulta: " + consulta);
             ps = conexion.prepareStatement(consulta);
             
             //Se hace la instruccion de cambiar parametros
