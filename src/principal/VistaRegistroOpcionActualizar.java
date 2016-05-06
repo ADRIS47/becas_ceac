@@ -54,6 +54,11 @@ public class VistaRegistroOpcionActualizar extends javax.swing.JPanel {
 
         btnGuardar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cancel_registro.png"))); // NOI18N
         btnGuardar3.setPreferredSize(new java.awt.Dimension(160, 29));
+        btnGuardar3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardar3ActionPerformed(evt);
+            }
+        });
 
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adris/vistas/salir.png"))); // NOI18N
         btnSalir.setPreferredSize(new java.awt.Dimension(160, 29));
@@ -114,6 +119,10 @@ public class VistaRegistroOpcionActualizar extends javax.swing.JPanel {
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         controlador.cerrarSesion();
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnGuardar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar3ActionPerformed
+        controlador.desactivaBecario();
+    }//GEN-LAST:event_btnGuardar3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

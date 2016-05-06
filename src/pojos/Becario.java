@@ -48,6 +48,7 @@ public class Becario {
     String cuentaBancaria;
     int idBanco;
     String clabeInterbancaria;
+    int activo;
 
     public long getId() {
         return id;
@@ -328,6 +329,14 @@ public class Becario {
     public void setClabeInterbancaria(String clabeInterbancaria) {
         this.clabeInterbancaria = clabeInterbancaria;
     }
+
+    public int getActivo() {
+        return activo;
+    }
+
+    public void setActivo(int activo) {
+        this.activo = activo;
+    }
     
     
     public final static String COL_ID = "id_becario";
@@ -364,4 +373,5 @@ public class Becario {
     public final static String COL_CUENTA_BANCO = "cuenta_bancaria";
     public final static String COL_ID_BANCO = "id_banco";
     public final static String COL_CLABE_INTERBANCARIA = "clabe_interbancaria";
+    public final static String COL_ACTIVO = "activo";
 }

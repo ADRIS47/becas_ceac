@@ -2211,6 +2211,11 @@ public class PrincipalControlador {
             }
             return;
         }
+        
+        if(becario.getActivo() == 0){
+            JOptionPane.showMessageDialog(vista, "El becario que desea cargar está deshabilitado.\n Activelo para obtener su información", "", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
 
         List<Direccion> lstDireccionesBecario = modelo.getDireccionesBecario(conexion, becario.getId());
 
@@ -3199,5 +3204,27 @@ public class PrincipalControlador {
         System.out.println("Filas: " + totalFilas);
         
         
+    }
+
+    /**
+     * Inhabilita al becario, osea, pone el campo activo del becario como false
+     */
+    protected void desactivaBecario() {
+        
+        Conexion conn = new Conexion();
+        Connection conexion = conn.estableceConexion();
+        
+        if(conexion == null){
+            JOptionPane.showMessageDialog(vistaRegistro, "No se pudo conectar a la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
+            log.muestraErrores(new SQLException("No se pudo conectar a la base de datos"));
+        }
+        
+        Becario becario = modelo.getBecarioPorFolio(conexion, vistaRegistro.txtFolio.getText());
+        boolean result = modelo.updateCampoActivoBecario(conexion, becario, false);
+        
+        if(result)
+            JOptionPane.showMessageDialog(vistaRegistro, "El becario con el folio " + becario.getFolio() + " ha sido inhabilitado", "Exito", JOptionPane.DEFAULT_OPTION);
+        else
+            JOptionPane.showMessageDialog(vistaRegistro, "No se pudo deshabilitar al becario", "Error", JOptionPane.ERROR_MESSAGE);
     }
 }

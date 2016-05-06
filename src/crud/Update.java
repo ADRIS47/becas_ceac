@@ -138,6 +138,13 @@ public class Update {
             + Kardex.COL_HORAS_SERVICIO + " = ?, " + Kardex.COL_TRANSFERENCIA_1 + " = ?, "
             + Kardex.COL_TRANSFERENCIA_2 + " = ? "
             + "WHERE " + Becario.COL_ID + " = ? AND " + Kardex.COL_ID_KARDEX + " = ?";
+    
+    /**
+     * ICambia a un becario y lo pone activo o inactivo
+     */
+    public static String updateCampoActivoBecario = "UPDATE beca_becario "
+            + "SET " + Becario.COL_ACTIVO + " = ? "
+            + "WHERE " + Becario.COL_ID + " = ?";
 
     /**
      * Crea un query para actualizar un registro de una tabla categoría
@@ -149,6 +156,7 @@ public class Update {
      */
     public static String updateRegistroCatalogo(String nombreTabla, CatColumnasTabla nombreColumnas, int idRegistro, String datoNuevo) {
         String query = "";
+        
         
         query = "UPDATE " + nombreTabla + " SET " + nombreColumnas.getNombreColumnaNombre() 
                 + " = '" + datoNuevo + "' WHERE " + nombreColumnas.getNombreColumnaId() 

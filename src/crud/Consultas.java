@@ -268,7 +268,7 @@ public class Consultas {
             + "becario." + Becario.COL_IDENTIFICACION + ", becario." + Becario.COL_ID + ", "
             + "becario." + Becario.COL_PAGARE + ", becario." + Becario.COL_OCUPACION_CONYUGE + ", "
             + "becario." + Becario.COL_ID_BANCO + ", becario." + Becario.COL_CUENTA_BANCO + ", "
-            + "becario." + Becario.COL_CLABE_INTERBANCARIA + " "
+            + "becario." + Becario.COL_CLABE_INTERBANCARIA + ", " + Becario.COL_ACTIVO + " "
             + "FROM beca_becario AS becario "
             + "WHERE becario." + Becario.COL_FOLIO + " = ?";
     

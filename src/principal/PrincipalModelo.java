@@ -1886,6 +1886,7 @@ public class PrincipalModelo {
                 becario.setIdBanco(rs.getInt(Becario.COL_ID_BANCO));
                 becario.setCuentaBancaria(rs.getString(Becario.COL_CUENTA_BANCO));
                 becario.setClabeInterbancaria(rs.getString(Becario.COL_CLABE_INTERBANCARIA));
+                becario.setActivo(rs.getInt(Becario.COL_ACTIVO));
             }
             
         } catch (SQLException e) {
@@ -2866,5 +2867,35 @@ public class PrincipalModelo {
         }
         
         return response;
+    }
+
+    /**
+     * Inhabilita a un becario
+     * @param conexion
+     * @param becario
+     * @param activo Indica el estatus al que se cambiará el becario
+     * @return 
+     */
+    protected boolean updateCampoActivoBecario(Connection conexion, Becario becario, boolean activo) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        boolean result = false;
+        try {
+            ps = conexion.prepareStatement(Update.updateCampoActivoBecario);
+            if(activo)
+                ps.setInt(1, 1);
+            else
+                ps.setInt(1, 0);
+            ps.setLong(2, becario.getId());
+            int res = ps.executeUpdate();
+            
+            if(res > 0)
+                result = true;
+        } catch (SQLException ex) {
+            log.muestraErrores(ex);
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return result;
     }
 }
