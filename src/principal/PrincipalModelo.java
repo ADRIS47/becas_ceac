@@ -2909,4 +2909,71 @@ public class PrincipalModelo {
         
         return result;
     }
+
+    /**
+     * Pone al becario en estatus truncado
+     * @param conexion
+     * @param becario
+     * @return 
+     */
+    protected boolean updateTruncaBecario(Connection conexion, Becario becario) {
+        PreparedStatement ps = null;
+        Statement st = null;
+        ResultSet rs = null;
+        boolean result = false;
+        try {
+            
+            st = conexion.createStatement();
+            rs = st.executeQuery(Consultas.getCatalogoPorNombreTabla + " beca_cat_estatus");
+            int idCampoCancelado = 0;
+            while(rs.next()){
+                if(rs.getString(2).toLowerCase().contains("cancel"))
+                    idCampoCancelado = rs.getInt(1);
+            }
+            
+            st = conexion.createStatement();
+            rs = st.executeQuery(Consultas.getCatalogoPorNombreTabla + "beca_tipo_estatus");
+            int idCampoTruncado = 0;
+            while(rs.next()){
+                if(rs.getString(2).toLowerCase().contains("trunc")){
+                    idCampoTruncado = rs.getInt(1);
+                }
+            }
+            
+            ps = conexion.prepareStatement(Update.updateTruncaBecario);
+            ps.setInt(1, idCampoCancelado);
+            ps.setInt(2, idCampoTruncado);
+            ps.setLong(3, becario.getId());
+            
+            int res = ps.executeUpdate();
+            
+            if(res > 0)
+                result = true;
+        } catch (SQLException ex) {
+            log.muestraErrores(ex);
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return result;
+    }
+
+    protected int getEstatusCancelado(Connection conexion) {
+        Statement st = null;
+        ResultSet rs = null;
+        int id = 0;
+        try{
+            st = conexion.createStatement();
+            rs = st.executeQuery(Consultas.getEstatusCancelado);
+            id = 0;
+            while(rs.next()){
+                id = rs.getInt(CatEstatus.COL_ID);
+            }
+            
+        }
+        catch(SQLException e){
+            log.muestraErrores(e);
+        }
+        
+        return id;
+    }
 }

@@ -2773,6 +2773,9 @@ public class PrincipalControlador {
 
         List<DatosEscolares> lstDatosEscolares = new ArrayList<>();
         List<CatUniversidad> lstCatUniversidad = new ArrayList<>();
+        
+        //Se obtiene el id del estatus cancelado
+        int idCancelado = modelo.getEstatusCancelado(conexion);
 
         //Se obtiene la información restante para llenar la tabla de resultados
         for (Becario becario : lstBecario) {
@@ -2803,6 +2806,10 @@ public class PrincipalControlador {
                 + "/" + lstDatosEscolares.get(i).getAnioInicioBeca(), lstDatosEscolares.get(i).getMesGraduacion()
                 + "/" + lstDatosEscolares.get(i).getAnioGraduacion()
             });
+//            if(becario.getIdEstatus() == idCancelado){
+//                rows = modelo.getRowCount();
+//                vistaBusqueda.tblResultadoBusqueda.getValueAt(rows, rows)
+//            }
 
             i++;
         }
@@ -3269,13 +3276,19 @@ public class PrincipalControlador {
      */
     protected void desactivaBecario() {
         
-        int response = JOptionPane.showConfirmDialog(vistaRegistro, 
-                "¿Seguro que desea desactivar al becario", "Desactivación de becario", JOptionPane.YES_NO_OPTION);
+//        int response = JOptionPane.showConfirmDialog(vistaRegistro, 
+//                "¿Seguro que desea desactivar al becario", "Desactivación de becario", JOptionPane.YES_NO_OPTION);
+        Connection conexion = null;
+        String[] opciones = new String[]{"Truncar al Becario", "Dar de baja al Becario", "Cancelar"};
+        int response = JOptionPane.showOptionDialog(vistaRegistro, "¿Qué desea hacer?", 
+                "Advertencia", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, opciones, opciones[0]);
         
-        if(response == JOptionPane.OK_OPTION){
+        
+        //Si se decidió truncar al becario
+        if(response == 0){
             helper.cursorEspera(vista);
             Conexion conn = new Conexion();
-            Connection conexion = conn.estableceConexion();
+            conexion = conn.estableceConexion();
 
             if(conexion == null){
                 JOptionPane.showMessageDialog(vistaRegistro, "No se pudo conectar a la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
@@ -3283,8 +3296,29 @@ public class PrincipalControlador {
             }
 
             Becario becario = modelo.getBecarioPorFolio(conexion, vistaRegistro.txtFolio.getText());
-            boolean result = modelo.updateCampoActivoBecario(conexion, becario, false);
+            //boolean result = modelo.updateCampoActivoBecario(conexion, becario, false);
+            boolean result = modelo.updateTruncaBecario(conexion, becario);
+            
+            helper.cursorNormal(vista);
+            if(result)
+                JOptionPane.showMessageDialog(vistaRegistro, "El becario con el folio " + becario.getFolio() + " ha sido truncado", "Exito", JOptionPane.DEFAULT_OPTION);
+            else
+                JOptionPane.showMessageDialog(vistaRegistro, "No se pudo deshabilitar al becario", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else if(response == 1){
+            helper.cursorEspera(vista);
+            Conexion conn = new Conexion();
+            conexion = conn.estableceConexion();
 
+            if(conexion == null){
+                JOptionPane.showMessageDialog(vistaRegistro, "No se pudo conectar a la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
+                log.muestraErrores(new SQLException("No se pudo conectar a la base de datos"));
+            }
+
+            Becario becario = modelo.getBecarioPorFolio(conexion, vistaRegistro.txtFolio.getText());
+            //boolean result = modelo.updateCampoActivoBecario(conexion, becario, false);
+            boolean result = modelo.updateCampoActivoBecario(conexion, becario, false);
+            
             helper.cursorNormal(vista);
             if(result)
                 JOptionPane.showMessageDialog(vistaRegistro, "El becario con el folio " + becario.getFolio() + " ha sido inhabilitado", "Exito", JOptionPane.DEFAULT_OPTION);
@@ -3292,5 +3326,12 @@ public class PrincipalControlador {
                 JOptionPane.showMessageDialog(vistaRegistro, "No se pudo deshabilitar al becario", "Error", JOptionPane.ERROR_MESSAGE);
         }
         
+        if(conexion != null){
+            try {
+                conexion.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 }

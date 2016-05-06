@@ -9,6 +9,7 @@ import pojos.Aval;
 import pojos.Becario;
 import pojos.CatBanco;
 import pojos.CatCategorias;
+import pojos.CatEstatus;
 import pojos.CatLugarServicioComunitario;
 import pojos.CatTipoEscuela;
 import pojos.CatTipoServicioSocial;
@@ -384,5 +385,10 @@ public class Consultas {
      * Obtiene el nombre de las columnas
      */
     public static String getNombreColumnasTabla = "SHOW COLUMNS FROM ";
+    
+    /**
+     * Obtiene el estatus cancelado 
+     */
+    public static String getEstatusCancelado = "SELECT " + CatEstatus.COL_ID + " FROM beca_cat_estatus WHERE " + CatEstatus.COL_NOMBRE + " LIKE '%cancel%'";
     
 }
