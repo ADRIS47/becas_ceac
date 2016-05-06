@@ -100,8 +100,6 @@ public class PrincipalControlador {
     LinkedHashMap<Integer, String> catTipoServicioSocial = null;
     LinkedHashMap<Integer, String> catLugarServicioSocial = null;
     LinkedHashMap<Integer, String> catCatalogos = null;
-    
-    List<CatCategorias> lstCatalogoTabla = null;
 
     List<PnlHijos> lstVistaHijos = new ArrayList<>();
     List<PnlHermanos> lstVistaHermanos = new ArrayList<>();
@@ -262,8 +260,6 @@ public class PrincipalControlador {
         if (vistaKardex != null) {
             terminaVistaKardex();
         }
-        
-        vaciaLstFiles();
 
         vistaKardex = new VistaKardex();
         this.setVistaKardex(vistaKardex);
@@ -299,14 +295,14 @@ public class PrincipalControlador {
         if (vistaCatalogos != null) {
             terminaVistaCatalogos();
         }
-
+        vaciaLstFiles();
         vistaCatalogos = new VistaCatalogos();
         this.setVistaCatalogos(vistaCatalogos);
         vistaCatalogos.setControlador(this);
-        
-        llenaCamposVistaCategorias();
 
         creaPantalla(vistaCatalogos);
+        
+        llenaCamposVistaCategorias();
     }
 
     /**
@@ -391,7 +387,7 @@ public class PrincipalControlador {
      * Llena los catalogos de la VistaKardex
      */
     private void llenaCamposCategoriasVistaKardex() {
-
+        
         llenaComboCategorias(vistaKardex.cmbNombreBanco, catBancos);
     }
 
@@ -2673,35 +2669,50 @@ public class PrincipalControlador {
     /**
      * Llena los combo box de las categorias
      */
-    private void llenaCamposVistaCategorias() {
-        Conexion conn = new Conexion();
-        Connection conexion = conn.estableceConexion();
+    protected void llenaCamposVistaCategorias() {
         
-        if(lstCatalogoTabla != null)
-            lstCatalogoTabla.clear();
+        //Si no se ha llenado la tabla
         
-        if(catCatalogos == null || catCatalogos.isEmpty())
-            catCatalogos = modelo.getCatCategorias(conexion);
-        llenaComboCategorias(vistaCatalogos.cmbTipoCatalogo, catCatalogos);
-        
-        int id = getIdCmbBox((String) vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), catCatalogos);
-        
-        String nombreTabla = modelo.getNombreTabla(conexion, id);
-        
-        lstCatalogoTabla = modelo.getDatosCatalogo(conexion, nombreTabla);
-        
-        DefaultTableModel modeloTabla = (DefaultTableModel) vistaCatalogos.TblDescripcionCatalogo.getModel();
-        
-        for (CatCategorias catalogo : lstCatalogoTabla) {
-            modeloTabla.addRow(new String[]{catalogo.getNombre()});
-        }
-        
-        try{
-            conexion.close();
-        }
-        catch(SQLException e){
+            Conexion conn = new Conexion();
+            Connection conexion = conn.estableceConexion();
+            if(catCatalogos == null){
+                catCatalogos = modelo.getCatCategorias(conexion);
+                
+            }
             
-        }
+            if(vistaCatalogos.cmbTipoCatalogo.getSelectedIndex() < 0)
+                llenaComboCategorias(vistaCatalogos.cmbTipoCatalogo, catCatalogos);
+            
+            //vistaCatalogos.cmbTipoCatalogo.removeAllItems();
+            
+            
+            
+            
+            String seleccion = (String) vistaCatalogos.cmbTipoCatalogo.getSelectedItem();
+            int idTabla = getIdCmbBox(seleccion, catCatalogos);
+            String nombreTabla = modelo.getNombreTabla(conexion, idTabla);
+            
+            List<CatCategorias> lstCategorias = modelo.getDatosCatalogo(conexion, nombreTabla);
+            
+            
+            DefaultTableModel tblModel = (DefaultTableModel) vistaCatalogos.TblDescripcionCatalogo.getModel();
+            
+            int filas = tblModel.getRowCount();
+            for (int i = 0; i < filas; i++) {
+                tblModel.removeRow(0);
+            }
+            
+            
+            for (CatCategorias categoria : lstCategorias) {
+                tblModel.addRow(new String[]{categoria.getNombre()});
+            }
+            
+            try{
+                conexion.close();
+            }
+            catch(SQLException e){log.muestraErrores(e);}
+        
+        
     }
 
     /**

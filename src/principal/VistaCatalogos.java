@@ -6,6 +6,7 @@
 package principal;
 
 import adris.vistas.*;
+import java.awt.event.ItemEvent;
 
 /**
  *
@@ -77,6 +78,11 @@ public class VistaCatalogos extends javax.swing.JPanel {
         jLabel2.setText("Catálogo:");
 
         cmbTipoCatalogo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cmbTipoCatalogo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbTipoCatalogoItemStateChanged(evt);
+            }
+        });
 
         BtnAddDescripcionCatalogo.setText("Guardar");
         BtnAddDescripcionCatalogo.addActionListener(new java.awt.event.ActionListener() {
@@ -144,7 +150,7 @@ public class VistaCatalogos extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(197, 197, 197)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,14 +160,19 @@ public class VistaCatalogos extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnAddDescripcionCatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddDescripcionCatalogoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnAddDescripcionCatalogoActionPerformed
+
+    private void cmbTipoCatalogoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbTipoCatalogoItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED)
+            controlador.llenaCamposVistaCategorias();
+    }//GEN-LAST:event_cmbTipoCatalogoItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

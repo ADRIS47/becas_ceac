@@ -635,6 +635,11 @@ public class PrincipalModelo {
         return catLugarServicioComunitario;
     }
 
+    /**
+     * Obtiene todos los catalogos existentes en la base de datos
+     * @param conn
+     * @return 
+     */
     protected LinkedHashMap<Integer, String> getCatCategorias(Connection conn){
         LinkedHashMap<Integer, String> catCategorias = new LinkedHashMap<>();
         Statement st = null;
