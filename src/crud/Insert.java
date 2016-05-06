@@ -7,6 +7,7 @@ package crud;
 
 import pojos.Aval;
 import pojos.Becario;
+import pojos.CatColumnasTabla;
 import pojos.DatosEscolares;
 import pojos.Direccion;
 import pojos.Hermanos;
@@ -137,4 +138,23 @@ public class Insert {
             + "?,?,?,?,?,"
             + "?,?,?,?,?,"
             + "?)";
+
+    /**
+     * Inserta un registro dentro de una tabla por su nombre
+     * @param nombreTabla
+     * @param nombreColumnas
+     * @param datoNuevo
+     * @param idRegistro
+     * @return 
+     */
+    public static String insertRegistroCatalogo(String nombreTabla, CatColumnasTabla nombreColumnas, String datoNuevo, int idRegistro) {
+        String query = "";
+        
+        query = "INSERT INTO  " + nombreTabla 
+                + " (" + nombreColumnas.getNombreColumnaId() + ", " + nombreColumnas.getNombreColumnaNombre() + ") "
+                + " VALUES (" + idRegistro + ", '" + datoNuevo + "')";
+        //System.out.println("Query: " + query);
+        
+        return query;
+    }
 }

@@ -600,6 +600,12 @@ public class Helper {
     public void eliminaFilaTabla(JTable tabla) {
         DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
         int filas = modelo.getRowCount();
-        modelo.removeRow(filas - 1);
+        
+        //Si hay una fila seleccionada
+        if(tabla.getSelectedRow() >= 0){
+            modelo.removeRow(tabla.getSelectedRow());
+        }
+        else
+            modelo.removeRow(filas - 1);
     }
 }

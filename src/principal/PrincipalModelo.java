@@ -7,6 +7,7 @@ package principal;
 
 import crud.Conexion;
 import crud.Consultas;
+import crud.Delete;
 import crud.Insert;
 import crud.Update;
 import helpers.Helper;
@@ -2812,5 +2813,58 @@ public class PrincipalModelo {
         }
         
         return result;
+    }
+
+    /**
+     * Inserta registros en la tabla catalogo indicada
+     * @param conexion
+     * @param datoNuevo
+     * @param idRegistro
+     * @param nombreTabla
+     * @param nombreColumnas
+     * @return 
+     */
+    protected boolean insertRegistroCatalogo(Connection conexion, String datoNuevo, int idRegistro, String nombreTabla, CatColumnasTabla nombreColumnas) {
+         boolean response = false;
+        Statement st = null;
+        
+        try {
+            st = conexion.createStatement();
+            int resp = st.executeUpdate(Insert.insertRegistroCatalogo(nombreTabla, nombreColumnas, datoNuevo, idRegistro));
+            if(resp > 0)
+                response = true;
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            log.muestraErrores(ex);
+        }
+        
+        return response;
+    }
+
+    /**
+     * Elimina un registro de un catalogo por el nombre del catalogo
+     * @param conexion
+     * @param datoNuevo
+     * @param idRegistro
+     * @param nombreTabla
+     * @param nombreColumnas
+     * @return 
+     */
+    protected boolean deleteRegistroCatalogo(Connection conexion, 
+            int idRegistro, String nombreTabla, CatColumnasTabla nombreColumnas) {
+        boolean response = false;
+        Statement st = null;
+        
+        try {
+            st = conexion.createStatement();
+            int resp = st.executeUpdate(Delete.deletetRegistroCatalogo(nombreTabla, nombreColumnas, idRegistro));
+            if(resp > 0)
+                response = true;
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            log.muestraErrores(ex);
+        }
+        
+        return response;
     }
 }
