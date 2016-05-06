@@ -191,6 +191,8 @@ public class PrincipalControlador {
         if (vistaKardex != null) {
             terminaVistaKardex();
         }
+        
+        vaciaLstFiles();
 
         List<LinkedHashMap<Integer, String>> lstCategorias = null;
 
@@ -3044,6 +3046,18 @@ public class PrincipalControlador {
         for (File transferencia : lstFilesTransferencias) {
             transferencia = null;
         }
+        
+        fileActaNacimiento = null;
+        fileBoleta_calificaciones_inicial = null;
+        fileCartaAsignacionBeca = null;
+        fileCarta_solicitud = null;
+        fileContrato = null;
+        fileEnsayo = null;
+        fileEstudioSocioeconomico = null;
+        fileFoto = null;
+        fileIneAval = null;
+        fileIneBecario = null;
+        filePagare = null;
     
     }
 
@@ -3215,20 +3229,26 @@ public class PrincipalControlador {
      */
     protected void desactivaBecario() {
         
-        Conexion conn = new Conexion();
-        Connection conexion = conn.estableceConexion();
+        int response = JOptionPane.showConfirmDialog(vistaRegistro, 
+                "¿Seguro que desea desactivar al becario", "Desactivación de becario", JOptionPane.YES_NO_OPTION);
         
-        if(conexion == null){
-            JOptionPane.showMessageDialog(vistaRegistro, "No se pudo conectar a la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
-            log.muestraErrores(new SQLException("No se pudo conectar a la base de datos"));
+        if(response == JOptionPane.OK_OPTION){
+            Conexion conn = new Conexion();
+            Connection conexion = conn.estableceConexion();
+
+            if(conexion == null){
+                JOptionPane.showMessageDialog(vistaRegistro, "No se pudo conectar a la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
+                log.muestraErrores(new SQLException("No se pudo conectar a la base de datos"));
+            }
+
+            Becario becario = modelo.getBecarioPorFolio(conexion, vistaRegistro.txtFolio.getText());
+            boolean result = modelo.updateCampoActivoBecario(conexion, becario, false);
+
+            if(result)
+                JOptionPane.showMessageDialog(vistaRegistro, "El becario con el folio " + becario.getFolio() + " ha sido inhabilitado", "Exito", JOptionPane.DEFAULT_OPTION);
+            else
+                JOptionPane.showMessageDialog(vistaRegistro, "No se pudo deshabilitar al becario", "Error", JOptionPane.ERROR_MESSAGE);
         }
         
-        Becario becario = modelo.getBecarioPorFolio(conexion, vistaRegistro.txtFolio.getText());
-        boolean result = modelo.updateCampoActivoBecario(conexion, becario, false);
-        
-        if(result)
-            JOptionPane.showMessageDialog(vistaRegistro, "El becario con el folio " + becario.getFolio() + " ha sido inhabilitado", "Exito", JOptionPane.DEFAULT_OPTION);
-        else
-            JOptionPane.showMessageDialog(vistaRegistro, "No se pudo deshabilitar al becario", "Error", JOptionPane.ERROR_MESSAGE);
     }
 }

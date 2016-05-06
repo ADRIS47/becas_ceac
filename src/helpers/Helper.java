@@ -477,11 +477,14 @@ public class Helper {
 
     public void abreArchivoAdjunto(File archivo) {
         try{ 
-            System.out.println("Archivo: " + archivo.toString());
+            
+            //System.out.println("Archivo: " + archivo.toString());
             //definiendo la ruta en la propiedad file
-            //Runtime.getRuntime().exec("cmd /c start "+ archivo.toString());
-            Desktop.getDesktop().open(archivo);
-
+            if(archivo != null)
+                Desktop.getDesktop().open(archivo);
+            else
+                JOptionPane.showMessageDialog(null, "Debe de cargar un archivo", "Error", JOptionPane.ERROR_MESSAGE);
+            
         }catch(IOException e){
             e.printStackTrace();
         } 

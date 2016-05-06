@@ -1878,7 +1878,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="383" max="-2" attributes="0"/>
-                              <Component id="jpnlAccionesDocumentos" pref="355" max="32767" attributes="0"/>
+                              <Component id="jpnlAccionesDocumentos" min="-2" pref="355" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
@@ -2418,6 +2418,9 @@
                             </Property>
                             <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblEstatusEstudioSocioEconomicoMouseClicked"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>
@@ -2460,6 +2463,9 @@
                             </Property>
                             <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblEstatusCartaAsignacionBecaMouseClicked"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                           </AuxValues>

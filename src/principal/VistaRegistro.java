@@ -40,7 +40,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         txtFolio = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        cmbEstatus = new javax.swing.JComboBox<String>();
+        cmbEstatus = new javax.swing.JComboBox<>();
         pnlNombres = new javax.swing.JPanel();
         txtNombreBecado = new javax.swing.JTextField();
         txtApPaternoBecado = new javax.swing.JTextField();
@@ -110,8 +110,8 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         cmboxMesGraduacion = new javax.swing.JComboBox();
-        cmboxAnioInicioBeca = new javax.swing.JComboBox<String>();
-        cmboxAnioGraduacion = new javax.swing.JComboBox<String>();
+        cmboxAnioInicioBeca = new javax.swing.JComboBox<>();
+        cmboxAnioGraduacion = new javax.swing.JComboBox<>();
         txtNombreCarrera = new javax.swing.JTextField();
         cmbTipoEscuela = new javax.swing.JComboBox();
         jLabel48 = new javax.swing.JLabel();
@@ -222,7 +222,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(0, 0, 153));
         jLabel3.setText("Estatus:");
 
-        cmbEstatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Becado", "Exalumno" }));
+        cmbEstatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Becado", "Exalumno" }));
 
         javax.swing.GroupLayout pnlProgramaLayout = new javax.swing.GroupLayout(pnlPrograma);
         pnlPrograma.setLayout(pnlProgramaLayout);
@@ -696,9 +696,9 @@ public class VistaRegistro extends javax.swing.JPanel {
         cmboxMesGraduacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
         cmboxMesGraduacion.setEnabled(false);
 
-        cmboxAnioInicioBeca.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
+        cmboxAnioInicioBeca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
 
-        cmboxAnioGraduacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
+        cmboxAnioGraduacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
         cmboxAnioGraduacion.setEnabled(false);
 
         txtNombreCarrera.setName("txtNombreCarrera"); // NOI18N
@@ -1276,6 +1276,11 @@ public class VistaRegistro extends javax.swing.JPanel {
         lblEstatusEstudioSocioEconomico.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusEstudioSocioEconomico.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusEstudioSocioEconomico.setEnabled(false);
+        lblEstatusEstudioSocioEconomico.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusEstudioSocioEconomicoMouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentos.add(lblEstatusEstudioSocioEconomico);
 
         btnAddCartaAsignacionBeca.setForeground(new java.awt.Color(0, 0, 204));
@@ -1299,6 +1304,11 @@ public class VistaRegistro extends javax.swing.JPanel {
         lblEstatusCartaAsignacionBeca.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusCartaAsignacionBeca.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusCartaAsignacionBeca.setEnabled(false);
+        lblEstatusCartaAsignacionBeca.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusCartaAsignacionBecaMouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentos.add(lblEstatusCartaAsignacionBeca);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -1307,7 +1317,7 @@ public class VistaRegistro extends javax.swing.JPanel {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(383, 383, 383)
-                .addComponent(jpnlAccionesDocumentos, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE))
+                .addComponent(jpnlAccionesDocumentos, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel6Layout.createSequentialGroup()
                     .addComponent(jpnlListaDocumentos, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1501,6 +1511,14 @@ public class VistaRegistro extends javax.swing.JPanel {
     private void btnEliminaCartaAsignacionBecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaCartaAsignacionBecaActionPerformed
         controlador.fileCartaAsignacionBeca = controlador.borraDocumento(controlador.fileCartaAsignacionBeca, lblEstatusCartaAsignacionBeca);
     }//GEN-LAST:event_btnEliminaCartaAsignacionBecaActionPerformed
+
+    private void lblEstatusEstudioSocioEconomicoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusEstudioSocioEconomicoMouseClicked
+        controlador.abreArchivoAdjunto(Helper.FILE_ESTUDIO_SOCIECONOMICO);
+    }//GEN-LAST:event_lblEstatusEstudioSocioEconomicoMouseClicked
+
+    private void lblEstatusCartaAsignacionBecaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusCartaAsignacionBecaMouseClicked
+        controlador.abreArchivoAdjunto(Helper.FILE_CARTA_ASIGNACION_BECA);
+    }//GEN-LAST:event_lblEstatusCartaAsignacionBecaMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     protected javax.swing.JButton btnAddActa;

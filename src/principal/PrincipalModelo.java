@@ -1887,6 +1887,8 @@ public class PrincipalModelo {
                 becario.setCuentaBancaria(rs.getString(Becario.COL_CUENTA_BANCO));
                 becario.setClabeInterbancaria(rs.getString(Becario.COL_CLABE_INTERBANCARIA));
                 becario.setActivo(rs.getInt(Becario.COL_ACTIVO));
+                becario.setEstudioSocioEconomico(rs.getString(Becario.COL_ESTUDIO_SOCIOECONOMICO));
+                becario.setCartaAsignacionBeca(rs.getString(Becario.COL_CARTA_ASIGNACION_BECA));
             }
             
         } catch (SQLException e) {
