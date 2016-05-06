@@ -18,7 +18,6 @@ import java.awt.Color;
 import java.awt.Component;
 import java.io.File;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -41,11 +40,11 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.table.DefaultTableColumnModel;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
 import pojos.Aval;
 import pojos.Becario;
-import pojos.CatCategorias;
 import pojos.CatColumnasTabla;
 import pojos.CatUniversidad;
 import pojos.DatosEscolares;
@@ -2676,7 +2675,7 @@ public class PrincipalControlador {
     }
     
     /**
-     * Llena los combo box de las categorias
+     * Llena los combo box de la pantalla VistaCatalogos
      */
     protected void llenaCamposVistaCategorias() {
         
@@ -2702,21 +2701,26 @@ public class PrincipalControlador {
             
             
             DefaultTableModel tblModel = (DefaultTableModel) vistaCatalogos.TblDescripcionCatalogo.getModel();
-            DefaultTableColumnModel columnModel = (DefaultTableColumnModel) vistaCatalogos.TblDescripcionCatalogo.getColumnModel();
             
             int filas = tblModel.getRowCount();
             for (int i = 0; i < filas; i++) {
                 tblModel.removeRow(0);
             }
             
-            if(vistaCatalogos.TblDescripcionCatalogo.getColumnModel().getColumnCount() > 1)
-                vistaCatalogos.TblDescripcionCatalogo.getColumnModel().removeColumn(vistaCatalogos.TblDescripcionCatalogo.getColumnModel().getColumn(1));
-            
-            if(nombreTabla.toLowerCase().contains("universidad"))
-                tblModel.addColumn("Tipo de Escuela");
-                
             llenaTabla(catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo);
             
+//            
+//            if(columnModel.getColumnCount() > 1)
+//                columnModel.removeColumn(columnModel.getColumn(1));
+//            
+//            
+//            if(!nombreTabla.toLowerCase().contains("universidad")){
+//                filas = tblModel.getRowCount();
+//                for (int i = 0; i < filas; i++) {
+//                    if(tblModel.isCellEditable(i, 1))
+//                        tblModel.
+//                }
+//            }
             
             
             tblModel.addRow(new String[]{});
