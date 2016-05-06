@@ -135,7 +135,15 @@ public class VistaCatalogos extends javax.swing.JPanel {
             new String [] {
                 "Nombre"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(TblDescripcionCatalogo);
 
         btnAgregarFila.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/table_add.png"))); // NOI18N
@@ -196,7 +204,7 @@ public class VistaCatalogos extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnAddDescripcionCatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddDescripcionCatalogoActionPerformed
-        // TODO add your handling code here:
+        controlador.crudCatalogo();
     }//GEN-LAST:event_BtnAddDescripcionCatalogoActionPerformed
 
     private void cmbTipoCatalogoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbTipoCatalogoItemStateChanged

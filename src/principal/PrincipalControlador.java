@@ -46,6 +46,7 @@ import javax.swing.table.DefaultTableModel;
 import pojos.Aval;
 import pojos.Becario;
 import pojos.CatCategorias;
+import pojos.CatColumnasTabla;
 import pojos.CatUniversidad;
 import pojos.DatosEscolares;
 import pojos.Direccion;
@@ -102,6 +103,7 @@ public class PrincipalControlador {
     LinkedHashMap<Integer, String> catTipoServicioSocial = null;
     LinkedHashMap<Integer, String> catLugarServicioSocial = null;
     LinkedHashMap<Integer, String> catCatalogos = null;
+    LinkedHashMap<Integer, String> catDatosCatalogos = null;
 
     List<PnlHijos> lstVistaHijos = new ArrayList<>();
     List<PnlHermanos> lstVistaHermanos = new ArrayList<>();
@@ -2689,7 +2691,9 @@ public class PrincipalControlador {
             int idTabla = getIdCmbBox(seleccion, catCatalogos);
             String nombreTabla = modelo.getNombreTabla(conexion, idTabla);
             
-            List<CatCategorias> lstCategorias = modelo.getDatosCatalogo(conexion, nombreTabla);
+            if(catDatosCatalogos != null)
+                catDatosCatalogos.clear();
+            catDatosCatalogos = modelo.getDatosCatalogo(conexion, nombreTabla);
             
             
             DefaultTableModel tblModel = (DefaultTableModel) vistaCatalogos.TblDescripcionCatalogo.getModel();
@@ -2703,15 +2707,13 @@ public class PrincipalControlador {
             if(vistaCatalogos.TblDescripcionCatalogo.getColumnModel().getColumnCount() > 1)
                 vistaCatalogos.TblDescripcionCatalogo.getColumnModel().removeColumn(vistaCatalogos.TblDescripcionCatalogo.getColumnModel().getColumn(1));
             
-            if(lstCategorias.get(0).getNombreTabla() != null)
+            if(nombreTabla.toLowerCase().contains("universidad"))
                 tblModel.addColumn("Tipo de Escuela");
                 
+            llenaTabla(catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo);
             
             
             
-            for (CatCategorias categoria : lstCategorias) {
-                tblModel.addRow(new String[]{categoria.getNombre()});
-            }
             tblModel.addRow(new String[]{});
             
             try{
@@ -2749,7 +2751,7 @@ public class PrincipalControlador {
         //Se borra la información de la tabla
         int rows = modelo.getRowCount();
         for (int i = 0; i < rows; i++) {
-            modelo.removeRow(i);
+            modelo.removeRow(0);
         }
         //Se inserta la informacion en la tabla
         int i = 0;
@@ -2775,6 +2777,19 @@ public class PrincipalControlador {
             log.muestraErrores(ex);
         }
 
+    }
+    
+    /**
+     * Agrega las filas correspondientes de una tabla a partir de un LinkedHashMap
+     * @param datos
+     * @param tabla 
+     */
+    private void llenaTabla(LinkedHashMap<Integer,String> datos, JTable tabla){
+        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        for (Integer key : datos.keySet()) {
+            modelo.addRow(new String[]{datos.get(key)});
+        }
+        
     }
 
     /**
@@ -3065,7 +3080,7 @@ public class PrincipalControlador {
 
     /**
      * Agrega una fila a la tabla indicada
-     * @param TblDescripcionCatalogo Tabla a agregar la fila
+     * @param tabla Tabla a agregar la fila
      */
     protected void agregarFilaTabla(JTable tabla) {
         helper.agregaFilaTabla(tabla);
@@ -3073,9 +3088,75 @@ public class PrincipalControlador {
 
     /**
      * Elimina una fila a la tabla indicada
-     * @param TblDescripcionCatalogo 
+     * @param tabla 
      */
     protected void eliminaFilaTabla(JTable tabla) {
         helper.eliminaFilaTabla(tabla);
+    }
+
+    /**
+     * Inserta, Actualiza o Elimina los datos de un catalogo
+     */
+    protected void crudCatalogo() {
+        
+        Conexion conn = new Conexion();
+        Connection conexion = conn.estableceConexion();
+        List<String> lstDatosTabla = new ArrayList<>();
+        DefaultTableModel tblModel = (DefaultTableModel) vistaCatalogos.TblDescripcionCatalogo.getModel();
+        
+        String seleccion = (String) vistaCatalogos.cmbTipoCatalogo.getSelectedItem();
+        int idTabla = getIdCmbBox(seleccion, catCatalogos);
+        String nombreTabla = modelo.getNombreTabla(conexion, idTabla);
+        
+        int totalRegistros = modelo.getTotalRegistrosDeCatalogo(conexion, nombreTabla);
+        int totalFilas = tblModel.getRowCount();
+        System.out.println("Filas: " + totalFilas);
+        //Se valida que la última fila no esté vacía
+        if(tblModel.getValueAt(totalFilas - 1, 0) == null)
+            totalFilas -= 1;
+        
+        for (int i = 0; i < totalFilas; i++) {
+            lstDatosTabla.add((String) tblModel.getValueAt(i, 0));
+        }
+        
+        try {
+            conexion.setAutoCommit(false);
+            
+            //Se obtienen los nombres de las columnas de la tabla a modificar
+            CatColumnasTabla nombreColumnas = modelo.getNombreColumnasTabla(conexion, nombreTabla);
+            
+            //Si existen los mismos registros en la tabla como en la base de datos, solo se actualiza la tabla
+            if(totalFilas == totalRegistros){
+                int i = 0;
+                for (String dato : lstDatosTabla) {
+                    boolean response = modelo.updateCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas);
+                    if(response == false)
+                      throw new SQLException("No se pudo actualiza el catalogo " 
+                                + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
+                    i++;
+                }
+                
+            }
+            
+            conexion.commit();
+            JOptionPane.showMessageDialog(vistaCatalogos, "Tabla " + nombreTabla + " actualizada");
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(vistaCatalogos, "No se pudo actualiza el catalogo " 
+                                + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
+            log.muestraErrores(ex);
+        }
+        finally{
+            try {
+                conexion.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+                log.muestraErrores(ex);
+            }
+        }
+        
+        System.out.println("Filas: " + totalFilas);
+        
+        
     }
 }

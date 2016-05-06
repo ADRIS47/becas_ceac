@@ -373,4 +373,14 @@ public class Consultas {
      */
     public static String getCatalogoPorNombreTabla = "SELECT * FROM "   ;
     
+    /**
+     * Obtiene el total de registros que contiene una tabla
+     */
+    public static String getTotalRegistrosPorNombreTabla = "SELECT COUNT(*) FROM ";
+    
+    /**
+     * Obtiene el nombre de las columnas
+     */
+    public static String getNombreColumnasTabla = "SHOW COLUMNS FROM ";
+    
 }

@@ -7,6 +7,7 @@ package crud;
 
 import pojos.Aval;
 import pojos.Becario;
+import pojos.CatColumnasTabla;
 import pojos.CatPrograma;
 import pojos.DatosEscolares;
 import pojos.Direccion;
@@ -137,4 +138,23 @@ public class Update {
             + Kardex.COL_HORAS_SERVICIO + " = ?, " + Kardex.COL_TRANSFERENCIA_1 + " = ?, "
             + Kardex.COL_TRANSFERENCIA_2 + " = ? "
             + "WHERE " + Becario.COL_ID + " = ? AND " + Kardex.COL_ID_KARDEX + " = ?";
+
+    /**
+     * Crea un query para actualizar un registro de una tabla categoría
+     * @param nombreTabla
+     * @param nombreColumnas
+     * @param idRegistro
+     * @param datoNuevo
+     * @return 
+     */
+    public static String updateRegistroCatalogo(String nombreTabla, CatColumnasTabla nombreColumnas, int idRegistro, String datoNuevo) {
+        String query = "";
+        
+        query = "UPDATE " + nombreTabla + " SET " + nombreColumnas.getNombreColumnaNombre() 
+                + " = '" + datoNuevo + "' WHERE " + nombreColumnas.getNombreColumnaId() 
+                + " = " + idRegistro;
+        System.out.println("Query: " + query);
+        
+        return query;
+    }
 }

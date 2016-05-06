@@ -29,6 +29,7 @@ import pojos.Becario;
 import pojos.CatBanco;
 import pojos.CatCampoCarrera;
 import pojos.CatCategorias;
+import pojos.CatColumnasTabla;
 import pojos.CatEstadoCivil;
 import pojos.CatEstatus;
 import pojos.CatGradoEscolar;
@@ -2691,27 +2692,125 @@ public class PrincipalModelo {
      * @param nombreTabla
      * @return 
      */
-    List<CatCategorias> getDatosCatalogo(Connection conexion, String nombreTabla) {
-        List<CatCategorias> lstInfoCatalogo = new ArrayList<>();
+    LinkedHashMap<Integer, String> getDatosCatalogo(Connection conexion, String nombreTabla) {
+        LinkedHashMap<Integer, String> lstInfoCatalogo = new LinkedHashMap<>();
         Statement ps = null;
         ResultSet rs = null;
         
         try{
             ps = conexion.createStatement();
-            rs = ps.executeQuery(Consultas.getCatalogoPorNombreTabla + nombreTabla);
+            rs = ps.executeQuery(Consultas.getCatalogoPorNombreTabla + nombreTabla + " ORDER BY nombre");
             
             while(rs.next()){
                 CatCategorias catalogo = new CatCategorias();
                 catalogo.setId(rs.getInt(1));
                 catalogo.setNombre(rs.getString(2));
-                if(nombreTabla.contains("universidad"))
-                    catalogo.setNombreTabla(rs.getString(3));
-                lstInfoCatalogo.add(catalogo);
+               
+                lstInfoCatalogo.put(catalogo.getId(), catalogo.getNombre());
             }
         }
         catch(SQLException e){
             log.muestraErrores(e);
         }
         return lstInfoCatalogo;
+    }
+
+    /**
+     * Obtiene el total de registros de una tabla, según el nombre de la misma
+     * @param conexion
+     * @param nombreTabla
+     * @return Numero total de registros que contiene la tabla
+     */
+    protected int getTotalRegistrosDeCatalogo(Connection conexion, String nombreTabla) {
+        int contador = 0;
+        Statement st = null;
+        ResultSet rs = null;
+        
+        try {
+            st = conexion.createStatement();
+            rs = st.executeQuery(Consultas.getTotalRegistrosPorNombreTabla + nombreTabla);
+            while(rs.next()){
+                contador = rs.getInt(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            log.muestraErrores(ex);
+        }
+        
+        
+        return contador;
+    }
+
+    /**
+     * Actualiza los datos de un catalogo registro por registro
+     * @param conexion
+     * @param datoNuevo
+     * @param idRegistro
+     * @param nombreTabla 
+     * @param nombreColumnas 
+     * @return  
+     */
+    protected boolean updateCatalogo(Connection conexion, String datoNuevo, 
+            int idRegistro, String nombreTabla, CatColumnasTabla nombreColumnas) {
+        
+        boolean response = false;
+        Statement st = null;
+        
+        try {
+            st = conexion.createStatement();
+            int resp = st.executeUpdate(Update.updateRegistroCatalogo(nombreTabla, nombreColumnas, idRegistro, datoNuevo));
+            if(resp > 0)
+                response = true;
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            log.muestraErrores(ex);
+        }
+        
+        return response;
+    }
+
+    /**
+     * Obtiene los nombres de las columnas de una tabla a partir de su nombre
+     * @param conexion
+     * @param nombreTabla
+     * @return 
+     */
+    protected CatColumnasTabla getNombreColumnasTabla(Connection conexion, String nombreTabla) {
+        Statement st = null;
+        ResultSet rs = null;
+        CatColumnasTabla result = new CatColumnasTabla();
+        try {
+            st = conexion.createStatement();
+            rs = st.executeQuery(Consultas.getNombreColumnasTabla + nombreTabla);
+            
+            int i = 0;
+            while(rs.next()){
+                
+                switch(i){
+                    //Nombre del la columna ID
+                    case 0:
+                        result.setNombreColumnaId(rs.getString(1));
+                        break;
+                    //NOmbre de la columna nombre
+                    case 1:
+                        result.setNombreColumnaNombre(rs.getString(1));
+                        break;
+                        //En caso de que se esté evaluando la universida se agrega
+                    case 3:
+                        if(nombreTabla.toLowerCase().contains("universidad")){
+                            result.setTipoEscuela(rs.getInt(1));
+                        }
+                        break;
+                }
+                   
+                i++;
+                
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return result;
     }
 }
