@@ -7,6 +7,7 @@ package login;
 
 import helpers.Helper;
 import index.Index;
+import java.awt.Cursor;
 import javax.swing.JOptionPane;
 
 /**
@@ -58,6 +59,7 @@ public class LoginControlador {
     
     public void iniciarSesion(){
         
+        helper.cursorEspera(vista);
         helper.validaRutaInicial();
         char[] charClave = vista.txtClave.getPassword();
         String clave = new String(charClave);
@@ -70,14 +72,18 @@ public class LoginControlador {
                 principal.iniciaPantallaPrincipal();
 
             }
-            else
+            else{
+                helper.cursorNormal(vista);
                 JOptionPane.showMessageDialog(vista, "Contraseña incorrecta");
                 System.out.println("Contraseña incorrecta");
+                
+            }
         }
-        else
+        else{
+            helper.cursorNormal(vista);
             JOptionPane.showMessageDialog(vista, "Debes de ingresar la clave de acceso", 
                     "Error", JOptionPane.ERROR_MESSAGE);
-        
+        }
     }
     
 }

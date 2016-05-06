@@ -6,10 +6,9 @@
 package login;
 
 import helpers.Helper;
-import java.awt.Image;
 import java.awt.event.KeyEvent;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
+import javax.swing.InputMap;
+import javax.swing.KeyStroke;
 
 /**
  *
@@ -48,7 +47,7 @@ public class VistaLogin extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnIngresar = new javax.swing.JButton();
         btnCambiologin = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         txtClave = new javax.swing.JPasswordField();
@@ -70,16 +69,17 @@ public class VistaLogin extends javax.swing.JFrame {
         jLabel1.setText("Teclea tu clave de acceso");
         jPanel1.add(jLabel1, new java.awt.GridBagConstraints());
 
-        jButton1.setText("Ingresar");
-        jButton1.setPreferredSize(new java.awt.Dimension(153, 29));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnIngresar.setText("Ingresar");
+        btnIngresar.setPreferredSize(new java.awt.Dimension(153, 29));
+        btnIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnIngresarActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1);
+        jPanel2.add(btnIngresar);
 
         btnCambiologin.setText("Cambiar Contraseña");
+        btnCambiologin.setEnabled(false);
         jPanel2.add(btnCambiologin);
 
         jPanel3.setPreferredSize(new java.awt.Dimension(541, 196));
@@ -136,20 +136,22 @@ public class VistaLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         controlador.iniciarSesion();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void txtClaveKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtClaveKeyPressed
         int code = evt.getKeyCode();
+        
         if(code == KeyEvent.VK_ENTER){
+            
             controlador.iniciarSesion();
         }
     }//GEN-LAST:event_txtClaveKeyPressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCambiologin;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnIngresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

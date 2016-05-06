@@ -8,6 +8,7 @@ package helpers;
 import index.Index;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Cursor;
 import java.awt.Desktop;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -32,6 +33,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -73,6 +75,18 @@ public class Helper {
     public final static int FILE_PAGARE = 7;
     public final static int FILE_ESTUDIO_SOCIECONOMICO = 8;
     public final static int FILE_CARTA_ASIGNACION_BECA = 9;
+    
+    public void cursorEspera(JFrame vista){
+        //vista.setCursor(new Cursor(Cursor.WAIT_CURSOR));     
+        Cursor cursor = new Cursor(Cursor.WAIT_CURSOR);
+        vista.setCursor(cursor);
+    }
+    
+    public void cursorNormal(JFrame vista){
+        //vista.setCursor(new Cursor(Cursor.WAIT_CURSOR));     
+        Cursor cursor = new Cursor(Cursor.DEFAULT_CURSOR);
+        vista.setCursor(cursor);
+    }
 
     public static void getFechaGraduacion(JComboBox<?> cmbBoxMesInicioCarrera, JComboBox<?> cmbBoxAnioInicioBeca, JComboBox<?> cmbBoxMesGraduacion, JComboBox<?> cmbBoxAnioGraduacion, JComboBox<?> cmbBoxSemestreInicioBeca, JComboBox<?> cmbBoxTotalSemestres) {
         Calendar graduacion = new GregorianCalendar(Integer.parseInt((String) cmbBoxAnioInicioBeca.getSelectedItem()), 
