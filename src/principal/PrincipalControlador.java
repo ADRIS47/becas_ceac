@@ -789,10 +789,12 @@ public class PrincipalControlador {
                 //Se valida que los correos electronicos sean iguales
                 boolean email = helper.validaEmail(vistaRegistro.txtCorreoBecario.getText(),
                         vistaRegistro.txtCorreoBecario2.getText());
-                boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
+                
+                //boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
 
                 //Si los email son iguales se procede a tomar los valores e insertarlos
-                if (email && fecha) {
+                //if (email && fecha) {
+                if (email) {
                     insertBecario(true);
                 } else if (email == false) {
                     JOptionPane.showMessageDialog(vistaRegistro, "Correos electrónicos diferentes",
@@ -807,9 +809,10 @@ public class PrincipalControlador {
             //Se valida que los correos electronicos sean iguales
             boolean email = helper.validaEmail(vistaRegistro.txtCorreoBecario.getText(),
                     vistaRegistro.txtCorreoBecario2.getText());
-            boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
+            //boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
             //Si los email son iguales se procede a tomar los valores e insertarlos
-            if (email && fecha) {
+            //if (email && fecha) {
+            if (email) {
                 insertBecario(false);
             } else if (email == false) {
                 JOptionPane.showMessageDialog(vistaRegistro, "Correos electrónicos diferentes",
@@ -959,10 +962,11 @@ public class PrincipalControlador {
                 //Se valida que los correos electronicos sean iguales
                 boolean email = helper.validaEmail(vistaRegistro.txtCorreoBecario.getText(),
                         vistaRegistro.txtCorreoBecario2.getText());
-                boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
+               // boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
 
                 //Si los email son iguales se procede a tomar los valores e insertarlos
-                if (email && fecha) {
+                //if (email && fecha) {
+                if (email) {
                     updateBecario();
                 } else if (email == false) {
                     helper.cursorNormal(vista);
@@ -976,9 +980,10 @@ public class PrincipalControlador {
             //Se valida que los correos electronicos sean iguales
             boolean email = helper.validaEmail(vistaRegistro.txtCorreoBecario.getText(),
                     vistaRegistro.txtCorreoBecario2.getText());
-            boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
+            //boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
             //Si los email son iguales se procede a tomar los valores e insertarlos
-            if (email && fecha) {
+            //if (email && fecha) {
+            if (email) {
                 updateBecario();
             }
             else
@@ -1127,10 +1132,16 @@ public class PrincipalControlador {
         //Se obtiene el ap materno del becario
         becario.setApMaterno(vistaRegistro.txtApMaternoBecado.getText());
         //Se obtiene la fecha de nacimiento del becario
-        if (vistaRegistro.txtFechaNacimiento.getText().length() > 0) {
-            long fecha = getFecha(vistaRegistro.txtFechaNacimiento.getText());
-            becario.setFecha_nac(new Date(fecha));
-        }
+//        if (vistaRegistro.txtFechaNacimiento.getText().length() > 0) {
+//            long fecha = getFecha(vistaRegistro.txtFechaNacimiento.getText());
+//            becario.setFecha_nac(new Date(fecha));
+//        }
+        
+        java.util.Date fechaNac = helper.getFechaDateChooser(vistaRegistro.txtFechaNacimiento);
+        if(fechaNac == null)
+            return null;
+        becario.setFecha_nac(helper.convertUtilDateToSqlDate(fechaNac));
+        
         //Se obtiene los datos del conyuge
         becario.setNombreConyuge(vistaRegistro.txtNombreConyuge.getText());
         becario.setApPaternoConyuge(vistaRegistro.txtApPaternoConyuge.getText());
@@ -2091,7 +2102,7 @@ public class PrincipalControlador {
         vistaRegistro.txtNombreBecado.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtNombreBecado));
         vistaRegistro.txtApPaternoBecado.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtApPaternoBecado));
         vistaRegistro.txtApMaternoBecado.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtApPaternoBecado));
-        vistaRegistro.txtFechaNacimiento.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.FECHA_NACIMIENTO, vistaRegistro.txtFechaNacimiento));
+        //vistaRegistro.txtFechaNacimiento.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.FECHA_NACIMIENTO, vistaRegistro.txtFechaNacimiento));
 
         //Telefonos del becado
         vistaRegistro.txtTel1Becado.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.TELEFONO, vistaRegistro.txtTel1Becado));
@@ -2433,9 +2444,12 @@ public class PrincipalControlador {
         vistaRegistro.txtNombreBecado.setText(becario.getNombre());
         vistaRegistro.txtApPaternoBecado.setText(becario.getApPaterno());
         vistaRegistro.txtApMaternoBecado.setText(becario.getApMaterno());
-        if (becario.getFecha_nac() != null) {
-            vistaRegistro.txtFechaNacimiento.setText(helper.formateaFechaBD(becario.getFecha_nac()));
-        }
+//        if (becario.getFecha_nac() != null) {
+//            vistaRegistro.txtFechaNacimiento.setText(helper.formateaFechaBD(becario.getFecha_nac()));
+//        }
+        
+        vistaRegistro.txtFechaNacimiento.setDate(becario.getFecha_nac());
+        
         vistaRegistro.comboBxTrabajaBecado.setSelectedIndex(becario.getTrabaja());
         vistaRegistro.combobxSexoBecado.setSelectedIndex(becario.getIdSexo() - 1);
         vistaRegistro.combobxCivilBecado.setSelectedIndex(becario.getIdEstadoCivil() - 1);
