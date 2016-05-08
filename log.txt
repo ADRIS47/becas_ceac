@@ -2876,3 +2876,4 @@
 7/5/2016;17:46:14;Message: Field 'id_becario' doesn't have a default value
 7/5/2016;17:47:53;Nombre de categoria no encontrado
 7/5/2016;17:51:53;Nombre de categoria no encontrado
+8/5/2016;11:19:4;Nombre de categoria no encontrado

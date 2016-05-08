@@ -35,6 +35,7 @@ import pojos.CatEstadoCivil;
 import pojos.CatEstatus;
 import pojos.CatGradoEscolar;
 import pojos.CatLugarServicioComunitario;
+import pojos.CatMunicipios;
 import pojos.CatParentesco;
 import pojos.CatPrograma;
 import pojos.CatSexo;
@@ -105,6 +106,7 @@ public class PrincipalModelo {
         LinkedHashMap<Integer, String> catTipoServicioSocial = new LinkedHashMap<>();
         LinkedHashMap<Integer, String> catLugarServicioSocial = new LinkedHashMap<>();
         LinkedHashMap<Integer, String> catCatalogos = new LinkedHashMap<>();
+        LinkedHashMap<Integer, String> catMunicipios = new LinkedHashMap<>();
 
         Conexion conexion = new Conexion();
         Connection conn = null;
@@ -126,6 +128,7 @@ public class PrincipalModelo {
         catTipoServicioSocial = getCatTipoServicioComunitario(conn);
         catLugarServicioSocial = getCatLugarServicioSocial(conn);
         catCatalogos = getCatCategorias(conn);
+        catMunicipios = getCatMunicipios(conn);
 
         //Se llena la lista con las categorias
         result.add(catSexo);
@@ -141,13 +144,14 @@ public class PrincipalModelo {
         result.add(catTipoServicioSocial);
         result.add(catLugarServicioSocial);
         result.add(catCatalogos);
+        result.add(catMunicipios);
 
         conn.close();
         return result;
     }
 
     /**
-     * Obtiene la categoria de sexos
+     * Obtiene la municipio de sexos
      *
      * @param conn COnexion a la base de datos
      * @return Categoria de sexos
@@ -181,7 +185,7 @@ public class PrincipalModelo {
     }
 
     /**
-     * Obtiene la categoria de sexos
+     * Obtiene la municipio de sexos
      *
      * @return Categoria de sexos
      */
@@ -415,7 +419,7 @@ public class PrincipalModelo {
     }
 
     /**
-     * Obtiene el catalogo de categoria de estudio
+     * Obtiene el catalogo de municipio de estudio
      *
      * @param conn Conexion a la base de datos
      * @return Lista de campos de estudio
@@ -448,9 +452,9 @@ public class PrincipalModelo {
     }
     
     /**
-     * Obtiene el catalogo de categoria
+     * Obtiene el catalogo de municipio
      * @param conn COneixon a la BD
-     * @return Lista con el catalogo de los categoria
+     * @return Lista con el catalogo de los municipio
      */
     private LinkedHashMap<Integer, String> getCatEstatus(Connection conn) {
         LinkedHashMap<Integer, String> catEstatus = new LinkedHashMap<>();
@@ -607,7 +611,7 @@ public class PrincipalModelo {
     }
     
     /**
-     * Obtiene la categoria de los lugares donde se puede hacer el servicio social
+     * Obtiene la municipio de los lugares donde se puede hacer el servicio social
      * @param conn
      * @return 
      */
@@ -654,6 +658,37 @@ public class PrincipalModelo {
                 categoria.setId(rs.getInt(CatCategorias.COL_ID));
                 categoria.setNombre(rs.getString(CatCategorias.COL_NOMBRE));
                 catCategorias.put(categoria.getId(), categoria.getNombre());
+            }
+        } catch (SQLException e) {
+            muestraErrores(e);
+        } finally {
+            try {
+                rs.close();
+                st.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return catCategorias;
+    }
+    
+    /**
+     * Obtiene la categoría de los municipios del estado de chihuahua
+     * @param conn
+     * @return 
+     */
+    protected LinkedHashMap<Integer, String> getCatMunicipios(Connection conn) {
+        LinkedHashMap<Integer, String> catCategorias = new LinkedHashMap<>();
+        Statement st = null;
+        ResultSet rs = null;
+        try {
+            st = conn.createStatement();
+            rs = st.executeQuery(Consultas.getCatMunicipios);
+            while (rs.next()) {
+                CatMunicipios municipio = new CatMunicipios();
+                municipio.setId(rs.getInt(CatMunicipios.COL_ID));
+                municipio.setNombre(rs.getString(CatMunicipios.COL_NOMBRE));
+                catCategorias.put(municipio.getId(), municipio.getNombre());
             }
         } catch (SQLException e) {
             muestraErrores(e);

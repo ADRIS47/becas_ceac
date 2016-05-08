@@ -103,6 +103,7 @@ public class PrincipalControlador {
     LinkedHashMap<Integer, String> catLugarServicioSocial = null;
     LinkedHashMap<Integer, String> catCatalogos = null;
     LinkedHashMap<Integer, String> catDatosCatalogos = null;
+    LinkedHashMap<Integer, String> catMunicipios = null;
 
     List<PnlHijos> lstVistaHijos = new ArrayList<>();
     List<PnlHermanos> lstVistaHermanos = new ArrayList<>();
@@ -360,6 +361,7 @@ public class PrincipalControlador {
         catTipoServicioSocial = lstCategorias.get(10);
         catLugarServicioSocial = lstCategorias.get(11);
         catCatalogos = lstCategorias.get(12);
+        catMunicipios = lstCategorias.get(13);
 
         llenaComboCategorias(vistaRegistro.combobxCivilBecado, catEstadoCivil);
         llenaComboCategorias(vistaRegistro.comboBoxPrograma, catPrograma);
@@ -813,7 +815,9 @@ public class PrincipalControlador {
             //Si los email son iguales se procede a tomar los valores e insertarlos
             //if (email && fecha) {
             if (email) {
-                insertBecario(false);
+                int i = JOptionPane.showConfirmDialog(vistaRegistro, "¿Está seguro de asignar al becario en el programa " + vistaRegistro.comboBoxPrograma.getSelectedItem(), "Aviso", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                if(i == JOptionPane.OK_OPTION)
+                    insertBecario(false);
             } else if (email == false) {
                 JOptionPane.showMessageDialog(vistaRegistro, "Correos electrónicos diferentes",
                         "Verifica los correos electrónicos", JOptionPane.WARNING_MESSAGE);

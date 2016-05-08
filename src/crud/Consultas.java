@@ -11,6 +11,7 @@ import pojos.CatBanco;
 import pojos.CatCategorias;
 import pojos.CatEstatus;
 import pojos.CatLugarServicioComunitario;
+import pojos.CatMunicipios;
 import pojos.CatTipoEscuela;
 import pojos.CatTipoServicioSocial;
 import pojos.DatosEscolares;
@@ -115,6 +116,12 @@ public class Consultas {
     public static String getCatLugarServicioSocial = "SELECT " + CatLugarServicioComunitario.COL_ID + ", "
             + CatLugarServicioComunitario.COL_NOMBRE + " FROM beca_cat_lugar_servicio_comunitario "
             + "ORDER BY " + CatLugarServicioComunitario.COL_NOMBRE;
+    
+    /**
+     * Obtiene todos los municipios del estado de chihuahua
+     */
+    public static String getCatMunicipios = "SELECT " + CatMunicipios.COL_ID + ", "
+            + CatMunicipios.COL_NOMBRE + " FROM beca_cat_municipio";
     
     /**
      * Obtiene las direcciones que tiene registradas un becario
