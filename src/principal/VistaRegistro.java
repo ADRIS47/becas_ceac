@@ -697,12 +697,13 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel15.setText("Semestre Graduación:");
 
         cmboxMesGraduacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
-        cmboxMesGraduacion.setEnabled(false);
+        cmboxMesGraduacion.setFocusable(false);
 
         cmboxAnioInicioBeca.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
 
+        cmboxAnioGraduacion.setForeground(new java.awt.Color(1, 1, 1));
         cmboxAnioGraduacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
-        cmboxAnioGraduacion.setEnabled(false);
+        cmboxAnioGraduacion.setFocusable(false);
 
         txtNombreCarrera.setName("txtNombreCarrera"); // NOI18N
         txtNombreCarrera.addActionListener(new java.awt.event.ActionListener() {
@@ -1018,7 +1019,7 @@ public class VistaRegistro extends javax.swing.JPanel {
 
         jLabel42.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel42.setForeground(new java.awt.Color(0, 0, 204));
-        jLabel42.setText("Contrato Beca");
+        jLabel42.setText("Solicitud Beca");
         jpnlListaDocumentos.add(jLabel42);
 
         jLabel35.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
