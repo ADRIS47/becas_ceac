@@ -2868,3 +2868,27 @@
 5/5/2016;23:52:6;Nombre de categoria no encontrado
 5/5/2016;23:55:6;Nombre de categoria no encontrado
 5/5/2016;23:59:7;Nombre de categoria no encontrado
+6/5/2016;8:10:53;Nombre de categoria no encontrado
+6/5/2016;8:11:42;Nombre de categoria no encontrado
+6/5/2016;8:13:20;Nombre de categoria no encontrado
+6/5/2016;8:13:29;Nombre de categoria no encontrado
+6/5/2016;8:14:4;Nombre de categoria no encontrado
+6/5/2016;8:17:12;Nombre de categoria no encontrado
+6/5/2016;8:18:59;Id no encontrado
+6/5/2016;8:18:59;Id no encontrado
+6/5/2016;8:18:59;Id no encontrado
+6/5/2016;8:18:59;Id no encontrado
+6/5/2016;8:18:59;Id no encontrado
+6/5/2016;8:18:59;Id no encontrado
+6/5/2016;8:18:59;Id no encontrado
+6/5/2016;8:18:59;Id no encontrado
+6/5/2016;8:18:59;Id no encontrado
+6/5/2016;8:18:59;Id no encontrado
+6/5/2016;8:33:19;Nombre de categoria no encontrado
+6/5/2016;11:8:14;Nombre de categoria no encontrado
+6/5/2016;11:20:40;Nombre de categoria no encontrado
+6/5/2016;11:28:59;Nombre de categoria no encontrado
+6/5/2016;11:29:10;Nombre de categoria no encontrado
+6/5/2016;13:2:18;Nombre de categoria no encontrado
+6/5/2016;16:47:46;Nombre de categoria no encontrado
+6/5/2016;16:51:46;Nombre de categoria no encontrado
