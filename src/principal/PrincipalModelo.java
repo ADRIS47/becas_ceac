@@ -748,6 +748,7 @@ public class PrincipalModelo {
             ps.setInt(27, becario.getIdPrograma());
             ps.setString(28, becario.getEstudioSocioEconomico());
             ps.setString(29, becario.getCartaAsignacionBeca());
+            ps.setString(30, becario.getCartaAgradecimiento());
             
             
             int i = ps.executeUpdate();
@@ -1235,7 +1236,8 @@ public class PrincipalModelo {
             ps.setString(26, becario.getEnsayo());
             ps.setString(27, becario.getBoletaInicioBeca());
             ps.setString(28, becario.getPagare());
-            ps.setString(29, becario.getFolio());
+            ps.setString(29, becario.getCartaAgradecimiento());
+            ps.setString(30, becario.getFolio());
             valor = ps.executeUpdate();
             
             if(valor == 0){
@@ -1924,6 +1926,7 @@ public class PrincipalModelo {
                 becario.setActivo(rs.getInt(Becario.COL_ACTIVO));
                 becario.setEstudioSocioEconomico(rs.getString(Becario.COL_ESTUDIO_SOCIOECONOMICO));
                 becario.setCartaAsignacionBeca(rs.getString(Becario.COL_CARTA_ASIGNACION_BECA));
+                becario.setCartaAgradecimiento(rs.getString(Becario.COL_CARTA_AGRADECIMIENTO));
             }
             
         } catch (SQLException e) {

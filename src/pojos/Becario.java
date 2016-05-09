@@ -45,6 +45,7 @@ public class Becario {
     boolean pendiente;
     String estudioSocioEconomico;
     String cartaAsignacionBeca;
+    String cartaAgradecimiento;
     String cuentaBancaria;
     int idBanco;
     String clabeInterbancaria;
@@ -337,7 +338,14 @@ public class Becario {
     public void setActivo(int activo) {
         this.activo = activo;
     }
-    
+
+    public String getCartaAgradecimiento() {
+        return cartaAgradecimiento;
+    }
+
+    public void setCartaAgradecimiento(String cartaAgradecimiento) {
+        this.cartaAgradecimiento = cartaAgradecimiento;
+    }   
     
     public final static String COL_ID = "id_becario";
     public final static String COL_NOMBRE = "nombre";
@@ -370,6 +378,7 @@ public class Becario {
     public final static String COL_PENDIENTE = "pendiente";
     public final static String COL_ESTUDIO_SOCIOECONOMICO = "estudio_socioeconomico";
     public final static String COL_CARTA_ASIGNACION_BECA = "carta_asignacion_beca";
+    public final static String COL_CARTA_AGRADECIMIENTO = "carta_agradecimiento";
     public final static String COL_CUENTA_BANCO = "cuenta_bancaria";
     public final static String COL_ID_BANCO = "id_banco";
     public final static String COL_CLABE_INTERBANCARIA = "clabe_interbancaria";

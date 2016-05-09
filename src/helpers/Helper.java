@@ -78,6 +78,7 @@ public class Helper {
     public final static int FILE_PAGARE = 7;
     public final static int FILE_ESTUDIO_SOCIECONOMICO = 8;
     public final static int FILE_CARTA_ASIGNACION_BECA = 9;
+    public final static int FILE_CARTA_AGRADECIMIENTO = 10;
     
     public void cursorEspera(JFrame vista){
         //vista.setCursor(new Cursor(Cursor.WAIT_CURSOR));     

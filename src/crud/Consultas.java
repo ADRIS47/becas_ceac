@@ -277,7 +277,8 @@ public class Consultas {
             + "becario." + Becario.COL_PAGARE + ", becario." + Becario.COL_OCUPACION_CONYUGE + ", "
             + "becario." + Becario.COL_ID_BANCO + ", becario." + Becario.COL_CUENTA_BANCO + ", "
             + "becario." + Becario.COL_CLABE_INTERBANCARIA + ", " + Becario.COL_ACTIVO + ", "
-            + "becario." + Becario.COL_CARTA_ASIGNACION_BECA + ", " + Becario.COL_ESTUDIO_SOCIOECONOMICO + " "
+            + "becario." + Becario.COL_CARTA_ASIGNACION_BECA + ", " + Becario.COL_ESTUDIO_SOCIOECONOMICO + ", "
+            + "becario." + Becario.COL_CARTA_AGRADECIMIENTO + " "
             + "FROM beca_becario AS becario "
             + "WHERE becario." + Becario.COL_FOLIO + " = ?";
     
