@@ -19,6 +19,7 @@ import java.awt.Component;
 import java.io.File;
 import java.nio.file.Path;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -1141,15 +1142,15 @@ public class PrincipalControlador {
         //Se obtiene el ap materno del becario
         becario.setApMaterno(vistaRegistro.txtApMaternoBecado.getText());
         //Se obtiene la fecha de nacimiento del becario
-//        if (vistaRegistro.txtFechaNacimiento.getText().length() > 0) {
-//            long fecha = getFecha(vistaRegistro.txtFechaNacimiento.getText());
-//            becario.setFecha_nac(new Date(fecha));
-//        }
+        if (vistaRegistro.txtFechaNacimiento.getText().length() > 0) {
+            long fecha = getFecha(vistaRegistro.txtFechaNacimiento.getText());
+            becario.setFecha_nac(new Date(fecha));
+        }
         
-        java.util.Date fechaNac = helper.getFechaDateChooser(vistaRegistro.txtFechaNacimiento);
-        if(fechaNac == null)
-            return null;
-        becario.setFecha_nac(helper.convertUtilDateToSqlDate(fechaNac));
+        //java.util.Date fechaNac = helper.getFechaDateChooser(vistaRegistro.txtFechaNacimiento);
+//        if(fechaNac == null)
+//            return null;
+//        becario.setFecha_nac(helper.convertUtilDateToSqlDate(fechaNac));
         
         //Se obtiene los datos del conyuge
         becario.setNombreConyuge(vistaRegistro.txtNombreConyuge.getText());
@@ -2122,7 +2123,7 @@ public class PrincipalControlador {
         vistaRegistro.txtNombreBecado.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtNombreBecado));
         vistaRegistro.txtApPaternoBecado.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtApPaternoBecado));
         vistaRegistro.txtApMaternoBecado.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtApPaternoBecado));
-        //vistaRegistro.txtFechaNacimiento.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.FECHA_NACIMIENTO, vistaRegistro.txtFechaNacimiento));
+        vistaRegistro.txtFechaNacimiento.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.FECHA_NACIMIENTO, vistaRegistro.txtFechaNacimiento));
 
         //Telefonos del becado
         vistaRegistro.txtTel1Becado.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.TELEFONO, vistaRegistro.txtTel1Becado));
@@ -2464,11 +2465,11 @@ public class PrincipalControlador {
         vistaRegistro.txtNombreBecado.setText(becario.getNombre());
         vistaRegistro.txtApPaternoBecado.setText(becario.getApPaterno());
         vistaRegistro.txtApMaternoBecado.setText(becario.getApMaterno());
-//        if (becario.getFecha_nac() != null) {
-//            vistaRegistro.txtFechaNacimiento.setText(helper.formateaFechaBD(becario.getFecha_nac()));
-//        }
+        if (becario.getFecha_nac() != null) {
+            vistaRegistro.txtFechaNacimiento.setText(helper.formateaFechaBD(becario.getFecha_nac()));
+        }
         
-        vistaRegistro.txtFechaNacimiento.setDate(becario.getFecha_nac());
+//        vistaRegistro.txtFechaNacimiento.setDate(becario.getFecha_nac());
         
         vistaRegistro.comboBxTrabajaBecado.setSelectedIndex(becario.getTrabaja());
         vistaRegistro.combobxSexoBecado.setSelectedIndex(becario.getIdSexo() - 1);
