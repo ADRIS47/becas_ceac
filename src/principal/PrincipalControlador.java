@@ -365,11 +365,15 @@ public class PrincipalControlador {
         llenaComboCategorias(vistaRegistro.comboBoxPrograma, catPrograma);
         llenaComboCategorias(vistaRegistro.combobxSexoBecado, catSexo);
         llenaComboCategorias(lstVistaParentesco.get(0).cmbNivelEstudiosPariente, catNivelEstudios);
+        llenaComboCategorias(lstVistaParentesco.get(1).cmbNivelEstudiosPariente, catNivelEstudios);
         llenaComboCategorias(lstVistaHermanos.get(0).cmbNivelEstudiosHermano, catNivelEstudios);
         llenaComboCategorias(lstVistaParentesco.get(0).cmbParentesco, catParentesco);
+        llenaComboCategorias(lstVistaParentesco.get(1).cmbParentesco, catParentesco);
         llenaComboCategorias(vistaRegistro.cmboxEscuelaUniversitaria, catUniversidad);
         llenaComboCategorias(vistaRegistro.cmboxCampoEscuela, catCampoEstudio);
         llenaComboCategorias(vistaRegistro.cmbTipoEscuela, catTipoEscuela);
+        
+        lstVistaParentesco.get(1).cmbParentesco.setSelectedIndex(1);
 
         if (bandera) {
             vistaRegistro.cmbEstatus.removeAllItems();
@@ -466,6 +470,7 @@ public class PrincipalControlador {
      */
     private void llenaPanelesVistaRegistro() {
         PnlParentesco vistaParentesco = new PnlParentesco();
+        PnlParentesco vistaParentesco2 = new PnlParentesco();
         PnlHermanos vistaHermanos = new PnlHermanos();
         PnlHijos vistaHijos = new PnlHijos();
         PnlDireccion vistaDireccion = new PnlDireccion();
@@ -478,12 +483,14 @@ public class PrincipalControlador {
         //vistaOpcionGuardar.setControlador(this);
 
         helper.agregaJPanel(vistaParentesco, vistaRegistro.pnlParentesco);
+        helper.agregaJPanel(vistaParentesco2, vistaRegistro.pnlParentesco);
         helper.agregaJPanel(vistaHermanos, vistaRegistro.pnlHermanos);
         helper.agregaJPanel(vistaHijos, vistaRegistro.pnlHijos);
         helper.agregaJPanel(vistaDireccion, vistaRegistro.pnlDirecciones);
         //helper.agregaJPanel(vistaOpcionGuardar, vistaRegistro.pnlOpciones);
 
         lstVistaParentesco.add(vistaParentesco);
+        lstVistaParentesco.add(vistaParentesco2);
         lstVistaHermanos.add(vistaHermanos);
         lstVistaHijos.add(vistaHijos);
         lstVistaDireccion.add(vistaDireccion);
