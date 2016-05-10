@@ -145,6 +145,13 @@ public class Update {
     public static String updateCampoActivoBecario = "UPDATE beca_becario "
             + "SET " + Becario.COL_ACTIVO + " = ? "
             + "WHERE " + Becario.COL_ID + " = ?";
+    
+    /**
+     * Trunca al becario
+     */
+    public static String updateTruncaBecario = "UPDATE beca_becario "
+            + "SET " + Becario.COL_ESTATUS + " = ?, " + Becario.COL_TIPO_ESTATUS + " = ? "
+            + "WHERE " + Becario.COL_ID + " = ?";
 
     /**
      * Crea un query para actualizar un registro de una tabla categoría

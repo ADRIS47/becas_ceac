@@ -18,7 +18,6 @@ import java.awt.Color;
 import java.awt.Component;
 import java.io.File;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -41,11 +40,11 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.table.DefaultTableColumnModel;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
 import pojos.Aval;
 import pojos.Becario;
-import pojos.CatCategorias;
 import pojos.CatColumnasTabla;
 import pojos.CatUniversidad;
 import pojos.DatosEscolares;
@@ -180,6 +179,8 @@ public class PrincipalControlador {
      * respectivos datos
      */
     public void creaVistaRegistro() {
+        helper.cursorEspera(vista);
+        
         if (vistaRegistro != null) {
             terminaVistaRegistro();
         }
@@ -192,6 +193,8 @@ public class PrincipalControlador {
         if (vistaKardex != null) {
             terminaVistaKardex();
         }
+        
+        vaciaLstFiles();
 
         List<LinkedHashMap<Integer, String>> lstCategorias = null;
 
@@ -202,6 +205,7 @@ public class PrincipalControlador {
             lstCategorias = modelo.getCategoriasVistaRegistro();
             llenaCamposCategoriasVistaRegistro(lstCategorias, false);
         } catch (SQLException ex) {
+            helper.cursorNormal(vista);
             Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(vista, "Error, consulta el registro de errores",
                     "Error", JOptionPane.ERROR_MESSAGE);
@@ -221,6 +225,7 @@ public class PrincipalControlador {
         //Helper.getBecaSemestral(vistaRegistro.cmboxSemestresTotalesCarrera, vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre);
         //Helper.getFechaGraduacion(vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca, vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion, vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera);
 
+        helper.cursorNormal(vista);
         creaPantalla(vistaRegistro);
     }
 
@@ -228,6 +233,7 @@ public class PrincipalControlador {
      * Crea la pantalla de busqueda de becarios
      */
     protected void creaVistaBusqueda() {
+        helper.cursorEspera(vista);
         if (vistaBusqueda != null) {
             terminaVistaBusqueda();
         }
@@ -254,6 +260,7 @@ public class PrincipalControlador {
             return;
         }
 
+        helper.cursorNormal(vista);
         creaPantalla(vistaBusqueda);
 
         helper.setAñoActualEnCombo(vistaBusqueda.cmbAnioRegistro);
@@ -261,6 +268,8 @@ public class PrincipalControlador {
     }
 
     protected void creaVistaKardex() {
+        
+        helper.cursorEspera(vista);
         if (vistaKardex != null) {
             terminaVistaKardex();
         }
@@ -290,12 +299,14 @@ public class PrincipalControlador {
             creaPantalla(vistaKardex);
 
         }
+        helper.cursorNormal(vista);
     }
     
     /**
      * Crea la vista de los catalogos
      */
     protected void creaVistaCatalogos() {
+        helper.cursorEspera(vista);
         if (vistaCatalogos != null) {
             terminaVistaCatalogos();
         }
@@ -307,6 +318,7 @@ public class PrincipalControlador {
         creaPantalla(vistaCatalogos);
         
         llenaCamposVistaCategorias();
+        helper.cursorNormal(vista);
     }
 
     /**
@@ -777,10 +789,12 @@ public class PrincipalControlador {
                 //Se valida que los correos electronicos sean iguales
                 boolean email = helper.validaEmail(vistaRegistro.txtCorreoBecario.getText(),
                         vistaRegistro.txtCorreoBecario2.getText());
-                boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
+                
+                //boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
 
                 //Si los email son iguales se procede a tomar los valores e insertarlos
-                if (email && fecha) {
+                //if (email && fecha) {
+                if (email) {
                     insertBecario(true);
                 } else if (email == false) {
                     JOptionPane.showMessageDialog(vistaRegistro, "Correos electrónicos diferentes",
@@ -795,9 +809,10 @@ public class PrincipalControlador {
             //Se valida que los correos electronicos sean iguales
             boolean email = helper.validaEmail(vistaRegistro.txtCorreoBecario.getText(),
                     vistaRegistro.txtCorreoBecario2.getText());
-            boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
+            //boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
             //Si los email son iguales se procede a tomar los valores e insertarlos
-            if (email && fecha) {
+            //if (email && fecha) {
+            if (email) {
                 insertBecario(false);
             } else if (email == false) {
                 JOptionPane.showMessageDialog(vistaRegistro, "Correos electrónicos diferentes",
@@ -937,6 +952,7 @@ public class PrincipalControlador {
      * Actualiza la informacion del becario en cuestión
      */
     protected void UpdateBecario() {
+        helper.cursorEspera(vista);
         boolean vacio = validaCamposVacios();
 
         // Si hay campos vacios en el formulario se pregunta si se quiere guardar el becario y llenarlo después
@@ -946,12 +962,14 @@ public class PrincipalControlador {
                 //Se valida que los correos electronicos sean iguales
                 boolean email = helper.validaEmail(vistaRegistro.txtCorreoBecario.getText(),
                         vistaRegistro.txtCorreoBecario2.getText());
-                boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
+               // boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
 
                 //Si los email son iguales se procede a tomar los valores e insertarlos
-                if (email && fecha) {
+                //if (email && fecha) {
+                if (email) {
                     updateBecario();
                 } else if (email == false) {
+                    helper.cursorNormal(vista);
                     JOptionPane.showMessageDialog(vistaRegistro, "Correos electrónicos diferentes",
                             "Verifica los correos electrónicos", JOptionPane.WARNING_MESSAGE);
                 }
@@ -962,11 +980,14 @@ public class PrincipalControlador {
             //Se valida que los correos electronicos sean iguales
             boolean email = helper.validaEmail(vistaRegistro.txtCorreoBecario.getText(),
                     vistaRegistro.txtCorreoBecario2.getText());
-            boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
+            //boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
             //Si los email son iguales se procede a tomar los valores e insertarlos
-            if (email && fecha) {
+            //if (email && fecha) {
+            if (email) {
                 updateBecario();
             }
+            else
+                helper.cursorNormal(vista);
         }
     }
 
@@ -1111,10 +1132,16 @@ public class PrincipalControlador {
         //Se obtiene el ap materno del becario
         becario.setApMaterno(vistaRegistro.txtApMaternoBecado.getText());
         //Se obtiene la fecha de nacimiento del becario
-        if (vistaRegistro.txtFechaNacimiento.getText().length() > 0) {
-            long fecha = getFecha(vistaRegistro.txtFechaNacimiento.getText());
-            becario.setFecha_nac(new Date(fecha));
-        }
+//        if (vistaRegistro.txtFechaNacimiento.getText().length() > 0) {
+//            long fecha = getFecha(vistaRegistro.txtFechaNacimiento.getText());
+//            becario.setFecha_nac(new Date(fecha));
+//        }
+        
+        java.util.Date fechaNac = helper.getFechaDateChooser(vistaRegistro.txtFechaNacimiento);
+        if(fechaNac == null)
+            return null;
+        becario.setFecha_nac(helper.convertUtilDateToSqlDate(fechaNac));
+        
         //Se obtiene los datos del conyuge
         becario.setNombreConyuge(vistaRegistro.txtNombreConyuge.getText());
         becario.setApPaternoConyuge(vistaRegistro.txtApPaternoConyuge.getText());
@@ -2075,7 +2102,7 @@ public class PrincipalControlador {
         vistaRegistro.txtNombreBecado.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtNombreBecado));
         vistaRegistro.txtApPaternoBecado.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtApPaternoBecado));
         vistaRegistro.txtApMaternoBecado.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtApPaternoBecado));
-        vistaRegistro.txtFechaNacimiento.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.FECHA_NACIMIENTO, vistaRegistro.txtFechaNacimiento));
+        //vistaRegistro.txtFechaNacimiento.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.FECHA_NACIMIENTO, vistaRegistro.txtFechaNacimiento));
 
         //Telefonos del becado
         vistaRegistro.txtTel1Becado.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.TELEFONO, vistaRegistro.txtTel1Becado));
@@ -2190,18 +2217,21 @@ public class PrincipalControlador {
      * @param folio
      */
     protected void getInfoBecarioPorFolio(String folio) {
-
+        
+        helper.cursorEspera(vista);
         Conexion conn = new Conexion();
         Connection conexion = null;
         conexion = conn.estableceConexion();
 
         if (conexion == null) {
+            helper.cursorNormal(vista);
             JOptionPane.showMessageDialog(vista, "No se pudo conectar a la base de datos. \n Intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         Becario becario = modelo.getBecarioPorFolio(conexion, folio);
         if (becario == null) {
+            helper.cursorNormal(vista);
             JOptionPane.showMessageDialog(vista, "No se encontraron Becarios", "No hay registros", JOptionPane.INFORMATION_MESSAGE);
             try {
                 conexion.close();
@@ -2240,6 +2270,7 @@ public class PrincipalControlador {
             log.muestraErrores(ex);
             Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
         }
+        helper.cursorNormal(vista);
 
     }
 
@@ -2250,12 +2281,15 @@ public class PrincipalControlador {
      * @param estatus
      */
     protected void getInfoBecarioPorProgramaEstatus(String programa, String estatus) {
+        
+        helper.cursorEspera(vista);
         Conexion conn = new Conexion();
         Connection conexion = null;
         conexion = conn.estableceConexion();
         List<Becario> lstBecario = new ArrayList<>();
 
         if (conexion == null) {
+            helper.cursorNormal(vista);
             JOptionPane.showMessageDialog(vista, "No se pudo conectar a la base de datos. \n Intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -2264,11 +2298,13 @@ public class PrincipalControlador {
         int idEstatus = getIdCmbBox(estatus, catEstatus);
         lstBecario = modelo.getBecarioPorProgramaEstatus(conexion, idPrograma, idEstatus);
         if (lstBecario.isEmpty()) {
+            helper.cursorNormal(vista);
             JOptionPane.showMessageDialog(vista, "No se encontraron Becarios", "No hay registros", JOptionPane.INFORMATION_MESSAGE);
             return;
         }
 
         llenaTablaBusqueda(lstBecario, conexion);
+        helper.cursorNormal(vista);
     }
 
     /**
@@ -2279,10 +2315,12 @@ public class PrincipalControlador {
      * @param aMaterno
      */
     protected void getInfoBecarioPorNombre(String nombre, String aPaterno, String aMaterno) {
+        helper.cursorEspera(vista);
         Conexion conn = new Conexion();
         Connection conexion = conn.estableceConexion();
         List<Becario> lstBecario = new ArrayList<>();
         if (conexion == null) {
+            helper.cursorNormal(vista);
             JOptionPane.showMessageDialog(vistaBusqueda, "No se pudo conectar a la base de datos, intentalo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
             log.muestraErrores(new SQLException("No se pudo conectar a la base de datos"));
             return;
@@ -2291,11 +2329,13 @@ public class PrincipalControlador {
         lstBecario = modelo.getBecarioPorNombres(conexion, nombre, aPaterno, aMaterno);
 
         if (lstBecario.isEmpty()) {
+            helper.cursorNormal(vista);
             JOptionPane.showMessageDialog(vista, "No se encontraron Becarios", "No hay registros", JOptionPane.INFORMATION_MESSAGE);
             return;
         }
 
         llenaTablaBusqueda(lstBecario, conexion);
+        helper.cursorNormal(vista);
     }
 
     /**
@@ -2404,9 +2444,12 @@ public class PrincipalControlador {
         vistaRegistro.txtNombreBecado.setText(becario.getNombre());
         vistaRegistro.txtApPaternoBecado.setText(becario.getApPaterno());
         vistaRegistro.txtApMaternoBecado.setText(becario.getApMaterno());
-        if (becario.getFecha_nac() != null) {
-            vistaRegistro.txtFechaNacimiento.setText(helper.formateaFechaBD(becario.getFecha_nac()));
-        }
+//        if (becario.getFecha_nac() != null) {
+//            vistaRegistro.txtFechaNacimiento.setText(helper.formateaFechaBD(becario.getFecha_nac()));
+//        }
+        
+        vistaRegistro.txtFechaNacimiento.setDate(becario.getFecha_nac());
+        
         vistaRegistro.comboBxTrabajaBecado.setSelectedIndex(becario.getTrabaja());
         vistaRegistro.combobxSexoBecado.setSelectedIndex(becario.getIdSexo() - 1);
         vistaRegistro.combobxCivilBecado.setSelectedIndex(becario.getIdEstadoCivil() - 1);
@@ -2676,12 +2719,12 @@ public class PrincipalControlador {
     }
     
     /**
-     * Llena los combo box de las categorias
+     * Llena los combo box de la pantalla VistaCatalogos
      */
     protected void llenaCamposVistaCategorias() {
         
         //Si no se ha llenado la tabla
-        
+        helper.cursorEspera(vista);
             Conexion conn = new Conexion();
             Connection conexion = conn.estableceConexion();
             if(catCatalogos == null){
@@ -2702,21 +2745,26 @@ public class PrincipalControlador {
             
             
             DefaultTableModel tblModel = (DefaultTableModel) vistaCatalogos.TblDescripcionCatalogo.getModel();
-            DefaultTableColumnModel columnModel = (DefaultTableColumnModel) vistaCatalogos.TblDescripcionCatalogo.getColumnModel();
             
             int filas = tblModel.getRowCount();
             for (int i = 0; i < filas; i++) {
                 tblModel.removeRow(0);
             }
             
-            if(vistaCatalogos.TblDescripcionCatalogo.getColumnModel().getColumnCount() > 1)
-                vistaCatalogos.TblDescripcionCatalogo.getColumnModel().removeColumn(vistaCatalogos.TblDescripcionCatalogo.getColumnModel().getColumn(1));
-            
-            if(nombreTabla.toLowerCase().contains("universidad"))
-                tblModel.addColumn("Tipo de Escuela");
-                
             llenaTabla(catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo);
             
+//            
+//            if(columnModel.getColumnCount() > 1)
+//                columnModel.removeColumn(columnModel.getColumn(1));
+//            
+//            
+//            if(!nombreTabla.toLowerCase().contains("universidad")){
+//                filas = tblModel.getRowCount();
+//                for (int i = 0; i < filas; i++) {
+//                    if(tblModel.isCellEditable(i, 1))
+//                        tblModel.
+//                }
+//            }
             
             
             tblModel.addRow(new String[]{});
@@ -2725,7 +2773,7 @@ public class PrincipalControlador {
                 conexion.close();
             }
             catch(SQLException e){log.muestraErrores(e);}
-        
+        helper.cursorNormal(vista);
         
     }
 
@@ -2739,6 +2787,9 @@ public class PrincipalControlador {
 
         List<DatosEscolares> lstDatosEscolares = new ArrayList<>();
         List<CatUniversidad> lstCatUniversidad = new ArrayList<>();
+        
+        //Se obtiene el id del estatus cancelado
+        int idCancelado = modelo.getEstatusCancelado(conexion);
 
         //Se obtiene la información restante para llenar la tabla de resultados
         for (Becario becario : lstBecario) {
@@ -2769,6 +2820,10 @@ public class PrincipalControlador {
                 + "/" + lstDatosEscolares.get(i).getAnioInicioBeca(), lstDatosEscolares.get(i).getMesGraduacion()
                 + "/" + lstDatosEscolares.get(i).getAnioGraduacion()
             });
+//            if(becario.getIdEstatus() == idCancelado){
+//                rows = modelo.getRowCount();
+//                vistaBusqueda.tblResultadoBusqueda.getValueAt(rows, rows)
+//            }
 
             i++;
         }
@@ -2881,11 +2936,13 @@ public class PrincipalControlador {
         JTextField txtCampo = (JTextField) panel.getComponent(3);
         txtCampo.setText("Esto es una prueba");*/
 
+        helper.cursorEspera(vista);
         Conexion conn = new Conexion();
         Connection conexion = conn.estableceConexion();
         boolean response = false;
         int semestres = 0;
         if (conexion == null) {
+            helper.cursorNormal(vista);
             JOptionPane.showMessageDialog(vistaKardex, "No se pudo conectar a la base de datos, intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
             log.muestraErrores(new SQLException("No se pudo conectar a la base de datos, intentelo de nuevo"));
             return;
@@ -2905,6 +2962,7 @@ public class PrincipalControlador {
 
             //Se verifica que se actualizaron los datos bancarios
             if (response == false) {
+                helper.cursorNormal(vista);
                 JOptionPane.showMessageDialog(vistaKardex, "No se pudo actualizar el kardex del becario, intentelo más tarde", "Error", JOptionPane.ERROR_MESSAGE);
                 conexion.rollback();
                 return;
@@ -2927,11 +2985,13 @@ public class PrincipalControlador {
             response = modelo.insertOrUpdateKardexBecario(conexion, lstKardex, lstFilesBoletas, lstFilesCartaServCom, becario);
             //Se verifica que se actualizaron los datos bancarios
             if (response == false) {
+                helper.cursorNormal(vista);
                 JOptionPane.showMessageDialog(vistaKardex, "No se pudo actualizar el kardex del becario, intentelo más tarde", "Error", JOptionPane.ERROR_MESSAGE);
                 conexion.rollback();
                 return;
             }
             conexion.commit();
+            helper.cursorNormal(vista);
             JOptionPane.showMessageDialog(vistaKardex, "¡Kardex actualizado!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 
         } catch (SQLException e) {
@@ -3040,6 +3100,18 @@ public class PrincipalControlador {
         for (File transferencia : lstFilesTransferencias) {
             transferencia = null;
         }
+        
+        fileActaNacimiento = null;
+        fileBoleta_calificaciones_inicial = null;
+        fileCartaAsignacionBeca = null;
+        fileCarta_solicitud = null;
+        fileContrato = null;
+        fileEnsayo = null;
+        fileEstudioSocioeconomico = null;
+        fileFoto = null;
+        fileIneAval = null;
+        fileIneBecario = null;
+        filePagare = null;
     
     }
 
@@ -3103,7 +3175,7 @@ public class PrincipalControlador {
      * Inserta, Actualiza o Elimina los datos de un catalogo
      */
     protected void crudCatalogo() {
-        
+        helper.cursorEspera(vista);
         Conexion conn = new Conexion();
         Connection conexion = conn.estableceConexion();
         List<String> lstDatosTabla = new ArrayList<>();
@@ -3135,9 +3207,11 @@ public class PrincipalControlador {
                 int i = 0;
                 for (String dato : lstDatosTabla) {
                     boolean response = modelo.updateCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas);
-                    if(response == false)
-                      throw new SQLException("No se pudo actualiza el catalogo " 
+                    if(response == false){
+                      helper.cursorNormal(vista);
+                        throw new SQLException("No se pudo actualiza el catalogo " 
                                 + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
+                    }
                     i++;
                 }
             }
@@ -3149,19 +3223,21 @@ public class PrincipalControlador {
                     //Se actualizan los registros que ya existen en la bd
                     if(i < totalRegistros){
                         boolean response = modelo.updateCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas);
-                        if(response == false)
-                          throw new SQLException("No se pudo actualiza el catalogo " 
+                        if(response == false){
+                            helper.cursorNormal(vista);
+                            throw new SQLException("No se pudo actualiza el catalogo " 
                                     + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
+                        }
                     }
                     else{
                         boolean response = modelo.insertRegistroCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas);
-                        if(response == false)
-                          throw new SQLException("No se pudo insertar el registro en el catalogo " 
+                        if(response == false){
+                            helper.cursorNormal(vista);
+                            throw new SQLException("No se pudo insertar el registro en el catalogo " 
                                     + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
+                        }
                     }
                     i++;
-                    
-                    
                 }
             }
             //Si existen menos registros en la tabla de los que ya se tienen registrados en la base de datos
@@ -3172,22 +3248,28 @@ public class PrincipalControlador {
                     //Se actualizan los registros que ya existen en la bd
                     if(i < totalFilas){
                         boolean response = modelo.updateCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas);
-                        if(response == false)
-                          throw new SQLException("No se pudo actualiza el catalogo " 
+                        if(response == false){
+                            helper.cursorNormal(vista);
+                            throw new SQLException("No se pudo actualiza el catalogo " 
                                     + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
+                        }
                     }
                     i++;
                 }
                 boolean response = modelo.deleteRegistroCatalogo(conexion, i + 1, nombreTabla, nombreColumnas);
-                        if(response == false)
-                          throw new SQLException("No se pudo borrar el registro en el catalogo " 
+                        if(response == false){
+                            helper.cursorNormal(vista);
+                            throw new SQLException("No se pudo borrar el registro en el catalogo " 
                                     + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
+                        }
             }
             
             conexion.commit();
+            helper.cursorNormal(vista);
             JOptionPane.showMessageDialog(vistaCatalogos, "Tabla " + nombreTabla + " actualizada");
 
         } catch (SQLException ex) {
+            helper.cursorNormal(vista);
             JOptionPane.showMessageDialog(vistaCatalogos, "No se pudo actualiza el catalogo " 
                                 + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
             log.muestraErrores(ex);
@@ -3200,10 +3282,7 @@ public class PrincipalControlador {
                 log.muestraErrores(ex);
             }
         }
-        
-        System.out.println("Filas: " + totalFilas);
-        
-        
+        //System.out.println("Filas: " + totalFilas);        
     }
 
     /**
@@ -3211,20 +3290,62 @@ public class PrincipalControlador {
      */
     protected void desactivaBecario() {
         
-        Conexion conn = new Conexion();
-        Connection conexion = conn.estableceConexion();
+//        int response = JOptionPane.showConfirmDialog(vistaRegistro, 
+//                "¿Seguro que desea desactivar al becario", "Desactivación de becario", JOptionPane.YES_NO_OPTION);
+        Connection conexion = null;
+        String[] opciones = new String[]{"Truncar al Becario", "Dar de baja al Becario", "Cancelar"};
+        int response = JOptionPane.showOptionDialog(vistaRegistro, "¿Qué desea hacer?", 
+                "Advertencia", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, opciones, opciones[0]);
         
-        if(conexion == null){
-            JOptionPane.showMessageDialog(vistaRegistro, "No se pudo conectar a la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
-            log.muestraErrores(new SQLException("No se pudo conectar a la base de datos"));
+        
+        //Si se decidió truncar al becario
+        if(response == 0){
+            helper.cursorEspera(vista);
+            Conexion conn = new Conexion();
+            conexion = conn.estableceConexion();
+
+            if(conexion == null){
+                JOptionPane.showMessageDialog(vistaRegistro, "No se pudo conectar a la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
+                log.muestraErrores(new SQLException("No se pudo conectar a la base de datos"));
+            }
+
+            Becario becario = modelo.getBecarioPorFolio(conexion, vistaRegistro.txtFolio.getText());
+            //boolean result = modelo.updateCampoActivoBecario(conexion, becario, false);
+            boolean result = modelo.updateTruncaBecario(conexion, becario);
+            
+            helper.cursorNormal(vista);
+            if(result)
+                JOptionPane.showMessageDialog(vistaRegistro, "El becario con el folio " + becario.getFolio() + " ha sido truncado", "Exito", JOptionPane.DEFAULT_OPTION);
+            else
+                JOptionPane.showMessageDialog(vistaRegistro, "No se pudo deshabilitar al becario", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else if(response == 1){
+            helper.cursorEspera(vista);
+            Conexion conn = new Conexion();
+            conexion = conn.estableceConexion();
+
+            if(conexion == null){
+                JOptionPane.showMessageDialog(vistaRegistro, "No se pudo conectar a la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
+                log.muestraErrores(new SQLException("No se pudo conectar a la base de datos"));
+            }
+
+            Becario becario = modelo.getBecarioPorFolio(conexion, vistaRegistro.txtFolio.getText());
+            //boolean result = modelo.updateCampoActivoBecario(conexion, becario, false);
+            boolean result = modelo.updateCampoActivoBecario(conexion, becario, false);
+            
+            helper.cursorNormal(vista);
+            if(result)
+                JOptionPane.showMessageDialog(vistaRegistro, "El becario con el folio " + becario.getFolio() + " ha sido inhabilitado", "Exito", JOptionPane.DEFAULT_OPTION);
+            else
+                JOptionPane.showMessageDialog(vistaRegistro, "No se pudo deshabilitar al becario", "Error", JOptionPane.ERROR_MESSAGE);
         }
         
-        Becario becario = modelo.getBecarioPorFolio(conexion, vistaRegistro.txtFolio.getText());
-        boolean result = modelo.updateCampoActivoBecario(conexion, becario, false);
-        
-        if(result)
-            JOptionPane.showMessageDialog(vistaRegistro, "El becario con el folio " + becario.getFolio() + " ha sido inhabilitado", "Exito", JOptionPane.DEFAULT_OPTION);
-        else
-            JOptionPane.showMessageDialog(vistaRegistro, "No se pudo deshabilitar al becario", "Error", JOptionPane.ERROR_MESSAGE);
+        if(conexion != null){
+            try {
+                conexion.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 }

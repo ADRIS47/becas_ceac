@@ -5,9 +5,11 @@
  */
 package helpers;
 
+import com.toedter.calendar.JDateChooser;
 import index.Index;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Cursor;
 import java.awt.Desktop;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -19,6 +21,8 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.sql.Date;
 import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -32,6 +36,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -73,6 +78,18 @@ public class Helper {
     public final static int FILE_PAGARE = 7;
     public final static int FILE_ESTUDIO_SOCIECONOMICO = 8;
     public final static int FILE_CARTA_ASIGNACION_BECA = 9;
+    
+    public void cursorEspera(JFrame vista){
+        //vista.setCursor(new Cursor(Cursor.WAIT_CURSOR));     
+        Cursor cursor = new Cursor(Cursor.WAIT_CURSOR);
+        vista.setCursor(cursor);
+    }
+    
+    public void cursorNormal(JFrame vista){
+        //vista.setCursor(new Cursor(Cursor.WAIT_CURSOR));     
+        Cursor cursor = new Cursor(Cursor.DEFAULT_CURSOR);
+        vista.setCursor(cursor);
+    }
 
     public static void getFechaGraduacion(JComboBox<?> cmbBoxMesInicioCarrera, JComboBox<?> cmbBoxAnioInicioBeca, JComboBox<?> cmbBoxMesGraduacion, JComboBox<?> cmbBoxAnioGraduacion, JComboBox<?> cmbBoxSemestreInicioBeca, JComboBox<?> cmbBoxTotalSemestres) {
         Calendar graduacion = new GregorianCalendar(Integer.parseInt((String) cmbBoxAnioInicioBeca.getSelectedItem()), 
@@ -477,11 +494,14 @@ public class Helper {
 
     public void abreArchivoAdjunto(File archivo) {
         try{ 
-            System.out.println("Archivo: " + archivo.toString());
+            
+            //System.out.println("Archivo: " + archivo.toString());
             //definiendo la ruta en la propiedad file
-            //Runtime.getRuntime().exec("cmd /c start "+ archivo.toString());
-            Desktop.getDesktop().open(archivo);
-
+            if(archivo != null)
+                Desktop.getDesktop().open(archivo);
+            else
+                JOptionPane.showMessageDialog(null, "Debe de cargar un archivo", "Error", JOptionPane.ERROR_MESSAGE);
+            
         }catch(IOException e){
             e.printStackTrace();
         } 
@@ -608,4 +628,43 @@ public class Helper {
         else
             modelo.removeRow(filas - 1);
     }
+    
+    /**
+     * Obtiene la fecha de un JDateChooser
+     * @param chooser
+     * @return 
+     */
+    public java.util.Date getFechaDateChooser(JDateChooser chooser){
+        
+        java.util.Date fecha = null;
+        if(chooser.getDate() != null){
+            fecha = chooser.getDate();
+        }
+        return fecha;
+    }
+    
+    /**
+     * Convierte una fecha tipo util.Date a fecha sql.Date
+     * @param fecha Fecha tipo java.util.Date
+     * @return Fecha convertida en java.sql.Date
+     */
+    public java.sql.Date convertUtilDateToSqlDate(java.util.Date fecha){
+        java.sql.Date nuevaFecha = new java.sql.Date(fecha.getTime());
+        return nuevaFecha;
+    }
+    
+    public java.util.Date convertCadenaAFecha(String fecha){
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        java.util.Date date = null;
+        try{
+            date = formato.parse(fecha);
+        }
+        catch(ParseException e){
+            log.crearLog(e.getMessage());
+        }
+        
+        return date;
+    }
+            
+            
 }

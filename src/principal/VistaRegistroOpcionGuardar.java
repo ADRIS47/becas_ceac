@@ -52,6 +52,7 @@ public class VistaRegistroOpcionGuardar extends javax.swing.JPanel {
         btnImprimir.setPreferredSize(new java.awt.Dimension(160, 29));
 
         btnGuardar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cancel_registro.png"))); // NOI18N
+        btnGuardar3.setEnabled(false);
         btnGuardar3.setPreferredSize(new java.awt.Dimension(160, 29));
 
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adris/vistas/salir.png"))); // NOI18N

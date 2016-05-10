@@ -2892,3 +2892,11 @@
 6/5/2016;13:2:18;Nombre de categoria no encontrado
 6/5/2016;16:47:46;Nombre de categoria no encontrado
 6/5/2016;16:51:46;Nombre de categoria no encontrado
+7/5/2016;17:37:31;SQLError: HY000
+7/5/2016;17:37:31;ERROR: Code1364
+7/5/2016;17:37:31;Message: Field 'id_becario' doesn't have a default value
+7/5/2016;17:46:14;SQLError: HY000
+7/5/2016;17:46:14;ERROR: Code1364
+7/5/2016;17:46:14;Message: Field 'id_becario' doesn't have a default value
+7/5/2016;17:47:53;Nombre de categoria no encontrado
+7/5/2016;17:51:53;Nombre de categoria no encontrado
