@@ -103,6 +103,7 @@ public class PrincipalControlador {
     LinkedHashMap<Integer, String> catLugarServicioSocial = null;
     LinkedHashMap<Integer, String> catCatalogos = null;
     LinkedHashMap<Integer, String> catDatosCatalogos = null;
+    LinkedHashMap<Integer, String> catNuevosDatosCatalogos = null;
     LinkedHashMap<Integer, String> catMunicipios = null;
 
     List<PnlHijos> lstVistaHijos = new ArrayList<>();
@@ -3378,7 +3379,11 @@ public class PrincipalControlador {
      * Se encarga de buscar la palabra ingresada por el usuario dentro del catalogo que se tiene activo
      */
     protected void getDatosCatalogos() {
-        Helper.getDatosCatalogos(vistaCatalogos.TxtFldDescripcionCatalogo.getText(), 
+        if(catNuevosDatosCatalogos != null){
+            catNuevosDatosCatalogos.clear();
+            catNuevosDatosCatalogos = null;
+        }
+        catNuevosDatosCatalogos = Helper.getDatosCatalogos(vistaCatalogos.TxtFldDescripcionCatalogo.getText(), 
                 catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo);
     }
 }

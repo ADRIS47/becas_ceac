@@ -57,8 +57,9 @@ public class Helper {
      * @param texto Texto a buscar en la lista categorias
      * @param catDatosCatalogos Categoria donde se buscará la palabra
      * @param tblTabla
+     * @return 
      */
-    public static void getDatosCatalogos(String texto, 
+    public static LinkedHashMap<Integer, String> getDatosCatalogos(String texto, 
                         LinkedHashMap<Integer, String> catDatosCatalogos, JTable tblTabla) {
         LinkedHashMap<Integer, String> lstResponse = new LinkedHashMap<>();
         for (Integer key : catDatosCatalogos.keySet()) {
@@ -81,6 +82,7 @@ public class Helper {
             }
         }
         
+        return lstResponse;
     }
     
     Log log = new Log();
