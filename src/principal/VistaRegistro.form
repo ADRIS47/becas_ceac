@@ -40,10 +40,10 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="tbpBecados" min="-2" pref="782" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <Component id="tbpBecados" pref="904" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="pnlOpciones" min="-2" pref="125" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -52,10 +52,11 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="tbpBecados" pref="0" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
+                  <Component id="tbpBecados" pref="553" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                       <Component id="pnlOpciones" min="-2" pref="326" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="226" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -412,11 +413,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="btnFotografia" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="combobxCivilBecado" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="combobxSexoBecado" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="comboBxTrabajaBecado" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnFotografia" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="txtFechaNacimiento" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -1117,7 +1118,7 @@
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="cmboxMesGraduacion" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="cmboxAnioGraduacion" pref="72" max="32767" attributes="0"/>
+                                          <Component id="cmboxAnioGraduacion" pref="287" max="32767" attributes="0"/>
                                       </Group>
                                       <Component id="cmboxEscuelaUniversitaria" max="32767" attributes="0"/>
                                   </Group>
