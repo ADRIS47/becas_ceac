@@ -798,11 +798,11 @@ public class PrincipalControlador {
                 boolean email = helper.validaEmail(vistaRegistro.txtCorreoBecario.getText(),
                         vistaRegistro.txtCorreoBecario2.getText());
                 
-                //boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
+                boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
 
                 //Si los email son iguales se procede a tomar los valores e insertarlos
-                //if (email && fecha) {
-                if (email) {
+                if (email && fecha) {
+                //if (email) {
                     insertBecario(true);
                 } else if (email == false) {
                     JOptionPane.showMessageDialog(vistaRegistro, "Correos electrónicos diferentes",
@@ -817,10 +817,10 @@ public class PrincipalControlador {
             //Se valida que los correos electronicos sean iguales
             boolean email = helper.validaEmail(vistaRegistro.txtCorreoBecario.getText(),
                     vistaRegistro.txtCorreoBecario2.getText());
-            //boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
+            boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
             //Si los email son iguales se procede a tomar los valores e insertarlos
-            //if (email && fecha) {
-            if (email) {
+            if (email && fecha) {
+            //if (email) {
                 int i = JOptionPane.showConfirmDialog(vistaRegistro, "¿Está seguro de asignar al becario en el programa " + vistaRegistro.comboBoxPrograma.getSelectedItem(), "Aviso", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                 if(i == JOptionPane.OK_OPTION)
                     insertBecario(false);
@@ -972,11 +972,11 @@ public class PrincipalControlador {
                 //Se valida que los correos electronicos sean iguales
                 boolean email = helper.validaEmail(vistaRegistro.txtCorreoBecario.getText(),
                         vistaRegistro.txtCorreoBecario2.getText());
-               // boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
+                boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
 
                 //Si los email son iguales se procede a tomar los valores e insertarlos
-                //if (email && fecha) {
-                if (email) {
+                if (email && fecha) {
+                //if (email) {
                     updateBecario();
                 } else if (email == false) {
                     helper.cursorNormal(vista);
@@ -990,10 +990,10 @@ public class PrincipalControlador {
             //Se valida que los correos electronicos sean iguales
             boolean email = helper.validaEmail(vistaRegistro.txtCorreoBecario.getText(),
                     vistaRegistro.txtCorreoBecario2.getText());
-            //boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
+            boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
             //Si los email son iguales se procede a tomar los valores e insertarlos
-            //if (email && fecha) {
-            if (email) {
+            if (email && fecha) {
+            //if (email) {
                 updateBecario();
             }
             else

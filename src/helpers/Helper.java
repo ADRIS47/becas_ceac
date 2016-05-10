@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -239,25 +240,42 @@ public class Helper {
 
     public boolean validaFechaNacimiento(JTextField txtFechaNacimiento, Component vista) {
         boolean response = false;
-        Pattern patron = null;
-        Matcher matcher;
-        patron = Pattern.compile("^(?:(?:31(\\/)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/)(?:0?[1,3-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$");
+//        Pattern patron = null;
+//        Matcher matcher;
+//        patron = Pattern.compile("^(?:(?:31(\\/)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/)(?:0?[1,3-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$");
+//        
+//        if(txtFechaNacimiento.getText().length() > 0){
+//            matcher = patron.matcher(txtFechaNacimiento.getText());
+//            if(!matcher.matches()){
+//                txtFechaNacimiento.setBackground(Color.ORANGE);
+//                JOptionPane.showMessageDialog(vista, "Fecha de nacimiento incorrecta");
+//            }
+//            else
+//                response = true;
+//            
+//        }
+//        else{
+//            response = true;
+//        }
         
-        if(txtFechaNacimiento.getText().length() > 0){
-            matcher = patron.matcher(txtFechaNacimiento.getText());
-            if(!matcher.matches()){
-                txtFechaNacimiento.setBackground(Color.ORANGE);
-                JOptionPane.showMessageDialog(vista, "Fecha de nacimiento incorrecta");
+        String fecha = txtFechaNacimiento.getText();
+        if(!fecha.isEmpty()){
+            int dia = Integer.parseInt(fecha.substring(0, 2));
+            int mes = Integer.parseInt(fecha.substring(2, 4));
+            int anio = Integer.parseInt(fecha.substring(4, 8));
+//            
+            //Si el mes es menor igual a 12 y mayor igual a 1
+            if(mes <= 12 && mes >= 1){
+                //Si el día es mayor igual a 1 o menor igual a 31 o el mes es igual a 2 y el dia es menor igual a 29 o mayor igual a 1
+                if( (mes != 2 && (dia >= 1 && dia <= 31)) || (mes == 2 && (dia <= 29 && dia >= 1))){
+                    if(anio > 1970 && anio <= 2040)
+                        response = true;
+                }
             }
-            else
-                response = true;
-            
-        }
-        else{
-            response = true;
         }
         
-        
+            if(!response)
+                JOptionPane.showMessageDialog(vista, "Fecha de nacimiento incorrecta");
         return response;
     }
     
