@@ -6,6 +6,7 @@
 package principal;
 
 import crud.Conexion;
+import helpers.EscuchadorBuscaCatalogo;
 import helpers.EscuchadorCalculaBecaXSemestre;
 import helpers.EscuchadorCalculaDescuentoSemestral;
 import helpers.EscuchadorCmbBoxCambiado;
@@ -318,6 +319,10 @@ public class PrincipalControlador {
         creaPantalla(vistaCatalogos);
         
         llenaCamposVistaCategorias();
+        
+//        vistaCatalogos.TxtFldDescripcionCatalogo.addKeyListener(
+//                new EscuchadorBuscaCatalogo(vistaCatalogos.TxtFldDescripcionCatalogo, 
+//                            catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo));
         helper.cursorNormal(vista);
     }
 
@@ -2767,8 +2772,10 @@ public class PrincipalControlador {
             int idTabla = getIdCmbBox(seleccion, catCatalogos);
             String nombreTabla = modelo.getNombreTabla(conexion, idTabla);
             
-            if(catDatosCatalogos != null)
+            if(catDatosCatalogos != null){
                 catDatosCatalogos.clear();
+                catDatosCatalogos = null;
+            }
             catDatosCatalogos = modelo.getDatosCatalogo(conexion, nombreTabla);
             
             
@@ -2779,21 +2786,7 @@ public class PrincipalControlador {
                 tblModel.removeRow(0);
             }
             
-            llenaTabla(catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo);
-            
-//            
-//            if(columnModel.getColumnCount() > 1)
-//                columnModel.removeColumn(columnModel.getColumn(1));
-//            
-//            
-//            if(!nombreTabla.toLowerCase().contains("universidad")){
-//                filas = tblModel.getRowCount();
-//                for (int i = 0; i < filas; i++) {
-//                    if(tblModel.isCellEditable(i, 1))
-//                        tblModel.
-//                }
-//            }
-            
+            llenaTabla(catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo);            
             
             tblModel.addRow(new String[]{});
             
@@ -3379,5 +3372,13 @@ public class PrincipalControlador {
                 Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+
+    /**
+     * Se encarga de buscar la palabra ingresada por el usuario dentro del catalogo que se tiene activo
+     */
+    protected void getDatosCatalogos() {
+        Helper.getDatosCatalogos(vistaCatalogos.TxtFldDescripcionCatalogo.getText(), 
+                catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo);
     }
 }

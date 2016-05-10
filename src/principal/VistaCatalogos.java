@@ -86,6 +86,12 @@ public class VistaCatalogos extends javax.swing.JPanel {
             }
         });
 
+        TxtFldDescripcionCatalogo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtFldDescripcionCatalogoKeyTyped(evt);
+            }
+        });
+
         BtnAddDescripcionCatalogo.setText("Guardar");
         BtnAddDescripcionCatalogo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,6 +228,10 @@ public class VistaCatalogos extends javax.swing.JPanel {
     private void btnEliminarFilaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarFilaActionPerformed
         controlador.eliminaFilaTabla(TblDescripcionCatalogo);
     }//GEN-LAST:event_btnEliminarFilaActionPerformed
+
+    private void TxtFldDescripcionCatalogoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtFldDescripcionCatalogoKeyTyped
+        controlador.getDatosCatalogos();
+    }//GEN-LAST:event_TxtFldDescripcionCatalogoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

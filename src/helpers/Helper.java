@@ -7,7 +7,6 @@ package helpers;
 
 import com.toedter.calendar.JDateChooser;
 import index.Index;
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Desktop;
@@ -26,12 +25,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
@@ -54,6 +51,37 @@ import pojos.Kardex;
  * @author sabagip
  */
 public class Helper {
+
+    /**
+     * Busca sobre una lista de categorías la palabra ingresada
+     * @param texto Texto a buscar en la lista categorias
+     * @param catDatosCatalogos Categoria donde se buscará la palabra
+     * @param tblTabla
+     */
+    public static void getDatosCatalogos(String texto, 
+                        LinkedHashMap<Integer, String> catDatosCatalogos, JTable tblTabla) {
+        LinkedHashMap<Integer, String> lstResponse = new LinkedHashMap<>();
+        for (Integer key : catDatosCatalogos.keySet()) {
+            //combo.addItem(catDatosCatalogos.get(key));
+            String datoCategoria = catDatosCatalogos.get(key);
+            
+            int res = datoCategoria.toLowerCase().indexOf(texto.toLowerCase());
+            if(res != -1)
+                lstResponse.put(key, datoCategoria);
+        }
+        
+        DefaultTableModel modelo = (DefaultTableModel) tblTabla.getModel();
+        if(lstResponse.size() > 0){
+            while(modelo.getRowCount() > 0){
+                int filas = modelo.getRowCount();
+                modelo.removeRow(filas - 1);
+            }
+            for (Integer key : lstResponse.keySet()) {
+                modelo.addRow(new String[]{lstResponse.get(key)});
+            }
+        }
+        
+    }
     
     Log log = new Log();
     
