@@ -145,15 +145,23 @@ public class Insert {
      * @param nombreColumnas
      * @param datoNuevo
      * @param idRegistro
+     * @param bandera False, indica que la tabla NO FUE filtrada.
+     * TRUE indica que la tabla SI FUE filtrada
      * @return 
      */
-    public static String insertRegistroCatalogo(String nombreTabla, CatColumnasTabla nombreColumnas, String datoNuevo, int idRegistro) {
+    public static String insertRegistroCatalogo(String nombreTabla, CatColumnasTabla nombreColumnas, 
+                        String datoNuevo, int idRegistro, boolean bandera) {
         String query = "";
         
-        query = "INSERT INTO  " + nombreTabla 
-                + " (" + nombreColumnas.getNombreColumnaId() + ", " + nombreColumnas.getNombreColumnaNombre() + ") "
-                + " VALUES (" + idRegistro + ", '" + datoNuevo + "')";
-        //System.out.println("Query: " + query);
+        if(bandera == false)
+            query = "INSERT INTO  " + nombreTabla 
+                    + " (" + nombreColumnas.getNombreColumnaId() + ", " + nombreColumnas.getNombreColumnaNombre() + ") "
+                    + " VALUES (" + idRegistro + ", '" + datoNuevo + "')";
+        else
+            query = "INSERT INTO  " + nombreTabla 
+                    + " (" + nombreColumnas.getNombreColumnaNombre() + ") "
+                    + " VALUES ('" + datoNuevo + "')";
+        System.out.println("Query: " + query);
         
         return query;
     }

@@ -2872,15 +2872,19 @@ public class PrincipalModelo {
      * @param idRegistro
      * @param nombreTabla
      * @param nombreColumnas
+     * @param bandera False, indica que la tabla NO FUE filtrada.
+     * TRUE indica que la tabla SI FUE filtrada
      * @return 
      */
-    protected boolean insertRegistroCatalogo(Connection conexion, String datoNuevo, int idRegistro, String nombreTabla, CatColumnasTabla nombreColumnas) {
+    protected boolean insertRegistroCatalogo(Connection conexion, String datoNuevo, 
+                    int idRegistro, String nombreTabla, CatColumnasTabla nombreColumnas, boolean bandera) {
          boolean response = false;
         Statement st = null;
         
         try {
             st = conexion.createStatement();
-            int resp = st.executeUpdate(Insert.insertRegistroCatalogo(nombreTabla, nombreColumnas, datoNuevo, idRegistro));
+            int resp = st.executeUpdate(Insert.insertRegistroCatalogo(nombreTabla, 
+                                    nombreColumnas, datoNuevo, idRegistro, bandera));
             if(resp > 0)
                 response = true;
         } catch (SQLException ex) {

@@ -25,6 +25,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
@@ -2757,6 +2758,7 @@ public class PrincipalControlador {
      */
     protected void llenaCamposVistaCategorias() {
         
+        vistaCatalogos.TxtFldDescripcionCatalogo.setText("");
         //Si no se ha llenado la tabla
         helper.cursorEspera(vista);
             Conexion conn = new Conexion();
@@ -3227,68 +3229,153 @@ public class PrincipalControlador {
             
             //Se obtienen los nombres de las columnas de la tabla a modificar
             CatColumnasTabla nombreColumnas = modelo.getNombreColumnasTabla(conexion, nombreTabla);
-            
-            //Si existen los mismos registros en la tabla como en la base de datos, solo se actualiza la tabla
-            if(totalFilas == totalRegistros){
-                int i = 0;
-                for (String dato : lstDatosTabla) {
-                    boolean response = modelo.updateCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas);
-                    if(response == false){
-                      helper.cursorNormal(vista);
-                        throw new SQLException("No se pudo actualiza el catalogo " 
+
+            //Si no se se han hecho filtraciones
+            if (vistaCatalogos.TxtFldDescripcionCatalogo.getText().isEmpty()) {
+                //Si existen los mismos registros en la tabla como en la base de datos, solo se actualiza la tabla
+                if (totalFilas == totalRegistros) {
+                    int i = 0;
+                    for (String dato : lstDatosTabla) {
+                        boolean response = modelo.updateCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas);
+                        if (response == false) {
+                            helper.cursorNormal(vista);
+                            throw new SQLException("No se pudo actualiza el catalogo "
+                                    + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                        i++;
+                    }
+                } //Si existen más registros en la tabla de los que ya se tienen registrados en la base de datos
+                else if (totalFilas > totalRegistros) {
+                    int i = 0;
+                    //Mientras se recorran los registros existentes solo se actualizan
+                    for (String dato : lstDatosTabla) {
+                        //Se actualizan los registros que ya existen en la bd
+                        if (i < totalRegistros) {
+                            boolean response = modelo.updateCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas);
+                            if (response == false) {
+                                helper.cursorNormal(vista);
+                                throw new SQLException("No se pudo actualiza el catalogo "
+                                        + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
+                            }
+                        } else {
+                            boolean response = modelo.insertRegistroCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas, false);
+                            if (response == false) {
+                                helper.cursorNormal(vista);
+                                throw new SQLException("No se pudo insertar el registro en el catalogo "
+                                        + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
+                            }
+                        }
+                        i++;
+                    }
+                } //Si existen menos registros en la tabla de los que ya se tienen registrados en la base de datos
+                else if (totalFilas < totalRegistros) {
+                    int i = 0;
+                    //Mientras se recorran los registros existentes solo se actualizan
+                    for (String dato : lstDatosTabla) {
+                        //Se actualizan los registros que ya existen en la bd
+                        if (i < totalFilas) {
+                            boolean response = modelo.updateCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas);
+                            if (response == false) {
+                                helper.cursorNormal(vista);
+                                throw new SQLException("No se pudo actualiza el catalogo "
+                                        + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
+                            }
+                        }
+                        i++;
+                    }
+                    boolean response = modelo.deleteRegistroCatalogo(conexion, i + 1, nombreTabla, nombreColumnas);
+                    if (response == false) {
+                        helper.cursorNormal(vista);
+                        throw new SQLException("No se pudo borrar el registro en el catalogo "
                                 + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
                     }
-                    i++;
                 }
             }
-            //Si existen más registros en la tabla de los que ya se tienen registrados en la base de datos
-            else if(totalFilas > totalRegistros){
-                int i = 0;
-                //Mientras se recorran los registros existentes solo se actualizan
-                for (String dato : lstDatosTabla) {
-                    //Se actualizan los registros que ya existen en la bd
-                    if(i < totalRegistros){
-                        boolean response = modelo.updateCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas);
-                        if(response == false){
+            
+            /**
+             * *****************************************************************************
+             */
+            //Si se han hecho filtraciones
+            else{
+                //Si existen los mismos registros en la tabla como en la lista de datos filtrados, solo se actualizan los registros
+                if (totalFilas == catNuevosDatosCatalogos.size()) {
+                    int i = 0;
+                    Iterator<Integer> iterador = catNuevosDatosCatalogos.keySet().iterator();
+                    
+                    while(iterador.hasNext()){
+                        int idRegistro = iterador.next();
+                        
+                        boolean response = modelo.updateCatalogo(conexion, lstDatosTabla.get(i), idRegistro, nombreTabla, nombreColumnas);
+                        if (response == false) {
                             helper.cursorNormal(vista);
-                            throw new SQLException("No se pudo actualiza el catalogo " 
+                            throw new SQLException("No se pudo actualiza el catalogo "
+                                    + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                        i++;
+                    }
+                } 
+                //Si existen más registros en la tabla de los que ya se tienen en la tabla de datos filtrados
+                else if (totalFilas > catNuevosDatosCatalogos.size()) {
+                    int i = 0;
+                    Iterator<Integer> iterador = catNuevosDatosCatalogos.keySet().iterator();
+                    //Mientras se recorran los registros existentes solo se actualizan
+
+                    while(iterador.hasNext()){
+                        int idRegistro = iterador.next();
+
+                        boolean response = modelo.updateCatalogo(conexion, lstDatosTabla.get(i), idRegistro, nombreTabla, nombreColumnas);
+                        if (response == false) {
+                            helper.cursorNormal(vista);
+                            throw new SQLException("No se pudo actualiza el catalogo "
+                                    + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                        i++;
+                    }
+                    
+                    for (int j = i - 1; j < lstDatosTabla.size(); j++) {
+                        boolean response = modelo.insertRegistroCatalogo(conexion, 
+                                    lstDatosTabla.get(j), j + 1, nombreTabla, nombreColumnas, true);
+                        if (response == false) {
+                            helper.cursorNormal(vista);
+                            throw new SQLException("No se pudo insertar el registro en el catalogo "
                                     + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
                         }
                     }
-                    else{
-                        boolean response = modelo.insertRegistroCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas);
-                        if(response == false){
-                            helper.cursorNormal(vista);
-                            throw new SQLException("No se pudo insertar el registro en el catalogo " 
-                                    + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
-                        }
-                    }
                     i++;
-                }
+                    
+                } 
+                //Si existen menos registros en la tabla de los que ya se tienen en los datos filtrados
+                
+                
+                
+                
+                
+                
+//                else if (totalFilas < catNuevosDatosCatalogos.size()) {
+//                    int i = 0;
+//                    //Mientras se recorran los registros existentes solo se actualizan
+//                    for (String dato : lstDatosTabla) {
+//                        //Se actualizan los registros que ya existen en la bd
+//                        if (i < totalFilas) {
+//                            boolean response = modelo.updateCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas);
+//                            if (response == false) {
+//                                helper.cursorNormal(vista);
+//                                throw new SQLException("No se pudo actualiza el catalogo "
+//                                        + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
+//                            }
+//                        }
+//                        i++;
+//                    }
+//                    boolean response = modelo.deleteRegistroCatalogo(conexion, i + 1, nombreTabla, nombreColumnas);
+//                    if (response == false) {
+//                        helper.cursorNormal(vista);
+//                        throw new SQLException("No se pudo borrar el registro en el catalogo "
+//                                + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
+//                    }
+//                }
             }
-            //Si existen menos registros en la tabla de los que ya se tienen registrados en la base de datos
-            else if(totalFilas < totalRegistros){
-                int i = 0;
-                //Mientras se recorran los registros existentes solo se actualizan
-                for (String dato : lstDatosTabla) {
-                    //Se actualizan los registros que ya existen en la bd
-                    if(i < totalFilas){
-                        boolean response = modelo.updateCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas);
-                        if(response == false){
-                            helper.cursorNormal(vista);
-                            throw new SQLException("No se pudo actualiza el catalogo " 
-                                    + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
-                        }
-                    }
-                    i++;
-                }
-                boolean response = modelo.deleteRegistroCatalogo(conexion, i + 1, nombreTabla, nombreColumnas);
-                        if(response == false){
-                            helper.cursorNormal(vista);
-                            throw new SQLException("No se pudo borrar el registro en el catalogo " 
-                                    + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
-                        }
-            }
+            
+            
             
             conexion.commit();
             helper.cursorNormal(vista);
