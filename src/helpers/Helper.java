@@ -663,16 +663,23 @@ public class Helper {
     }
     
     /**
-     * Agrega una fila a la tabla seleccionada
+     * Elimina una fila a la tabla seleccionada y también lo elimina de su respectivo catalogo
      * @param tabla 
+     * @param lstCatalogo 
      */
-    public void eliminaFilaTabla(JTable tabla) {
+    public void eliminaFilaTabla(JTable tabla, LinkedHashMap<Integer, String> lstCatalogo) {
         DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
         int filas = modelo.getRowCount();
         
         //Si hay una fila seleccionada
         if(tabla.getSelectedRow() >= 0){
-            modelo.removeRow(tabla.getSelectedRow());
+//            for (Integer key : lstCatalogo.keySet()) {
+//                if(lstCatalogo.get(key).equals(tabla.getValueAt(tabla.getSelectedRow(), 0))){
+//                    lstCatalogo.remove(key);
+                    modelo.removeRow(tabla.getSelectedRow());
+//                    break;
+//                }
+//            }
         }
         else
             modelo.removeRow(filas - 1);
