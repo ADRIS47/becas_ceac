@@ -3283,7 +3283,7 @@ public class PrincipalControlador {
                         }
                         i++;
                     }
-                    boolean response = modelo.deleteRegistroCatalogo(conexion, i + 1, nombreTabla, nombreColumnas);
+                    boolean response = modelo.deleteRegistroCatalogo(conexion, i + 1, nombreTabla, nombreColumnas, false);
                     if (response == false) {
                         helper.cursorNormal(vista);
                         throw new SQLException("No se pudo borrar el registro en el catalogo "
@@ -3332,20 +3332,50 @@ public class PrincipalControlador {
                         i++;
                     }
                     
-                    for (int j = i - 1; j < lstDatosTabla.size(); j++) {
+                    for (int j = i; j < lstDatosTabla.size(); j++) {
                         boolean response = modelo.insertRegistroCatalogo(conexion, 
-                                    lstDatosTabla.get(j), j + 1, nombreTabla, nombreColumnas, true);
+                                    lstDatosTabla.get(j), catNuevosDatosCatalogos.size(), nombreTabla, nombreColumnas, false);
+                        catNuevosDatosCatalogos.put(i, lstDatosTabla.get(j));
                         if (response == false) {
                             helper.cursorNormal(vista);
                             throw new SQLException("No se pudo insertar el registro en el catalogo "
                                     + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
                         }
+                        catNuevosDatosCatalogos.put(catNuevosDatosCatalogos.size(), lstDatosTabla.get(j));
                     }
                     i++;
                     
                 } 
                 //Si existen menos registros en la tabla de los que ya se tienen en los datos filtrados
-                
+                else if(totalFilas < catNuevosDatosCatalogos.size()){
+                    int i = 0;
+                    Iterator<Integer> iterador = catNuevosDatosCatalogos.keySet().iterator();
+                    //Mientras se recorran los registros existentes solo se actualizan
+
+                    while(iterador.hasNext() && i < totalFilas){
+                        int idRegistro = iterador.next();
+
+                        boolean response = modelo.updateCatalogo(conexion, lstDatosTabla.get(i), idRegistro, nombreTabla, nombreColumnas);
+                        if (response == false) {
+                            helper.cursorNormal(vista);
+                            throw new SQLException("No se pudo actualiza el catalogo "
+                                    + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                        i++;
+                    }
+                    //Ahora solo se borran los id's
+                    while(iterador.hasNext()){
+                        int idRegistro = iterador.next();
+                        boolean response = modelo.deleteRegistroCatalogo(conexion, idRegistro, 
+                                                nombreTabla, nombreColumnas, true);
+                        if (response == false) {
+                            helper.cursorNormal(vista);
+                            throw new SQLException("No se pudo borrar el registro en el catalogo "
+                                    + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
+                    
+                }
                 
                 
                 

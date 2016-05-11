@@ -18,12 +18,19 @@ public class Delete {
      * @param nombreTabla
      * @param nombreColumnas
      * @param idRegistro
-     * @param datoNuevo
+     * @param bandera FALSE.- Indica que NO SE han filtrado el catalogo
+     * TRUE.- Indica que si se ha filtrado el catalogo
      * @return 
      */
-    public static String deletetRegistroCatalogo(String nombreTabla, CatColumnasTabla nombreColumnas, int idRegistro) {        
-        String query = "DELETE FROM " + nombreTabla + " WHERE " + nombreColumnas.getNombreColumnaId() + " >= " + idRegistro;
+    public static String deletetRegistroCatalogo(String nombreTabla, 
+                    CatColumnasTabla nombreColumnas, int idRegistro, boolean bandera) {
+        String query;
+        if(bandera == false)
+            query = "DELETE FROM " + nombreTabla + " WHERE " + nombreColumnas.getNombreColumnaId() + " >= " + idRegistro;
+        else
+            query = "DELETE FROM " + nombreTabla + " WHERE " + nombreColumnas.getNombreColumnaId() + " = " + idRegistro;
         
+        System.out.println(query);
         return query;
     }
     

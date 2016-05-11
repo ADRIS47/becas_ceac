@@ -2898,20 +2898,21 @@ public class PrincipalModelo {
     /**
      * Elimina un registro de un catalogo por el nombre del catalogo
      * @param conexion
-     * @param datoNuevo
      * @param idRegistro
      * @param nombreTabla
+     * @param bandera FALSE.- Indica que NO SE han filtrado el catalogo
+     * TRUE.- Indica que si se ha filtrado el catalogo
      * @param nombreColumnas
      * @return 
      */
     protected boolean deleteRegistroCatalogo(Connection conexion, 
-            int idRegistro, String nombreTabla, CatColumnasTabla nombreColumnas) {
+            int idRegistro, String nombreTabla, CatColumnasTabla nombreColumnas, boolean bandera) {
         boolean response = false;
         Statement st = null;
         
         try {
             st = conexion.createStatement();
-            int resp = st.executeUpdate(Delete.deletetRegistroCatalogo(nombreTabla, nombreColumnas, idRegistro));
+            int resp = st.executeUpdate(Delete.deletetRegistroCatalogo(nombreTabla, nombreColumnas, idRegistro, bandera));
             if(resp > 0)
                 response = true;
         } catch (SQLException ex) {

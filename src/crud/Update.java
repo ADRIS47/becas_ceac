@@ -169,7 +169,7 @@ public class Update {
         query = "UPDATE " + nombreTabla + " SET " + nombreColumnas.getNombreColumnaNombre() 
                 + " = '" + datoNuevo + "' WHERE " + nombreColumnas.getNombreColumnaId() 
                 + " = " + idRegistro;
-        //System.out.println("Query: " + query);
+        System.out.println("Query: " + query);
         
         return query;
     }
