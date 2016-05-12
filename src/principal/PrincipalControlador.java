@@ -3252,6 +3252,15 @@ public class PrincipalControlador {
      * Inserta, Actualiza o Elimina los datos de un catalogo
      */
     protected void crudCatalogo() {
+        
+        //Si existen filtraciones realizadas
+        if(!vistaCatalogos.TxtFldDescripcionCatalogo.getText().equals("")){
+            JOptionPane.showMessageDialog(vistaCatalogos, "No se puede borrar un registro con las filtraciones activas", "Error", JOptionPane.ERROR_MESSAGE);
+            vistaCatalogos.TxtFldDescripcionCatalogo.requestFocus();
+            vistaCatalogos.TxtFldDescripcionCatalogo.selectAll();
+            return;
+        }
+        
         helper.cursorEspera(vista);
         Conexion conn = new Conexion();
         Connection conexion = conn.estableceConexion();
