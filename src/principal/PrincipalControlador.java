@@ -116,6 +116,17 @@ public class PrincipalControlador {
     File[] lstFilesBoletas = new File[12];
     File[] lstFilesCartaServCom = new File[12];
     File[] lstFilesTransferencias = new File[24];
+    
+    /**
+     * Bandera que indica si se inicia la vistaRegistro con los datos precargados o crea
+     * una nueva pantalla sin datos
+     * FALSE: Indica que se debe de cargar una vistaRegistro sin datos
+     * TRUE: Indica que se debe de precargar la pantalla
+     */
+//    boolean cargaVistaRegistro = false;
+    
+    String numeroFolio = "";
+    
 
     public static void main(String[] args) {
         PrincipalControlador prueba = new PrincipalControlador();
@@ -184,53 +195,60 @@ public class PrincipalControlador {
      */
     public void creaVistaRegistro() {
         helper.cursorEspera(vista);
-        
-        if (vistaRegistro != null) {
-            terminaVistaRegistro();
-        }
+        if(vistaKardex == null){
+            if (vistaRegistro != null) {
+                terminaVistaRegistro();
+            }
 
-        if (vistaRegistro == null) {
-            vistaRegistro = new VistaRegistro(this);
-            this.setVistaRegistro(vistaRegistro);
-        }
+            if (vistaRegistro == null) {
+                vistaRegistro = new VistaRegistro(this);
+                this.setVistaRegistro(vistaRegistro);
+            }
 
-        if (vistaKardex != null) {
-            terminaVistaKardex();
-        }
-        
-        vaciaLstFiles();
+            if (vistaKardex != null) {
+                terminaVistaKardex();
+            }
 
-        List<LinkedHashMap<Integer, String>> lstCategorias = null;
+            vaciaLstFiles();
 
-        try {
-            //Se muestran las pantallas dinamicas
-            llenaPanelesVistaRegistro();
-            //Se obtienen las categorias para llenar la pantalla
-            lstCategorias = modelo.getCategoriasVistaRegistro();
-            llenaCamposCategoriasVistaRegistro(lstCategorias, false);
-        } catch (SQLException ex) {
+            List<LinkedHashMap<Integer, String>> lstCategorias = null;
+
+            try {
+                //Se muestran las pantallas dinamicas
+                llenaPanelesVistaRegistro();
+                //Se obtienen las categorias para llenar la pantalla
+                lstCategorias = modelo.getCategoriasVistaRegistro();
+                llenaCamposCategoriasVistaRegistro(lstCategorias, false);
+            } catch (SQLException ex) {
+                helper.cursorNormal(vista);
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(vista, "Error, consulta el registro de errores",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+                log.crearLog(ex.getMessage());
+                return;
+            }
+
+            addListenerTeclasVistaRegistro();
+
+            helper.setAñoActualEnCombo(vistaRegistro.cmboxAnioInicioBeca);
+
+            vistaOpcionGuardar = new VistaRegistroOpcionGuardar();
+            vistaOpcionGuardar.setControlador(this);
+            helper.agregaJPanel(vistaOpcionGuardar, vistaRegistro.pnlOpciones);
+            vistaOpcionGuardar.setVisible(true);
+            //addListenerArchivosAdjuntos();
+            //Helper.getBecaSemestral(vistaRegistro.cmboxSemestresTotalesCarrera, vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre);
+            //Helper.getFechaGraduacion(vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca, vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion, vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera);
+
             helper.cursorNormal(vista);
-            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(vista, "Error, consulta el registro de errores",
-                    "Error", JOptionPane.ERROR_MESSAGE);
-            log.crearLog(ex.getMessage());
-            return;
+            creaPantalla(vistaRegistro);
+//            cargaVistaRegistro = true;
         }
-
-        addListenerTeclasVistaRegistro();
-
-        helper.setAñoActualEnCombo(vistaRegistro.cmboxAnioInicioBeca);
-
-        vistaOpcionGuardar = new VistaRegistroOpcionGuardar();
-        vistaOpcionGuardar.setControlador(this);
-        helper.agregaJPanel(vistaOpcionGuardar, vistaRegistro.pnlOpciones);
-        vistaOpcionGuardar.setVisible(true);
-        //addListenerArchivosAdjuntos();
-        //Helper.getBecaSemestral(vistaRegistro.cmboxSemestresTotalesCarrera, vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre);
-        //Helper.getFechaGraduacion(vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca, vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion, vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera);
-
-        helper.cursorNormal(vista);
-        creaPantalla(vistaRegistro);
+        else{
+            getInfoBecarioPorFolio(vistaKardex.txtFolio.getText());
+            terminaVistaKardex();
+//            cargaVistaRegistro = false;
+        }
     }
 
     /**
@@ -456,6 +474,8 @@ public class PrincipalControlador {
     private void terminaVistaRegistro() {
         vistaRegistro.removeAll();
         vaciaLstVistas();
+//        folio = "";
+//        cargaVistaRegistro = false;
         vistaRegistro = null;
     }
 
@@ -943,6 +963,7 @@ public class PrincipalControlador {
                 throw new SQLException();
             }
             conexion.commit();
+            numeroFolio = becario.getFolio();
             JOptionPane.showMessageDialog(vista, "Becario registrado correctamente \n"
                     + "Número de folio: " + becario.getFolio(), "Éxito", JOptionPane.INFORMATION_MESSAGE);
 
@@ -2257,6 +2278,7 @@ public class PrincipalControlador {
         Conexion conn = new Conexion();
         Connection conexion = null;
         conexion = conn.estableceConexion();
+        
 
         if (conexion == null) {
             helper.cursorNormal(vista);
