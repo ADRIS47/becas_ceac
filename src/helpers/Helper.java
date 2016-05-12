@@ -686,6 +686,18 @@ public class Helper {
     }
     
     /**
+     * Vacia en su totalidad todas las filas de la tabla
+     * @param tabla 
+     */
+    public void eliminaFilasTabla(JTable tabla){
+        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        int filas = modelo.getRowCount();
+        for (int i = 0; i < filas; i++) {
+            modelo.removeRow(0);
+        }
+    }
+    
+    /**
      * Obtiene la fecha de un JDateChooser
      * @param chooser
      * @return 
@@ -720,6 +732,38 @@ public class Helper {
         }
         
         return date;
+    }
+
+    /**
+     * Toma el campo que se va a ingresar al catalogo, borra todos los datos de la tabla,
+     * agrega el nuevo campo a una lista auxiliar e inserta el nuevo campo a la tabla
+     * @param tabla
+     * @param txtBuscador
+     * @param texto
+     * @param catDatosCatalogos 
+     * @return  Regresa el nuevo catalogo
+     */
+    public LinkedHashMap<Integer, String> agregaFilaTabla(JTable tabla, JTextField txtBuscador, String texto, 
+                            LinkedHashMap<Integer, String> catDatosCatalogos) {
+        LinkedHashMap<Integer, String> catNuevoCatalogo = new LinkedHashMap<>();
+        DefaultTableModel tblModelo = (DefaultTableModel) tabla.getModel();
+        //txtBuscador.setText("");
+        int tamanioCatalogo = catDatosCatalogos.size();
+        int i = 1;
+        //Se hace una copia de los registros de la tabla
+        for (Integer idCat : catDatosCatalogos.keySet()) {
+            catNuevoCatalogo.put(i, catDatosCatalogos.get(idCat));
+            i++;
+        }
+        catNuevoCatalogo.put(i, texto);
+        
+        eliminaFilasTabla(tabla);
+        
+        for (Integer id : catNuevoCatalogo.keySet()) {
+            tblModelo.addRow(new String[]{catNuevoCatalogo.get(id)});
+        }
+        txtBuscador.setText("");
+        return catNuevoCatalogo;
     }
             
             
