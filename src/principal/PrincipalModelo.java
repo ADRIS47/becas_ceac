@@ -1942,6 +1942,7 @@ public class PrincipalModelo {
                 becario.setEstudioSocioEconomico(rs.getString(Becario.COL_ESTUDIO_SOCIOECONOMICO));
                 becario.setCartaAsignacionBeca(rs.getString(Becario.COL_CARTA_ASIGNACION_BECA));
                 becario.setCartaAgradecimiento(rs.getString(Becario.COL_CARTA_AGRADECIMIENTO));
+                becario.setGraduado(rs.getBoolean(Becario.COL_GRADUADO));
             }
             
         } catch (SQLException e) {
@@ -2016,6 +2017,11 @@ public class PrincipalModelo {
                 becario.setIdBanco(rs.getInt(Becario.COL_ID_BANCO));
                 becario.setCuentaBancaria(rs.getString(Becario.COL_CUENTA_BANCO));
                 becario.setClabeInterbancaria(rs.getString(Becario.COL_CLABE_INTERBANCARIA));
+                becario.setActivo(rs.getInt(Becario.COL_ACTIVO));
+                becario.setEstudioSocioEconomico(rs.getString(Becario.COL_ESTUDIO_SOCIOECONOMICO));
+                becario.setCartaAsignacionBeca(rs.getString(Becario.COL_CARTA_ASIGNACION_BECA));
+                becario.setCartaAgradecimiento(rs.getString(Becario.COL_CARTA_AGRADECIMIENTO));
+                becario.setGraduado(rs.getBoolean(Becario.COL_GRADUADO));
                 lstBecario.add(becario);
             }
             
@@ -2164,6 +2170,7 @@ public class PrincipalModelo {
                 becario.setIdBanco(rs.getInt(Becario.COL_ID_BANCO));
                 becario.setCuentaBancaria(rs.getString(Becario.COL_CUENTA_BANCO));
                 becario.setClabeInterbancaria(rs.getString(Becario.COL_CLABE_INTERBANCARIA));
+                becario.setGraduado(rs.getBoolean(Becario.COL_GRADUADO));
                 lstBecario.add(becario);
             }
         } catch (SQLException e) {
