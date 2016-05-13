@@ -2731,10 +2731,14 @@ public class PrincipalControlador {
         vistaKardex.cmbNombreBanco.setSelectedItem(banco);
         vistaKardex.TxtFldNoCuenta.setText(becario.getCuentaBancaria());
         vistaKardex.TxtFldClabeBanco.setText(becario.getClabeInterbancaria());
-
+        
+        int semestresHabilitados = 0;
         //Se toman los semestres activos del becario
-        int semestresHabilitados = helper.getTotalSemestresporHabilitarKardex(datosEscolares.getSemestreInicioBeca(),
-                datosEscolares.getSemestresTotalesCarrera());
+        if(!getItemComboBox(becario.getIdPrograma(), catPrograma).contains("Empuje"))
+            semestresHabilitados = helper.getTotalSemestresporHabilitarKardex(datosEscolares.getSemestreInicioBeca(),
+                    datosEscolares.getSemestresTotalesCarrera());
+        else
+            semestresHabilitados = 3;
         //Se procede a deshabilitar los semestres que aun no tienen que llenarse
         deshabilitaSemestresKardex(vistaKardex.PnlKardex, semestresHabilitados, 0, 1);
         //Se llena el pnlKardex
