@@ -263,7 +263,7 @@ public class EscuchadorValidaEntrada implements KeyListener {
     private void evaluaFechaNacimiento(){
         String str = txtCampo.getText();
         char[] fuente = str.toCharArray();
-        char[] resultado = new char[fuente.length];
+        char[] resultado = new char[fuente.length + 2];
         int j = 0;
         boolean error = false;
 
@@ -283,10 +283,15 @@ public class EscuchadorValidaEntrada implements KeyListener {
                 txtCampo.setText(new String(resultado, 0, j));
             }
             
-            if(i == 10){
-                txtCampo.setText("");
-                txtCampo.setText(new String(resultado, 0, 10));
-            }
+//            if(i == 10){
+//                txtCampo.setText("");
+//                txtCampo.setText(new String(resultado, 0, 10));
+//            }
+        }
+        
+        if(j == 2 || j == 5){
+            resultado[j++] = '/';
+            txtCampo.setText(new String(resultado, 0, j));
         }
 
 //        String str = txtCampo.getText();

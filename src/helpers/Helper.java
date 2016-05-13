@@ -289,6 +289,7 @@ public class Helper {
 //        }
         
         String fecha = txtFechaNacimiento.getText();
+        fecha = fecha.replace("/", "");
         if(!fecha.isEmpty()){
             int dia = Integer.parseInt(fecha.substring(0, 2));
             int mes = Integer.parseInt(fecha.substring(2, 4));
