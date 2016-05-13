@@ -646,7 +646,7 @@ public class Helper {
                     mes = 0;
                 inicio.set(Calendar.MONTH, mes);
                 
-                System.out.println("Antes de agregar fecha a lista: " + aux.getTime());
+                //System.out.println("Antes de agregar fecha a lista: " + aux.getTime());
                 
             }
             
