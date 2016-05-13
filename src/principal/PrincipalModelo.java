@@ -298,6 +298,7 @@ public class PrincipalModelo {
      */
     private LinkedHashMap<Integer, String> getCatProgramas(Connection conn) {
         LinkedHashMap<Integer, String> catPrograma = new LinkedHashMap<>();
+        LinkedHashMap<Integer, String> catResult = new LinkedHashMap<>();
         Statement st = null;
         ResultSet rs = null;
         try {
@@ -319,7 +320,21 @@ public class PrincipalModelo {
                 Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        return catPrograma;
+        //Se ordenan los programas
+        int i = 0;
+        int tamanioOriginal = catPrograma.size();
+        String[] programas = new String[]{"Devoluci", "Empuje", "Pura", "Apoyo", "Historico"};
+        while(i < tamanioOriginal){
+            for (Integer idPrograma : catPrograma.keySet()) {
+                String programa = catPrograma.get(idPrograma);
+                if(programa.contains(programas[i])){
+                    catResult.put(idPrograma, programa);
+                    i++;
+                    break;
+                }
+            }
+        }
+        return catResult;
     }
 
     /**
