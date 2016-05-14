@@ -14,6 +14,7 @@ import pojos.CatLugarServicioComunitario;
 import pojos.CatMunicipios;
 import pojos.CatTipoEscuela;
 import pojos.CatTipoServicioSocial;
+import pojos.CatUniversidad;
 import pojos.DatosEscolares;
 import pojos.Direccion;
 import pojos.Hermanos;
@@ -400,5 +401,10 @@ public class Consultas {
      * Obtiene el estatus cancelado 
      */
     public static String getEstatusCancelado = "SELECT " + CatEstatus.COL_ID + " FROM beca_cat_estatus WHERE " + CatEstatus.COL_NOMBRE + " LIKE '%cancel%'";
+    
+    /**
+     * Obtiene el tipo de escuela del catalogo beca_cat_universidad
+     */
+    public static String getTipoEscuela = "SELECT " + CatUniversidad.COL_ID_TIPO_ESCUELA + " FROM beca_cat_universidad";
     
 }

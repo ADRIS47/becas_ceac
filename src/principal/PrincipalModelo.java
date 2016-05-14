@@ -3041,4 +3041,28 @@ public class PrincipalModelo {
         
         return id;
     }
+
+    /**
+     * Retorna una lista con los datos del tipo de escuela del catalogo beca_cat_universidad
+     * @param conexion
+     * @return 
+     */
+    protected List<String> getTipoEscuela(Connection conexion) {
+        List<String> lstTipoEscuela = new ArrayList<>();
+        Statement st;
+        ResultSet rs;
+        try {
+            st = conexion.createStatement();
+            rs = st.executeQuery(Consultas.getTipoEscuela);
+            
+            while(rs.next()){
+                lstTipoEscuela.add(rs.getString(1));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            log.muestraErrores(ex);
+        }
+        
+        return lstTipoEscuela;
+    }
 }
