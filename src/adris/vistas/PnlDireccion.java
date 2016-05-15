@@ -55,24 +55,25 @@ public class PnlDireccion extends javax.swing.JPanel {
 
         jTextField5.setText("jTextField1");
 
-        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        setBorder(javax.swing.BorderFactory.createEtchedBorder());
         setName(""); // NOI18N
         setPreferredSize(new java.awt.Dimension(700, 70));
 
         jPanel1.setLayout(new java.awt.GridLayout(4, 3));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel1.setText("Calle");
         jPanel1.add(jLabel1);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel2.setText("Numero");
         jPanel1.add(jLabel2);
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel3.setText("Int");
         jPanel1.add(jLabel3);
 
+        txtCalleBecado.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         txtCalleBecado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCalleBecadoActionPerformed(evt);
@@ -80,6 +81,7 @@ public class PnlDireccion extends javax.swing.JPanel {
         });
         jPanel1.add(txtCalleBecado);
 
+        txtNumBecado.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         txtNumBecado.setPreferredSize(new java.awt.Dimension(5, 13));
         txtNumBecado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,28 +90,34 @@ public class PnlDireccion extends javax.swing.JPanel {
         });
         jPanel1.add(txtNumBecado);
 
+        txtNumIntBecado.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         txtNumIntBecado.setName("txtColonia"); // NOI18N
         jPanel1.add(txtNumIntBecado);
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel4.setText("C.P.");
         jPanel1.add(jLabel4);
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel5.setText("Colonia");
         jPanel1.add(jLabel5);
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel6.setText("Ciudad");
         jPanel1.add(jLabel6);
+
+        txtCPBecado.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jPanel1.add(txtCPBecado);
 
+        txtColoniaBecado.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         txtColoniaBecado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtColoniaBecadoActionPerformed(evt);
             }
         });
         jPanel1.add(txtColoniaBecado);
+
+        txtCiudadBecado.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jPanel1.add(txtCiudadBecado);
 
         lblAgregarDireccion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -136,21 +144,22 @@ public class PnlDireccion extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 727, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblAgregarDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblBorrarDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                    .addComponent(lblAgregarDireccion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblBorrarDireccion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblAgregarDireccion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblBorrarDireccion))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblBorrarDireccion)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
