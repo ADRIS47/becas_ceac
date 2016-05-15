@@ -2970,6 +2970,8 @@ public class PrincipalControlador {
                 i++;
             }
         }
+        
+        tblModelo.addRow(new String[]{});
     }
 
     /**
@@ -3332,6 +3334,7 @@ public class PrincipalControlador {
         Conexion conn = new Conexion();
         Connection conexion = conn.estableceConexion();
         List<String> lstDatosTabla = new ArrayList<>();
+        List<Boolean> lstDatosTipoEscuela = new ArrayList<>();
         DefaultTableModel tblModel = (DefaultTableModel) vistaCatalogos.TblDescripcionCatalogo.getModel();
         
         String seleccion = (String) vistaCatalogos.cmbTipoCatalogo.getSelectedItem();
@@ -3349,18 +3352,12 @@ public class PrincipalControlador {
             lstDatosTabla.add((String) tblModel.getValueAt(i, 0));
         }
         
-//        //Se actualizan los nuevos valores en caso de que haya filtraciones
-//        if(catNuevosDatosCatalogos != null){
-//            int cont = 0;
-//            for (Integer key : catNuevosDatosCatalogos.keySet()) {
-//                String nombreViejo = catNuevosDatosCatalogos.get(key);
-//                String nombreNuevo = lstDatosTabla.get(cont);
-//                if(!nombreViejo.equals(nombreNuevo)){
-//                    catNuevosDatosCatalogos.replace(key, nombreViejo, nombreNuevo);
-//                }
-//                cont++;
-//            }
-//        }
+        int columnas = tblModel.getColumnCount();
+        if(columnas == 2){
+            for (int i = 0; i < totalFilas; i++) {
+                lstDatosTipoEscuela.add((boolean) tblModel.getValueAt(i, 1));
+            }
+        }
         
         try {
             conexion.setAutoCommit(false);
@@ -3374,7 +3371,13 @@ public class PrincipalControlador {
                 if (totalFilas == totalRegistros) {
                     int i = 0;
                     for (String dato : lstDatosTabla) {
-                        boolean response = modelo.updateCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas);
+                        boolean response;
+                        if(lstDatosTipoEscuela.isEmpty())
+                            response = modelo.updateCatalogo(conexion, dato, i + 1, 
+                                            nombreTabla, nombreColumnas);
+                        else
+                            response = modelo.updateCatalogo(conexion, dato, i + 1, 
+                                            nombreTabla, nombreColumnas, lstDatosTipoEscuela.get(i));
                         if (response == false) {
                             helper.cursorNormal(vista);
                             throw new SQLException("No se pudo actualiza el catalogo "
@@ -3389,14 +3392,24 @@ public class PrincipalControlador {
                     for (String dato : lstDatosTabla) {
                         //Se actualizan los registros que ya existen en la bd
                         if (i < totalRegistros) {
-                            boolean response = modelo.updateCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas);
+                            boolean response;
+                            if(lstDatosTipoEscuela.isEmpty())
+                                response = modelo.updateCatalogo(conexion, dato, i + 1, 
+                                                nombreTabla, nombreColumnas);
+                            else
+                                response = modelo.updateCatalogo(conexion, dato, i + 1, 
+                                                nombreTabla, nombreColumnas, lstDatosTipoEscuela.get(i));
                             if (response == false) {
                                 helper.cursorNormal(vista);
                                 throw new SQLException("No se pudo actualiza el catalogo "
                                         + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
                             }
                         } else {
-                            boolean response = modelo.insertRegistroCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas, false);
+                            boolean response; 
+                                    
+                                response = modelo.insertRegistroCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas, false, lstDatosTipoEscuela.get(i));
+                            
+                                
                             if (response == false) {
                                 helper.cursorNormal(vista);
                                 throw new SQLException("No se pudo insertar el registro en el catalogo "
@@ -3412,7 +3425,7 @@ public class PrincipalControlador {
                     for (String dato : lstDatosTabla) {
                         //Se actualizan los registros que ya existen en la bd
                         if (i < totalFilas) {
-                            boolean response = modelo.updateCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas);
+                            boolean response = modelo.updateCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas, lstDatosTipoEscuela.get(i));
                             if (response == false) {
                                 helper.cursorNormal(vista);
                                 throw new SQLException("No se pudo actualiza el catalogo "

@@ -173,4 +173,26 @@ public class Update {
         
         return query;
     }
+    
+    /**
+     * Crea un query para actualizar un registro de la tabla beca_cat_universidad
+     * @param nombreTabla
+     * @param nombreColumnas
+     * @param idRegistro
+     * @param datoNuevo
+     * @return 
+     */
+    public static String updateRegistroCatalogo(String nombreTabla, CatColumnasTabla nombreColumnas, 
+            int idRegistro, String datoNuevo, boolean tipoEscuela) {
+        String query = "";
+        
+        
+        query = "UPDATE " + nombreTabla + " SET " + nombreColumnas.getNombreColumnaNombre() 
+                + " = '" + datoNuevo + "', " + nombreColumnas.getNombreColumnaTipoEscuela() + " = ? " 
+                + "WHERE " + nombreColumnas.getNombreColumnaId() 
+                + " = " + idRegistro;
+        System.out.println("Query: " + query);
+        
+        return query;
+    }
 }

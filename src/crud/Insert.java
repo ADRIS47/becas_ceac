@@ -147,6 +147,7 @@ public class Insert {
      * @param idRegistro
      * @param bandera False, indica que la tabla NO FUE filtrada.
      * TRUE indica que la tabla SI FUE filtrada
+     * @param tipoUniversidad
      * @return 
      */
     public static String insertRegistroCatalogo(String nombreTabla, CatColumnasTabla nombreColumnas, 
@@ -161,6 +162,36 @@ public class Insert {
             query = "INSERT INTO  " + nombreTabla 
                     + " (" + nombreColumnas.getNombreColumnaNombre() + ") "
                     + " VALUES ('" + datoNuevo + "')";
+        System.out.println("Query: " + query);
+        
+        return query;
+    }
+    
+    /**
+     * Inserta un registro dentro de la tabla beca_cat_universidad
+     * @param nombreTabla
+     * @param nombreColumnas
+     * @param datoNuevo
+     * @param idRegistro
+     * @param bandera False, indica que la tabla NO FUE filtrada.
+     * TRUE indica que la tabla SI FUE filtrada
+     * @param tipoUniversidad
+     * @return 
+     */
+    public static String insertRegistroCatalogo(String nombreTabla, CatColumnasTabla nombreColumnas, 
+                        String datoNuevo, int idRegistro, boolean bandera, boolean tipoUniversidad) {
+        String query = "";
+        
+        if(bandera == false)
+            query = "INSERT INTO  " + nombreTabla 
+                    + " (" + nombreColumnas.getNombreColumnaId() + ", " + nombreColumnas.getNombreColumnaNombre() + ", " 
+                            + nombreColumnas.getNombreColumnaTipoEscuela() + ") "
+                    + " VALUES (" + idRegistro + ", '" + datoNuevo + "', " + tipoUniversidad + ")";
+        else
+            query = "INSERT INTO  " + nombreTabla 
+                    + " (" + nombreColumnas.getNombreColumnaNombre() + ", "
+                    + nombreColumnas.getNombreColumnaTipoEscuela() + ") "
+                    + " VALUES ('" + datoNuevo + "', " + tipoUniversidad + ")";
         System.out.println("Query: " + query);
         
         return query;

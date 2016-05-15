@@ -2841,6 +2841,42 @@ public class PrincipalModelo {
         
         return response;
     }
+    
+    /**
+     * Actualiza los datos de beca_cat_universidad
+     * @param conexion
+     * @param datoNuevo
+     * @param idRegistro
+     * @param nombreTabla 
+     * @param nombreColumnas 
+     * @param isPublica 
+     * @return  
+     */
+    protected boolean updateCatalogo(Connection conexion, String datoNuevo, 
+            int idRegistro, String nombreTabla, CatColumnasTabla nombreColumnas, boolean isPublica) {
+        
+        boolean response = false;
+        PreparedStatement st = null;
+        int tipoEsc = 0;
+        
+        if(isPublica)
+            tipoEsc = 1;
+        else
+            tipoEsc = 2;
+        
+        try {
+            st = conexion.prepareStatement(Update.updateRegistroCatalogo(nombreTabla, nombreColumnas, idRegistro, datoNuevo, isPublica));
+            st.setInt(1, tipoEsc);
+            int resp = st.executeUpdate();
+            if(resp > 0)
+                response = true;
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            log.muestraErrores(ex);
+        }
+        
+        return response;
+    }
 
     /**
      * Obtiene los nombres de las columnas de una tabla a partir de su nombre
@@ -2871,7 +2907,8 @@ public class PrincipalModelo {
                         //En caso de que se esté evaluando la universida se agrega
                     case 3:
                         if(nombreTabla.toLowerCase().contains("universidad")){
-                            result.setTipoEscuela(rs.getInt(1));
+                            //result.setTipoEscuela(rs.getInt(1));
+                            result.setNombreColumnaTipoEscuela(rs.getString(1));
                         }
                         break;
                 }
@@ -2907,6 +2944,38 @@ public class PrincipalModelo {
             st = conexion.createStatement();
             int resp = st.executeUpdate(Insert.insertRegistroCatalogo(nombreTabla, 
                                     nombreColumnas, datoNuevo, idRegistro, bandera));
+            if(resp > 0)
+                response = true;
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            log.muestraErrores(ex);
+        }
+        
+        return response;
+    }
+    
+    /**
+     * Inserta registros en la tabla beca_cat_universidad
+     * @param conexion
+     * @param datoNuevo
+     * @param idRegistro
+     * @param nombreTabla
+     * @param nombreColumnas
+     * @param bandera False, indica que la tabla NO FUE filtrada.
+     * TRUE indica que la tabla SI FUE filtrada
+     * @param tipoUniversidad
+     * @return 
+     */
+    protected boolean insertRegistroCatalogo(Connection conexion, String datoNuevo, 
+                    int idRegistro, String nombreTabla, CatColumnasTabla nombreColumnas, 
+                    boolean bandera, boolean tipoUniversidad) {
+         boolean response = false;
+        PreparedStatement st = null;
+        
+        try {
+            st = conexion.prepareStatement(Insert.insertRegistroCatalogo(nombreTabla, 
+                                    nombreColumnas, datoNuevo, idRegistro, bandera, tipoUniversidad));
+            int resp = st.executeUpdate();
             if(resp > 0)
                 response = true;
         } catch (SQLException ex) {
