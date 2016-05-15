@@ -191,8 +191,8 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtSemestre11 = new javax.swing.JTextField();
         ChkbxPFeb11 = new javax.swing.JCheckBox();
         TxtHrServ11 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox();
-        jComboBox2 = new javax.swing.JComboBox();
+        CmbBxTipoSC11 = new javax.swing.JComboBox();
+        CmbBxLugarSC11 = new javax.swing.JComboBox();
         ChkbxPlatica11 = new javax.swing.JCheckBox();
         ChkbxPlatica211 = new javax.swing.JCheckBox();
         ChkbxPAgo11 = new javax.swing.JCheckBox();
@@ -203,8 +203,8 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtSemestre12 = new javax.swing.JTextField();
         ChkbxPFeb12 = new javax.swing.JCheckBox();
         TxtHrServ12 = new javax.swing.JTextField();
-        jComboBox3 = new javax.swing.JComboBox();
-        jComboBox4 = new javax.swing.JComboBox();
+        CmbBxTipoSC12 = new javax.swing.JComboBox();
+        CmbBxLugarSC12 = new javax.swing.JComboBox();
         ChkbxPlatica12 = new javax.swing.JCheckBox();
         ChkbxPlatica212 = new javax.swing.JCheckBox();
         ChkbxPAgo12 = new javax.swing.JCheckBox();
@@ -212,6 +212,7 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtProm12 = new javax.swing.JTextField();
         TxtDesc12 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
         pnlArchivosAdjuntos = new javax.swing.JPanel();
         jPanel01 = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
@@ -241,9 +242,9 @@ public class VistaKardex extends javax.swing.JPanel {
         BtnAddBoleta3 = new javax.swing.JButton();
         btnEliminaBoleta3 = new javax.swing.JButton();
         lblEstatusBoleta3 = new javax.swing.JLabel();
-        BtnAddBoleta4 = new javax.swing.JButton();
         btnEliminaBoleta4 = new javax.swing.JButton();
         lblEstatusBoleta4 = new javax.swing.JLabel();
+        BtnAddBoleta4 = new javax.swing.JButton();
         BtnAddBoleta5 = new javax.swing.JButton();
         btnEliminaBoleta5 = new javax.swing.JButton();
         lblEstatusBoleta5 = new javax.swing.JLabel();
@@ -269,6 +270,7 @@ public class VistaKardex extends javax.swing.JPanel {
         btnEliminaBoleta12 = new javax.swing.JButton();
         lblEstatusBoleta12 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
         pnlArchivosAdjuntos1 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel35 = new javax.swing.JLabel();
@@ -326,11 +328,21 @@ public class VistaKardex extends javax.swing.JPanel {
         BtnEliminaSC12 = new javax.swing.JButton();
         lblEstatusSC12 = new javax.swing.JLabel();
         jPanel14 = new javax.swing.JPanel();
+        pnlInformacionBancaria = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        TxtFldNoCuenta = new javax.swing.JTextField();
+        TxtFldClabeBanco = new javax.swing.JTextField();
+        cmbNombreBanco = new javax.swing.JComboBox<String>();
         pnlTransferenciasAdjuntas2 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jLabel44 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
         jpnlListaDocumentos4 = new javax.swing.JPanel();
         TxtSemSC22 = new javax.swing.JTextField();
@@ -416,13 +428,6 @@ public class VistaKardex extends javax.swing.JPanel {
         BtnAddSTn20 = new javax.swing.JButton();
         BtnEliminaTn20 = new javax.swing.JButton();
         TxtEstatusSC30 = new javax.swing.JLabel();
-        pnlInformacionBancaria = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        TxtFldNoCuenta = new javax.swing.JTextField();
-        TxtFldClabeBanco = new javax.swing.JTextField();
-        cmbNombreBanco = new javax.swing.JComboBox<String>();
 
         setPreferredSize(new java.awt.Dimension(916, 584));
 
@@ -628,6 +633,7 @@ public class VistaKardex extends javax.swing.JPanel {
 
         jtabKardex.setMaximumSize(new java.awt.Dimension(917, 464));
 
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         jScrollPane1.setMaximumSize(new java.awt.Dimension(740, 427));
 
         PnlKardex.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Kardex Becario", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
@@ -709,6 +715,7 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF1.setMaximumSize(new java.awt.Dimension(726, 16));
         PnlKardexF1.setLayout(new java.awt.GridLayout(1, 11));
 
+        TxtSemestre1.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtSemestre1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemestre1.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre1.setEnabled(false);
@@ -727,10 +734,12 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtHrServ1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         PnlKardexF1.add(TxtHrServ1);
 
-        CmbBxTipoSC1.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        CmbBxTipoSC1.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        CmbBxTipoSC1.setMaximumSize(new java.awt.Dimension(35, 22));
         PnlKardexF1.add(CmbBxTipoSC1);
 
-        CmbBxLugarSC1.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        CmbBxLugarSC1.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        CmbBxLugarSC1.setMaximumSize(new java.awt.Dimension(35, 22));
         PnlKardexF1.add(CmbBxLugarSC1);
 
         ChkbxPlatica1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -763,6 +772,7 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF2.setMaximumSize(new java.awt.Dimension(726, 16));
         PnlKardexF2.setLayout(new java.awt.GridLayout(1, 11));
 
+        TxtSemestre2.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtSemestre2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemestre2.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre2.setEnabled(false);
@@ -786,10 +796,10 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         PnlKardexF2.add(TxtHrServ2);
 
-        CmbBxTipoSC2.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        CmbBxTipoSC2.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         PnlKardexF2.add(CmbBxTipoSC2);
 
-        CmbBxLugarSC2.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        CmbBxLugarSC2.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         PnlKardexF2.add(CmbBxLugarSC2);
 
         ChkbxPlatica2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -822,6 +832,7 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF3.setMaximumSize(new java.awt.Dimension(726, 16));
         PnlKardexF3.setLayout(new java.awt.GridLayout(1, 11));
 
+        TxtSemestre3.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtSemestre3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemestre3.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre3.setEnabled(false);
@@ -840,10 +851,10 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtHrServ3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         PnlKardexF3.add(TxtHrServ3);
 
-        CmbBxTipoSC3.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        CmbBxTipoSC3.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         PnlKardexF3.add(CmbBxTipoSC3);
 
-        CmbBxLugarSC3.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        CmbBxLugarSC3.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         PnlKardexF3.add(CmbBxLugarSC3);
 
         ChkbxPlatica3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -881,6 +892,7 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF4.setMaximumSize(new java.awt.Dimension(726, 16));
         PnlKardexF4.setLayout(new java.awt.GridLayout(1, 11));
 
+        TxtSemestre4.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtSemestre4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemestre4.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre4.setEnabled(false);
@@ -899,10 +911,10 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtHrServ4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         PnlKardexF4.add(TxtHrServ4);
 
-        CmbBxTipoSC4.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        CmbBxTipoSC4.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         PnlKardexF4.add(CmbBxTipoSC4);
 
-        CmbBxLugarSC4.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        CmbBxLugarSC4.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         PnlKardexF4.add(CmbBxLugarSC4);
 
         ChkbxPlatica4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -941,6 +953,7 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF5.setPreferredSize(new java.awt.Dimension(726, 16));
         PnlKardexF5.setLayout(new java.awt.GridLayout(1, 10));
 
+        TxtSemestre5.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtSemestre5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemestre5.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre5.setEnabled(false);
@@ -959,10 +972,10 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtHrServ5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         PnlKardexF5.add(TxtHrServ5);
 
-        CmbBxTipoSC5.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        CmbBxTipoSC5.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         PnlKardexF5.add(CmbBxTipoSC5);
 
-        CmbBxLugarSC5.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        CmbBxLugarSC5.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         PnlKardexF5.add(CmbBxLugarSC5);
 
         ChkbxPlatica5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -996,6 +1009,7 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF6.setPreferredSize(new java.awt.Dimension(726, 16));
         PnlKardexF6.setLayout(new java.awt.GridLayout(1, 11));
 
+        TxtSemestre6.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtSemestre6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemestre6.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre6.setEnabled(false);
@@ -1014,10 +1028,10 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtHrServ6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         PnlKardexF6.add(TxtHrServ6);
 
-        CmbBxTipoSC6.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        CmbBxTipoSC6.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         PnlKardexF6.add(CmbBxTipoSC6);
 
-        CmbBxLugarSC6.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        CmbBxLugarSC6.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         PnlKardexF6.add(CmbBxLugarSC6);
 
         ChkbxPlatica6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -1051,6 +1065,7 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF7.setPreferredSize(new java.awt.Dimension(726, 16));
         PnlKardexF7.setLayout(new java.awt.GridLayout(1, 11));
 
+        TxtSemestre7.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtSemestre7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemestre7.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre7.setEnabled(false);
@@ -1069,10 +1084,10 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtHrServ7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         PnlKardexF7.add(TxtHrServ7);
 
-        CmbBxTipoSC7.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        CmbBxTipoSC7.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         PnlKardexF7.add(CmbBxTipoSC7);
 
-        CmbBxLugarSC7.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        CmbBxLugarSC7.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         PnlKardexF7.add(CmbBxLugarSC7);
 
         ChkbxPlatica7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -1106,6 +1121,7 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF8.setMaximumSize(new java.awt.Dimension(726, 16));
         PnlKardexF8.setLayout(new java.awt.GridLayout(1, 11));
 
+        TxtSemestre8.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtSemestre8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemestre8.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre8.setEnabled(false);
@@ -1124,10 +1140,10 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtHrServ8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         PnlKardexF8.add(TxtHrServ8);
 
-        CmbBxTipoSC8.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        CmbBxTipoSC8.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         PnlKardexF8.add(CmbBxTipoSC8);
 
-        CmbBxLugarSC8.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        CmbBxLugarSC8.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         PnlKardexF8.add(CmbBxLugarSC8);
 
         ChkbxPlatica8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -1160,6 +1176,7 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF9.setMaximumSize(new java.awt.Dimension(726, 16));
         PnlKardexF9.setLayout(new java.awt.GridLayout(1, 11));
 
+        TxtSemestre9.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtSemestre9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemestre9.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre9.setEnabled(false);
@@ -1178,10 +1195,10 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtHrServ9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         PnlKardexF9.add(TxtHrServ9);
 
-        CmbBxTipoSC9.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        CmbBxTipoSC9.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         PnlKardexF9.add(CmbBxTipoSC9);
 
-        CmbBxLugarSC9.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        CmbBxLugarSC9.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         PnlKardexF9.add(CmbBxLugarSC9);
 
         ChkbxPlatica9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -1215,6 +1232,7 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF11.setMaximumSize(new java.awt.Dimension(726, 16));
         PnlKardexF11.setLayout(new java.awt.GridLayout(1, 11));
 
+        TxtSemestre10.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtSemestre10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemestre10.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre10.setEnabled(false);
@@ -1233,10 +1251,10 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtHrServ10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         PnlKardexF11.add(TxtHrServ10);
 
-        CmbBxTipoSC10.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        CmbBxTipoSC10.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         PnlKardexF11.add(CmbBxTipoSC10);
 
-        CmbBxLugarSC10.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        CmbBxLugarSC10.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         PnlKardexF11.add(CmbBxLugarSC10);
 
         ChkbxPlatica10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -1269,6 +1287,7 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF12.setMaximumSize(new java.awt.Dimension(726, 16));
         PnlKardexF12.setLayout(new java.awt.GridLayout(1, 11));
 
+        TxtSemestre11.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtSemestre11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemestre11.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre11.setEnabled(false);
@@ -1287,11 +1306,11 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtHrServ11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         PnlKardexF12.add(TxtHrServ11);
 
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
-        PnlKardexF12.add(jComboBox1);
+        CmbBxTipoSC11.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        PnlKardexF12.add(CmbBxTipoSC11);
 
-        jComboBox2.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
-        PnlKardexF12.add(jComboBox2);
+        CmbBxLugarSC11.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        PnlKardexF12.add(CmbBxLugarSC11);
 
         ChkbxPlatica11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         ChkbxPlatica11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1323,6 +1342,7 @@ public class VistaKardex extends javax.swing.JPanel {
         PnlKardexF13.setMaximumSize(new java.awt.Dimension(726, 16));
         PnlKardexF13.setLayout(new java.awt.GridLayout(1, 11));
 
+        TxtSemestre12.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         TxtSemestre12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemestre12.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         TxtSemestre12.setEnabled(false);
@@ -1341,11 +1361,11 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtHrServ12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         PnlKardexF13.add(TxtHrServ12);
 
-        jComboBox3.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
-        PnlKardexF13.add(jComboBox3);
+        CmbBxTipoSC12.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        PnlKardexF13.add(CmbBxTipoSC12);
 
-        jComboBox4.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
-        PnlKardexF13.add(jComboBox4);
+        CmbBxLugarSC12.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        PnlKardexF13.add(CmbBxLugarSC12);
 
         ChkbxPlatica12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         ChkbxPlatica12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1397,12 +1417,12 @@ public class VistaKardex extends javax.swing.JPanel {
             jPanel01Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel01Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
+                .addGap(75, 75, 75)
                 .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(45, 45, 45))
         );
         jPanel01Layout.setVerticalGroup(
             jPanel01Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1415,10 +1435,12 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlListaDocumentosBoleta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jpnlListaDocumentosBoleta.setLayout(new java.awt.GridLayout(12, 1));
 
+        TxtBoletaSemestre1.setBackground(new java.awt.Color(240, 240, 240));
+        TxtBoletaSemestre1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtBoletaSemestre1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtBoletaSemestre1.setText("Enero");
         TxtBoletaSemestre1.setBorder(null);
-        TxtBoletaSemestre1.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtBoletaSemestre1.setDisabledTextColor(new java.awt.Color(0, 0, 204));
         TxtBoletaSemestre1.setEnabled(false);
         TxtBoletaSemestre1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1430,7 +1452,7 @@ public class VistaKardex extends javax.swing.JPanel {
         TxtBoletaSemestre2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtBoletaSemestre2.setText("Enero");
         TxtBoletaSemestre2.setBorder(null);
-        TxtBoletaSemestre2.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtBoletaSemestre2.setDisabledTextColor(new java.awt.Color(0, 204, 0));
         TxtBoletaSemestre2.setEnabled(false);
         TxtBoletaSemestre2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1439,6 +1461,7 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentosBoleta.add(TxtBoletaSemestre2);
 
+        TxtBoletaSemestre3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtBoletaSemestre3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtBoletaSemestre3.setText("Enero");
         TxtBoletaSemestre3.setBorder(null);
@@ -1451,10 +1474,11 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentosBoleta.add(TxtBoletaSemestre3);
 
+        TxtBoletaSemestre4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtBoletaSemestre4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtBoletaSemestre4.setText("Enero");
         TxtBoletaSemestre4.setBorder(null);
-        TxtBoletaSemestre4.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtBoletaSemestre4.setDisabledTextColor(new java.awt.Color(0, 0, 204));
         TxtBoletaSemestre4.setEnabled(false);
         TxtBoletaSemestre4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1463,10 +1487,11 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentosBoleta.add(TxtBoletaSemestre4);
 
+        TxtBoletaSemestre5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtBoletaSemestre5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtBoletaSemestre5.setText("Enero");
         TxtBoletaSemestre5.setBorder(null);
-        TxtBoletaSemestre5.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtBoletaSemestre5.setDisabledTextColor(new java.awt.Color(0, 204, 0));
         TxtBoletaSemestre5.setEnabled(false);
         TxtBoletaSemestre5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1475,6 +1500,7 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentosBoleta.add(TxtBoletaSemestre5);
 
+        TxtBoletaSemestre6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtBoletaSemestre6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtBoletaSemestre6.setText("Enero");
         TxtBoletaSemestre6.setBorder(null);
@@ -1487,10 +1513,11 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentosBoleta.add(TxtBoletaSemestre6);
 
+        TxtBoletaSemestre7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtBoletaSemestre7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtBoletaSemestre7.setText("Enero");
         TxtBoletaSemestre7.setBorder(null);
-        TxtBoletaSemestre7.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtBoletaSemestre7.setDisabledTextColor(new java.awt.Color(0, 0, 204));
         TxtBoletaSemestre7.setEnabled(false);
         TxtBoletaSemestre7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1499,10 +1526,11 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentosBoleta.add(TxtBoletaSemestre7);
 
+        TxtBoletaSemestre8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtBoletaSemestre8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtBoletaSemestre8.setText("Enero");
         TxtBoletaSemestre8.setBorder(null);
-        TxtBoletaSemestre8.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtBoletaSemestre8.setDisabledTextColor(new java.awt.Color(0, 204, 0));
         TxtBoletaSemestre8.setEnabled(false);
         TxtBoletaSemestre8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1523,10 +1551,11 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentosBoleta.add(TxtBoletaSemestre9);
 
+        TxtBoletaSemestre10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtBoletaSemestre10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtBoletaSemestre10.setText("Enero");
         TxtBoletaSemestre10.setBorder(null);
-        TxtBoletaSemestre10.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtBoletaSemestre10.setDisabledTextColor(new java.awt.Color(0, 0, 204));
         TxtBoletaSemestre10.setEnabled(false);
         TxtBoletaSemestre10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1559,6 +1588,7 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentosBoleta.add(TxtBoletaSemestre12);
 
+        jpnlAccionesDocumentosBoleta.setMaximumSize(new java.awt.Dimension(363, 348));
         jpnlAccionesDocumentosBoleta.setLayout(new java.awt.GridLayout(12, 3));
 
         BtnAddBoleta1.setForeground(new java.awt.Color(0, 0, 204));
@@ -1579,11 +1609,16 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentosBoleta.add(btnEliminaBoleta01);
 
-        lblEstatusBoleta1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblEstatusBoleta1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         lblEstatusBoleta1.setForeground(new java.awt.Color(0, 0, 204));
         lblEstatusBoleta1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusBoleta1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusBoleta1.setEnabled(false);
+        lblEstatusBoleta1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusBoleta1MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta1);
 
         BtnAddBoleta2.setForeground(new java.awt.Color(0, 204, 0));
@@ -1604,9 +1639,15 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentosBoleta.add(btnEliminaBoleta2);
 
+        lblEstatusBoleta2.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         lblEstatusBoleta2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusBoleta2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusBoleta2.setEnabled(false);
+        lblEstatusBoleta2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusBoleta2MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta2);
 
         BtnAddBoleta3.setText("Agregar...");
@@ -1625,19 +1666,16 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentosBoleta.add(btnEliminaBoleta3);
 
+        lblEstatusBoleta3.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         lblEstatusBoleta3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusBoleta3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusBoleta3.setEnabled(false);
-        jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta3);
-
-        BtnAddBoleta4.setForeground(new java.awt.Color(0, 0, 204));
-        BtnAddBoleta4.setText("Agregar...");
-        BtnAddBoleta4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnAddBoleta4ActionPerformed(evt);
+        lblEstatusBoleta3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusBoleta3MouseClicked(evt);
             }
         });
-        jpnlAccionesDocumentosBoleta.add(BtnAddBoleta4);
+        jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta3);
 
         btnEliminaBoleta4.setForeground(new java.awt.Color(0, 0, 204));
         btnEliminaBoleta4.setText("Eliminar Archivo");
@@ -1648,10 +1686,25 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentosBoleta.add(btnEliminaBoleta4);
 
+        lblEstatusBoleta4.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         lblEstatusBoleta4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusBoleta4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusBoleta4.setEnabled(false);
+        lblEstatusBoleta4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusBoleta4MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta4);
+
+        BtnAddBoleta4.setForeground(new java.awt.Color(0, 0, 204));
+        BtnAddBoleta4.setText("Agregar...");
+        BtnAddBoleta4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddBoleta4ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentosBoleta.add(BtnAddBoleta4);
 
         BtnAddBoleta5.setForeground(new java.awt.Color(0, 204, 0));
         BtnAddBoleta5.setText("Agregar...");
@@ -1671,9 +1724,15 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentosBoleta.add(btnEliminaBoleta5);
 
+        lblEstatusBoleta5.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         lblEstatusBoleta5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusBoleta5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusBoleta5.setEnabled(false);
+        lblEstatusBoleta5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusBoleta5MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta5);
 
         BtnAddBoleta6.setText("Agregar...");
@@ -1692,9 +1751,15 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentosBoleta.add(btnEliminaBoleta6);
 
+        lblEstatusBoleta6.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         lblEstatusBoleta6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusBoleta6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusBoleta6.setEnabled(false);
+        lblEstatusBoleta6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusBoleta6MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta6);
 
         BtnAddBoleta7.setForeground(new java.awt.Color(0, 0, 204));
@@ -1715,9 +1780,15 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentosBoleta.add(btnEliminaBoleta7);
 
+        lblEstatusBoleta7.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         lblEstatusBoleta7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusBoleta7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusBoleta7.setEnabled(false);
+        lblEstatusBoleta7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusBoleta7MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta7);
 
         BtnAddBoleta8.setForeground(new java.awt.Color(0, 204, 0));
@@ -1738,9 +1809,15 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentosBoleta.add(btnEliminaBoleta8);
 
+        lblEstatusBoleta8.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         lblEstatusBoleta8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusBoleta8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusBoleta8.setEnabled(false);
+        lblEstatusBoleta8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusBoleta8MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta8);
 
         BtnAddBoleta9.setText("Agregar...");
@@ -1762,6 +1839,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusBoleta9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusBoleta9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusBoleta9.setEnabled(false);
+        lblEstatusBoleta9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusBoleta9MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta9);
 
         BtnAddBoleta10.setForeground(new java.awt.Color(0, 0, 204));
@@ -1785,24 +1867,49 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusBoleta10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusBoleta10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusBoleta10.setEnabled(false);
+        lblEstatusBoleta10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusBoleta10MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta10);
 
+        BtnAddBoleta11.setForeground(new java.awt.Color(0, 204, 0));
         BtnAddBoleta11.setText("Agregar...");
+        BtnAddBoleta11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddBoleta11ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(BtnAddBoleta11);
 
+        btnEliminaBoleta11.setForeground(new java.awt.Color(0, 204, 0));
         btnEliminaBoleta11.setText("Eliminar Archivo");
+        btnEliminaBoleta11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminaBoleta11ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(btnEliminaBoleta11);
 
         lblEstatusBoleta11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusBoleta11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusBoleta11.setEnabled(false);
+        lblEstatusBoleta11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusBoleta11MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta11);
 
-        BtnAddBoleta12.setForeground(new java.awt.Color(0, 204, 0));
         BtnAddBoleta12.setText("Agregar...");
+        BtnAddBoleta12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddBoleta12ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(BtnAddBoleta12);
 
-        btnEliminaBoleta12.setForeground(new java.awt.Color(0, 204, 0));
         btnEliminaBoleta12.setText("Eliminar Archivo");
         btnEliminaBoleta12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1814,6 +1921,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusBoleta12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusBoleta12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusBoleta12.setEnabled(false);
+        lblEstatusBoleta12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusBoleta12MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosBoleta.add(lblEstatusBoleta12);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -1821,13 +1933,13 @@ public class VistaKardex extends javax.swing.JPanel {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addComponent(jpnlListaDocumentosBoleta, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpnlAccionesDocumentosBoleta, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE))
+                .addComponent(jpnlListaDocumentosBoleta, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jpnlAccionesDocumentosBoleta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpnlListaDocumentosBoleta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jpnlListaDocumentosBoleta, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
             .addComponent(jpnlAccionesDocumentosBoleta, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
@@ -1851,25 +1963,23 @@ public class VistaKardex extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        jScrollPane3.setViewportView(pnlArchivosAdjuntos);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 906, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(pnlArchivosAdjuntos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 354, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(pnlArchivosAdjuntos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         jtabKardex.addTab("Adjuntar Boleta", jPanel1);
@@ -1893,13 +2003,12 @@ public class VistaKardex extends javax.swing.JPanel {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
                 .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1912,10 +2021,11 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlListaDocumentosServicioComunitario.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jpnlListaDocumentosServicioComunitario.setLayout(new java.awt.GridLayout(12, 1));
 
+        TxtSemSC1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC1.setText("Enero");
         TxtSemSC1.setBorder(null);
-        TxtSemSC1.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC1.setDisabledTextColor(new java.awt.Color(0, 0, 204));
         TxtSemSC1.setEnabled(false);
         TxtSemSC1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1924,10 +2034,11 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentosServicioComunitario.add(TxtSemSC1);
 
+        TxtSemSC2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC2.setText("Enero");
         TxtSemSC2.setBorder(null);
-        TxtSemSC2.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC2.setDisabledTextColor(new java.awt.Color(0, 204, 0));
         TxtSemSC2.setEnabled(false);
         TxtSemSC2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1936,6 +2047,7 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentosServicioComunitario.add(TxtSemSC2);
 
+        TxtSemSC3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC3.setText("Enero");
         TxtSemSC3.setBorder(null);
@@ -1948,10 +2060,11 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentosServicioComunitario.add(TxtSemSC3);
 
+        TxtSemSC4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC4.setText("Enero");
         TxtSemSC4.setBorder(null);
-        TxtSemSC4.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC4.setDisabledTextColor(new java.awt.Color(0, 0, 204));
         TxtSemSC4.setEnabled(false);
         TxtSemSC4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1960,10 +2073,11 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentosServicioComunitario.add(TxtSemSC4);
 
+        TxtSemSC5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC5.setText("Enero");
         TxtSemSC5.setBorder(null);
-        TxtSemSC5.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC5.setDisabledTextColor(new java.awt.Color(0, 204, 0));
         TxtSemSC5.setEnabled(false);
         TxtSemSC5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1972,6 +2086,7 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentosServicioComunitario.add(TxtSemSC5);
 
+        TxtSemSC6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC6.setText("Enero");
         TxtSemSC6.setBorder(null);
@@ -1984,10 +2099,11 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentosServicioComunitario.add(TxtSemSC6);
 
+        TxtSemSC7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC7.setText("Enero");
         TxtSemSC7.setBorder(null);
-        TxtSemSC7.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC7.setDisabledTextColor(new java.awt.Color(0, 0, 204));
         TxtSemSC7.setEnabled(false);
         TxtSemSC7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1996,10 +2112,11 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentosServicioComunitario.add(TxtSemSC7);
 
+        TxtSemSC8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC8.setText("Enero");
         TxtSemSC8.setBorder(null);
-        TxtSemSC8.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC8.setDisabledTextColor(new java.awt.Color(0, 204, 0));
         TxtSemSC8.setEnabled(false);
         TxtSemSC8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2008,6 +2125,7 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentosServicioComunitario.add(TxtSemSC8);
 
+        TxtSemSC9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC9.setText("Enero");
         TxtSemSC9.setBorder(null);
@@ -2020,10 +2138,11 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentosServicioComunitario.add(TxtSemSC9);
 
+        TxtSemSC10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC10.setText("Enero");
         TxtSemSC10.setBorder(null);
-        TxtSemSC10.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC10.setDisabledTextColor(new java.awt.Color(0, 0, 204));
         TxtSemSC10.setEnabled(false);
         TxtSemSC10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2032,10 +2151,11 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentosServicioComunitario.add(TxtSemSC10);
 
+        TxtSemSC11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC11.setText("Enero");
         TxtSemSC11.setBorder(null);
-        TxtSemSC11.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC11.setDisabledTextColor(new java.awt.Color(0, 204, 0));
         TxtSemSC11.setEnabled(false);
         TxtSemSC11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2044,6 +2164,7 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentosServicioComunitario.add(TxtSemSC11);
 
+        TxtSemSC21.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC21.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC21.setText("Enero");
         TxtSemSC21.setBorder(null);
@@ -2056,6 +2177,7 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentosServicioComunitario.add(TxtSemSC21);
 
+        jpnlAccionesDocumentosServicioComunitario.setMaximumSize(new java.awt.Dimension(363, 348));
         jpnlAccionesDocumentosServicioComunitario.setLayout(new java.awt.GridLayout(12, 3));
 
         BtnAddSC1.setForeground(new java.awt.Color(0, 0, 204));
@@ -2081,6 +2203,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusSC1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusSC1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusSC1.setEnabled(false);
+        lblEstatusSC1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusSC1MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC1);
 
         BtnAddSC2.setForeground(new java.awt.Color(0, 204, 0));
@@ -2104,6 +2231,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusSC2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusSC2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusSC2.setEnabled(false);
+        lblEstatusSC2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusSC2MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC2);
 
         BtnAddSC3.setText("Agregar...");
@@ -2125,6 +2257,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusSC3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusSC3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusSC3.setEnabled(false);
+        lblEstatusSC3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusSC3MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC3);
 
         BtnAddSC4.setForeground(new java.awt.Color(0, 0, 204));
@@ -2148,6 +2285,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusSC4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusSC4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusSC4.setEnabled(false);
+        lblEstatusSC4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusSC4MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC4);
 
         BtnAddSC5.setForeground(new java.awt.Color(0, 204, 0));
@@ -2171,6 +2313,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusSC5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusSC5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusSC5.setEnabled(false);
+        lblEstatusSC5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusSC5MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC5);
 
         BtnAddSC6.setText("Agregar...");
@@ -2192,6 +2339,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusSC6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusSC6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusSC6.setEnabled(false);
+        lblEstatusSC6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusSC6MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC6);
 
         BtnAddSC7.setForeground(new java.awt.Color(0, 0, 204));
@@ -2215,6 +2367,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusSC7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusSC7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusSC7.setEnabled(false);
+        lblEstatusSC7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusSC7MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC7);
 
         BtnAddSC8.setForeground(new java.awt.Color(0, 204, 0));
@@ -2238,6 +2395,11 @@ public class VistaKardex extends javax.swing.JPanel {
         lblEstatusSC8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusSC8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusSC8.setEnabled(false);
+        lblEstatusSC8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusSC8MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC8);
 
         BtnAddSC9.setText("Agregar...");
@@ -2249,11 +2411,21 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentosServicioComunitario.add(BtnAddSC9);
 
         BtnEliminaSC9.setText("Eliminar Archivo");
+        BtnEliminaSC9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaSC9ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(BtnEliminaSC9);
 
         lblEstatusSC9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusSC9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusSC9.setEnabled(false);
+        lblEstatusSC9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusSC9MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC9);
 
         BtnAddSC10.setForeground(new java.awt.Color(0, 0, 204));
@@ -2267,11 +2439,21 @@ public class VistaKardex extends javax.swing.JPanel {
 
         BtnEliminaSC10.setForeground(new java.awt.Color(0, 0, 204));
         BtnEliminaSC10.setText("Eliminar Archivo");
+        BtnEliminaSC10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaSC10ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(BtnEliminaSC10);
 
         lblEstatusSC10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusSC10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusSC10.setEnabled(false);
+        lblEstatusSC10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusSC10MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC10);
 
         BtnAddSC11.setForeground(new java.awt.Color(0, 204, 0));
@@ -2285,11 +2467,21 @@ public class VistaKardex extends javax.swing.JPanel {
 
         BtnEliminaSC11.setForeground(new java.awt.Color(0, 204, 0));
         BtnEliminaSC11.setText("Eliminar Archivo");
+        BtnEliminaSC11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaSC11ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(BtnEliminaSC11);
 
         lblEstatusSC11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusSC11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusSC11.setEnabled(false);
+        lblEstatusSC11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusSC11MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC11);
 
         BtnAddSC12.setText("Agregar...");
@@ -2301,11 +2493,21 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentosServicioComunitario.add(BtnAddSC12);
 
         BtnEliminaSC12.setText("Eliminar Archivo");
+        BtnEliminaSC12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaSC12ActionPerformed(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(BtnEliminaSC12);
 
         lblEstatusSC12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEstatusSC12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEstatusSC12.setEnabled(false);
+        lblEstatusSC12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEstatusSC12MouseClicked(evt);
+            }
+        });
         jpnlAccionesDocumentosServicioComunitario.add(lblEstatusSC12);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -2313,9 +2515,10 @@ public class VistaKardex extends javax.swing.JPanel {
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addComponent(jpnlListaDocumentosServicioComunitario, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpnlAccionesDocumentosServicioComunitario, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE))
+                .addComponent(jpnlListaDocumentosServicioComunitario, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jpnlAccionesDocumentosServicioComunitario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2343,622 +2546,25 @@ public class VistaKardex extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        jScrollPane2.setViewportView(pnlArchivosAdjuntos1);
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 906, Short.MAX_VALUE)
-            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel4Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(pnlArchivosAdjuntos1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 882, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 354, Short.MAX_VALUE)
-            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel4Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(pnlArchivosAdjuntos1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE))
         );
 
         jtabKardex.addTab("Adjuntar Carta Servicio Comunitario", jPanel4);
-
-        pnlTransferenciasAdjuntas2.setBorder(javax.swing.BorderFactory.createTitledBorder("Carga Semestral"));
-
-        jLabel44.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel44.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel44.setText("Semestre");
-
-        jLabel45.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel45.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel45.setText("Acción");
-
-        jLabel46.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel46.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel46.setText("Estatus");
-
-        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
-        jPanel15.setLayout(jPanel15Layout);
-        jPanel15Layout.setHorizontalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel15Layout.setVerticalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel46, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jpnlListaDocumentos4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jpnlListaDocumentos4.setLayout(new java.awt.GridLayout(10, 1));
-
-        TxtSemSC22.setBackground(new java.awt.Color(0, 204, 51));
-        TxtSemSC22.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        TxtSemSC22.setText("Transf 1 Semestre1");
-        TxtSemSC22.setBorder(null);
-        TxtSemSC22.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtSemSC22ActionPerformed(evt);
-            }
-        });
-        jpnlListaDocumentos4.add(TxtSemSC22);
-
-        TxtSemSC12.setBackground(new java.awt.Color(51, 255, 51));
-        TxtSemSC12.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        TxtSemSC12.setText("Transf 2 Semestre 1");
-        TxtSemSC12.setBorder(null);
-        TxtSemSC12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtSemSC12ActionPerformed(evt);
-            }
-        });
-        jpnlListaDocumentos4.add(TxtSemSC12);
-
-        TxtSemSC13.setBackground(new java.awt.Color(0, 0, 204));
-        TxtSemSC13.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        TxtSemSC13.setText("Transf 1 Semestre 2");
-        TxtSemSC13.setBorder(null);
-        TxtSemSC13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtSemSC13ActionPerformed(evt);
-            }
-        });
-        jpnlListaDocumentos4.add(TxtSemSC13);
-
-        TxtSemSC14.setBackground(new java.awt.Color(51, 51, 255));
-        TxtSemSC14.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        TxtSemSC14.setText("Transf 2 Semestre 2");
-        TxtSemSC14.setBorder(null);
-        TxtSemSC14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtSemSC14ActionPerformed(evt);
-            }
-        });
-        jpnlListaDocumentos4.add(TxtSemSC14);
-
-        TxtSemSC15.setBackground(new java.awt.Color(255, 102, 0));
-        TxtSemSC15.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        TxtSemSC15.setText("Transf 1 Semestre 3");
-        TxtSemSC15.setBorder(null);
-        TxtSemSC15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtSemSC15ActionPerformed(evt);
-            }
-        });
-        jpnlListaDocumentos4.add(TxtSemSC15);
-
-        TxtSemSC16.setBackground(new java.awt.Color(255, 102, 51));
-        TxtSemSC16.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        TxtSemSC16.setText("Transf 2 Semestre 3");
-        TxtSemSC16.setBorder(null);
-        TxtSemSC16.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtSemSC16ActionPerformed(evt);
-            }
-        });
-        jpnlListaDocumentos4.add(TxtSemSC16);
-
-        TxtSemSC17.setBackground(new java.awt.Color(0, 204, 51));
-        TxtSemSC17.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        TxtSemSC17.setText("Transf 1 Semestre 4");
-        TxtSemSC17.setBorder(null);
-        TxtSemSC17.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtSemSC17ActionPerformed(evt);
-            }
-        });
-        jpnlListaDocumentos4.add(TxtSemSC17);
-
-        TxtSemSC18.setBackground(new java.awt.Color(51, 255, 51));
-        TxtSemSC18.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        TxtSemSC18.setText("Transf 2 Semestre 4");
-        TxtSemSC18.setBorder(null);
-        TxtSemSC18.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtSemSC18ActionPerformed(evt);
-            }
-        });
-        jpnlListaDocumentos4.add(TxtSemSC18);
-
-        TxtSemSC19.setBackground(new java.awt.Color(0, 0, 204));
-        TxtSemSC19.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        TxtSemSC19.setText("Transf 1 Semestre 5");
-        TxtSemSC19.setBorder(null);
-        TxtSemSC19.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtSemSC19ActionPerformed(evt);
-            }
-        });
-        jpnlListaDocumentos4.add(TxtSemSC19);
-
-        TxtSemSC20.setEditable(false);
-        TxtSemSC20.setBackground(new java.awt.Color(51, 51, 255));
-        TxtSemSC20.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        TxtSemSC20.setText("Trasnf 2 Semestre 5");
-        TxtSemSC20.setBorder(null);
-        TxtSemSC20.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtSemSC20ActionPerformed(evt);
-            }
-        });
-        jpnlListaDocumentos4.add(TxtSemSC20);
-
-        jpnlAccionesDocumentos2.setLayout(new java.awt.GridLayout(10, 3));
-
-        BtnAddSTn1.setForeground(new java.awt.Color(0, 204, 51));
-        BtnAddSTn1.setText("Agregar...");
-        BtnAddSTn1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnAddSTn1ActionPerformed(evt);
-            }
-        });
-        jpnlAccionesDocumentos2.add(BtnAddSTn1);
-
-        BtnEliminaTn1.setForeground(new java.awt.Color(0, 204, 51));
-        BtnEliminaTn1.setText("Eliminar...");
-        jpnlAccionesDocumentos2.add(BtnEliminaTn1);
-
-        TxtEstatusSC11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        TxtEstatusSC11.setForeground(new java.awt.Color(0, 0, 204));
-        TxtEstatusSC11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TxtEstatusSC11.setText("OK");
-        TxtEstatusSC11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtEstatusSC11.setEnabled(false);
-        jpnlAccionesDocumentos2.add(TxtEstatusSC11);
-
-        BtnAddSTn2.setForeground(new java.awt.Color(51, 255, 51));
-        BtnAddSTn2.setText("Agregar...");
-        jpnlAccionesDocumentos2.add(BtnAddSTn2);
-
-        BtnEliminaTn2.setForeground(new java.awt.Color(51, 255, 51));
-        BtnEliminaTn2.setText("Eliminar...");
-        jpnlAccionesDocumentos2.add(BtnEliminaTn2);
-
-        TxtEstatusSC12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtEstatusSC12.setEnabled(false);
-        jpnlAccionesDocumentos2.add(TxtEstatusSC12);
-
-        BtnAddSTn3.setForeground(new java.awt.Color(0, 0, 204));
-        BtnAddSTn3.setText("Agregar...");
-        jpnlAccionesDocumentos2.add(BtnAddSTn3);
-
-        BtnEliminaTn3.setForeground(new java.awt.Color(0, 0, 204));
-        BtnEliminaTn3.setText("Eliminar...");
-        jpnlAccionesDocumentos2.add(BtnEliminaTn3);
-
-        TxtEstatusSC13.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtEstatusSC13.setEnabled(false);
-        jpnlAccionesDocumentos2.add(TxtEstatusSC13);
-
-        BtnAddSTn4.setForeground(new java.awt.Color(51, 51, 255));
-        BtnAddSTn4.setText("Agregar...");
-        jpnlAccionesDocumentos2.add(BtnAddSTn4);
-
-        BtnEliminaTn4.setForeground(new java.awt.Color(51, 51, 255));
-        BtnEliminaTn4.setText("Eliminar...");
-        jpnlAccionesDocumentos2.add(BtnEliminaTn4);
-
-        TxtEstatusSC14.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtEstatusSC14.setEnabled(false);
-        jpnlAccionesDocumentos2.add(TxtEstatusSC14);
-
-        BtnAddSTn5.setForeground(new java.awt.Color(255, 102, 0));
-        BtnAddSTn5.setText("Agregar...");
-        jpnlAccionesDocumentos2.add(BtnAddSTn5);
-
-        BtnEliminaTn5.setForeground(new java.awt.Color(255, 102, 0));
-        BtnEliminaTn5.setText("Eliminar...");
-        jpnlAccionesDocumentos2.add(BtnEliminaTn5);
-
-        TxtEstatusSC15.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtEstatusSC15.setEnabled(false);
-        jpnlAccionesDocumentos2.add(TxtEstatusSC15);
-
-        BtnAddSTn6.setForeground(new java.awt.Color(255, 102, 51));
-        BtnAddSTn6.setText("Agregar...");
-        jpnlAccionesDocumentos2.add(BtnAddSTn6);
-
-        BtnEliminaTn6.setForeground(new java.awt.Color(255, 102, 51));
-        BtnEliminaTn6.setText("Eliminar...");
-        jpnlAccionesDocumentos2.add(BtnEliminaTn6);
-
-        TxtEstatusSC16.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtEstatusSC16.setEnabled(false);
-        jpnlAccionesDocumentos2.add(TxtEstatusSC16);
-
-        BtnAddSTn7.setForeground(new java.awt.Color(0, 204, 51));
-        BtnAddSTn7.setText("Agregar...");
-        BtnAddSTn7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnAddSTn7ActionPerformed(evt);
-            }
-        });
-        jpnlAccionesDocumentos2.add(BtnAddSTn7);
-
-        BtnEliminaTn7.setForeground(new java.awt.Color(0, 204, 51));
-        BtnEliminaTn7.setText("Eliminar...");
-        BtnEliminaTn7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnEliminaTn7ActionPerformed(evt);
-            }
-        });
-        jpnlAccionesDocumentos2.add(BtnEliminaTn7);
-
-        TxtEstatusSC17.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtEstatusSC17.setEnabled(false);
-        jpnlAccionesDocumentos2.add(TxtEstatusSC17);
-
-        BtnAddSTn8.setForeground(new java.awt.Color(51, 255, 51));
-        BtnAddSTn8.setText("Agregar...");
-        jpnlAccionesDocumentos2.add(BtnAddSTn8);
-
-        BtnEliminaTn8.setForeground(new java.awt.Color(51, 255, 51));
-        BtnEliminaTn8.setText("Eliminar...");
-        jpnlAccionesDocumentos2.add(BtnEliminaTn8);
-
-        TxtEstatusSC18.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtEstatusSC18.setEnabled(false);
-        jpnlAccionesDocumentos2.add(TxtEstatusSC18);
-
-        BtnAddSTn9.setForeground(new java.awt.Color(0, 0, 204));
-        BtnAddSTn9.setText("Agregar...");
-        jpnlAccionesDocumentos2.add(BtnAddSTn9);
-
-        BtnEliminaTn9.setForeground(new java.awt.Color(0, 0, 204));
-        BtnEliminaTn9.setText("Eliminar...");
-        jpnlAccionesDocumentos2.add(BtnEliminaTn9);
-
-        TxtEstatusSC19.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtEstatusSC19.setEnabled(false);
-        jpnlAccionesDocumentos2.add(TxtEstatusSC19);
-
-        BtnAddSTn10.setForeground(new java.awt.Color(51, 51, 255));
-        BtnAddSTn10.setText("Agregar...");
-        jpnlAccionesDocumentos2.add(BtnAddSTn10);
-
-        BtnEliminaTn10.setForeground(new java.awt.Color(51, 51, 255));
-        BtnEliminaTn10.setText("Eliminar...");
-        jpnlAccionesDocumentos2.add(BtnEliminaTn10);
-
-        TxtEstatusSC20.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtEstatusSC20.setEnabled(false);
-        jpnlAccionesDocumentos2.add(TxtEstatusSC20);
-
-        jpnlListaDocumentos5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jpnlListaDocumentos5.setLayout(new java.awt.GridLayout(10, 1));
-
-        TxtSemSC23.setBackground(new java.awt.Color(0, 204, 51));
-        TxtSemSC23.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        TxtSemSC23.setText("Transf 1 Semestre 6");
-        TxtSemSC23.setBorder(null);
-        TxtSemSC23.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtSemSC23ActionPerformed(evt);
-            }
-        });
-        jpnlListaDocumentos5.add(TxtSemSC23);
-
-        TxtSemSC24.setBackground(new java.awt.Color(51, 255, 51));
-        TxtSemSC24.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        TxtSemSC24.setText("Transf 2 Semestre 6");
-        TxtSemSC24.setBorder(null);
-        TxtSemSC24.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtSemSC24ActionPerformed(evt);
-            }
-        });
-        jpnlListaDocumentos5.add(TxtSemSC24);
-
-        TxtSemSC25.setBackground(new java.awt.Color(0, 0, 204));
-        TxtSemSC25.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        TxtSemSC25.setText("Transf 1 Semestre 7");
-        TxtSemSC25.setBorder(null);
-        TxtSemSC25.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtSemSC25ActionPerformed(evt);
-            }
-        });
-        jpnlListaDocumentos5.add(TxtSemSC25);
-
-        TxtSemSC26.setBackground(new java.awt.Color(51, 51, 255));
-        TxtSemSC26.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        TxtSemSC26.setText("Transf 2 Semestre 7");
-        TxtSemSC26.setBorder(null);
-        TxtSemSC26.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtSemSC26ActionPerformed(evt);
-            }
-        });
-        jpnlListaDocumentos5.add(TxtSemSC26);
-
-        TxtSemSC27.setBackground(new java.awt.Color(255, 102, 0));
-        TxtSemSC27.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        TxtSemSC27.setText("Transf 1 Semestre 8");
-        TxtSemSC27.setBorder(null);
-        TxtSemSC27.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtSemSC27ActionPerformed(evt);
-            }
-        });
-        jpnlListaDocumentos5.add(TxtSemSC27);
-
-        TxtSemSC28.setBackground(new java.awt.Color(255, 102, 51));
-        TxtSemSC28.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        TxtSemSC28.setText("Transf 2 Semestre 8");
-        TxtSemSC28.setBorder(null);
-        TxtSemSC28.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtSemSC28ActionPerformed(evt);
-            }
-        });
-        jpnlListaDocumentos5.add(TxtSemSC28);
-
-        TxtSemSC29.setBackground(new java.awt.Color(0, 204, 51));
-        TxtSemSC29.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        TxtSemSC29.setText("Transf 1 Semestre 9");
-        TxtSemSC29.setBorder(null);
-        TxtSemSC29.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtSemSC29ActionPerformed(evt);
-            }
-        });
-        jpnlListaDocumentos5.add(TxtSemSC29);
-
-        TxtSemSC30.setBackground(new java.awt.Color(51, 255, 51));
-        TxtSemSC30.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        TxtSemSC30.setText("Transf 2 Semestre 9");
-        TxtSemSC30.setBorder(null);
-        TxtSemSC30.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtSemSC30ActionPerformed(evt);
-            }
-        });
-        jpnlListaDocumentos5.add(TxtSemSC30);
-
-        TxtSemSC31.setBackground(new java.awt.Color(0, 0, 204));
-        TxtSemSC31.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        TxtSemSC31.setText("Transf 1 Semestre 10");
-        TxtSemSC31.setBorder(null);
-        TxtSemSC31.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtSemSC31ActionPerformed(evt);
-            }
-        });
-        jpnlListaDocumentos5.add(TxtSemSC31);
-
-        TxtSemSC32.setEditable(false);
-        TxtSemSC32.setBackground(new java.awt.Color(51, 51, 255));
-        TxtSemSC32.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        TxtSemSC32.setText("Trasnf 2 Semestre 10");
-        TxtSemSC32.setBorder(null);
-        TxtSemSC32.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtSemSC32ActionPerformed(evt);
-            }
-        });
-        jpnlListaDocumentos5.add(TxtSemSC32);
-
-        jpnlAccionesDocumentos3.setLayout(new java.awt.GridLayout(10, 3));
-
-        BtnAddSTn11.setForeground(new java.awt.Color(0, 204, 51));
-        BtnAddSTn11.setText("Agregar...");
-        BtnAddSTn11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnAddSTn11ActionPerformed(evt);
-            }
-        });
-        jpnlAccionesDocumentos3.add(BtnAddSTn11);
-
-        BtnEliminaTn11.setForeground(new java.awt.Color(0, 204, 51));
-        BtnEliminaTn11.setText("Eliminar...");
-        jpnlAccionesDocumentos3.add(BtnEliminaTn11);
-
-        TxtEstatusSC21.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        TxtEstatusSC21.setForeground(new java.awt.Color(0, 0, 204));
-        TxtEstatusSC21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TxtEstatusSC21.setText("OK");
-        TxtEstatusSC21.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtEstatusSC21.setEnabled(false);
-        jpnlAccionesDocumentos3.add(TxtEstatusSC21);
-
-        BtnAddSTn12.setForeground(new java.awt.Color(51, 255, 51));
-        BtnAddSTn12.setText("Agregar...");
-        jpnlAccionesDocumentos3.add(BtnAddSTn12);
-
-        BtnEliminaTn12.setForeground(new java.awt.Color(51, 255, 51));
-        BtnEliminaTn12.setText("Eliminar...");
-        jpnlAccionesDocumentos3.add(BtnEliminaTn12);
-
-        TxtEstatusSC22.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtEstatusSC22.setEnabled(false);
-        jpnlAccionesDocumentos3.add(TxtEstatusSC22);
-
-        BtnAddSTn13.setForeground(new java.awt.Color(0, 0, 204));
-        BtnAddSTn13.setText("Agregar...");
-        jpnlAccionesDocumentos3.add(BtnAddSTn13);
-
-        BtnEliminaTn13.setForeground(new java.awt.Color(0, 0, 204));
-        BtnEliminaTn13.setText("Eliminar...");
-        jpnlAccionesDocumentos3.add(BtnEliminaTn13);
-
-        TxtEstatusSC23.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtEstatusSC23.setEnabled(false);
-        jpnlAccionesDocumentos3.add(TxtEstatusSC23);
-
-        BtnAddSTn14.setForeground(new java.awt.Color(51, 51, 255));
-        BtnAddSTn14.setText("Agregar...");
-        jpnlAccionesDocumentos3.add(BtnAddSTn14);
-
-        BtnEliminaTn14.setForeground(new java.awt.Color(51, 51, 255));
-        BtnEliminaTn14.setText("Eliminar...");
-        jpnlAccionesDocumentos3.add(BtnEliminaTn14);
-
-        TxtEstatusSC24.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtEstatusSC24.setEnabled(false);
-        jpnlAccionesDocumentos3.add(TxtEstatusSC24);
-
-        BtnAddSTn15.setForeground(new java.awt.Color(255, 102, 0));
-        BtnAddSTn15.setText("Agregar...");
-        jpnlAccionesDocumentos3.add(BtnAddSTn15);
-
-        BtnEliminaTn15.setForeground(new java.awt.Color(255, 102, 0));
-        BtnEliminaTn15.setText("Eliminar...");
-        jpnlAccionesDocumentos3.add(BtnEliminaTn15);
-
-        TxtEstatusSC25.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtEstatusSC25.setEnabled(false);
-        jpnlAccionesDocumentos3.add(TxtEstatusSC25);
-
-        BtnAddSTn16.setForeground(new java.awt.Color(255, 102, 51));
-        BtnAddSTn16.setText("Agregar...");
-        jpnlAccionesDocumentos3.add(BtnAddSTn16);
-
-        BtnEliminaTn16.setForeground(new java.awt.Color(255, 102, 51));
-        BtnEliminaTn16.setText("Eliminar...");
-        jpnlAccionesDocumentos3.add(BtnEliminaTn16);
-
-        TxtEstatusSC26.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtEstatusSC26.setEnabled(false);
-        jpnlAccionesDocumentos3.add(TxtEstatusSC26);
-
-        BtnAddSTn17.setForeground(new java.awt.Color(0, 204, 51));
-        BtnAddSTn17.setText("Agregar...");
-        BtnAddSTn17.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnAddSTn17ActionPerformed(evt);
-            }
-        });
-        jpnlAccionesDocumentos3.add(BtnAddSTn17);
-
-        BtnEliminaTn17.setForeground(new java.awt.Color(0, 204, 51));
-        BtnEliminaTn17.setText("Eliminar...");
-        BtnEliminaTn17.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnEliminaTn17ActionPerformed(evt);
-            }
-        });
-        jpnlAccionesDocumentos3.add(BtnEliminaTn17);
-
-        TxtEstatusSC27.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtEstatusSC27.setEnabled(false);
-        jpnlAccionesDocumentos3.add(TxtEstatusSC27);
-
-        BtnAddSTn18.setForeground(new java.awt.Color(51, 255, 51));
-        BtnAddSTn18.setText("Agregar...");
-        jpnlAccionesDocumentos3.add(BtnAddSTn18);
-
-        BtnEliminaTn18.setForeground(new java.awt.Color(51, 255, 51));
-        BtnEliminaTn18.setText("Eliminar...");
-        jpnlAccionesDocumentos3.add(BtnEliminaTn18);
-
-        TxtEstatusSC28.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtEstatusSC28.setEnabled(false);
-        jpnlAccionesDocumentos3.add(TxtEstatusSC28);
-
-        BtnAddSTn19.setForeground(new java.awt.Color(0, 0, 204));
-        BtnAddSTn19.setText("Agregar...");
-        jpnlAccionesDocumentos3.add(BtnAddSTn19);
-
-        BtnEliminaTn19.setForeground(new java.awt.Color(0, 0, 204));
-        BtnEliminaTn19.setText("Eliminar...");
-        jpnlAccionesDocumentos3.add(BtnEliminaTn19);
-
-        TxtEstatusSC29.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtEstatusSC29.setEnabled(false);
-        jpnlAccionesDocumentos3.add(TxtEstatusSC29);
-
-        BtnAddSTn20.setForeground(new java.awt.Color(51, 51, 255));
-        BtnAddSTn20.setText("Agregar...");
-        jpnlAccionesDocumentos3.add(BtnAddSTn20);
-
-        BtnEliminaTn20.setForeground(new java.awt.Color(51, 51, 255));
-        BtnEliminaTn20.setText("Eliminar...");
-        jpnlAccionesDocumentos3.add(BtnEliminaTn20);
-
-        TxtEstatusSC30.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TxtEstatusSC30.setEnabled(false);
-        jpnlAccionesDocumentos3.add(TxtEstatusSC30);
-
-        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
-        jPanel16.setLayout(jPanel16Layout);
-        jPanel16Layout.setHorizontalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel16Layout.createSequentialGroup()
-                .addComponent(jpnlListaDocumentos4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpnlAccionesDocumentos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(478, Short.MAX_VALUE))
-            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel16Layout.createSequentialGroup()
-                    .addGap(425, 425, 425)
-                    .addComponent(jpnlListaDocumentos5, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(284, Short.MAX_VALUE)))
-            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
-                    .addContainerGap(553, Short.MAX_VALUE)
-                    .addComponent(jpnlAccionesDocumentos3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(50, 50, 50)))
-        );
-        jPanel16Layout.setVerticalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpnlListaDocumentos4, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
-            .addComponent(jpnlAccionesDocumentos2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jpnlListaDocumentos5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE))
-            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jpnlAccionesDocumentos3, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout pnlTransferenciasAdjuntas2Layout = new javax.swing.GroupLayout(pnlTransferenciasAdjuntas2);
-        pnlTransferenciasAdjuntas2.setLayout(pnlTransferenciasAdjuntas2Layout);
-        pnlTransferenciasAdjuntas2Layout.setHorizontalGroup(
-            pnlTransferenciasAdjuntas2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlTransferenciasAdjuntas2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlTransferenciasAdjuntas2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
-        pnlTransferenciasAdjuntas2Layout.setVerticalGroup(
-            pnlTransferenciasAdjuntas2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlTransferenciasAdjuntas2Layout.createSequentialGroup()
-                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
 
         pnlInformacionBancaria.setBorder(javax.swing.BorderFactory.createTitledBorder("Informacion Bancaria"));
 
@@ -3007,15 +2613,966 @@ public class VistaKardex extends javax.swing.JPanel {
                 .addGap(0, 11, Short.MAX_VALUE))
         );
 
+        pnlTransferenciasAdjuntas2.setBorder(javax.swing.BorderFactory.createTitledBorder("Carga Semestral"));
+        pnlTransferenciasAdjuntas2.setMaximumSize(new java.awt.Dimension(894, 348));
+
+        jLabel44.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel44.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel44.setText("Semestre");
+
+        jLabel45.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel45.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel45.setText("Acción");
+
+        jLabel46.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel46.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel46.setText("Estatus");
+
+        jLabel47.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel47.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel47.setText("Semestre");
+
+        jLabel48.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel48.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel48.setText("Acción");
+
+        jLabel49.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel49.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel49.setText("Estatus");
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
+                .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel48, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel49, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel47, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel46, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel16.setPreferredSize(new java.awt.Dimension(870, 270));
+
+        jpnlListaDocumentos4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jpnlListaDocumentos4.setMaximumSize(new java.awt.Dimension(141, 174));
+        jpnlListaDocumentos4.setLayout(new java.awt.GridLayout(10, 1));
+
+        TxtSemSC22.setBackground(new java.awt.Color(0, 204, 51));
+        TxtSemSC22.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        TxtSemSC22.setText("Transf 1 Semestre1");
+        TxtSemSC22.setBorder(null);
+        TxtSemSC22.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC22.setEnabled(false);
+        TxtSemSC22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSemSC22ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos4.add(TxtSemSC22);
+
+        TxtSemSC12.setBackground(new java.awt.Color(51, 255, 51));
+        TxtSemSC12.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        TxtSemSC12.setText("Transf 2 Semestre 1");
+        TxtSemSC12.setBorder(null);
+        TxtSemSC12.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC12.setEnabled(false);
+        TxtSemSC12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSemSC12ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos4.add(TxtSemSC12);
+
+        TxtSemSC13.setBackground(new java.awt.Color(0, 0, 204));
+        TxtSemSC13.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        TxtSemSC13.setText("Transf 1 Semestre 2");
+        TxtSemSC13.setBorder(null);
+        TxtSemSC13.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC13.setEnabled(false);
+        TxtSemSC13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSemSC13ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos4.add(TxtSemSC13);
+
+        TxtSemSC14.setBackground(new java.awt.Color(51, 51, 255));
+        TxtSemSC14.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        TxtSemSC14.setText("Transf 2 Semestre 2");
+        TxtSemSC14.setBorder(null);
+        TxtSemSC14.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC14.setEnabled(false);
+        TxtSemSC14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSemSC14ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos4.add(TxtSemSC14);
+
+        TxtSemSC15.setBackground(new java.awt.Color(255, 102, 0));
+        TxtSemSC15.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        TxtSemSC15.setText("Transf 1 Semestre 3");
+        TxtSemSC15.setBorder(null);
+        TxtSemSC15.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC15.setEnabled(false);
+        TxtSemSC15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSemSC15ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos4.add(TxtSemSC15);
+
+        TxtSemSC16.setBackground(new java.awt.Color(255, 102, 51));
+        TxtSemSC16.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        TxtSemSC16.setText("Transf 2 Semestre 3");
+        TxtSemSC16.setBorder(null);
+        TxtSemSC16.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC16.setEnabled(false);
+        TxtSemSC16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSemSC16ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos4.add(TxtSemSC16);
+
+        TxtSemSC17.setBackground(new java.awt.Color(0, 204, 51));
+        TxtSemSC17.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        TxtSemSC17.setText("Transf 1 Semestre 4");
+        TxtSemSC17.setBorder(null);
+        TxtSemSC17.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC17.setEnabled(false);
+        TxtSemSC17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSemSC17ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos4.add(TxtSemSC17);
+
+        TxtSemSC18.setBackground(new java.awt.Color(51, 255, 51));
+        TxtSemSC18.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        TxtSemSC18.setText("Transf 2 Semestre 4");
+        TxtSemSC18.setBorder(null);
+        TxtSemSC18.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC18.setEnabled(false);
+        TxtSemSC18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSemSC18ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos4.add(TxtSemSC18);
+
+        TxtSemSC19.setBackground(new java.awt.Color(0, 0, 204));
+        TxtSemSC19.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        TxtSemSC19.setText("Transf 1 Semestre 5");
+        TxtSemSC19.setBorder(null);
+        TxtSemSC19.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC19.setEnabled(false);
+        TxtSemSC19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSemSC19ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos4.add(TxtSemSC19);
+
+        TxtSemSC20.setEditable(false);
+        TxtSemSC20.setBackground(new java.awt.Color(51, 51, 255));
+        TxtSemSC20.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        TxtSemSC20.setText("Trasnf 2 Semestre 5");
+        TxtSemSC20.setBorder(null);
+        TxtSemSC20.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC20.setEnabled(false);
+        TxtSemSC20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSemSC20ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos4.add(TxtSemSC20);
+
+        jpnlAccionesDocumentos2.setMaximumSize(new java.awt.Dimension(240, 290));
+        jpnlAccionesDocumentos2.setLayout(new java.awt.GridLayout(10, 3));
+
+        BtnAddSTn1.setForeground(new java.awt.Color(0, 204, 51));
+        BtnAddSTn1.setText("Agregar...");
+        BtnAddSTn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddSTn1ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos2.add(BtnAddSTn1);
+
+        BtnEliminaTn1.setForeground(new java.awt.Color(0, 204, 51));
+        BtnEliminaTn1.setText("Eliminar...");
+        BtnEliminaTn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaTn1ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos2.add(BtnEliminaTn1);
+
+        TxtEstatusSC11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        TxtEstatusSC11.setForeground(new java.awt.Color(0, 0, 204));
+        TxtEstatusSC11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TxtEstatusSC11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        TxtEstatusSC11.setEnabled(false);
+        TxtEstatusSC11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC11MouseClicked(evt);
+            }
+        });
+        jpnlAccionesDocumentos2.add(TxtEstatusSC11);
+
+        BtnAddSTn2.setForeground(new java.awt.Color(51, 255, 51));
+        BtnAddSTn2.setText("Agregar...");
+        BtnAddSTn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddSTn2ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos2.add(BtnAddSTn2);
+
+        BtnEliminaTn2.setForeground(new java.awt.Color(51, 255, 51));
+        BtnEliminaTn2.setText("Eliminar...");
+        BtnEliminaTn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaTn2ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos2.add(BtnEliminaTn2);
+
+        TxtEstatusSC12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TxtEstatusSC12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        TxtEstatusSC12.setEnabled(false);
+        TxtEstatusSC12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC12MouseClicked(evt);
+            }
+        });
+        jpnlAccionesDocumentos2.add(TxtEstatusSC12);
+
+        BtnAddSTn3.setForeground(new java.awt.Color(0, 0, 204));
+        BtnAddSTn3.setText("Agregar...");
+        BtnAddSTn3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddSTn3ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos2.add(BtnAddSTn3);
+
+        BtnEliminaTn3.setForeground(new java.awt.Color(0, 0, 204));
+        BtnEliminaTn3.setText("Eliminar...");
+        BtnEliminaTn3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaTn3ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos2.add(BtnEliminaTn3);
+
+        TxtEstatusSC13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TxtEstatusSC13.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        TxtEstatusSC13.setEnabled(false);
+        TxtEstatusSC13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC13MouseClicked(evt);
+            }
+        });
+        jpnlAccionesDocumentos2.add(TxtEstatusSC13);
+
+        BtnAddSTn4.setForeground(new java.awt.Color(51, 51, 255));
+        BtnAddSTn4.setText("Agregar...");
+        BtnAddSTn4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddSTn4ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos2.add(BtnAddSTn4);
+
+        BtnEliminaTn4.setForeground(new java.awt.Color(51, 51, 255));
+        BtnEliminaTn4.setText("Eliminar...");
+        BtnEliminaTn4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaTn4ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos2.add(BtnEliminaTn4);
+
+        TxtEstatusSC14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TxtEstatusSC14.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        TxtEstatusSC14.setEnabled(false);
+        TxtEstatusSC14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC14MouseClicked(evt);
+            }
+        });
+        jpnlAccionesDocumentos2.add(TxtEstatusSC14);
+
+        BtnAddSTn5.setForeground(new java.awt.Color(255, 102, 0));
+        BtnAddSTn5.setText("Agregar...");
+        BtnAddSTn5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddSTn5ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos2.add(BtnAddSTn5);
+
+        BtnEliminaTn5.setForeground(new java.awt.Color(255, 102, 0));
+        BtnEliminaTn5.setText("Eliminar...");
+        BtnEliminaTn5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaTn5ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos2.add(BtnEliminaTn5);
+
+        TxtEstatusSC15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TxtEstatusSC15.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        TxtEstatusSC15.setEnabled(false);
+        TxtEstatusSC15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC15MouseClicked(evt);
+            }
+        });
+        jpnlAccionesDocumentos2.add(TxtEstatusSC15);
+
+        BtnAddSTn6.setForeground(new java.awt.Color(255, 102, 51));
+        BtnAddSTn6.setText("Agregar...");
+        BtnAddSTn6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddSTn6ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos2.add(BtnAddSTn6);
+
+        BtnEliminaTn6.setForeground(new java.awt.Color(255, 102, 51));
+        BtnEliminaTn6.setText("Eliminar...");
+        BtnEliminaTn6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaTn6ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos2.add(BtnEliminaTn6);
+
+        TxtEstatusSC16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TxtEstatusSC16.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        TxtEstatusSC16.setEnabled(false);
+        TxtEstatusSC16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC16MouseClicked(evt);
+            }
+        });
+        jpnlAccionesDocumentos2.add(TxtEstatusSC16);
+
+        BtnAddSTn7.setForeground(new java.awt.Color(0, 204, 51));
+        BtnAddSTn7.setText("Agregar...");
+        BtnAddSTn7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddSTn7ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos2.add(BtnAddSTn7);
+
+        BtnEliminaTn7.setForeground(new java.awt.Color(0, 204, 51));
+        BtnEliminaTn7.setText("Eliminar...");
+        BtnEliminaTn7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaTn7ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos2.add(BtnEliminaTn7);
+
+        TxtEstatusSC17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TxtEstatusSC17.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        TxtEstatusSC17.setEnabled(false);
+        TxtEstatusSC17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC17MouseClicked(evt);
+            }
+        });
+        jpnlAccionesDocumentos2.add(TxtEstatusSC17);
+
+        BtnAddSTn8.setForeground(new java.awt.Color(51, 255, 51));
+        BtnAddSTn8.setText("Agregar...");
+        BtnAddSTn8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddSTn8ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos2.add(BtnAddSTn8);
+
+        BtnEliminaTn8.setForeground(new java.awt.Color(51, 255, 51));
+        BtnEliminaTn8.setText("Eliminar...");
+        BtnEliminaTn8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaTn8ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos2.add(BtnEliminaTn8);
+
+        TxtEstatusSC18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TxtEstatusSC18.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        TxtEstatusSC18.setEnabled(false);
+        TxtEstatusSC18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC18MouseClicked(evt);
+            }
+        });
+        jpnlAccionesDocumentos2.add(TxtEstatusSC18);
+
+        BtnAddSTn9.setForeground(new java.awt.Color(0, 0, 204));
+        BtnAddSTn9.setText("Agregar...");
+        BtnAddSTn9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddSTn9ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos2.add(BtnAddSTn9);
+
+        BtnEliminaTn9.setForeground(new java.awt.Color(0, 0, 204));
+        BtnEliminaTn9.setText("Eliminar...");
+        BtnEliminaTn9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaTn9ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos2.add(BtnEliminaTn9);
+
+        TxtEstatusSC19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TxtEstatusSC19.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        TxtEstatusSC19.setEnabled(false);
+        TxtEstatusSC19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC19MouseClicked(evt);
+            }
+        });
+        jpnlAccionesDocumentos2.add(TxtEstatusSC19);
+
+        BtnAddSTn10.setForeground(new java.awt.Color(51, 51, 255));
+        BtnAddSTn10.setText("Agregar...");
+        BtnAddSTn10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddSTn10ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos2.add(BtnAddSTn10);
+
+        BtnEliminaTn10.setForeground(new java.awt.Color(51, 51, 255));
+        BtnEliminaTn10.setText("Eliminar...");
+        BtnEliminaTn10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaTn10ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos2.add(BtnEliminaTn10);
+
+        TxtEstatusSC20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TxtEstatusSC20.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        TxtEstatusSC20.setEnabled(false);
+        TxtEstatusSC20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC20MouseClicked(evt);
+            }
+        });
+        jpnlAccionesDocumentos2.add(TxtEstatusSC20);
+
+        jpnlListaDocumentos5.setMaximumSize(new java.awt.Dimension(145, 170));
+        jpnlListaDocumentos5.setLayout(new java.awt.GridLayout(10, 1));
+
+        TxtSemSC23.setBackground(new java.awt.Color(0, 204, 51));
+        TxtSemSC23.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        TxtSemSC23.setText("Transf 1 Semestre 6");
+        TxtSemSC23.setBorder(null);
+        TxtSemSC23.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC23.setEnabled(false);
+        TxtSemSC23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSemSC23ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos5.add(TxtSemSC23);
+
+        TxtSemSC24.setBackground(new java.awt.Color(51, 255, 51));
+        TxtSemSC24.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        TxtSemSC24.setText("Transf 2 Semestre 6");
+        TxtSemSC24.setBorder(null);
+        TxtSemSC24.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC24.setEnabled(false);
+        TxtSemSC24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSemSC24ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos5.add(TxtSemSC24);
+
+        TxtSemSC25.setBackground(new java.awt.Color(0, 0, 204));
+        TxtSemSC25.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        TxtSemSC25.setText("Transf 1 Semestre 7");
+        TxtSemSC25.setBorder(null);
+        TxtSemSC25.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC25.setEnabled(false);
+        TxtSemSC25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSemSC25ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos5.add(TxtSemSC25);
+
+        TxtSemSC26.setBackground(new java.awt.Color(51, 51, 255));
+        TxtSemSC26.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        TxtSemSC26.setText("Transf 2 Semestre 7");
+        TxtSemSC26.setBorder(null);
+        TxtSemSC26.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC26.setEnabled(false);
+        TxtSemSC26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSemSC26ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos5.add(TxtSemSC26);
+
+        TxtSemSC27.setBackground(new java.awt.Color(255, 102, 0));
+        TxtSemSC27.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        TxtSemSC27.setText("Transf 1 Semestre 8");
+        TxtSemSC27.setBorder(null);
+        TxtSemSC27.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC27.setEnabled(false);
+        TxtSemSC27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSemSC27ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos5.add(TxtSemSC27);
+
+        TxtSemSC28.setBackground(new java.awt.Color(255, 102, 51));
+        TxtSemSC28.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        TxtSemSC28.setText("Transf 2 Semestre 8");
+        TxtSemSC28.setBorder(null);
+        TxtSemSC28.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC28.setEnabled(false);
+        TxtSemSC28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSemSC28ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos5.add(TxtSemSC28);
+
+        TxtSemSC29.setBackground(new java.awt.Color(0, 204, 51));
+        TxtSemSC29.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        TxtSemSC29.setText("Transf 1 Semestre 9");
+        TxtSemSC29.setBorder(null);
+        TxtSemSC29.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC29.setEnabled(false);
+        TxtSemSC29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSemSC29ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos5.add(TxtSemSC29);
+
+        TxtSemSC30.setBackground(new java.awt.Color(51, 255, 51));
+        TxtSemSC30.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        TxtSemSC30.setText("Transf 2 Semestre 9");
+        TxtSemSC30.setBorder(null);
+        TxtSemSC30.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC30.setEnabled(false);
+        TxtSemSC30.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSemSC30ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos5.add(TxtSemSC30);
+
+        TxtSemSC31.setBackground(new java.awt.Color(0, 0, 204));
+        TxtSemSC31.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        TxtSemSC31.setText("Transf 1 Semestre 10");
+        TxtSemSC31.setBorder(null);
+        TxtSemSC31.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC31.setEnabled(false);
+        TxtSemSC31.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSemSC31ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos5.add(TxtSemSC31);
+
+        TxtSemSC32.setEditable(false);
+        TxtSemSC32.setBackground(new java.awt.Color(51, 51, 255));
+        TxtSemSC32.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        TxtSemSC32.setText("Trasnf 2 Semestre 10");
+        TxtSemSC32.setBorder(null);
+        TxtSemSC32.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC32.setEnabled(false);
+        TxtSemSC32.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSemSC32ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos5.add(TxtSemSC32);
+
+        jpnlAccionesDocumentos3.setMaximumSize(new java.awt.Dimension(240, 290));
+        jpnlAccionesDocumentos3.setLayout(new java.awt.GridLayout(10, 3));
+
+        BtnAddSTn11.setForeground(new java.awt.Color(0, 204, 51));
+        BtnAddSTn11.setText("Agregar...");
+        BtnAddSTn11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddSTn11ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos3.add(BtnAddSTn11);
+
+        BtnEliminaTn11.setForeground(new java.awt.Color(0, 204, 51));
+        BtnEliminaTn11.setText("Eliminar...");
+        BtnEliminaTn11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaTn11ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos3.add(BtnEliminaTn11);
+
+        TxtEstatusSC21.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        TxtEstatusSC21.setForeground(new java.awt.Color(0, 0, 204));
+        TxtEstatusSC21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TxtEstatusSC21.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        TxtEstatusSC21.setEnabled(false);
+        TxtEstatusSC21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC21MouseClicked(evt);
+            }
+        });
+        jpnlAccionesDocumentos3.add(TxtEstatusSC21);
+
+        BtnAddSTn12.setForeground(new java.awt.Color(51, 255, 51));
+        BtnAddSTn12.setText("Agregar...");
+        BtnAddSTn12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddSTn12ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos3.add(BtnAddSTn12);
+
+        BtnEliminaTn12.setForeground(new java.awt.Color(51, 255, 51));
+        BtnEliminaTn12.setText("Eliminar...");
+        BtnEliminaTn12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaTn12ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos3.add(BtnEliminaTn12);
+
+        TxtEstatusSC22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TxtEstatusSC22.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        TxtEstatusSC22.setEnabled(false);
+        TxtEstatusSC22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC22MouseClicked(evt);
+            }
+        });
+        jpnlAccionesDocumentos3.add(TxtEstatusSC22);
+
+        BtnAddSTn13.setForeground(new java.awt.Color(0, 0, 204));
+        BtnAddSTn13.setText("Agregar...");
+        BtnAddSTn13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddSTn13ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos3.add(BtnAddSTn13);
+
+        BtnEliminaTn13.setForeground(new java.awt.Color(0, 0, 204));
+        BtnEliminaTn13.setText("Eliminar...");
+        BtnEliminaTn13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaTn13ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos3.add(BtnEliminaTn13);
+
+        TxtEstatusSC23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TxtEstatusSC23.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        TxtEstatusSC23.setEnabled(false);
+        TxtEstatusSC23.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC23MouseClicked(evt);
+            }
+        });
+        jpnlAccionesDocumentos3.add(TxtEstatusSC23);
+
+        BtnAddSTn14.setForeground(new java.awt.Color(51, 51, 255));
+        BtnAddSTn14.setText("Agregar...");
+        BtnAddSTn14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddSTn14ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos3.add(BtnAddSTn14);
+
+        BtnEliminaTn14.setForeground(new java.awt.Color(51, 51, 255));
+        BtnEliminaTn14.setText("Eliminar...");
+        BtnEliminaTn14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaTn14ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos3.add(BtnEliminaTn14);
+
+        TxtEstatusSC24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TxtEstatusSC24.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        TxtEstatusSC24.setEnabled(false);
+        TxtEstatusSC24.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC24MouseClicked(evt);
+            }
+        });
+        jpnlAccionesDocumentos3.add(TxtEstatusSC24);
+
+        BtnAddSTn15.setForeground(new java.awt.Color(255, 102, 0));
+        BtnAddSTn15.setText("Agregar...");
+        BtnAddSTn15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddSTn15ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos3.add(BtnAddSTn15);
+
+        BtnEliminaTn15.setForeground(new java.awt.Color(255, 102, 0));
+        BtnEliminaTn15.setText("Eliminar...");
+        BtnEliminaTn15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaTn15ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos3.add(BtnEliminaTn15);
+
+        TxtEstatusSC25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TxtEstatusSC25.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        TxtEstatusSC25.setEnabled(false);
+        TxtEstatusSC25.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC25MouseClicked(evt);
+            }
+        });
+        jpnlAccionesDocumentos3.add(TxtEstatusSC25);
+
+        BtnAddSTn16.setForeground(new java.awt.Color(255, 102, 51));
+        BtnAddSTn16.setText("Agregar...");
+        BtnAddSTn16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddSTn16ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos3.add(BtnAddSTn16);
+
+        BtnEliminaTn16.setForeground(new java.awt.Color(255, 102, 51));
+        BtnEliminaTn16.setText("Eliminar...");
+        BtnEliminaTn16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaTn16ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos3.add(BtnEliminaTn16);
+
+        TxtEstatusSC26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TxtEstatusSC26.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        TxtEstatusSC26.setEnabled(false);
+        TxtEstatusSC26.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC26MouseClicked(evt);
+            }
+        });
+        jpnlAccionesDocumentos3.add(TxtEstatusSC26);
+
+        BtnAddSTn17.setForeground(new java.awt.Color(0, 204, 51));
+        BtnAddSTn17.setText("Agregar...");
+        BtnAddSTn17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddSTn17ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos3.add(BtnAddSTn17);
+
+        BtnEliminaTn17.setForeground(new java.awt.Color(0, 204, 51));
+        BtnEliminaTn17.setText("Eliminar...");
+        BtnEliminaTn17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaTn17ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos3.add(BtnEliminaTn17);
+
+        TxtEstatusSC27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TxtEstatusSC27.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        TxtEstatusSC27.setEnabled(false);
+        TxtEstatusSC27.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC27MouseClicked(evt);
+            }
+        });
+        jpnlAccionesDocumentos3.add(TxtEstatusSC27);
+
+        BtnAddSTn18.setForeground(new java.awt.Color(51, 255, 51));
+        BtnAddSTn18.setText("Agregar...");
+        BtnAddSTn18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddSTn18ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos3.add(BtnAddSTn18);
+
+        BtnEliminaTn18.setForeground(new java.awt.Color(51, 255, 51));
+        BtnEliminaTn18.setText("Eliminar...");
+        BtnEliminaTn18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaTn18ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos3.add(BtnEliminaTn18);
+
+        TxtEstatusSC28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TxtEstatusSC28.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        TxtEstatusSC28.setEnabled(false);
+        TxtEstatusSC28.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC28MouseClicked(evt);
+            }
+        });
+        jpnlAccionesDocumentos3.add(TxtEstatusSC28);
+
+        BtnAddSTn19.setForeground(new java.awt.Color(0, 0, 204));
+        BtnAddSTn19.setText("Agregar...");
+        BtnAddSTn19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddSTn19ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos3.add(BtnAddSTn19);
+
+        BtnEliminaTn19.setForeground(new java.awt.Color(0, 0, 204));
+        BtnEliminaTn19.setText("Eliminar...");
+        BtnEliminaTn19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaTn19ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos3.add(BtnEliminaTn19);
+
+        TxtEstatusSC29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TxtEstatusSC29.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        TxtEstatusSC29.setEnabled(false);
+        TxtEstatusSC29.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC29MouseClicked(evt);
+            }
+        });
+        jpnlAccionesDocumentos3.add(TxtEstatusSC29);
+
+        BtnAddSTn20.setForeground(new java.awt.Color(51, 51, 255));
+        BtnAddSTn20.setText("Agregar...");
+        BtnAddSTn20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddSTn20ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos3.add(BtnAddSTn20);
+
+        BtnEliminaTn20.setForeground(new java.awt.Color(51, 51, 255));
+        BtnEliminaTn20.setText("Eliminar...");
+        BtnEliminaTn20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminaTn20ActionPerformed(evt);
+            }
+        });
+        jpnlAccionesDocumentos3.add(BtnEliminaTn20);
+
+        TxtEstatusSC30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TxtEstatusSC30.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        TxtEstatusSC30.setEnabled(false);
+        TxtEstatusSC30.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtEstatusSC30MouseClicked(evt);
+            }
+        });
+        jpnlAccionesDocumentos3.add(TxtEstatusSC30);
+
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addComponent(jpnlListaDocumentos4, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jpnlAccionesDocumentos2, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(448, Short.MAX_VALUE))
+            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel16Layout.createSequentialGroup()
+                    .addGap(425, 425, 425)
+                    .addComponent(jpnlListaDocumentos5, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(326, Short.MAX_VALUE)))
+            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
+                    .addContainerGap(569, Short.MAX_VALUE)
+                    .addComponent(jpnlAccionesDocumentos3, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
+        );
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jpnlListaDocumentos4, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jpnlAccionesDocumentos2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jpnlListaDocumentos5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel16Layout.createSequentialGroup()
+                    .addComponent(jpnlAccionesDocumentos3, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 48, Short.MAX_VALUE)))
+        );
+
+        javax.swing.GroupLayout pnlTransferenciasAdjuntas2Layout = new javax.swing.GroupLayout(pnlTransferenciasAdjuntas2);
+        pnlTransferenciasAdjuntas2.setLayout(pnlTransferenciasAdjuntas2Layout);
+        pnlTransferenciasAdjuntas2Layout.setHorizontalGroup(
+            pnlTransferenciasAdjuntas2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTransferenciasAdjuntas2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlTransferenciasAdjuntas2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pnlTransferenciasAdjuntas2Layout.createSequentialGroup()
+                        .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+        );
+        pnlTransferenciasAdjuntas2Layout.setVerticalGroup(
+            pnlTransferenciasAdjuntas2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTransferenciasAdjuntas2Layout.createSequentialGroup()
+                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
         jPanel14Layout.setHorizontalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlInformacionBancaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlTransferenciasAdjuntas2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pnlInformacionBancaria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlTransferenciasAdjuntas2, javax.swing.GroupLayout.DEFAULT_SIZE, 885, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel14Layout.setVerticalGroup(
@@ -3024,8 +3581,7 @@ public class VistaKardex extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(pnlInformacionBancaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlTransferenciasAdjuntas2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(pnlTransferenciasAdjuntas2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jtabKardex.addTab("Adjuntar Transferencias", jPanel14);
@@ -3049,12 +3605,10 @@ public class VistaKardex extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PnlInfoBecario, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jpnlAreaBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)))
-                .addComponent(jtabKardex, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jpnlAreaBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PnlInfoBecario, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jtabKardex, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -3075,15 +3629,15 @@ public class VistaKardex extends javax.swing.JPanel {
     }//GEN-LAST:event_txtCondicionActionPerformed
 
     private void BtnAddBoleta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddBoleta1ActionPerformed
-        controlador.cargaBoletaOCartaServCom(0, lblEstatusBoleta1, 1);
+        controlador.cargaBoletaOCartaServComTransferencia(0, lblEstatusBoleta1, 1);
     }//GEN-LAST:event_BtnAddBoleta1ActionPerformed
 
     private void BtnAddBoleta7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddBoleta7ActionPerformed
-        controlador.cargaBoletaOCartaServCom(6, lblEstatusBoleta7, 1);
+        controlador.cargaBoletaOCartaServComTransferencia(6, lblEstatusBoleta7, 1);
     }//GEN-LAST:event_BtnAddBoleta7ActionPerformed
 
     private void btnEliminaBoleta7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaBoleta7ActionPerformed
-        controlador.borraBoletaOrCartaServCom(6, lblEstatusBoleta7, 1);
+        controlador.borraBoletaOrCartaServComTransferencia(6, lblEstatusBoleta7, 1);
     }//GEN-LAST:event_btnEliminaBoleta7ActionPerformed
 
     private void TxtBoletaSemestre1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtBoletaSemestre1ActionPerformed
@@ -3167,15 +3721,15 @@ public class VistaKardex extends javax.swing.JPanel {
     }//GEN-LAST:event_TxtSemSC10ActionPerformed
 
     private void BtnAddSC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSC1ActionPerformed
-        controlador.cargaBoletaOCartaServCom(0, lblEstatusSC1, 2);
+        controlador.cargaBoletaOCartaServComTransferencia(0, lblEstatusSC1, 2);
     }//GEN-LAST:event_BtnAddSC1ActionPerformed
 
     private void BtnAddSC7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSC7ActionPerformed
-        controlador.cargaBoletaOCartaServCom(6, lblEstatusSC7, 2);
+        controlador.cargaBoletaOCartaServComTransferencia(6, lblEstatusSC7, 2);
     }//GEN-LAST:event_BtnAddSC7ActionPerformed
 
     private void BtnEliminaSC7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaSC7ActionPerformed
-        controlador.borraBoletaOrCartaServCom(6, lblEstatusSC7, 2);
+        controlador.borraBoletaOrCartaServComTransferencia(6, lblEstatusSC7, 2);
     }//GEN-LAST:event_BtnEliminaSC7ActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
@@ -3227,15 +3781,15 @@ public class VistaKardex extends javax.swing.JPanel {
     }//GEN-LAST:event_TxtSemSC20ActionPerformed
 
     private void BtnAddSTn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSTn1ActionPerformed
-        // TODO add your handling code here:
+        controlador.cargaBoletaOCartaServComTransferencia(0, TxtEstatusSC11, 3);
     }//GEN-LAST:event_BtnAddSTn1ActionPerformed
 
     private void BtnAddSTn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSTn7ActionPerformed
-        // TODO add your handling code here:
+        controlador.cargaBoletaOCartaServComTransferencia(6, TxtEstatusSC17, 3);
     }//GEN-LAST:event_BtnAddSTn7ActionPerformed
 
     private void BtnEliminaTn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaTn7ActionPerformed
-        // TODO add your handling code here:
+        controlador.borraBoletaOrCartaServComTransferencia(6, TxtEstatusSC17, 3);
     }//GEN-LAST:event_BtnEliminaTn7ActionPerformed
 
     private void TxtSemSC23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtSemSC23ActionPerformed
@@ -3279,15 +3833,15 @@ public class VistaKardex extends javax.swing.JPanel {
     }//GEN-LAST:event_TxtSemSC32ActionPerformed
 
     private void BtnAddSTn11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSTn11ActionPerformed
-        // TODO add your handling code here:
+        controlador.cargaBoletaOCartaServComTransferencia(10, TxtEstatusSC21, 3);
     }//GEN-LAST:event_BtnAddSTn11ActionPerformed
 
     private void BtnAddSTn17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSTn17ActionPerformed
-        // TODO add your handling code here:
+        controlador.cargaBoletaOCartaServComTransferencia(16, TxtEstatusSC27, 3);
     }//GEN-LAST:event_BtnAddSTn17ActionPerformed
 
     private void BtnEliminaTn17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaTn17ActionPerformed
-        // TODO add your handling code here:
+        controlador.borraBoletaOrCartaServComTransferencia(16, TxtEstatusSC27, 3);
     }//GEN-LAST:event_BtnEliminaTn17ActionPerformed
 
     private void TxtSemestre1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtSemestre1ActionPerformed
@@ -3367,144 +3921,484 @@ public class VistaKardex extends javax.swing.JPanel {
     }//GEN-LAST:event_TxtSemSC21ActionPerformed
 
     private void BtnAddSC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSC2ActionPerformed
-        controlador.cargaBoletaOCartaServCom(1, lblEstatusSC2, 2);
+        controlador.cargaBoletaOCartaServComTransferencia(1, lblEstatusSC2, 2);
     }//GEN-LAST:event_BtnAddSC2ActionPerformed
 
     private void BtnAddSC3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSC3ActionPerformed
-        controlador.cargaBoletaOCartaServCom(2, lblEstatusSC3, 2);
+        controlador.cargaBoletaOCartaServComTransferencia(2, lblEstatusSC3, 2);
     }//GEN-LAST:event_BtnAddSC3ActionPerformed
 
     private void BtnAddSC4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSC4ActionPerformed
-        controlador.cargaBoletaOCartaServCom(3, lblEstatusSC4, 2);
+        controlador.cargaBoletaOCartaServComTransferencia(3, lblEstatusSC4, 2);
     }//GEN-LAST:event_BtnAddSC4ActionPerformed
 
     private void BtnAddSC5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSC5ActionPerformed
-        controlador.cargaBoletaOCartaServCom(4, lblEstatusSC5, 2);
+        controlador.cargaBoletaOCartaServComTransferencia(4, lblEstatusSC5, 2);
     }//GEN-LAST:event_BtnAddSC5ActionPerformed
 
     private void BtnAddSC6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSC6ActionPerformed
-        controlador.cargaBoletaOCartaServCom(5, lblEstatusSC6, 2);
+        controlador.cargaBoletaOCartaServComTransferencia(5, lblEstatusSC6, 2);
     }//GEN-LAST:event_BtnAddSC6ActionPerformed
 
     private void BtnAddSC8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSC8ActionPerformed
-        controlador.cargaBoletaOCartaServCom(7, lblEstatusSC8, 2);
+        controlador.cargaBoletaOCartaServComTransferencia(7, lblEstatusSC8, 2);
     }//GEN-LAST:event_BtnAddSC8ActionPerformed
 
     private void BtnAddSC9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSC9ActionPerformed
-        controlador.cargaBoletaOCartaServCom(8, lblEstatusSC9, 2);
+        controlador.cargaBoletaOCartaServComTransferencia(8, lblEstatusSC9, 2);
     }//GEN-LAST:event_BtnAddSC9ActionPerformed
 
     private void BtnAddSC10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSC10ActionPerformed
-        controlador.cargaBoletaOCartaServCom(9, lblEstatusSC10, 2);
+        controlador.cargaBoletaOCartaServComTransferencia(9, lblEstatusSC10, 2);
     }//GEN-LAST:event_BtnAddSC10ActionPerformed
 
     private void BtnAddSC11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSC11ActionPerformed
-        controlador.cargaBoletaOCartaServCom(10, lblEstatusSC11, 2);
+        controlador.cargaBoletaOCartaServComTransferencia(10, lblEstatusSC11, 2);
     }//GEN-LAST:event_BtnAddSC11ActionPerformed
 
     private void BtnAddSC12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSC12ActionPerformed
-        controlador.cargaBoletaOCartaServCom(11, lblEstatusSC12, 2);
+        controlador.cargaBoletaOCartaServComTransferencia(11, lblEstatusSC12, 2);
     }//GEN-LAST:event_BtnAddSC12ActionPerformed
 
     private void BtnAddBoleta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddBoleta2ActionPerformed
-        controlador.cargaBoletaOCartaServCom(1, lblEstatusBoleta2, 1);
+        controlador.cargaBoletaOCartaServComTransferencia(1, lblEstatusBoleta2, 1);
     }//GEN-LAST:event_BtnAddBoleta2ActionPerformed
 
     private void BtnAddBoleta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddBoleta3ActionPerformed
-        controlador.cargaBoletaOCartaServCom(2, lblEstatusBoleta3, 1);
+        controlador.cargaBoletaOCartaServComTransferencia(2, lblEstatusBoleta3, 1);
     }//GEN-LAST:event_BtnAddBoleta3ActionPerformed
 
     private void BtnAddBoleta4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddBoleta4ActionPerformed
-        controlador.cargaBoletaOCartaServCom(3, lblEstatusBoleta4, 1);
+        controlador.cargaBoletaOCartaServComTransferencia(3, lblEstatusBoleta4, 1);
     }//GEN-LAST:event_BtnAddBoleta4ActionPerformed
 
     private void BtnAddBoleta5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddBoleta5ActionPerformed
-        controlador.cargaBoletaOCartaServCom(4, lblEstatusBoleta5, 1);
+        controlador.cargaBoletaOCartaServComTransferencia(4, lblEstatusBoleta5, 1);
     }//GEN-LAST:event_BtnAddBoleta5ActionPerformed
 
     private void BtnAddBoleta6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddBoleta6ActionPerformed
-        controlador.cargaBoletaOCartaServCom(5, lblEstatusBoleta6, 1);
+        controlador.cargaBoletaOCartaServComTransferencia(5, lblEstatusBoleta6, 1);
     }//GEN-LAST:event_BtnAddBoleta6ActionPerformed
 
     private void BtnAddBoleta8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddBoleta8ActionPerformed
-        controlador.cargaBoletaOCartaServCom(7, lblEstatusBoleta8, 1);
+        controlador.cargaBoletaOCartaServComTransferencia(7, lblEstatusBoleta8, 1);
     }//GEN-LAST:event_BtnAddBoleta8ActionPerformed
 
     private void BtnAddBoleta9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddBoleta9ActionPerformed
-        controlador.cargaBoletaOCartaServCom(8, lblEstatusBoleta9, 1);
+        controlador.cargaBoletaOCartaServComTransferencia(8, lblEstatusBoleta9, 1);
     }//GEN-LAST:event_BtnAddBoleta9ActionPerformed
 
     private void BtnAddBoleta10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddBoleta10ActionPerformed
-        controlador.cargaBoletaOCartaServCom(9, lblEstatusBoleta10, 1);
+        controlador.cargaBoletaOCartaServComTransferencia(9, lblEstatusBoleta10, 1);
     }//GEN-LAST:event_BtnAddBoleta10ActionPerformed
 
+    private void BtnAddBoleta11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddBoleta11ActionPerformed
+        controlador.cargaBoletaOCartaServComTransferencia(10, lblEstatusBoleta11, 1);
+    }//GEN-LAST:event_BtnAddBoleta11ActionPerformed
+
+    private void BtnAddBoleta12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddBoleta12ActionPerformed
+        controlador.cargaBoletaOCartaServComTransferencia(11, lblEstatusBoleta12, 1);
+    }//GEN-LAST:event_BtnAddBoleta12ActionPerformed
+
     private void btnEliminaBoleta01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaBoleta01ActionPerformed
-        controlador.borraBoletaOrCartaServCom(0, lblEstatusBoleta1, 1);
+        controlador.borraBoletaOrCartaServComTransferencia(0, lblEstatusBoleta1, 1);
     }//GEN-LAST:event_btnEliminaBoleta01ActionPerformed
 
     private void btnEliminaBoleta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaBoleta2ActionPerformed
-        controlador.borraBoletaOrCartaServCom(1, lblEstatusBoleta2, 1);
+        controlador.borraBoletaOrCartaServComTransferencia(1, lblEstatusBoleta2, 1);
     }//GEN-LAST:event_btnEliminaBoleta2ActionPerformed
 
     private void btnEliminaBoleta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaBoleta3ActionPerformed
-        controlador.borraBoletaOrCartaServCom(2, lblEstatusBoleta3, 1);
+        controlador.borraBoletaOrCartaServComTransferencia(2, lblEstatusBoleta3, 1);
     }//GEN-LAST:event_btnEliminaBoleta3ActionPerformed
 
     private void btnEliminaBoleta4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaBoleta4ActionPerformed
-        controlador.borraBoletaOrCartaServCom(3, lblEstatusBoleta4, 1);
+        controlador.borraBoletaOrCartaServComTransferencia(3, lblEstatusBoleta4, 1);
     }//GEN-LAST:event_btnEliminaBoleta4ActionPerformed
 
     private void btnEliminaBoleta5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaBoleta5ActionPerformed
-        controlador.borraBoletaOrCartaServCom(4, lblEstatusBoleta5, 1);
+        controlador.borraBoletaOrCartaServComTransferencia(4, lblEstatusBoleta5, 1);
     }//GEN-LAST:event_btnEliminaBoleta5ActionPerformed
 
     private void btnEliminaBoleta6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaBoleta6ActionPerformed
-        controlador.borraBoletaOrCartaServCom(5, lblEstatusBoleta6, 1);
+        controlador.borraBoletaOrCartaServComTransferencia(5, lblEstatusBoleta6, 1);
     }//GEN-LAST:event_btnEliminaBoleta6ActionPerformed
 
     private void btnEliminaBoleta8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaBoleta8ActionPerformed
-        controlador.borraBoletaOrCartaServCom(7, lblEstatusBoleta8, 1);
+        controlador.borraBoletaOrCartaServComTransferencia(7, lblEstatusBoleta8, 1);
     }//GEN-LAST:event_btnEliminaBoleta8ActionPerformed
 
     private void btnEliminaBoleta9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaBoleta9ActionPerformed
-        controlador.borraBoletaOrCartaServCom(8, lblEstatusBoleta9, 1);
+        controlador.borraBoletaOrCartaServComTransferencia(8, lblEstatusBoleta9, 1);
     }//GEN-LAST:event_btnEliminaBoleta9ActionPerformed
 
     private void btnEliminaBoleta10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaBoleta10ActionPerformed
-        controlador.borraBoletaOrCartaServCom(9, lblEstatusBoleta10, 1);
+        controlador.borraBoletaOrCartaServComTransferencia(9, lblEstatusBoleta10, 1);
     }//GEN-LAST:event_btnEliminaBoleta10ActionPerformed
 
+    private void btnEliminaBoleta11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaBoleta11ActionPerformed
+        controlador.borraBoletaOrCartaServComTransferencia(10, lblEstatusBoleta11, 1);
+    }//GEN-LAST:event_btnEliminaBoleta11ActionPerformed
+
+    private void btnEliminaBoleta12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaBoleta12ActionPerformed
+        controlador.borraBoletaOrCartaServComTransferencia(11, lblEstatusBoleta12, 1);
+    }//GEN-LAST:event_btnEliminaBoleta12ActionPerformed
+
     private void BtnEliminaSC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaSC1ActionPerformed
-        controlador.borraBoletaOrCartaServCom(0, lblEstatusSC1, 2);
+        controlador.borraBoletaOrCartaServComTransferencia(0, lblEstatusSC1, 2);
     }//GEN-LAST:event_BtnEliminaSC1ActionPerformed
 
     private void BtnEliminaSC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaSC2ActionPerformed
-        controlador.borraBoletaOrCartaServCom(1, lblEstatusSC2, 2);
+        controlador.borraBoletaOrCartaServComTransferencia(1, lblEstatusSC2, 2);
     }//GEN-LAST:event_BtnEliminaSC2ActionPerformed
 
     private void BtnEliminaSC3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaSC3ActionPerformed
-        controlador.borraBoletaOrCartaServCom(2, lblEstatusSC3, 2);
+        controlador.borraBoletaOrCartaServComTransferencia(2, lblEstatusSC3, 2);
     }//GEN-LAST:event_BtnEliminaSC3ActionPerformed
 
     private void BtnEliminaSC4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaSC4ActionPerformed
-        controlador.borraBoletaOrCartaServCom(3, lblEstatusSC4, 2);
+        controlador.borraBoletaOrCartaServComTransferencia(3, lblEstatusSC4, 2);
     }//GEN-LAST:event_BtnEliminaSC4ActionPerformed
 
     private void BtnEliminaSC5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaSC5ActionPerformed
-        controlador.borraBoletaOrCartaServCom(4, lblEstatusSC5, 2);
+        controlador.borraBoletaOrCartaServComTransferencia(4, lblEstatusSC5, 2);
     }//GEN-LAST:event_BtnEliminaSC5ActionPerformed
 
     private void BtnEliminaSC6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaSC6ActionPerformed
-        controlador.borraBoletaOrCartaServCom(5, lblEstatusSC6, 2);
+        controlador.borraBoletaOrCartaServComTransferencia(5, lblEstatusSC6, 2);
     }//GEN-LAST:event_BtnEliminaSC6ActionPerformed
 
     private void BtnEliminaSC8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaSC8ActionPerformed
-        controlador.cargaBoletaOCartaServCom(7, lblEstatusSC8, 2);
+        controlador.borraBoletaOrCartaServComTransferencia(7, lblEstatusSC8, 2);
     }//GEN-LAST:event_BtnEliminaSC8ActionPerformed
 
-    private void btnEliminaBoleta12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaBoleta12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnEliminaBoleta12ActionPerformed
+    private void BtnEliminaSC9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaSC9ActionPerformed
+        controlador.borraBoletaOrCartaServComTransferencia(8, lblEstatusSC9, 2);
+    }//GEN-LAST:event_BtnEliminaSC9ActionPerformed
+
+    private void BtnEliminaSC10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaSC10ActionPerformed
+        controlador.borraBoletaOrCartaServComTransferencia(9, lblEstatusSC10, 2);
+    }//GEN-LAST:event_BtnEliminaSC10ActionPerformed
+
+    private void BtnEliminaSC11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaSC11ActionPerformed
+        controlador.borraBoletaOrCartaServComTransferencia(10, lblEstatusSC11, 2);
+    }//GEN-LAST:event_BtnEliminaSC11ActionPerformed
+
+    private void BtnEliminaSC12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaSC12ActionPerformed
+        controlador.borraBoletaOrCartaServComTransferencia(11, lblEstatusSC12, 2);
+    }//GEN-LAST:event_BtnEliminaSC12ActionPerformed
+
+    private void lblEstatusBoleta1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusBoleta1MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(1, 0);
+    }//GEN-LAST:event_lblEstatusBoleta1MouseClicked
+
+    private void lblEstatusBoleta2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusBoleta2MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(1, 1);
+    }//GEN-LAST:event_lblEstatusBoleta2MouseClicked
+
+    private void lblEstatusBoleta3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusBoleta3MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(1, 2);
+    }//GEN-LAST:event_lblEstatusBoleta3MouseClicked
+
+    private void lblEstatusBoleta4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusBoleta4MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(1, 3);
+    }//GEN-LAST:event_lblEstatusBoleta4MouseClicked
+
+    private void lblEstatusBoleta5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusBoleta5MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(1, 4);
+    }//GEN-LAST:event_lblEstatusBoleta5MouseClicked
+
+    private void lblEstatusBoleta6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusBoleta6MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(1, 5);
+    }//GEN-LAST:event_lblEstatusBoleta6MouseClicked
+
+    private void lblEstatusBoleta7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusBoleta7MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(1, 6);
+    }//GEN-LAST:event_lblEstatusBoleta7MouseClicked
+
+    private void lblEstatusBoleta8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusBoleta8MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(1, 7);
+    }//GEN-LAST:event_lblEstatusBoleta8MouseClicked
+
+    private void lblEstatusBoleta9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusBoleta9MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(1, 8);
+    }//GEN-LAST:event_lblEstatusBoleta9MouseClicked
+
+    private void lblEstatusBoleta10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusBoleta10MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(1, 9);
+    }//GEN-LAST:event_lblEstatusBoleta10MouseClicked
+
+    private void lblEstatusBoleta11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusBoleta11MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(1, 10);
+    }//GEN-LAST:event_lblEstatusBoleta11MouseClicked
+
+    private void lblEstatusBoleta12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusBoleta12MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(1, 11);
+    }//GEN-LAST:event_lblEstatusBoleta12MouseClicked
+
+    private void lblEstatusSC1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusSC1MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(2, 0);
+    }//GEN-LAST:event_lblEstatusSC1MouseClicked
+
+    private void lblEstatusSC2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusSC2MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(2, 1);
+    }//GEN-LAST:event_lblEstatusSC2MouseClicked
+
+    private void lblEstatusSC3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusSC3MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(2, 2);
+    }//GEN-LAST:event_lblEstatusSC3MouseClicked
+
+    private void lblEstatusSC4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusSC4MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(2, 3);
+    }//GEN-LAST:event_lblEstatusSC4MouseClicked
+
+    private void lblEstatusSC5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusSC5MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(2, 4);
+    }//GEN-LAST:event_lblEstatusSC5MouseClicked
+
+    private void lblEstatusSC6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusSC6MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(2, 5);
+    }//GEN-LAST:event_lblEstatusSC6MouseClicked
+
+    private void lblEstatusSC7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusSC7MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(2, 6);
+    }//GEN-LAST:event_lblEstatusSC7MouseClicked
+
+    private void lblEstatusSC8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusSC8MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(2, 7);
+    }//GEN-LAST:event_lblEstatusSC8MouseClicked
+
+    private void lblEstatusSC9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusSC9MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(2, 8);
+    }//GEN-LAST:event_lblEstatusSC9MouseClicked
+
+    private void lblEstatusSC10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusSC10MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(2, 9);
+    }//GEN-LAST:event_lblEstatusSC10MouseClicked
+
+    private void lblEstatusSC11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusSC11MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(2, 10);
+    }//GEN-LAST:event_lblEstatusSC11MouseClicked
+
+    private void lblEstatusSC12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEstatusSC12MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(2, 3);
+    }//GEN-LAST:event_lblEstatusSC12MouseClicked
+
+    private void BtnAddSTn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSTn2ActionPerformed
+        controlador.cargaBoletaOCartaServComTransferencia(1, TxtEstatusSC12, 3);
+    }//GEN-LAST:event_BtnAddSTn2ActionPerformed
+
+    private void BtnAddSTn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSTn3ActionPerformed
+        controlador.cargaBoletaOCartaServComTransferencia(2, TxtEstatusSC13, 3);
+    }//GEN-LAST:event_BtnAddSTn3ActionPerformed
+
+    private void BtnAddSTn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSTn4ActionPerformed
+        controlador.cargaBoletaOCartaServComTransferencia(3, TxtEstatusSC14, 3);
+    }//GEN-LAST:event_BtnAddSTn4ActionPerformed
+
+    private void BtnAddSTn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSTn5ActionPerformed
+        controlador.cargaBoletaOCartaServComTransferencia(4, TxtEstatusSC15, 3);
+    }//GEN-LAST:event_BtnAddSTn5ActionPerformed
+
+    private void BtnAddSTn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSTn6ActionPerformed
+        controlador.cargaBoletaOCartaServComTransferencia(5, TxtEstatusSC16, 3);
+    }//GEN-LAST:event_BtnAddSTn6ActionPerformed
+
+    private void BtnAddSTn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSTn8ActionPerformed
+        controlador.cargaBoletaOCartaServComTransferencia(7, TxtEstatusSC18, 3);
+    }//GEN-LAST:event_BtnAddSTn8ActionPerformed
+
+    private void BtnAddSTn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSTn9ActionPerformed
+        controlador.cargaBoletaOCartaServComTransferencia(8, TxtEstatusSC19, 3);
+    }//GEN-LAST:event_BtnAddSTn9ActionPerformed
+
+    private void BtnAddSTn10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSTn10ActionPerformed
+        controlador.cargaBoletaOCartaServComTransferencia(9, TxtEstatusSC20, 3);
+    }//GEN-LAST:event_BtnAddSTn10ActionPerformed
+
+    private void BtnAddSTn12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSTn12ActionPerformed
+        controlador.cargaBoletaOCartaServComTransferencia(11, TxtEstatusSC22, 3);
+    }//GEN-LAST:event_BtnAddSTn12ActionPerformed
+
+    private void BtnAddSTn13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSTn13ActionPerformed
+        controlador.cargaBoletaOCartaServComTransferencia(12, TxtEstatusSC23, 3);
+    }//GEN-LAST:event_BtnAddSTn13ActionPerformed
+
+    private void BtnAddSTn14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSTn14ActionPerformed
+        controlador.cargaBoletaOCartaServComTransferencia(13, TxtEstatusSC24, 3);
+    }//GEN-LAST:event_BtnAddSTn14ActionPerformed
+
+    private void BtnAddSTn15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSTn15ActionPerformed
+        controlador.cargaBoletaOCartaServComTransferencia(14, TxtEstatusSC25, 3);
+    }//GEN-LAST:event_BtnAddSTn15ActionPerformed
+
+    private void BtnAddSTn16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSTn16ActionPerformed
+        controlador.cargaBoletaOCartaServComTransferencia(15, TxtEstatusSC26, 3);
+    }//GEN-LAST:event_BtnAddSTn16ActionPerformed
+
+    private void BtnAddSTn18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSTn18ActionPerformed
+        controlador.cargaBoletaOCartaServComTransferencia(17, TxtEstatusSC28, 3);
+    }//GEN-LAST:event_BtnAddSTn18ActionPerformed
+
+    private void BtnAddSTn19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSTn19ActionPerformed
+        controlador.cargaBoletaOCartaServComTransferencia(18, TxtEstatusSC29, 3);
+    }//GEN-LAST:event_BtnAddSTn19ActionPerformed
+
+    private void BtnAddSTn20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddSTn20ActionPerformed
+        controlador.cargaBoletaOCartaServComTransferencia(19, TxtEstatusSC30, 3);
+    }//GEN-LAST:event_BtnAddSTn20ActionPerformed
+
+    private void BtnEliminaTn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaTn1ActionPerformed
+        controlador.borraBoletaOrCartaServComTransferencia(0, TxtEstatusSC11, 3);
+    }//GEN-LAST:event_BtnEliminaTn1ActionPerformed
+
+    private void BtnEliminaTn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaTn2ActionPerformed
+        controlador.borraBoletaOrCartaServComTransferencia(1, TxtEstatusSC12, 3);
+    }//GEN-LAST:event_BtnEliminaTn2ActionPerformed
+
+    private void BtnEliminaTn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaTn3ActionPerformed
+        controlador.borraBoletaOrCartaServComTransferencia(2, TxtEstatusSC13, 3);
+    }//GEN-LAST:event_BtnEliminaTn3ActionPerformed
+
+    private void BtnEliminaTn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaTn4ActionPerformed
+        controlador.borraBoletaOrCartaServComTransferencia(3, TxtEstatusSC14, 3);
+    }//GEN-LAST:event_BtnEliminaTn4ActionPerformed
+
+    private void BtnEliminaTn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaTn5ActionPerformed
+        controlador.borraBoletaOrCartaServComTransferencia(4, TxtEstatusSC15, 3);
+    }//GEN-LAST:event_BtnEliminaTn5ActionPerformed
+
+    private void BtnEliminaTn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaTn6ActionPerformed
+        controlador.borraBoletaOrCartaServComTransferencia(5, TxtEstatusSC16, 3);
+    }//GEN-LAST:event_BtnEliminaTn6ActionPerformed
+
+    private void BtnEliminaTn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaTn8ActionPerformed
+        controlador.borraBoletaOrCartaServComTransferencia(7, TxtEstatusSC18, 3);
+    }//GEN-LAST:event_BtnEliminaTn8ActionPerformed
+
+    private void BtnEliminaTn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaTn9ActionPerformed
+        controlador.borraBoletaOrCartaServComTransferencia(8, TxtEstatusSC19, 3);
+    }//GEN-LAST:event_BtnEliminaTn9ActionPerformed
+
+    private void BtnEliminaTn10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaTn10ActionPerformed
+        controlador.borraBoletaOrCartaServComTransferencia(9, TxtEstatusSC20, 3);
+    }//GEN-LAST:event_BtnEliminaTn10ActionPerformed
+
+    private void BtnEliminaTn11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaTn11ActionPerformed
+        controlador.borraBoletaOrCartaServComTransferencia(10, TxtEstatusSC21, 3);
+    }//GEN-LAST:event_BtnEliminaTn11ActionPerformed
+
+    private void BtnEliminaTn12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaTn12ActionPerformed
+        controlador.borraBoletaOrCartaServComTransferencia(11, TxtEstatusSC22, 3);
+    }//GEN-LAST:event_BtnEliminaTn12ActionPerformed
+
+    private void BtnEliminaTn13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaTn13ActionPerformed
+        controlador.borraBoletaOrCartaServComTransferencia(12, TxtEstatusSC23, 3);
+    }//GEN-LAST:event_BtnEliminaTn13ActionPerformed
+
+    private void BtnEliminaTn14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaTn14ActionPerformed
+        controlador.borraBoletaOrCartaServComTransferencia(13, TxtEstatusSC24, 3);
+    }//GEN-LAST:event_BtnEliminaTn14ActionPerformed
+
+    private void BtnEliminaTn15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaTn15ActionPerformed
+        controlador.borraBoletaOrCartaServComTransferencia(14, TxtEstatusSC25, 3);
+    }//GEN-LAST:event_BtnEliminaTn15ActionPerformed
+
+    private void BtnEliminaTn16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaTn16ActionPerformed
+        controlador.borraBoletaOrCartaServComTransferencia(15, TxtEstatusSC26, 3);
+    }//GEN-LAST:event_BtnEliminaTn16ActionPerformed
+
+    private void BtnEliminaTn18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaTn18ActionPerformed
+        controlador.borraBoletaOrCartaServComTransferencia(17, TxtEstatusSC28, 3);
+    }//GEN-LAST:event_BtnEliminaTn18ActionPerformed
+
+    private void BtnEliminaTn19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaTn19ActionPerformed
+        controlador.borraBoletaOrCartaServComTransferencia(18, TxtEstatusSC29, 3);
+    }//GEN-LAST:event_BtnEliminaTn19ActionPerformed
+
+    private void BtnEliminaTn20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminaTn20ActionPerformed
+        controlador.borraBoletaOrCartaServComTransferencia(19, TxtEstatusSC30, 3);
+    }//GEN-LAST:event_BtnEliminaTn20ActionPerformed
+
+    private void TxtEstatusSC11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC11MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 0);
+    }//GEN-LAST:event_TxtEstatusSC11MouseClicked
+
+    private void TxtEstatusSC12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC12MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 1);
+    }//GEN-LAST:event_TxtEstatusSC12MouseClicked
+
+    private void TxtEstatusSC13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC13MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 2);
+    }//GEN-LAST:event_TxtEstatusSC13MouseClicked
+
+    private void TxtEstatusSC14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC14MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 3);
+    }//GEN-LAST:event_TxtEstatusSC14MouseClicked
+
+    private void TxtEstatusSC15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC15MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 4);
+    }//GEN-LAST:event_TxtEstatusSC15MouseClicked
+
+    private void TxtEstatusSC16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC16MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 5);
+    }//GEN-LAST:event_TxtEstatusSC16MouseClicked
+
+    private void TxtEstatusSC17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC17MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 6);
+    }//GEN-LAST:event_TxtEstatusSC17MouseClicked
+
+    private void TxtEstatusSC18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC18MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 7);
+    }//GEN-LAST:event_TxtEstatusSC18MouseClicked
+
+    private void TxtEstatusSC19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC19MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 8);
+    }//GEN-LAST:event_TxtEstatusSC19MouseClicked
+
+    private void TxtEstatusSC20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC20MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 9);
+    }//GEN-LAST:event_TxtEstatusSC20MouseClicked
+
+    private void TxtEstatusSC21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC21MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 10);
+    }//GEN-LAST:event_TxtEstatusSC21MouseClicked
+
+    private void TxtEstatusSC22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC22MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 11);
+    }//GEN-LAST:event_TxtEstatusSC22MouseClicked
+
+    private void TxtEstatusSC23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC23MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 12);
+    }//GEN-LAST:event_TxtEstatusSC23MouseClicked
+
+    private void TxtEstatusSC24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC24MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 13);
+    }//GEN-LAST:event_TxtEstatusSC24MouseClicked
+
+    private void TxtEstatusSC25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC25MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 14);
+    }//GEN-LAST:event_TxtEstatusSC25MouseClicked
+
+    private void TxtEstatusSC26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC26MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 15);
+    }//GEN-LAST:event_TxtEstatusSC26MouseClicked
+
+    private void TxtEstatusSC27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC27MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 16);
+    }//GEN-LAST:event_TxtEstatusSC27MouseClicked
+
+    private void TxtEstatusSC28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC28MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 17);
+    }//GEN-LAST:event_TxtEstatusSC28MouseClicked
+
+    private void TxtEstatusSC29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC29MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 18);
+    }//GEN-LAST:event_TxtEstatusSC29MouseClicked
+
+    private void TxtEstatusSC30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtEstatusSC30MouseClicked
+        controlador.abreBoletaCartaServComTransferencia(3, 19);
+    }//GEN-LAST:event_TxtEstatusSC30MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -3634,6 +4528,8 @@ public class VistaKardex extends javax.swing.JPanel {
     protected javax.swing.JCheckBox ChkbxPlatica9;
     protected javax.swing.JComboBox CmbBxLugarSC1;
     protected javax.swing.JComboBox CmbBxLugarSC10;
+    protected javax.swing.JComboBox CmbBxLugarSC11;
+    protected javax.swing.JComboBox CmbBxLugarSC12;
     protected javax.swing.JComboBox CmbBxLugarSC2;
     protected javax.swing.JComboBox CmbBxLugarSC3;
     protected javax.swing.JComboBox CmbBxLugarSC4;
@@ -3644,6 +4540,8 @@ public class VistaKardex extends javax.swing.JPanel {
     protected javax.swing.JComboBox CmbBxLugarSC9;
     protected javax.swing.JComboBox CmbBxTipoSC1;
     protected javax.swing.JComboBox CmbBxTipoSC10;
+    protected javax.swing.JComboBox CmbBxTipoSC11;
+    protected javax.swing.JComboBox CmbBxTipoSC12;
     protected javax.swing.JComboBox CmbBxTipoSC2;
     protected javax.swing.JComboBox CmbBxTipoSC3;
     protected javax.swing.JComboBox CmbBxTipoSC4;
@@ -3809,10 +4707,6 @@ public class VistaKardex extends javax.swing.JPanel {
     protected javax.swing.JCheckBox jCheckBox7;
     protected javax.swing.JCheckBox jCheckBox8;
     protected javax.swing.JCheckBox jCheckBox9;
-    protected javax.swing.JComboBox jComboBox1;
-    protected javax.swing.JComboBox jComboBox2;
-    protected javax.swing.JComboBox jComboBox3;
-    protected javax.swing.JComboBox jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -3835,6 +4729,9 @@ public class VistaKardex extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -3851,14 +4748,16 @@ public class VistaKardex extends javax.swing.JPanel {
     protected javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     protected javax.swing.JTextField jTextField13;
-    private javax.swing.JPanel jpnlAccionesDocumentos2;
-    private javax.swing.JPanel jpnlAccionesDocumentos3;
+    protected javax.swing.JPanel jpnlAccionesDocumentos2;
+    protected javax.swing.JPanel jpnlAccionesDocumentos3;
     protected javax.swing.JPanel jpnlAccionesDocumentosBoleta;
     protected javax.swing.JPanel jpnlAccionesDocumentosServicioComunitario;
     private javax.swing.JPanel jpnlAreaBotones;
-    private javax.swing.JPanel jpnlListaDocumentos4;
-    private javax.swing.JPanel jpnlListaDocumentos5;
+    protected javax.swing.JPanel jpnlListaDocumentos4;
+    protected javax.swing.JPanel jpnlListaDocumentos5;
     protected javax.swing.JPanel jpnlListaDocumentosBoleta;
     protected javax.swing.JPanel jpnlListaDocumentosServicioComunitario;
     protected javax.swing.JTabbedPane jtabKardex;
@@ -3889,7 +4788,7 @@ public class VistaKardex extends javax.swing.JPanel {
     private javax.swing.JPanel pnlArchivosAdjuntos;
     private javax.swing.JPanel pnlArchivosAdjuntos1;
     protected javax.swing.JPanel pnlInformacionBancaria;
-    private javax.swing.JPanel pnlTransferenciasAdjuntas2;
+    protected javax.swing.JPanel pnlTransferenciasAdjuntas2;
     protected javax.swing.ButtonGroup rbtnGroupKardex;
     protected javax.swing.JTextField txtCondicion;
     protected javax.swing.JTextField txtFechaGraduacion;

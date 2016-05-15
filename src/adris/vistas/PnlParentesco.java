@@ -34,6 +34,8 @@ public class PnlParentesco extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblAgregarPariente = new javax.swing.JLabel();
+        lblBorrarPariente = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lblParentesco = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
@@ -50,8 +52,29 @@ public class PnlParentesco extends javax.swing.JPanel {
         cmbNivelEstudiosPariente = new javax.swing.JComboBox();
         cmbTrabajoActivoPariente = new javax.swing.JComboBox();
         TxtTelPariente = new javax.swing.JTextField();
-        txtOcupacionPariente = new javax.swing.JTextField();
-        lblAgregarPariente = new javax.swing.JLabel();
+        txtOcupacion = new javax.swing.JTextField();
+
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        setMinimumSize(new java.awt.Dimension(703, 108));
+        setPreferredSize(new java.awt.Dimension(703, 108));
+
+        lblAgregarPariente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAgregarPariente.setText("Add");
+        lblAgregarPariente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblAgregarPariente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblAgregarParienteMouseClicked(evt);
+            }
+        });
+
+        lblBorrarPariente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBorrarPariente.setText("Delete");
+        lblBorrarPariente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblBorrarPariente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblBorrarParienteMouseClicked(evt);
+            }
+        });
 
         jPanel1.setLayout(new java.awt.GridLayout(5, 3));
 
@@ -112,49 +135,53 @@ public class PnlParentesco extends javax.swing.JPanel {
             }
         });
         jPanel1.add(TxtTelPariente);
-        jPanel1.add(txtOcupacionPariente);
-
-        lblAgregarPariente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblAgregarPariente.setText("Add");
-        lblAgregarPariente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        lblAgregarPariente.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblAgregarParienteMouseClicked(evt);
-            }
-        });
+        jPanel1.add(txtOcupacion);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 625, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblAgregarPariente, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(609, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblAgregarPariente, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblBorrarPariente, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 575, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(114, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(24, 24, 24)
                 .addComponent(lblAgregarPariente)
-                .addContainerGap(82, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblBorrarPariente)
+                .addContainerGap(34, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         getAccessibleContext().setAccessibleName("Información de padres");
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNombresParienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombresParienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombresParienteActionPerformed
-
     private void lblAgregarParienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAgregarParienteMouseClicked
         controlador.agregaJPanel(this);
     }//GEN-LAST:event_lblAgregarParienteMouseClicked
+
+    private void lblBorrarParienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBorrarParienteMouseClicked
+        controlador.borraJpanel(this);
+    }//GEN-LAST:event_lblBorrarParienteMouseClicked
+
+    private void txtNombresParienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombresParienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombresParienteActionPerformed
 
     private void TxtTelParienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtTelParienteActionPerformed
         // TODO add your handling code here:
@@ -172,6 +199,7 @@ public class PnlParentesco extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JPanel jPanel1;
     protected javax.swing.JLabel lblAgregarPariente;
+    protected javax.swing.JLabel lblBorrarPariente;
     private javax.swing.JLabel lblParentesco;
     private javax.swing.JLabel lblParentesco1;
     private javax.swing.JLabel lblParentesco2;
@@ -179,6 +207,6 @@ public class PnlParentesco extends javax.swing.JPanel {
     protected javax.swing.JTextField txtApMaternoPariente;
     protected javax.swing.JTextField txtApPaternoPariente;
     protected javax.swing.JTextField txtNombresPariente;
-    private javax.swing.JTextField txtOcupacionPariente;
+    protected javax.swing.JTextField txtOcupacion;
     // End of variables declaration//GEN-END:variables
 }
