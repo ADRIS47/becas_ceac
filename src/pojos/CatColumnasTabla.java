@@ -14,6 +14,7 @@ public class CatColumnasTabla {
     String nombreColumnaId;
     String nombreColumnaNombre;
     int tipoEscuela;
+    String nombreColumnaTipoEscuela;
 
     public String getNombreColumnaId() {
         return nombreColumnaId;
@@ -37,6 +38,14 @@ public class CatColumnasTabla {
 
     public void setNombreColumnaNombre(String nombreColumnaNombre) {
         this.nombreColumnaNombre = nombreColumnaNombre;
+    }
+
+    public String getNombreColumnaTipoEscuela() {
+        return nombreColumnaTipoEscuela;
+    }
+
+    public void setNombreColumnaTipoEscuela(String nombreColumnaTipoEscuela) {
+        this.nombreColumnaTipoEscuela = nombreColumnaTipoEscuela;
     }
     
     

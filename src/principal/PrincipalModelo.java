@@ -35,6 +35,7 @@ import pojos.CatEstadoCivil;
 import pojos.CatEstatus;
 import pojos.CatGradoEscolar;
 import pojos.CatLugarServicioComunitario;
+import pojos.CatMunicipios;
 import pojos.CatParentesco;
 import pojos.CatPrograma;
 import pojos.CatSexo;
@@ -105,6 +106,7 @@ public class PrincipalModelo {
         LinkedHashMap<Integer, String> catTipoServicioSocial = new LinkedHashMap<>();
         LinkedHashMap<Integer, String> catLugarServicioSocial = new LinkedHashMap<>();
         LinkedHashMap<Integer, String> catCatalogos = new LinkedHashMap<>();
+        LinkedHashMap<Integer, String> catMunicipios = new LinkedHashMap<>();
 
         Conexion conexion = new Conexion();
         Connection conn = null;
@@ -126,6 +128,7 @@ public class PrincipalModelo {
         catTipoServicioSocial = getCatTipoServicioComunitario(conn);
         catLugarServicioSocial = getCatLugarServicioSocial(conn);
         catCatalogos = getCatCategorias(conn);
+        catMunicipios = getCatMunicipios(conn);
 
         //Se llena la lista con las categorias
         result.add(catSexo);
@@ -141,13 +144,14 @@ public class PrincipalModelo {
         result.add(catTipoServicioSocial);
         result.add(catLugarServicioSocial);
         result.add(catCatalogos);
+        result.add(catMunicipios);
 
         conn.close();
         return result;
     }
 
     /**
-     * Obtiene la categoria de sexos
+     * Obtiene la municipio de sexos
      *
      * @param conn COnexion a la base de datos
      * @return Categoria de sexos
@@ -181,7 +185,7 @@ public class PrincipalModelo {
     }
 
     /**
-     * Obtiene la categoria de sexos
+     * Obtiene la municipio de sexos
      *
      * @return Categoria de sexos
      */
@@ -294,6 +298,7 @@ public class PrincipalModelo {
      */
     private LinkedHashMap<Integer, String> getCatProgramas(Connection conn) {
         LinkedHashMap<Integer, String> catPrograma = new LinkedHashMap<>();
+        LinkedHashMap<Integer, String> catResult = new LinkedHashMap<>();
         Statement st = null;
         ResultSet rs = null;
         try {
@@ -315,7 +320,21 @@ public class PrincipalModelo {
                 Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        return catPrograma;
+        //Se ordenan los programas
+        int i = 0;
+        int tamanioOriginal = catPrograma.size();
+        String[] programas = new String[]{"Devoluci", "Empuje", "Pura", "Apoyo", "Historico"};
+        while(i < tamanioOriginal){
+            for (Integer idPrograma : catPrograma.keySet()) {
+                String programa = catPrograma.get(idPrograma);
+                if(programa.contains(programas[i])){
+                    catResult.put(idPrograma, programa);
+                    i++;
+                    break;
+                }
+            }
+        }
+        return catResult;
     }
 
     /**
@@ -415,7 +434,7 @@ public class PrincipalModelo {
     }
 
     /**
-     * Obtiene el catalogo de categoria de estudio
+     * Obtiene el catalogo de municipio de estudio
      *
      * @param conn Conexion a la base de datos
      * @return Lista de campos de estudio
@@ -448,9 +467,9 @@ public class PrincipalModelo {
     }
     
     /**
-     * Obtiene el catalogo de categoria
+     * Obtiene el catalogo de municipio
      * @param conn COneixon a la BD
-     * @return Lista con el catalogo de los categoria
+     * @return Lista con el catalogo de los municipio
      */
     private LinkedHashMap<Integer, String> getCatEstatus(Connection conn) {
         LinkedHashMap<Integer, String> catEstatus = new LinkedHashMap<>();
@@ -607,7 +626,7 @@ public class PrincipalModelo {
     }
     
     /**
-     * Obtiene la categoria de los lugares donde se puede hacer el servicio social
+     * Obtiene la municipio de los lugares donde se puede hacer el servicio social
      * @param conn
      * @return 
      */
@@ -669,6 +688,37 @@ public class PrincipalModelo {
     }
     
     /**
+     * Obtiene la categoría de los municipios del estado de chihuahua
+     * @param conn
+     * @return 
+     */
+    protected LinkedHashMap<Integer, String> getCatMunicipios(Connection conn) {
+        LinkedHashMap<Integer, String> catCategorias = new LinkedHashMap<>();
+        Statement st = null;
+        ResultSet rs = null;
+        try {
+            st = conn.createStatement();
+            rs = st.executeQuery(Consultas.getCatMunicipios);
+            while (rs.next()) {
+                CatMunicipios municipio = new CatMunicipios();
+                municipio.setId(rs.getInt(CatMunicipios.COL_ID));
+                municipio.setNombre(rs.getString(CatMunicipios.COL_NOMBRE));
+                catCategorias.put(municipio.getId(), municipio.getNombre());
+            }
+        } catch (SQLException e) {
+            muestraErrores(e);
+        } finally {
+            try {
+                rs.close();
+                st.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return catCategorias;
+    }
+    
+    /**
      * Inserta un nuevo becario en la base de datos
      *
      * @param bandera True es un becario borrador, False es un becario Completo
@@ -713,6 +763,7 @@ public class PrincipalModelo {
             ps.setInt(27, becario.getIdPrograma());
             ps.setString(28, becario.getEstudioSocioEconomico());
             ps.setString(29, becario.getCartaAsignacionBeca());
+            ps.setString(30, becario.getCartaAgradecimiento());
             
             
             int i = ps.executeUpdate();
@@ -1200,7 +1251,8 @@ public class PrincipalModelo {
             ps.setString(26, becario.getEnsayo());
             ps.setString(27, becario.getBoletaInicioBeca());
             ps.setString(28, becario.getPagare());
-            ps.setString(29, becario.getFolio());
+            ps.setString(29, becario.getCartaAgradecimiento());
+            ps.setString(30, becario.getFolio());
             valor = ps.executeUpdate();
             
             if(valor == 0){
@@ -1889,6 +1941,8 @@ public class PrincipalModelo {
                 becario.setActivo(rs.getInt(Becario.COL_ACTIVO));
                 becario.setEstudioSocioEconomico(rs.getString(Becario.COL_ESTUDIO_SOCIOECONOMICO));
                 becario.setCartaAsignacionBeca(rs.getString(Becario.COL_CARTA_ASIGNACION_BECA));
+                becario.setCartaAgradecimiento(rs.getString(Becario.COL_CARTA_AGRADECIMIENTO));
+                becario.setGraduado(rs.getBoolean(Becario.COL_GRADUADO));
             }
             
         } catch (SQLException e) {
@@ -1963,6 +2017,11 @@ public class PrincipalModelo {
                 becario.setIdBanco(rs.getInt(Becario.COL_ID_BANCO));
                 becario.setCuentaBancaria(rs.getString(Becario.COL_CUENTA_BANCO));
                 becario.setClabeInterbancaria(rs.getString(Becario.COL_CLABE_INTERBANCARIA));
+                becario.setActivo(rs.getInt(Becario.COL_ACTIVO));
+                becario.setEstudioSocioEconomico(rs.getString(Becario.COL_ESTUDIO_SOCIOECONOMICO));
+                becario.setCartaAsignacionBeca(rs.getString(Becario.COL_CARTA_ASIGNACION_BECA));
+                becario.setCartaAgradecimiento(rs.getString(Becario.COL_CARTA_AGRADECIMIENTO));
+                becario.setGraduado(rs.getBoolean(Becario.COL_GRADUADO));
                 lstBecario.add(becario);
             }
             
@@ -2111,6 +2170,7 @@ public class PrincipalModelo {
                 becario.setIdBanco(rs.getInt(Becario.COL_ID_BANCO));
                 becario.setCuentaBancaria(rs.getString(Becario.COL_CUENTA_BANCO));
                 becario.setClabeInterbancaria(rs.getString(Becario.COL_CLABE_INTERBANCARIA));
+                becario.setGraduado(rs.getBoolean(Becario.COL_GRADUADO));
                 lstBecario.add(becario);
             }
         } catch (SQLException e) {
@@ -2781,6 +2841,42 @@ public class PrincipalModelo {
         
         return response;
     }
+    
+    /**
+     * Actualiza los datos de beca_cat_universidad
+     * @param conexion
+     * @param datoNuevo
+     * @param idRegistro
+     * @param nombreTabla 
+     * @param nombreColumnas 
+     * @param isPublica 
+     * @return  
+     */
+    protected boolean updateCatalogo(Connection conexion, String datoNuevo, 
+            int idRegistro, String nombreTabla, CatColumnasTabla nombreColumnas, boolean isPublica) {
+        
+        boolean response = false;
+        PreparedStatement st = null;
+        int tipoEsc = 0;
+        
+        if(isPublica)
+            tipoEsc = 1;
+        else
+            tipoEsc = 2;
+        
+        try {
+            st = conexion.prepareStatement(Update.updateRegistroCatalogo(nombreTabla, nombreColumnas, idRegistro, datoNuevo, isPublica));
+            st.setInt(1, tipoEsc);
+            int resp = st.executeUpdate();
+            if(resp > 0)
+                response = true;
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            log.muestraErrores(ex);
+        }
+        
+        return response;
+    }
 
     /**
      * Obtiene los nombres de las columnas de una tabla a partir de su nombre
@@ -2811,7 +2907,8 @@ public class PrincipalModelo {
                         //En caso de que se esté evaluando la universida se agrega
                     case 3:
                         if(nombreTabla.toLowerCase().contains("universidad")){
-                            result.setTipoEscuela(rs.getInt(1));
+                            //result.setTipoEscuela(rs.getInt(1));
+                            result.setNombreColumnaTipoEscuela(rs.getString(1));
                         }
                         break;
                 }
@@ -2834,15 +2931,51 @@ public class PrincipalModelo {
      * @param idRegistro
      * @param nombreTabla
      * @param nombreColumnas
+     * @param bandera False, indica que la tabla NO FUE filtrada.
+     * TRUE indica que la tabla SI FUE filtrada
      * @return 
      */
-    protected boolean insertRegistroCatalogo(Connection conexion, String datoNuevo, int idRegistro, String nombreTabla, CatColumnasTabla nombreColumnas) {
+    protected boolean insertRegistroCatalogo(Connection conexion, String datoNuevo, 
+                    int idRegistro, String nombreTabla, CatColumnasTabla nombreColumnas, boolean bandera) {
          boolean response = false;
         Statement st = null;
         
         try {
             st = conexion.createStatement();
-            int resp = st.executeUpdate(Insert.insertRegistroCatalogo(nombreTabla, nombreColumnas, datoNuevo, idRegistro));
+            int resp = st.executeUpdate(Insert.insertRegistroCatalogo(nombreTabla, 
+                                    nombreColumnas, datoNuevo, idRegistro, bandera));
+            if(resp > 0)
+                response = true;
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            log.muestraErrores(ex);
+        }
+        
+        return response;
+    }
+    
+    /**
+     * Inserta registros en la tabla beca_cat_universidad
+     * @param conexion
+     * @param datoNuevo
+     * @param idRegistro
+     * @param nombreTabla
+     * @param nombreColumnas
+     * @param bandera False, indica que la tabla NO FUE filtrada.
+     * TRUE indica que la tabla SI FUE filtrada
+     * @param tipoUniversidad
+     * @return 
+     */
+    protected boolean insertRegistroCatalogo(Connection conexion, String datoNuevo, 
+                    int idRegistro, String nombreTabla, CatColumnasTabla nombreColumnas, 
+                    boolean bandera, boolean tipoUniversidad) {
+         boolean response = false;
+        PreparedStatement st = null;
+        
+        try {
+            st = conexion.prepareStatement(Insert.insertRegistroCatalogo(nombreTabla, 
+                                    nombreColumnas, datoNuevo, idRegistro, bandera, tipoUniversidad));
+            int resp = st.executeUpdate();
             if(resp > 0)
                 response = true;
         } catch (SQLException ex) {
@@ -2856,20 +2989,21 @@ public class PrincipalModelo {
     /**
      * Elimina un registro de un catalogo por el nombre del catalogo
      * @param conexion
-     * @param datoNuevo
      * @param idRegistro
      * @param nombreTabla
+     * @param bandera FALSE.- Indica que NO SE han filtrado el catalogo
+     * TRUE.- Indica que si se ha filtrado el catalogo
      * @param nombreColumnas
      * @return 
      */
     protected boolean deleteRegistroCatalogo(Connection conexion, 
-            int idRegistro, String nombreTabla, CatColumnasTabla nombreColumnas) {
+            int idRegistro, String nombreTabla, CatColumnasTabla nombreColumnas, boolean bandera) {
         boolean response = false;
         Statement st = null;
         
         try {
             st = conexion.createStatement();
-            int resp = st.executeUpdate(Delete.deletetRegistroCatalogo(nombreTabla, nombreColumnas, idRegistro));
+            int resp = st.executeUpdate(Delete.deletetRegistroCatalogo(nombreTabla, nombreColumnas, idRegistro, bandera));
             if(resp > 0)
                 response = true;
         } catch (SQLException ex) {
@@ -2975,5 +3109,30 @@ public class PrincipalModelo {
         }
         
         return id;
+    }
+
+    /**
+     * Retorna una lista con los datos del tipo de escuela del catalogo beca_cat_universidad
+     * @param conexion
+     * @return 
+     */
+    protected String getIdTipoEscuela(Connection conexion, int id) {
+        String lstTipoEscuela = "";
+        PreparedStatement st;
+        ResultSet rs;
+        try {
+            st = conexion.prepareStatement(Consultas.getTipoEscuela);
+            st.setInt(1, id);
+            rs = st.executeQuery();
+            
+            while(rs.next()){
+                lstTipoEscuela = rs.getString(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            log.muestraErrores(ex);
+        }
+        
+        return lstTipoEscuela;
     }
 }

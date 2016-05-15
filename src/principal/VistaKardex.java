@@ -332,7 +332,7 @@ public class VistaKardex extends javax.swing.JPanel {
         jLabel17 = new javax.swing.JLabel();
         TxtFldNoCuenta = new javax.swing.JTextField();
         TxtFldClabeBanco = new javax.swing.JTextField();
-        cmbNombreBanco = new javax.swing.JComboBox<String>();
+        cmbNombreBanco = new javax.swing.JComboBox<>();
         pnlTransferenciasAdjuntas2 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jLabel44 = new javax.swing.JLabel();
@@ -3559,7 +3559,7 @@ public class VistaKardex extends javax.swing.JPanel {
             .addGroup(pnlTransferenciasAdjuntas2Layout.createSequentialGroup()
                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE))
+                .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);

@@ -7,7 +7,6 @@ package helpers;
 
 import com.toedter.calendar.JDateChooser;
 import index.Index;
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Desktop;
@@ -26,11 +25,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
@@ -78,6 +76,7 @@ public class Helper {
     public final static int FILE_PAGARE = 7;
     public final static int FILE_ESTUDIO_SOCIECONOMICO = 8;
     public final static int FILE_CARTA_ASIGNACION_BECA = 9;
+    public final static int FILE_CARTA_AGRADECIMIENTO = 10;
     
     public void cursorEspera(JFrame vista){
         //vista.setCursor(new Cursor(Cursor.WAIT_CURSOR));     
@@ -238,25 +237,43 @@ public class Helper {
 
     public boolean validaFechaNacimiento(JTextField txtFechaNacimiento, Component vista) {
         boolean response = false;
-        Pattern patron = null;
-        Matcher matcher;
-        patron = Pattern.compile("^(?:(?:31(\\/)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/)(?:0?[1,3-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$");
+//        Pattern patron = null;
+//        Matcher matcher;
+//        patron = Pattern.compile("^(?:(?:31(\\/)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/)(?:0?[1,3-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$");
+//        
+//        if(txtFechaNacimiento.getText().length() > 0){
+//            matcher = patron.matcher(txtFechaNacimiento.getText());
+//            if(!matcher.matches()){
+//                txtFechaNacimiento.setBackground(Color.ORANGE);
+//                JOptionPane.showMessageDialog(vista, "Fecha de nacimiento incorrecta");
+//            }
+//            else
+//                response = true;
+//            
+//        }
+//        else{
+//            response = true;
+//        }
         
-        if(txtFechaNacimiento.getText().length() > 0){
-            matcher = patron.matcher(txtFechaNacimiento.getText());
-            if(!matcher.matches()){
-                txtFechaNacimiento.setBackground(Color.ORANGE);
-                JOptionPane.showMessageDialog(vista, "Fecha de nacimiento incorrecta");
+        String fecha = txtFechaNacimiento.getText();
+        fecha = fecha.replace("/", "");
+        if(!fecha.isEmpty()){
+            int dia = Integer.parseInt(fecha.substring(0, 2));
+            int mes = Integer.parseInt(fecha.substring(2, 4));
+            int anio = Integer.parseInt(fecha.substring(4, 8));
+//            
+            //Si el mes es menor igual a 12 y mayor igual a 1
+            if(mes <= 12 && mes >= 1){
+                //Si el día es mayor igual a 1 o menor igual a 31 o el mes es igual a 2 y el dia es menor igual a 29 o mayor igual a 1
+                if( (mes != 2 && (dia >= 1 && dia <= 31)) || (mes == 2 && (dia <= 29 && dia >= 1))){
+                    if(anio > 1970 && anio <= 2040)
+                        response = true;
+                }
             }
-            else
-                response = true;
-            
-        }
-        else{
-            response = true;
         }
         
-        
+            if(!response)
+                JOptionPane.showMessageDialog(vista, "Fecha de nacimiento incorrecta");
         return response;
     }
     
@@ -596,7 +613,7 @@ public class Helper {
                     mes = 0;
                 inicio.set(Calendar.MONTH, mes);
                 
-                System.out.println("Antes de agregar fecha a lista: " + aux.getTime());
+                //System.out.println("Antes de agregar fecha a lista: " + aux.getTime());
                 
             }
             
@@ -614,19 +631,38 @@ public class Helper {
     }
     
     /**
-     * Agrega una fila a la tabla seleccionada
+     * Elimina una fila a la tabla seleccionada y también lo elimina de su respectivo catalogo
      * @param tabla 
+     * @param lstCatalogo 
      */
-    public void eliminaFilaTabla(JTable tabla) {
+    public void eliminaFilaTabla(JTable tabla, LinkedHashMap<Integer, String> lstCatalogo) {
         DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
         int filas = modelo.getRowCount();
         
         //Si hay una fila seleccionada
         if(tabla.getSelectedRow() >= 0){
-            modelo.removeRow(tabla.getSelectedRow());
+//            for (Integer key : lstCatalogo.keySet()) {
+//                if(lstCatalogo.get(key).equals(tabla.getValueAt(tabla.getSelectedRow(), 0))){
+//                    lstCatalogo.remove(key);
+                    modelo.removeRow(tabla.getSelectedRow());
+//                    break;
+//                }
+//            }
         }
         else
             modelo.removeRow(filas - 1);
+    }
+    
+    /**
+     * Vacia en su totalidad todas las filas de la tabla
+     * @param tabla 
+     */
+    public void eliminaFilasTabla(JTable tabla){
+        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        int filas = modelo.getRowCount();
+        for (int i = 0; i < filas; i++) {
+            modelo.removeRow(0);
+        }
     }
     
     /**
@@ -664,6 +700,38 @@ public class Helper {
         }
         
         return date;
+    }
+
+    /**
+     * Toma el campo que se va a ingresar al catalogo, borra todos los datos de la tabla,
+     * agrega el nuevo campo a una lista auxiliar e inserta el nuevo campo a la tabla
+     * @param tabla
+     * @param txtBuscador
+     * @param texto
+     * @param catDatosCatalogos 
+     * @return  Regresa el nuevo catalogo
+     */
+    public LinkedHashMap<Integer, String> agregaFilaTabla(JTable tabla, JTextField txtBuscador, String texto, 
+                            LinkedHashMap<Integer, String> catDatosCatalogos) {
+        LinkedHashMap<Integer, String> catNuevoCatalogo = new LinkedHashMap<>();
+        DefaultTableModel tblModelo = (DefaultTableModel) tabla.getModel();
+        //txtBuscador.setText("");
+        int tamanioCatalogo = catDatosCatalogos.size();
+        int i = 1;
+        //Se hace una copia de los registros de la tabla
+        for (Integer idCat : catDatosCatalogos.keySet()) {
+            catNuevoCatalogo.put(i, catDatosCatalogos.get(idCat));
+            i++;
+        }
+        catNuevoCatalogo.put(i, texto);
+        
+        eliminaFilasTabla(tabla);
+        
+        for (Integer id : catNuevoCatalogo.keySet()) {
+            tblModelo.addRow(new String[]{catNuevoCatalogo.get(id)});
+        }
+        txtBuscador.setText("");
+        return catNuevoCatalogo;
     }
             
             

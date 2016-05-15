@@ -11,8 +11,10 @@ import pojos.CatBanco;
 import pojos.CatCategorias;
 import pojos.CatEstatus;
 import pojos.CatLugarServicioComunitario;
+import pojos.CatMunicipios;
 import pojos.CatTipoEscuela;
 import pojos.CatTipoServicioSocial;
+import pojos.CatUniversidad;
 import pojos.DatosEscolares;
 import pojos.Direccion;
 import pojos.Hermanos;
@@ -115,6 +117,12 @@ public class Consultas {
     public static String getCatLugarServicioSocial = "SELECT " + CatLugarServicioComunitario.COL_ID + ", "
             + CatLugarServicioComunitario.COL_NOMBRE + " FROM beca_cat_lugar_servicio_comunitario "
             + "ORDER BY " + CatLugarServicioComunitario.COL_NOMBRE;
+    
+    /**
+     * Obtiene todos los municipios del estado de chihuahua
+     */
+    public static String getCatMunicipios = "SELECT " + CatMunicipios.COL_ID + ", "
+            + CatMunicipios.COL_NOMBRE + " FROM beca_cat_municipio";
     
     /**
      * Obtiene las direcciones que tiene registradas un becario
@@ -269,8 +277,9 @@ public class Consultas {
             + "becario." + Becario.COL_IDENTIFICACION + ", becario." + Becario.COL_ID + ", "
             + "becario." + Becario.COL_PAGARE + ", becario." + Becario.COL_OCUPACION_CONYUGE + ", "
             + "becario." + Becario.COL_ID_BANCO + ", becario." + Becario.COL_CUENTA_BANCO + ", "
-            + "becario." + Becario.COL_CLABE_INTERBANCARIA + ", " + Becario.COL_ACTIVO + ", "
-            + "becario." + Becario.COL_CARTA_ASIGNACION_BECA + ", " + Becario.COL_ESTUDIO_SOCIOECONOMICO + " "
+            + "becario." + Becario.COL_CLABE_INTERBANCARIA + ", becario." + Becario.COL_ACTIVO + ", "
+            + "becario." + Becario.COL_CARTA_ASIGNACION_BECA + ", becario." + Becario.COL_ESTUDIO_SOCIOECONOMICO + ", "
+            + "becario." + Becario.COL_CARTA_AGRADECIMIENTO + ", becario." + Becario.COL_GRADUADO + " "
             + "FROM beca_becario AS becario "
             + "WHERE becario." + Becario.COL_FOLIO + " = ?";
     
@@ -293,9 +302,9 @@ public class Consultas {
             + "becario." + Becario.COL_IDENTIFICACION + ", becario." + Becario.COL_ID + ", "
             + "becario." + Becario.COL_PAGARE + ", becario." + Becario.COL_OCUPACION_CONYUGE + ", "
             + "becario." + Becario.COL_ID_BANCO + ", becario." + Becario.COL_CUENTA_BANCO + ", "
-            + "becario." + Becario.COL_CLABE_INTERBANCARIA + " "
-//            + "esc." + DatosEscolares.COL_ANIO_INICIO_BECA + ", esc." + DatosEscolares.COL_MES_GRADUACION + ", "
-//            + "esc." + DatosEscolares.COL_ANIO_GRADUACION + " "
+            + "becario." + Becario.COL_CLABE_INTERBANCARIA + ", becario." + Becario.COL_ACTIVO + ", "
+            + "becario." + Becario.COL_CARTA_ASIGNACION_BECA + ", becario." + Becario.COL_ESTUDIO_SOCIOECONOMICO + ", "
+            + "becario." + Becario.COL_CARTA_AGRADECIMIENTO + ", becario." + Becario.COL_GRADUADO + " "
             + "FROM beca_becario AS becario "
             + "WHERE becario." + Becario.COL_PROGRAMA + " = ? AND " + Becario.COL_ESTATUS + " = ? "
             + "AND becario." + Becario.COL_ACTIVO + " = 1";
@@ -319,7 +328,9 @@ public class Consultas {
             + "becario." + Becario.COL_IDENTIFICACION + ", becario." + Becario.COL_ID + ", "
             + "becario." + Becario.COL_PAGARE + ", becario." + Becario.COL_OCUPACION_CONYUGE + ", "
             + "becario." + Becario.COL_ID_BANCO + ", becario." + Becario.COL_CUENTA_BANCO + ", "
-            + "becario." + Becario.COL_CLABE_INTERBANCARIA + " "
+            + "becario." + Becario.COL_CLABE_INTERBANCARIA + ", becario." + Becario.COL_ACTIVO + ", "
+            + "becario." + Becario.COL_CARTA_ASIGNACION_BECA + ", becario." + Becario.COL_ESTUDIO_SOCIOECONOMICO + ", "
+            + "becario." + Becario.COL_CARTA_AGRADECIMIENTO + ", becario." + Becario.COL_GRADUADO + " "
             + "FROM beca_becario AS becario ";
 //            + "WHERE becario." + Becario.COL_NOMBRE + " LIKE ? OR becario." + Becario.COL_APATERNO + " LIKE ? "
 //            + "OR becario." + Becario.COL_AMATERNO + " LIKE ? "
@@ -390,5 +401,13 @@ public class Consultas {
      * Obtiene el estatus cancelado 
      */
     public static String getEstatusCancelado = "SELECT " + CatEstatus.COL_ID + " FROM beca_cat_estatus WHERE " + CatEstatus.COL_NOMBRE + " LIKE '%cancel%'";
+    
+    /**
+     * Obtiene el tipo de escuela del catalogo beca_cat_universidad
+     */
+    public static String getTipoEscuela = "SELECT tipo." + CatTipoEscuela.COL_NOMBRE 
+                + " FROM beca_cat_universidad AS uni JOIN beca_tipo_escuela AS tipo ON uni." 
+                + CatUniversidad.COL_ID_TIPO_ESCUELA + " = tipo." + CatTipoEscuela.COL_ID + " "
+            + "WHERE uni." + CatUniversidad.COL_ID + " = ?";
     
 }

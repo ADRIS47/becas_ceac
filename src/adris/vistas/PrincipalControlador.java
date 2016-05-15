@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package adris.vistas;
+package principal;
 
-//import principal.*;
 import crud.Conexion;
 import helpers.EscuchadorCalculaBecaXSemestre;
 import helpers.EscuchadorCalculaDescuentoSemestral;
@@ -38,12 +37,13 @@ import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.table.TableColumnModel;
+import jtable.ModelDefault;
+import jtable.ModelUniversidades;
 import pojos.Aval;
 import pojos.Becario;
 import pojos.CatColumnasTabla;
@@ -86,6 +86,7 @@ public class PrincipalControlador {
     protected File filePagare;
     protected File fileEstudioSocioeconomico;
     protected File fileCartaAsignacionBeca;
+    protected File fileCartaAgradecimiento;
 
     Log log = new Log();
     Helper helper = new Helper();
@@ -104,6 +105,8 @@ public class PrincipalControlador {
     LinkedHashMap<Integer, String> catLugarServicioSocial = null;
     LinkedHashMap<Integer, String> catCatalogos = null;
     LinkedHashMap<Integer, String> catDatosCatalogos = null;
+    LinkedHashMap<Integer, String> catNuevosDatosCatalogos = null;
+    LinkedHashMap<Integer, String> catMunicipios = null;
 
     List<PnlHijos> lstVistaHijos = new ArrayList<>();
     List<PnlHermanos> lstVistaHermanos = new ArrayList<>();
@@ -113,6 +116,17 @@ public class PrincipalControlador {
     File[] lstFilesBoletas = new File[12];
     File[] lstFilesCartaServCom = new File[12];
     File[] lstFilesTransferencias = new File[24];
+    
+    /**
+     * Bandera que indica si se inicia la vistaRegistro con los datos precargados o crea
+     * una nueva pantalla sin datos
+     * FALSE: Indica que se debe de cargar una vistaRegistro sin datos
+     * TRUE: Indica que se debe de precargar la pantalla
+     */
+//    boolean cargaVistaRegistro = false;
+    
+    String numeroFolio = "";
+    
 
     public static void main(String[] args) {
         PrincipalControlador prueba = new PrincipalControlador();
@@ -181,53 +195,60 @@ public class PrincipalControlador {
      */
     public void creaVistaRegistro() {
         helper.cursorEspera(vista);
-        
-        if (vistaRegistro != null) {
-            terminaVistaRegistro();
-        }
+        if(vistaKardex == null){
+            if (vistaRegistro != null) {
+                terminaVistaRegistro();
+            }
 
-        if (vistaRegistro == null) {
-            vistaRegistro = new VistaRegistro(this);
-            this.setVistaRegistro(vistaRegistro);
-        }
+            if (vistaRegistro == null) {
+                vistaRegistro = new VistaRegistro(this);
+                this.setVistaRegistro(vistaRegistro);
+            }
 
-        if (vistaKardex != null) {
-            terminaVistaKardex();
-        }
-        
-        vaciaLstFiles();
+            if (vistaKardex != null) {
+                terminaVistaKardex();
+            }
 
-        List<LinkedHashMap<Integer, String>> lstCategorias = null;
+            vaciaLstFiles();
 
-        try {
-            //Se muestran las pantallas dinamicas
-            llenaPanelesVistaRegistro();
-            //Se obtienen las categorias para llenar la pantalla
-            lstCategorias = modelo.getCategoriasVistaRegistro();
-            llenaCamposCategoriasVistaRegistro(lstCategorias, false);
-        } catch (SQLException ex) {
+            List<LinkedHashMap<Integer, String>> lstCategorias = null;
+
+            try {
+                //Se muestran las pantallas dinamicas
+                llenaPanelesVistaRegistro();
+                //Se obtienen las categorias para llenar la pantalla
+                lstCategorias = modelo.getCategoriasVistaRegistro();
+                llenaCamposCategoriasVistaRegistro(lstCategorias, false);
+            } catch (SQLException ex) {
+                helper.cursorNormal(vista);
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(vista, "Error, consulta el registro de errores",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+                log.crearLog(ex.getMessage());
+                return;
+            }
+
+            addListenerTeclasVistaRegistro();
+
+            helper.setAñoActualEnCombo(vistaRegistro.cmboxAnioInicioBeca);
+
+            vistaOpcionGuardar = new VistaRegistroOpcionGuardar();
+            vistaOpcionGuardar.setControlador(this);
+            helper.agregaJPanel(vistaOpcionGuardar, vistaRegistro.pnlOpciones);
+            vistaOpcionGuardar.setVisible(true);
+            //addListenerArchivosAdjuntos();
+            //Helper.getBecaSemestral(vistaRegistro.cmboxSemestresTotalesCarrera, vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre);
+            //Helper.getFechaGraduacion(vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca, vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion, vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera);
+
             helper.cursorNormal(vista);
-            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(vista, "Error, consulta el registro de errores",
-                    "Error", JOptionPane.ERROR_MESSAGE);
-            log.crearLog(ex.getMessage());
-            return;
+            creaPantalla(vistaRegistro);
+//            cargaVistaRegistro = true;
         }
-
-        addListenerTeclasVistaRegistro();
-
-        helper.setAñoActualEnCombo(vistaRegistro.cmboxAnioInicioBeca);
-
-        vistaOpcionGuardar = new VistaRegistroOpcionGuardar();
-        vistaOpcionGuardar.setControlador(this);
-        helper.agregaJPanel(vistaOpcionGuardar, vistaRegistro.pnlOpciones);
-        vistaOpcionGuardar.setVisible(true);
-        //addListenerArchivosAdjuntos();
-        //Helper.getBecaSemestral(vistaRegistro.cmboxSemestresTotalesCarrera, vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre);
-        //Helper.getFechaGraduacion(vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca, vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion, vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera);
-
-        helper.cursorNormal(vista);
-        creaPantalla(vistaRegistro);
+        else{
+            getInfoBecarioPorFolio(vistaKardex.txtFolio.getText());
+            terminaVistaKardex();
+//            cargaVistaRegistro = false;
+        }
     }
 
     /**
@@ -267,7 +288,10 @@ public class PrincipalControlador {
         helper.setAñoActualEnCombo(vistaBusqueda.cmbAnioRegistro);
         helper.setAñoActualEnCombo(vistaBusqueda.cmbanioGraduacion);
     }
-
+    
+    /**
+     * Crea la pantalla vistaKardex
+     */
     protected void creaVistaKardex() {
         
         helper.cursorEspera(vista);
@@ -318,7 +342,11 @@ public class PrincipalControlador {
 
         creaPantalla(vistaCatalogos);
         
-        llenaCamposVistaCategorias();
+        llenaCamposVistaCatalogos();
+        
+//        vistaCatalogos.TxtFldDescripcionCatalogo.addKeyListener(
+//                new EscuchadorBuscaCatalogo(vistaCatalogos.TxtFldDescripcionCatalogo, 
+//                            catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo));
         helper.cursorNormal(vista);
     }
 
@@ -361,16 +389,21 @@ public class PrincipalControlador {
         catTipoServicioSocial = lstCategorias.get(10);
         catLugarServicioSocial = lstCategorias.get(11);
         catCatalogos = lstCategorias.get(12);
+        catMunicipios = lstCategorias.get(13);
 
         llenaComboCategorias(vistaRegistro.combobxCivilBecado, catEstadoCivil);
         llenaComboCategorias(vistaRegistro.comboBoxPrograma, catPrograma);
         llenaComboCategorias(vistaRegistro.combobxSexoBecado, catSexo);
         llenaComboCategorias(lstVistaParentesco.get(0).cmbNivelEstudiosPariente, catNivelEstudios);
+        llenaComboCategorias(lstVistaParentesco.get(1).cmbNivelEstudiosPariente, catNivelEstudios);
         llenaComboCategorias(lstVistaHermanos.get(0).cmbNivelEstudiosHermano, catNivelEstudios);
         llenaComboCategorias(lstVistaParentesco.get(0).cmbParentesco, catParentesco);
+        llenaComboCategorias(lstVistaParentesco.get(1).cmbParentesco, catParentesco);
         llenaComboCategorias(vistaRegistro.cmboxEscuelaUniversitaria, catUniversidad);
         llenaComboCategorias(vistaRegistro.cmboxCampoEscuela, catCampoEstudio);
         llenaComboCategorias(vistaRegistro.cmbTipoEscuela, catTipoEscuela);
+        
+        lstVistaParentesco.get(1).cmbParentesco.setSelectedIndex(1);
 
         if (bandera) {
             vistaRegistro.cmbEstatus.removeAllItems();
@@ -441,6 +474,8 @@ public class PrincipalControlador {
     private void terminaVistaRegistro() {
         vistaRegistro.removeAll();
         vaciaLstVistas();
+//        folio = "";
+//        cargaVistaRegistro = false;
         vistaRegistro = null;
     }
 
@@ -467,6 +502,7 @@ public class PrincipalControlador {
      */
     private void llenaPanelesVistaRegistro() {
         PnlParentesco vistaParentesco = new PnlParentesco();
+        PnlParentesco vistaParentesco2 = new PnlParentesco();
         PnlHermanos vistaHermanos = new PnlHermanos();
         PnlHijos vistaHijos = new PnlHijos();
         PnlDireccion vistaDireccion = new PnlDireccion();
@@ -479,12 +515,14 @@ public class PrincipalControlador {
         //vistaOpcionGuardar.setControlador(this);
 
         helper.agregaJPanel(vistaParentesco, vistaRegistro.pnlParentesco);
+        helper.agregaJPanel(vistaParentesco2, vistaRegistro.pnlParentesco);
         helper.agregaJPanel(vistaHermanos, vistaRegistro.pnlHermanos);
         helper.agregaJPanel(vistaHijos, vistaRegistro.pnlHijos);
         helper.agregaJPanel(vistaDireccion, vistaRegistro.pnlDirecciones);
         //helper.agregaJPanel(vistaOpcionGuardar, vistaRegistro.pnlOpciones);
 
         lstVistaParentesco.add(vistaParentesco);
+        lstVistaParentesco.add(vistaParentesco2);
         lstVistaHermanos.add(vistaHermanos);
         lstVistaHijos.add(vistaHijos);
         lstVistaDireccion.add(vistaDireccion);
@@ -519,6 +557,9 @@ public class PrincipalControlador {
 
     /**
      * Elige el documento del becario a partir de un JFILECHooser
+     * @param archivo
+     * @param lblEstatus
+     * @return 
      */
     protected File cargaDocumento(File archivo, JLabel lblEstatus) {
         JFileChooser selector = new JFileChooser();
@@ -791,11 +832,11 @@ public class PrincipalControlador {
                 boolean email = helper.validaEmail(vistaRegistro.txtCorreoBecario.getText(),
                         vistaRegistro.txtCorreoBecario2.getText());
                 
-                //boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
+                boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
 
                 //Si los email son iguales se procede a tomar los valores e insertarlos
-                //if (email && fecha) {
-                if (email) {
+                if (email && fecha) {
+                //if (email) {
                     insertBecario(true);
                 } else if (email == false) {
                     JOptionPane.showMessageDialog(vistaRegistro, "Correos electrónicos diferentes",
@@ -810,11 +851,13 @@ public class PrincipalControlador {
             //Se valida que los correos electronicos sean iguales
             boolean email = helper.validaEmail(vistaRegistro.txtCorreoBecario.getText(),
                     vistaRegistro.txtCorreoBecario2.getText());
-            //boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
+            boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
             //Si los email son iguales se procede a tomar los valores e insertarlos
-            //if (email && fecha) {
-            if (email) {
-                insertBecario(false);
+            if (email && fecha) {
+            //if (email) {
+                int i = JOptionPane.showConfirmDialog(vistaRegistro, "¿Está seguro de asignar al becario en el programa " + vistaRegistro.comboBoxPrograma.getSelectedItem(), "Aviso", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                if(i == JOptionPane.OK_OPTION)
+                    insertBecario(false);
             } else if (email == false) {
                 JOptionPane.showMessageDialog(vistaRegistro, "Correos electrónicos diferentes",
                         "Verifica los correos electrónicos", JOptionPane.WARNING_MESSAGE);
@@ -920,6 +963,7 @@ public class PrincipalControlador {
                 throw new SQLException();
             }
             conexion.commit();
+            numeroFolio = becario.getFolio();
             JOptionPane.showMessageDialog(vista, "Becario registrado correctamente \n"
                     + "Número de folio: " + becario.getFolio(), "Éxito", JOptionPane.INFORMATION_MESSAGE);
 
@@ -963,11 +1007,11 @@ public class PrincipalControlador {
                 //Se valida que los correos electronicos sean iguales
                 boolean email = helper.validaEmail(vistaRegistro.txtCorreoBecario.getText(),
                         vistaRegistro.txtCorreoBecario2.getText());
-               // boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
+                boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
 
                 //Si los email son iguales se procede a tomar los valores e insertarlos
-                //if (email && fecha) {
-                if (email) {
+                if (email && fecha) {
+                //if (email) {
                     updateBecario();
                 } else if (email == false) {
                     helper.cursorNormal(vista);
@@ -981,10 +1025,10 @@ public class PrincipalControlador {
             //Se valida que los correos electronicos sean iguales
             boolean email = helper.validaEmail(vistaRegistro.txtCorreoBecario.getText(),
                     vistaRegistro.txtCorreoBecario2.getText());
-            //boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
+            boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
             //Si los email son iguales se procede a tomar los valores e insertarlos
-            //if (email && fecha) {
-            if (email) {
+            if (email && fecha) {
+            //if (email) {
                 updateBecario();
             }
             else
@@ -1133,15 +1177,15 @@ public class PrincipalControlador {
         //Se obtiene el ap materno del becario
         becario.setApMaterno(vistaRegistro.txtApMaternoBecado.getText());
         //Se obtiene la fecha de nacimiento del becario
-//        if (vistaRegistro.txtFechaNacimiento.getText().length() > 0) {
-//            long fecha = getFecha(vistaRegistro.txtFechaNacimiento.getText());
-//            becario.setFecha_nac(new Date(fecha));
-//        }
+        if (vistaRegistro.txtFechaNacimiento.getText().length() > 0) {
+            long fecha = getFecha(vistaRegistro.txtFechaNacimiento.getText());
+            becario.setFecha_nac(new Date(fecha));
+        }
         
-        java.util.Date fechaNac = helper.getFechaDateChooser(vistaRegistro.txtFechaNacimiento);
-        if(fechaNac == null)
-            return null;
-        becario.setFecha_nac(helper.convertUtilDateToSqlDate(fechaNac));
+        //java.util.Date fechaNac = helper.getFechaDateChooser(vistaRegistro.txtFechaNacimiento);
+//        if(fechaNac == null)
+//            return null;
+//        becario.setFecha_nac(helper.convertUtilDateToSqlDate(fechaNac));
         
         //Se obtiene los datos del conyuge
         becario.setNombreConyuge(vistaRegistro.txtNombreConyuge.getText());
@@ -1272,6 +1316,17 @@ public class PrincipalControlador {
                 return null;
             } else {
                 becario.setCartaAsignacionBeca(becario.getFolio() + Index.SEPARADOR + path.getFileName().toString());
+            }
+        }
+        
+        //Se carga la carta de agradecimiento de beca del becario
+        if (fileCartaAgradecimiento != null) {
+            Path path = helper.CopiaArchivoADestino(becario.getFolio(), "agradecimiento-", fileCartaAgradecimiento);
+            if (path == null) {
+                JOptionPane.showMessageDialog(vista, "Error al copiar la carta de asignación de beca", "Error", JOptionPane.ERROR_MESSAGE);
+                return null;
+            } else {
+                becario.setCartaAgradecimiento(becario.getFolio() + Index.SEPARADOR + path.getFileName().toString());
             }
         }
 
@@ -1487,20 +1542,20 @@ public class PrincipalControlador {
         //Se obtiene el semestre de estudio del inicio de la beca
         datos.setSemestreInicioBeca(vistaRegistro.cmboxSemestreInicioBeca.getSelectedIndex() + 1);
         //Se obtiene el total de la beca
-        if (vistaRegistro.txtCostoCarrera.getText().length() > 0) {
-            String dato = vistaRegistro.txtCostoCarrera.getText().replace(",", "");
+        if (vistaRegistro.txtBecaAutorizada.getText().length() > 0) {
+            String dato = vistaRegistro.txtBecaAutorizada.getText().replace(",", "");
             dato = dato.replace(".", "");
             datos.setBecaTotal(Integer.parseInt(dato));
         }
-        //Se obtiene el valor semestral de la beca
+        //Se obtiene el idEscuela semestral de la beca
         if (vistaRegistro.txtBecaPorSemestre.getText().length() > 0) {
             String dato = vistaRegistro.txtBecaPorSemestre.getText().replace(",", "");
             dato = dato.replace(".", "");
             datos.setBecaSemestral(Integer.parseInt(dato));
         }
         //Se obtiene el costo de la carrera
-        if (vistaRegistro.txtBecaAutorizada.getText().length() > 0) {
-            String dato = vistaRegistro.txtBecaAutorizada.getText().replace(",", "");
+        if (vistaRegistro.txtCostoCarrera.getText().length() > 0) {
+            String dato = vistaRegistro.txtCostoCarrera.getText().replace(",", "");
             dato = dato.replace(".", "");
             datos.setCostoCarrera(Integer.parseInt(dato));
         }
@@ -2103,7 +2158,7 @@ public class PrincipalControlador {
         vistaRegistro.txtNombreBecado.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtNombreBecado));
         vistaRegistro.txtApPaternoBecado.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtApPaternoBecado));
         vistaRegistro.txtApMaternoBecado.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtApPaternoBecado));
-        //vistaRegistro.txtFechaNacimiento.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.FECHA_NACIMIENTO, vistaRegistro.txtFechaNacimiento));
+        vistaRegistro.txtFechaNacimiento.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.FECHA_NACIMIENTO, vistaRegistro.txtFechaNacimiento));
 
         //Telefonos del becado
         vistaRegistro.txtTel1Becado.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.TELEFONO, vistaRegistro.txtTel1Becado));
@@ -2120,24 +2175,24 @@ public class PrincipalControlador {
         //Datos Escolares 
         vistaRegistro.txtNombreCarrera.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtNombreCarrera));
         vistaRegistro.txtEscuelaProcedencia.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, vistaRegistro.txtEscuelaProcedencia));
-        vistaRegistro.txtBecaAutorizada.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.DINERO, vistaRegistro.txtBecaAutorizada));
-        vistaRegistro.txtCostoCarrera.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.DINERO, vistaRegistro.txtCostoCarrera));
-
-        //Datos que calculan la beca total semestral
         vistaRegistro.txtCostoCarrera.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.DINERO, vistaRegistro.txtCostoCarrera));
         vistaRegistro.txtBecaAutorizada.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.DINERO, vistaRegistro.txtBecaAutorizada));
 
         //Datos que calculan la beca total semestral
-        vistaRegistro.txtCostoCarrera.addKeyListener(new EscuchadorCalculaBecaXSemestre(
-                vistaRegistro.txtCostoCarrera, vistaRegistro.cmboxSemestreInicioBeca,
+        vistaRegistro.txtBecaAutorizada.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.DINERO, vistaRegistro.txtBecaAutorizada));
+        vistaRegistro.txtCostoCarrera.addKeyListener(new EscuchadorValidaEntrada(vistaRegistro, EscuchadorValidaEntrada.DINERO, vistaRegistro.txtCostoCarrera));
+
+        //Datos que calculan la beca total semestral
+        vistaRegistro.txtBecaAutorizada.addKeyListener(new EscuchadorCalculaBecaXSemestre(
+                vistaRegistro.txtBecaAutorizada, vistaRegistro.cmboxSemestreInicioBeca,
                 vistaRegistro.cmboxSemestresTotalesCarrera, vistaRegistro.cmboxAnioInicioBeca,
-                vistaRegistro.txtBecaPorSemestre, vistaRegistro.txtBecaAutorizada));
+                vistaRegistro.txtBecaPorSemestre, vistaRegistro.txtCostoCarrera));
 
         vistaRegistro.cmboxSemestreInicioBeca.addItemListener(new EscuchadorCmbBoxCambiado(
                 vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca,
                 vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion,
                 vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera,
-                vistaRegistro.txtCostoCarrera, vistaRegistro.txtBecaPorSemestre, vistaRegistro.txtBecaAutorizada,
+                vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre, vistaRegistro.txtCostoCarrera,
                 vistaRegistro, EscuchadorCmbBoxCambiado.BECA_SEMESTRAL));
 
 //        vistaRegistro.cmboxSemestresTotalesCarrera.addItemListener(new EscuchadorCmbBoxCambiado(
@@ -2148,7 +2203,7 @@ public class PrincipalControlador {
                 vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca,
                 vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion,
                 vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera,
-                vistaRegistro.txtCostoCarrera, vistaRegistro.txtBecaPorSemestre, vistaRegistro.txtBecaAutorizada,
+                vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre, vistaRegistro.txtCostoCarrera,
                 vistaRegistro, EscuchadorCmbBoxCambiado.BECA_SEMESTRAL));
 
         //Datos hijos
@@ -2188,20 +2243,20 @@ public class PrincipalControlador {
         vistaRegistro.cmboxSemestresTotalesCarrera.addItemListener(new EscuchadorCmbBoxCambiado(vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca,
                 vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion,
                 vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera,
-                vistaRegistro.txtCostoCarrera, vistaRegistro.txtBecaPorSemestre,
-                vistaRegistro.txtBecaAutorizada, vistaRegistro, EscuchadorCmbBoxCambiado.FECHA_GRADUACION));
+                vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre,
+                vistaRegistro.txtCostoCarrera, vistaRegistro, EscuchadorCmbBoxCambiado.FECHA_GRADUACION));
 
         vistaRegistro.cmboxMesInicioBeca.addItemListener(new EscuchadorCmbBoxCambiado(vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca,
                 vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion,
                 vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera,
-                vistaRegistro.txtCostoCarrera, vistaRegistro.txtBecaPorSemestre,
-                vistaRegistro.txtBecaAutorizada, vistaRegistro, EscuchadorCmbBoxCambiado.FECHA_GRADUACION));
+                vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre,
+                vistaRegistro.txtCostoCarrera, vistaRegistro, EscuchadorCmbBoxCambiado.FECHA_GRADUACION));
 
         vistaRegistro.cmboxAnioInicioBeca.addItemListener(new EscuchadorCmbBoxCambiado(vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca,
                 vistaRegistro.cmboxMesGraduacion, vistaRegistro.cmboxAnioGraduacion,
                 vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.cmboxSemestresTotalesCarrera,
-                vistaRegistro.txtCostoCarrera, vistaRegistro.txtBecaPorSemestre,
-                vistaRegistro.txtBecaAutorizada, vistaRegistro, EscuchadorCmbBoxCambiado.FECHA_GRADUACION));
+                vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre,
+                vistaRegistro.txtCostoCarrera, vistaRegistro, EscuchadorCmbBoxCambiado.FECHA_GRADUACION));
 
 //        vistaRegistro.cmboxSemestreInicioBeca.addItemListener(new 
 //        EscuchadorCmbBoxCambiado(vistaRegistro.cmboxMesInicioBeca, vistaRegistro.cmboxAnioInicioBeca, 
@@ -2223,6 +2278,7 @@ public class PrincipalControlador {
         Conexion conn = new Conexion();
         Connection conexion = null;
         conexion = conn.estableceConexion();
+        
 
         if (conexion == null) {
             helper.cursorNormal(vista);
@@ -2445,11 +2501,11 @@ public class PrincipalControlador {
         vistaRegistro.txtNombreBecado.setText(becario.getNombre());
         vistaRegistro.txtApPaternoBecado.setText(becario.getApPaterno());
         vistaRegistro.txtApMaternoBecado.setText(becario.getApMaterno());
-//        if (becario.getFecha_nac() != null) {
-//            vistaRegistro.txtFechaNacimiento.setText(helper.formateaFechaBD(becario.getFecha_nac()));
-//        }
+        if (becario.getFecha_nac() != null) {
+            vistaRegistro.txtFechaNacimiento.setText(helper.formateaFechaBD(becario.getFecha_nac()));
+        }
         
-        vistaRegistro.txtFechaNacimiento.setDate(becario.getFecha_nac());
+//        vistaRegistro.txtFechaNacimiento.setDate(becario.getFecha_nac());
         
         vistaRegistro.comboBxTrabajaBecado.setSelectedIndex(becario.getTrabaja());
         vistaRegistro.combobxSexoBecado.setSelectedIndex(becario.getIdSexo() - 1);
@@ -2566,8 +2622,8 @@ public class PrincipalControlador {
         vistaRegistro.cmboxEscuelaUniversitaria.setSelectedItem(universidad);
         vistaRegistro.cmboxSemestreInicioBeca.setSelectedIndex(lstDatosEscolares.getSemestreInicioBeca() - 1);
         vistaRegistro.cmboxSemestresTotalesCarrera.setSelectedIndex(lstDatosEscolares.getSemestresTotalesCarrera() - 1);
-        vistaRegistro.txtBecaAutorizada.setText(lstDatosEscolares.getCostoCarrera() + "");
-        vistaRegistro.txtCostoCarrera.setText(lstDatosEscolares.getBecaTotal() + "");
+        vistaRegistro.txtCostoCarrera.setText(lstDatosEscolares.getCostoCarrera() + "");
+        vistaRegistro.txtBecaAutorizada.setText(lstDatosEscolares.getBecaTotal() + "");
         vistaRegistro.txtBecaPorSemestre.setText(lstDatosEscolares.getBecaSemestral() + "");
         vistaRegistro.txtAreaObservaciones.setText(becario.getObservaciones());
         vistaRegistro.cmbTipoEscuela.setSelectedItem(getItemComboBox(lstDatosEscolares.getIdTipoEscuela(), catTipoEscuela));
@@ -2625,6 +2681,13 @@ public class PrincipalControlador {
             fileCartaAsignacionBeca = new File(Index.RUTA_FINAL + becario.getCartaAsignacionBeca());
             vistaRegistro.lblEstatusCartaAsignacionBeca.setText(fileCartaAsignacionBeca.getName());
         }
+        
+        //Se carga la carta de agradecimiento de beca del becario
+        if (fileCartaAgradecimiento != null) {
+            fileCartaAgradecimiento = null;
+            fileCartaAgradecimiento = new File(Index.RUTA_FINAL + becario.getCartaAgradecimiento());
+            //vistaRegistro.lblEstatusCartaAsignacionBeca.setText(fileCartaAgradecimiento.getName());
+        }
 
     }
 
@@ -2668,10 +2731,14 @@ public class PrincipalControlador {
         vistaKardex.cmbNombreBanco.setSelectedItem(banco);
         vistaKardex.TxtFldNoCuenta.setText(becario.getCuentaBancaria());
         vistaKardex.TxtFldClabeBanco.setText(becario.getClabeInterbancaria());
-
+        
+        int semestresHabilitados = 0;
         //Se toman los semestres activos del becario
-        int semestresHabilitados = helper.getTotalSemestresporHabilitarKardex(datosEscolares.getSemestreInicioBeca(),
-                datosEscolares.getSemestresTotalesCarrera());
+        if(!getItemComboBox(becario.getIdPrograma(), catPrograma).contains("Empuje"))
+            semestresHabilitados = helper.getTotalSemestresporHabilitarKardex(datosEscolares.getSemestreInicioBeca(),
+                    datosEscolares.getSemestresTotalesCarrera());
+        else
+            semestresHabilitados = 3;
         //Se procede a deshabilitar los semestres que aun no tienen que llenarse
         deshabilitaSemestresKardex(vistaKardex.PnlKardex, semestresHabilitados, 0, 1);
         //Se llena el pnlKardex
@@ -2722,62 +2789,85 @@ public class PrincipalControlador {
     /**
      * Llena los combo box de la pantalla VistaCatalogos
      */
-    protected void llenaCamposVistaCategorias() {
-        
+    protected void llenaCamposVistaCatalogos() {
+                
+        vistaCatalogos.TxtFldDescripcionCatalogo.setText("");
         //Si no se ha llenado la tabla
         helper.cursorEspera(vista);
-            Conexion conn = new Conexion();
-            Connection conexion = conn.estableceConexion();
-            if(catCatalogos == null){
-                catCatalogos = modelo.getCatCategorias(conexion);
-                
-            }
-            
-            if(vistaCatalogos.cmbTipoCatalogo.getSelectedIndex() < 0)
-                llenaComboCategorias(vistaCatalogos.cmbTipoCatalogo, catCatalogos);
-            
-            String seleccion = (String) vistaCatalogos.cmbTipoCatalogo.getSelectedItem();
-            int idTabla = getIdCmbBox(seleccion, catCatalogos);
-            String nombreTabla = modelo.getNombreTabla(conexion, idTabla);
-            
-            if(catDatosCatalogos != null)
-                catDatosCatalogos.clear();
-            catDatosCatalogos = modelo.getDatosCatalogo(conexion, nombreTabla);
-            
-            
+        Conexion conn = new Conexion();
+        Connection conexion = conn.estableceConexion();
+        if(catCatalogos == null){
+            catCatalogos = modelo.getCatCategorias(conexion);
+        }
+
+        if(catTipoEscuela == null){
+            catTipoEscuela = modelo.getCatTipoEscuela(conexion);
+        }
+
+        if(vistaCatalogos.cmbTipoCatalogo.getSelectedIndex() < 0)
+            llenaComboCategorias(vistaCatalogos.cmbTipoCatalogo, catCatalogos);
+
+        String seleccion = (String) vistaCatalogos.cmbTipoCatalogo.getSelectedItem();
+        int idTabla = getIdCmbBox(seleccion, catCatalogos);
+        String nombreTabla = modelo.getNombreTabla(conexion, idTabla);
+
+        if(catDatosCatalogos != null){
+            catDatosCatalogos.clear();
+            catDatosCatalogos = null;
+        }
+
+        catDatosCatalogos = modelo.getDatosCatalogo(conexion, nombreTabla);
+
+        if(!nombreTabla.contains("univer")){
+            creaTablaCatalogos(true);
+            llenaTablaCatalogos(catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo, false, conexion);
+        }
+        else{
+            creaTablaCatalogos(false);
+            llenaTablaCatalogos(catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo, true, conexion);
             DefaultTableModel tblModel = (DefaultTableModel) vistaCatalogos.TblDescripcionCatalogo.getModel();
+        }
+
+        try{
+            conexion.close();
+        }
+        catch(SQLException e){log.muestraErrores(e);}
             
-            int filas = tblModel.getRowCount();
-            for (int i = 0; i < filas; i++) {
-                tblModel.removeRow(0);
-            }
-            
-            llenaTabla(catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo);
-            
-//            
-//            if(columnModel.getColumnCount() > 1)
-//                columnModel.removeColumn(columnModel.getColumn(1));
-//            
-//            
-//            if(!nombreTabla.toLowerCase().contains("universidad")){
-//                filas = tblModel.getRowCount();
-//                for (int i = 0; i < filas; i++) {
-//                    if(tblModel.isCellEditable(i, 1))
-//                        tblModel.
-//                }
-//            }
-            
-            
-            tblModel.addRow(new String[]{});
-            
-            try{
-                conexion.close();
-            }
-            catch(SQLException e){log.muestraErrores(e);}
         helper.cursorNormal(vista);
         
     }
-
+    
+    private void creaTablaCatalogos(boolean tblDefault){
+        DefaultTableModel tblModelo;
+        String[] columnas;
+        
+        vistaCatalogos.pnlTabla.removeAll();
+        
+        if(tblDefault){
+            columnas = new String[]{"Nombre"};
+            tblModelo = new ModelDefault(columnas, 0);
+        }
+        else{
+            columnas = new String[]{"Nombre","Tipo de Universidad"};
+            tblModelo = new ModelUniversidades(columnas, 0);
+        }
+        
+        if(vistaCatalogos.TblDescripcionCatalogo != null){
+            vistaCatalogos.TblDescripcionCatalogo.removeAll();
+            vistaCatalogos.TblDescripcionCatalogo = null;
+        }
+            
+        vistaCatalogos.TblDescripcionCatalogo = new JTable(tblModelo);
+        
+        JScrollPane scroll = new JScrollPane(vistaCatalogos.TblDescripcionCatalogo);
+        vistaCatalogos.pnlTabla.add(scroll);
+        vistaCatalogos.TblDescripcionCatalogo.setVisible(true);
+        
+        vistaCatalogos.pnlTabla.invalidate();
+        vistaCatalogos.pnlTabla.validate();
+        
+    }
+        
     /**
      * Se encarga de obtener la información necesaria de cada becario para
      * llenar la tabla de la vistaBusqueda.
@@ -2822,7 +2912,7 @@ public class PrincipalControlador {
                 + "/" + lstDatosEscolares.get(i).getAnioGraduacion()
             });
 //            if(becario.getIdEstatus() == idCancelado){
-//                rows = modelo.getRowCount();
+//                rows = tblModelo.getRowCount();
 //                vistaBusqueda.tblResultadoBusqueda.getValueAt(rows, rows)
 //            }
 
@@ -2842,15 +2932,45 @@ public class PrincipalControlador {
     
     /**
      * Agrega las filas correspondientes de una tabla a partir de un LinkedHashMap
-     * @param datos
+     * @param nombreDatoCatalogos
      * @param tabla 
+     * @param bandera TRUE.- Indica que se tiene  cargado el catalogo de las universidades
+     * False.- Indica que es cualquier otro catalogo
+     * @param conexion
      */
-    private void llenaTabla(LinkedHashMap<Integer,String> datos, JTable tabla){
-        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
-        for (Integer key : datos.keySet()) {
-            modelo.addRow(new String[]{datos.get(key)});
+    private void llenaTablaCatalogos(LinkedHashMap<Integer,String> nombreDatoCatalogos, 
+                        JTable tabla, boolean bandera, Connection conexion){
+        
+        DefaultTableModel tblModelo = (DefaultTableModel) tabla.getModel();
+        for (Integer key : nombreDatoCatalogos.keySet()) {
+            tblModelo.addRow(new String[]{""});
+        }
+                
+        int i = 0;
+        //Se llenan los nombres de los catalogos
+        if(bandera == false){
+            for (Integer valor : nombreDatoCatalogos.keySet()){
+                tblModelo.setValueAt(nombreDatoCatalogos.get(valor), i, 0);
+                i++;
+            }
+           
+        }
+        else{
+                        
+            i = 0;
+            for (Integer idEscuela : nombreDatoCatalogos.keySet()){
+                tblModelo.setValueAt(nombreDatoCatalogos.get(idEscuela), i, 0);
+                String tipoEscuela = modelo.getIdTipoEscuela(conexion, idEscuela);
+                Boolean publica = false;
+                if(tipoEscuela.contains("blica"))
+                    publica = true;
+                
+                tblModelo.setValueAt(publica, i, 1);
+                i++;
+            }
         }
         
+        tblModelo.addRow(new String[]{});
     }
 
     /**
@@ -2891,6 +3011,9 @@ public class PrincipalControlador {
             case Helper.FILE_PAGARE:
                 helper.abreArchivoAdjunto(filePagare);
                 break;
+                
+            case Helper.FILE_CARTA_AGRADECIMIENTO:
+                helper.abreArchivoAdjunto(fileCartaAgradecimiento);
         }
     }
     
@@ -3113,6 +3236,7 @@ public class PrincipalControlador {
         fileIneAval = null;
         fileIneBecario = null;
         filePagare = null;
+        fileCartaAgradecimiento = null;
     
     }
 
@@ -3161,7 +3285,14 @@ public class PrincipalControlador {
      * @param tabla Tabla a agregar la fila
      */
     protected void agregarFilaTabla(JTable tabla) {
-        helper.agregaFilaTabla(tabla);
+        String texto = vistaCatalogos.TxtFldDescripcionCatalogo.getText();
+        //Si no se ha el filtrado el catalogo
+        if(texto.equals("")){
+            helper.agregaFilaTabla(tabla);
+        }
+        else{
+            catDatosCatalogos = helper.agregaFilaTabla(tabla, vistaCatalogos.TxtFldDescripcionCatalogo, texto, catDatosCatalogos);
+        }
     }
 
     /**
@@ -3169,17 +3300,35 @@ public class PrincipalControlador {
      * @param tabla 
      */
     protected void eliminaFilaTabla(JTable tabla) {
-        helper.eliminaFilaTabla(tabla);
+        //Se verifica si ya se filtró la tabla
+        //Si no se ha filtrado el catalogo
+        //if(vistaCatalogos.TxtFldDescripcionCatalogo.getText().isEmpty()){
+            helper.eliminaFilaTabla(tabla, catDatosCatalogos);
+        //}
+        //Si se han filtrado los datos
+//        else
+//            helper.eliminaFilaTabla(tabla, catNuevosDatosCatalogos);
+        
     }
 
     /**
      * Inserta, Actualiza o Elimina los datos de un catalogo
      */
     protected void crudCatalogo() {
+        
+        //Si existen filtraciones realizadas
+        if(!vistaCatalogos.TxtFldDescripcionCatalogo.getText().equals("")){
+            JOptionPane.showMessageDialog(vistaCatalogos, "No se puede borrar un registro con las filtraciones activas", "Error", JOptionPane.ERROR_MESSAGE);
+            vistaCatalogos.TxtFldDescripcionCatalogo.requestFocus();
+            vistaCatalogos.TxtFldDescripcionCatalogo.selectAll();
+            return;
+        }
+        
         helper.cursorEspera(vista);
         Conexion conn = new Conexion();
         Connection conexion = conn.estableceConexion();
         List<String> lstDatosTabla = new ArrayList<>();
+        List<Boolean> lstDatosTipoEscuela = new ArrayList<>();
         DefaultTableModel tblModel = (DefaultTableModel) vistaCatalogos.TblDescripcionCatalogo.getModel();
         
         String seleccion = (String) vistaCatalogos.cmbTipoCatalogo.getSelectedItem();
@@ -3197,74 +3346,216 @@ public class PrincipalControlador {
             lstDatosTabla.add((String) tblModel.getValueAt(i, 0));
         }
         
+        int columnas = tblModel.getColumnCount();
+        if(columnas == 2){
+            for (int i = 0; i < totalFilas; i++) {
+                lstDatosTipoEscuela.add((boolean) tblModel.getValueAt(i, 1));
+            }
+        }
+        
         try {
             conexion.setAutoCommit(false);
             
             //Se obtienen los nombres de las columnas de la tabla a modificar
             CatColumnasTabla nombreColumnas = modelo.getNombreColumnasTabla(conexion, nombreTabla);
-            
-            //Si existen los mismos registros en la tabla como en la base de datos, solo se actualiza la tabla
-            if(totalFilas == totalRegistros){
-                int i = 0;
-                for (String dato : lstDatosTabla) {
-                    boolean response = modelo.updateCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas);
-                    if(response == false){
-                      helper.cursorNormal(vista);
-                        throw new SQLException("No se pudo actualiza el catalogo " 
+
+            //Si no se se han hecho filtraciones
+            if (vistaCatalogos.TxtFldDescripcionCatalogo.getText().isEmpty()) {
+                //Si existen los mismos registros en la tabla como en la base de datos, solo se actualiza la tabla
+                if (totalFilas == totalRegistros) {
+                    int i = 0;
+                    for (String dato : lstDatosTabla) {
+                        boolean response;
+                        if(lstDatosTipoEscuela.isEmpty())
+                            response = modelo.updateCatalogo(conexion, dato, i + 1, 
+                                            nombreTabla, nombreColumnas);
+                        else
+                            response = modelo.updateCatalogo(conexion, dato, i + 1, 
+                                            nombreTabla, nombreColumnas, lstDatosTipoEscuela.get(i));
+                        if (response == false) {
+                            helper.cursorNormal(vista);
+                            throw new SQLException("No se pudo actualiza el catalogo "
+                                    + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                        i++;
+                    }
+                } //Si existen más registros en la tabla de los que ya se tienen registrados en la base de datos
+                else if (totalFilas > totalRegistros) {
+                    int i = 0;
+                    //Mientras se recorran los registros existentes solo se actualizan
+                    for (String dato : lstDatosTabla) {
+                        //Se actualizan los registros que ya existen en la bd
+                        if (i < totalRegistros) {
+                            boolean response;
+                            if(lstDatosTipoEscuela.isEmpty())
+                                response = modelo.updateCatalogo(conexion, dato, i + 1, 
+                                                nombreTabla, nombreColumnas);
+                            else
+                                response = modelo.updateCatalogo(conexion, dato, i + 1, 
+                                                nombreTabla, nombreColumnas, lstDatosTipoEscuela.get(i));
+                            if (response == false) {
+                                helper.cursorNormal(vista);
+                                throw new SQLException("No se pudo actualiza el catalogo "
+                                        + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
+                            }
+                        } else {
+                            boolean response; 
+                                    
+                                response = modelo.insertRegistroCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas, false, lstDatosTipoEscuela.get(i));
+                            
+                                
+                            if (response == false) {
+                                helper.cursorNormal(vista);
+                                throw new SQLException("No se pudo insertar el registro en el catalogo "
+                                        + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
+                            }
+                        }
+                        i++;
+                    }
+                } //Si existen menos registros en la tabla de los que ya se tienen registrados en la base de datos
+                else if (totalFilas < totalRegistros) {
+                    int i = 0;
+                    //Mientras se recorran los registros existentes solo se actualizan
+                    for (String dato : lstDatosTabla) {
+                        //Se actualizan los registros que ya existen en la bd
+                        if (i < totalFilas) {
+                            boolean response = modelo.updateCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas, lstDatosTipoEscuela.get(i));
+                            if (response == false) {
+                                helper.cursorNormal(vista);
+                                throw new SQLException("No se pudo actualiza el catalogo "
+                                        + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
+                            }
+                        }
+                        i++;
+                    }
+                    boolean response = modelo.deleteRegistroCatalogo(conexion, i + 1, nombreTabla, nombreColumnas, false);
+                    if (response == false) {
+                        helper.cursorNormal(vista);
+                        throw new SQLException("No se pudo borrar el registro en el catalogo "
                                 + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
                     }
-                    i++;
                 }
-            }
-            //Si existen más registros en la tabla de los que ya se tienen registrados en la base de datos
-            else if(totalFilas > totalRegistros){
-                int i = 0;
-                //Mientras se recorran los registros existentes solo se actualizan
-                for (String dato : lstDatosTabla) {
-                    //Se actualizan los registros que ya existen en la bd
-                    if(i < totalRegistros){
-                        boolean response = modelo.updateCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas);
-                        if(response == false){
-                            helper.cursorNormal(vista);
-                            throw new SQLException("No se pudo actualiza el catalogo " 
-                                    + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
-                        }
-                    }
-                    else{
-                        boolean response = modelo.insertRegistroCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas);
-                        if(response == false){
-                            helper.cursorNormal(vista);
-                            throw new SQLException("No se pudo insertar el registro en el catalogo " 
-                                    + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
-                        }
-                    }
-                    i++;
-                }
-            }
-            //Si existen menos registros en la tabla de los que ya se tienen registrados en la base de datos
-            else if(totalFilas < totalRegistros){
-                int i = 0;
-                //Mientras se recorran los registros existentes solo se actualizan
-                for (String dato : lstDatosTabla) {
-                    //Se actualizan los registros que ya existen en la bd
-                    if(i < totalFilas){
-                        boolean response = modelo.updateCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas);
-                        if(response == false){
-                            helper.cursorNormal(vista);
-                            throw new SQLException("No se pudo actualiza el catalogo " 
-                                    + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
-                        }
-                    }
-                    i++;
-                }
-                boolean response = modelo.deleteRegistroCatalogo(conexion, i + 1, nombreTabla, nombreColumnas);
-                        if(response == false){
-                            helper.cursorNormal(vista);
-                            throw new SQLException("No se pudo borrar el registro en el catalogo " 
-                                    + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
-                        }
             }
             
+            /**
+             * *****************************************************************************
+             */
+            //Si se han hecho filtraciones
+//            else{
+//                //Si existen los mismos registros en la tabla como en la lista de datos filtrados, solo se actualizan los registros
+//                if (totalFilas == catNuevosDatosCatalogos.size()) {
+//                    //Se buscan y se actualizan los datos de la tabla en el catalogo original
+//                    for (Integer key : catNuevosDatosCatalogos.keySet()) {
+//                        boolean encontrado = false;
+//                        for (Integer key2 : catDatosCatalogos.keySet()) {
+//                            //Si se encontró el key en el catalogo original
+//                            if(Objects.equals(key2, key)){
+//                                encontrado = true;
+//                                boolean response = tblModelo.updateCatalogo(conexion, 
+//                                                catNuevosDatosCatalogos.get(key), key, nombreTabla, nombreColumnas);
+//                                if (response == false) {
+//                                    helper.cursorNormal(vista);
+//                                    throw new SQLException("No se pudo actualiza el catalogo "
+//                                            + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
+//                                }
+//                                break;
+//                            }
+//                        }
+//                        // Si no se encontró el key en el catalogo original
+//                        if(encontrado == false){
+//                            boolean response = tblModelo.deleteRegistroCatalogo(conexion, key, nombreTabla, nombreColumnas, true);
+//                            if (response == false) {
+//                                helper.cursorNormal(vista);
+//                                throw new SQLException("No se pudo borrar el registro en el catalogo "
+//                                        + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
+//                            }
+//                        }
+//                    }
+//                } 
+//                //Si existen más registros en la tabla de los que ya se tienen en el catalogo de nuevos datos
+//                else if (totalFilas > catNuevosDatosCatalogos.size()) {
+//                    
+//////                    Se actualizan los nuevos valores en caso de que haya filtraciones
+////                    if(catNuevosDatosCatalogos != null){
+////                        int cont = 0;
+////                        for (Integer key : catNuevosDatosCatalogos.keySet()) {
+////                            String nombreViejo = catNuevosDatosCatalogos.get(key);
+////                            String nombreNuevo = lstDatosTabla.get(cont);
+////                            if(!nombreViejo.equals(nombreNuevo)){
+////                                catNuevosDatosCatalogos.replace(key, nombreViejo, nombreNuevo);
+////                            }
+////                            cont++;
+////                        }
+////                    }
+////                  //Se buscan y se actualizan los datos de la tabla en el catalogo original
+//                    for (Integer key : catNuevosDatosCatalogos.keySet()) {
+//                        for (Integer key2 : catDatosCatalogos.keySet()) {
+//                            if(Objects.equals(key, key2)){
+//                                boolean response = tblModelo.updateCatalogo(conexion, catNuevosDatosCatalogos.get(key), key, nombreTabla, nombreColumnas);
+//                                if (response == false) {
+//                                    helper.cursorNormal(vista);
+//                                    throw new SQLException("No se pudo actualiza el catalogo "
+//                                            + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
+//                                }
+//                                break;
+//                            }
+//                        }
+//                    }
+//                    int tamanioNuevoCat = catNuevosDatosCatalogos.size();
+//                    int tamanioTabla = tblModel.getRowCount();
+//                    int diff = tamanioTabla - tamanioNuevoCat;
+//                    int inicioInsercion = (tamanioTabla - diff) ;
+//                    while(inicioInsercion < tamanioTabla){
+//                        
+//                        boolean response = tblModelo.insertRegistroCatalogo(conexion, 
+//                                    lstDatosTabla.get(inicioInsercion), catDatosCatalogos.size() + 1, nombreTabla, nombreColumnas, false);
+//                        
+//                        if (response == false) {
+//                            helper.cursorNormal(vista);
+//                            throw new SQLException("No se pudo insertar el registro en el catalogo "
+//                                    + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
+//                        }
+//                        catNuevosDatosCatalogos.put(catDatosCatalogos.size() + 1,  lstDatosTabla.get(inicioInsercion));
+//                        catDatosCatalogos.put(catDatosCatalogos.size() + 1,  lstDatosTabla.get(inicioInsercion));
+//                        
+//                        inicioInsercion++;
+//                    }                    
+//                } 
+//                //Si existen menos registros en la tabla de los que ya se tienen en los datos filtrados
+//                else if(totalFilas < catNuevosDatosCatalogos.size()){
+//                    //Se buscan y se actualizan los datos de la tabla en el catalogo original
+//                    
+//                    for (Integer key : catNuevosDatosCatalogos.keySet()) {
+//                        boolean encontrado = false;
+//                        for (String nombreCategoria: lstDatosTabla) {
+//                            if(nombreCategoria.equals(catNuevosDatosCatalogos.get(key))){
+//                                encontrado = true;
+//                                boolean response = tblModelo.updateCatalogo(conexion, 
+//                                                catNuevosDatosCatalogos.get(key), key, nombreTabla, nombreColumnas);
+//                                if (response == false) {
+//                                    helper.cursorNormal(vista);
+//                                    throw new SQLException("No se pudo actualiza el catalogo "
+//                                            + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
+//                                }
+//                                break;
+//                            }
+//                        }
+//                        //Si no se encontró el key en el catalogo original
+//                        if(encontrado == false){
+//                            boolean response = tblModelo.deleteRegistroCatalogo(conexion, key, nombreTabla, nombreColumnas, true);
+//                            if (response == false) {
+//                                helper.cursorNormal(vista);
+//                                throw new SQLException("No se pudo borrar el registro en el catalogo "
+//                                        + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
+//                            }
+//                            catNuevosDatosCatalogos.remove(key);
+//                        }
+//                    }
+//                    
+//                }                
+//                
+//            }
+     
             conexion.commit();
             helper.cursorNormal(vista);
             JOptionPane.showMessageDialog(vistaCatalogos, "Tabla " + nombreTabla + " actualizada");
@@ -3311,7 +3602,7 @@ public class PrincipalControlador {
             }
 
             Becario becario = modelo.getBecarioPorFolio(conexion, vistaRegistro.txtFolio.getText());
-            //boolean result = modelo.updateCampoActivoBecario(conexion, becario, false);
+            //boolean result = tblModelo.updateCampoActivoBecario(conexion, becario, false);
             boolean result = modelo.updateTruncaBecario(conexion, becario);
             
             helper.cursorNormal(vista);
@@ -3331,7 +3622,7 @@ public class PrincipalControlador {
             }
 
             Becario becario = modelo.getBecarioPorFolio(conexion, vistaRegistro.txtFolio.getText());
-            //boolean result = modelo.updateCampoActivoBecario(conexion, becario, false);
+            //boolean result = tblModelo.updateCampoActivoBecario(conexion, becario, false);
             boolean result = modelo.updateCampoActivoBecario(conexion, becario, false);
             
             helper.cursorNormal(vista);
@@ -3348,5 +3639,71 @@ public class PrincipalControlador {
                 Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+
+//    /**
+//     * Se encarga de buscar la palabra ingresada por el usuario dentro del catalogo que se tiene activo
+//     */
+//    protected void getDatosCatalogos() {
+//        if(catNuevosDatosCatalogos != null){
+//            catNuevosDatosCatalogos.clear();
+//            catNuevosDatosCatalogos = null;
+//        }
+//        catNuevosDatosCatalogos = Helper.getDatosCatalogos(vistaCatalogos.TxtFldDescripcionCatalogo.getText(), 
+//                catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo, (String) vistaCatalogos.cmbTipoCatalogo.getSelectedItem());
+//    }
+    
+    /**
+     * Busca sobre una lista de categorías la palabra ingresada
+     * @param texto Texto a buscar en la lista categorias
+     * @param tblTabla
+     * @param nombreTabla
+     */
+    public void getDatosCatalogos(String texto, 
+                        JTable tblTabla, String nombreTabla) {
+        
+        Conexion conn = new Conexion();
+        Connection conexion = conn.estableceConexion();
+        
+        if(conexion == null){
+            JOptionPane.showMessageDialog(vista, "No se pudo conectar a la base de datos. \n Intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if(catNuevosDatosCatalogos != null){
+            catNuevosDatosCatalogos.clear();
+            catNuevosDatosCatalogos = null;
+        }
+        
+        catNuevosDatosCatalogos = new LinkedHashMap<>();
+        
+        DefaultTableModel tblModelo = (DefaultTableModel) tblTabla.getModel();
+        int filas = tblModelo.getRowCount();
+        
+        for (int i = 0; i < filas; i++) {
+            tblModelo.removeRow(0);
+        }
+        
+        for (Integer key : catDatosCatalogos.keySet()) {
+            //combo.addItem(catDatosCatalogos.get(key));
+            String datoCategoria = catDatosCatalogos.get(key);
+            
+            int res = datoCategoria.toLowerCase().indexOf(texto.toLowerCase());
+            if(res != -1)
+                catNuevosDatosCatalogos.put(key, datoCategoria);
+        }
+        
+        llenaTablaCatalogos(catNuevosDatosCatalogos, tblTabla, true, conexion);
+        
+//        DefaultTableModel tblModelo = (DefaultTableModel) tblTabla.getModel();
+//        if(catNuevosDatosCatalogos.size() > 0){
+//            while(tblModelo.getRowCount() > 0){
+//                int filas = tblModelo.getRowCount();
+//                tblModelo.removeRow(filas - 1);
+//            }
+//            for (Integer key : catNuevosDatosCatalogos.keySet()) {
+//                tblModelo.addRow(new String[]{catNuevosDatosCatalogos.get(key)});
+//            }
+//        }
     }
 }

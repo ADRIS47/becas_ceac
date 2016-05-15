@@ -48,7 +48,8 @@ public class Update {
             + Becario.COL_ESTUDIO_SOCIOECONOMICO + " = ?, " + Becario.COL_CARTA_ASIGNACION_BECA + " = ?, "
             ///////////////////////////////////////////////
             + Becario.COL_PROGRAMA + " = ?, " + Becario.COL_ENSAYO + " = ?, "
-            + Becario.COL_BOLETA_INICIO_BECA + " = ?, " + Becario.COL_PAGARE + " = ? "
+            + Becario.COL_BOLETA_INICIO_BECA + " = ?, " + Becario.COL_PAGARE + " = ?, "
+            + Becario.COL_CARTA_AGRADECIMIENTO + " "
             + "WHERE " + Becario.COL_FOLIO + " = ?";
     
     /**
@@ -168,7 +169,29 @@ public class Update {
         query = "UPDATE " + nombreTabla + " SET " + nombreColumnas.getNombreColumnaNombre() 
                 + " = '" + datoNuevo + "' WHERE " + nombreColumnas.getNombreColumnaId() 
                 + " = " + idRegistro;
-        //System.out.println("Query: " + query);
+        System.out.println("Query: " + query);
+        
+        return query;
+    }
+    
+    /**
+     * Crea un query para actualizar un registro de la tabla beca_cat_universidad
+     * @param nombreTabla
+     * @param nombreColumnas
+     * @param idRegistro
+     * @param datoNuevo
+     * @return 
+     */
+    public static String updateRegistroCatalogo(String nombreTabla, CatColumnasTabla nombreColumnas, 
+            int idRegistro, String datoNuevo, boolean tipoEscuela) {
+        String query = "";
+        
+        
+        query = "UPDATE " + nombreTabla + " SET " + nombreColumnas.getNombreColumnaNombre() 
+                + " = '" + datoNuevo + "', " + nombreColumnas.getNombreColumnaTipoEscuela() + " = ? " 
+                + "WHERE " + nombreColumnas.getNombreColumnaId() 
+                + " = " + idRegistro;
+        System.out.println("Query: " + query);
         
         return query;
     }
