@@ -405,6 +405,9 @@ public class Consultas {
     /**
      * Obtiene el tipo de escuela del catalogo beca_cat_universidad
      */
-    public static String getTipoEscuela = "SELECT " + CatUniversidad.COL_ID_TIPO_ESCUELA + " FROM beca_cat_universidad";
+    public static String getTipoEscuela = "SELECT tipo." + CatTipoEscuela.COL_NOMBRE 
+                + " FROM beca_cat_universidad AS uni JOIN beca_tipo_escuela AS tipo ON uni." 
+                + CatUniversidad.COL_ID_TIPO_ESCUELA + " = tipo." + CatTipoEscuela.COL_ID + " "
+            + "WHERE uni." + CatUniversidad.COL_ID + " = ?";
     
 }

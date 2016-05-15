@@ -3047,16 +3047,17 @@ public class PrincipalModelo {
      * @param conexion
      * @return 
      */
-    protected List<String> getTipoEscuela(Connection conexion) {
-        List<String> lstTipoEscuela = new ArrayList<>();
-        Statement st;
+    protected String getIdTipoEscuela(Connection conexion, int id) {
+        String lstTipoEscuela = "";
+        PreparedStatement st;
         ResultSet rs;
         try {
-            st = conexion.createStatement();
-            rs = st.executeQuery(Consultas.getTipoEscuela);
+            st = conexion.prepareStatement(Consultas.getTipoEscuela);
+            st.setInt(1, id);
+            rs = st.executeQuery();
             
             while(rs.next()){
-                lstTipoEscuela.add(rs.getString(1));
+                lstTipoEscuela = rs.getString(1);
             }
         } catch (SQLException ex) {
             Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);

@@ -6,7 +6,6 @@
 package principal;
 
 import crud.Conexion;
-import helpers.EscuchadorBuscaCatalogo;
 import helpers.EscuchadorCalculaBecaXSemestre;
 import helpers.EscuchadorCalculaDescuentoSemestral;
 import helpers.EscuchadorCmbBoxCambiado;
@@ -25,11 +24,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
-import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
@@ -40,13 +37,13 @@ import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellRenderer;
-import javax.swing.table.TableColumn;
-import javax.swing.table.TableColumnModel;
+import jtable.ModelDefault;
+import jtable.ModelUniversidades;
 import pojos.Aval;
 import pojos.Becario;
 import pojos.CatColumnasTabla;
@@ -345,7 +342,7 @@ public class PrincipalControlador {
 
         creaPantalla(vistaCatalogos);
         
-        llenaCamposVistaCategorias();
+        llenaCamposVistaCatalogos();
         
 //        vistaCatalogos.TxtFldDescripcionCatalogo.addKeyListener(
 //                new EscuchadorBuscaCatalogo(vistaCatalogos.TxtFldDescripcionCatalogo, 
@@ -1550,7 +1547,7 @@ public class PrincipalControlador {
             dato = dato.replace(".", "");
             datos.setBecaTotal(Integer.parseInt(dato));
         }
-        //Se obtiene el valor semestral de la beca
+        //Se obtiene el idEscuela semestral de la beca
         if (vistaRegistro.txtBecaPorSemestre.getText().length() > 0) {
             String dato = vistaRegistro.txtBecaPorSemestre.getText().replace(",", "");
             dato = dato.replace(".", "");
@@ -2792,17 +2789,21 @@ public class PrincipalControlador {
     /**
      * Llena los combo box de la pantalla VistaCatalogos
      */
-    protected void llenaCamposVistaCategorias() {
+    protected void llenaCamposVistaCatalogos() {
         
-        List<String> lstTipoEscuela = new ArrayList<>();
+//        List<String> tipoEscuela = new ArrayList<>();
         
         vistaCatalogos.TxtFldDescripcionCatalogo.setText("");
         //Si no se ha llenado la tabla
         helper.cursorEspera(vista);
-            Conexion conn = new Conexion();
-            Connection conexion = conn.estableceConexion();
+        Conexion conn = new Conexion();
+        Connection conexion = conn.estableceConexion();
             if(catCatalogos == null){
                 catCatalogos = modelo.getCatCategorias(conexion);
+            }
+            
+            if(catTipoEscuela == null){
+                catTipoEscuela = modelo.getCatTipoEscuela(conexion);
             }
             
             if(vistaCatalogos.cmbTipoCatalogo.getSelectedIndex() < 0)
@@ -2818,43 +2819,17 @@ public class PrincipalControlador {
             }
             
             catDatosCatalogos = modelo.getDatosCatalogo(conexion, nombreTabla);
-            DefaultTableModel tblModel = (DefaultTableModel) vistaCatalogos.TblDescripcionCatalogo.getModel();
             
-            int filas = vistaCatalogos.TblDescripcionCatalogo.getRowCount();
-            for (int i = 0; i < filas; i++) {
-                tblModel.removeRow(0);
-            }
-            
-            //Se procede a llenar la tabla
             if(!nombreTabla.contains("univer")){
-                int columnas = vistaCatalogos.TblDescripcionCatalogo.getColumnCount();
-                //System.out.println("Columnas " + columnas);
-                if(columnas == 2){
-                    TableColumn columna = vistaCatalogos.TblDescripcionCatalogo.getColumnModel().getColumn(1);
-                    TableColumnModel columnModel = vistaCatalogos.TblDescripcionCatalogo.getColumnModel();
-                    vistaCatalogos.TblDescripcionCatalogo.removeColumn(columna);
-                    columnModel.removeColumn(columna);
-                }
-
+                creaTablaCatalogos(true);
+                llenaTablaCatalogos(catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo, false, conexion);
             }
             else{
-                int columnas = tblModel.getColumnCount();
-                if(columnas < 2){
-                    tblModel.addColumn("Tipo de Escuela");
-                }
-                lstTipoEscuela = modelo.getTipoEscuela(conexion);
-                
+                creaTablaCatalogos(false);
+                llenaTablaCatalogos(catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo, true, conexion);
+                DefaultTableModel tblModel = (DefaultTableModel) vistaCatalogos.TblDescripcionCatalogo.getModel();
+                //renderizaJObjects(tblModel.getColumnName(1), vistaCatalogos.TblDescripcionCatalogo, new JCheckBox());
             }
-            
-            
-        
-            llenaTablaCatalogos(catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo, lstTipoEscuela);
-            tblModel.addRow(new String[]{});
-            
-            tblModel.fireTableDataChanged();
-            tblModel.fireTableStructureChanged();
-            vistaCatalogos.TblDescripcionCatalogo.revalidate();
-            vistaCatalogos.TblDescripcionCatalogo.updateUI();
             
             try{
                 conexion.close();
@@ -2863,14 +2838,39 @@ public class PrincipalControlador {
             
         helper.cursorNormal(vista);
         
+    }
+    
+    private void creaTablaCatalogos(boolean tblDefault){
+        DefaultTableModel tblModelo;
+        String[] columnas;
         
-        tblModel.fireTableStructureChanged();
-        tblModel.fireTableDataChanged();
-        vistaCatalogos.TblDescripcionCatalogo.revalidate();
-        vistaCatalogos.TblDescripcionCatalogo.updateUI();
+        vistaCatalogos.pnlTabla.removeAll();
+        
+        if(tblDefault){
+            columnas = new String[]{"Nombre"};
+            tblModelo = new ModelDefault(columnas, 0);
+        }
+        else{
+            columnas = new String[]{"Nombre","Tipo de Universidad"};
+            tblModelo = new ModelUniversidades(columnas, 0);
+        }
+        
+        if(vistaCatalogos.TblDescripcionCatalogo != null){
+            vistaCatalogos.TblDescripcionCatalogo.removeAll();
+            vistaCatalogos.TblDescripcionCatalogo = null;
+        }
+            
+        vistaCatalogos.TblDescripcionCatalogo = new JTable(tblModelo);
+        
+        JScrollPane scroll = new JScrollPane(vistaCatalogos.TblDescripcionCatalogo);
+        vistaCatalogos.pnlTabla.add(scroll);
+        vistaCatalogos.TblDescripcionCatalogo.setVisible(true);
+        
+        vistaCatalogos.pnlTabla.invalidate();
+        vistaCatalogos.pnlTabla.validate();
         
     }
-
+        
     /**
      * Se encarga de obtener la información necesaria de cada becario para
      * llenar la tabla de la vistaBusqueda.
@@ -2935,24 +2935,12 @@ public class PrincipalControlador {
     
     /**
      * Agrega las filas correspondientes de una tabla a partir de un LinkedHashMap
-     * @param datos
-     * @param tabla 
-     */
-    private void llenaTabla(LinkedHashMap<Integer,String> datos, JTable tabla){
-        DefaultTableModel tblModelo = (DefaultTableModel) tabla.getModel();
-        for (Integer key : datos.keySet()) {
-            tblModelo.addRow(new String[]{datos.get(key)});
-        } 
-    }
-    
-    /**
-     * Agrega las filas correspondientes de una tabla a partir de un LinkedHashMap
      * @param nombreDatoCatalogos
      * @param tabla 
      * @param lstTipoEscuela
      */
-    private void llenaTablaCatalogos(LinkedHashMap<Integer,String> nombreDatoCatalogos, JTable tabla, List<String> lstTipoEscuela){
-        
+    private void llenaTablaCatalogos(LinkedHashMap<Integer,String> nombreDatoCatalogos, 
+                        JTable tabla, boolean bandera, Connection conexion){
         
         DefaultTableModel tblModelo = (DefaultTableModel) tabla.getModel();
         for (Integer key : nombreDatoCatalogos.keySet()) {
@@ -2961,17 +2949,24 @@ public class PrincipalControlador {
                 
         int i = 0;
         //Se llenan los nombres de los catalogos
-        if(lstTipoEscuela.isEmpty()){
+        if(bandera == false){
             for (Integer valor : nombreDatoCatalogos.keySet()){
-                tabla.setValueAt(nombreDatoCatalogos.get(valor), i, 0);
+                tblModelo.setValueAt(nombreDatoCatalogos.get(valor), i, 0);
                 i++;
             }
            
         }
         else{
-            for (Integer valor : nombreDatoCatalogos.keySet()){
-                tabla.setValueAt(nombreDatoCatalogos.get(valor), i, 0);
-                tabla.setValueAt(lstTipoEscuela.get(i), i, 1);
+                        
+            i = 0;
+            for (Integer idEscuela : nombreDatoCatalogos.keySet()){
+                tblModelo.setValueAt(nombreDatoCatalogos.get(idEscuela), i, 0);
+                String tipoEscuela = modelo.getIdTipoEscuela(conexion, idEscuela);
+                Boolean publica = false;
+                if(tipoEscuela.contains("blica"))
+                    publica = true;
+                
+                tblModelo.setValueAt(publica, i, 1);
                 i++;
             }
         }
