@@ -2790,51 +2790,48 @@ public class PrincipalControlador {
      * Llena los combo box de la pantalla VistaCatalogos
      */
     protected void llenaCamposVistaCatalogos() {
-        
-//        List<String> tipoEscuela = new ArrayList<>();
-        
+                
         vistaCatalogos.TxtFldDescripcionCatalogo.setText("");
         //Si no se ha llenado la tabla
         helper.cursorEspera(vista);
         Conexion conn = new Conexion();
         Connection conexion = conn.estableceConexion();
-            if(catCatalogos == null){
-                catCatalogos = modelo.getCatCategorias(conexion);
-            }
-            
-            if(catTipoEscuela == null){
-                catTipoEscuela = modelo.getCatTipoEscuela(conexion);
-            }
-            
-            if(vistaCatalogos.cmbTipoCatalogo.getSelectedIndex() < 0)
-                llenaComboCategorias(vistaCatalogos.cmbTipoCatalogo, catCatalogos);
-            
-            String seleccion = (String) vistaCatalogos.cmbTipoCatalogo.getSelectedItem();
-            int idTabla = getIdCmbBox(seleccion, catCatalogos);
-            String nombreTabla = modelo.getNombreTabla(conexion, idTabla);
-            
-            if(catDatosCatalogos != null){
-                catDatosCatalogos.clear();
-                catDatosCatalogos = null;
-            }
-            
-            catDatosCatalogos = modelo.getDatosCatalogo(conexion, nombreTabla);
-            
-            if(!nombreTabla.contains("univer")){
-                creaTablaCatalogos(true);
-                llenaTablaCatalogos(catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo, false, conexion);
-            }
-            else{
-                creaTablaCatalogos(false);
-                llenaTablaCatalogos(catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo, true, conexion);
-                DefaultTableModel tblModel = (DefaultTableModel) vistaCatalogos.TblDescripcionCatalogo.getModel();
-                //renderizaJObjects(tblModel.getColumnName(1), vistaCatalogos.TblDescripcionCatalogo, new JCheckBox());
-            }
-            
-            try{
-                conexion.close();
-            }
-            catch(SQLException e){log.muestraErrores(e);}
+        if(catCatalogos == null){
+            catCatalogos = modelo.getCatCategorias(conexion);
+        }
+
+        if(catTipoEscuela == null){
+            catTipoEscuela = modelo.getCatTipoEscuela(conexion);
+        }
+
+        if(vistaCatalogos.cmbTipoCatalogo.getSelectedIndex() < 0)
+            llenaComboCategorias(vistaCatalogos.cmbTipoCatalogo, catCatalogos);
+
+        String seleccion = (String) vistaCatalogos.cmbTipoCatalogo.getSelectedItem();
+        int idTabla = getIdCmbBox(seleccion, catCatalogos);
+        String nombreTabla = modelo.getNombreTabla(conexion, idTabla);
+
+        if(catDatosCatalogos != null){
+            catDatosCatalogos.clear();
+            catDatosCatalogos = null;
+        }
+
+        catDatosCatalogos = modelo.getDatosCatalogo(conexion, nombreTabla);
+
+        if(!nombreTabla.contains("univer")){
+            creaTablaCatalogos(true);
+            llenaTablaCatalogos(catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo, false, conexion);
+        }
+        else{
+            creaTablaCatalogos(false);
+            llenaTablaCatalogos(catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo, true, conexion);
+            DefaultTableModel tblModel = (DefaultTableModel) vistaCatalogos.TblDescripcionCatalogo.getModel();
+        }
+
+        try{
+            conexion.close();
+        }
+        catch(SQLException e){log.muestraErrores(e);}
             
         helper.cursorNormal(vista);
         
@@ -2915,7 +2912,7 @@ public class PrincipalControlador {
                 + "/" + lstDatosEscolares.get(i).getAnioGraduacion()
             });
 //            if(becario.getIdEstatus() == idCancelado){
-//                rows = modelo.getRowCount();
+//                rows = tblModelo.getRowCount();
 //                vistaBusqueda.tblResultadoBusqueda.getValueAt(rows, rows)
 //            }
 
@@ -2937,7 +2934,9 @@ public class PrincipalControlador {
      * Agrega las filas correspondientes de una tabla a partir de un LinkedHashMap
      * @param nombreDatoCatalogos
      * @param tabla 
-     * @param lstTipoEscuela
+     * @param bandera TRUE.- Indica que se tiene  cargado el catalogo de las universidades
+     * False.- Indica que es cualquier otro catalogo
+     * @param conexion
      */
     private void llenaTablaCatalogos(LinkedHashMap<Integer,String> nombreDatoCatalogos, 
                         JTable tabla, boolean bandera, Connection conexion){
@@ -3292,11 +3291,6 @@ public class PrincipalControlador {
             helper.agregaFilaTabla(tabla);
         }
         else{
-//            DefaultTableModel tblModelo = (DefaultTableModel) tabla.getModel();
-//            int filas = tblModelo.getRowCount();
-//            for (int i = 0; i < filas; i++) {
-//                catNuevosDatosCatalogos.put(i + 1, (String) tblModelo.getValueAt(i, 0));
-//            }
             catDatosCatalogos = helper.agregaFilaTabla(tabla, vistaCatalogos.TxtFldDescripcionCatalogo, texto, catDatosCatalogos);
         }
     }
@@ -3457,7 +3451,7 @@ public class PrincipalControlador {
 //                            //Si se encontró el key en el catalogo original
 //                            if(Objects.equals(key2, key)){
 //                                encontrado = true;
-//                                boolean response = modelo.updateCatalogo(conexion, 
+//                                boolean response = tblModelo.updateCatalogo(conexion, 
 //                                                catNuevosDatosCatalogos.get(key), key, nombreTabla, nombreColumnas);
 //                                if (response == false) {
 //                                    helper.cursorNormal(vista);
@@ -3469,7 +3463,7 @@ public class PrincipalControlador {
 //                        }
 //                        // Si no se encontró el key en el catalogo original
 //                        if(encontrado == false){
-//                            boolean response = modelo.deleteRegistroCatalogo(conexion, key, nombreTabla, nombreColumnas, true);
+//                            boolean response = tblModelo.deleteRegistroCatalogo(conexion, key, nombreTabla, nombreColumnas, true);
 //                            if (response == false) {
 //                                helper.cursorNormal(vista);
 //                                throw new SQLException("No se pudo borrar el registro en el catalogo "
@@ -3497,7 +3491,7 @@ public class PrincipalControlador {
 //                    for (Integer key : catNuevosDatosCatalogos.keySet()) {
 //                        for (Integer key2 : catDatosCatalogos.keySet()) {
 //                            if(Objects.equals(key, key2)){
-//                                boolean response = modelo.updateCatalogo(conexion, catNuevosDatosCatalogos.get(key), key, nombreTabla, nombreColumnas);
+//                                boolean response = tblModelo.updateCatalogo(conexion, catNuevosDatosCatalogos.get(key), key, nombreTabla, nombreColumnas);
 //                                if (response == false) {
 //                                    helper.cursorNormal(vista);
 //                                    throw new SQLException("No se pudo actualiza el catalogo "
@@ -3513,7 +3507,7 @@ public class PrincipalControlador {
 //                    int inicioInsercion = (tamanioTabla - diff) ;
 //                    while(inicioInsercion < tamanioTabla){
 //                        
-//                        boolean response = modelo.insertRegistroCatalogo(conexion, 
+//                        boolean response = tblModelo.insertRegistroCatalogo(conexion, 
 //                                    lstDatosTabla.get(inicioInsercion), catDatosCatalogos.size() + 1, nombreTabla, nombreColumnas, false);
 //                        
 //                        if (response == false) {
@@ -3536,7 +3530,7 @@ public class PrincipalControlador {
 //                        for (String nombreCategoria: lstDatosTabla) {
 //                            if(nombreCategoria.equals(catNuevosDatosCatalogos.get(key))){
 //                                encontrado = true;
-//                                boolean response = modelo.updateCatalogo(conexion, 
+//                                boolean response = tblModelo.updateCatalogo(conexion, 
 //                                                catNuevosDatosCatalogos.get(key), key, nombreTabla, nombreColumnas);
 //                                if (response == false) {
 //                                    helper.cursorNormal(vista);
@@ -3548,7 +3542,7 @@ public class PrincipalControlador {
 //                        }
 //                        //Si no se encontró el key en el catalogo original
 //                        if(encontrado == false){
-//                            boolean response = modelo.deleteRegistroCatalogo(conexion, key, nombreTabla, nombreColumnas, true);
+//                            boolean response = tblModelo.deleteRegistroCatalogo(conexion, key, nombreTabla, nombreColumnas, true);
 //                            if (response == false) {
 //                                helper.cursorNormal(vista);
 //                                throw new SQLException("No se pudo borrar el registro en el catalogo "
@@ -3608,7 +3602,7 @@ public class PrincipalControlador {
             }
 
             Becario becario = modelo.getBecarioPorFolio(conexion, vistaRegistro.txtFolio.getText());
-            //boolean result = modelo.updateCampoActivoBecario(conexion, becario, false);
+            //boolean result = tblModelo.updateCampoActivoBecario(conexion, becario, false);
             boolean result = modelo.updateTruncaBecario(conexion, becario);
             
             helper.cursorNormal(vista);
@@ -3628,7 +3622,7 @@ public class PrincipalControlador {
             }
 
             Becario becario = modelo.getBecarioPorFolio(conexion, vistaRegistro.txtFolio.getText());
-            //boolean result = modelo.updateCampoActivoBecario(conexion, becario, false);
+            //boolean result = tblModelo.updateCampoActivoBecario(conexion, becario, false);
             boolean result = modelo.updateCampoActivoBecario(conexion, becario, false);
             
             helper.cursorNormal(vista);
@@ -3647,15 +3641,69 @@ public class PrincipalControlador {
         }
     }
 
+//    /**
+//     * Se encarga de buscar la palabra ingresada por el usuario dentro del catalogo que se tiene activo
+//     */
+//    protected void getDatosCatalogos() {
+//        if(catNuevosDatosCatalogos != null){
+//            catNuevosDatosCatalogos.clear();
+//            catNuevosDatosCatalogos = null;
+//        }
+//        catNuevosDatosCatalogos = Helper.getDatosCatalogos(vistaCatalogos.TxtFldDescripcionCatalogo.getText(), 
+//                catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo, (String) vistaCatalogos.cmbTipoCatalogo.getSelectedItem());
+//    }
+    
     /**
-     * Se encarga de buscar la palabra ingresada por el usuario dentro del catalogo que se tiene activo
+     * Busca sobre una lista de categorías la palabra ingresada
+     * @param texto Texto a buscar en la lista categorias
+     * @param tblTabla
+     * @param nombreTabla
      */
-    protected void getDatosCatalogos() {
+    public void getDatosCatalogos(String texto, 
+                        JTable tblTabla, String nombreTabla) {
+        
+        Conexion conn = new Conexion();
+        Connection conexion = conn.estableceConexion();
+        
+        if(conexion == null){
+            JOptionPane.showMessageDialog(vista, "No se pudo conectar a la base de datos. \n Intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
         if(catNuevosDatosCatalogos != null){
             catNuevosDatosCatalogos.clear();
             catNuevosDatosCatalogos = null;
         }
-        catNuevosDatosCatalogos = Helper.getDatosCatalogos(vistaCatalogos.TxtFldDescripcionCatalogo.getText(), 
-                catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo);
+        
+        catNuevosDatosCatalogos = new LinkedHashMap<>();
+        
+        DefaultTableModel tblModelo = (DefaultTableModel) tblTabla.getModel();
+        int filas = tblModelo.getRowCount();
+        
+        for (int i = 0; i < filas; i++) {
+            tblModelo.removeRow(0);
+        }
+        
+        for (Integer key : catDatosCatalogos.keySet()) {
+            //combo.addItem(catDatosCatalogos.get(key));
+            String datoCategoria = catDatosCatalogos.get(key);
+            
+            int res = datoCategoria.toLowerCase().indexOf(texto.toLowerCase());
+            if(res != -1)
+                catNuevosDatosCatalogos.put(key, datoCategoria);
+        }
+        
+        llenaTablaCatalogos(catNuevosDatosCatalogos, tblTabla, true, conexion);
+        
+//        DefaultTableModel tblModelo = (DefaultTableModel) tblTabla.getModel();
+//        if(catNuevosDatosCatalogos.size() > 0){
+//            while(tblModelo.getRowCount() > 0){
+//                int filas = tblModelo.getRowCount();
+//                tblModelo.removeRow(filas - 1);
+//            }
+//            for (Integer key : catNuevosDatosCatalogos.keySet()) {
+//                tblModelo.addRow(new String[]{catNuevosDatosCatalogos.get(key)});
+//            }
+//        }
     }
 }

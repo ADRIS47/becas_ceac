@@ -42,7 +42,7 @@ public class EscuchadorBuscaCatalogo implements KeyListener{
     @Override
     public void keyReleased(KeyEvent e) {
         System.out.println("Entrada");
-        Helper.getDatosCatalogos(txtBuscador.getText(), catDatosCatalogos, tblTabla);
+        //Helper.getDatosCatalogos(txtBuscador.getText(), catDatosCatalogos, tblTabla);
     }
     
 }

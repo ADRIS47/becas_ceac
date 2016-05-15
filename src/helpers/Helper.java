@@ -51,39 +51,6 @@ import pojos.Kardex;
  * @author sabagip
  */
 public class Helper {
-
-    /**
-     * Busca sobre una lista de categorías la palabra ingresada
-     * @param texto Texto a buscar en la lista categorias
-     * @param catDatosCatalogos Categoria donde se buscará la palabra
-     * @param tblTabla
-     * @return 
-     */
-    public static LinkedHashMap<Integer, String> getDatosCatalogos(String texto, 
-                        LinkedHashMap<Integer, String> catDatosCatalogos, JTable tblTabla) {
-        LinkedHashMap<Integer, String> lstResponse = new LinkedHashMap<>();
-        for (Integer key : catDatosCatalogos.keySet()) {
-            //combo.addItem(catDatosCatalogos.get(key));
-            String datoCategoria = catDatosCatalogos.get(key);
-            
-            int res = datoCategoria.toLowerCase().indexOf(texto.toLowerCase());
-            if(res != -1)
-                lstResponse.put(key, datoCategoria);
-        }
-        
-        DefaultTableModel modelo = (DefaultTableModel) tblTabla.getModel();
-        if(lstResponse.size() > 0){
-            while(modelo.getRowCount() > 0){
-                int filas = modelo.getRowCount();
-                modelo.removeRow(filas - 1);
-            }
-            for (Integer key : lstResponse.keySet()) {
-                modelo.addRow(new String[]{lstResponse.get(key)});
-            }
-        }
-        
-        return lstResponse;
-    }
     
     Log log = new Log();
     

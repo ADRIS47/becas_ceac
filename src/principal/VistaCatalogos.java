@@ -35,9 +35,6 @@ public class VistaCatalogos extends javax.swing.JPanel {
         tblModelo.addColumn("Nombre");
         tblModelo.addColumn("Tipo de Escuela");
         initComponents();
-        
-//        TblDescripcionCatalogo.setRowHeight(20);
-//        TblDescripcionCatalogo.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     }
 
     /**
@@ -219,7 +216,8 @@ public class VistaCatalogos extends javax.swing.JPanel {
     }//GEN-LAST:event_btnEliminarFilaActionPerformed
 
     private void TxtFldDescripcionCatalogoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtFldDescripcionCatalogoKeyTyped
-        controlador.getDatosCatalogos();
+        controlador.getDatosCatalogos(TxtFldDescripcionCatalogo.getText(), 
+                TblDescripcionCatalogo, (String) cmbTipoCatalogo.getSelectedItem());
     }//GEN-LAST:event_TxtFldDescripcionCatalogoKeyTyped
 
 
