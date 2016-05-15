@@ -2936,3 +2936,9 @@
 13/5/2016;11:16:55;Nombre de categoria no encontrado
 13/5/2016;11:17:43;Nombre de categoria no encontrado
 13/5/2016;11:36:47;Nombre de categoria no encontrado
+15/5/2016;13:25:28;SQLError: 42S02
+15/5/2016;13:25:28;ERROR: Code1146
+15/5/2016;13:25:28;Message: Table 'becas_chihuahua.beca_cat_municipio' doesn't exist
+15/5/2016;13:27:14;SQLError: 42S02
+15/5/2016;13:27:14;ERROR: Code1146
+15/5/2016;13:27:14;Message: Table 'becas_chihuahua.beca_cat_municipio' doesn't exist

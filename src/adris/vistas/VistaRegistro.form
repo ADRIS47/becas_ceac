@@ -1117,7 +1117,7 @@
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="cmboxMesGraduacion" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="cmboxAnioGraduacion" pref="287" max="32767" attributes="0"/>
+                                          <Component id="cmboxAnioGraduacion" max="32767" attributes="0"/>
                                       </Group>
                                       <Component id="cmboxEscuelaUniversitaria" max="32767" attributes="0"/>
                                   </Group>

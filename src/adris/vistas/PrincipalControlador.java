@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package principal;
+package adris.vistas;
 
+import principal.*;
 import crud.Conexion;
 import helpers.EscuchadorCalculaBecaXSemestre;
 import helpers.EscuchadorCalculaDescuentoSemestral;
@@ -234,7 +235,7 @@ public class PrincipalControlador {
 
             vistaOpcionGuardar = new VistaRegistroOpcionGuardar();
             vistaOpcionGuardar.setControlador(this);
-            helper.agregaJPanel(vistaOpcionGuardar, vistaRegistro.pnlOpciones);
+            helper.agregaJPanel(vistaOpcionGuardar, vista.pnlOpciones);
             vistaOpcionGuardar.setVisible(true);
             //addListenerArchivosAdjuntos();
             //Helper.getBecaSemestral(vistaRegistro.cmboxSemestresTotalesCarrera, vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre);
@@ -519,7 +520,7 @@ public class PrincipalControlador {
         helper.agregaJPanel(vistaHermanos, vistaRegistro.pnlHermanos);
         helper.agregaJPanel(vistaHijos, vistaRegistro.pnlHijos);
         helper.agregaJPanel(vistaDireccion, vistaRegistro.pnlDirecciones);
-        //helper.agregaJPanel(vistaOpcionGuardar, vistaRegistro.pnlOpciones);
+        //helper.agregaJPanel(vistaOpcionGuardar, vista.pnlOpciones);
 
         lstVistaParentesco.add(vistaParentesco);
         lstVistaParentesco.add(vistaParentesco2);
@@ -746,10 +747,10 @@ public class PrincipalControlador {
         }
 
         if (componente instanceof VistaRegistroOpcionActualizar) {
-            vistaRegistro.pnlOpciones.removeAll();
+            vista.pnlOpciones.removeAll();
             vistaOpcionActualizar = new VistaRegistroOpcionActualizar();
             vistaOpcionActualizar.setControlador(this);
-            vistaRegistro.pnlOpciones.add(vistaOpcionActualizar, BorderLayout.CENTER);
+            vista.pnlOpciones.add(vistaOpcionActualizar, BorderLayout.CENTER);
             vistaOpcionActualizar.setVisible(true);
             vistaRegistro.updateUI();
         }
@@ -2433,11 +2434,11 @@ public class PrincipalControlador {
             vistaRegistro = new VistaRegistro(this);
         }
 
-        vistaRegistro.pnlOpciones.removeAll();
+        vista.pnlOpciones.removeAll();
         vistaOpcionActualizar = new VistaRegistroOpcionActualizar();
         vistaOpcionActualizar.setControlador(this);
         vistaOpcionActualizar.setVisible(true);
-        vistaRegistro.pnlOpciones.add(vistaOpcionActualizar, BorderLayout.CENTER);
+        vista.pnlOpciones.add(vistaOpcionActualizar, BorderLayout.CENTER);
 
         vistaRegistro.updateUI();
 

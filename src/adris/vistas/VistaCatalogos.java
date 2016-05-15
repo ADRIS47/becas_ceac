@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package principal;
+package adris.vistas;
 
+import principal.*;
 import java.awt.event.ItemEvent;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
@@ -23,7 +24,7 @@ public class VistaCatalogos extends javax.swing.JPanel {
     JTable TblDescripcionCatalogo;
     
 
-    public void setControlador(principal.PrincipalControlador controlador) {
+    public void setControlador(PrincipalControlador controlador) {
         this.controlador = controlador;
     }
 
