@@ -41,12 +41,12 @@ public class PnlDireccion extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtCalleBecado = new javax.swing.JTextField();
-        txtNumBecado = new javax.swing.JTextField();
-        txtNumIntBecado = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        txtCalleBecado = new javax.swing.JTextField();
+        txtNumBecado = new javax.swing.JTextField();
+        txtNumIntBecado = new javax.swing.JTextField();
         txtCPBecado = new javax.swing.JTextField();
         txtColoniaBecado = new javax.swing.JTextField();
         txtCiudadBecado = new javax.swing.JTextField();
@@ -59,7 +59,7 @@ public class PnlDireccion extends javax.swing.JPanel {
         setName(""); // NOI18N
         setPreferredSize(new java.awt.Dimension(700, 70));
 
-        jPanel1.setLayout(new java.awt.GridLayout(4, 3));
+        jPanel1.setLayout(new java.awt.GridLayout(2, 6));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel1.setText("Calle");
@@ -72,6 +72,18 @@ public class PnlDireccion extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel3.setText("Int");
         jPanel1.add(jLabel3);
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel4.setText("C.P.");
+        jPanel1.add(jLabel4);
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel5.setText("Colonia");
+        jPanel1.add(jLabel5);
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel6.setText("Ciudad");
+        jPanel1.add(jLabel6);
 
         txtCalleBecado.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         txtCalleBecado.addActionListener(new java.awt.event.ActionListener() {
@@ -93,18 +105,6 @@ public class PnlDireccion extends javax.swing.JPanel {
         txtNumIntBecado.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         txtNumIntBecado.setName("txtColonia"); // NOI18N
         jPanel1.add(txtNumIntBecado);
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel4.setText("C.P.");
-        jPanel1.add(jLabel4);
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel5.setText("Colonia");
-        jPanel1.add(jLabel5);
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel6.setText("Ciudad");
-        jPanel1.add(jLabel6);
 
         txtCPBecado.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jPanel1.add(txtCPBecado);
@@ -144,8 +144,8 @@ public class PnlDireccion extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 727, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 774, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblAgregarDireccion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblBorrarDireccion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -153,12 +153,14 @@ public class PnlDireccion extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(6, 6, 6)
                 .addComponent(lblAgregarDireccion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblBorrarDireccion)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents

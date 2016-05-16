@@ -352,32 +352,32 @@ public class VistaRegistro extends javax.swing.JPanel {
         pnlDatos.setLayout(pnlDatosLayout);
         pnlDatosLayout.setHorizontalGroup(
             pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosLayout.createSequentialGroup()
-                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlDatosLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(txtFechaNacimiento)
-                        .addGap(47, 47, 47))
-                    .addGroup(pnlDatosLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel26)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)))
-                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(combobxSexoBecado, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel25))
-                .addGap(41, 41, 41)
-                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel24)
-                    .addComponent(combobxCivilBecado, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(80, 80, 80)
-                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(comboBxTrabajaBecado, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel23))
-                .addGap(18, 18, 18))
             .addGroup(pnlDatosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel44)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosLayout.createSequentialGroup()
+                        .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlDatosLayout.createSequentialGroup()
+                                .addComponent(txtFechaNacimiento)
+                                .addGap(47, 47, 47))
+                            .addGroup(pnlDatosLayout.createSequentialGroup()
+                                .addComponent(jLabel26)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)))
+                        .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(combobxSexoBecado, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel25))
+                        .addGap(41, 41, 41)
+                        .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel24)
+                            .addComponent(combobxCivilBecado, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(80, 80, 80)
+                        .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(comboBxTrabajaBecado, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel23))
+                        .addGap(18, 18, 18))
+                    .addGroup(pnlDatosLayout.createSequentialGroup()
+                        .addComponent(jLabel44)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         pnlDatosLayout.setVerticalGroup(
             pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -455,64 +455,103 @@ public class VistaRegistro extends javax.swing.JPanel {
                     .addComponent(txtTel1Becado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlTelefonosBecadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlTelefonosBecadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel4)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 15, Short.MAX_VALUE)
                     .addGroup(pnlTelefonosBecadosLayout.createSequentialGroup()
-                        .addComponent(jLabel6)
+                        .addGroup(pnlTelefonosBecadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel6))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
 
+        pnlCorreos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         pnlCorreos.setPreferredSize(new java.awt.Dimension(707, 85));
 
         pnlCorreo1.setPreferredSize(new java.awt.Dimension(340, 50));
         pnlCorreo1.setVerifyInputWhenFocusTarget(false);
 
+        txtCorreoBecario.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         txtCorreoBecario.setText("correo@dominio.com");
         txtCorreoBecario.setToolTipText("");
         txtCorreoBecario.setPreferredSize(new java.awt.Dimension(335, 27));
         txtCorreoBecario.setSelectionStart(0);
-        pnlCorreo1.add(txtCorreoBecario);
 
-        jLabel29.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel29.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel29.setText("Correo Electrónico");
-        pnlCorreo1.add(jLabel29);
+
+        javax.swing.GroupLayout pnlCorreo1Layout = new javax.swing.GroupLayout(pnlCorreo1);
+        pnlCorreo1.setLayout(pnlCorreo1Layout);
+        pnlCorreo1Layout.setHorizontalGroup(
+            pnlCorreo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCorreo1Layout.createSequentialGroup()
+                .addGap(131, 131, 131)
+                .addComponent(jLabel29)
+                .addGap(131, 131, 131))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCorreo1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txtCorreoBecario, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37))
+        );
+        pnlCorreo1Layout.setVerticalGroup(
+            pnlCorreo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCorreo1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txtCorreoBecario, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(jLabel29))
+        );
 
         pnlCorreo2.setPreferredSize(new java.awt.Dimension(340, 50));
 
+        txtCorreoBecario2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         txtCorreoBecario2.setText("correo@dominio.com");
         txtCorreoBecario2.setToolTipText("");
         txtCorreoBecario2.setPreferredSize(new java.awt.Dimension(335, 27));
         txtCorreoBecario2.setSelectionStart(0);
-        pnlCorreo2.add(txtCorreoBecario2);
 
-        jLabel30.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel30.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel30.setText("Confirmar Correo Electrónico");
-        pnlCorreo2.add(jLabel30);
+
+        javax.swing.GroupLayout pnlCorreo2Layout = new javax.swing.GroupLayout(pnlCorreo2);
+        pnlCorreo2.setLayout(pnlCorreo2Layout);
+        pnlCorreo2Layout.setHorizontalGroup(
+            pnlCorreo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCorreo2Layout.createSequentialGroup()
+                .addGap(8, 8, 8)
+                .addComponent(txtCorreoBecario2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pnlCorreo2Layout.createSequentialGroup()
+                .addGap(109, 109, 109)
+                .addComponent(jLabel30))
+        );
+        pnlCorreo2Layout.setVerticalGroup(
+            pnlCorreo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCorreo2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txtCorreoBecario2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(jLabel30))
+        );
 
         javax.swing.GroupLayout pnlCorreosLayout = new javax.swing.GroupLayout(pnlCorreos);
         pnlCorreos.setLayout(pnlCorreosLayout);
         pnlCorreosLayout.setHorizontalGroup(
             pnlCorreosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 707, Short.MAX_VALUE)
+            .addGap(0, 703, Short.MAX_VALUE)
             .addGroup(pnlCorreosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlCorreosLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(pnlCorreo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlCorreo1, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)
                     .addGap(5, 5, 5)
-                    .addComponent(pnlCorreo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(pnlCorreo2, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         pnlCorreosLayout.setVerticalGroup(
             pnlCorreosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 85, Short.MAX_VALUE)
+            .addGap(0, 60, Short.MAX_VALUE)
             .addGroup(pnlCorreosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlCorreosLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 7, Short.MAX_VALUE)
                     .addGroup(pnlCorreosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(pnlCorreo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(pnlCorreo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 7, Short.MAX_VALUE)))
         );
 
         lblFotografia.setBackground(new java.awt.Color(0, 255, 27));
@@ -555,7 +594,7 @@ public class VistaRegistro extends javax.swing.JPanel {
                             .addGroup(pnlDatosGeneralesLayout.createSequentialGroup()
                                 .addGap(20, 20, 20)
                                 .addComponent(spnlDirecciones, javax.swing.GroupLayout.PREFERRED_SIZE, 1043, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(pnlOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -563,28 +602,27 @@ public class VistaRegistro extends javax.swing.JPanel {
             pnlDatosGeneralesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDatosGeneralesLayout.createSequentialGroup()
                 .addGroup(pnlDatosGeneralesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlDatosGeneralesLayout.createSequentialGroup()
                         .addGroup(pnlDatosGeneralesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlDatosGeneralesLayout.createSequentialGroup()
-                                .addGap(5, 5, 5)
-                                .addComponent(pnlPrograma, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(pnlNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pnlDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pnlDatosGeneralesLayout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(lblFotografia, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnFotografia)))
-                        .addGap(18, 18, 18)
-                        .addComponent(spnlDirecciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(pnlOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
+                                .addComponent(btnFotografia))
+                            .addGroup(pnlDatosGeneralesLayout.createSequentialGroup()
+                                .addGap(5, 5, 5)
+                                .addComponent(pnlPrograma, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(pnlNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(pnlDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(spnlDirecciones, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(10, 10, 10)
                 .addComponent(pnlTelefonosBecados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
-                .addComponent(pnlCorreos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnlCorreos, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         tbpBecados.addTab("Datos Generales", pnlDatosGenerales);
@@ -596,16 +634,12 @@ public class VistaRegistro extends javax.swing.JPanel {
         pnlParentesco.setLayout(new javax.swing.BoxLayout(pnlParentesco, javax.swing.BoxLayout.PAGE_AXIS));
         spnlParentesco.setViewportView(pnlParentesco);
 
-        pnlDatosFamiliares.add(spnlParentesco);
-
         spnlHermanos.setBorder(javax.swing.BorderFactory.createTitledBorder("Hermanos"));
         spnlHermanos.setPreferredSize(new java.awt.Dimension(707, 160));
 
         pnlHermanos.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         pnlHermanos.setLayout(new javax.swing.BoxLayout(pnlHermanos, javax.swing.BoxLayout.PAGE_AXIS));
         spnlHermanos.setViewportView(pnlHermanos);
-
-        pnlDatosFamiliares.add(spnlHermanos);
 
         pnlConyuge.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         pnlConyuge.setPreferredSize(new java.awt.Dimension(707, 80));
@@ -650,7 +684,7 @@ public class VistaRegistro extends javax.swing.JPanel {
                             .addComponent(jLabel28)
                             .addComponent(txtApMaternoConyuge, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(pnlConyugeLayout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
                         .addGap(228, 228, 228)))
                 .addGroup(pnlConyugeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel45)
@@ -672,7 +706,7 @@ public class VistaRegistro extends javax.swing.JPanel {
                         .addComponent(txtOcupacionConyuge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlConyugeLayout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                         .addGroup(pnlConyugeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblParentesco1)
                             .addComponent(jLabel27)
@@ -687,8 +721,6 @@ public class VistaRegistro extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        pnlDatosFamiliares.add(pnlConyuge);
-
         spnlHijos.setBorder(javax.swing.BorderFactory.createTitledBorder("Nombre de los Hijos"));
         spnlHijos.setPreferredSize(new java.awt.Dimension(707, 150));
 
@@ -696,7 +728,35 @@ public class VistaRegistro extends javax.swing.JPanel {
         pnlHijos.setLayout(new javax.swing.BoxLayout(pnlHijos, javax.swing.BoxLayout.PAGE_AXIS));
         spnlHijos.setViewportView(pnlHijos);
 
-        pnlDatosFamiliares.add(spnlHijos);
+        javax.swing.GroupLayout pnlDatosFamiliaresLayout = new javax.swing.GroupLayout(pnlDatosFamiliares);
+        pnlDatosFamiliares.setLayout(pnlDatosFamiliaresLayout);
+        pnlDatosFamiliaresLayout.setHorizontalGroup(
+            pnlDatosFamiliaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDatosFamiliaresLayout.createSequentialGroup()
+                .addGroup(pnlDatosFamiliaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlDatosFamiliaresLayout.createSequentialGroup()
+                        .addGap(181, 181, 181)
+                        .addComponent(pnlConyuge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlDatosFamiliaresLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(pnlDatosFamiliaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(spnlParentesco, javax.swing.GroupLayout.DEFAULT_SIZE, 991, Short.MAX_VALUE)
+                            .addComponent(spnlHermanos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(spnlHijos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(56, 56, 56))
+        );
+        pnlDatosFamiliaresLayout.setVerticalGroup(
+            pnlDatosFamiliaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDatosFamiliaresLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(spnlParentesco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(spnlHermanos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(pnlConyuge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(spnlHijos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         tbpBecados.addTab("Datos Familiares", pnlDatosFamiliares);
 
@@ -1415,14 +1475,14 @@ public class VistaRegistro extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tbpBecados, javax.swing.GroupLayout.DEFAULT_SIZE, 1166, Short.MAX_VALUE)
+                .addComponent(tbpBecados, javax.swing.GroupLayout.DEFAULT_SIZE, 1075, Short.MAX_VALUE)
                 .addGap(90, 90, 90))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(tbpBecados, javax.swing.GroupLayout.DEFAULT_SIZE, 553, Short.MAX_VALUE)
+                .addComponent(tbpBecados, javax.swing.GroupLayout.DEFAULT_SIZE, 572, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
