@@ -84,7 +84,6 @@ public class VistaRegistro extends javax.swing.JPanel {
         spnlHermanos = new javax.swing.JScrollPane();
         pnlHermanos = new javax.swing.JPanel();
         pnlConyuge = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         lblParentesco1 = new javax.swing.JLabel();
         txtNombreConyuge = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
@@ -641,27 +640,24 @@ public class VistaRegistro extends javax.swing.JPanel {
         pnlHermanos.setLayout(new javax.swing.BoxLayout(pnlHermanos, javax.swing.BoxLayout.PAGE_AXIS));
         spnlHermanos.setViewportView(pnlHermanos);
 
-        pnlConyuge.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        pnlConyuge.setBorder(javax.swing.BorderFactory.createTitledBorder("Conyuge"));
         pnlConyuge.setPreferredSize(new java.awt.Dimension(707, 80));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setText("Nombre completo del Conyuge");
-
-        lblParentesco1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblParentesco1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         lblParentesco1.setText("Nombre(s)");
 
-        jLabel27.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel27.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel27.setText("Ap Paterno");
 
-        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel28.setText("Ap Materno");
 
         txtApMaternoConyuge.setName("txtApMaternoConyuge"); // NOI18N
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel8.setText("Telefono");
 
-        jLabel45.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel45.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel45.setText("Ocupación");
 
         javax.swing.GroupLayout pnlConyugeLayout = new javax.swing.GroupLayout(pnlConyuge);
@@ -669,59 +665,55 @@ public class VistaRegistro extends javax.swing.JPanel {
         pnlConyugeLayout.setHorizontalGroup(
             pnlConyugeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlConyugeLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(pnlConyugeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlConyugeLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(pnlConyugeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblParentesco1)
-                            .addComponent(txtNombreConyuge, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(pnlConyugeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel27)
-                            .addComponent(txtApPaternoConyuge, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlConyugeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel28)
-                            .addComponent(txtApMaternoConyuge, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblParentesco1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel27)
+                        .addGap(160, 160, 160))
                     .addGroup(pnlConyugeLayout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
-                        .addGap(228, 228, 228)))
+                        .addComponent(txtNombreConyuge, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtApPaternoConyuge, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)))
+                .addGap(5, 5, 5)
+                .addGroup(pnlConyugeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel28)
+                    .addComponent(txtApMaternoConyuge, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
                 .addGroup(pnlConyugeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel45)
-                    .addComponent(txtOcupacionConyuge, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(txtOcupacionConyuge, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
                 .addGroup(pnlConyugeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtTelefonoConyuge, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
+                    .addComponent(jLabel8)
+                    .addComponent(txtTelefonoConyuge, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         pnlConyugeLayout.setVerticalGroup(
             pnlConyugeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlConyugeLayout.createSequentialGroup()
-                .addGroup(pnlConyugeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlConyugeLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel45)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtOcupacionConyuge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlConyugeLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                        .addGroup(pnlConyugeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblParentesco1)
-                            .addComponent(jLabel27)
-                            .addComponent(jLabel28)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlConyugeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtNombreConyuge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtApMaternoConyuge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtApPaternoConyuge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtTelefonoConyuge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel28)
+                .addGap(99, 99, 99))
+            .addGroup(pnlConyugeLayout.createSequentialGroup()
+                .addGroup(pnlConyugeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblParentesco1)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel27)
+                    .addComponent(jLabel45))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlConyugeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNombreConyuge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtApPaternoConyuge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtApMaternoConyuge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtOcupacionConyuge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTelefonoConyuge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(72, 72, 72))
         );
 
-        spnlHijos.setBorder(javax.swing.BorderFactory.createTitledBorder("Nombre de los Hijos"));
+        spnlHijos.setBorder(javax.swing.BorderFactory.createTitledBorder(" Hijos"));
         spnlHijos.setPreferredSize(new java.awt.Dimension(707, 150));
 
         pnlHijos.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -734,30 +726,24 @@ public class VistaRegistro extends javax.swing.JPanel {
             pnlDatosFamiliaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDatosFamiliaresLayout.createSequentialGroup()
                 .addGroup(pnlDatosFamiliaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(spnlParentesco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(spnlHermanos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(spnlHijos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlDatosFamiliaresLayout.createSequentialGroup()
-                        .addGap(177, 177, 177)
-                        .addComponent(pnlConyuge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlDatosFamiliaresLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addGroup(pnlDatosFamiliaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(spnlHermanos, javax.swing.GroupLayout.DEFAULT_SIZE, 991, Short.MAX_VALUE)
-                            .addComponent(spnlHijos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosFamiliaresLayout.createSequentialGroup()
-                .addComponent(spnlParentesco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap()
+                        .addComponent(pnlConyuge, javax.swing.GroupLayout.DEFAULT_SIZE, 1050, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnlDatosFamiliaresLayout.setVerticalGroup(
             pnlDatosFamiliaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDatosFamiliaresLayout.createSequentialGroup()
                 .addComponent(spnlParentesco, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(spnlHermanos, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlConyuge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(spnlHijos, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(spnlHermanos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(pnlConyuge, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(spnlHijos, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE))
         );
 
         tbpBecados.addTab("Datos Familiares", pnlDatosFamiliares);
@@ -1663,7 +1649,6 @@ public class VistaRegistro extends javax.swing.JPanel {
     protected javax.swing.JComboBox combobxCivilBecado;
     protected javax.swing.JComboBox combobxSexoBecado;
     private javax.swing.JDialog jDialog1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
