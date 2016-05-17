@@ -235,7 +235,7 @@ public class PrincipalControlador {
 
             vistaOpcionGuardar = new VistaRegistroOpcionGuardar();
             vistaOpcionGuardar.setControlador(this);
-            helper.agregaJPanel(vistaOpcionGuardar, vista.pnlOpciones);
+            helper.agregaJPanel(vistaOpcionGuardar, vistaRegistro.pnlOpciones);
             vistaOpcionGuardar.setVisible(true);
             //addListenerArchivosAdjuntos();
             //Helper.getBecaSemestral(vistaRegistro.cmboxSemestresTotalesCarrera, vistaRegistro.cmboxSemestreInicioBeca, vistaRegistro.txtBecaAutorizada, vistaRegistro.txtBecaPorSemestre);
@@ -520,7 +520,7 @@ public class PrincipalControlador {
         helper.agregaJPanel(vistaHermanos, vistaRegistro.pnlHermanos);
         helper.agregaJPanel(vistaHijos, vistaRegistro.pnlHijos);
         helper.agregaJPanel(vistaDireccion, vistaRegistro.pnlDirecciones);
-        //helper.agregaJPanel(vistaOpcionGuardar, vista.pnlOpciones);
+        //helper.agregaJPanel(vistaOpcionGuardar, vistaRegistro.pnlOpciones);
 
         lstVistaParentesco.add(vistaParentesco);
         lstVistaParentesco.add(vistaParentesco2);
@@ -747,10 +747,10 @@ public class PrincipalControlador {
         }
 
         if (componente instanceof VistaRegistroOpcionActualizar) {
-            vista.pnlOpciones.removeAll();
+            vistaRegistro.pnlOpciones.removeAll();
             vistaOpcionActualizar = new VistaRegistroOpcionActualizar();
             vistaOpcionActualizar.setControlador(this);
-            vista.pnlOpciones.add(vistaOpcionActualizar, BorderLayout.CENTER);
+            vistaRegistro.pnlOpciones.add(vistaOpcionActualizar, BorderLayout.CENTER);
             vistaOpcionActualizar.setVisible(true);
             vistaRegistro.updateUI();
         }
@@ -2434,11 +2434,11 @@ public class PrincipalControlador {
             vistaRegistro = new VistaRegistro(this);
         }
 
-        vista.pnlOpciones.removeAll();
+        vistaRegistro.pnlOpciones.removeAll();
         vistaOpcionActualizar = new VistaRegistroOpcionActualizar();
         vistaOpcionActualizar.setControlador(this);
         vistaOpcionActualizar.setVisible(true);
-        vista.pnlOpciones.add(vistaOpcionActualizar, BorderLayout.CENTER);
+        vistaRegistro.pnlOpciones.add(vistaOpcionActualizar, BorderLayout.CENTER);
 
         vistaRegistro.updateUI();
 
