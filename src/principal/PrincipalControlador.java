@@ -2360,7 +2360,7 @@ public class PrincipalControlador {
         int idEstatus = getIdCmbBox(estatus, catEstatus);
         
         //Si se selecciono "TODOS"
-        if(totalProgramas > idPrograma){
+        if(idPrograma == 0){
             lstBecario = modelo.getBecarioPorProgramaEstatus(conexion, 10000, idEstatus);
         }
         //Si no se busca por el id del programa

@@ -2918,3 +2918,4 @@
 17/5/2016;18:24:4;Nombre de categoria no encontrado
 17/5/2016;18:24:13;Nombre de categoria no encontrado
 17/5/2016;18:25:58;Id no encontrado
+18/5/2016;9:12:9;Id no encontrado
