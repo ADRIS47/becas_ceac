@@ -2912,3 +2912,9 @@
 13/5/2016;11:16:55;Nombre de categoria no encontrado
 13/5/2016;11:17:43;Nombre de categoria no encontrado
 13/5/2016;11:36:47;Nombre de categoria no encontrado
+17/5/2016;18:22:55;Id no encontrado
+17/5/2016;18:23:45;Id no encontrado
+17/5/2016;18:23:47;Id no encontrado
+17/5/2016;18:24:4;Nombre de categoria no encontrado
+17/5/2016;18:24:13;Nombre de categoria no encontrado
+17/5/2016;18:25:58;Id no encontrado
