@@ -2942,3 +2942,9 @@
 15/5/2016;13:27:14;SQLError: 42S02
 15/5/2016;13:27:14;ERROR: Code1146
 15/5/2016;13:27:14;Message: Table 'becas_chihuahua.beca_cat_municipio' doesn't exist
+17/5/2016;8:13:28;Nombre de categoria no encontrado
+17/5/2016;8:16:18;Nombre de categoria no encontrado
+17/5/2016;8:16:21;Nombre de categoria no encontrado
+17/5/2016;8:18:25;Nombre de categoria no encontrado
+17/5/2016;14:19:50;No se pudo conectar a la Base de datos
+17/5/2016;14:21:9;No se pudo conectar a la Base de datos

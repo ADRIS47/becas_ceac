@@ -582,7 +582,7 @@ public class VistaKardex extends javax.swing.JPanel {
             }
         });
 
-        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adris/vistas/salir.png"))); // NOI18N
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salir.png"))); // NOI18N
         btnSalir.setToolTipText("Salir de Pantalla");
         btnSalir.setPreferredSize(new java.awt.Dimension(160, 29));
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -597,18 +597,18 @@ public class VistaKardex extends javax.swing.JPanel {
             jpnlAreaBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpnlAreaBotonesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jpnlAreaBotonesLayout.setVerticalGroup(
             jpnlAreaBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpnlAreaBotonesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jpnlAreaBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                    .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1460,7 +1460,7 @@ public class VistaKardex extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
+                .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
                 .addGap(75, 75, 75)
                 .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45))
@@ -2052,11 +2052,11 @@ public class VistaKardex extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 909, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 919, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 415, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE)
         );
 
         jtabKardex.addTab("Adjuntar Boleta", jPanel1);
@@ -2085,7 +2085,7 @@ public class VistaKardex extends javax.swing.JPanel {
                 .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(54, 54, 54)
                 .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2112,6 +2112,7 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentosServicioComunitario.add(TxtSemSC1);
 
+        TxtSemSC2.setBackground(new java.awt.Color(204, 255, 204));
         TxtSemSC2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         TxtSemSC2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC2.setText("Enero");
@@ -2139,6 +2140,7 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentosServicioComunitario.add(TxtSemSC3);
 
+        TxtSemSC4.setBackground(new java.awt.Color(204, 255, 204));
         TxtSemSC4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         TxtSemSC4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC4.setText("Enero");
@@ -2166,6 +2168,7 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentosServicioComunitario.add(TxtSemSC5);
 
+        TxtSemSC6.setBackground(new java.awt.Color(204, 255, 204));
         TxtSemSC6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         TxtSemSC6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC6.setText("Enero");
@@ -2193,6 +2196,7 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentosServicioComunitario.add(TxtSemSC7);
 
+        TxtSemSC8.setBackground(new java.awt.Color(204, 255, 204));
         TxtSemSC8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         TxtSemSC8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC8.setText("Enero");
@@ -2220,6 +2224,7 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentosServicioComunitario.add(TxtSemSC9);
 
+        TxtSemSC10.setBackground(new java.awt.Color(204, 255, 204));
         TxtSemSC10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         TxtSemSC10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC10.setText("Enero");
@@ -2247,6 +2252,7 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentosServicioComunitario.add(TxtSemSC11);
 
+        TxtSemSC21.setBackground(new java.awt.Color(204, 255, 204));
         TxtSemSC21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         TxtSemSC21.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC21.setText("Enero");
@@ -2640,8 +2646,8 @@ public class VistaKardex extends javax.swing.JPanel {
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpnlListaDocumentosServicioComunitario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jpnlAccionesDocumentosServicioComunitario, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
+            .addComponent(jpnlAccionesDocumentosServicioComunitario, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
+            .addComponent(jpnlListaDocumentosServicioComunitario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout pnlArchivosAdjuntos1Layout = new javax.swing.GroupLayout(pnlArchivosAdjuntos1);
@@ -2670,16 +2676,13 @@ public class VistaKardex extends javax.swing.JPanel {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 882, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addComponent(jScrollPane2)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         jtabKardex.addTab("Adjuntar Carta Servicio Comunitario", jPanel4);
@@ -2767,28 +2770,27 @@ public class VistaKardex extends javax.swing.JPanel {
             .addGroup(jPanel15Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(73, 73, 73)
+                .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
+                .addGap(38, 38, 38)
                 .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53)
                 .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(25, 25, 25))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel48, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel49, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel47, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel47, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel46, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLabel44)
         );
 
         jPanel16.setPreferredSize(new java.awt.Dimension(870, 270));
@@ -2797,12 +2799,12 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlListaDocumentos4.setMaximumSize(new java.awt.Dimension(141, 174));
         jpnlListaDocumentos4.setLayout(new java.awt.GridLayout(10, 1));
 
-        TxtSemSC22.setBackground(new java.awt.Color(0, 204, 51));
+        TxtSemSC22.setBackground(new java.awt.Color(204, 255, 204));
         TxtSemSC22.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC22.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC22.setText("Transf 1 Semestre1");
         TxtSemSC22.setBorder(null);
-        TxtSemSC22.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC22.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC22.setEnabled(false);
         TxtSemSC22.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2811,12 +2813,12 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentos4.add(TxtSemSC22);
 
-        TxtSemSC12.setBackground(new java.awt.Color(51, 255, 51));
+        TxtSemSC12.setBackground(new java.awt.Color(204, 255, 204));
         TxtSemSC12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC12.setText("Transf 2 Semestre 1");
         TxtSemSC12.setBorder(null);
-        TxtSemSC12.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC12.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC12.setEnabled(false);
         TxtSemSC12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2825,13 +2827,14 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentos4.add(TxtSemSC12);
 
-        TxtSemSC13.setBackground(new java.awt.Color(0, 0, 204));
+        TxtSemSC13.setBackground(new java.awt.Color(204, 204, 255));
         TxtSemSC13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC13.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC13.setText("Transf 1 Semestre 2");
         TxtSemSC13.setBorder(null);
-        TxtSemSC13.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        TxtSemSC13.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC13.setEnabled(false);
+        TxtSemSC13.setSelectedTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtSemSC13ActionPerformed(evt);
@@ -2839,13 +2842,14 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentos4.add(TxtSemSC13);
 
-        TxtSemSC14.setBackground(new java.awt.Color(51, 51, 255));
+        TxtSemSC14.setBackground(new java.awt.Color(204, 204, 255));
         TxtSemSC14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC14.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC14.setText("Transf 2 Semestre 2");
         TxtSemSC14.setBorder(null);
-        TxtSemSC14.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        TxtSemSC14.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC14.setEnabled(false);
+        TxtSemSC14.setSelectedTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtSemSC14ActionPerformed(evt);
@@ -2853,12 +2857,12 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentos4.add(TxtSemSC14);
 
-        TxtSemSC15.setBackground(new java.awt.Color(255, 102, 0));
+        TxtSemSC15.setBackground(new java.awt.Color(204, 255, 204));
         TxtSemSC15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC15.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC15.setText("Transf 1 Semestre 3");
         TxtSemSC15.setBorder(null);
-        TxtSemSC15.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC15.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC15.setEnabled(false);
         TxtSemSC15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2867,12 +2871,12 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentos4.add(TxtSemSC15);
 
-        TxtSemSC16.setBackground(new java.awt.Color(255, 102, 51));
+        TxtSemSC16.setBackground(new java.awt.Color(204, 255, 204));
         TxtSemSC16.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC16.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC16.setText("Transf 2 Semestre 3");
         TxtSemSC16.setBorder(null);
-        TxtSemSC16.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC16.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC16.setEnabled(false);
         TxtSemSC16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2881,12 +2885,12 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentos4.add(TxtSemSC16);
 
-        TxtSemSC17.setBackground(new java.awt.Color(0, 204, 51));
+        TxtSemSC17.setBackground(new java.awt.Color(204, 204, 255));
         TxtSemSC17.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC17.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC17.setText("Transf 1 Semestre 4");
         TxtSemSC17.setBorder(null);
-        TxtSemSC17.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC17.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC17.setEnabled(false);
         TxtSemSC17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2895,12 +2899,12 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentos4.add(TxtSemSC17);
 
-        TxtSemSC18.setBackground(new java.awt.Color(51, 255, 51));
+        TxtSemSC18.setBackground(new java.awt.Color(204, 204, 255));
         TxtSemSC18.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC18.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC18.setText("Transf 2 Semestre 4");
         TxtSemSC18.setBorder(null);
-        TxtSemSC18.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC18.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC18.setEnabled(false);
         TxtSemSC18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2909,12 +2913,12 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentos4.add(TxtSemSC18);
 
-        TxtSemSC19.setBackground(new java.awt.Color(0, 0, 204));
+        TxtSemSC19.setBackground(new java.awt.Color(204, 255, 204));
         TxtSemSC19.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC19.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC19.setText("Transf 1 Semestre 5");
         TxtSemSC19.setBorder(null);
-        TxtSemSC19.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        TxtSemSC19.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC19.setEnabled(false);
         TxtSemSC19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2924,12 +2928,12 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlListaDocumentos4.add(TxtSemSC19);
 
         TxtSemSC20.setEditable(false);
-        TxtSemSC20.setBackground(new java.awt.Color(51, 51, 255));
+        TxtSemSC20.setBackground(new java.awt.Color(204, 255, 204));
         TxtSemSC20.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC20.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC20.setText("Trasnf 2 Semestre 5");
         TxtSemSC20.setBorder(null);
-        TxtSemSC20.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        TxtSemSC20.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC20.setEnabled(false);
         TxtSemSC20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2941,9 +2945,10 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos2.setMaximumSize(new java.awt.Dimension(240, 290));
         jpnlAccionesDocumentos2.setLayout(new java.awt.GridLayout(10, 3));
 
+        BtnAddSTn1.setBackground(new java.awt.Color(204, 204, 204));
         BtnAddSTn1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnAddSTn1.setForeground(new java.awt.Color(0, 204, 51));
         BtnAddSTn1.setText("Agregar...");
+        BtnAddSTn1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         BtnAddSTn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAddSTn1ActionPerformed(evt);
@@ -2951,8 +2956,8 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlAccionesDocumentos2.add(BtnAddSTn1);
 
+        BtnEliminaTn1.setBackground(new java.awt.Color(204, 255, 204));
         BtnEliminaTn1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnEliminaTn1.setForeground(new java.awt.Color(0, 204, 51));
         BtnEliminaTn1.setText("Eliminar...");
         BtnEliminaTn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2974,7 +2979,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos2.add(TxtEstatusSC11);
 
         BtnAddSTn2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnAddSTn2.setForeground(new java.awt.Color(51, 255, 51));
         BtnAddSTn2.setText("Agregar...");
         BtnAddSTn2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2984,7 +2988,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos2.add(BtnAddSTn2);
 
         BtnEliminaTn2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnEliminaTn2.setForeground(new java.awt.Color(51, 255, 51));
         BtnEliminaTn2.setText("Eliminar...");
         BtnEliminaTn2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3005,7 +3008,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos2.add(TxtEstatusSC12);
 
         BtnAddSTn3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnAddSTn3.setForeground(new java.awt.Color(0, 0, 204));
         BtnAddSTn3.setText("Agregar...");
         BtnAddSTn3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3015,7 +3017,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos2.add(BtnAddSTn3);
 
         BtnEliminaTn3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnEliminaTn3.setForeground(new java.awt.Color(0, 0, 204));
         BtnEliminaTn3.setText("Eliminar...");
         BtnEliminaTn3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3036,7 +3037,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos2.add(TxtEstatusSC13);
 
         BtnAddSTn4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnAddSTn4.setForeground(new java.awt.Color(51, 51, 255));
         BtnAddSTn4.setText("Agregar...");
         BtnAddSTn4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3046,7 +3046,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos2.add(BtnAddSTn4);
 
         BtnEliminaTn4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnEliminaTn4.setForeground(new java.awt.Color(51, 51, 255));
         BtnEliminaTn4.setText("Eliminar...");
         BtnEliminaTn4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3067,7 +3066,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos2.add(TxtEstatusSC14);
 
         BtnAddSTn5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnAddSTn5.setForeground(new java.awt.Color(255, 102, 0));
         BtnAddSTn5.setText("Agregar...");
         BtnAddSTn5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3077,7 +3075,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos2.add(BtnAddSTn5);
 
         BtnEliminaTn5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnEliminaTn5.setForeground(new java.awt.Color(255, 102, 0));
         BtnEliminaTn5.setText("Eliminar...");
         BtnEliminaTn5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3098,7 +3095,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos2.add(TxtEstatusSC15);
 
         BtnAddSTn6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnAddSTn6.setForeground(new java.awt.Color(255, 102, 51));
         BtnAddSTn6.setText("Agregar...");
         BtnAddSTn6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3108,7 +3104,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos2.add(BtnAddSTn6);
 
         BtnEliminaTn6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnEliminaTn6.setForeground(new java.awt.Color(255, 102, 51));
         BtnEliminaTn6.setText("Eliminar...");
         BtnEliminaTn6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3129,7 +3124,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos2.add(TxtEstatusSC16);
 
         BtnAddSTn7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnAddSTn7.setForeground(new java.awt.Color(0, 204, 51));
         BtnAddSTn7.setText("Agregar...");
         BtnAddSTn7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3139,7 +3133,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos2.add(BtnAddSTn7);
 
         BtnEliminaTn7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnEliminaTn7.setForeground(new java.awt.Color(0, 204, 51));
         BtnEliminaTn7.setText("Eliminar...");
         BtnEliminaTn7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3160,7 +3153,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos2.add(TxtEstatusSC17);
 
         BtnAddSTn8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnAddSTn8.setForeground(new java.awt.Color(51, 255, 51));
         BtnAddSTn8.setText("Agregar...");
         BtnAddSTn8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3170,7 +3162,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos2.add(BtnAddSTn8);
 
         BtnEliminaTn8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnEliminaTn8.setForeground(new java.awt.Color(51, 255, 51));
         BtnEliminaTn8.setText("Eliminar...");
         BtnEliminaTn8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3191,7 +3182,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos2.add(TxtEstatusSC18);
 
         BtnAddSTn9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnAddSTn9.setForeground(new java.awt.Color(0, 0, 204));
         BtnAddSTn9.setText("Agregar...");
         BtnAddSTn9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3201,7 +3191,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos2.add(BtnAddSTn9);
 
         BtnEliminaTn9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnEliminaTn9.setForeground(new java.awt.Color(0, 0, 204));
         BtnEliminaTn9.setText("Eliminar...");
         BtnEliminaTn9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3222,7 +3211,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos2.add(TxtEstatusSC19);
 
         BtnAddSTn10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnAddSTn10.setForeground(new java.awt.Color(51, 51, 255));
         BtnAddSTn10.setText("Agregar...");
         BtnAddSTn10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3232,7 +3220,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos2.add(BtnAddSTn10);
 
         BtnEliminaTn10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnEliminaTn10.setForeground(new java.awt.Color(51, 51, 255));
         BtnEliminaTn10.setText("Eliminar...");
         BtnEliminaTn10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3255,12 +3242,12 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlListaDocumentos5.setMaximumSize(new java.awt.Dimension(145, 170));
         jpnlListaDocumentos5.setLayout(new java.awt.GridLayout(10, 1));
 
-        TxtSemSC23.setBackground(new java.awt.Color(0, 204, 51));
+        TxtSemSC23.setBackground(new java.awt.Color(204, 255, 204));
         TxtSemSC23.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC23.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC23.setText("Transf 1 Semestre 6");
         TxtSemSC23.setBorder(null);
-        TxtSemSC23.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC23.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC23.setEnabled(false);
         TxtSemSC23.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3269,12 +3256,12 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentos5.add(TxtSemSC23);
 
-        TxtSemSC24.setBackground(new java.awt.Color(51, 255, 51));
+        TxtSemSC24.setBackground(new java.awt.Color(204, 255, 204));
         TxtSemSC24.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC24.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC24.setText("Transf 2 Semestre 6");
         TxtSemSC24.setBorder(null);
-        TxtSemSC24.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC24.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC24.setEnabled(false);
         TxtSemSC24.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3283,12 +3270,12 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentos5.add(TxtSemSC24);
 
-        TxtSemSC25.setBackground(new java.awt.Color(0, 0, 204));
+        TxtSemSC25.setBackground(new java.awt.Color(204, 204, 255));
         TxtSemSC25.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC25.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC25.setText("Transf 1 Semestre 7");
         TxtSemSC25.setBorder(null);
-        TxtSemSC25.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        TxtSemSC25.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC25.setEnabled(false);
         TxtSemSC25.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3297,12 +3284,12 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentos5.add(TxtSemSC25);
 
-        TxtSemSC26.setBackground(new java.awt.Color(51, 51, 255));
+        TxtSemSC26.setBackground(new java.awt.Color(204, 204, 255));
         TxtSemSC26.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC26.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC26.setText("Transf 2 Semestre 7");
         TxtSemSC26.setBorder(null);
-        TxtSemSC26.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        TxtSemSC26.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC26.setEnabled(false);
         TxtSemSC26.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3311,12 +3298,12 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentos5.add(TxtSemSC26);
 
-        TxtSemSC27.setBackground(new java.awt.Color(255, 102, 0));
+        TxtSemSC27.setBackground(new java.awt.Color(204, 255, 204));
         TxtSemSC27.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC27.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC27.setText("Transf 1 Semestre 8");
         TxtSemSC27.setBorder(null);
-        TxtSemSC27.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC27.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC27.setEnabled(false);
         TxtSemSC27.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3325,12 +3312,12 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentos5.add(TxtSemSC27);
 
-        TxtSemSC28.setBackground(new java.awt.Color(255, 102, 51));
+        TxtSemSC28.setBackground(new java.awt.Color(204, 255, 204));
         TxtSemSC28.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC28.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC28.setText("Transf 2 Semestre 8");
         TxtSemSC28.setBorder(null);
-        TxtSemSC28.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC28.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC28.setEnabled(false);
         TxtSemSC28.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3339,12 +3326,12 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentos5.add(TxtSemSC28);
 
-        TxtSemSC29.setBackground(new java.awt.Color(0, 204, 51));
+        TxtSemSC29.setBackground(new java.awt.Color(204, 204, 255));
         TxtSemSC29.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC29.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC29.setText("Transf 1 Semestre 9");
         TxtSemSC29.setBorder(null);
-        TxtSemSC29.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC29.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC29.setEnabled(false);
         TxtSemSC29.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3353,12 +3340,12 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentos5.add(TxtSemSC29);
 
-        TxtSemSC30.setBackground(new java.awt.Color(51, 255, 51));
+        TxtSemSC30.setBackground(new java.awt.Color(204, 204, 255));
         TxtSemSC30.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC30.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC30.setText("Transf 2 Semestre 9");
         TxtSemSC30.setBorder(null);
-        TxtSemSC30.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        TxtSemSC30.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC30.setEnabled(false);
         TxtSemSC30.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3367,12 +3354,12 @@ public class VistaKardex extends javax.swing.JPanel {
         });
         jpnlListaDocumentos5.add(TxtSemSC30);
 
-        TxtSemSC31.setBackground(new java.awt.Color(0, 0, 204));
+        TxtSemSC31.setBackground(new java.awt.Color(204, 255, 204));
         TxtSemSC31.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC31.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC31.setText("Transf 1 Semestre 10");
         TxtSemSC31.setBorder(null);
-        TxtSemSC31.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        TxtSemSC31.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC31.setEnabled(false);
         TxtSemSC31.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3382,12 +3369,12 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlListaDocumentos5.add(TxtSemSC31);
 
         TxtSemSC32.setEditable(false);
-        TxtSemSC32.setBackground(new java.awt.Color(51, 51, 255));
+        TxtSemSC32.setBackground(new java.awt.Color(204, 255, 204));
         TxtSemSC32.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC32.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtSemSC32.setText("Trasnf 2 Semestre 10");
         TxtSemSC32.setBorder(null);
-        TxtSemSC32.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        TxtSemSC32.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC32.setEnabled(false);
         TxtSemSC32.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3400,7 +3387,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos3.setLayout(new java.awt.GridLayout(10, 3));
 
         BtnAddSTn11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnAddSTn11.setForeground(new java.awt.Color(0, 204, 51));
         BtnAddSTn11.setText("Agregar...");
         BtnAddSTn11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3410,7 +3396,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos3.add(BtnAddSTn11);
 
         BtnEliminaTn11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnEliminaTn11.setForeground(new java.awt.Color(0, 204, 51));
         BtnEliminaTn11.setText("Eliminar...");
         BtnEliminaTn11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3432,7 +3417,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos3.add(TxtEstatusSC21);
 
         BtnAddSTn12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnAddSTn12.setForeground(new java.awt.Color(51, 255, 51));
         BtnAddSTn12.setText("Agregar...");
         BtnAddSTn12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3442,7 +3426,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos3.add(BtnAddSTn12);
 
         BtnEliminaTn12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnEliminaTn12.setForeground(new java.awt.Color(51, 255, 51));
         BtnEliminaTn12.setText("Eliminar...");
         BtnEliminaTn12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3463,7 +3446,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos3.add(TxtEstatusSC22);
 
         BtnAddSTn13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnAddSTn13.setForeground(new java.awt.Color(0, 0, 204));
         BtnAddSTn13.setText("Agregar...");
         BtnAddSTn13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3473,7 +3455,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos3.add(BtnAddSTn13);
 
         BtnEliminaTn13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnEliminaTn13.setForeground(new java.awt.Color(0, 0, 204));
         BtnEliminaTn13.setText("Eliminar...");
         BtnEliminaTn13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3494,7 +3475,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos3.add(TxtEstatusSC23);
 
         BtnAddSTn14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnAddSTn14.setForeground(new java.awt.Color(51, 51, 255));
         BtnAddSTn14.setText("Agregar...");
         BtnAddSTn14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3504,7 +3484,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos3.add(BtnAddSTn14);
 
         BtnEliminaTn14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnEliminaTn14.setForeground(new java.awt.Color(51, 51, 255));
         BtnEliminaTn14.setText("Eliminar...");
         BtnEliminaTn14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3525,7 +3504,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos3.add(TxtEstatusSC24);
 
         BtnAddSTn15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnAddSTn15.setForeground(new java.awt.Color(255, 102, 0));
         BtnAddSTn15.setText("Agregar...");
         BtnAddSTn15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3535,7 +3513,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos3.add(BtnAddSTn15);
 
         BtnEliminaTn15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnEliminaTn15.setForeground(new java.awt.Color(255, 102, 0));
         BtnEliminaTn15.setText("Eliminar...");
         BtnEliminaTn15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3556,7 +3533,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos3.add(TxtEstatusSC25);
 
         BtnAddSTn16.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnAddSTn16.setForeground(new java.awt.Color(255, 102, 51));
         BtnAddSTn16.setText("Agregar...");
         BtnAddSTn16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3566,7 +3542,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos3.add(BtnAddSTn16);
 
         BtnEliminaTn16.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnEliminaTn16.setForeground(new java.awt.Color(255, 102, 51));
         BtnEliminaTn16.setText("Eliminar...");
         BtnEliminaTn16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3587,7 +3562,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos3.add(TxtEstatusSC26);
 
         BtnAddSTn17.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnAddSTn17.setForeground(new java.awt.Color(0, 204, 51));
         BtnAddSTn17.setText("Agregar...");
         BtnAddSTn17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3597,7 +3571,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos3.add(BtnAddSTn17);
 
         BtnEliminaTn17.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnEliminaTn17.setForeground(new java.awt.Color(0, 204, 51));
         BtnEliminaTn17.setText("Eliminar...");
         BtnEliminaTn17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3618,7 +3591,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos3.add(TxtEstatusSC27);
 
         BtnAddSTn18.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnAddSTn18.setForeground(new java.awt.Color(51, 255, 51));
         BtnAddSTn18.setText("Agregar...");
         BtnAddSTn18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3628,7 +3600,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos3.add(BtnAddSTn18);
 
         BtnEliminaTn18.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnEliminaTn18.setForeground(new java.awt.Color(51, 255, 51));
         BtnEliminaTn18.setText("Eliminar...");
         BtnEliminaTn18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3649,7 +3620,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos3.add(TxtEstatusSC28);
 
         BtnAddSTn19.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnAddSTn19.setForeground(new java.awt.Color(0, 0, 204));
         BtnAddSTn19.setText("Agregar...");
         BtnAddSTn19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3659,7 +3629,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos3.add(BtnAddSTn19);
 
         BtnEliminaTn19.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnEliminaTn19.setForeground(new java.awt.Color(0, 0, 204));
         BtnEliminaTn19.setText("Eliminar...");
         BtnEliminaTn19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3680,7 +3649,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos3.add(TxtEstatusSC29);
 
         BtnAddSTn20.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnAddSTn20.setForeground(new java.awt.Color(51, 51, 255));
         BtnAddSTn20.setText("Agregar...");
         BtnAddSTn20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3690,7 +3658,6 @@ public class VistaKardex extends javax.swing.JPanel {
         jpnlAccionesDocumentos3.add(BtnAddSTn20);
 
         BtnEliminaTn20.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnEliminaTn20.setForeground(new java.awt.Color(51, 51, 255));
         BtnEliminaTn20.setText("Eliminar...");
         BtnEliminaTn20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3759,7 +3726,7 @@ public class VistaKardex extends javax.swing.JPanel {
             .addGroup(pnlTransferenciasAdjuntas2Layout.createSequentialGroup()
                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE))
+                .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
@@ -3791,20 +3758,23 @@ public class VistaKardex extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jtabKardex, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(PnlInfoBecario, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jpnlAreaBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jtabKardex, javax.swing.GroupLayout.PREFERRED_SIZE, 914, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(135, Short.MAX_VALUE))
+                        .addGap(35, 35, 35)
+                        .addComponent(jpnlAreaBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jpnlAreaBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PnlInfoBecario, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(PnlInfoBecario, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jpnlAreaBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jtabKardex, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
