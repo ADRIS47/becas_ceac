@@ -2820,11 +2820,11 @@ public class PrincipalControlador {
 
         if(!nombreTabla.contains("univer")){
             creaTablaCatalogos(true);
-            llenaTablaCatalogos(catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo, false, conexion);
+            llenaTablaCatalogos(catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo, true, conexion);
         }
         else{
             creaTablaCatalogos(false);
-            llenaTablaCatalogos(catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo, true, conexion);
+            llenaTablaCatalogos(catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo, false, conexion);
             DefaultTableModel tblModel = (DefaultTableModel) vistaCatalogos.TblDescripcionCatalogo.getModel();
         }
 
@@ -2948,7 +2948,7 @@ public class PrincipalControlador {
                 
         int i = 0;
         //Se llenan los nombres de los catalogos
-        if(bandera == false){
+        if(bandera){
             for (Integer valor : nombreDatoCatalogos.keySet()){
                 tblModelo.setValueAt(nombreDatoCatalogos.get(valor), i, 0);
                 i++;
