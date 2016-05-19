@@ -2925,3 +2925,9 @@
 15/5/2016;0:15:29;Nombre de categoria no encontrado
 15/5/2016;0:15:35;Nombre de categoria no encontrado
 15/5/2016;0:15:44;Nombre de categoria no encontrado
+18/5/2016;21:30:3;Id no encontrado
+18/5/2016;21:30:9;Id no encontrado
+18/5/2016;21:31:4;Id no encontrado
+18/5/2016;21:31:13;Id no encontrado
+18/5/2016;21:31:15;Id no encontrado
+18/5/2016;21:31:19;Id no encontrado

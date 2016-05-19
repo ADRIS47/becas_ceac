@@ -2957,7 +2957,6 @@ public class PrincipalControlador {
         for (Integer key : nombreDatoCatalogos.keySet()) {
             tblModelo.addRow(new String[]{""});
         }
-                
         int i = 0;
         //Se llenan los nombres de los catalogos
         if(bandera){
@@ -2965,10 +2964,8 @@ public class PrincipalControlador {
                 tblModelo.setValueAt(nombreDatoCatalogos.get(valor), i, 0);
                 i++;
             }
-           
         }
-        else{
-                        
+        else{ 
             i = 0;
             for (Integer idEscuela : nombreDatoCatalogos.keySet()){
                 tblModelo.setValueAt(nombreDatoCatalogos.get(idEscuela), i, 0);
@@ -2981,7 +2978,6 @@ public class PrincipalControlador {
                 i++;
             }
         }
-        
         tblModelo.addRow(new String[]{});
     }
 
