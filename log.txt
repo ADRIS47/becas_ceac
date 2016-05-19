@@ -2948,3 +2948,5 @@
 17/5/2016;8:18:25;Nombre de categoria no encontrado
 17/5/2016;14:19:50;No se pudo conectar a la Base de datos
 17/5/2016;14:21:9;No se pudo conectar a la Base de datos
+18/5/2016;17:22:29;Nombre de categoria no encontrado
+18/5/2016;18:28:46;Nombre de categoria no encontrado

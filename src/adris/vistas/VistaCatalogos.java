@@ -186,10 +186,6 @@ public class VistaCatalogos extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtnAddDescripcionCatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddDescripcionCatalogoActionPerformed
-        controlador.crudCatalogo();
-    }//GEN-LAST:event_BtnAddDescripcionCatalogoActionPerformed
-
     private void cmbTipoCatalogoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbTipoCatalogoItemStateChanged
         if(evt.getStateChange() == ItemEvent.SELECTED)
             controlador.llenaCamposVistaCatalogos();
@@ -207,6 +203,10 @@ public class VistaCatalogos extends javax.swing.JPanel {
         controlador.getDatosCatalogos(TxtFldDescripcionCatalogo.getText(), 
                 TblDescripcionCatalogo, (String) cmbTipoCatalogo.getSelectedItem());
     }//GEN-LAST:event_TxtFldDescripcionCatalogoKeyTyped
+
+    private void BtnAddDescripcionCatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddDescripcionCatalogoActionPerformed
+        controlador.crudCatalogo();
+    }//GEN-LAST:event_BtnAddDescripcionCatalogoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
