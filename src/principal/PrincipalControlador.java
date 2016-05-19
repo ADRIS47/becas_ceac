@@ -428,9 +428,13 @@ public class PrincipalControlador {
         catCampoEstudio = lstCategorias.get(6);
         catEstatus = lstCategorias.get(7);
         catBancos = lstCategorias.get(8);
+        
+        catPrograma.put(10000, "Todos");
 
         llenaComboCategorias(vistaBusqueda.cmbPrograma, catPrograma);
         llenaComboCategorias(vistaBusqueda.CmbboxBuscaEstatus, catEstatus);
+        
+        catPrograma.remove(10000);
     }
 
     /**
@@ -2352,8 +2356,16 @@ public class PrincipalControlador {
         }
 
         int idPrograma = getIdCmbBox(programa, catPrograma);
+        int totalProgramas = modelo.getTotalProgramas(conexion);
         int idEstatus = getIdCmbBox(estatus, catEstatus);
-        lstBecario = modelo.getBecarioPorProgramaEstatus(conexion, idPrograma, idEstatus);
+        
+        //Si se selecciono "TODOS"
+        if(idPrograma == 0){
+            lstBecario = modelo.getBecarioPorProgramaEstatus(conexion, 10000, idEstatus);
+        }
+        //Si no se busca por el id del programa
+        else
+            lstBecario = modelo.getBecarioPorProgramaEstatus(conexion, idPrograma, idEstatus);
         if (lstBecario.isEmpty()) {
             helper.cursorNormal(vista);
             JOptionPane.showMessageDialog(vista, "No se encontraron Becarios", "No hay registros", JOptionPane.INFORMATION_MESSAGE);

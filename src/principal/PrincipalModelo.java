@@ -1978,9 +1978,17 @@ public class PrincipalModelo {
             
             if(conexion == null)
                 throw new SQLException("No se pudo conectar a la base de datos, intentelo de nuevo");
-            ps = conexion.prepareStatement(Consultas.getBecarioPorProgramaEstatus);
-            ps.setInt(1, idPrograma);
-            ps.setInt(2, idEstatus);
+            
+            if(idPrograma != 10000){
+                ps = conexion.prepareStatement(Consultas.getBecarioPorProgramaEstatus);
+                ps.setInt(1, idPrograma);
+                ps.setInt(2, idEstatus);
+            }
+            else{
+                ps = conexion.prepareStatement(Consultas.getBecariosPorProgramaEstatus);
+                ps.setInt(1, idEstatus);
+            }
+            
             System.out.println("Query: " + ps.toString());
             rs = ps.executeQuery();
             
@@ -2812,6 +2820,29 @@ public class PrincipalModelo {
         
         
         return contador;
+    }
+    
+    /**
+     * Obtiene el total de programas registrados
+     * @param conexion
+     * @return 
+     */
+    protected int getTotalProgramas(Connection conexion) {
+        Statement st = null;
+        ResultSet rs = null;
+        int result = 0;
+        try {
+            st = conexion.createStatement();
+            rs = st.executeQuery(Consultas.getTotalProgramas);
+            if(rs.next())
+                result = rs.getInt(1);
+            
+        } catch (SQLException ex) {
+            log.muestraErrores(ex);
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
+        
     }
 
     /**
