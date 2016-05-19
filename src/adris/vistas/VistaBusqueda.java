@@ -80,6 +80,7 @@ public class VistaBusqueda extends javax.swing.JPanel {
         jPanel4.setBackground(new java.awt.Color(0, 0, 255));
 
         jLabel6.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Criterios de búsqueda");
         jLabel6.setMaximumSize(new java.awt.Dimension(905, 28));
@@ -90,12 +91,13 @@ public class VistaBusqueda extends javax.swing.JPanel {
 
         PnlBuscaFolio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel1.setText("Número de Folio: ");
+        jLabel1.setText("Folio: ");
 
         txtNumFolio.setPreferredSize(new java.awt.Dimension(120, 27));
 
+        btnBuscarPorFolio.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnBuscarPorFolio.setText("Buscar");
         btnBuscarPorFolio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,50 +109,50 @@ public class VistaBusqueda extends javax.swing.JPanel {
         PnlBuscaFolio.setLayout(PnlBuscaFolioLayout);
         PnlBuscaFolioLayout.setHorizontalGroup(
             PnlBuscaFolioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PnlBuscaFolioLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(txtNumFolio, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
             .addGroup(PnlBuscaFolioLayout.createSequentialGroup()
-                .addGroup(PnlBuscaFolioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PnlBuscaFolioLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtNumFolio, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PnlBuscaFolioLayout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addComponent(btnBuscarPorFolio, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(72, 72, 72)
+                .addComponent(btnBuscarPorFolio, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PnlBuscaFolioLayout.setVerticalGroup(
             PnlBuscaFolioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PnlBuscaFolioLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(PnlBuscaFolioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNumFolio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(txtNumFolio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(btnBuscarPorFolio, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         PnlBuscaProgramaEstatus.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         PnlBuscaProgramaEstatus.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel7.setText("Programa: ");
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        PnlBuscaProgramaEstatus.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 66, 27));
+        PnlBuscaProgramaEstatus.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 80, 20));
 
         cmbPrograma.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        PnlBuscaProgramaEstatus.add(cmbPrograma, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 150, -1));
+        PnlBuscaProgramaEstatus.add(cmbPrograma, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 150, -1));
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel8.setText("Estatus :");
-        PnlBuscaProgramaEstatus.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 66, 27));
+        PnlBuscaProgramaEstatus.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 66, 20));
 
         CmbboxBuscaEstatus.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        PnlBuscaProgramaEstatus.add(CmbboxBuscaEstatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 150, -1));
+        PnlBuscaProgramaEstatus.add(CmbboxBuscaEstatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 150, -1));
 
+        btnBuscarPorProgEstatus.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnBuscarPorProgEstatus.setText("Buscar");
         btnBuscarPorProgEstatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,37 +166,38 @@ public class VistaBusqueda extends javax.swing.JPanel {
 
         txtAPaterno.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         txtAPaterno.setPreferredSize(new java.awt.Dimension(120, 27));
-        jPanel6.add(txtAPaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 26, 140, 20));
+        jPanel6.add(txtAPaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 140, 20));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Paterno");
-        jPanel6.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 43, -1, 20));
+        jPanel6.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, 20));
 
         txtAMaterno.setPreferredSize(new java.awt.Dimension(120, 27));
-        jPanel6.add(txtAMaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 24, 140, 20));
+        jPanel6.add(txtAMaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 140, 20));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Materno");
-        jPanel6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 43, -1, 20));
+        jPanel6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, 20));
 
         txtNombre.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         txtNombre.setPreferredSize(new java.awt.Dimension(120, 27));
-        jPanel6.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 320, 20));
+        jPanel6.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 320, 20));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Nombre ");
-        jPanel6.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+        jPanel6.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
+        btnBuscarPorNombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnBuscarPorNombre.setText("Buscar");
         btnBuscarPorNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarPorNombreActionPerformed(evt);
             }
         });
-        jPanel6.add(btnBuscarPorNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 90, -1));
+        jPanel6.add(btnBuscarPorNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 90, -1));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -216,55 +219,59 @@ public class VistaBusqueda extends javax.swing.JPanel {
                     .addComponent(PnlBuscaFolio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 5, Short.MAX_VALUE))))
         );
 
         PnlBuscarFechas.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         PnlBuscarFechas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel5.setText("Semestre Registro:");
-        PnlBuscarFechas.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, 19));
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel5.setText("Mes de Registro:");
+        PnlBuscarFechas.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, 19));
 
-        cmbSemestreRegistro.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        cmbSemestreRegistro.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cmbSemestreRegistro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
-        PnlBuscarFechas.add(cmbSemestreRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 116, -1));
+        PnlBuscarFechas.add(cmbSemestreRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 116, -1));
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel9.setText("Semestre Graduación:");
-        PnlBuscarFechas.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, -1, -1));
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel9.setText("Mes de Graduación:");
+        PnlBuscarFechas.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, -1, -1));
 
-        cmbMesGraduacion.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        cmbMesGraduacion.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cmbMesGraduacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
-        PnlBuscarFechas.add(cmbMesGraduacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 30, 117, 20));
+        PnlBuscarFechas.add(cmbMesGraduacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, 117, 20));
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("Buscar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        PnlBuscarFechas.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 30, -1, -1));
+        PnlBuscarFechas.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 30, 80, -1));
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel11.setText("Año:");
-        PnlBuscarFechas.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, -1, -1));
+        PnlBuscarFechas.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
 
+        cmbAnioRegistro.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cmbAnioRegistro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
-        PnlBuscarFechas.add(cmbAnioRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, 110, 20));
+        PnlBuscarFechas.add(cmbAnioRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 110, 20));
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel12.setText("Año:");
-        PnlBuscarFechas.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 60, -1, -1));
+        PnlBuscarFechas.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, -1, -1));
 
+        cmbanioGraduacion.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cmbanioGraduacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
-        PnlBuscarFechas.add(cmbanioGraduacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 60, 117, 20));
+        PnlBuscarFechas.add(cmbanioGraduacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, 117, 20));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado de la búsqueda", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(0, 0, 255))); // NOI18N
         jPanel3.setPreferredSize(new java.awt.Dimension(928, 197));
 
         pnlEvaluado.setLayout(new javax.swing.BoxLayout(pnlEvaluado, javax.swing.BoxLayout.LINE_AXIS));
 
+        tblResultadoBusqueda.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         tblResultadoBusqueda.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -289,6 +296,7 @@ public class VistaBusqueda extends javax.swing.JPanel {
             }
         });
         tblResultadoBusqueda.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tblResultadoBusqueda.setGridColor(new java.awt.Color(0, 0, 0));
         jScrollPane1.setViewportView(tblResultadoBusqueda);
         if (tblResultadoBusqueda.getColumnModel().getColumnCount() > 0) {
             tblResultadoBusqueda.getColumnModel().getColumn(0).setMinWidth(100);
@@ -325,6 +333,7 @@ public class VistaBusqueda extends javax.swing.JPanel {
 
         pnlEvaluado.add(jScrollPane1);
 
+        btnCargarBecario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnCargarBecario.setText("Cargar Becario");
         btnCargarBecario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -346,7 +355,7 @@ public class VistaBusqueda extends javax.swing.JPanel {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(209, Short.MAX_VALUE)
+                .addContainerGap(216, Short.MAX_VALUE)
                 .addComponent(btnCargarBecario)
                 .addContainerGap())
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -362,9 +371,9 @@ public class VistaBusqueda extends javax.swing.JPanel {
             PnlBuscaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PnlBuscaPrincipalLayout.createSequentialGroup()
                 .addGroup(PnlBuscaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 893, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 899, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(PnlBuscarFechas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 893, Short.MAX_VALUE))
+                    .addComponent(PnlBuscarFechas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 899, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PnlBuscaPrincipalLayout.setVerticalGroup(
