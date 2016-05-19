@@ -1035,12 +1035,13 @@ public class PrincipalControlador {
                     vistaRegistro.txtCorreoBecario2.getText());
             boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
             //Si los email son iguales se procede a tomar los valores e insertarlos
-            if (email && fecha) {
-            //if (email) {
-                updateBecario();
+            if (fecha) {
+                if (email) 
+                    updateBecario();
+                else
+                    JOptionPane.showMessageDialog(vistaRegistro, "Correos electrónicos diferentes",
+                            "Verifica los correos electrónicos", JOptionPane.WARNING_MESSAGE);
             }
-            else
-                helper.cursorNormal(vista);
         }
         
         helper.cursorNormal(vista);

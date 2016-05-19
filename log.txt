@@ -2973,3 +2973,5 @@
 18/5/2016;23:27:51;Error al actualizar los datos del becario
 18/5/2016;23:28:32;Error al actualizar los datos del becario
 18/5/2016;23:30:39;Error al actualizar los datos del becario
+19/5/2016;0:15:22;Id no encontrado
+19/5/2016;0:16:52;Id no encontrado

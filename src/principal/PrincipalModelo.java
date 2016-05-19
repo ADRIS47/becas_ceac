@@ -2100,27 +2100,27 @@ public class PrincipalModelo {
             
             
             //Se hace la instruccion de ordenacion ORDER BY
-            if(!nombre.equals("") && bandera == false){
-                consulta = consulta.concat("ORDER BY becario." + Becario.COL_NOMBRE + " ");
-                bandera = true;
-            }
-            
-            if(!aPaterno.equals("") && bandera == false){
-                consulta = consulta.concat("ORDER BY becario." + Becario.COL_APATERNO + " ");
-                bandera = true;
-            }
-            else if(!aPaterno.equals("") && bandera == true){
-                consulta = consulta.concat("AND becario." + Becario.COL_APATERNO + " ");
-            }
-            
-            if(!aMaterno.equals("") && bandera == false){
-                consulta = consulta.concat("ORDER BY becario." + Becario.COL_AMATERNO + " ");
-                bandera = true;
-            }
-            else if(!aMaterno.equals("") && bandera == true){
-                consulta = consulta.concat("AND becario." + Becario.COL_AMATERNO + " ");
-            }
-            
+//            if(!nombre.equals("") && bandera == false){
+//                consulta = consulta.concat("ORDER BY becario." + Becario.COL_NOMBRE + " ");
+//                bandera = true;
+//            }
+//            
+//            if(!aPaterno.equals("") && bandera == false){
+//                consulta = consulta.concat("ORDER BY becario." + Becario.COL_APATERNO + " ");
+//                bandera = true;
+//            }
+//            else if(!aPaterno.equals("") && bandera == true){
+//                consulta = consulta.concat("AND becario." + Becario.COL_APATERNO + " ");
+//            }
+//            
+//            if(!aMaterno.equals("") && bandera == false){
+//                consulta = consulta.concat("ORDER BY becario." + Becario.COL_AMATERNO + " ");
+//                bandera = true;
+//            }
+//            else if(!aMaterno.equals("") && bandera == true){
+//                consulta = consulta.concat("AND becario." + Becario.COL_AMATERNO + " ");
+//            }
+            consulta = consulta.concat(" ORDER BY " + Becario.COL_APATERNO );
             
             //System.out.println("Consulta: " + consulta);
             ps = conexion.prepareStatement(consulta);
