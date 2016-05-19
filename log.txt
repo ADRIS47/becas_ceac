@@ -2868,6 +2868,30 @@
 5/5/2016;23:52:6;Nombre de categoria no encontrado
 5/5/2016;23:55:6;Nombre de categoria no encontrado
 5/5/2016;23:59:7;Nombre de categoria no encontrado
+6/5/2016;8:10:53;Nombre de categoria no encontrado
+6/5/2016;8:11:42;Nombre de categoria no encontrado
+6/5/2016;8:13:20;Nombre de categoria no encontrado
+6/5/2016;8:13:29;Nombre de categoria no encontrado
+6/5/2016;8:14:4;Nombre de categoria no encontrado
+6/5/2016;8:17:12;Nombre de categoria no encontrado
+6/5/2016;8:18:59;Id no encontrado
+6/5/2016;8:18:59;Id no encontrado
+6/5/2016;8:18:59;Id no encontrado
+6/5/2016;8:18:59;Id no encontrado
+6/5/2016;8:18:59;Id no encontrado
+6/5/2016;8:18:59;Id no encontrado
+6/5/2016;8:18:59;Id no encontrado
+6/5/2016;8:18:59;Id no encontrado
+6/5/2016;8:18:59;Id no encontrado
+6/5/2016;8:18:59;Id no encontrado
+6/5/2016;8:33:19;Nombre de categoria no encontrado
+6/5/2016;11:8:14;Nombre de categoria no encontrado
+6/5/2016;11:20:40;Nombre de categoria no encontrado
+6/5/2016;11:28:59;Nombre de categoria no encontrado
+6/5/2016;11:29:10;Nombre de categoria no encontrado
+6/5/2016;13:2:18;Nombre de categoria no encontrado
+6/5/2016;16:47:46;Nombre de categoria no encontrado
+6/5/2016;16:51:46;Nombre de categoria no encontrado
 7/5/2016;17:37:31;SQLError: HY000
 7/5/2016;17:37:31;ERROR: Code1364
 7/5/2016;17:37:31;Message: Field 'id_becario' doesn't have a default value
@@ -2931,3 +2955,15 @@
 18/5/2016;21:31:13;Id no encontrado
 18/5/2016;21:31:15;Id no encontrado
 18/5/2016;21:31:19;Id no encontrado
+15/5/2016;13:25:28;SQLError: 42S02
+15/5/2016;13:25:28;ERROR: Code1146
+15/5/2016;13:25:28;Message: Table 'becas_chihuahua.beca_cat_municipio' doesn't exist
+15/5/2016;13:27:14;SQLError: 42S02
+15/5/2016;13:27:14;ERROR: Code1146
+15/5/2016;13:27:14;Message: Table 'becas_chihuahua.beca_cat_municipio' doesn't exist
+17/5/2016;8:13:28;Nombre de categoria no encontrado
+17/5/2016;8:16:18;Nombre de categoria no encontrado
+17/5/2016;8:16:21;Nombre de categoria no encontrado
+17/5/2016;8:18:25;Nombre de categoria no encontrado
+17/5/2016;14:19:50;No se pudo conectar a la Base de datos
+17/5/2016;14:21:9;No se pudo conectar a la Base de datos
