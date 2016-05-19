@@ -2571,7 +2571,7 @@ public class PrincipalControlador {
         //Llenado de padres
         //Se crean las vistas de padres necesarias para la insercion de los datos
         if (lstPadresBecario.size() > 1) {
-            for (int i = 1; i <= lstPadresBecario.size() - 1; i++) {
+            for (int i = 1; i < lstPadresBecario.size() - 1; i++) {
                 agregaJPanel(new PnlParentesco());
             }
         }
@@ -2867,7 +2867,7 @@ public class PrincipalControlador {
             tblModelo = new ModelDefault(columnas, 0);
         }
         else{
-            columnas = new String[]{"Nombre","Tipo de Universidad"};
+            columnas = new String[]{"Nombre","Universidad Pública"};
             tblModelo = new ModelUniversidades(columnas, 0);
         }
         
