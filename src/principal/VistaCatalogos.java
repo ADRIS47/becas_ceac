@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package adris.vistas;
+package principal;
 
+import adris.vistas.*;
 import principal.*;
 import java.awt.event.ItemEvent;
 import javax.swing.JTable;

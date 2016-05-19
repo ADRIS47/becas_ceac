@@ -532,11 +532,15 @@ public class PrincipalControlador {
         lstVistaDireccion.add(vistaDireccion);
 
         vistaParentesco.lblBorrarPariente.setVisible(false);
+        vistaParentesco2.lblBorrarPariente.setVisible(false);
+        vistaParentesco.lblAgregarPariente.setVisible(false);
+        vistaParentesco2.lblAgregarPariente.setVisible(false);
         vistaHermanos.lblBorrarHermano.setVisible(false);
         vistaHijos.lblBorrarHijos.setVisible(false);
         vistaDireccion.lblBorrarDireccion.setVisible(false);
 
         vistaParentesco.setVisible(true);
+        vistaParentesco2.setVisible(true);
         vistaHermanos.setVisible(true);
         vistaHijos.setVisible(true);
         vistaDireccion.setVisible(true);
@@ -3408,10 +3412,11 @@ public class PrincipalControlador {
                             }
                         } else {
                             boolean response; 
+                                if(nombreTabla.contains("univer"))
+                                    response = modelo.insertRegistroCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas, false, lstDatosTipoEscuela.get(i));
+                                else
+                                    response = modelo.insertRegistroCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas, false);
                                     
-                                response = modelo.insertRegistroCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas, false, lstDatosTipoEscuela.get(i));
-                            
-                                
                             if (response == false) {
                                 helper.cursorNormal(vista);
                                 throw new SQLException("No se pudo insertar el registro en el catalogo "
@@ -3427,7 +3432,12 @@ public class PrincipalControlador {
                     for (String dato : lstDatosTabla) {
                         //Se actualizan los registros que ya existen en la bd
                         if (i < totalFilas) {
-                            boolean response = modelo.updateCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas, lstDatosTipoEscuela.get(i));
+                            boolean response;
+                            if(nombreTabla.contains("univer"))
+                                response = modelo.updateCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas, lstDatosTipoEscuela.get(i));
+                            else
+                                response = modelo.updateCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas);
+                            
                             if (response == false) {
                                 helper.cursorNormal(vista);
                                 throw new SQLException("No se pudo actualiza el catalogo "
