@@ -2977,3 +2977,6 @@
 20/5/2016;13:31:25;Error al actualizar las direcciones del becario
 20/5/2016;13:43:13;Error al actualizar las direcciones del becario
 20/5/2016;13:43:52;Error al actualizar las direcciones del becario
+20/5/2016;14:17:34;Error al actualizar las direcciones del becario
+20/5/2016;14:34:35;Error al actualizar las direcciones del becario
+20/5/2016;14:42:53;Error al actualizar las direcciones del becario
