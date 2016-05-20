@@ -20,23 +20,23 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
-                              <Component id="jPnlReporteSeleccion" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jPanel4" max="32767" attributes="0"/>
-                              <Component id="PnlFechasGraducion" alignment="0" max="32767" attributes="0"/>
-                              <Component id="PnlFechasRegistro" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="jPanel1" max="32767" attributes="0"/>
-                              <Component id="PnlFechasGraducion1" alignment="1" min="-2" pref="675" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="jPanel4" max="32767" attributes="0"/>
+                          <Component id="jPanel1" max="32767" attributes="0"/>
+                          <Component id="PnlFechasGraducion1" alignment="1" min="-2" pref="675" max="-2" attributes="0"/>
+                          <Component id="PnlFechasRegistro" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                       <Component id="PnlBotonesReporte" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jPnlReporteSeleccion" max="32767" attributes="0"/>
+                          <Component id="jPanel2" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace pref="56" max="32767" attributes="0"/>
@@ -50,11 +50,11 @@
               <Component id="jPanel4" min="-2" pref="40" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPnlReporteSeleccion" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="PnlFechasRegistro" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="PnlFechasGraducion" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+              <Component id="PnlFechasRegistro" min="-2" pref="41" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="PnlFechasGraducion1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
@@ -131,7 +131,7 @@
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="CmbTipoReporte" min="-2" pref="359" max="-2" attributes="0"/>
-                  <EmptySpace pref="42" max="32767" attributes="0"/>
+                  <EmptySpace pref="21" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -183,20 +183,20 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                  <Component id="cmbMesRegRep1" min="-2" pref="83" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="cmbMesRegRep1" min="-2" pref="108" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="cmbAnioRegRep1" min="-2" pref="55" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                  <Component id="cmbAnioRegRep1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                   <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                  <Component id="cmbMesRegRep2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                  <Component id="cmbanioRegRep2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="27" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="cmbMesRegRep2" min="-2" pref="107" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="cmbanioRegRep2" min="-2" pref="56" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -205,16 +205,18 @@
               <Group type="102" attributes="0">
                   <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel5" min="-2" pref="19" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel5" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
                           <Component id="cmbMesRegRep1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cmbAnioRegRep1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cmbMesRegRep2" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                           <Component id="cmbanioRegRep2" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="16" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -225,7 +227,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="11" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Mes de Registro:"/>
+            <Property name="text" type="java.lang.String" value="De:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="cmbMesRegRep1">
@@ -285,7 +287,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="11" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="al"/>
+            <Property name="text" type="java.lang.String" value="a"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="cmbAnioRegRep1">
@@ -337,219 +339,6 @@
           </AuxValues>
         </Component>
         <Component class="javax.swing.JComboBox" name="cmbanioRegRep2">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="10" style="0"/>
-            </Property>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="34">
-                <StringItem index="0" value="2007"/>
-                <StringItem index="1" value="2008"/>
-                <StringItem index="2" value="2009"/>
-                <StringItem index="3" value="2010"/>
-                <StringItem index="4" value="2011"/>
-                <StringItem index="5" value="2012"/>
-                <StringItem index="6" value="2013"/>
-                <StringItem index="7" value="2014"/>
-                <StringItem index="8" value="2015"/>
-                <StringItem index="9" value="2016"/>
-                <StringItem index="10" value="2017"/>
-                <StringItem index="11" value="2018"/>
-                <StringItem index="12" value="2019"/>
-                <StringItem index="13" value="2020"/>
-                <StringItem index="14" value="2021"/>
-                <StringItem index="15" value="2022"/>
-                <StringItem index="16" value="2023"/>
-                <StringItem index="17" value="2024"/>
-                <StringItem index="18" value="2025"/>
-                <StringItem index="19" value="2026"/>
-                <StringItem index="20" value="2027"/>
-                <StringItem index="21" value="2028"/>
-                <StringItem index="22" value="2029"/>
-                <StringItem index="23" value="2030"/>
-                <StringItem index="24" value="2031"/>
-                <StringItem index="25" value="2032"/>
-                <StringItem index="26" value="2033"/>
-                <StringItem index="27" value="2034"/>
-                <StringItem index="28" value="2035"/>
-                <StringItem index="29" value="2036"/>
-                <StringItem index="30" value="2037"/>
-                <StringItem index="31" value="2038"/>
-                <StringItem index="32" value="2039"/>
-                <StringItem index="33" value="2040"/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
-          </AuxValues>
-        </Component>
-      </SubComponents>
-    </Container>
-    <Container class="javax.swing.JPanel" name="PnlFechasGraducion">
-      <Properties>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-            <EtchetBorder/>
-          </Border>
-        </Property>
-      </Properties>
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                  <Component id="cmbMesRep3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                  <Component id="cmbAnioRep2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                  <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                  <Component id="cmbMesRep4" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                  <Component id="cmbanioRep3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="cmbMesRep3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cmbAnioRep2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cmbMesRep4" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                      <Component id="cmbanioRep3" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                      <Component id="jLabel7" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="16" max="32767" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-      <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel7">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="11" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Mes de Graduaci&#xf3;n:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="cmbMesRep3">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="10" style="0"/>
-            </Property>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="12">
-                <StringItem index="0" value="Enero"/>
-                <StringItem index="1" value="Febrero"/>
-                <StringItem index="2" value="Marzo"/>
-                <StringItem index="3" value="Abril"/>
-                <StringItem index="4" value="Mayo"/>
-                <StringItem index="5" value="Junio"/>
-                <StringItem index="6" value="Julio"/>
-                <StringItem index="7" value="Agosto"/>
-                <StringItem index="8" value="Septiembre"/>
-                <StringItem index="9" value="Octubre"/>
-                <StringItem index="10" value="Noviembre"/>
-                <StringItem index="11" value="Diciembre"/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="cmbMesRep4">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="10" style="0"/>
-            </Property>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="12">
-                <StringItem index="0" value="Enero"/>
-                <StringItem index="1" value="Febrero"/>
-                <StringItem index="2" value="Marzo"/>
-                <StringItem index="3" value="Abril"/>
-                <StringItem index="4" value="Mayo"/>
-                <StringItem index="5" value="Junio"/>
-                <StringItem index="6" value="Julio"/>
-                <StringItem index="7" value="Agosto"/>
-                <StringItem index="8" value="Septiembre"/>
-                <StringItem index="9" value="Octubre"/>
-                <StringItem index="10" value="Noviembre"/>
-                <StringItem index="11" value="Diciembre"/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel12">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="11" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="al"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="cmbAnioRep2">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="10" style="0"/>
-            </Property>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="34">
-                <StringItem index="0" value="2007"/>
-                <StringItem index="1" value="2008"/>
-                <StringItem index="2" value="2009"/>
-                <StringItem index="3" value="2010"/>
-                <StringItem index="4" value="2011"/>
-                <StringItem index="5" value="2012"/>
-                <StringItem index="6" value="2013"/>
-                <StringItem index="7" value="2014"/>
-                <StringItem index="8" value="2015"/>
-                <StringItem index="9" value="2016"/>
-                <StringItem index="10" value="2017"/>
-                <StringItem index="11" value="2018"/>
-                <StringItem index="12" value="2019"/>
-                <StringItem index="13" value="2020"/>
-                <StringItem index="14" value="2021"/>
-                <StringItem index="15" value="2022"/>
-                <StringItem index="16" value="2023"/>
-                <StringItem index="17" value="2024"/>
-                <StringItem index="18" value="2025"/>
-                <StringItem index="19" value="2026"/>
-                <StringItem index="20" value="2027"/>
-                <StringItem index="21" value="2028"/>
-                <StringItem index="22" value="2029"/>
-                <StringItem index="23" value="2030"/>
-                <StringItem index="24" value="2031"/>
-                <StringItem index="25" value="2032"/>
-                <StringItem index="26" value="2033"/>
-                <StringItem index="27" value="2034"/>
-                <StringItem index="28" value="2035"/>
-                <StringItem index="29" value="2036"/>
-                <StringItem index="30" value="2037"/>
-                <StringItem index="31" value="2038"/>
-                <StringItem index="32" value="2039"/>
-                <StringItem index="33" value="2040"/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="cmbanioRep3">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="10" style="0"/>
@@ -880,6 +669,64 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtFolioFinalActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
+          </AuxValues>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="jPanel2">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+            <EtchetBorder/>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="cmbCriterioReporteFechas" min="-2" pref="220" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel4" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
+                      <Component id="cmbCriterioReporteFechas" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="21" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel4">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Criterio de fechas por:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cmbCriterioReporteFechas">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="2">
+                <StringItem index="0" value="Por fecha registro Asociacion"/>
+                <StringItem index="1" value="Por fecha Graduaci&#xf3;n"/>
+              </StringArray>
+            </Property>
+          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
           </AuxValues>
