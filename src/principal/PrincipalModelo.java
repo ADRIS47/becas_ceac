@@ -321,20 +321,20 @@ public class PrincipalModelo {
             }
         }
         //Se ordenan los programas
-        int i = 0;
-        int tamanioOriginal = catPrograma.size();
-        String[] programas = new String[]{"Devoluci", "Empuje", "Pura", "Apoyo", "Historico"};
-        while(i < tamanioOriginal){
-            for (Integer idPrograma : catPrograma.keySet()) {
-                String programa = catPrograma.get(idPrograma);
-                if(programa.contains(programas[i])){
-                    catResult.put(idPrograma, programa);
-                    i++;
-                    break;
-                }
-            }
-        }
-        return catResult;
+//        int i = 0;
+//        int tamanioOriginal = catPrograma.size();
+//        String[] programas = new String[]{"Devoluci", "Empuje", "Pura", "Apoyo", "Historico"};
+//        while(i < tamanioOriginal){
+//            for (Integer idPrograma : catPrograma.keySet()) {
+//                String programa = catPrograma.get(idPrograma);
+//                if(programa.contains(programas[i])){
+//                    catResult.put(idPrograma, programa);
+//                    i++;
+//                    break;
+//                }
+//            }
+//        }
+        return catPrograma;
     }
 
     /**
