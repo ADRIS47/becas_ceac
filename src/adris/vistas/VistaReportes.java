@@ -93,7 +93,7 @@ public class VistaReportes extends javax.swing.JPanel {
 
         jPnlReporteSeleccion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("Reporte:");
 
         CmbTipoReporte.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -121,22 +121,22 @@ public class VistaReportes extends javax.swing.JPanel {
 
         PnlFechasRegistro.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("Mes de Registro:");
 
-        cmbMesRegRep1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cmbMesRegRep1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         cmbMesRegRep1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
 
-        cmbMesRegRep2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cmbMesRegRep2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         cmbMesRegRep2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel11.setText("al");
 
-        cmbAnioRegRep1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cmbAnioRegRep1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         cmbAnioRegRep1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
 
-        cmbanioRegRep2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cmbanioRegRep2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         cmbanioRegRep2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
 
         javax.swing.GroupLayout PnlFechasRegistroLayout = new javax.swing.GroupLayout(PnlFechasRegistro);
@@ -175,22 +175,22 @@ public class VistaReportes extends javax.swing.JPanel {
 
         PnlFechasGraducion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel7.setText("Mes de Graduación:");
 
-        cmbMesRep3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cmbMesRep3.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         cmbMesRep3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
 
-        cmbMesRep4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cmbMesRep4.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         cmbMesRep4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel12.setText("al");
 
-        cmbAnioRep2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cmbAnioRep2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         cmbAnioRep2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
 
-        cmbanioRep3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cmbanioRep3.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         cmbanioRep3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
 
         javax.swing.GroupLayout PnlFechasGraducionLayout = new javax.swing.GroupLayout(PnlFechasGraducion);
@@ -228,19 +228,19 @@ public class VistaReportes extends javax.swing.JPanel {
 
         PnlFechasGraducion1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setText("Programa inical:");
 
-        cmbMesRep5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cmbMesRep5.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
-        cmbMesRep6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cmbMesRep6.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel13.setText("y");
 
-        cmbAnioRep3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cmbAnioRep3.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
-        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel14.setText("Estatus:");
 
         javax.swing.GroupLayout PnlFechasGraducion1Layout = new javax.swing.GroupLayout(PnlFechasGraducion1);
@@ -250,17 +250,17 @@ public class VistaReportes extends javax.swing.JPanel {
             .addGroup(PnlFechasGraducion1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jLabel8)
-                .addGap(30, 30, 30)
-                .addComponent(cmbMesRep5, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addGap(18, 18, 18)
+                .addComponent(cmbMesRep5, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(cmbMesRep6, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68)
+                .addComponent(cmbMesRep6, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cmbAnioRep3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(154, 154, 154))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(cmbAnioRep3, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(90, 90, 90))
         );
         PnlFechasGraducion1Layout.setVerticalGroup(
             PnlFechasGraducion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -326,17 +326,20 @@ public class VistaReportes extends javax.swing.JPanel {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("Folio Inicial:");
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel9.setText("Programa:");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Folio Final:");
 
-        cmbProgramaReporte.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cmbProgramaReporte.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
+        TxtFolioInicial.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+
+        TxtFolioFinal.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         TxtFolioFinal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtFolioFinalActionPerformed(evt);
@@ -348,15 +351,15 @@ public class VistaReportes extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(63, 63, 63)
+                .addGap(19, 19, 19)
                 .addComponent(jLabel9)
-                .addGap(31, 31, 31)
-                .addComponent(cmbProgramaReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addGap(18, 18, 18)
+                .addComponent(cmbProgramaReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(TxtFolioInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(46, 46, 46)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(TxtFolioFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -446,8 +449,8 @@ public class VistaReportes extends javax.swing.JPanel {
     private javax.swing.JPanel PnlFechasGraducion;
     private javax.swing.JPanel PnlFechasGraducion1;
     private javax.swing.JPanel PnlFechasRegistro;
-    private javax.swing.JTextField TxtFolioFinal;
-    private javax.swing.JTextField TxtFolioInicial;
+    protected javax.swing.JTextField TxtFolioFinal;
+    protected javax.swing.JTextField TxtFolioInicial;
     protected javax.swing.JComboBox cmbAnioRegRep1;
     protected javax.swing.JComboBox cmbAnioRep2;
     protected javax.swing.JComboBox cmbAnioRep3;
