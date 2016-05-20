@@ -2936,6 +2936,20 @@
 13/5/2016;11:16:55;Nombre de categoria no encontrado
 13/5/2016;11:17:43;Nombre de categoria no encontrado
 13/5/2016;11:36:47;Nombre de categoria no encontrado
+15/5/2016;13:25:28;SQLError: 42S02
+15/5/2016;13:25:28;ERROR: Code1146
+15/5/2016;13:25:28;Message: Table 'becas_chihuahua.beca_cat_municipio' doesn't exist
+15/5/2016;13:27:14;SQLError: 42S02
+15/5/2016;13:27:14;ERROR: Code1146
+15/5/2016;13:27:14;Message: Table 'becas_chihuahua.beca_cat_municipio' doesn't exist
+17/5/2016;8:13:28;Nombre de categoria no encontrado
+17/5/2016;8:16:18;Nombre de categoria no encontrado
+17/5/2016;8:16:21;Nombre de categoria no encontrado
+17/5/2016;8:18:25;Nombre de categoria no encontrado
+17/5/2016;14:19:50;No se pudo conectar a la Base de datos
+17/5/2016;14:21:9;No se pudo conectar a la Base de datos
+18/5/2016;17:22:29;Nombre de categoria no encontrado
+18/5/2016;18:28:46;Nombre de categoria no encontrado
 17/5/2016;18:22:55;Id no encontrado
 17/5/2016;18:23:45;Id no encontrado
 17/5/2016;18:23:47;Id no encontrado
@@ -2949,32 +2963,3 @@
 15/5/2016;0:15:29;Nombre de categoria no encontrado
 15/5/2016;0:15:35;Nombre de categoria no encontrado
 15/5/2016;0:15:44;Nombre de categoria no encontrado
-18/5/2016;21:30:3;Id no encontrado
-18/5/2016;21:30:9;Id no encontrado
-18/5/2016;21:31:4;Id no encontrado
-18/5/2016;21:31:13;Id no encontrado
-18/5/2016;21:31:15;Id no encontrado
-18/5/2016;21:31:19;Id no encontrado
-15/5/2016;13:25:28;SQLError: 42S02
-15/5/2016;13:25:28;ERROR: Code1146
-15/5/2016;13:25:28;Message: Table 'becas_chihuahua.beca_cat_municipio' doesn't exist
-15/5/2016;13:27:14;SQLError: 42S02
-15/5/2016;13:27:14;ERROR: Code1146
-15/5/2016;13:27:14;Message: Table 'becas_chihuahua.beca_cat_municipio' doesn't exist
-17/5/2016;8:13:28;Nombre de categoria no encontrado
-17/5/2016;8:16:18;Nombre de categoria no encontrado
-17/5/2016;8:16:21;Nombre de categoria no encontrado
-17/5/2016;8:18:25;Nombre de categoria no encontrado
-17/5/2016;14:19:50;No se pudo conectar a la Base de datos
-17/5/2016;14:21:9;No se pudo conectar a la Base de datos
-18/5/2016;23:22:47;Nombre de categoria no encontrado
-18/5/2016;23:24:15;Error al actualizar los datos del becario
-18/5/2016;23:24:48;Error al actualizar los datos del becario
-18/5/2016;23:27:51;Error al actualizar los datos del becario
-18/5/2016;23:28:32;Error al actualizar los datos del becario
-18/5/2016;23:30:39;Error al actualizar los datos del becario
-19/5/2016;0:15:22;Id no encontrado
-19/5/2016;0:16:52;Id no encontrado
-19/5/2016;11:8:50;Id no encontrado
-19/5/2016;11:13:22;Nombre de categoria no encontrado
-19/5/2016;11:18:53;Id no encontrado

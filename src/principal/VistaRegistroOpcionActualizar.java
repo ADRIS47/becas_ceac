@@ -49,10 +49,10 @@ public class VistaRegistroOpcionActualizar extends javax.swing.JPanel {
             }
         });
 
-        btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imprimir.png"))); // NOI18N
+        btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imprime.png"))); // NOI18N
         btnImprimir.setPreferredSize(new java.awt.Dimension(160, 29));
 
-        btnGuardar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/delete.png"))); // NOI18N
+        btnGuardar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cancel_registro.png"))); // NOI18N
         btnGuardar3.setPreferredSize(new java.awt.Dimension(160, 29));
         btnGuardar3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -307,8 +307,7 @@ public class Consultas {
             + "becario." + Becario.COL_CARTA_AGRADECIMIENTO + ", becario." + Becario.COL_GRADUADO + " "
             + "FROM beca_becario AS becario "
             + "WHERE becario." + Becario.COL_PROGRAMA + " = ? AND " + Becario.COL_ESTATUS + " = ? "
-            + "AND becario." + Becario.COL_ACTIVO + " = 1 "
-            + "ORDER BY becario." + Becario.COL_APATERNO;
+            + "AND becario." + Becario.COL_ACTIVO + " = 1";
     
     /**
      * Obtiene los datos de un becario por número de folio
@@ -334,8 +333,7 @@ public class Consultas {
             + "becario." + Becario.COL_CARTA_AGRADECIMIENTO + ", becario." + Becario.COL_GRADUADO + " "
             + "FROM beca_becario AS becario "
             + "WHERE becario." + Becario.COL_ESTATUS + " = ? "
-            + "AND becario." + Becario.COL_ACTIVO + " = 1 "
-            + " ORDER BY becario." + Becario.COL_APATERNO;
+            + "AND becario." + Becario.COL_ACTIVO + " = 1";
     
     /**
      * Obtiene a los becarios a partir de su nombre y apellido

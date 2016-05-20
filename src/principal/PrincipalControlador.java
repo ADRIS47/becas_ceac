@@ -531,16 +531,12 @@ public class PrincipalControlador {
         lstVistaHijos.add(vistaHijos);
         lstVistaDireccion.add(vistaDireccion);
 
-//        vistaParentesco.lblBorrarPariente.setVisible(false);
-//        vistaParentesco2.lblBorrarPariente.setVisible(false);
-//        vistaParentesco.lblAgregarPariente.setVisible(false);
-//        vistaParentesco2.lblAgregarPariente.setVisible(false);
+        vistaParentesco.lblBorrarPariente.setVisible(false);
         vistaHermanos.lblBorrarHermano.setVisible(false);
         vistaHijos.lblBorrarHijos.setVisible(false);
         vistaDireccion.lblBorrarDireccion.setVisible(false);
 
         vistaParentesco.setVisible(true);
-        vistaParentesco2.setVisible(true);
         vistaHermanos.setVisible(true);
         vistaHijos.setVisible(true);
         vistaDireccion.setVisible(true);
@@ -718,10 +714,10 @@ public class PrincipalControlador {
             pnlParentesco.setControlador(this);
 
             lstVistaParentesco.add(pnlParentesco);
-//            pnlParentesco.lblAgregarPariente.setVisible(false);
+            pnlParentesco.lblAgregarPariente.setVisible(false);
             llenaComboCategorias(pnlParentesco.cmbNivelEstudiosPariente, catNivelEstudios);
             llenaComboCategorias(pnlParentesco.cmbParentesco, catParentesco);
-//            lstVistaParentesco.get(0).lblAgregarPariente.setVisible(false);
+            lstVistaParentesco.get(0).lblAgregarPariente.setVisible(false);
             helper.agregaJPanel(pnlParentesco, vistaRegistro.pnlParentesco);
         }
 
@@ -777,11 +773,11 @@ public class PrincipalControlador {
             int tamanio = lstVistaParentesco.size();
             helper.borraJpanel(lstVistaParentesco.get(lstVistaParentesco.size() - 1), vistaRegistro.pnlParentesco);
             lstVistaParentesco.remove(lstVistaParentesco.size() - 1);
-//            lstVistaParentesco.get(lstVistaParentesco.size() - 1).lblAgregarPariente.setVisible(true);
-//            System.out.println("Esto es de dirección");
-//            if (tamanio == 1) {
-//                lstVistaParentesco.get(0).lblBorrarPariente.setVisible(false);
-//            }
+            lstVistaParentesco.get(lstVistaParentesco.size() - 1).lblAgregarPariente.setVisible(true);
+            System.out.println("Esto es de dirección");
+            if (tamanio == 1) {
+                lstVistaParentesco.get(0).lblBorrarPariente.setVisible(false);
+            }
         }
 
         if (componente instanceof PnlDireccion) {
@@ -1035,16 +1031,13 @@ public class PrincipalControlador {
                     vistaRegistro.txtCorreoBecario2.getText());
             boolean fecha = helper.validaFechaNacimiento(vistaRegistro.txtFechaNacimiento, vista);
             //Si los email son iguales se procede a tomar los valores e insertarlos
-            if (fecha) {
-                if (email) 
-                    updateBecario();
-                else
-                    JOptionPane.showMessageDialog(vistaRegistro, "Correos electrónicos diferentes",
-                            "Verifica los correos electrónicos", JOptionPane.WARNING_MESSAGE);
+            if (email && fecha) {
+            //if (email) {
+                updateBecario();
             }
+            else
+                helper.cursorNormal(vista);
         }
-        
-        helper.cursorNormal(vista);
     }
 
     /**
@@ -2571,7 +2564,7 @@ public class PrincipalControlador {
         //Llenado de padres
         //Se crean las vistas de padres necesarias para la insercion de los datos
         if (lstPadresBecario.size() > 1) {
-            for (int i = 1; i < lstPadresBecario.size() - 1; i++) {
+            for (int i = 1; i <= lstPadresBecario.size() - 1; i++) {
                 agregaJPanel(new PnlParentesco());
             }
         }
@@ -2867,7 +2860,7 @@ public class PrincipalControlador {
             tblModelo = new ModelDefault(columnas, 0);
         }
         else{
-            columnas = new String[]{"Nombre","Universidad Pública"};
+            columnas = new String[]{"Nombre","Tipo de Universidad"};
             tblModelo = new ModelUniversidades(columnas, 0);
         }
         
@@ -2964,6 +2957,7 @@ public class PrincipalControlador {
         for (Integer key : nombreDatoCatalogos.keySet()) {
             tblModelo.addRow(new String[]{""});
         }
+                
         int i = 0;
         //Se llenan los nombres de los catalogos
         if(bandera){
@@ -2971,8 +2965,10 @@ public class PrincipalControlador {
                 tblModelo.setValueAt(nombreDatoCatalogos.get(valor), i, 0);
                 i++;
             }
+           
         }
-        else{ 
+        else{
+                        
             i = 0;
             for (Integer idEscuela : nombreDatoCatalogos.keySet()){
                 tblModelo.setValueAt(nombreDatoCatalogos.get(idEscuela), i, 0);
@@ -2985,6 +2981,7 @@ public class PrincipalControlador {
                 i++;
             }
         }
+        
         tblModelo.addRow(new String[]{});
     }
 
@@ -3415,11 +3412,10 @@ public class PrincipalControlador {
                             }
                         } else {
                             boolean response; 
-                                if(nombreTabla.contains("univer"))
-                                    response = modelo.insertRegistroCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas, false, lstDatosTipoEscuela.get(i));
-                                else
-                                    response = modelo.insertRegistroCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas, false);
                                     
+                                response = modelo.insertRegistroCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas, false, lstDatosTipoEscuela.get(i));
+                            
+                                
                             if (response == false) {
                                 helper.cursorNormal(vista);
                                 throw new SQLException("No se pudo insertar el registro en el catalogo "
@@ -3435,12 +3431,7 @@ public class PrincipalControlador {
                     for (String dato : lstDatosTabla) {
                         //Se actualizan los registros que ya existen en la bd
                         if (i < totalFilas) {
-                            boolean response;
-                            if(nombreTabla.contains("univer"))
-                                response = modelo.updateCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas, lstDatosTipoEscuela.get(i));
-                            else
-                                response = modelo.updateCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas);
-                            
+                            boolean response = modelo.updateCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas, lstDatosTipoEscuela.get(i));
                             if (response == false) {
                                 helper.cursorNormal(vista);
                                 throw new SQLException("No se pudo actualiza el catalogo "
