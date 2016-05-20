@@ -310,6 +310,32 @@ public class Consultas {
             + "AND becario." + Becario.COL_ACTIVO + " = 1";
     
     /**
+     * Obtiene los datos de un becario por número de folio
+     */
+    public static String getBecariosPorProgramaEstatus = "SELECT "
+            + "becario." + Becario.COL_NOMBRE +  ", becario." + Becario.COL_APATERNO +  ", "
+            + "becario." + Becario.COL_AMATERNO +  ", becario." + Becario.COL_FECHA_NAC +  ", "
+            + "becario." + Becario.COL_SEXO +  ", becario." + Becario.COL_ESTADO_CIVIL +  ", "
+            + "becario." + Becario.COL_TRABAJA +  ", becario." + Becario.COL_FOLIO +  ", "
+            + "becario." + Becario.COL_PROGRAMA +  ", becario." + Becario.COL_ESTATUS +  ", "
+            + "becario." + Becario.COL_TIPO_ESTATUS +  ", becario." + Becario.COL_FOTO +  ", "
+            + "becario." + Becario.COL_EMAIL +  ", becario." + Becario.COL_PRIMERO_CON_BECA +  ", "
+            + "becario." + Becario.COL_NOMBRE_CONYUGE +  ", becario." + Becario.COL_APATERNO_CONYUGE +  ", "
+            + "becario." + Becario.COL_AMATERNO_CONYUGE +  ", becario." + Becario.COL_TELEFONO_CONYUGE +  ", "
+            + "becario." + Becario.COL_OBSERVACIONES +  ", becario." + Becario.COL_ACTA_NAC +  ", "
+            + "becario." + Becario.COL_SOLICITUD_BECA +  ", becario." + Becario.COL_ENSAYO +  ", "
+            + "becario." + Becario.COL_BOLETA_INICIO_BECA +  ", becario." + Becario.COL_CONTRATO_BECA +  ", "
+            + "becario." + Becario.COL_IDENTIFICACION + ", becario." + Becario.COL_ID + ", "
+            + "becario." + Becario.COL_PAGARE + ", becario." + Becario.COL_OCUPACION_CONYUGE + ", "
+            + "becario." + Becario.COL_ID_BANCO + ", becario." + Becario.COL_CUENTA_BANCO + ", "
+            + "becario." + Becario.COL_CLABE_INTERBANCARIA + ", becario." + Becario.COL_ACTIVO + ", "
+            + "becario." + Becario.COL_CARTA_ASIGNACION_BECA + ", becario." + Becario.COL_ESTUDIO_SOCIOECONOMICO + ", "
+            + "becario." + Becario.COL_CARTA_AGRADECIMIENTO + ", becario." + Becario.COL_GRADUADO + " "
+            + "FROM beca_becario AS becario "
+            + "WHERE becario." + Becario.COL_ESTATUS + " = ? "
+            + "AND becario." + Becario.COL_ACTIVO + " = 1";
+    
+    /**
      * Obtiene a los becarios a partir de su nombre y apellido
      */
     public static String getBecarioPorNombres = "SELECT "
@@ -409,5 +435,8 @@ public class Consultas {
                 + " FROM beca_cat_universidad AS uni JOIN beca_tipo_escuela AS tipo ON uni." 
                 + CatUniversidad.COL_ID_TIPO_ESCUELA + " = tipo." + CatTipoEscuela.COL_ID + " "
             + "WHERE uni." + CatUniversidad.COL_ID + " = ?";
+    
+    
+    public static String getTotalProgramas = "SELECT COUNT(*) FROM beca_cat_programa";
     
 }

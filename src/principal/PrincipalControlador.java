@@ -428,9 +428,13 @@ public class PrincipalControlador {
         catCampoEstudio = lstCategorias.get(6);
         catEstatus = lstCategorias.get(7);
         catBancos = lstCategorias.get(8);
+        
+        catPrograma.put(10000, "Todos");
 
         llenaComboCategorias(vistaBusqueda.cmbPrograma, catPrograma);
         llenaComboCategorias(vistaBusqueda.CmbboxBuscaEstatus, catEstatus);
+        
+        catPrograma.remove(10000);
     }
 
     /**
@@ -2352,8 +2356,16 @@ public class PrincipalControlador {
         }
 
         int idPrograma = getIdCmbBox(programa, catPrograma);
+        int totalProgramas = modelo.getTotalProgramas(conexion);
         int idEstatus = getIdCmbBox(estatus, catEstatus);
-        lstBecario = modelo.getBecarioPorProgramaEstatus(conexion, idPrograma, idEstatus);
+        
+        //Si se selecciono "TODOS"
+        if(idPrograma == 0){
+            lstBecario = modelo.getBecarioPorProgramaEstatus(conexion, 10000, idEstatus);
+        }
+        //Si no se busca por el id del programa
+        else
+            lstBecario = modelo.getBecarioPorProgramaEstatus(conexion, idPrograma, idEstatus);
         if (lstBecario.isEmpty()) {
             helper.cursorNormal(vista);
             JOptionPane.showMessageDialog(vista, "No se encontraron Becarios", "No hay registros", JOptionPane.INFORMATION_MESSAGE);
@@ -2820,11 +2832,11 @@ public class PrincipalControlador {
 
         if(!nombreTabla.contains("univer")){
             creaTablaCatalogos(true);
-            llenaTablaCatalogos(catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo, false, conexion);
+            llenaTablaCatalogos(catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo, true, conexion);
         }
         else{
             creaTablaCatalogos(false);
-            llenaTablaCatalogos(catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo, true, conexion);
+            llenaTablaCatalogos(catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo, false, conexion);
             DefaultTableModel tblModel = (DefaultTableModel) vistaCatalogos.TblDescripcionCatalogo.getModel();
         }
 
@@ -2948,7 +2960,7 @@ public class PrincipalControlador {
                 
         int i = 0;
         //Se llenan los nombres de los catalogos
-        if(bandera == false){
+        if(bandera){
             for (Integer valor : nombreDatoCatalogos.keySet()){
                 tblModelo.setValueAt(nombreDatoCatalogos.get(valor), i, 0);
                 i++;

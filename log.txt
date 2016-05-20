@@ -2950,3 +2950,16 @@
 17/5/2016;14:21:9;No se pudo conectar a la Base de datos
 18/5/2016;17:22:29;Nombre de categoria no encontrado
 18/5/2016;18:28:46;Nombre de categoria no encontrado
+17/5/2016;18:22:55;Id no encontrado
+17/5/2016;18:23:45;Id no encontrado
+17/5/2016;18:23:47;Id no encontrado
+17/5/2016;18:24:4;Nombre de categoria no encontrado
+17/5/2016;18:24:13;Nombre de categoria no encontrado
+17/5/2016;18:25:58;Id no encontrado
+18/5/2016;9:12:9;Id no encontrado
+15/5/2016;0:15:0;Nombre de categoria no encontrado
+15/5/2016;0:15:20;Nombre de categoria no encontrado
+15/5/2016;0:15:23;Nombre de categoria no encontrado
+15/5/2016;0:15:29;Nombre de categoria no encontrado
+15/5/2016;0:15:35;Nombre de categoria no encontrado
+15/5/2016;0:15:44;Nombre de categoria no encontrado

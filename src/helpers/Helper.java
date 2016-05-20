@@ -5,7 +5,6 @@
  */
 package helpers;
 
-import com.toedter.calendar.JDateChooser;
 import index.Index;
 import java.awt.Component;
 import java.awt.Cursor;
@@ -670,14 +669,14 @@ public class Helper {
      * @param chooser
      * @return 
      */
-    public java.util.Date getFechaDateChooser(JDateChooser chooser){
-        
-        java.util.Date fecha = null;
-        if(chooser.getDate() != null){
-            fecha = chooser.getDate();
-        }
-        return fecha;
-    }
+//    public java.util.Date getFechaDateChooser(JDateChooser chooser){
+//        
+//        java.util.Date fecha = null;
+//        if(chooser.getDate() != null){
+//            fecha = chooser.getDate();
+//        }
+//        return fecha;
+//    }
     
     /**
      * Convierte una fecha tipo util.Date a fecha sql.Date
