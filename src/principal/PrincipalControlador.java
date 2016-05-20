@@ -16,6 +16,7 @@ import index.Index;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.io.File;
 import java.nio.file.Path;
 import java.sql.Connection;
@@ -363,6 +364,9 @@ public class PrincipalControlador {
         vista.ScrollpnlOpciones.updateUI();
         vista.ScrollpnlOpciones.validate();
         vista.repaint();
+        
+        vista.setExtendedState(MAXIMIZED_BOTH);
+        //vista.setResizable(false);
     }
 
     /**
