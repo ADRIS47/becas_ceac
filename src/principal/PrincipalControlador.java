@@ -535,7 +535,7 @@ public class PrincipalControlador {
         lstVistaHijos.add(vistaHijos);
         lstVistaDireccion.add(vistaDireccion);
 
-        vistaParentesco.lblBorrarPariente.setVisible(false);
+//        vistaParentesco.lblBorrarPariente.setVisible(false);
         vistaHermanos.lblBorrarHermano.setVisible(false);
         vistaHijos.lblBorrarHijos.setVisible(false);
         vistaDireccion.lblBorrarDireccion.setVisible(false);
@@ -718,10 +718,10 @@ public class PrincipalControlador {
             pnlParentesco.setControlador(this);
 
             lstVistaParentesco.add(pnlParentesco);
-            pnlParentesco.lblAgregarPariente.setVisible(false);
+//            pnlParentesco.lblAgregarPariente.setVisible(false);
             llenaComboCategorias(pnlParentesco.cmbNivelEstudiosPariente, catNivelEstudios);
             llenaComboCategorias(pnlParentesco.cmbParentesco, catParentesco);
-            lstVistaParentesco.get(0).lblAgregarPariente.setVisible(false);
+//            lstVistaParentesco.get(0).lblAgregarPariente.setVisible(false);
             helper.agregaJPanel(pnlParentesco, vistaRegistro.pnlParentesco);
         }
 
@@ -777,11 +777,11 @@ public class PrincipalControlador {
             int tamanio = lstVistaParentesco.size();
             helper.borraJpanel(lstVistaParentesco.get(lstVistaParentesco.size() - 1), vistaRegistro.pnlParentesco);
             lstVistaParentesco.remove(lstVistaParentesco.size() - 1);
-            lstVistaParentesco.get(lstVistaParentesco.size() - 1).lblAgregarPariente.setVisible(true);
-            System.out.println("Esto es de dirección");
-            if (tamanio == 1) {
-                lstVistaParentesco.get(0).lblBorrarPariente.setVisible(false);
-            }
+////            lstVistaParentesco.get(lstVistaParentesco.size() - 1).lblAgregarPariente.setVisible(true);
+//            System.out.println("Esto es de dirección");
+//            if (tamanio == 1) {
+//                lstVistaParentesco.get(0).lblBorrarPariente.setVisible(false);
+//            }
         }
 
         if (componente instanceof PnlDireccion) {
