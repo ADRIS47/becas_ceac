@@ -2963,3 +2963,17 @@
 15/5/2016;0:15:29;Nombre de categoria no encontrado
 15/5/2016;0:15:35;Nombre de categoria no encontrado
 15/5/2016;0:15:44;Nombre de categoria no encontrado
+20/5/2016;13:10:14;Nombre de categoria no encontrado
+20/5/2016;13:11:34;Error al actualizar los datos del becario
+20/5/2016;13:12:13;Error al actualizar los datos del becario
+20/5/2016;13:14:13;Error al actualizar los datos del becario
+20/5/2016;13:21:7;Error al actualizar las direcciones del becario
+20/5/2016;13:21:14;Error al actualizar las direcciones del becario
+20/5/2016;13:21:21;Error al actualizar las direcciones del becario
+20/5/2016;13:23:41;Error al actualizar las direcciones del becario
+20/5/2016;13:24:38;Error al actualizar las direcciones del becario
+20/5/2016;13:25:23;Error al actualizar las direcciones del becario
+20/5/2016;13:31:19;Error al actualizar las direcciones del becario
+20/5/2016;13:31:25;Error al actualizar las direcciones del becario
+20/5/2016;13:43:13;Error al actualizar las direcciones del becario
+20/5/2016;13:43:52;Error al actualizar las direcciones del becario

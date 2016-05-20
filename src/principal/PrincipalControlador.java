@@ -246,6 +246,9 @@ public class PrincipalControlador {
 //            cargaVistaRegistro = true;
         }
         else{
+            terminaVistaRegistro();
+            vistaRegistro = new VistaRegistro(this);
+            this.setVistaRegistro(vistaRegistro);
             getInfoBecarioPorFolio(vistaKardex.txtFolio.getText());
             terminaVistaKardex();
 //            cargaVistaRegistro = false;
@@ -1039,9 +1042,11 @@ public class PrincipalControlador {
             //if (email) {
                 updateBecario();
             }
-            else
-                helper.cursorNormal(vista);
+            else if(email == false)
+                JOptionPane.showMessageDialog(vistaRegistro, "Correos electrónicos diferentes",
+                            "Verifica los correos electrónicos", JOptionPane.WARNING_MESSAGE);
         }
+        helper.cursorNormal(vista);
     }
 
     /**
@@ -2568,7 +2573,7 @@ public class PrincipalControlador {
         //Llenado de padres
         //Se crean las vistas de padres necesarias para la insercion de los datos
         if (lstPadresBecario.size() > 1) {
-            for (int i = 1; i <= lstPadresBecario.size() - 1; i++) {
+            for (int i = 1; i < lstPadresBecario.size() - 1; i++) {
                 agregaJPanel(new PnlParentesco());
             }
         }
