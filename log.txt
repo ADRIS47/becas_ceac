@@ -2992,3 +2992,4 @@
 21/5/2016;15:22:45;Nombre de categoria no encontrado
 21/5/2016;15:23:55;Nombre de categoria no encontrado
 21/5/2016;15:24:40;Nombre de categoria no encontrado
+21/5/2016;15:34:52;Nombre de categoria no encontrado
