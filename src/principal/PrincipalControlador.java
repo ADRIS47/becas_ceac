@@ -491,7 +491,7 @@ public class PrincipalControlador {
 
     private void terminaVistaKardex() {
         vistaKardex.removeAll();
-        vaciaLstVistas();
+        //vaciaLstVistas();
         vistaKardex = null;
     }
     
@@ -2553,7 +2553,8 @@ public class PrincipalControlador {
         //Se crean las vistas de direcciones necesarias para la insercion de los datos
         if (lstDireccionesBecario.size() > 1) {
             for (int i = 1; i <= lstDireccionesBecario.size() - 1; i++) {
-                agregaJPanel(new PnlDireccion());
+                PnlDireccion pnlDireccion = new PnlDireccion();
+                agregaJPanel(pnlDireccion);
             }
         }
 
@@ -2572,7 +2573,8 @@ public class PrincipalControlador {
         //Se crean las vistas de padres necesarias para la insercion de los datos
         if (lstPadresBecario.size() > 1) {
             for (int i = 1; i < lstPadresBecario.size() - 1; i++) {
-                agregaJPanel(new PnlParentesco());
+                PnlParentesco pnlParentesco = new PnlParentesco();
+                agregaJPanel(pnlParentesco);
             }
         }
         contador = 0;
@@ -2592,7 +2594,8 @@ public class PrincipalControlador {
         //Se crean las vistas de hermanos necesarias para la insercion de los datos
         if (lstHermanos.size() > 1) {
             for (int i = 1; i <= lstHermanos.size() - 1; i++) {
-                agregaJPanel(new PnlHermanos());
+                PnlHermanos pnlHermanos = new PnlHermanos();
+                agregaJPanel(pnlHermanos);
             }
         }
         contador = 0;
@@ -2616,7 +2619,8 @@ public class PrincipalControlador {
         //Se crean las vistas de hermanos necesarias para la insercion de los datos
         if (lstHijos.size() > 1) {
             for (int i = 1; i <= lstHijos.size() - 1; i++) {
-                agregaJPanel(new PnlHijos());
+                PnlHijos pnlHijos = new PnlHijos();
+                agregaJPanel(pnlHijos);
             }
         }
         contador = 0;

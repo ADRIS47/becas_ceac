@@ -2978,3 +2978,17 @@
 19/5/2016;11:8:50;Id no encontrado
 19/5/2016;11:13:22;Nombre de categoria no encontrado
 19/5/2016;11:18:53;Id no encontrado
+21/5/2016;14:45:25;No se pudo conectar a la Base de datos
+21/5/2016;14:48:33;Nombre de categoria no encontrado
+21/5/2016;14:50:28;Error al actualizar las direcciones del becario
+21/5/2016;14:52:27;Nombre de categoria no encontrado
+21/5/2016;14:52:33;Error al actualizar las direcciones del becario
+21/5/2016;14:55:19;Nombre de categoria no encontrado
+21/5/2016;14:57:23;Error al actualizar las direcciones del becario
+21/5/2016;15:1:17;Nombre de categoria no encontrado
+21/5/2016;15:9:35;Error al actualizar las direcciones del becario
+21/5/2016;15:12:19;Nombre de categoria no encontrado
+21/5/2016;15:12:22;Error al actualizar las direcciones del becario
+21/5/2016;15:22:45;Nombre de categoria no encontrado
+21/5/2016;15:23:55;Nombre de categoria no encontrado
+21/5/2016;15:24:40;Nombre de categoria no encontrado
