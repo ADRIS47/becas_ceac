@@ -8,7 +8,6 @@ package crud;
 import pojos.Aval;
 import pojos.Becario;
 import pojos.CatColumnasTabla;
-import pojos.CatPrograma;
 import pojos.DatosEscolares;
 import pojos.Direccion;
 import pojos.Hermanos;
@@ -153,25 +152,16 @@ public class Insert {
      */
     public static String insertRegistroCatalogo(String nombreTabla, CatColumnasTabla nombreColumnas, 
                         String datoNuevo, int idRegistro, boolean bandera) {
-        
         String query = "";
-        String columnaIniciales = "";
-        String inicialesPrograma = "";
-        
-        if(nombreTabla.contains("progr")){
-            columnaIniciales = ", " + CatPrograma.COL_INICIALES;
-            String iniciales = "', '" + datoNuevo.substring(0, 3).toUpperCase() + "-";
-            inicialesPrograma = iniciales;
-        }
         
         if(bandera == false)
             query = "INSERT INTO  " + nombreTabla 
-                    + " (" + nombreColumnas.getNombreColumnaId() + ", " + nombreColumnas.getNombreColumnaNombre() + columnaIniciales + ") "
-                    + " VALUES (" + idRegistro + ", '" + datoNuevo + inicialesPrograma + "')";
+                    + " (" + nombreColumnas.getNombreColumnaId() + ", " + nombreColumnas.getNombreColumnaNombre() + ") "
+                    + " VALUES (" + idRegistro + ", '" + datoNuevo + "')";
         else
             query = "INSERT INTO  " + nombreTabla 
-                    + " (" + nombreColumnas.getNombreColumnaNombre() + columnaIniciales + ") "
-                    + " VALUES ('" + datoNuevo + inicialesPrograma + "')";
+                    + " (" + nombreColumnas.getNombreColumnaNombre() + ") "
+                    + " VALUES ('" + datoNuevo + "')";
         System.out.println("Query: " + query);
         
         return query;

@@ -5,8 +5,6 @@
  */
 package principal;
 
-import adris.vistas.*;
-import principal.*;
 import javax.swing.JOptionPane;
 
 /**
@@ -249,7 +247,7 @@ public class VistaBusqueda extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        PnlBuscarFechas.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 30, 100, -1));
+        PnlBuscarFechas.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 30, 80, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel11.setText("Año:");
@@ -267,7 +265,7 @@ public class VistaBusqueda extends javax.swing.JPanel {
         cmbanioGraduacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
         PnlBuscarFechas.add(cmbanioGraduacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, 117, 20));
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado de la búsqueda", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(0, 0, 255))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado de la búsqueda", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(0, 0, 255))); // NOI18N
         jPanel3.setPreferredSize(new java.awt.Dimension(928, 197));
 
         pnlEvaluado.setLayout(new javax.swing.BoxLayout(pnlEvaluado, javax.swing.BoxLayout.LINE_AXIS));

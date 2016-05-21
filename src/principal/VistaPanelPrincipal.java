@@ -19,7 +19,6 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
     public VistaPanelPrincipal(PrincipalControlador controlador) {
         initComponents();
         this.controlador = controlador;
-        this.setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**

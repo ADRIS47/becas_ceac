@@ -5,9 +5,6 @@
  */
 package principal;
 
-import adris.vistas.*;
-import principal.*;
-
 /**
  *
  * @author Adriana

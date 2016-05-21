@@ -2936,6 +2936,20 @@
 13/5/2016;11:16:55;Nombre de categoria no encontrado
 13/5/2016;11:17:43;Nombre de categoria no encontrado
 13/5/2016;11:36:47;Nombre de categoria no encontrado
+15/5/2016;13:25:28;SQLError: 42S02
+15/5/2016;13:25:28;ERROR: Code1146
+15/5/2016;13:25:28;Message: Table 'becas_chihuahua.beca_cat_municipio' doesn't exist
+15/5/2016;13:27:14;SQLError: 42S02
+15/5/2016;13:27:14;ERROR: Code1146
+15/5/2016;13:27:14;Message: Table 'becas_chihuahua.beca_cat_municipio' doesn't exist
+17/5/2016;8:13:28;Nombre de categoria no encontrado
+17/5/2016;8:16:18;Nombre de categoria no encontrado
+17/5/2016;8:16:21;Nombre de categoria no encontrado
+17/5/2016;8:18:25;Nombre de categoria no encontrado
+17/5/2016;14:19:50;No se pudo conectar a la Base de datos
+17/5/2016;14:21:9;No se pudo conectar a la Base de datos
+18/5/2016;17:22:29;Nombre de categoria no encontrado
+18/5/2016;18:28:46;Nombre de categoria no encontrado
 17/5/2016;18:22:55;Id no encontrado
 17/5/2016;18:23:45;Id no encontrado
 17/5/2016;18:23:47;Id no encontrado
@@ -2993,3 +3007,23 @@
 21/5/2016;15:23:55;Nombre de categoria no encontrado
 21/5/2016;15:24:40;Nombre de categoria no encontrado
 21/5/2016;15:34:52;Nombre de categoria no encontrado
+20/5/2016;13:10:14;Nombre de categoria no encontrado
+20/5/2016;13:11:34;Error al actualizar los datos del becario
+20/5/2016;13:12:13;Error al actualizar los datos del becario
+20/5/2016;13:14:13;Error al actualizar los datos del becario
+20/5/2016;13:21:7;Error al actualizar las direcciones del becario
+20/5/2016;13:21:14;Error al actualizar las direcciones del becario
+20/5/2016;13:21:21;Error al actualizar las direcciones del becario
+20/5/2016;13:23:41;Error al actualizar las direcciones del becario
+20/5/2016;13:24:38;Error al actualizar las direcciones del becario
+20/5/2016;13:25:23;Error al actualizar las direcciones del becario
+20/5/2016;13:31:19;Error al actualizar las direcciones del becario
+20/5/2016;13:31:25;Error al actualizar las direcciones del becario
+20/5/2016;13:43:13;Error al actualizar las direcciones del becario
+20/5/2016;13:43:52;Error al actualizar las direcciones del becario
+20/5/2016;14:17:34;Error al actualizar las direcciones del becario
+20/5/2016;14:34:35;Error al actualizar las direcciones del becario
+20/5/2016;14:42:53;Error al actualizar las direcciones del becario
+21/5/2016;15:36:22;Nombre de categoria no encontrado
+21/5/2016;15:36:35;Nombre de categoria no encontrado
+21/5/2016;15:37:26;Nombre de categoria no encontrado

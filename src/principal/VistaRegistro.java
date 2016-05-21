@@ -1020,7 +1020,7 @@ public class VistaRegistro extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlManejoBecaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlManejoBecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 910, Short.MAX_VALUE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 910, Short.MAX_VALUE)
                     .addGroup(pnlManejoBecaLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 910, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1454,7 +1454,7 @@ public class VistaRegistro extends javax.swing.JPanel {
                     .addGroup(pnlDatosEscolaresLayout.createSequentialGroup()
                         .addGroup(pnlDatosEscolaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(pnlManejoBeca, javax.swing.GroupLayout.DEFAULT_SIZE, 948, Short.MAX_VALUE)
-                            .addComponent(pnlInformacionEscolar, javax.swing.GroupLayout.DEFAULT_SIZE, 948, Short.MAX_VALUE))
+                            .addComponent(pnlInformacionEscolar, javax.swing.GroupLayout.PREFERRED_SIZE, 948, Short.MAX_VALUE))
                         .addGap(0, 88, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -1465,7 +1465,7 @@ public class VistaRegistro extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlManejoBeca, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlArchivosAdjuntos, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
+                .addComponent(pnlArchivosAdjuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 209, Short.MAX_VALUE)
                 .addContainerGap())
         );
 

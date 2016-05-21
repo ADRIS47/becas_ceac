@@ -321,20 +321,20 @@ public class PrincipalModelo {
             }
         }
         //Se ordenan los programas
-        int i = 0;
-        int tamanioOriginal = catPrograma.size();
-        String[] programas = new String[]{"Devoluci", "Empuje", "Pura", "Apoyo", "Historico"};
-        while(i < tamanioOriginal){
-            for (Integer idPrograma : catPrograma.keySet()) {
-                String programa = catPrograma.get(idPrograma);
-                if(programa.contains(programas[i])){
-                    catResult.put(idPrograma, programa);
-                    i++;
-                    break;
-                }
-            }
-        }
-        return catResult;
+//        int i = 0;
+//        int tamanioOriginal = catPrograma.size();
+//        String[] programas = new String[]{"Devoluci", "Empuje", "Pura", "Apoyo", "Historico"};
+//        while(i < tamanioOriginal){
+//            for (Integer idPrograma : catPrograma.keySet()) {
+//                String programa = catPrograma.get(idPrograma);
+//                if(programa.contains(programas[i])){
+//                    catResult.put(idPrograma, programa);
+//                    i++;
+//                    break;
+//                }
+//            }
+//        }
+        return catPrograma;
     }
 
     /**
@@ -2100,27 +2100,27 @@ public class PrincipalModelo {
             
             
             //Se hace la instruccion de ordenacion ORDER BY
-//            if(!nombre.equals("") && bandera == false){
-//                consulta = consulta.concat("ORDER BY becario." + Becario.COL_NOMBRE + " ");
-//                bandera = true;
-//            }
-//            
-//            if(!aPaterno.equals("") && bandera == false){
-//                consulta = consulta.concat("ORDER BY becario." + Becario.COL_APATERNO + " ");
-//                bandera = true;
-//            }
-//            else if(!aPaterno.equals("") && bandera == true){
-//                consulta = consulta.concat("AND becario." + Becario.COL_APATERNO + " ");
-//            }
-//            
-//            if(!aMaterno.equals("") && bandera == false){
-//                consulta = consulta.concat("ORDER BY becario." + Becario.COL_AMATERNO + " ");
-//                bandera = true;
-//            }
-//            else if(!aMaterno.equals("") && bandera == true){
-//                consulta = consulta.concat("AND becario." + Becario.COL_AMATERNO + " ");
-//            }
-            consulta = consulta.concat(" ORDER BY " + Becario.COL_APATERNO );
+            if(!nombre.equals("") && bandera == false){
+                consulta = consulta.concat("ORDER BY becario." + Becario.COL_NOMBRE + " ");
+                bandera = true;
+            }
+            
+            if(!aPaterno.equals("") && bandera == false){
+                consulta = consulta.concat("ORDER BY becario." + Becario.COL_APATERNO + " ");
+                bandera = true;
+            }
+            else if(!aPaterno.equals("") && bandera == true){
+                consulta = consulta.concat("AND becario." + Becario.COL_APATERNO + " ");
+            }
+            
+            if(!aMaterno.equals("") && bandera == false){
+                consulta = consulta.concat("ORDER BY becario." + Becario.COL_AMATERNO + " ");
+                bandera = true;
+            }
+            else if(!aMaterno.equals("") && bandera == true){
+                consulta = consulta.concat("AND becario." + Becario.COL_AMATERNO + " ");
+            }
+            
             
             //System.out.println("Consulta: " + consulta);
             ps = conexion.prepareStatement(consulta);
