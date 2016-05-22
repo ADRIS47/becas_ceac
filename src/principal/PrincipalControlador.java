@@ -105,9 +105,24 @@ public class PrincipalControlador {
     LinkedHashMap<Integer, String> catTipoServicioSocial = null;
     LinkedHashMap<Integer, String> catLugarServicioSocial = null;
     LinkedHashMap<Integer, String> catCatalogos = null;
-    LinkedHashMap<Integer, String> catDatosCatalogos = null;
-    LinkedHashMap<Integer, String> catNuevosDatosCatalogos = null;
     LinkedHashMap<Integer, String> catMunicipios = null;
+    
+    /**
+     * Se encarga de almacenar el catalogo original de la base de datos
+     */
+    LinkedHashMap<Integer, String> lstCatalogoOriginal = null;
+    /**
+     * Se encarga de almacenar una copia de la lista original y todos los cambios realizados por el usuario
+     */
+    LinkedHashMap<Integer, String> lstCatalogoCopia = null;
+    /**
+     * Se encarga de almacenar las busquedas realizadas por el usuario
+     */
+    LinkedHashMap<Integer, String> lstCatalogoCopiaEnBusquedas = null;
+    /**
+     * Se encarga de almacenar si una universidad es publica o privada
+     */
+    LinkedHashMap<Integer, Boolean> lstCatalogoTipoUniversidad = null;
 
     List<PnlHijos> lstVistaHijos = new ArrayList<>();
     List<PnlHermanos> lstVistaHermanos = new ArrayList<>();
@@ -336,10 +351,37 @@ public class PrincipalControlador {
         if (vistaCatalogos != null) {
             terminaVistaCatalogos();
         }
-        vaciaLstFiles();
+        
+        if(lstCatalogoOriginal != null){
+            lstCatalogoOriginal.clear();
+            lstCatalogoOriginal = null;
+        }
+        
+        if(lstCatalogoCopia != null){
+            lstCatalogoCopia.clear();
+            lstCatalogoCopia = null;
+        }
+        
+        if(lstCatalogoCopiaEnBusquedas != null){
+            lstCatalogoCopiaEnBusquedas.clear();
+            lstCatalogoCopiaEnBusquedas = null;
+        }
+        
+        if(lstCatalogoTipoUniversidad != null){
+            lstCatalogoTipoUniversidad.clear();
+            lstCatalogoTipoUniversidad = null;
+        }
+        
+        
+        //vaciaLstFiles();
         vistaCatalogos = new VistaCatalogos();
         this.setVistaCatalogos(vistaCatalogos);
         vistaCatalogos.setControlador(this);
+        
+        lstCatalogoOriginal = new LinkedHashMap<>();
+        lstCatalogoCopia = new LinkedHashMap<>();
+        lstCatalogoCopiaEnBusquedas = new LinkedHashMap<>();
+        lstCatalogoTipoUniversidad = new LinkedHashMap<>();
 
         creaPantalla(vistaCatalogos);
         
@@ -2822,6 +2864,8 @@ public class PrincipalControlador {
         helper.cursorEspera(vista);
         Conexion conn = new Conexion();
         Connection conexion = conn.estableceConexion();
+        
+        //Se borrar e inicializan todas las listas y catalogos
         if(catCatalogos == null){
             catCatalogos = modelo.getCatCategorias(conexion);
         }
@@ -2829,6 +2873,25 @@ public class PrincipalControlador {
         if(catTipoEscuela == null){
             catTipoEscuela = modelo.getCatTipoEscuela(conexion);
         }
+        
+        if(lstCatalogoCopia != null){
+            lstCatalogoCopia.clear();
+            lstCatalogoCopia = null;
+        }
+        
+        if(lstCatalogoTipoUniversidad != null){
+            lstCatalogoTipoUniversidad.clear();
+            lstCatalogoTipoUniversidad = null;
+        }
+        
+        if(lstCatalogoCopiaEnBusquedas != null){
+            lstCatalogoCopiaEnBusquedas.clear();
+            lstCatalogoCopiaEnBusquedas = null;
+        }
+        
+        lstCatalogoCopia = new LinkedHashMap<>();
+        lstCatalogoTipoUniversidad = new LinkedHashMap<>();
+        lstCatalogoCopiaEnBusquedas = new LinkedHashMap<>();
 
         if(vistaCatalogos.cmbTipoCatalogo.getSelectedIndex() < 0)
             llenaComboCategorias(vistaCatalogos.cmbTipoCatalogo, catCatalogos);
@@ -2837,21 +2900,20 @@ public class PrincipalControlador {
         int idTabla = getIdCmbBox(seleccion, catCatalogos);
         String nombreTabla = modelo.getNombreTabla(conexion, idTabla);
 
-        if(catDatosCatalogos != null){
-            catDatosCatalogos.clear();
-            catDatosCatalogos = null;
+        lstCatalogoOriginal = modelo.getDatosCatalogo(conexion, nombreTabla);
+        //Se hace una copia del catalogo original
+        for (Integer idCatalogo : lstCatalogoOriginal.keySet()) {
+            lstCatalogoCopia.put(idCatalogo, lstCatalogoOriginal.get(idCatalogo));
         }
-
-        catDatosCatalogos = modelo.getDatosCatalogo(conexion, nombreTabla);
-
+        
         if(!nombreTabla.contains("univer")){
             creaTablaCatalogos(true);
-            llenaTablaCatalogos(catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo, true, conexion);
+            llenaTablaCatalogos(lstCatalogoOriginal, vistaCatalogos.TblDescripcionCatalogo, true, conexion);
         }
         else{
             creaTablaCatalogos(false);
-            llenaTablaCatalogos(catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo, false, conexion);
-            DefaultTableModel tblModel = (DefaultTableModel) vistaCatalogos.TblDescripcionCatalogo.getModel();
+            llenaTablaCatalogos(lstCatalogoOriginal, vistaCatalogos.TblDescripcionCatalogo, false, conexion);
+            //DefaultTableModel tblModel = (DefaultTableModel) vistaCatalogos.TblDescripcionCatalogo.getModel();
         }
 
         try{
@@ -2961,7 +3023,7 @@ public class PrincipalControlador {
      * @param nombreDatoCatalogos
      * @param tabla 
      * @param bandera TRUE.- Indica que se tiene  cargado el catalogo de las universidades
-     * False.- Indica que es cualquier otro catalogo
+     * FALSE.- Indica que es cualquier otro catalogo
      * @param conexion
      */
     private void llenaTablaCatalogos(LinkedHashMap<Integer,String> nombreDatoCatalogos, 
@@ -2988,6 +3050,7 @@ public class PrincipalControlador {
                 if(tipoEscuela.contains("blica"))
                     publica = true;
                 
+                lstCatalogoTipoUniversidad.put(idEscuela, publica);
                 tblModelo.setValueAt(publica, i, 1);
                 i++;
             }
@@ -3313,7 +3376,8 @@ public class PrincipalControlador {
             helper.agregaFilaTabla(tabla);
         }
         else{
-            catDatosCatalogos = helper.agregaFilaTabla(tabla, vistaCatalogos.TxtFldDescripcionCatalogo, texto, catDatosCatalogos);
+            lstCatalogoCopia = helper.agregaFilaTabla(tabla, vistaCatalogos.TxtFldDescripcionCatalogo, 
+                    texto, lstCatalogoCopia);
         }
     }
 
@@ -3325,7 +3389,7 @@ public class PrincipalControlador {
         //Se verifica si ya se filtró la tabla
         //Si no se ha filtrado el catalogo
         //if(vistaCatalogos.TxtFldDescripcionCatalogo.getText().isEmpty()){
-            helper.eliminaFilaTabla(tabla, catDatosCatalogos);
+            helper.eliminaFilaTabla(tabla, lstCatalogoCopia);
         //}
         //Si se han filtrado los datos
 //        else
@@ -3349,31 +3413,31 @@ public class PrincipalControlador {
         helper.cursorEspera(vista);
         Conexion conn = new Conexion();
         Connection conexion = conn.estableceConexion();
-        List<String> lstDatosTabla = new ArrayList<>();
-        List<Boolean> lstDatosTipoEscuela = new ArrayList<>();
-        DefaultTableModel tblModel = (DefaultTableModel) vistaCatalogos.TblDescripcionCatalogo.getModel();
+//        List<String> lstDatosTabla = new ArrayList<>();
+//        List<Boolean> lstDatosTipoEscuela = new ArrayList<>();
+//        DefaultTableModel tblModel = (DefaultTableModel) vistaCatalogos.TblDescripcionCatalogo.getModel();
         
         String seleccion = (String) vistaCatalogos.cmbTipoCatalogo.getSelectedItem();
         int idTabla = getIdCmbBox(seleccion, catCatalogos);
         String nombreTabla = modelo.getNombreTabla(conexion, idTabla);
         
-        int totalRegistros = modelo.getTotalRegistrosDeCatalogo(conexion, nombreTabla);
-        int totalFilas = tblModel.getRowCount();
-        System.out.println("Filas: " + totalFilas);
-        //Se valida que la última fila no esté vacía
-        if(tblModel.getValueAt(totalFilas - 1, 0) == null)
-            totalFilas -= 1;
-        
-        for (int i = 0; i < totalFilas; i++) {
-            lstDatosTabla.add((String) tblModel.getValueAt(i, 0));
-        }
-        
-        int columnas = tblModel.getColumnCount();
-        if(columnas == 2){
-            for (int i = 0; i < totalFilas; i++) {
-                lstDatosTipoEscuela.add((boolean) tblModel.getValueAt(i, 1));
-            }
-        }
+//        int totalRegistros = modelo.getTotalRegistrosDeCatalogo(conexion, nombreTabla);
+//        int totalFilas = tblModel.getRowCount();
+//        System.out.println("Filas: " + totalFilas);
+//        //Se valida que la última fila no esté vacía
+//        if(tblModel.getValueAt(totalFilas - 1, 0) == null)
+//            totalFilas -= 1;
+//        
+//        for (int i = 0; i < totalFilas; i++) {
+//            lstDatosTabla.add((String) tblModel.getValueAt(i, 0));
+//        }
+//        
+//        int columnas = tblModel.getColumnCount();
+//        if(columnas == 2){
+//            for (int i = 0; i < totalFilas; i++) {
+//                lstDatosTipoEscuela.add((boolean) tblModel.getValueAt(i, 1));
+//            }
+//        }
         
         try {
             conexion.setAutoCommit(false);
@@ -3383,17 +3447,18 @@ public class PrincipalControlador {
 
             //Si no se se han hecho filtraciones
             if (vistaCatalogos.TxtFldDescripcionCatalogo.getText().isEmpty()) {
-                //Si existen los mismos registros en la tabla como en la base de datos, solo se actualiza la tabla
-                if (totalFilas == totalRegistros) {
+                //Si existe la misma cantidad de registros en el catalogo origianal y en la copia, se actualizan los valores
+                if (lstCatalogoOriginal.size() == lstCatalogoCopia.size()) {
                     int i = 0;
-                    for (String dato : lstDatosTabla) {
+                    for (Integer idCatalogo : lstCatalogoCopia.keySet()) {
                         boolean response;
-                        if(lstDatosTipoEscuela.isEmpty())
-                            response = modelo.updateCatalogo(conexion, dato, i + 1, 
+                        String datoNuevo = lstCatalogoCopia.get(idCatalogo);
+//                        if(lstDatosTipoEscuela.isEmpty())
+                            response = modelo.updateCatalogo(conexion, datoNuevo, idCatalogo, 
                                             nombreTabla, nombreColumnas);
-                        else
-                            response = modelo.updateCatalogo(conexion, dato, i + 1, 
-                                            nombreTabla, nombreColumnas, lstDatosTipoEscuela.get(i));
+//                        else
+//                            response = modelo.updateCatalogo(conexion, dato, i + 1, 
+//                                            nombreTabla, nombreColumnas, lstDatosTipoEscuela.get(i));
                         if (response == false) {
                             helper.cursorNormal(vista);
                             throw new SQLException("No se pudo actualiza el catalogo "
@@ -3402,19 +3467,21 @@ public class PrincipalControlador {
                         i++;
                     }
                 } //Si existen más registros en la tabla de los que ya se tienen registrados en la base de datos
-                else if (totalFilas > totalRegistros) {
+                else if (lstCatalogoCopia.size() > lstCatalogoOriginal.size()) {
                     int i = 0;
                     //Mientras se recorran los registros existentes solo se actualizan
-                    for (String dato : lstDatosTabla) {
+                    for (Integer idCatalogo : lstCatalogoCopia.keySet()) {
+                        String datoCatalogoOriginal = lstCatalogoOriginal.get(idCatalogo);
+                        String datoNuevo = lstCatalogoCopia.get(idCatalogo);
                         //Se actualizan los registros que ya existen en la bd
-                        if (i < totalRegistros) {
+                        if (datoCatalogoOriginal != null) {
                             boolean response;
-                            if(lstDatosTipoEscuela.isEmpty())
-                                response = modelo.updateCatalogo(conexion, dato, i + 1, 
+//                            if(lstDatosTipoEscuela.isEmpty())
+                                response = modelo.updateCatalogo(conexion, datoNuevo, idCatalogo, 
                                                 nombreTabla, nombreColumnas);
-                            else
-                                response = modelo.updateCatalogo(conexion, dato, i + 1, 
-                                                nombreTabla, nombreColumnas, lstDatosTipoEscuela.get(i));
+//                            else
+//                                response = modelo.updateCatalogo(conexion, dato, i + 1, 
+//                                                nombreTabla, nombreColumnas, lstDatosTipoEscuela.get(i));
                             if (response == false) {
                                 helper.cursorNormal(vista);
                                 throw new SQLException("No se pudo actualiza el catalogo "
@@ -3423,9 +3490,9 @@ public class PrincipalControlador {
                         } else {
                             boolean response; 
                                 if(nombreTabla.contains("univer"))
-                                    response = modelo.insertRegistroCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas, false, lstDatosTipoEscuela.get(i));
+                                    response = modelo.insertRegistroCatalogo(conexion, datoNuevo, idCatalogo, nombreTabla, nombreColumnas, false, lstCatalogoTipoUniversidad.get(idCatalogo));
                                 else
-                                    response = modelo.insertRegistroCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas, false);
+                                    response = modelo.insertRegistroCatalogo(conexion, datoNuevo, idCatalogo, nombreTabla, nombreColumnas, false);
                                     
                             if (response == false) {
                                 helper.cursorNormal(vista);
@@ -3436,17 +3503,18 @@ public class PrincipalControlador {
                         i++;
                     }
                 } //Si existen menos registros en la tabla de los que ya se tienen registrados en la base de datos
-                else if (totalFilas < totalRegistros) {
+                else if (lstCatalogoCopia.size() < lstCatalogoOriginal.size()) {
                     int i = 0;
                     //Mientras se recorran los registros existentes solo se actualizan
-                    for (String dato : lstDatosTabla) {
+                    for (Integer idCatalogo : lstCatalogoOriginal.keySet()) {
+                        String datoCatalogoCopia = lstCatalogoCopia.get(idCatalogo);
                         //Se actualizan los registros que ya existen en la bd
-                        if (i < totalFilas) {
+                        if (datoCatalogoCopia != null) {
                             boolean response;
                             if(nombreTabla.contains("univer"))
-                                response = modelo.updateCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas, lstDatosTipoEscuela.get(i));
+                                response = modelo.updateCatalogo(conexion, datoCatalogoCopia, idCatalogo, nombreTabla, nombreColumnas, lstCatalogoTipoUniversidad.get(idCatalogo));
                             else
-                                response = modelo.updateCatalogo(conexion, dato, i + 1, nombreTabla, nombreColumnas);
+                                response = modelo.updateCatalogo(conexion, datoCatalogoCopia, idCatalogo, nombreTabla, nombreColumnas);
                             
                             if (response == false) {
                                 helper.cursorNormal(vista);
@@ -3454,14 +3522,18 @@ public class PrincipalControlador {
                                         + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
                             }
                         }
+                        else{
+                            boolean response = modelo.deleteRegistroCatalogo(conexion, idCatalogo, nombreTabla, nombreColumnas, false);
+                            if (response == false) {
+                                helper.cursorNormal(vista);
+                                throw new SQLException("No se pudo borrar el registro en el catalogo "
+                                        + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
+                            }
+                        }
                         i++;
                     }
-                    boolean response = modelo.deleteRegistroCatalogo(conexion, i + 1, nombreTabla, nombreColumnas, false);
-                    if (response == false) {
-                        helper.cursorNormal(vista);
-                        throw new SQLException("No se pudo borrar el registro en el catalogo "
-                                + vistaCatalogos.cmbTipoCatalogo.getSelectedItem(), "Error", JOptionPane.ERROR_MESSAGE);
-                    }
+                    
+                    
                 }
             }
             
@@ -3698,12 +3770,18 @@ public class PrincipalControlador {
             return;
         }
         
-        if(catNuevosDatosCatalogos != null){
-            catNuevosDatosCatalogos.clear();
-            catNuevosDatosCatalogos = null;
+        if(lstCatalogoCopiaEnBusquedas != null){
+            lstCatalogoCopiaEnBusquedas.clear();
+            lstCatalogoCopiaEnBusquedas = null;
         }
         
-        catNuevosDatosCatalogos = new LinkedHashMap<>();
+        if(lstCatalogoTipoUniversidad != null){
+            lstCatalogoTipoUniversidad.clear();
+            lstCatalogoTipoUniversidad = null;
+        }
+        
+        lstCatalogoCopiaEnBusquedas = new LinkedHashMap<>();
+        lstCatalogoTipoUniversidad = new LinkedHashMap<>();
         
         DefaultTableModel tblModelo = (DefaultTableModel) tblTabla.getModel();
         int filas = tblModelo.getRowCount();
@@ -3712,26 +3790,17 @@ public class PrincipalControlador {
             tblModelo.removeRow(0);
         }
         
-        for (Integer key : catDatosCatalogos.keySet()) {
-            //combo.addItem(catDatosCatalogos.get(key));
-            String datoCategoria = catDatosCatalogos.get(key);
+        for (Integer key : lstCatalogoCopia.keySet()) {
+            String datoCategoria = lstCatalogoCopia.get(key);
             
             int res = datoCategoria.toLowerCase().indexOf(texto.toLowerCase());
             if(res != -1)
-                catNuevosDatosCatalogos.put(key, datoCategoria);
+                lstCatalogoCopiaEnBusquedas.put(key, datoCategoria);
         }
         
-        llenaTablaCatalogos(catNuevosDatosCatalogos, tblTabla, true, conexion);
-        
-//        DefaultTableModel tblModelo = (DefaultTableModel) tblTabla.getModel();
-//        if(catNuevosDatosCatalogos.size() > 0){
-//            while(tblModelo.getRowCount() > 0){
-//                int filas = tblModelo.getRowCount();
-//                tblModelo.removeRow(filas - 1);
-//            }
-//            for (Integer key : catNuevosDatosCatalogos.keySet()) {
-//                tblModelo.addRow(new String[]{catNuevosDatosCatalogos.get(key)});
-//            }
-//        }
+        if(tblModelo.getColumnCount() == 2)
+            llenaTablaCatalogos(lstCatalogoCopiaEnBusquedas, tblTabla, false, conexion);
+        else
+            llenaTablaCatalogos(lstCatalogoCopiaEnBusquedas, tblTabla, true, conexion);
     }
 }

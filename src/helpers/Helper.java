@@ -640,16 +640,25 @@ public class Helper {
         
         //Si hay una fila seleccionada
         if(tabla.getSelectedRow() >= 0){
-//            for (Integer key : lstCatalogo.keySet()) {
-//                if(lstCatalogo.get(key).equals(tabla.getValueAt(tabla.getSelectedRow(), 0))){
-//                    lstCatalogo.remove(key);
+            for (Integer key : lstCatalogo.keySet()) {
+                if(lstCatalogo.get(key).equals(tabla.getValueAt(tabla.getSelectedRow(), 0))){
+                    lstCatalogo.remove(key);
                     modelo.removeRow(tabla.getSelectedRow());
-//                    break;
-//                }
-//            }
+                    break;
+                }
+            }
         }
-        else
+        else{
+            String dato = (String) tabla.getValueAt(tabla.getRowCount(), 0);
+            for (Integer key : lstCatalogo.keySet()) {
+                if(lstCatalogo.get(key).equals(dato)){
+                    lstCatalogo.remove(key);
+                    modelo.removeRow(tabla.getSelectedRow());
+                    break;
+                }
+            }
             modelo.removeRow(filas - 1);
+        }
     }
     
     /**
@@ -707,7 +716,7 @@ public class Helper {
      * @param tabla
      * @param txtBuscador
      * @param texto
-     * @param catDatosCatalogos 
+     * @param catDatosCatalogos
      * @return  Regresa el nuevo catalogo
      */
     public LinkedHashMap<Integer, String> agregaFilaTabla(JTable tabla, JTextField txtBuscador, String texto, 
@@ -719,7 +728,7 @@ public class Helper {
         int i = 1;
         //Se hace una copia de los registros de la tabla
         for (Integer idCat : catDatosCatalogos.keySet()) {
-            catNuevoCatalogo.put(i, catDatosCatalogos.get(idCat));
+            catNuevoCatalogo.put(idCat, catDatosCatalogos.get(idCat));
             i++;
         }
         catNuevoCatalogo.put(i, texto);
@@ -730,6 +739,8 @@ public class Helper {
             tblModelo.addRow(new String[]{catNuevoCatalogo.get(id)});
         }
         txtBuscador.setText("");
+        
+        
         return catNuevoCatalogo;
     }
             
