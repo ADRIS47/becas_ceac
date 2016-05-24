@@ -145,13 +145,11 @@ public class Insert {
      * @param nombreColumnas
      * @param datoNuevo
      * @param idRegistro
-     * @param bandera False, indica que la tabla NO FUE filtrada.
-     * TRUE indica que la tabla SI FUE filtrada
      * @param tipoUniversidad
      * @return 
      */
     public static String insertRegistroCatalogo(String nombreTabla, CatColumnasTabla nombreColumnas, 
-                        String datoNuevo, int idRegistro, boolean bandera) {
+                        String datoNuevo, int idRegistro) {
         String query;
         
 //        if(bandera == false)

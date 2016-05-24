@@ -190,6 +190,7 @@ public class Update {
      * @param nombreColumnas
      * @param idRegistro
      * @param datoNuevo
+     * @param tipoEscuela
      * @return 
      */
     public static String updateRegistroCatalogo(String nombreTabla, CatColumnasTabla nombreColumnas, 

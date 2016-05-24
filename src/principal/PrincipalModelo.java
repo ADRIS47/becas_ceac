@@ -2962,19 +2962,17 @@ public class PrincipalModelo {
      * @param idRegistro
      * @param nombreTabla
      * @param nombreColumnas
-     * @param bandera False, indica que la tabla NO FUE filtrada.
-     * TRUE indica que la tabla SI FUE filtrada
      * @return 
      */
     protected boolean insertRegistroCatalogo(Connection conexion, String datoNuevo, 
-                    int idRegistro, String nombreTabla, CatColumnasTabla nombreColumnas, boolean bandera) {
+                    int idRegistro, String nombreTabla, CatColumnasTabla nombreColumnas) {
          boolean response = false;
         Statement st = null;
         
         try {
             st = conexion.createStatement();
             int resp = st.executeUpdate(Insert.insertRegistroCatalogo(nombreTabla, 
-                                    nombreColumnas, datoNuevo, idRegistro, bandera));
+                                    nombreColumnas, datoNuevo, idRegistro));
             if(resp > 0)
                 response = true;
         } catch (SQLException ex) {
@@ -3033,6 +3031,7 @@ public class PrincipalModelo {
         try {
             ps = conexion.prepareStatement(Update.desactivaRegistroCatalogo(nombreTabla, nombreColumnas));
             ps.setInt(1, idRegistro);
+            System.out.println(ps);
             int resp = ps.executeUpdate();
             if(resp > 0)
                 response = true;
@@ -3197,5 +3196,32 @@ public class PrincipalModelo {
         }
         
         return idCatalogo;
+    }
+
+    /**
+     * Actualiza los valores del catalogo
+     * @param conexion
+     * @param idRegistro
+     * @param nuevoValorNombre
+     * @param nombreTabla
+     * @param nombreColumnas
+     * @return 
+     */
+    protected boolean updateRegistroCatalogo(Connection conexion, int idRegistro, String nuevoValorNombre, String nombreTabla, CatColumnasTabla nombreColumnas) {
+        Statement st = null;
+        boolean response = false;
+        
+        try {
+            st = conexion.createStatement();
+            int resp = st.executeUpdate(Update.updateRegistroCatalogo(nombreTabla, nombreColumnas, idRegistro, nuevoValorNombre));
+            
+            if(resp>0)
+                response = true;
+        } catch (SQLException ex) {
+            log.muestraErrores(ex);
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return response;
     }
 }

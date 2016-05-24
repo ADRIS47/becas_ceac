@@ -31,7 +31,7 @@
                   </Group>
                   <Component id="jPanel1" min="-2" pref="625" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="45" max="32767" attributes="0"/>
+              <EmptySpace pref="81" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -178,13 +178,13 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                   <Component id="btnAgregarFila" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
                   <Component id="btnEliminarFila" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
-                  <Component id="BtnAddDescripcionCatalogo" min="-2" pref="107" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                  <Component id="BtnAddDescripcionCatalogo" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -208,7 +208,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagenes/table_add.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Agregar Fila"/>
+            <Property name="text" type="java.lang.String" value="Insertar Registro"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAgregarFilaActionPerformed"/>
@@ -222,7 +222,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagenes/table_delete.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Eliminar Fila"/>
+            <Property name="text" type="java.lang.String" value="Eliminar Registro"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarFilaActionPerformed"/>
@@ -236,7 +236,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagenes/database_save.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Guardar"/>
+            <Property name="text" type="java.lang.String" value="Actualizar Registro"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAddDescripcionCatalogoActionPerformed"/>
