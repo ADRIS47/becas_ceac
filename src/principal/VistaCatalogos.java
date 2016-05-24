@@ -212,7 +212,7 @@ public class VistaCatalogos extends javax.swing.JPanel {
     }//GEN-LAST:event_TxtFldDescripcionCatalogoKeyTyped
 
     private void BtnAddDescripcionCatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddDescripcionCatalogoActionPerformed
-        controlador.crudCatalogo();
+        controlador.updateCatalogo();
     }//GEN-LAST:event_BtnAddDescripcionCatalogoActionPerformed
 
 

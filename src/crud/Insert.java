@@ -177,15 +177,15 @@ public class Insert {
      * @return 
      */
     public static String insertRegistroCatalogo(String nombreTabla, CatColumnasTabla nombreColumnas, 
-                        String datoNuevo, int idRegistro, boolean bandera, boolean tipoUniversidad) {
+                        String datoNuevo, int idRegistro, boolean tipoUniversidad) {
         String query = "";
         
-        if(bandera == false)
-            query = "INSERT INTO  " + nombreTabla 
-                    + " (" + nombreColumnas.getNombreColumnaId() + ", " + nombreColumnas.getNombreColumnaNombre() + ", " 
-                            + nombreColumnas.getNombreColumnaTipoEscuela() + ") "
-                    + " VALUES (" + idRegistro + ", '" + datoNuevo + "', " + tipoUniversidad + ")";
-        else
+//        if(bandera == false)
+//            query = "INSERT INTO  " + nombreTabla 
+//                    + " (" + nombreColumnas.getNombreColumnaId() + ", " + nombreColumnas.getNombreColumnaNombre() + ", " 
+//                            + nombreColumnas.getNombreColumnaTipoEscuela() + ") "
+//                    + " VALUES (" + idRegistro + ", '" + datoNuevo + "', " + tipoUniversidad + ")";
+//        else
             query = "INSERT INTO  " + nombreTabla 
                     + " (" + nombreColumnas.getNombreColumnaNombre() + ", "
                     + nombreColumnas.getNombreColumnaTipoEscuela() + ") "

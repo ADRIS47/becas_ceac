@@ -2936,7 +2936,7 @@ public class PrincipalModelo {
                         result.setNombreColumnaNombre(rs.getString(1));
                         break;
                         //En caso de que se esté evaluando la universida se agrega
-                    case 3:
+                    case 4:
                         if(nombreTabla.toLowerCase().contains("universidad")){
                             //result.setTipoEscuela(rs.getInt(1));
                             result.setNombreColumnaTipoEscuela(rs.getString(1));
@@ -2997,13 +2997,13 @@ public class PrincipalModelo {
      */
     protected boolean insertRegistroCatalogo(Connection conexion, String datoNuevo, 
                     int idRegistro, String nombreTabla, CatColumnasTabla nombreColumnas, 
-                    boolean bandera, boolean tipoUniversidad) {
+                    boolean tipoUniversidad) {
          boolean response = false;
         PreparedStatement st = null;
         
         try {
             st = conexion.prepareStatement(Insert.insertRegistroCatalogo(nombreTabla, 
-                                    nombreColumnas, datoNuevo, idRegistro, bandera, tipoUniversidad));
+                                    nombreColumnas, datoNuevo, idRegistro, tipoUniversidad));
             int resp = st.executeUpdate();
             if(resp > 0)
                 response = true;
@@ -3214,6 +3214,36 @@ public class PrincipalModelo {
         try {
             st = conexion.createStatement();
             int resp = st.executeUpdate(Update.updateRegistroCatalogo(nombreTabla, nombreColumnas, idRegistro, nuevoValorNombre));
+            
+            if(resp>0)
+                response = true;
+        } catch (SQLException ex) {
+            log.muestraErrores(ex);
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return response;
+    }
+    
+    /**
+     * Actualiza los valores del catalogo de universidades
+     * @param conexion
+     * @param idRegistro
+     * @param nuevoValorNombre
+     * @param nombreTabla
+     * @param nombreColumnas
+     * @param isPublic
+     * @return 
+     */
+    protected boolean updateRegistroCatalogo(Connection conexion, int idRegistro, 
+            String nuevoValorNombre, String nombreTabla, CatColumnasTabla nombreColumnas,
+            boolean isPublic) {
+        Statement st = null;
+        boolean response = false;
+        
+        try {
+            st = conexion.createStatement();
+            int resp = st.executeUpdate(Update.updateRegistroCatalogo(nombreTabla, nombreColumnas, idRegistro, nuevoValorNombre, isPublic));
             
             if(resp>0)
                 response = true;

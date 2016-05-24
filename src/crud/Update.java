@@ -196,11 +196,12 @@ public class Update {
     public static String updateRegistroCatalogo(String nombreTabla, CatColumnasTabla nombreColumnas, 
             int idRegistro, String datoNuevo, boolean tipoEscuela) {
         String query = "";
-        
-        
+        int isPiblic = 2;
+        if(tipoEscuela)
+            isPiblic = 1;
         query = "UPDATE " + nombreTabla + " SET " + nombreColumnas.getNombreColumnaNombre() 
-                + " = '" + datoNuevo + "', " + nombreColumnas.getNombreColumnaTipoEscuela() + " = ? " 
-                + "WHERE " + nombreColumnas.getNombreColumnaId() 
+                + " = '" + datoNuevo + "', " + nombreColumnas.getNombreColumnaTipoEscuela() + " = "  
+                + isPiblic + " WHERE " + nombreColumnas.getNombreColumnaId() 
                 + " = " + idRegistro;
         System.out.println("Query: " + query);
         

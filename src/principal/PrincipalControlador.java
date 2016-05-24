@@ -3446,8 +3446,14 @@ public class PrincipalControlador {
             String nombreTabla = modelo.getNombreTabla(conexion, idTabla);
             
             CatColumnasTabla nombreColumnas = modelo.getNombreColumnasTabla(conexion, nombreTabla);
-            boolean response = modelo.insertRegistroCatalogo(conexion, texto, 0, 
-                    nombreTabla, nombreColumnas);
+            
+            boolean response;
+            if(tblModelo.getColumnCount() == 1)
+                response = modelo.insertRegistroCatalogo(conexion, texto, 0, 
+                        nombreTabla, nombreColumnas);
+            else
+                response = modelo.insertRegistroCatalogo(conexion, texto, 0, nombreTabla, nombreColumnas, true);
+            
             
             if(response == false){
                 JOptionPane.showMessageDialog(vistaCatalogos, "No se pudo insertar el registro. \n Intentelo de nuevo.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -3473,6 +3479,11 @@ public class PrincipalControlador {
      * @param tabla 
      */
     protected void eliminaFilaTabla(JTable tabla) {
+        
+        int respuesta = JOptionPane.showConfirmDialog(vistaCatalogos, "¿Seguro que desea eliminar el registro?", "", JOptionPane.YES_NO_OPTION);
+        
+        if(respuesta == JOptionPane.NO_OPTION)
+            return;
 
         //helper.eliminaFilaTabla(tabla, lstCatalogoCopia);
         int filaSeleccionada = vistaCatalogos.TblDescripcionCatalogo.getSelectedRow();
@@ -3517,18 +3528,15 @@ public class PrincipalControlador {
     }
 
     /**
-     * Inserta, Actualiza o Elimina los datos de un catalogo
+     * Actualiza los datos de un catalogo
      */
-    protected void crudCatalogo() {
+    protected void updateCatalogo() {
         
-        //Si existen filtraciones realizadas
-//        if(!vistaCatalogos.TxtFldDescripcionCatalogo.getText().equals("")){
-//            JOptionPane.showMessageDialog(vistaCatalogos, "No se guardar la informacion con las busquedas activas", "Error", JOptionPane.ERROR_MESSAGE);
-//            vistaCatalogos.TxtFldDescripcionCatalogo.requestFocus();
-//            vistaCatalogos.TxtFldDescripcionCatalogo.selectAll();
-//            return;
-//        }
+        int respuesta = JOptionPane.showConfirmDialog(vistaCatalogos, "¿Seguro que desea actualizar el catalogo?", "", JOptionPane.YES_NO_OPTION);
         
+        if(respuesta == JOptionPane.NO_OPTION)
+            return;
+            
         helper.cursorEspera(vista);
         Conexion conn = new Conexion();
         Connection conexion = conn.estableceConexion();
@@ -3536,8 +3544,7 @@ public class PrincipalControlador {
         if(conexion == null){
             JOptionPane.showMessageDialog(vistaCatalogos, "No se pudo conectar a la base de datos. \n Intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
         }
-//        List<String> lstDatosTabla = new ArrayList<>();
-//        List<Boolean> lstDatosTipoEscuela = new ArrayList<>();
+        
         DefaultTableModel tblModel = (DefaultTableModel) vistaCatalogos.TblDescripcionCatalogo.getModel();
         
         String seleccion = (String) vistaCatalogos.cmbTipoCatalogo.getSelectedItem();
@@ -3552,10 +3559,16 @@ public class PrincipalControlador {
             for (int i = 0; i < renglones; i++) {
                 String nuevoValorNombre = (String) tblModel.getValueAt(i, 0);
                 int idRegistro = lstCatalogoRelIdsRenglonTabla.get(i);
-                boolean response = modelo.updateRegistroCatalogo(conexion, idRegistro, nuevoValorNombre, nombreTabla, nombreColumnas);
+                boolean response;
+                if(tblModel.getColumnCount() == 1)
+                    response = modelo.updateRegistroCatalogo(conexion, idRegistro, nuevoValorNombre, nombreTabla, nombreColumnas);
+                else{
+                    boolean isPublic = (Boolean) tblModel.getValueAt(i, 1);
+                    response = modelo.updateRegistroCatalogo(conexion, idRegistro, nuevoValorNombre, nombreTabla, nombreColumnas, isPublic);
+                }
                 if(response == false){
                     JOptionPane.showMessageDialog(vistaCatalogos, "Error al actualizar el catalogo. \n Intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
-                    break;
+                    throw new SQLException("No se pudo actualizar el catalogo");
                 }
             }
             conexion.commit();
