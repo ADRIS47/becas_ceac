@@ -3667,6 +3667,7 @@ public class PrincipalControlador {
     public void getDatosCatalogos(String texto, 
                         JTable tblTabla, String nombreTabla) {
         
+        helper.cursorEspera(vista);
         Conexion conn = new Conexion();
         Connection conexion = conn.estableceConexion();
         
@@ -3713,6 +3714,8 @@ public class PrincipalControlador {
             llenaTablaCatalogos(lstCatalogoCopiaEnBusquedas, tblTabla, false, conexion);
         else
             llenaTablaCatalogos(lstCatalogoCopiaEnBusquedas, tblTabla, true, conexion);
+        
+        helper.cursorNormal(vista);
     }
 
     /**
