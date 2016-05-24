@@ -153,6 +153,16 @@ public class Update {
     public static String updateTruncaBecario = "UPDATE beca_becario "
             + "SET " + Becario.COL_ESTATUS + " = ?, " + Becario.COL_TIPO_ESTATUS + " = ? "
             + "WHERE " + Becario.COL_ID + " = ?";
+    
+    /**
+     * Desactiva un registro del catalogo seleccionado
+     * UPDATE nombreTabla SET activo = 0 WHERE columnaId = idRegistro
+     */
+    public static String desactivaRegistroCatalogo(String nombreTabla, CatColumnasTabla columnas){
+        String query = "UPDATE " + nombreTabla + " SET activo = 0 WHERE " + columnas.getNombreColumnaId() + " = ?";
+        
+        return query;
+    }
 
     /**
      * Crea un query para actualizar un registro de una tabla categoría

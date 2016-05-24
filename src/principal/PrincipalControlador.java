@@ -3435,10 +3435,13 @@ public class PrincipalControlador {
                 lstCatalogoRelIdsRenglonTabla.put(renglon, id);
                 renglon++;
             }
-            tblModelo.addRow(new String[]{texto});
             
-            lstCatalogoAgregado.put(tblModelo.getRowCount(), vistaCatalogos.TxtFldDescripcionCatalogo.getText());
+            lstCatalogoAgregado.put(tblModelo.getRowCount(), texto);
             lstCatalogoRelIdsRenglonTabla.put(tblModelo.getRowCount() - 1, 0);
+            
+            for (Integer id : lstCatalogoAgregado.keySet()) {
+                tblModelo.addRow(new String[]{lstCatalogoAgregado.get(id)});
+            }
             vistaCatalogos.TxtFldDescripcionCatalogo.setText("");
         }
     }
@@ -3465,6 +3468,15 @@ public class PrincipalControlador {
             //Se agrega a la lista de eliminacion el id en caso de que el registro exista en la base de datos
             if(idaEliminar != 0)
                 lstCatalogoEliminado.put(idaEliminar, "");
+            else{
+                String campoNombre = (String) tblModelo.getValueAt(vistaCatalogos.TblDescripcionCatalogo.getSelectedRow(), 0);
+                for (Integer id : lstCatalogoAgregado.keySet()) {
+                    if(campoNombre.equals(lstCatalogoAgregado.get(id)))
+                        lstCatalogoAgregado.remove(id);
+                }
+                
+            }
+
             //Se actualiza la relacion del renglon de la tabla con el id
             int filas = tblModelo.getRowCount();
             while(contador < filas){
@@ -3490,7 +3502,7 @@ public class PrincipalControlador {
         
         //Si existen filtraciones realizadas
         if(!vistaCatalogos.TxtFldDescripcionCatalogo.getText().equals("")){
-            JOptionPane.showMessageDialog(vistaCatalogos, "No se puede borrar un registro con las filtraciones activas", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(vistaCatalogos, "No se guardar la informacion con las busquedas activas", "Error", JOptionPane.ERROR_MESSAGE);
             vistaCatalogos.TxtFldDescripcionCatalogo.requestFocus();
             vistaCatalogos.TxtFldDescripcionCatalogo.selectAll();
             return;
@@ -3522,20 +3534,20 @@ public class PrincipalControlador {
             CatColumnasTabla nombreColumnas = modelo.getNombreColumnasTabla(conexion, nombreTabla);
             boolean banderaUpdate = false, banderaInsert = false, banderaDelete = false;
             
-            for (Integer id : lstCatalogoCopia.keySet()) {
-                
-                for (Integer renglon : lstCatalogoRelIdsRenglonTabla.keySet()) {
-                    if(Objects.equals(id, lstCatalogoRelIdsRenglonTabla.get(renglon))){
-                        boolean response = modelo.updateCatalogo(conexion, lstCatalogoCopia.get(id), id, 
-                                            nombreTabla, nombreColumnas);
-                        if(response == false){
-                            throw new SQLException("No se pudo insertar un nuevo registro del catalogo");
-                        }
-                    }
-                }
-                
-                
-            }
+//            for (Integer id : lstCatalogoCopia.keySet()) {
+//                
+//                for (Integer renglon : lstCatalogoRelIdsRenglonTabla.keySet()) {
+//                    if(Objects.equals(id, lstCatalogoRelIdsRenglonTabla.get(renglon))){
+//                        boolean response = modelo.updateCatalogo(conexion, lstCatalogoCopia.get(id), id, 
+//                                            nombreTabla, nombreColumnas);
+//                        if(response == false){
+//                            throw new SQLException("No se pudo insertar un nuevo registro del catalogo");
+//                        }
+//                    }
+//                }
+//                
+//                
+//            }
             
             //Se hacen las inserciones
             for (Integer id : lstCatalogoAgregado.keySet()) {
@@ -3546,21 +3558,21 @@ public class PrincipalControlador {
             }
             
             for (Integer id : lstCatalogoEliminado.keySet()) {
-                boolean response = modelo.updateCatalogo(conexion, lstCatalogoCopia.get(id), id, 
-                                            nombreTabla, nombreColumnas);
+                boolean response = modelo.deleteRegistroCatalogo(conexion, id, nombreTabla, 
+                                            nombreColumnas);
                 if(response == false){
                     throw new SQLException("No se pudo insertar un nuevo registro del catalogo");
                 }
             }
             
-            
-            
-            
-            
-            
             conexion.commit();
             helper.cursorNormal(vista);
             JOptionPane.showMessageDialog(vistaCatalogos, "Tabla " + nombreTabla + " actualizada");
+            
+            lstCatalogoAgregado.clear();
+            lstCatalogoEliminado.clear();
+            
+            creaVistaCatalogos();
 
         } catch (SQLException ex) {
             try {
