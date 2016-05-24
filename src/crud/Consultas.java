@@ -9,6 +9,7 @@ import pojos.Aval;
 import pojos.Becario;
 import pojos.CatBanco;
 import pojos.CatCategorias;
+import pojos.CatColumnasTabla;
 import pojos.CatEstatus;
 import pojos.CatLugarServicioComunitario;
 import pojos.CatMunicipios;
@@ -438,5 +439,10 @@ public class Consultas {
     
     
     public static String getTotalProgramas = "SELECT COUNT(*) FROM beca_cat_programa";
+
+    /**
+     * Genera el query necesario para obtener el ID mayor del catalogo
+     */
+    public static String getIdMayor = "SELECT ? AS maximo FROM ?";
     
 }

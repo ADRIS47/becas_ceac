@@ -3376,8 +3376,11 @@ public class PrincipalControlador {
             helper.agregaFilaTabla(tabla);
         }
         else{
+            //Se obtiene el id más alto que tiene el catalogo
+            long idMayor = getIdMayorCatalogo();
+            
             lstCatalogoCopia = helper.agregaFilaTabla(tabla, vistaCatalogos.TxtFldDescripcionCatalogo, 
-                    texto, lstCatalogoCopia);
+                    texto, lstCatalogoCopia, idMayor);
         }
     }
 
@@ -3802,5 +3805,35 @@ public class PrincipalControlador {
             llenaTablaCatalogos(lstCatalogoCopiaEnBusquedas, tblTabla, false, conexion);
         else
             llenaTablaCatalogos(lstCatalogoCopiaEnBusquedas, tblTabla, true, conexion);
+    }
+
+    /**
+     * Obtiene el id más alto que se tiene en el catalogo evaluado
+     * @return 
+     */
+    private long getIdMayorCatalogo() {
+        Conexion conn = new Conexion();
+        Connection conexion = conn.estableceConexion();
+        long idCatalogo = 0;
+        if(conexion == null){
+            JOptionPane.showMessageDialog(vistaCatalogos, "No se pudo conectar a la base de datos. \n Verifique su conexión, e intentlo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+            return idCatalogo;
+        }
+        String seleccion = (String) vistaCatalogos.cmbTipoCatalogo.getSelectedItem();
+        int idTabla = getIdCmbBox(seleccion, catCatalogos);
+        String nombreTabla = modelo.getNombreTabla(conexion, idTabla);
+
+        lstCatalogoOriginal = modelo.getDatosCatalogo(conexion, nombreTabla);
+        //Se obtienen los nombres de las columnas de la tabla a modificar
+        CatColumnasTabla nombreColumnas = modelo.getNombreColumnasTabla(conexion, nombreTabla);
+        idCatalogo = modelo.getIdMayorCatalogo(conexion, nombreTabla, nombreColumnas);        
+        try {
+            conexion.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            log.muestraErrores(ex);
+        }
+        
+        return idCatalogo;
     }
 }

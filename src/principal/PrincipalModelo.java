@@ -3159,11 +3159,44 @@ public class PrincipalModelo {
             while(rs.next()){
                 lstTipoEscuela = rs.getString(1);
             }
+            
+            rs.close();
+            st.close();
         } catch (SQLException ex) {
             Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
             log.muestraErrores(ex);
         }
         
         return lstTipoEscuela;
+    }
+
+    /**
+     * Obtiene el id mayor del catalogo
+     * @param conexion
+     * @param nombreTabla
+     * @param nombreColumnas
+     * @return Id mayor del catalogo
+     */
+    protected long getIdMayorCatalogo(Connection conexion, String nombreTabla, CatColumnasTabla nombreColumnas) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        long idCatalogo = 0;
+        try {
+            ps = conexion.prepareStatement(Consultas.getIdMayor);
+            ps.setString(1, "MAX(" + nombreColumnas.getNombreColumnaId() + "");
+            ps.setString(2, nombreTabla);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                idCatalogo = rs.getLong(1);
+            }
+            rs.close();
+            ps.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            muestraErrores(ex);
+        }
+        
+        return idCatalogo;
     }
 }

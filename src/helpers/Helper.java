@@ -717,19 +717,22 @@ public class Helper {
      * @param txtBuscador
      * @param texto
      * @param catDatosCatalogos
+     * @param idMayor
      * @return  Regresa el nuevo catalogo
      */
     public LinkedHashMap<Integer, String> agregaFilaTabla(JTable tabla, JTextField txtBuscador, String texto, 
-                            LinkedHashMap<Integer, String> catDatosCatalogos) {
+                            LinkedHashMap<Integer, String> catDatosCatalogos, long idMayor) {
         LinkedHashMap<Integer, String> catNuevoCatalogo = new LinkedHashMap<>();
         DefaultTableModel tblModelo = (DefaultTableModel) tabla.getModel();
         //txtBuscador.setText("");
-        int tamanioCatalogo = catDatosCatalogos.size();
-        int i = 1;
-        //Se hace una copia de los registros de la tabla
+        
+        int i = 0;
+        //Se hace una copia de los registros de la tabla y se obtiene el id mayor que se ha agregado a la lista
         for (Integer idCat : catDatosCatalogos.keySet()) {
             catNuevoCatalogo.put(idCat, catDatosCatalogos.get(idCat));
-            i++;
+            
+            if(i <= idCat)
+                i = idCat;
         }
         catNuevoCatalogo.put(i, texto);
         
