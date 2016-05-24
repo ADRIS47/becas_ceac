@@ -3715,6 +3715,11 @@ public class PrincipalControlador {
         else
             llenaTablaCatalogos(lstCatalogoCopiaEnBusquedas, tblTabla, true, conexion);
         
+        try {
+            conexion.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
         helper.cursorNormal(vista);
     }
 
