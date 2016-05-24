@@ -733,7 +733,7 @@ public class Helper {
             if(i <= idCat)
                 i = idCat;
         }
-        catNuevoCatalogo.put(i, texto);
+        catNuevoCatalogo.put(i + 1, texto);
         
         eliminaFilasTabla(tabla);
         
