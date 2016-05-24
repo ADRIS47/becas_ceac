@@ -2780,7 +2780,7 @@ public class PrincipalModelo {
         
         try{
             ps = conexion.createStatement();
-            rs = ps.executeQuery(Consultas.getCatalogoPorNombreTabla + nombreTabla + " ORDER BY nombre");
+            rs = ps.executeQuery(Consultas.getCatalogoPorNombreTabla + nombreTabla + " WHERE activo = 1 ORDER BY nombre");
             
             while(rs.next()){
                 CatCategorias catalogo = new CatCategorias();
