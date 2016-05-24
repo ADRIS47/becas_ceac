@@ -3377,10 +3377,11 @@ public class PrincipalControlador {
         }
         else{
             //Se obtiene el id más alto que tiene el catalogo
-            long idMayor = getIdMayorCatalogo();
+            //long idMayor = getIdMayorCatalogo();
             
             lstCatalogoCopia = helper.agregaFilaTabla(tabla, vistaCatalogos.TxtFldDescripcionCatalogo, 
-                    texto, lstCatalogoCopia, idMayor);
+                    texto, lstCatalogoCopia);//, idMayor);
+            
         }
     }
 

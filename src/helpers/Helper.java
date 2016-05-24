@@ -717,11 +717,10 @@ public class Helper {
      * @param txtBuscador
      * @param texto
      * @param catDatosCatalogos
-     * @param idMayor
      * @return  Regresa el nuevo catalogo
      */
     public LinkedHashMap<Integer, String> agregaFilaTabla(JTable tabla, JTextField txtBuscador, String texto, 
-                            LinkedHashMap<Integer, String> catDatosCatalogos, long idMayor) {
+                            LinkedHashMap<Integer, String> catDatosCatalogos) {
         LinkedHashMap<Integer, String> catNuevoCatalogo = new LinkedHashMap<>();
         DefaultTableModel tblModelo = (DefaultTableModel) tabla.getModel();
         //txtBuscador.setText("");
