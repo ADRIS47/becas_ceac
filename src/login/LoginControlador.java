@@ -65,7 +65,8 @@ public class LoginControlador {
         String clave = new String(charClave);
         if(!clave.isEmpty()){
             boolean response = modelo.iniciarSesion(clave);
-            if(response){                
+            if(response){            
+                helper.cursorNormal(vista);
                 vista.dispose();
                 vista = null;
                 modelo = null;

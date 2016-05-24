@@ -199,6 +199,7 @@ public class PrincipalControlador {
 
     public void iniciaPantallaPrincipal() {
         vista = new VistaPanelPrincipal(this);
+        helper.cursorEspera(vista);
         vistaPortada = new PnlPortada(this);
         modelo = new PrincipalModelo();
         controladorPrincipal = new Index();
@@ -212,6 +213,7 @@ public class PrincipalControlador {
         vista.setLocationRelativeTo(null);
 
         vista.setVisible(true);
+        helper.cursorNormal(vista);
     }
 
     private void creaVistaPortada() {
