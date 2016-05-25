@@ -229,6 +229,11 @@ public class VistaRegistro extends javax.swing.JPanel {
 
         cmbEstatus.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cmbEstatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Becado", "Exalumno" }));
+        cmbEstatus.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbEstatusItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlProgramaLayout = new javax.swing.GroupLayout(pnlPrograma);
         pnlPrograma.setLayout(pnlProgramaLayout);
@@ -841,11 +846,6 @@ public class VistaRegistro extends javax.swing.JPanel {
         cmboxSemestresTotalesCarrera.setSelectedIndex(9);
 
         chkBoxGraduado.setEnabled(false);
-        chkBoxGraduado.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                chkBoxGraduadoStateChanged(evt);
-            }
-        });
 
         jLabel50.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel50.setText("Graduado");
@@ -1737,9 +1737,9 @@ public class VistaRegistro extends javax.swing.JPanel {
         controlador.abreArchivoAdjunto(Helper.FILE_CARTA_AGRADECIMIENTO);
     }//GEN-LAST:event_lblEstatusCartaAgradecimientoMouseClicked
 
-    private void chkBoxGraduadoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_chkBoxGraduadoStateChanged
+    private void cmbEstatusItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbEstatusItemStateChanged
         controlador.setStateChkGraduado();
-    }//GEN-LAST:event_chkBoxGraduadoStateChanged
+    }//GEN-LAST:event_cmbEstatusItemStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     protected javax.swing.JButton btnAddActa;

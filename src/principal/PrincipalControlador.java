@@ -3797,5 +3797,8 @@ public class PrincipalControlador {
                 vistaRegistro.chkBoxGraduado.setEnabled(true);
                 break;
         }
+        
+        vistaRegistro.updateUI();
+        vistaRegistro.validate();
     }
 }

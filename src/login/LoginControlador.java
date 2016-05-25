@@ -84,8 +84,6 @@ public class LoginControlador {
             JOptionPane.showMessageDialog(vista, "Debes de ingresar la clave de acceso", 
                     "Error", JOptionPane.ERROR_MESSAGE);
         }
-        
-        helper.cursorNormal(vista);
     }
     
 }
