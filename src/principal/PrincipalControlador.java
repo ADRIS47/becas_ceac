@@ -68,6 +68,7 @@ public class PrincipalControlador {
     VistaBusqueda vistaBusqueda;
     VistaKardex vistaKardex;
     VistaCatalogos vistaCatalogos;
+    VistaReportes vistaReporte;
     
     PnlPortada vistaPortada;
     VistaRegistroOpcionGuardar vistaOpcionGuardar;
@@ -106,6 +107,7 @@ public class PrincipalControlador {
     LinkedHashMap<Integer, String> catLugarServicioSocial = null;
     LinkedHashMap<Integer, String> catCatalogos = null;
     LinkedHashMap<Integer, String> catMunicipios = null;
+    LinkedHashMap<Integer, String> catReportes = null;
     
     /**
      * Se encarga de almacenar el catalogo original de la base de datos
@@ -183,15 +185,15 @@ public class PrincipalControlador {
     public void setVistaKardex(VistaKardex vistaKardex) {
         this.vistaKardex = vistaKardex;
     }
-
-    public VistaCatalogos getVistaCatalogos() {
-        return vistaCatalogos;
-    }
-
+    
     public void setVistaCatalogos(VistaCatalogos vistaCatalogos) {
         this.vistaCatalogos = vistaCatalogos;
     }
 
+    public void setVistaReporte(VistaReportes vistaReporte) {
+        this.vistaReporte = vistaReporte;
+    }
+    
     public void iniciaPantallaPrincipal() {
         vista = new VistaPanelPrincipal(this);
         helper.cursorEspera(vista);
@@ -430,6 +432,22 @@ public class PrincipalControlador {
 //        vistaCatalogos.TxtFldDescripcionCatalogo.addKeyListener(
 //                new EscuchadorBuscaCatalogo(vistaCatalogos.TxtFldDescripcionCatalogo, 
 //                            catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo));
+        helper.cursorNormal(vista);
+    }
+    
+    /**
+     * Crea la vista de los catalogos
+     */
+    protected void creaVistaReportes() {
+        helper.cursorEspera(vista);
+        
+        vistaReporte = new VistaReportes();
+        this.setVistaReporte(vistaReporte);
+        vistaReporte.setControlador(this);
+        
+        creaPantalla(vistaReporte);
+        List<LinkedHashMap<Integer, String>> lstCategorias = null;
+        llenaCamposCategoriasVistaReportes(lstCategorias);        
         helper.cursorNormal(vista);
     }
 
@@ -2975,6 +2993,72 @@ public class PrincipalControlador {
         
     }
     
+    /**
+     * Llena los combo box de la vista Reportes
+     * @param lstCategorias 
+     */
+    private void llenaCamposCategoriasVistaReportes(List<LinkedHashMap<Integer, String>> lstCategorias) {
+        //Si no se ha llenado la tabla
+        helper.cursorEspera(vista);
+        Conexion conn = new Conexion();
+        Connection conexion = conn.estableceConexion();
+        
+        if(conexion == null){
+            JOptionPane.showMessageDialog(vista, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo","Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        //Se borrar e inicializan todas las listas y catalogos
+        if(catReportes == null){
+            catReportes = modelo.getCatReportes(conexion);
+        }
+
+        if(catPrograma == null){
+            catPrograma = modelo.getCatProgramas(conexion);
+        }
+        
+        if(catEstatus == null){
+            catEstatus = modelo.getCatEstatus(conexion);
+        }
+        
+        llenaComboCategorias(vistaReporte.cmbTipoReporte, catReportes);
+        llenaComboCategorias(vistaReporte.cmbProgramaInicial, catPrograma);
+        llenaComboCategorias(vistaReporte.cmbProgramaFinal, catPrograma);
+        llenaComboCategorias(vistaReporte.cmbEstatus, catEstatus);
+        llenaComboCategorias(vistaReporte.cmbPrograma, catPrograma);
+        
+        
+
+//        if(vistaCatalogos.cmbTipoCatalogo.getSelectedIndex() < 0)
+//            llenaComboCategorias(vistaCatalogos.cmbTipoCatalogo, catCatalogos);
+//
+//        String seleccion = (String) vistaCatalogos.cmbTipoCatalogo.getSelectedItem();
+//        int idTabla = getIdCmbBox(seleccion, catCatalogos);
+//        String nombreTabla = modelo.getNombreTabla(conexion, idTabla);
+//
+//        lstCatalogoOriginal = modelo.getDatosCatalogo(conexion, nombreTabla);
+//        //Se hace una copia del catalogo original
+//        for (Integer idCatalogo : lstCatalogoOriginal.keySet()) {
+//            lstCatalogoCopia.put(idCatalogo, lstCatalogoOriginal.get(idCatalogo));
+//        }
+//        
+//        if(!nombreTabla.contains("univer")){
+//            creaTablaCatalogos(true);
+//            llenaTablaCatalogos(lstCatalogoOriginal, vistaCatalogos.TblDescripcionCatalogo, true, conexion);
+//        }
+//        else{
+//            creaTablaCatalogos(false);
+//            llenaTablaCatalogos(lstCatalogoOriginal, vistaCatalogos.TblDescripcionCatalogo, false, conexion);
+//            //DefaultTableModel tblModel = (DefaultTableModel) vistaCatalogos.TblDescripcionCatalogo.getModel();
+//        }
+
+        try{
+            conexion.close();
+        }
+        catch(SQLException e){log.muestraErrores(e);}
+            
+        helper.cursorNormal(vista);
+    }
+    
     private void creaTablaCatalogos(boolean tblDefault){
         DefaultTableModel tblModelo;
         String[] columnas;
@@ -3784,6 +3868,9 @@ public class PrincipalControlador {
         
     }
 
+    /**
+     * Cambia el estado del check Box graduado según el estatus del alumno
+     */
     protected void setStateChkGraduado() {
         int seleccion = vistaRegistro.cmbEstatus.getSelectedIndex();
         

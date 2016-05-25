@@ -13,6 +13,7 @@ import pojos.CatColumnasTabla;
 import pojos.CatEstatus;
 import pojos.CatLugarServicioComunitario;
 import pojos.CatMunicipios;
+import pojos.CatReporte;
 import pojos.CatTipoEscuela;
 import pojos.CatTipoServicioSocial;
 import pojos.CatUniversidad;
@@ -124,6 +125,11 @@ public class Consultas {
      */
     public static String getCatMunicipios = "SELECT " + CatMunicipios.COL_ID + ", "
             + CatMunicipios.COL_NOMBRE + " FROM beca_cat_municipio";
+    
+    /**
+     * Genera el query obtener los reportes
+     */
+    public static String getCatReportes = "SELECT " + CatReporte.COL_ID + ", " + CatReporte.COL_NOMBRE + " FROM beca_cat_reporte";
     
     /**
      * Obtiene las direcciones que tiene registradas un becario

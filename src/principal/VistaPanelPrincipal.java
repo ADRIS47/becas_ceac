@@ -108,6 +108,11 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
 
         btnReportes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnReportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/reportes.png"))); // NOI18N
+        btnReportes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReportesActionPerformed(evt);
+            }
+        });
 
         btnBusqueda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
@@ -210,6 +215,10 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
     private void btnCatalogosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCatalogosActionPerformed
         controlador.creaVistaCatalogos();
     }//GEN-LAST:event_btnCatalogosActionPerformed
+
+    private void btnReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportesActionPerformed
+        controlador.creaVistaReportes();
+    }//GEN-LAST:event_btnReportesActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

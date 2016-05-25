@@ -7,7 +7,6 @@ package principal;
 
 import crud.Conexion;
 import crud.Consultas;
-import crud.Delete;
 import crud.Insert;
 import crud.Update;
 import helpers.Helper;
@@ -38,6 +37,7 @@ import pojos.CatLugarServicioComunitario;
 import pojos.CatMunicipios;
 import pojos.CatParentesco;
 import pojos.CatPrograma;
+import pojos.CatReporte;
 import pojos.CatSexo;
 import pojos.CatTipoEscuela;
 import pojos.CatTipoServicioSocial;
@@ -296,7 +296,7 @@ public class PrincipalModelo {
      * @param conn COnexion a la base de datos
      * @return
      */
-    private LinkedHashMap<Integer, String> getCatProgramas(Connection conn) {
+    protected LinkedHashMap<Integer, String> getCatProgramas(Connection conn) {
         LinkedHashMap<Integer, String> catPrograma = new LinkedHashMap<>();
         LinkedHashMap<Integer, String> catResult = new LinkedHashMap<>();
         Statement st = null;
@@ -471,7 +471,7 @@ public class PrincipalModelo {
      * @param conn COneixon a la BD
      * @return Lista con el catalogo de los municipio
      */
-    private LinkedHashMap<Integer, String> getCatEstatus(Connection conn) {
+    protected LinkedHashMap<Integer, String> getCatEstatus(Connection conn) {
         LinkedHashMap<Integer, String> catEstatus = new LinkedHashMap<>();
         Statement st = null;
         ResultSet rs = null;
@@ -716,6 +716,37 @@ public class PrincipalModelo {
             }
         }
         return catCategorias;
+    }
+    
+    /**
+     * Obtiene el catalogo de reportes
+     * @param conexion
+     * @return Listado de reportes existentes
+     */
+    protected LinkedHashMap<Integer, String> getCatReportes(Connection conexion) {
+        LinkedHashMap<Integer, String> catReportes = new LinkedHashMap<>();
+        Statement st = null;
+        ResultSet rs = null;
+        try {
+            st = conexion.createStatement();
+            rs = st.executeQuery(Consultas.getCatReportes);
+            while (rs.next()) {
+                CatReporte reporte = new CatReporte();
+                reporte.setId(rs.getInt(CatReporte.COL_ID));
+                reporte.setNombre(rs.getString(CatReporte.COL_NOMBRE));
+                catReportes.put(reporte.getId(), reporte.getNombre());
+            }
+        } catch (SQLException e) {
+            muestraErrores(e);
+        } finally {
+            try {
+                rs.close();
+                st.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return catReportes;
     }
     
     /**

@@ -244,6 +244,9 @@
               <Image iconType="3" name="/imagenes/reportes.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReportesActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnBusqueda">
           <Properties>
