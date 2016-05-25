@@ -3053,3 +3053,4 @@ Verifique su conexion e intentelo de nuevo
 25/5/2016;10:24:41;ERROR: Code0
 25/5/2016;10:24:41;Message: No se pudo conectar a la base de datos.
 Verifique su conexion e intentelo de nuevo
+25/5/2016;13:9:35;Nombre de categoria no encontrado
