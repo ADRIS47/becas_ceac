@@ -77,7 +77,6 @@ public class LoginControlador {
                 helper.cursorNormal(vista);
                 JOptionPane.showMessageDialog(vista, "Contraseña incorrecta");
                 System.out.println("Contraseña incorrecta");
-                
             }
         }
         else{

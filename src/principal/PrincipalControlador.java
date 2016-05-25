@@ -6,11 +6,9 @@
 package principal;
 
 import crud.Conexion;
-import crud.Insert;
 import helpers.EscuchadorCalculaBecaXSemestre;
 import helpers.EscuchadorCalculaDescuentoSemestral;
 import helpers.EscuchadorCmbBoxCambiado;
-import helpers.EscuchadorKeyTypedJTable;
 import helpers.EscuchadorValidaEntrada;
 import helpers.Helper;
 import helpers.Log;
@@ -19,12 +17,10 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Frame;
-import java.awt.event.KeyAdapter;
 import java.io.File;
 import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.Date;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -32,7 +28,6 @@ import java.util.GregorianCalendar;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
-import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
@@ -3787,5 +3782,23 @@ public class PrincipalControlador {
         
         
         
+    }
+
+    protected void setStateChkGraduado() {
+        int seleccion = vistaRegistro.cmbEstatus.getSelectedIndex();
+        
+        switch(seleccion){
+            //Si está seleccionado el estatus Alumno
+            case 0:
+                vistaRegistro.chkBoxGraduado.setEnabled(false);
+                break;
+            //Si está seeccionado el estatus Exalumno
+            case 1:
+                vistaRegistro.chkBoxGraduado.setEnabled(true);
+                break;
+        }
+        
+        vistaRegistro.updateUI();
+        vistaRegistro.validate();
     }
 }

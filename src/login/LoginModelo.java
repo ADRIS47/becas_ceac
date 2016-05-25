@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -58,6 +59,8 @@ public class LoginModelo {
         ResultSet rs = null;
         try{
             conexion = con.estableceConexion();
+            if(conexion == null)
+                throw new SQLException("No se pudo conectar a la base de datos.\nVerifique su conexion e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
             ps = conexion.prepareStatement(Consultas.getClave);
             ps.setString(1, clave);
             rs = ps.executeQuery();
