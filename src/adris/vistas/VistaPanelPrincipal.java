@@ -80,7 +80,7 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
 
         btnBecarios.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnBecarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/REGISTRO.png"))); // NOI18N
-        btnBecarios.setToolTipText("registro");
+        btnBecarios.setToolTipText("REGISTRAR BECARIO");
         btnBecarios.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBecarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,6 +90,7 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
 
         btnKardex.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnKardex.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/kardex.png"))); // NOI18N
+        btnKardex.setToolTipText("MOVIMIENTOS BECARIO");
         btnKardex.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnKardex.setMaximumSize(new java.awt.Dimension(29, 29));
         btnKardex.setMinimumSize(new java.awt.Dimension(29, 29));
@@ -102,6 +103,7 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
 
         btnCobranza.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnCobranza.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cobranza.png"))); // NOI18N
+        btnCobranza.setToolTipText("COBRANZA");
         btnCobranza.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCobranza.setMaximumSize(new java.awt.Dimension(29, 29));
         btnCobranza.setMinimumSize(new java.awt.Dimension(29, 29));
@@ -110,10 +112,11 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
 
         btnReportes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnReportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/reportes.png"))); // NOI18N
+        btnReportes.setToolTipText("REPORTES DEL SISTEMA");
 
         btnBusqueda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
-        btnBusqueda.setToolTipText("Buscar becarios");
+        btnBusqueda.setToolTipText("BUSQUEDA DE BECARIOS");
         btnBusqueda.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBusqueda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,7 +126,7 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
 
         btnCatalogos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnCatalogos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/catalogo.png"))); // NOI18N
-        btnCatalogos.setToolTipText("Acceso a Catalogos");
+        btnCatalogos.setToolTipText("CATALOGOS DEL SISTEMA");
         btnCatalogos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCatalogos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

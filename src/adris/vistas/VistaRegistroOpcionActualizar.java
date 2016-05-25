@@ -43,7 +43,7 @@ public class VistaRegistroOpcionActualizar extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(125, 334));
 
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/editar2.png"))); // NOI18N
-        btnGuardar.setToolTipText("Editar Becario");
+        btnGuardar.setToolTipText("GUARDAR CAMBIOS BECARIO");
         btnGuardar.setPreferredSize(new java.awt.Dimension(160, 29));
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -52,9 +52,15 @@ public class VistaRegistroOpcionActualizar extends javax.swing.JPanel {
         });
 
         btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imprimir.png"))); // NOI18N
+        btnImprimir.setToolTipText("IMPRIMIR REPORTE GENERAL BECARIO");
+        btnImprimir.setMaximumSize(new java.awt.Dimension(61, 37));
+        btnImprimir.setMinimumSize(new java.awt.Dimension(61, 37));
         btnImprimir.setPreferredSize(new java.awt.Dimension(160, 29));
 
         btnGuardar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cancel_r.png"))); // NOI18N
+        btnGuardar3.setToolTipText("CANCELAR O TRUNCAR REGISTRO");
+        btnGuardar3.setMaximumSize(new java.awt.Dimension(61, 37));
+        btnGuardar3.setMinimumSize(new java.awt.Dimension(61, 37));
         btnGuardar3.setPreferredSize(new java.awt.Dimension(160, 29));
         btnGuardar3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,6 +69,9 @@ public class VistaRegistroOpcionActualizar extends javax.swing.JPanel {
         });
 
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salir.png"))); // NOI18N
+        btnSalir.setToolTipText("SALIR DEL SISTEMA");
+        btnSalir.setMaximumSize(new java.awt.Dimension(61, 37));
+        btnSalir.setMinimumSize(new java.awt.Dimension(61, 37));
         btnSalir.setPreferredSize(new java.awt.Dimension(160, 29));
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,11 +99,11 @@ public class VistaRegistroOpcionActualizar extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnGuardar3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnGuardar3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -108,7 +117,7 @@ public class VistaRegistroOpcionActualizar extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addGap(0, 82, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
