@@ -3053,3 +3053,15 @@ Verifique su conexion e intentelo de nuevo
 25/5/2016;10:24:41;ERROR: Code0
 25/5/2016;10:24:41;Message: No se pudo conectar a la base de datos.
 Verifique su conexion e intentelo de nuevo
+25/5/2016;12:57:26;SQLError: 42S22
+25/5/2016;12:57:26;ERROR: Code1054
+25/5/2016;12:57:26;Message: Unknown column 'ciudad' in 'field list'
+25/5/2016;12:57:26;null
+25/5/2016;12:57:28;SQLError: 42S22
+25/5/2016;12:57:28;ERROR: Code1054
+25/5/2016;12:57:28;Message: Unknown column 'ciudad' in 'field list'
+25/5/2016;12:57:29;null
+25/5/2016;12:57:35;SQLError: 42S22
+25/5/2016;12:57:35;ERROR: Code1054
+25/5/2016;12:57:35;Message: Unknown column 'ciudad' in 'field list'
+25/5/2016;12:57:36;null

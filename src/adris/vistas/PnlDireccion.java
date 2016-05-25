@@ -49,15 +49,16 @@ public class PnlDireccion extends javax.swing.JPanel {
         txtNumIntBecado = new javax.swing.JTextField();
         txtCPBecado = new javax.swing.JTextField();
         txtColoniaBecado = new javax.swing.JTextField();
-        txtCiudadBecado = new javax.swing.JTextField();
+        cmbCiudadBecado = new javax.swing.JComboBox<>();
         lblAgregarDireccion = new javax.swing.JLabel();
         lblBorrarDireccion = new javax.swing.JLabel();
 
         jTextField5.setText("jTextField1");
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        setMaximumSize(new java.awt.Dimension(707, 55));
         setName(""); // NOI18N
-        setPreferredSize(new java.awt.Dimension(700, 70));
+        setPreferredSize(new java.awt.Dimension(707, 55));
 
         jPanel1.setLayout(new java.awt.GridLayout(2, 6));
 
@@ -117,8 +118,8 @@ public class PnlDireccion extends javax.swing.JPanel {
         });
         jPanel1.add(txtColoniaBecado);
 
-        txtCiudadBecado.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jPanel1.add(txtCiudadBecado);
+        cmbCiudadBecado.setMaximumSize(new java.awt.Dimension(40, 27));
+        jPanel1.add(cmbCiudadBecado);
 
         lblAgregarDireccion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAgregarDireccion.setText("Add");
@@ -144,7 +145,7 @@ public class PnlDireccion extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 774, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 575, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblAgregarDireccion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -158,10 +159,10 @@ public class PnlDireccion extends javax.swing.JPanel {
                 .addComponent(lblAgregarDireccion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblBorrarDireccion)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -187,6 +188,7 @@ public class PnlDireccion extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    protected javax.swing.JComboBox<String> cmbCiudadBecado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -199,7 +201,6 @@ public class PnlDireccion extends javax.swing.JPanel {
     protected javax.swing.JLabel lblBorrarDireccion;
     protected javax.swing.JTextField txtCPBecado;
     protected javax.swing.JTextField txtCalleBecado;
-    protected javax.swing.JTextField txtCiudadBecado;
     protected javax.swing.JTextField txtColoniaBecado;
     protected javax.swing.JTextField txtNumBecado;
     protected javax.swing.JTextField txtNumIntBecado;

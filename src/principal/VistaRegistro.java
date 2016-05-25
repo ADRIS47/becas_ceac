@@ -305,7 +305,7 @@ public class VistaRegistro extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlNombresLayout.createSequentialGroup()
                         .addComponent(jLabel21)
                         .addGap(75, 75, 75)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
                 .addGroup(pnlNombresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtApMaternoBecado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlNombresLayout.createSequentialGroup()
@@ -420,6 +420,8 @@ public class VistaRegistro extends javax.swing.JPanel {
         spnlDirecciones.setBorder(javax.swing.BorderFactory.createTitledBorder("Dirección"));
         spnlDirecciones.setPreferredSize(new java.awt.Dimension(707, 115));
 
+        pnlDirecciones.setMaximumSize(new java.awt.Dimension(707, 55));
+        pnlDirecciones.setPreferredSize(new java.awt.Dimension(707, 55));
         pnlDirecciones.setLayout(new javax.swing.BoxLayout(pnlDirecciones, javax.swing.BoxLayout.PAGE_AXIS));
         spnlDirecciones.setViewportView(pnlDirecciones);
 
@@ -571,7 +573,7 @@ public class VistaRegistro extends javax.swing.JPanel {
                 .addComponent(pnlCorreo1, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(54, 54, 54)
                 .addComponent(pnlCorreo2, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
         pnlCorreosLayout.setVerticalGroup(
             pnlCorreosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -600,22 +602,23 @@ public class VistaRegistro extends javax.swing.JPanel {
             pnlDatosGeneralesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDatosGeneralesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlDatosGeneralesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(spnlDirecciones, javax.swing.GroupLayout.PREFERRED_SIZE, 898, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlDatosGeneralesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(pnlDatosGeneralesLayout.createSequentialGroup()
-                            .addGroup(pnlDatosGeneralesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(lblFotografia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnFotografia, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE))
-                            .addGap(57, 57, 57)
-                            .addGroup(pnlDatosGeneralesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(pnlPrograma, javax.swing.GroupLayout.DEFAULT_SIZE, 733, Short.MAX_VALUE)
-                                .addComponent(pnlNombres, javax.swing.GroupLayout.DEFAULT_SIZE, 733, Short.MAX_VALUE)
-                                .addComponent(pnlDatos, javax.swing.GroupLayout.DEFAULT_SIZE, 733, Short.MAX_VALUE)))
+                .addGroup(pnlDatosGeneralesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosGeneralesLayout.createSequentialGroup()
                         .addGroup(pnlDatosGeneralesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(pnlTelefonosBecados, javax.swing.GroupLayout.DEFAULT_SIZE, 898, Short.MAX_VALUE)
-                            .addComponent(pnlCorreos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 898, Short.MAX_VALUE))))
-                .addContainerGap(99, Short.MAX_VALUE))
+                            .addComponent(lblFotografia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnFotografia, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE))
+                        .addGap(57, 57, 57)
+                        .addGroup(pnlDatosGeneralesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pnlNombres, javax.swing.GroupLayout.DEFAULT_SIZE, 820, Short.MAX_VALUE)
+                            .addComponent(pnlDatos, javax.swing.GroupLayout.DEFAULT_SIZE, 820, Short.MAX_VALUE)
+                            .addComponent(pnlPrograma, javax.swing.GroupLayout.DEFAULT_SIZE, 820, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosGeneralesLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(pnlDatosGeneralesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(spnlDirecciones, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(pnlTelefonosBecados, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 985, Short.MAX_VALUE)
+                            .addComponent(pnlCorreos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 985, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         pnlDatosGeneralesLayout.setVerticalGroup(
             pnlDatosGeneralesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -760,7 +763,7 @@ public class VistaRegistro extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pnlConyuge, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(spnlHijos, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE))
+                .addComponent(spnlHijos, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE))
         );
 
         tbpBecados.addTab("Datos Familiares", pnlDatosFamiliares);
@@ -1581,7 +1584,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tbpBecados, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(tbpBecados, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 649, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(pnlOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)

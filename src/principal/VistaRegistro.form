@@ -49,7 +49,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="tbpBecados" alignment="1" max="32767" attributes="0"/>
+          <Component id="tbpBecados" alignment="1" pref="649" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Component id="pnlOpciones" min="-2" pref="359" max="-2" attributes="0"/>
@@ -100,30 +100,31 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="spnlDirecciones" alignment="1" min="-2" pref="898" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="lblFotografia" max="32767" attributes="0"/>
-                                      <Component id="btnFotografia" pref="142" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="57" pref="57" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="pnlPrograma" alignment="0" pref="733" max="32767" attributes="0"/>
-                                      <Component id="pnlNombres" alignment="0" pref="733" max="32767" attributes="0"/>
-                                      <Component id="pnlDatos" alignment="0" pref="733" max="32767" attributes="0"/>
-                                  </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="lblFotografia" max="32767" attributes="0"/>
+                                  <Component id="btnFotografia" pref="142" max="32767" attributes="0"/>
                               </Group>
-                              <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="pnlTelefonosBecados" pref="898" max="32767" attributes="0"/>
-                                  <Component id="pnlCorreos" alignment="1" pref="898" max="32767" attributes="0"/>
+                              <EmptySpace min="57" pref="57" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="pnlNombres" alignment="0" pref="820" max="32767" attributes="0"/>
+                                  <Component id="pnlDatos" alignment="0" pref="820" max="32767" attributes="0"/>
+                                  <Component id="pnlPrograma" alignment="0" pref="820" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="spnlDirecciones" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="pnlTelefonosBecados" alignment="1" pref="985" max="32767" attributes="0"/>
+                                  <Component id="pnlCorreos" alignment="1" pref="985" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="99" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -319,7 +320,7 @@
                                   <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="133" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="txtApMaternoBecado" alignment="1" min="-2" pref="205" max="-2" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
@@ -610,6 +611,14 @@
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
                 <Container class="javax.swing.JPanel" name="pnlDirecciones">
+                  <Properties>
+                    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[707, 55]"/>
+                    </Property>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[707, 55]"/>
+                    </Property>
+                  </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                   </AuxValues>
@@ -777,7 +786,7 @@
                           <Component id="pnlCorreo1" min="-2" pref="319" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                           <Component id="pnlCorreo2" min="-2" pref="355" max="-2" attributes="0"/>
-                          <EmptySpace pref="59" max="32767" attributes="0"/>
+                          <EmptySpace pref="146" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -990,7 +999,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="pnlConyuge" min="-2" pref="64" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="spnlHijos" pref="128" max="32767" attributes="0"/>
+                      <Component id="spnlHijos" pref="193" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

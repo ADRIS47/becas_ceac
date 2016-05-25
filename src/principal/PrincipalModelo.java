@@ -881,7 +881,7 @@ public class PrincipalModelo {
                 ps.setString(3, direccion.getNumInt());
                 ps.setString(4, direccion.getColonia());
                 ps.setInt(5, direccion.getCodigoPostal());
-                ps.setString(6, direccion.getCiudad());
+                ps.setInt(6, direccion.getCiudad());
                 ps.setLong(7, idBecario);
                 int i = ps.executeUpdate();
                 if (i == 0) {
@@ -1355,7 +1355,7 @@ public class PrincipalModelo {
                 ps.setString(3, lstDireccionesBecario.get(0).getNumInt());
                 ps.setString(4, lstDireccionesBecario.get(0).getColonia());
                 ps.setInt(5, lstDireccionesBecario.get(0).getCodigoPostal());
-                ps.setString(6, lstDireccionesBecario.get(0).getCiudad());
+                ps.setInt(6, lstDireccionesBecario.get(0).getCiudad());
                 ps.setLong(7, idBecario);
                 ps.setLong(8, lstIdDirecciones.get(0));
                 int resp = ps.executeUpdate();
@@ -1376,7 +1376,7 @@ public class PrincipalModelo {
                     ps.setString(3, direccion.getNumInt());
                     ps.setString(4, direccion.getColonia());
                     ps.setInt(5, direccion.getCodigoPostal());
-                    ps.setString(6, direccion.getCiudad());
+                    ps.setInt(6, direccion.getCiudad());
                     ps.setLong(7, idBecario);
                     ps.setLong(8, lstIdDirecciones.get(contador));
                     int resp = ps.executeUpdate();
@@ -2260,7 +2260,7 @@ public class PrincipalModelo {
                direccion.setNumInt(rs.getString(Direccion.COL_NUM_INT));
                direccion.setColonia(rs.getString(Direccion.COL_COLONIA));
                direccion.setCodigoPostal(rs.getInt(Direccion.COL_CODIGO_POSTAL));
-               direccion.setCiudad(rs.getString(Direccion.COL_CIUDAD));
+               direccion.setCiudad(rs.getInt(Direccion.COL_CIUDAD));
                direccion.setId(rs.getLong(Direccion.COL_ID));
                direccion.setIdBecario(id);
                lstDirecciones.add(direccion);

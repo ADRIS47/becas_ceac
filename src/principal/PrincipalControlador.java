@@ -505,6 +505,7 @@ public class PrincipalControlador {
         llenaComboCategorias(vistaRegistro.cmboxEscuelaUniversitaria, catUniversidad);
         llenaComboCategorias(vistaRegistro.cmboxCampoEscuela, catCampoEstudio);
         llenaComboCategorias(vistaRegistro.cmbTipoEscuela, catTipoEscuela);
+        llenaComboCategorias(lstVistaDireccion.get(0).cmbCiudadBecado, catMunicipios);
         
         lstVistaParentesco.get(1).cmbParentesco.setSelectedIndex(1);
 
@@ -832,6 +833,7 @@ public class PrincipalControlador {
             PnlDireccion pnlDireccion = new PnlDireccion();
             pnlDireccion.setControlador(this);
             pnlDireccion.lblAgregarDireccion.setVisible(false);
+            llenaComboCategorias(pnlDireccion.cmbCiudadBecado, catMunicipios);
             lstVistaDireccion.add(pnlDireccion);
             lstVistaDireccion.get(0).lblAgregarDireccion.setVisible(false);
             System.out.println("Esto es de dirección");
@@ -1472,7 +1474,8 @@ public class PrincipalControlador {
             //Se obtiene la colonia
             direccion.setColonia(panel.txtColoniaBecado.getText());
             //Se obtiene la ciudad
-            direccion.setCiudad(panel.txtCiudadBecado.getText());
+            int idCiudad = getIdCmbBox((String) panel.cmbCiudadBecado.getSelectedItem(), catMunicipios);
+            direccion.setCiudad(idCiudad);
             //Se obtiene el becario
             direccion.setIdBecario(idBecario);
             //Se agrega la direccion a la lista
@@ -2333,7 +2336,7 @@ public class PrincipalControlador {
         for (PnlDireccion lstVistaDireccion : lstVistaDireccion) {
             lstVistaDireccion.txtCPBecado.addKeyListener(new EscuchadorValidaEntrada(lstVistaDireccion, EscuchadorValidaEntrada.CODIGO_POSTAL, lstVistaDireccion.txtCPBecado));
             lstVistaDireccion.txtCalleBecado.addKeyListener(new EscuchadorValidaEntrada(lstVistaDireccion, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, lstVistaDireccion.txtCalleBecado));
-            lstVistaDireccion.txtCiudadBecado.addKeyListener(new EscuchadorValidaEntrada(lstVistaDireccion, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, lstVistaDireccion.txtCiudadBecado));
+            //lstVistaDireccion.txtCiudadBecado.addKeyListener(new EscuchadorValidaEntrada(lstVistaDireccion, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, lstVistaDireccion.txtCiudadBecado));
             lstVistaDireccion.txtColoniaBecado.addKeyListener(new EscuchadorValidaEntrada(lstVistaDireccion, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, lstVistaDireccion.txtColoniaBecado));
             lstVistaDireccion.txtNumBecado.addKeyListener(new EscuchadorValidaEntrada(lstVistaDireccion, EscuchadorValidaEntrada.NUMEROS, lstVistaDireccion.txtNumBecado));
             lstVistaDireccion.txtNumIntBecado.addKeyListener(new EscuchadorValidaEntrada(lstVistaDireccion, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, lstVistaDireccion.txtNumIntBecado));
@@ -2670,7 +2673,8 @@ public class PrincipalControlador {
             lstVistaDireccion.get(contador).txtNumIntBecado.setText(direccion.getNumInt());
             lstVistaDireccion.get(contador).txtCPBecado.setText(direccion.getCodigoPostal() + "");
             lstVistaDireccion.get(contador).txtColoniaBecado.setText(direccion.getColonia());
-            lstVistaDireccion.get(contador).txtCiudadBecado.setText(direccion.getCiudad());
+            String ciudad = getItemComboBox(direccion.getCiudad(), catMunicipios);
+            lstVistaDireccion.get(contador).cmbCiudadBecado.setSelectedItem(ciudad);
             contador++;
         }
 
