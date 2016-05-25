@@ -41,7 +41,7 @@ public class VistaRegistroOpcionActualizar extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(125, 334));
 
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/editar2.png"))); // NOI18N
-        btnGuardar.setToolTipText("Editar Becario");
+        btnGuardar.setToolTipText("GUARDAR CAMBIOS DEL BECARIO");
         btnGuardar.setPreferredSize(new java.awt.Dimension(160, 29));
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -50,9 +50,11 @@ public class VistaRegistroOpcionActualizar extends javax.swing.JPanel {
         });
 
         btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imprimir.png"))); // NOI18N
+        btnImprimir.setToolTipText("IMPRESION GENERAL BECARIO");
         btnImprimir.setPreferredSize(new java.awt.Dimension(160, 29));
 
         btnGuardar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cancel_r.png"))); // NOI18N
+        btnGuardar3.setToolTipText("CANCELAR O TRUNCAR REGISTRO");
         btnGuardar3.setPreferredSize(new java.awt.Dimension(160, 29));
         btnGuardar3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,6 +63,7 @@ public class VistaRegistroOpcionActualizar extends javax.swing.JPanel {
         });
 
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salir.png"))); // NOI18N
+        btnSalir.setToolTipText("SALIR DEL SISTEMA");
         btnSalir.setPreferredSize(new java.awt.Dimension(160, 29));
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,7 +109,7 @@ public class VistaRegistroOpcionActualizar extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addGap(0, 90, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

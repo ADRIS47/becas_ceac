@@ -752,7 +752,7 @@ public class VistaRegistro extends javax.swing.JPanel {
                     .addComponent(spnlHijos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlDatosFamiliaresLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(pnlConyuge, javax.swing.GroupLayout.DEFAULT_SIZE, 1026, Short.MAX_VALUE)))
+                        .addComponent(pnlConyuge, javax.swing.GroupLayout.PREFERRED_SIZE, 1026, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnlDatosFamiliaresLayout.setVerticalGroup(
@@ -1585,7 +1585,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tbpBecados, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 649, Short.MAX_VALUE)
+            .addComponent(tbpBecados, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(pnlOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)

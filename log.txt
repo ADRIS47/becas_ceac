@@ -3065,3 +3065,4 @@ Verifique su conexion e intentelo de nuevo
 25/5/2016;12:57:35;ERROR: Code1054
 25/5/2016;12:57:35;Message: Unknown column 'ciudad' in 'field list'
 25/5/2016;12:57:36;null
+25/5/2016;14:43:29;Nombre de categoria no encontrado
