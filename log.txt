@@ -3034,3 +3034,4 @@
 24/5/2016;18:25:42;Nombre de categoria no encontrado
 24/5/2016;18:31:22;Nombre de categoria no encontrado
 24/5/2016;18:35:38;Nombre de categoria no encontrado
+24/5/2016;22:48:47;Error al actualizar los datos del becario

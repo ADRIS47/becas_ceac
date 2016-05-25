@@ -1300,6 +1300,8 @@ public class PrincipalControlador {
         becario.setEmail(vistaRegistro.txtCorreoBecario.getText());
         //Se obtienen los comentarios
         becario.setObservaciones(vistaRegistro.txtAreaObservaciones.getText());
+        //Se obtiene si es graduado o no
+        becario.setGraduado(vistaRegistro.chkBoxGraduado.isSelected());
 
         //Se obtiene el id del becario en caso de que sea una actualización o eliminación
         if (updateOrInsert == false) {
@@ -2740,6 +2742,7 @@ public class PrincipalControlador {
         vistaRegistro.txtBecaPorSemestre.setText(lstDatosEscolares.getBecaSemestral() + "");
         vistaRegistro.txtAreaObservaciones.setText(becario.getObservaciones());
         vistaRegistro.cmbTipoEscuela.setSelectedItem(getItemComboBox(lstDatosEscolares.getIdTipoEscuela(), catTipoEscuela));
+        vistaRegistro.chkBoxGraduado.setSelected(becario.isGraduado());
         
         //Igualdad de archivos y Llenado de ArchivosAdjuntos        
         if (becario.getActaNacimiento() != null) {

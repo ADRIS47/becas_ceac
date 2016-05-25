@@ -764,6 +764,7 @@ public class PrincipalModelo {
             ps.setString(28, becario.getEstudioSocioEconomico());
             ps.setString(29, becario.getCartaAsignacionBeca());
             ps.setString(30, becario.getCartaAgradecimiento());
+            ps.setBoolean(31, becario.isGraduado());
             
             
             int i = ps.executeUpdate();
@@ -1252,7 +1253,8 @@ public class PrincipalModelo {
             ps.setString(27, becario.getBoletaInicioBeca());
             ps.setString(28, becario.getPagare());
             ps.setString(29, becario.getCartaAgradecimiento());
-            ps.setString(30, becario.getFolio());
+            ps.setBoolean(30, becario.isGraduado());
+            ps.setString(31, becario.getFolio());
             valor = ps.executeUpdate();
             
             if(valor == 0){

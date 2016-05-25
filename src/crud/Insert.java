@@ -36,13 +36,15 @@ public class Insert {
                     + Becario.COL_FOLIO + ", " + Becario.COL_ESTATUS + ","
                     + Becario.COL_PAGARE + ", "  + Becario.COL_OCUPACION_CONYUGE + ","
                     + Becario.COL_PROGRAMA + "," + Becario.COL_ESTUDIO_SOCIOECONOMICO + ", "
-                    + Becario.COL_CARTA_ASIGNACION_BECA + ", " + Becario.COL_CARTA_AGRADECIMIENTO + ") "
+                    + Becario.COL_CARTA_ASIGNACION_BECA + ", " + Becario.COL_CARTA_AGRADECIMIENTO + ", "
+                    + Becario.COL_GRADUADO + ") "
             + "VALUES (?,?,?,?,?,"
                         + "?,?,?,?,?,"
                         + "?,?,?,?,?,"
                         + "?,?,?,?,?,"
                         + "?,?,?,?,?,"
-                        + "?,?,?,?,?)";
+                        + "?,?,?,?,?,"
+                        + "?)";
     
     /**
      * Inserta la direccion del becario
