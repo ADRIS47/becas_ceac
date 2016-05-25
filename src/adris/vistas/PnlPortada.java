@@ -5,8 +5,6 @@
  */
 package adris.vistas;
 
-import principal.*;
-
 /**
  *
  * @author sabagip
