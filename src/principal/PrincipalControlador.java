@@ -2796,11 +2796,12 @@ public class PrincipalControlador {
         }
         
         //Se carga la carta de agradecimiento de beca del becario
-        if (fileCartaAgradecimiento != null) {
+        if (becario.getCartaAgradecimiento() != null) {
             fileCartaAgradecimiento = null;
             fileCartaAgradecimiento = new File(Index.RUTA_FINAL + becario.getCartaAgradecimiento());
-            //vistaRegistro.lblEstatusCartaAsignacionBeca.setText(fileCartaAgradecimiento.getName());
+            vistaRegistro.lblEstatusCartaAgradecimiento.setText(fileCartaAgradecimiento.getName());
         }
+        
 
     }
 

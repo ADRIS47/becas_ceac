@@ -3027,3 +3027,10 @@
 21/5/2016;15:36:22;Nombre de categoria no encontrado
 21/5/2016;15:36:35;Nombre de categoria no encontrado
 21/5/2016;15:37:26;Nombre de categoria no encontrado
+24/5/2016;18:21:43;SQLError: 22001
+24/5/2016;18:21:43;ERROR: Code1406
+24/5/2016;18:21:43;Message: Data truncation: Data too long for column 'telefono' at row 1
+24/5/2016;18:21:44;null
+24/5/2016;18:25:42;Nombre de categoria no encontrado
+24/5/2016;18:31:22;Nombre de categoria no encontrado
+24/5/2016;18:35:38;Nombre de categoria no encontrado
