@@ -640,16 +640,25 @@ public class Helper {
         
         //Si hay una fila seleccionada
         if(tabla.getSelectedRow() >= 0){
-//            for (Integer key : lstCatalogo.keySet()) {
-//                if(lstCatalogo.get(key).equals(tabla.getValueAt(tabla.getSelectedRow(), 0))){
-//                    lstCatalogo.remove(key);
+            for (Integer key : lstCatalogo.keySet()) {
+                if(lstCatalogo.get(key).equals(tabla.getValueAt(tabla.getSelectedRow(), 0))){
+                    lstCatalogo.remove(key);
                     modelo.removeRow(tabla.getSelectedRow());
-//                    break;
-//                }
-//            }
+                    break;
+                }
+            }
         }
-        else
+        else{
+            String dato = (String) tabla.getValueAt(tabla.getRowCount(), 0);
+            for (Integer key : lstCatalogo.keySet()) {
+                if(lstCatalogo.get(key).equals(dato)){
+                    lstCatalogo.remove(key);
+                    modelo.removeRow(tabla.getSelectedRow());
+                    break;
+                }
+            }
             modelo.removeRow(filas - 1);
+        }
     }
     
     /**
@@ -707,7 +716,7 @@ public class Helper {
      * @param tabla
      * @param txtBuscador
      * @param texto
-     * @param catDatosCatalogos 
+     * @param catDatosCatalogos
      * @return  Regresa el nuevo catalogo
      */
     public LinkedHashMap<Integer, String> agregaFilaTabla(JTable tabla, JTextField txtBuscador, String texto, 
@@ -715,14 +724,16 @@ public class Helper {
         LinkedHashMap<Integer, String> catNuevoCatalogo = new LinkedHashMap<>();
         DefaultTableModel tblModelo = (DefaultTableModel) tabla.getModel();
         //txtBuscador.setText("");
-        int tamanioCatalogo = catDatosCatalogos.size();
-        int i = 1;
-        //Se hace una copia de los registros de la tabla
+        
+        int i = 0;
+        //Se hace una copia de los registros de la tabla y se obtiene el id mayor que se ha agregado a la lista
         for (Integer idCat : catDatosCatalogos.keySet()) {
-            catNuevoCatalogo.put(i, catDatosCatalogos.get(idCat));
-            i++;
+            catNuevoCatalogo.put(idCat, catDatosCatalogos.get(idCat));
+            
+            if(i <= idCat)
+                i = idCat;
         }
-        catNuevoCatalogo.put(i, texto);
+        catNuevoCatalogo.put(i + 1, texto);
         
         eliminaFilasTabla(tabla);
         
@@ -730,6 +741,8 @@ public class Helper {
             tblModelo.addRow(new String[]{catNuevoCatalogo.get(id)});
         }
         txtBuscador.setText("");
+        
+        
         return catNuevoCatalogo;
     }
             

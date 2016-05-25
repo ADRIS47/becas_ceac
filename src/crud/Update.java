@@ -49,7 +49,7 @@ public class Update {
             ///////////////////////////////////////////////
             + Becario.COL_PROGRAMA + " = ?, " + Becario.COL_ENSAYO + " = ?, "
             + Becario.COL_BOLETA_INICIO_BECA + " = ?, " + Becario.COL_PAGARE + " = ?, "
-            + Becario.COL_CARTA_AGRADECIMIENTO + " "
+            + Becario.COL_CARTA_AGRADECIMIENTO + " = ?, " + Becario.COL_GRADUADO + " = ? "
             + "WHERE " + Becario.COL_FOLIO + " = ?";
     
     /**
@@ -153,6 +153,16 @@ public class Update {
     public static String updateTruncaBecario = "UPDATE beca_becario "
             + "SET " + Becario.COL_ESTATUS + " = ?, " + Becario.COL_TIPO_ESTATUS + " = ? "
             + "WHERE " + Becario.COL_ID + " = ?";
+    
+    /**
+     * Desactiva un registro del catalogo seleccionado
+     * UPDATE nombreTabla SET activo = 0 WHERE columnaId = idRegistro
+     */
+    public static String desactivaRegistroCatalogo(String nombreTabla, CatColumnasTabla columnas){
+        String query = "UPDATE " + nombreTabla + " SET activo = 0 WHERE " + columnas.getNombreColumnaId() + " = ?";
+        
+        return query;
+    }
 
     /**
      * Crea un query para actualizar un registro de una tabla categoría
@@ -180,16 +190,18 @@ public class Update {
      * @param nombreColumnas
      * @param idRegistro
      * @param datoNuevo
+     * @param tipoEscuela
      * @return 
      */
     public static String updateRegistroCatalogo(String nombreTabla, CatColumnasTabla nombreColumnas, 
             int idRegistro, String datoNuevo, boolean tipoEscuela) {
         String query = "";
-        
-        
+        int isPiblic = 2;
+        if(tipoEscuela)
+            isPiblic = 1;
         query = "UPDATE " + nombreTabla + " SET " + nombreColumnas.getNombreColumnaNombre() 
-                + " = '" + datoNuevo + "', " + nombreColumnas.getNombreColumnaTipoEscuela() + " = ? " 
-                + "WHERE " + nombreColumnas.getNombreColumnaId() 
+                + " = '" + datoNuevo + "', " + nombreColumnas.getNombreColumnaTipoEscuela() + " = "  
+                + isPiblic + " WHERE " + nombreColumnas.getNombreColumnaId() 
                 + " = " + idRegistro;
         System.out.println("Query: " + query);
         

@@ -2944,7 +2944,7 @@ public class PrincipalModelo {
         try {
             st = conexion.createStatement();
             int resp = st.executeUpdate(Insert.insertRegistroCatalogo(nombreTabla, 
-                                    nombreColumnas, datoNuevo, idRegistro, bandera));
+                                    nombreColumnas, datoNuevo, idRegistro));
             if(resp > 0)
                 response = true;
         } catch (SQLException ex) {
@@ -2975,7 +2975,7 @@ public class PrincipalModelo {
         
         try {
             st = conexion.prepareStatement(Insert.insertRegistroCatalogo(nombreTabla, 
-                                    nombreColumnas, datoNuevo, idRegistro, bandera, tipoUniversidad));
+                                    nombreColumnas, datoNuevo, idRegistro, tipoUniversidad));
             int resp = st.executeUpdate();
             if(resp > 0)
                 response = true;

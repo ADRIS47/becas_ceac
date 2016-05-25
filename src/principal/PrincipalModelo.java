@@ -321,20 +321,20 @@ public class PrincipalModelo {
             }
         }
         //Se ordenan los programas
-        int i = 0;
-        int tamanioOriginal = catPrograma.size();
-        String[] programas = new String[]{"Devoluci", "Empuje", "Pura", "Apoyo", "Historico"};
-        while(i < tamanioOriginal){
-            for (Integer idPrograma : catPrograma.keySet()) {
-                String programa = catPrograma.get(idPrograma);
-                if(programa.contains(programas[i])){
-                    catResult.put(idPrograma, programa);
-                    i++;
-                    break;
-                }
-            }
-        }
-        return catResult;
+//        int i = 0;
+//        int tamanioOriginal = catPrograma.size();
+//        String[] programas = new String[]{"Devoluci", "Empuje", "Pura", "Apoyo", "Historico"};
+//        while(i < tamanioOriginal){
+//            for (Integer idPrograma : catPrograma.keySet()) {
+//                String programa = catPrograma.get(idPrograma);
+//                if(programa.contains(programas[i])){
+//                    catResult.put(idPrograma, programa);
+//                    i++;
+//                    break;
+//                }
+//            }
+//        }
+        return catPrograma;
     }
 
     /**
@@ -764,6 +764,7 @@ public class PrincipalModelo {
             ps.setString(28, becario.getEstudioSocioEconomico());
             ps.setString(29, becario.getCartaAsignacionBeca());
             ps.setString(30, becario.getCartaAgradecimiento());
+            ps.setBoolean(31, becario.isGraduado());
             
             
             int i = ps.executeUpdate();
@@ -1252,7 +1253,8 @@ public class PrincipalModelo {
             ps.setString(27, becario.getBoletaInicioBeca());
             ps.setString(28, becario.getPagare());
             ps.setString(29, becario.getCartaAgradecimiento());
-            ps.setString(30, becario.getFolio());
+            ps.setBoolean(30, becario.isGraduado());
+            ps.setString(31, becario.getFolio());
             valor = ps.executeUpdate();
             
             if(valor == 0){
@@ -2780,7 +2782,7 @@ public class PrincipalModelo {
         
         try{
             ps = conexion.createStatement();
-            rs = ps.executeQuery(Consultas.getCatalogoPorNombreTabla + nombreTabla + " ORDER BY nombre");
+            rs = ps.executeQuery(Consultas.getCatalogoPorNombreTabla + nombreTabla + " WHERE activo = 1 ORDER BY nombre");
             
             while(rs.next()){
                 CatCategorias catalogo = new CatCategorias();
@@ -2936,7 +2938,7 @@ public class PrincipalModelo {
                         result.setNombreColumnaNombre(rs.getString(1));
                         break;
                         //En caso de que se esté evaluando la universida se agrega
-                    case 3:
+                    case 4:
                         if(nombreTabla.toLowerCase().contains("universidad")){
                             //result.setTipoEscuela(rs.getInt(1));
                             result.setNombreColumnaTipoEscuela(rs.getString(1));
@@ -2962,19 +2964,17 @@ public class PrincipalModelo {
      * @param idRegistro
      * @param nombreTabla
      * @param nombreColumnas
-     * @param bandera False, indica que la tabla NO FUE filtrada.
-     * TRUE indica que la tabla SI FUE filtrada
      * @return 
      */
     protected boolean insertRegistroCatalogo(Connection conexion, String datoNuevo, 
-                    int idRegistro, String nombreTabla, CatColumnasTabla nombreColumnas, boolean bandera) {
+                    int idRegistro, String nombreTabla, CatColumnasTabla nombreColumnas) {
          boolean response = false;
         Statement st = null;
         
         try {
             st = conexion.createStatement();
             int resp = st.executeUpdate(Insert.insertRegistroCatalogo(nombreTabla, 
-                                    nombreColumnas, datoNuevo, idRegistro, bandera));
+                                    nombreColumnas, datoNuevo, idRegistro));
             if(resp > 0)
                 response = true;
         } catch (SQLException ex) {
@@ -2999,13 +2999,13 @@ public class PrincipalModelo {
      */
     protected boolean insertRegistroCatalogo(Connection conexion, String datoNuevo, 
                     int idRegistro, String nombreTabla, CatColumnasTabla nombreColumnas, 
-                    boolean bandera, boolean tipoUniversidad) {
+                    boolean tipoUniversidad) {
          boolean response = false;
         PreparedStatement st = null;
         
         try {
             st = conexion.prepareStatement(Insert.insertRegistroCatalogo(nombreTabla, 
-                                    nombreColumnas, datoNuevo, idRegistro, bandera, tipoUniversidad));
+                                    nombreColumnas, datoNuevo, idRegistro, tipoUniversidad));
             int resp = st.executeUpdate();
             if(resp > 0)
                 response = true;
@@ -3022,19 +3022,19 @@ public class PrincipalModelo {
      * @param conexion
      * @param idRegistro
      * @param nombreTabla
-     * @param bandera FALSE.- Indica que NO SE han filtrado el catalogo
-     * TRUE.- Indica que si se ha filtrado el catalogo
      * @param nombreColumnas
      * @return 
      */
     protected boolean deleteRegistroCatalogo(Connection conexion, 
-            int idRegistro, String nombreTabla, CatColumnasTabla nombreColumnas, boolean bandera) {
+            int idRegistro, String nombreTabla, CatColumnasTabla nombreColumnas) {
         boolean response = false;
-        Statement st = null;
+        PreparedStatement ps = null;
         
         try {
-            st = conexion.createStatement();
-            int resp = st.executeUpdate(Delete.deletetRegistroCatalogo(nombreTabla, nombreColumnas, idRegistro, bandera));
+            ps = conexion.prepareStatement(Update.desactivaRegistroCatalogo(nombreTabla, nombreColumnas));
+            ps.setInt(1, idRegistro);
+            System.out.println(ps);
+            int resp = ps.executeUpdate();
             if(resp > 0)
                 response = true;
         } catch (SQLException ex) {
@@ -3159,11 +3159,101 @@ public class PrincipalModelo {
             while(rs.next()){
                 lstTipoEscuela = rs.getString(1);
             }
+            
+            rs.close();
+            st.close();
         } catch (SQLException ex) {
             Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
             log.muestraErrores(ex);
         }
         
         return lstTipoEscuela;
+    }
+
+    /**
+     * Obtiene el id mayor del catalogo
+     * @param conexion
+     * @param nombreTabla
+     * @param nombreColumnas
+     * @return Id mayor del catalogo
+     */
+    protected long getIdMayorCatalogo(Connection conexion, String nombreTabla, CatColumnasTabla nombreColumnas) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        long idCatalogo = 0;
+        try {
+            ps = conexion.prepareStatement(Consultas.getIdMayor);
+            ps.setString(1, "MAX(" + nombreColumnas.getNombreColumnaId() + "");
+            ps.setString(2, nombreTabla);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                idCatalogo = rs.getLong(1);
+            }
+            rs.close();
+            ps.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            muestraErrores(ex);
+        }
+        
+        return idCatalogo;
+    }
+
+    /**
+     * Actualiza los valores del catalogo
+     * @param conexion
+     * @param idRegistro
+     * @param nuevoValorNombre
+     * @param nombreTabla
+     * @param nombreColumnas
+     * @return 
+     */
+    protected boolean updateRegistroCatalogo(Connection conexion, int idRegistro, String nuevoValorNombre, String nombreTabla, CatColumnasTabla nombreColumnas) {
+        Statement st = null;
+        boolean response = false;
+        
+        try {
+            st = conexion.createStatement();
+            int resp = st.executeUpdate(Update.updateRegistroCatalogo(nombreTabla, nombreColumnas, idRegistro, nuevoValorNombre));
+            
+            if(resp>0)
+                response = true;
+        } catch (SQLException ex) {
+            log.muestraErrores(ex);
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return response;
+    }
+    
+    /**
+     * Actualiza los valores del catalogo de universidades
+     * @param conexion
+     * @param idRegistro
+     * @param nuevoValorNombre
+     * @param nombreTabla
+     * @param nombreColumnas
+     * @param isPublic
+     * @return 
+     */
+    protected boolean updateRegistroCatalogo(Connection conexion, int idRegistro, 
+            String nuevoValorNombre, String nombreTabla, CatColumnasTabla nombreColumnas,
+            boolean isPublic) {
+        Statement st = null;
+        boolean response = false;
+        
+        try {
+            st = conexion.createStatement();
+            int resp = st.executeUpdate(Update.updateRegistroCatalogo(nombreTabla, nombreColumnas, idRegistro, nuevoValorNombre, isPublic));
+            
+            if(resp>0)
+                response = true;
+        } catch (SQLException ex) {
+            log.muestraErrores(ex);
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return response;
     }
 }

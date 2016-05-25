@@ -25,9 +25,9 @@ public class Delete {
     public static String deletetRegistroCatalogo(String nombreTabla, 
                     CatColumnasTabla nombreColumnas, int idRegistro, boolean bandera) {
         String query;
-        if(bandera == false)
-            query = "DELETE FROM " + nombreTabla + " WHERE " + nombreColumnas.getNombreColumnaId() + " >= " + idRegistro;
-        else
+//        if(bandera == false)
+//            query = "DELETE FROM " + nombreTabla + " WHERE " + nombreColumnas.getNombreColumnaId() + " > " + idRegistro;
+//        else
             query = "DELETE FROM " + nombreTabla + " WHERE " + nombreColumnas.getNombreColumnaId() + " = " + idRegistro;
         
         System.out.println(query);
