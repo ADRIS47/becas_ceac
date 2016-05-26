@@ -3509,7 +3509,7 @@ public class PrincipalControlador {
      * Inserta un registro en el catalogo seleccionado
      * @param tabla Tabla a agregar la fila
      */
-    protected void InsertarRegistroCastalogo(JTable tabla) {
+    protected void insertarRegistroCastalogo(JTable tabla) {
         String texto = vistaCatalogos.TxtFldDescripcionCatalogo.getText();
         DefaultTableModel tblModelo = (DefaultTableModel) tabla.getModel();
         //Si no se ha el filtrado el catalogo
@@ -3519,44 +3519,48 @@ public class PrincipalControlador {
         }
         else{
             
-            helper.cursorEspera(vista);
+            int select = JOptionPane.showConfirmDialog(vistaCatalogos, "¿Seguro que desea insertar " + texto + "?", "", JOptionPane.YES_NO_OPTION);
             
-            Conexion conn = new Conexion();
-            Connection conexion = conn.estableceConexion();
-            
-            if(conexion == null){
-                JOptionPane.showMessageDialog(vistaCatalogos, "No se pudo conectar a la base de datos. \n Intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-            
-            String seleccion = (String) vistaCatalogos.cmbTipoCatalogo.getSelectedItem();
-            int idTabla = getIdCmbBox(seleccion, catCatalogos);
-            String nombreTabla = modelo.getNombreTabla(conexion, idTabla);
-            
-            CatColumnasTabla nombreColumnas = modelo.getNombreColumnasTabla(conexion, nombreTabla);
-            
-            boolean response;
-            if(tblModelo.getColumnCount() == 1)
-                response = modelo.insertRegistroCatalogo(conexion, texto, 0, 
-                        nombreTabla, nombreColumnas);
-            else
-                response = modelo.insertRegistroCatalogo(conexion, texto, 0, nombreTabla, nombreColumnas, true);
-            
-            
-            if(response == false){
-                JOptionPane.showMessageDialog(vistaCatalogos, "No se pudo insertar el registro. \n Intentelo de nuevo.", "Error", JOptionPane.ERROR_MESSAGE);
-                try {
-                    conexion.close();
-                } catch (SQLException ex) {
-                    Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
-                    log.muestraErrores(ex);
+            if(select == JOptionPane.YES_OPTION){
+                helper.cursorEspera(vista);
+
+                Conexion conn = new Conexion();
+                Connection conexion = conn.estableceConexion();
+
+                if(conexion == null){
+                    JOptionPane.showMessageDialog(vistaCatalogos, "No se pudo conectar a la base de datos. \n Intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
                 }
-                helper.cursorNormal(vista);
-            }
-            else{
-                JOptionPane.showMessageDialog(vistaCatalogos, "Registro insertado.");
-                creaVistaCatalogos();
-                vistaCatalogos.cmbTipoCatalogo.setSelectedItem(seleccion);
-                helper.cursorNormal(vista);
+
+                String seleccion = (String) vistaCatalogos.cmbTipoCatalogo.getSelectedItem();
+                int idTabla = getIdCmbBox(seleccion, catCatalogos);
+                String nombreTabla = modelo.getNombreTabla(conexion, idTabla);
+
+                CatColumnasTabla nombreColumnas = modelo.getNombreColumnasTabla(conexion, nombreTabla);
+
+                boolean response;
+                if(tblModelo.getColumnCount() == 1)
+                    response = modelo.insertRegistroCatalogo(conexion, texto, 0, 
+                            nombreTabla, nombreColumnas);
+                else
+                    response = modelo.insertRegistroCatalogo(conexion, texto, 0, nombreTabla, nombreColumnas, true);
+
+
+                if(response == false){
+                    JOptionPane.showMessageDialog(vistaCatalogos, "No se pudo insertar el registro. \n Intentelo de nuevo.", "Error", JOptionPane.ERROR_MESSAGE);
+                    try {
+                        conexion.close();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+                        log.muestraErrores(ex);
+                    }
+                    helper.cursorNormal(vista);
+                }
+                else{
+                    JOptionPane.showMessageDialog(vistaCatalogos, "Registro insertado.");
+                    creaVistaCatalogos();
+                    vistaCatalogos.cmbTipoCatalogo.setSelectedItem(seleccion);
+                    helper.cursorNormal(vista);
+                }
             }
         }
     }

@@ -198,7 +198,7 @@ public class VistaCatalogos extends javax.swing.JPanel {
     }//GEN-LAST:event_cmbTipoCatalogoItemStateChanged
 
     private void btnAgregarFilaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarFilaActionPerformed
-        controlador.InsertarRegistroCastalogo(TblDescripcionCatalogo);
+        controlador.insertarRegistroCastalogo(TblDescripcionCatalogo);
     }//GEN-LAST:event_btnAgregarFilaActionPerformed
 
     private void btnEliminarFilaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarFilaActionPerformed
