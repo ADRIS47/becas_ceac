@@ -17,7 +17,7 @@ public class Direccion {
     String numInt;
     String colonia;
     int codigoPostal;
-    String ciudad;
+    int ciudad;
     long idBecario;
 
     public long getId() {
@@ -68,11 +68,11 @@ public class Direccion {
         this.codigoPostal = codigoPostal;
     }
 
-    public String getCiudad() {
+    public int getCiudad() {
         return ciudad;
     }
 
-    public void setCiudad(String ciudad) {
+    public void setCiudad(int ciudad) {
         this.ciudad = ciudad;
     }
 
@@ -90,7 +90,6 @@ public class Direccion {
     public final static String COL_NUM_INT = "num_interior";
     public final static String COL_COLONIA = "colonia";
     public final static String COL_CODIGO_POSTAL = "codigo_postal";
-    public final static String COL_CIUDAD = "ciudad";
-    public final static String COL_ID_BECARIO = "id_becario";
-    
+    public final static String COL_CIUDAD = "id_municipio";
+    public final static String COL_ID_BECARIO = "id_becario";    
 }

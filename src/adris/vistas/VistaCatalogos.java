@@ -8,7 +8,6 @@ package adris.vistas;
 import principal.*;
 import java.awt.event.ItemEvent;
 import javax.swing.JTable;
-import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 
@@ -119,7 +118,7 @@ public class VistaCatalogos extends javax.swing.JPanel {
         pnlTabla.setLayout(new javax.swing.BoxLayout(pnlTabla, javax.swing.BoxLayout.LINE_AXIS));
 
         btnAgregarFila.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/table_add.png"))); // NOI18N
-        btnAgregarFila.setText("Agregar Fila");
+        btnAgregarFila.setText("Insertar Registro");
         btnAgregarFila.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarFilaActionPerformed(evt);
@@ -127,7 +126,7 @@ public class VistaCatalogos extends javax.swing.JPanel {
         });
 
         btnEliminarFila.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/table_delete.png"))); // NOI18N
-        btnEliminarFila.setText("Eliminar Fila");
+        btnEliminarFila.setText("Eliminar Registro");
         btnEliminarFila.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarFilaActionPerformed(evt);
@@ -135,7 +134,7 @@ public class VistaCatalogos extends javax.swing.JPanel {
         });
 
         BtnAddDescripcionCatalogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/database_save.png"))); // NOI18N
-        BtnAddDescripcionCatalogo.setText("Guardar");
+        BtnAddDescripcionCatalogo.setText("Actualizar Registro");
         BtnAddDescripcionCatalogo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAddDescripcionCatalogoActionPerformed(evt);
@@ -147,13 +146,13 @@ public class VistaCatalogos extends javax.swing.JPanel {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(32, 32, 32)
                 .addComponent(btnAgregarFila, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(123, 123, 123)
+                .addGap(82, 82, 82)
                 .addComponent(btnEliminarFila, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(107, 107, 107)
-                .addComponent(BtnAddDescripcionCatalogo, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addGap(82, 82, 82)
+                .addComponent(BtnAddDescripcionCatalogo)
+                .addGap(29, 29, 29))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,7 +199,7 @@ public class VistaCatalogos extends javax.swing.JPanel {
     }//GEN-LAST:event_cmbTipoCatalogoItemStateChanged
 
     private void btnAgregarFilaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarFilaActionPerformed
-        controlador.agregarFilaTabla(TblDescripcionCatalogo);
+        controlador.InsertarRegistroCastalogo(TblDescripcionCatalogo);
     }//GEN-LAST:event_btnAgregarFilaActionPerformed
 
     private void btnEliminarFilaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarFilaActionPerformed
@@ -213,7 +212,7 @@ public class VistaCatalogos extends javax.swing.JPanel {
     }//GEN-LAST:event_TxtFldDescripcionCatalogoKeyTyped
 
     private void BtnAddDescripcionCatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddDescripcionCatalogoActionPerformed
-        controlador.crudCatalogo();
+        controlador.updateCatalogo();
     }//GEN-LAST:event_BtnAddDescripcionCatalogoActionPerformed
 
 

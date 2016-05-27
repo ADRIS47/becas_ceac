@@ -68,6 +68,7 @@ public class PrincipalControlador {
     VistaBusqueda vistaBusqueda;
     VistaKardex vistaKardex;
     VistaCatalogos vistaCatalogos;
+    VistaReportes vistaReporte;
     
     PnlPortada vistaPortada;
     VistaRegistroOpcionGuardar vistaOpcionGuardar;
@@ -106,6 +107,7 @@ public class PrincipalControlador {
     LinkedHashMap<Integer, String> catLugarServicioSocial = null;
     LinkedHashMap<Integer, String> catCatalogos = null;
     LinkedHashMap<Integer, String> catMunicipios = null;
+    LinkedHashMap<Integer, String> catReportes = null;
     
     /**
      * Se encarga de almacenar el catalogo original de la base de datos
@@ -183,15 +185,15 @@ public class PrincipalControlador {
     public void setVistaKardex(VistaKardex vistaKardex) {
         this.vistaKardex = vistaKardex;
     }
-
-    public VistaCatalogos getVistaCatalogos() {
-        return vistaCatalogos;
-    }
-
+    
     public void setVistaCatalogos(VistaCatalogos vistaCatalogos) {
         this.vistaCatalogos = vistaCatalogos;
     }
 
+    public void setVistaReporte(VistaReportes vistaReporte) {
+        this.vistaReporte = vistaReporte;
+    }
+    
     public void iniciaPantallaPrincipal() {
         vista = new VistaPanelPrincipal(this);
         helper.cursorEspera(vista);
@@ -432,6 +434,22 @@ public class PrincipalControlador {
 //                            catDatosCatalogos, vistaCatalogos.TblDescripcionCatalogo));
         helper.cursorNormal(vista);
     }
+    
+    /**
+     * Crea la vista de los catalogos
+     */
+    protected void creaVistaReportes() {
+        helper.cursorEspera(vista);
+        
+        vistaReporte = new VistaReportes();
+        this.setVistaReporte(vistaReporte);
+        vistaReporte.setControlador(this);
+        
+        creaPantalla(vistaReporte);
+        List<LinkedHashMap<Integer, String>> lstCategorias = null;
+        llenaCamposCategoriasVistaReportes(lstCategorias);        
+        helper.cursorNormal(vista);
+    }
 
     /**
      * Crea una pantalla dentro del panel pnlOpciones
@@ -487,6 +505,7 @@ public class PrincipalControlador {
         llenaComboCategorias(vistaRegistro.cmboxEscuelaUniversitaria, catUniversidad);
         llenaComboCategorias(vistaRegistro.cmboxCampoEscuela, catCampoEstudio);
         llenaComboCategorias(vistaRegistro.cmbTipoEscuela, catTipoEscuela);
+        llenaComboCategorias(lstVistaDireccion.get(0).cmbCiudadBecado, catMunicipios);
         
         lstVistaParentesco.get(1).cmbParentesco.setSelectedIndex(1);
 
@@ -814,6 +833,7 @@ public class PrincipalControlador {
             PnlDireccion pnlDireccion = new PnlDireccion();
             pnlDireccion.setControlador(this);
             pnlDireccion.lblAgregarDireccion.setVisible(false);
+            llenaComboCategorias(pnlDireccion.cmbCiudadBecado, catMunicipios);
             lstVistaDireccion.add(pnlDireccion);
             lstVistaDireccion.get(0).lblAgregarDireccion.setVisible(false);
             System.out.println("Esto es de dirección");
@@ -1454,7 +1474,8 @@ public class PrincipalControlador {
             //Se obtiene la colonia
             direccion.setColonia(panel.txtColoniaBecado.getText());
             //Se obtiene la ciudad
-            direccion.setCiudad(panel.txtCiudadBecado.getText());
+            int idCiudad = getIdCmbBox((String) panel.cmbCiudadBecado.getSelectedItem(), catMunicipios);
+            direccion.setCiudad(idCiudad);
             //Se obtiene el becario
             direccion.setIdBecario(idBecario);
             //Se agrega la direccion a la lista
@@ -2315,7 +2336,7 @@ public class PrincipalControlador {
         for (PnlDireccion lstVistaDireccion : lstVistaDireccion) {
             lstVistaDireccion.txtCPBecado.addKeyListener(new EscuchadorValidaEntrada(lstVistaDireccion, EscuchadorValidaEntrada.CODIGO_POSTAL, lstVistaDireccion.txtCPBecado));
             lstVistaDireccion.txtCalleBecado.addKeyListener(new EscuchadorValidaEntrada(lstVistaDireccion, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, lstVistaDireccion.txtCalleBecado));
-            lstVistaDireccion.txtCiudadBecado.addKeyListener(new EscuchadorValidaEntrada(lstVistaDireccion, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, lstVistaDireccion.txtCiudadBecado));
+            //lstVistaDireccion.txtCiudadBecado.addKeyListener(new EscuchadorValidaEntrada(lstVistaDireccion, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, lstVistaDireccion.txtCiudadBecado));
             lstVistaDireccion.txtColoniaBecado.addKeyListener(new EscuchadorValidaEntrada(lstVistaDireccion, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, lstVistaDireccion.txtColoniaBecado));
             lstVistaDireccion.txtNumBecado.addKeyListener(new EscuchadorValidaEntrada(lstVistaDireccion, EscuchadorValidaEntrada.NUMEROS, lstVistaDireccion.txtNumBecado));
             lstVistaDireccion.txtNumIntBecado.addKeyListener(new EscuchadorValidaEntrada(lstVistaDireccion, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, lstVistaDireccion.txtNumIntBecado));
@@ -2652,7 +2673,8 @@ public class PrincipalControlador {
             lstVistaDireccion.get(contador).txtNumIntBecado.setText(direccion.getNumInt());
             lstVistaDireccion.get(contador).txtCPBecado.setText(direccion.getCodigoPostal() + "");
             lstVistaDireccion.get(contador).txtColoniaBecado.setText(direccion.getColonia());
-            lstVistaDireccion.get(contador).txtCiudadBecado.setText(direccion.getCiudad());
+            String ciudad = getItemComboBox(direccion.getCiudad(), catMunicipios);
+            lstVistaDireccion.get(contador).cmbCiudadBecado.setSelectedItem(ciudad);
             contador++;
         }
 
@@ -2973,6 +2995,72 @@ public class PrincipalControlador {
             
         helper.cursorNormal(vista);
         
+    }
+    
+    /**
+     * Llena los combo box de la vista Reportes
+     * @param lstCategorias 
+     */
+    private void llenaCamposCategoriasVistaReportes(List<LinkedHashMap<Integer, String>> lstCategorias) {
+        //Si no se ha llenado la tabla
+        helper.cursorEspera(vista);
+        Conexion conn = new Conexion();
+        Connection conexion = conn.estableceConexion();
+        
+        if(conexion == null){
+            JOptionPane.showMessageDialog(vista, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo","Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        //Se borrar e inicializan todas las listas y catalogos
+        if(catReportes == null){
+            catReportes = modelo.getCatReportes(conexion);
+        }
+
+        if(catPrograma == null){
+            catPrograma = modelo.getCatProgramas(conexion);
+        }
+        
+        if(catEstatus == null){
+            catEstatus = modelo.getCatEstatus(conexion);
+        }
+        
+        llenaComboCategorias(vistaReporte.cmbTipoReporte, catReportes);
+        llenaComboCategorias(vistaReporte.cmbProgramaInicial, catPrograma);
+        llenaComboCategorias(vistaReporte.cmbProgramaFinal, catPrograma);
+        llenaComboCategorias(vistaReporte.cmbEstatus, catEstatus);
+        llenaComboCategorias(vistaReporte.cmbPrograma, catPrograma);
+        
+        
+
+//        if(vistaCatalogos.cmbTipoCatalogo.getSelectedIndex() < 0)
+//            llenaComboCategorias(vistaCatalogos.cmbTipoCatalogo, catCatalogos);
+//
+//        String seleccion = (String) vistaCatalogos.cmbTipoCatalogo.getSelectedItem();
+//        int idTabla = getIdCmbBox(seleccion, catCatalogos);
+//        String nombreTabla = modelo.getNombreTabla(conexion, idTabla);
+//
+//        lstCatalogoOriginal = modelo.getDatosCatalogo(conexion, nombreTabla);
+//        //Se hace una copia del catalogo original
+//        for (Integer idCatalogo : lstCatalogoOriginal.keySet()) {
+//            lstCatalogoCopia.put(idCatalogo, lstCatalogoOriginal.get(idCatalogo));
+//        }
+//        
+//        if(!nombreTabla.contains("univer")){
+//            creaTablaCatalogos(true);
+//            llenaTablaCatalogos(lstCatalogoOriginal, vistaCatalogos.TblDescripcionCatalogo, true, conexion);
+//        }
+//        else{
+//            creaTablaCatalogos(false);
+//            llenaTablaCatalogos(lstCatalogoOriginal, vistaCatalogos.TblDescripcionCatalogo, false, conexion);
+//            //DefaultTableModel tblModel = (DefaultTableModel) vistaCatalogos.TblDescripcionCatalogo.getModel();
+//        }
+
+        try{
+            conexion.close();
+        }
+        catch(SQLException e){log.muestraErrores(e);}
+            
+        helper.cursorNormal(vista);
     }
     
     private void creaTablaCatalogos(boolean tblDefault){
@@ -3421,7 +3509,7 @@ public class PrincipalControlador {
      * Inserta un registro en el catalogo seleccionado
      * @param tabla Tabla a agregar la fila
      */
-    protected void InsertarRegistroCastalogo(JTable tabla) {
+    protected void insertarRegistroCastalogo(JTable tabla) {
         String texto = vistaCatalogos.TxtFldDescripcionCatalogo.getText();
         DefaultTableModel tblModelo = (DefaultTableModel) tabla.getModel();
         //Si no se ha el filtrado el catalogo
@@ -3431,44 +3519,48 @@ public class PrincipalControlador {
         }
         else{
             
-            helper.cursorEspera(vista);
+            int select = JOptionPane.showConfirmDialog(vistaCatalogos, "¿Seguro que desea insertar " + texto + "?", "", JOptionPane.YES_NO_OPTION);
             
-            Conexion conn = new Conexion();
-            Connection conexion = conn.estableceConexion();
-            
-            if(conexion == null){
-                JOptionPane.showMessageDialog(vistaCatalogos, "No se pudo conectar a la base de datos. \n Intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-            
-            String seleccion = (String) vistaCatalogos.cmbTipoCatalogo.getSelectedItem();
-            int idTabla = getIdCmbBox(seleccion, catCatalogos);
-            String nombreTabla = modelo.getNombreTabla(conexion, idTabla);
-            
-            CatColumnasTabla nombreColumnas = modelo.getNombreColumnasTabla(conexion, nombreTabla);
-            
-            boolean response;
-            if(tblModelo.getColumnCount() == 1)
-                response = modelo.insertRegistroCatalogo(conexion, texto, 0, 
-                        nombreTabla, nombreColumnas);
-            else
-                response = modelo.insertRegistroCatalogo(conexion, texto, 0, nombreTabla, nombreColumnas, true);
-            
-            
-            if(response == false){
-                JOptionPane.showMessageDialog(vistaCatalogos, "No se pudo insertar el registro. \n Intentelo de nuevo.", "Error", JOptionPane.ERROR_MESSAGE);
-                try {
-                    conexion.close();
-                } catch (SQLException ex) {
-                    Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
-                    log.muestraErrores(ex);
+            if(select == JOptionPane.YES_OPTION){
+                helper.cursorEspera(vista);
+
+                Conexion conn = new Conexion();
+                Connection conexion = conn.estableceConexion();
+
+                if(conexion == null){
+                    JOptionPane.showMessageDialog(vistaCatalogos, "No se pudo conectar a la base de datos. \n Intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
                 }
-                helper.cursorNormal(vista);
-            }
-            else{
-                JOptionPane.showMessageDialog(vistaCatalogos, "Registro insertado.");
-                creaVistaCatalogos();
-                vistaCatalogos.cmbTipoCatalogo.setSelectedItem(seleccion);
-                helper.cursorNormal(vista);
+
+                String seleccion = (String) vistaCatalogos.cmbTipoCatalogo.getSelectedItem();
+                int idTabla = getIdCmbBox(seleccion, catCatalogos);
+                String nombreTabla = modelo.getNombreTabla(conexion, idTabla);
+
+                CatColumnasTabla nombreColumnas = modelo.getNombreColumnasTabla(conexion, nombreTabla);
+
+                boolean response;
+                if(tblModelo.getColumnCount() == 1)
+                    response = modelo.insertRegistroCatalogo(conexion, texto, 0, 
+                            nombreTabla, nombreColumnas);
+                else
+                    response = modelo.insertRegistroCatalogo(conexion, texto, 0, nombreTabla, nombreColumnas, true);
+
+
+                if(response == false){
+                    JOptionPane.showMessageDialog(vistaCatalogos, "No se pudo insertar el registro. \n Intentelo de nuevo.", "Error", JOptionPane.ERROR_MESSAGE);
+                    try {
+                        conexion.close();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+                        log.muestraErrores(ex);
+                    }
+                    helper.cursorNormal(vista);
+                }
+                else{
+                    JOptionPane.showMessageDialog(vistaCatalogos, "Registro insertado.");
+                    creaVistaCatalogos();
+                    vistaCatalogos.cmbTipoCatalogo.setSelectedItem(seleccion);
+                    helper.cursorNormal(vista);
+                }
             }
         }
     }
@@ -3784,6 +3876,9 @@ public class PrincipalControlador {
         
     }
 
+    /**
+     * Cambia el estado del check Box graduado según el estatus del alumno
+     */
     protected void setStateChkGraduado() {
         int seleccion = vistaRegistro.cmbEstatus.getSelectedIndex();
         

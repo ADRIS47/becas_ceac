@@ -7,7 +7,6 @@ package principal;
 
 import crud.Conexion;
 import crud.Consultas;
-import crud.Delete;
 import crud.Insert;
 import crud.Update;
 import helpers.Helper;
@@ -38,6 +37,7 @@ import pojos.CatLugarServicioComunitario;
 import pojos.CatMunicipios;
 import pojos.CatParentesco;
 import pojos.CatPrograma;
+import pojos.CatReporte;
 import pojos.CatSexo;
 import pojos.CatTipoEscuela;
 import pojos.CatTipoServicioSocial;
@@ -296,7 +296,7 @@ public class PrincipalModelo {
      * @param conn COnexion a la base de datos
      * @return
      */
-    private LinkedHashMap<Integer, String> getCatProgramas(Connection conn) {
+    protected LinkedHashMap<Integer, String> getCatProgramas(Connection conn) {
         LinkedHashMap<Integer, String> catPrograma = new LinkedHashMap<>();
         LinkedHashMap<Integer, String> catResult = new LinkedHashMap<>();
         Statement st = null;
@@ -471,7 +471,7 @@ public class PrincipalModelo {
      * @param conn COneixon a la BD
      * @return Lista con el catalogo de los municipio
      */
-    private LinkedHashMap<Integer, String> getCatEstatus(Connection conn) {
+    protected LinkedHashMap<Integer, String> getCatEstatus(Connection conn) {
         LinkedHashMap<Integer, String> catEstatus = new LinkedHashMap<>();
         Statement st = null;
         ResultSet rs = null;
@@ -719,6 +719,37 @@ public class PrincipalModelo {
     }
     
     /**
+     * Obtiene el catalogo de reportes
+     * @param conexion
+     * @return Listado de reportes existentes
+     */
+    protected LinkedHashMap<Integer, String> getCatReportes(Connection conexion) {
+        LinkedHashMap<Integer, String> catReportes = new LinkedHashMap<>();
+        Statement st = null;
+        ResultSet rs = null;
+        try {
+            st = conexion.createStatement();
+            rs = st.executeQuery(Consultas.getCatReportes);
+            while (rs.next()) {
+                CatReporte reporte = new CatReporte();
+                reporte.setId(rs.getInt(CatReporte.COL_ID));
+                reporte.setNombre(rs.getString(CatReporte.COL_NOMBRE));
+                catReportes.put(reporte.getId(), reporte.getNombre());
+            }
+        } catch (SQLException e) {
+            muestraErrores(e);
+        } finally {
+            try {
+                rs.close();
+                st.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return catReportes;
+    }
+    
+    /**
      * Inserta un nuevo becario en la base de datos
      *
      * @param bandera True es un becario borrador, False es un becario Completo
@@ -850,7 +881,7 @@ public class PrincipalModelo {
                 ps.setString(3, direccion.getNumInt());
                 ps.setString(4, direccion.getColonia());
                 ps.setInt(5, direccion.getCodigoPostal());
-                ps.setString(6, direccion.getCiudad());
+                ps.setInt(6, direccion.getCiudad());
                 ps.setLong(7, idBecario);
                 int i = ps.executeUpdate();
                 if (i == 0) {
@@ -1324,7 +1355,7 @@ public class PrincipalModelo {
                 ps.setString(3, lstDireccionesBecario.get(0).getNumInt());
                 ps.setString(4, lstDireccionesBecario.get(0).getColonia());
                 ps.setInt(5, lstDireccionesBecario.get(0).getCodigoPostal());
-                ps.setString(6, lstDireccionesBecario.get(0).getCiudad());
+                ps.setInt(6, lstDireccionesBecario.get(0).getCiudad());
                 ps.setLong(7, idBecario);
                 ps.setLong(8, lstIdDirecciones.get(0));
                 int resp = ps.executeUpdate();
@@ -1345,7 +1376,7 @@ public class PrincipalModelo {
                     ps.setString(3, direccion.getNumInt());
                     ps.setString(4, direccion.getColonia());
                     ps.setInt(5, direccion.getCodigoPostal());
-                    ps.setString(6, direccion.getCiudad());
+                    ps.setInt(6, direccion.getCiudad());
                     ps.setLong(7, idBecario);
                     ps.setLong(8, lstIdDirecciones.get(contador));
                     int resp = ps.executeUpdate();
@@ -2229,7 +2260,7 @@ public class PrincipalModelo {
                direccion.setNumInt(rs.getString(Direccion.COL_NUM_INT));
                direccion.setColonia(rs.getString(Direccion.COL_COLONIA));
                direccion.setCodigoPostal(rs.getInt(Direccion.COL_CODIGO_POSTAL));
-               direccion.setCiudad(rs.getString(Direccion.COL_CIUDAD));
+               direccion.setCiudad(rs.getInt(Direccion.COL_CIUDAD));
                direccion.setId(rs.getLong(Direccion.COL_ID));
                direccion.setIdBecario(id);
                lstDirecciones.add(direccion);
