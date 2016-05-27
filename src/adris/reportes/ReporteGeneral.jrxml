@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteGeneral" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteGeneral" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a287fccb-9e57-46ce-b325-887672667879">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -9,7 +9,7 @@
 	<title>
 		<band height="34" splitType="Stretch">
 			<staticText>
-				<reportElement x="254" y="0" width="242" height="21"/>
+				<reportElement x="254" y="0" width="242" height="21" uuid="770dc163-11cd-43ed-af1f-3553b749158c"/>
 				<textElement>
 					<font size="14" isBold="true"/>
 				</textElement>
@@ -20,14 +20,14 @@
 	<pageHeader>
 		<band height="21" splitType="Stretch">
 			<staticText>
-				<reportElement x="254" y="0" width="68" height="20"/>
+				<reportElement x="254" y="0" width="68" height="20" uuid="83d9392f-45d0-4643-9183-e2b014523568"/>
 				<textElement>
 					<font fontName="Calibri"/>
 				</textElement>
 				<text><![CDATA[Periodo del :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="421" y="0" width="20" height="20"/>
+				<reportElement x="421" y="0" width="20" height="20" uuid="9416799a-7ea9-4612-bf8d-1f7e65e261a0"/>
 				<textElement>
 					<font fontName="Calibri"/>
 				</textElement>
@@ -38,77 +38,77 @@
 	<columnHeader>
 		<band height="28" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="32" height="28"/>
+				<reportElement x="0" y="0" width="32" height="28" uuid="b88142c5-1fa4-4257-9f84-94fb67ce6612"/>
 				<textElement>
 					<font fontName="Calibri" size="9"/>
 				</textElement>
 				<text><![CDATA[FOLIO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="32" y="0" width="106" height="28"/>
+				<reportElement x="32" y="0" width="106" height="28" uuid="5179783f-9e9c-4a92-baad-349b75bd8180"/>
 				<textElement>
 					<font fontName="Calibri" size="9"/>
 				</textElement>
 				<text><![CDATA[NOMBRE BECARIO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="204" y="0" width="50" height="28"/>
+				<reportElement x="204" y="0" width="50" height="28" uuid="d0647147-df17-42b4-a74b-fd46634c5427"/>
 				<textElement>
 					<font fontName="Calibri" size="9"/>
 				</textElement>
 				<text><![CDATA[ESTATUS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="254" y="0" width="160" height="28"/>
+				<reportElement x="254" y="0" width="160" height="28" uuid="302b0f4d-8cc5-4ffe-9692-c5392ee5c525"/>
 				<textElement>
 					<font fontName="Calibri" size="9"/>
 				</textElement>
 				<text><![CDATA[UNIVERSIDAD]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="414" y="0" width="78" height="28"/>
+				<reportElement x="414" y="0" width="78" height="28" uuid="f34d0af5-1bfc-4800-9b20-cf148a6791e7"/>
 				<textElement>
 					<font fontName="Calibri" size="9"/>
 				</textElement>
 				<text><![CDATA[CAMPO APLICA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="496" y="0" width="42" height="28"/>
+				<reportElement x="496" y="0" width="42" height="28" uuid="4d6d2f1d-4d40-45cb-9692-ca4d6614e68c"/>
 				<textElement>
 					<font fontName="Calibri" size="9"/>
 				</textElement>
 				<text><![CDATA[BECA TOTAL]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="538" y="0" width="51" height="28"/>
+				<reportElement x="538" y="0" width="51" height="28" uuid="c4127490-3004-4abd-8eac-a77a46e4f595"/>
 				<textElement>
 					<font fontName="Calibri" size="9"/>
 				</textElement>
 				<text><![CDATA[BECA SEMESTRE]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="589" y="0" width="52" height="28"/>
+				<reportElement x="589" y="0" width="52" height="28" uuid="097badf1-39cb-4766-a11c-ef51e4eb20e6"/>
 				<textElement>
 					<font fontName="Calibri" size="9"/>
 				</textElement>
 				<text><![CDATA[INGRESO C EDUCATIVA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="641" y="0" width="57" height="28"/>
+				<reportElement x="641" y="0" width="57" height="28" uuid="e78ef0be-f461-4733-98f0-b07535a762bb"/>
 				<textElement>
 					<font fontName="Calibri" size="9"/>
 				</textElement>
 				<text><![CDATA[SEMSTRE INGRESO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="698" y="0" width="54" height="28"/>
+				<reportElement x="698" y="0" width="54" height="28" uuid="7301df9c-2c71-4d51-a6ce-1e9b1569bdc9"/>
 				<textElement>
 					<font fontName="Calibri" size="9"/>
 				</textElement>
 				<text><![CDATA[FECHA GRADUACION]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="138" y="0" width="66" height="28"/>
+				<reportElement x="138" y="0" width="66" height="28" uuid="e05755a9-b2dc-4093-b6e7-aaca54dae504"/>
 				<textElement>
 					<font fontName="Calibri" size="9"/>
 				</textElement>
@@ -117,25 +117,19 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch">
-			<staticText>
-				<reportElement x="333" y="25" width="100" height="20"/>
-				<textElement/>
-				<text><![CDATA[Static text]]></text>
-			</staticText>
-		</band>
+		<band height="125" splitType="Stretch"/>
 	</detail>
 	<pageFooter>
 		<band height="54" splitType="Stretch">
 			<textField>
-				<reportElement x="298" y="15" width="80" height="20"/>
+				<reportElement x="298" y="15" width="80" height="20" uuid="e74a46d4-0e57-4e4d-9958-612476537608"/>
 				<textElement textAlignment="Right">
 					<font fontName="Calibri" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="387" y="15" width="40" height="20"/>
+				<reportElement x="387" y="15" width="40" height="20" uuid="6cdb2cb6-98ed-4b4a-a4b6-8f142c49e4eb"/>
 				<textElement>
 					<font fontName="Calibri" size="12"/>
 				</textElement>

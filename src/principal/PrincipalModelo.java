@@ -2101,32 +2101,32 @@ public class PrincipalModelo {
             
             //Se hace la instruccion de WHERE's
             if(!nombre.equals("") && bandera == false){
-                consulta = consulta.concat("WHERE becario." + Becario.COL_NOMBRE + " LIKE ? ");
+                consulta = consulta.concat("WHERE becario." + Becario.COL_NOMBRE + " LIKE ?");
                 bandera = true;
             }
             
             
             if(!aPaterno.equals("") && bandera == false){
-                consulta = consulta.concat("WHERE becario." + Becario.COL_APATERNO + " LIKE ? ");
+                consulta = consulta.concat("WHERE becario." + Becario.COL_APATERNO + " LIKE ?");
                 bandera = true;
             }
             else if(!aPaterno.equals("") && bandera == true){
-                consulta = consulta.concat("AND becario." + Becario.COL_APATERNO + " LIKE ? ");
+                consulta = consulta.concat("AND becario." + Becario.COL_APATERNO + " LIKE ?");
             }
             
             if(!aMaterno.equals("") && bandera == false){
-                consulta = consulta.concat("WHERE becario." + Becario.COL_AMATERNO + " LIKE ? ");
+                consulta = consulta.concat("WHERE becario." + Becario.COL_AMATERNO + " LIKE ?");
                 bandera = true;
             }
             else if(!aMaterno.equals("") && bandera == true){
-                consulta = consulta.concat("AND becario." + Becario.COL_AMATERNO + " LIKE ? ");
+                consulta = consulta.concat("AND becario." + Becario.COL_AMATERNO + " LIKE ?");
             }
             
             if(bandera == false){
-                consulta = consulta.concat("WHERE becario." + Becario.COL_ACTIVO + " = 1");
+                consulta = consulta.concat("WHERE becario." + Becario.COL_ACTIVO + " = 1 ");
             }
             else{
-                consulta = consulta.concat("AND becario." + Becario.COL_ACTIVO + " = 1");
+                consulta = consulta.concat("AND becario." + Becario.COL_ACTIVO + " = 1 ");
             }
             
             bandera = false;
