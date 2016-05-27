@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Reporte General" language="groovy" printOrder="Horizontal" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="48dfa28c-2ead-4c86-be6e-3018521431c9">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     beca_becario.`folio` AS beca_becario_folio,
+     beca_becario.`ap_paterno` AS beca_becario_ap_paterno,
+     beca_becario.`ap_materno` AS beca_becario_ap_materno,
+     beca_becario.`nombre` AS beca_becario_nombre,
+     beca_becario.`id_programa` AS beca_becario_id_programa,
+     beca_becario.`id_estatus` AS beca_becario_id_estatus,
+     beca_cat_programa.`id_programa` AS beca_cat_programa_id_programa,
+     beca_cat_programa.`nombre` AS beca_cat_programa_nombre,
+     beca_cat_estatus.`id_estatus` AS beca_cat_estatus_id_estatus,
+     beca_cat_estatus.`nombre` AS beca_cat_estatus_nombre,
+     beca_datos_escolares.`id_universidad` AS beca_datos_escolares_id_universidad,
+     beca_cat_universidad_A.`id_universidad` AS beca_cat_universidad_A_id_universidad,
+     beca_cat_universidad_A.`nombre` AS beca_cat_universidad_A_nombre,
+     beca_datos_escolares.`id_campo_carrera` AS beca_datos_escolares_id_campo_carrera,
+     beca_cat_campo.`id_campo_carrera` AS beca_cat_campo_id_campo_carrera,
+     beca_cat_campo.`nombre` AS beca_cat_campo_nombre,
+     beca_datos_escolares.`beca_total` AS beca_datos_escolares_beca_total,
+     beca_datos_escolares.`beca_semestral` AS beca_datos_escolares_beca_semestral,
+     beca_datos_escolares.`mes_inicio_beca` + 1 AS beca_datos_escolares_mes_inicio_beca,
+     beca_datos_escolares.`anio_inicio_beca` AS beca_datos_escolares_anio_inicio_beca,
+     beca_datos_escolares.`semestre_inicio_beca` AS beca_datos_escolares_semestre_inicio_beca,
+     beca_datos_escolares.`mes_graduacion` AS beca_datos_escolares_mes_graduacion,
+     beca_datos_escolares.`anio_graduacion` AS beca_datos_escolares_anio_graduacion
+FROM
+     `beca_cat_estatus` beca_cat_estatus INNER JOIN `beca_becario` beca_becario ON beca_cat_estatus.`id_estatus` = beca_becario.`id_estatus`
+     INNER JOIN `beca_cat_programa` beca_cat_programa ON beca_becario.`id_programa` = beca_cat_programa.`id_programa`
+     INNER JOIN `beca_datos_escolares` beca_datos_escolares ON beca_becario.`id_becario` = beca_datos_escolares.`id_becario`
+     INNER JOIN `beca_cat_universidad` beca_cat_universidad ON beca_datos_escolares.`id_universidad` = beca_cat_universidad.`id_universidad`
+     INNER JOIN `beca_cat_universidad` beca_cat_universidad_A ON beca_datos_escolares.`id_universidad` = beca_cat_universidad_A.`id_universidad`
+     INNER JOIN `beca_cat_campo` beca_cat_campo ON beca_datos_escolares.`id_campo_carrera` = beca_cat_campo.`id_campo_carrera`]]>
+	</queryString>
+	<field name="beca_becario_folio" class="java.lang.String"/>
+	<field name="beca_becario_ap_paterno" class="java.lang.String"/>
+	<field name="beca_becario_ap_materno" class="java.lang.String"/>
+	<field name="beca_becario_nombre" class="java.lang.String"/>
+	<field name="beca_becario_id_programa" class="java.lang.Integer"/>
+	<field name="beca_becario_id_estatus" class="java.lang.Integer"/>
+	<field name="beca_cat_programa_id_programa" class="java.lang.Integer"/>
+	<field name="beca_cat_programa_nombre" class="java.lang.String"/>
+	<field name="beca_cat_estatus_id_estatus" class="java.lang.Integer"/>
+	<field name="beca_cat_estatus_nombre" class="java.lang.String"/>
+	<field name="beca_datos_escolares_id_universidad" class="java.lang.Integer"/>
+	<field name="beca_cat_universidad_A_id_universidad" class="java.lang.Integer"/>
+	<field name="beca_cat_universidad_A_nombre" class="java.lang.String"/>
+	<field name="beca_datos_escolares_id_campo_carrera" class="java.lang.Integer"/>
+	<field name="beca_cat_campo_id_campo_carrera" class="java.lang.Integer"/>
+	<field name="beca_cat_campo_nombre" class="java.lang.String"/>
+	<field name="beca_datos_escolares_beca_total" class="java.lang.Integer"/>
+	<field name="beca_datos_escolares_beca_semestral" class="java.lang.Integer"/>
+	<field name="beca_datos_escolares_mes_inicio_beca" class="java.lang.Long"/>
+	<field name="beca_datos_escolares_anio_inicio_beca" class="java.lang.Integer"/>
+	<field name="beca_datos_escolares_semestre_inicio_beca" class="java.lang.Integer"/>
+	<field name="beca_datos_escolares_mes_graduacion" class="java.lang.Integer"/>
+	<field name="beca_datos_escolares_anio_graduacion" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement x="285" y="10" width="269" height="21" uuid="590cf420-c65b-44db-8240-91ce2ad787b8"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE GENERAL DE BECARIOS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="641" y="14" width="57" height="28" uuid="eec7e8f6-9aa7-4cb5-bd40-64a206d478de"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[SEMSTRE INGRESO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="538" y="14" width="51" height="28" uuid="696b2298-9c87-41f1-9800-5b507252620b"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[BECA SEMESTRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="14" width="106" height="28" uuid="84fe9c4c-92b3-4b45-b226-e372cf1a21d5"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[NOMBRE BECARIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="698" y="14" width="54" height="28" uuid="07c68974-61db-480a-a7b1-c112ccafda76"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[FECHA GRADUACION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="254" y="14" width="160" height="28" uuid="36a3d000-8517-4fcf-835c-5cfb0af3ea62"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[UNIVERSIDAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="204" y="14" width="50" height="28" uuid="78d3a300-7756-42ae-84ba-7eb25c1a105f"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[ESTATUS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="496" y="14" width="42" height="28" uuid="69a5065d-0c80-41d1-993b-6028be882778"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[BECA TOTAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="138" y="14" width="66" height="28" uuid="ef17d7e2-6b4b-4233-a5b8-ea3a42f6259d"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[PROGRAMA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="14" width="32" height="28" uuid="7102cbff-f25a-4e7e-ade7-e99770a5654a"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[FOLIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="589" y="14" width="52" height="28" uuid="57ebd8b9-6150-4b42-ad89-5a95cdf8f0f3"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[INGRESO C EDUCATIVA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="414" y="14" width="78" height="28" uuid="fd30f92a-69cc-455a-b574-316cbc4db4c7"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[CAMPO APLICA]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="32" y="25" width="40" height="20" uuid="b5a81300-e4c6-4ec8-af81-a07f84b8ac35"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{beca_becario_ap_paterno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="25" width="32" height="20" uuid="74267384-7966-4d2b-b730-2ba1e0f0a846"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{beca_becario_folio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="72" y="25" width="40" height="20" uuid="ebe2a9ca-a706-4919-ac66-b0dda8b197c7"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{beca_becario_ap_materno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="112" y="25" width="26" height="20" uuid="f948ec96-fbc1-4144-adb1-83684b102119"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{beca_becario_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="138" y="25" width="66" height="20" uuid="d6fa96e1-bb86-4748-97c6-d3b3f35eea6d"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{beca_cat_programa_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="204" y="25" width="50" height="20" uuid="5d74c0f4-0ea8-46cb-8e1e-5c0aaebd3c2e"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{beca_cat_estatus_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="254" y="25" width="160" height="20" uuid="6286347b-9060-4e69-9127-79532a98fdd7"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{beca_cat_universidad_A_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="414" y="25" width="78" height="20" uuid="62133688-1db9-4bf2-a60d-feaa462ccac1"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{beca_cat_campo_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="496" y="25" width="42" height="20" uuid="bb837957-e6e2-49ed-ace5-c0dbd491c121"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{beca_datos_escolares_beca_total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="541" y="25" width="48" height="20" uuid="e25c97c8-6e1d-450d-93e1-218f6fae37ae"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{beca_datos_escolares_beca_semestral}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="589" y="25" width="22" height="20" uuid="4d9a8245-e20e-4131-ba49-4a1632494ce8"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{beca_datos_escolares_mes_inicio_beca}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="618" y="25" width="23" height="20" uuid="4773ed5c-3c50-4a40-82c1-fef1265da57f"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{beca_datos_escolares_anio_inicio_beca}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="641" y="25" width="57" height="20" uuid="6202248e-c465-4702-a02f-b381c2768437"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{beca_datos_escolares_semestre_inicio_beca}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="702" y="25" width="16" height="20" uuid="90e895b2-fd51-4e4a-a1df-9d43f8588b89"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{beca_datos_escolares_mes_graduacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="725" y="25" width="27" height="20" uuid="8734e7d6-3b20-4622-81ca-c904893c67ea"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{beca_datos_escolares_anio_graduacion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="611" y="25" width="7" height="20" uuid="6412fa5d-6f9e-4dc6-833e-66e136dc0621"/>
+				<text><![CDATA[/]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="718" y="25" width="7" height="20" uuid="28a7ee86-b06a-454b-bef6-e6d7f72ff44a"/>
+				<text><![CDATA[/]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
