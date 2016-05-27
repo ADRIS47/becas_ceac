@@ -45,7 +45,7 @@ public class VistaReportes extends javax.swing.JPanel {
         cmbMesReg = new javax.swing.JComboBox();
         cmbMesReg2 = new javax.swing.JComboBox();
         jLabel11 = new javax.swing.JLabel();
-        cmbAnioRegRep1 = new javax.swing.JComboBox();
+        cmbAnioReg = new javax.swing.JComboBox();
         cmbanioRegRep2 = new javax.swing.JComboBox();
         PnlFechasGraducion1 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -62,9 +62,9 @@ public class VistaReportes extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        cmbProgramaReporte = new javax.swing.JComboBox();
-        TxtFolioInicial = new javax.swing.JTextField();
-        TxtFolioFinal = new javax.swing.JTextField();
+        cmbPrograma = new javax.swing.JComboBox();
+        txtFolioInicial = new javax.swing.JTextField();
+        txtFolioFinal = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         cmbCriterioReporteFechas = new javax.swing.JComboBox();
@@ -104,77 +104,48 @@ public class VistaReportes extends javax.swing.JPanel {
         jPnlReporteSeleccion.setLayout(jPnlReporteSeleccionLayout);
         jPnlReporteSeleccionLayout.setHorizontalGroup(
             jPnlReporteSeleccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPnlReporteSeleccionLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(CmbTipoReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+            .addGroup(jPnlReporteSeleccionLayout.createSequentialGroup()
+                .addGap(137, 137, 137)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(cmbTipoReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPnlReporteSeleccionLayout.setVerticalGroup(
             jPnlReporteSeleccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPnlReporteSeleccionLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPnlReporteSeleccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbTipoReporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(8, 8, 8)
+                .addComponent(jLabel2))
+            .addGroup(jPnlReporteSeleccionLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(cmbTipoReporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         PnlFechasRegistro.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("De:");
+        PnlFechasRegistro.add(jLabel5);
 
         cmbMesReg.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         cmbMesReg.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        PnlFechasRegistro.add(cmbMesReg);
 
         cmbMesReg2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         cmbMesReg2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        PnlFechasRegistro.add(cmbMesReg2);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel11.setText("a");
+        PnlFechasRegistro.add(jLabel11);
 
         cmbAnioReg.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         cmbAnioReg.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
+        PnlFechasRegistro.add(cmbAnioReg);
 
-        cmbanioReg2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        cmbanioReg2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
-
-        javax.swing.GroupLayout PnlFechasRegistroLayout = new javax.swing.GroupLayout(PnlFechasRegistro);
-        PnlFechasRegistro.setLayout(PnlFechasRegistroLayout);
-        PnlFechasRegistroLayout.setHorizontalGroup(
-            PnlFechasRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PnlFechasRegistroLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(jLabel5)
-                .addGap(18, 18, 18)
-                .addComponent(cmbMesRegRep1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(cmbAnioRegRep1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addComponent(jLabel11)
-                .addGap(36, 36, 36)
-                .addComponent(cmbMesRegRep2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(cmbanioRegRep2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        PnlFechasRegistroLayout.setVerticalGroup(
-            PnlFechasRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PnlFechasRegistroLayout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addGroup(PnlFechasRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PnlFechasRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cmbMesRegRep1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cmbAnioRegRep1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PnlFechasRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel11)
-                        .addComponent(cmbMesRegRep2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cmbanioRegRep2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        cmbanioRegRep2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        cmbanioRegRep2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
+        PnlFechasRegistro.add(cmbanioRegRep2);
 
         PnlFechasGraducion1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -387,7 +358,7 @@ public class VistaReportes extends javax.swing.JPanel {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPnlReporteSeleccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17)
                 .addComponent(PnlFechasRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -423,16 +394,17 @@ public class VistaReportes extends javax.swing.JPanel {
     private javax.swing.JPanel PnlBotonesReporte;
     private javax.swing.JPanel PnlFechasGraducion1;
     private javax.swing.JPanel PnlFechasRegistro;
-    protected javax.swing.JTextField TxtFolioFinal;
-    protected javax.swing.JTextField TxtFolioInicial;
-    protected javax.swing.JComboBox cmbAnioRegRep1;
-    protected javax.swing.JComboBox cmbAnioRep3;
+    private javax.swing.JButton btnEjectuaReporte;
+    private javax.swing.JButton btnLimpiarFiltros;
+    protected javax.swing.JComboBox cmbAnioReg;
     protected javax.swing.JComboBox cmbCriterioReporteFechas;
-    protected javax.swing.JComboBox cmbMesRegRep1;
-    protected javax.swing.JComboBox cmbMesRegRep2;
-    protected javax.swing.JComboBox cmbMesRep5;
-    protected javax.swing.JComboBox cmbMesRep6;
-    protected javax.swing.JComboBox cmbProgramaReporte;
+    protected javax.swing.JComboBox cmbEstatus;
+    protected javax.swing.JComboBox cmbMesReg;
+    protected javax.swing.JComboBox cmbMesReg2;
+    protected javax.swing.JComboBox cmbPrograma;
+    protected javax.swing.JComboBox cmbProgramaFinal;
+    protected javax.swing.JComboBox cmbProgramaInicial;
+    protected javax.swing.JComboBox cmbTipoReporte;
     protected javax.swing.JComboBox cmbanioRegRep2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;

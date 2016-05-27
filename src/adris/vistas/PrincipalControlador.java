@@ -3893,22 +3893,5 @@ public class PrincipalControlador {
         vistaRegistro.updateUI();
         vistaRegistro.validate();
     }
-    protected void setStateChkGraduado() {
-        int seleccion = vistaRegistro.cmbEstatus.getSelectedIndex();
-        
-        switch(seleccion){
-            //Si está seleccionado el estatus Alumno
-            case 0:
-                vistaRegistro.chkBoxGraduado.setEnabled(false);
-                break;
-            //Si está seeccionado el estatus Exalumno
-            case 1:
-                vistaRegistro.chkBoxGraduado.setEnabled(true);
-                break;
-        }
-        
-        vistaRegistro.updateUI();
-        vistaRegistro.validate();
-    }
-    
+   
 }
