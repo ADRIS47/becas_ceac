@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="historial_individual" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d954569f-a58e-4911-a658-4a86437608ae">
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     beca_becario.`folio` AS beca_becario_folio,
+     beca_becario.`ap_materno` AS beca_becario_ap_materno,
+     beca_becario.`ap_paterno` AS beca_becario_ap_paterno,
+     beca_becario.`nombre` AS beca_becario_nombre,
+     beca_becario.`id_programa` AS beca_becario_id_programa,
+     beca_cat_programa.`id_programa` AS beca_cat_programa_id_programa,
+     beca_cat_programa.`nombre` AS beca_cat_programa_nombre,
+     beca_becario.`id_estatus` AS beca_becario_id_estatus,
+     beca_cat_estatus.`id_estatus` AS beca_cat_estatus_id_estatus,
+     beca_cat_estatus.`nombre` AS beca_cat_estatus_nombre,
+     beca_datos_escolares.`id_becario` AS beca_datos_escolares_id_becario,
+     beca_datos_escolares.`id_universidad` AS beca_datos_escolares_id_universidad,
+     beca_cat_universidad.`id_universidad` AS beca_cat_universidad_id_universidad,
+     beca_cat_universidad.`nombre` AS beca_cat_universidad_nombre,
+     beca_datos_escolares.`nombre_carrera` AS beca_datos_escolares_nombre_carrera,
+     beca_datos_escolares.`id_campo_carrera` AS beca_datos_escolares_id_campo_carrera,
+     beca_cat_campo.`id_campo_carrera` AS beca_cat_campo_id_campo_carrera,
+     beca_cat_campo.`nombre` AS beca_cat_campo_nombre,
+     beca_telefono.`id_becario` AS beca_telefono_id_becario,
+     beca_telefono.`telefono` AS beca_telefono_telefono,
+     beca_becario.`email` AS beca_becario_email,
+     beca_datos_escolares.`fecha_inicio_beca` AS beca_datos_escolares_fecha_inicio_beca,
+     beca_datos_escolares.`semestre_inicio_beca` AS beca_datos_escolares_semestre_inicio_beca,
+     beca_datos_escolares.`fecha_fin_beca` AS beca_datos_escolares_fecha_fin_beca,
+     beca_datos_escolares.`beca_total` AS beca_datos_escolares_beca_total,
+     beca_datos_escolares.`beca_semestral` AS beca_datos_escolares_beca_semestral,
+     beca_kardex.`horas_servicio` AS beca_kardex_horas_servicio,
+     beca_kardex.`id_servicio_comunitario` AS beca_kardex_id_servicio_comunitario,
+     beca_cat_servicio_comunitario.`id_servicio_comunitario` AS beca_cat_servicio_comunitario_id_servicio_comunitario,
+     beca_cat_servicio_comunitario.`nombre` AS beca_cat_servicio_comunitario_nombre,
+     beca_kardex.`descuento` AS beca_kardex_descuento,
+     beca_kardex.`promedio` AS beca_kardex_promedio,
+     beca_kardex.`pago_inicio_semestre` AS beca_kardex_pago_inicio_semestre,
+     beca_kardex.`pago_fin_semestre` AS beca_kardex_pago_fin_semestre,
+     beca_kardex.`num_semestre` AS beca_kardex_num_semestre
+FROM
+     `beca_becario` beca_becario INNER JOIN `beca_datos_escolares` beca_datos_escolares ON beca_becario.`id_becario` = beca_datos_escolares.`id_becario`
+     INNER JOIN `beca_cat_programa` beca_cat_programa ON beca_becario.`id_programa` = beca_cat_programa.`id_programa`
+     INNER JOIN `beca_cat_estatus` beca_cat_estatus ON beca_becario.`id_estatus` = beca_cat_estatus.`id_estatus`
+     INNER JOIN `beca_telefono` beca_telefono ON beca_becario.`id_becario` = beca_telefono.`id_becario`
+     INNER JOIN `beca_kardex` beca_kardex ON beca_becario.`id_becario` = beca_kardex.`id_becario`
+     INNER JOIN `beca_cat_servicio_comunitario` beca_cat_servicio_comunitario ON beca_kardex.`id_servicio_comunitario` = beca_cat_servicio_comunitario.`id_servicio_comunitario`
+     INNER JOIN `beca_cat_universidad` beca_cat_universidad ON beca_datos_escolares.`id_universidad` = beca_cat_universidad.`id_universidad`
+     INNER JOIN `beca_cat_campo` beca_cat_campo ON beca_datos_escolares.`id_campo_carrera` = beca_cat_campo.`id_campo_carrera`]]>
+	</queryString>
+	<field name="beca_becario_folio" class="java.lang.String"/>
+	<field name="beca_becario_ap_materno" class="java.lang.String"/>
+	<field name="beca_becario_ap_paterno" class="java.lang.String"/>
+	<field name="beca_becario_nombre" class="java.lang.String"/>
+	<field name="beca_cat_programa_nombre" class="java.lang.String"/>
+	<field name="beca_cat_estatus_nombre" class="java.lang.String"/>
+	<field name="beca_cat_universidad_nombre" class="java.lang.String"/>
+	<field name="beca_datos_escolares_nombre_carrera" class="java.lang.String"/>
+	<field name="beca_cat_campo_nombre" class="java.lang.String"/>
+	<field name="beca_telefono_telefono" class="java.lang.String"/>
+	<field name="beca_becario_email" class="java.lang.String"/>
+	<field name="beca_datos_escolares_fecha_inicio_beca" class="java.sql.Date"/>
+	<field name="beca_datos_escolares_semestre_inicio_beca" class="java.lang.Integer"/>
+	<field name="beca_datos_escolares_fecha_fin_beca" class="java.sql.Date"/>
+	<field name="beca_datos_escolares_beca_total" class="java.lang.Integer"/>
+	<field name="beca_datos_escolares_beca_semestral" class="java.lang.Integer"/>
+	<field name="beca_kardex_horas_servicio" class="java.lang.Integer"/>
+	<field name="beca_cat_servicio_comunitario_nombre" class="java.lang.String"/>
+	<field name="beca_kardex_descuento" class="java.lang.Integer"/>
+	<field name="beca_kardex_promedio" class="java.lang.Float"/>
+	<field name="beca_kardex_pago_inicio_semestre" class="java.lang.Boolean"/>
+	<field name="beca_kardex_pago_fin_semestre" class="java.lang.Boolean"/>
+	<field name="beca_kardex_num_semestre" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

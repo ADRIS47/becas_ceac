@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="semestre_beca_devolucion" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d2d72cdf-8a62-4c5c-b954-c3432080db4e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="folio" class="java.lang.String"/>
+	<field name="aPaterno" class="java.lang.String"/>
+	<field name="aMaterno" class="java.lang.String"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="programa" class="java.lang.String"/>
+	<field name="estatus" class="java.lang.String"/>
+	<field name="escuela" class="java.lang.String"/>
+	<field name="carrera" class="java.lang.String"/>
+	<field name="campo" class="java.lang.String"/>
+	<field name="telefonos" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="fechaIngreso" class="java.lang.String"/>
+	<field name="semestreIngreso" class="java.lang.String"/>
+	<field name="fechaGraduacion" class="java.lang.String"/>
+	<field name="becaTotal" class="java.lang.String"/>
+	<field name="pagoSemestral" class="java.lang.String"/>
+	<field name="saldoAcumulado" class="java.lang.String"/>
+	<field name="servicioAcumulado" class="java.lang.String"/>
+	<field name="descuentoAcumulado" class="java.lang.String"/>
+	<field name="semestre" class="java.lang.String"/>
+	<field name="pago" class="java.lang.String"/>
+	<field name="promedio" class="java.lang.String"/>
+	<field name="hrsServicio" class="java.lang.String"/>
+	<field name="tipoServicio" class="java.lang.String"/>
+	<field name="descuento" class="java.lang.String"/>
+	<field name="fechaPagoCobranza" class="java.lang.String"/>
+	<field name="montoPagoCobranza" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="41" width="53" height="20" uuid="bcb78f43-482e-437e-8ecb-68313f7ccbe1"/>
+				<textFieldExpression><![CDATA[$F{folio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="65" y="41" width="41" height="20" uuid="7a53ea17-22f2-4460-8a80-9657b785fab2"/>
+				<textFieldExpression><![CDATA[$F{aPaterno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="119" y="41" width="37" height="20" uuid="c4d1b303-713a-420c-bc3d-f0a577df8eb9"/>
+				<textFieldExpression><![CDATA[$F{aMaterno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="167" y="41" width="100" height="20" uuid="055bfadf-40ea-4a32-9073-6d2891b4e1d0"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="53" height="20" uuid="c40bbbfa-bb7c-473f-a2bc-44fb28c37538"/>
+				<text><![CDATA[FOLIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="65" y="0" width="131" height="20" uuid="542e05a2-1661-4dab-a1c1-7df483b33f2d"/>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -45,6 +45,14 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import jtable.ModelDefault;
 import jtable.ModelUniversidades;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JRExporter;
+import net.sf.jasperreports.engine.JRExporterParameter;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.export.JRPdfExporter;
+import net.sf.jasperreports.engine.util.JRLoader;
 import pojos.Aval;
 import pojos.Becario;
 import pojos.CatColumnasTabla;
@@ -56,6 +64,7 @@ import pojos.Hijos;
 import pojos.Kardex;
 import pojos.Padres;
 import pojos.Telefono;
+import reportes.HistorialIndividual;
 
 /**
  *
@@ -3895,5 +3904,37 @@ public class PrincipalControlador {
         
         vistaRegistro.updateUI();
         vistaRegistro.validate();
+    }
+
+    protected void creaReporte() {
+        Conexion conn = new Conexion();
+        Connection conexion = conn.estableceConexion();
+        
+        if(conexion == null){
+            JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        Becario becario = modelo.getBecarioPorFolio(conexion, "DEV-01");
+        
+        File file = new File("semestre_beca_devolucion.jasper");
+        try {
+            HistorialIndividual report = new HistorialIndividual();
+            report.setBecario(becario);
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, report);
+            JRExporter exporter = new JRPdfExporter();  
+            exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint); 
+            exporter.setParameter(JRExporterParameter.OUTPUT_FILE, new java.io.File("reporte2PDF.pdf")); 
+            exporter.exportReport(); 
+        } catch (JRException ex) {
+            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            conexion.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
