@@ -3471,6 +3471,11 @@ public class PrincipalControlador {
         fileIneBecario = null;
         filePagare = null;
         fileCartaAgradecimiento = null;
+        
+        lstVistaDireccion = null;
+        lstVistaHermanos = null;
+        lstVistaHijos = null;
+        lstVistaParentesco = null;
     
     }
 

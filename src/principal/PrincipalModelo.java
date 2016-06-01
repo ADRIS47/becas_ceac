@@ -7,6 +7,7 @@ package principal;
 
 import crud.Conexion;
 import crud.Consultas;
+import crud.Delete;
 import crud.Insert;
 import crud.Update;
 import helpers.Helper;
@@ -1675,21 +1676,38 @@ public class PrincipalModelo {
             
             //Si existe una sola hijo registrado, se actualiza el primero y el segundo se inserta
             else if(hermanos > 0 && hermanos < lstHermanos.size()){
-                ps = conexion.prepareStatement(Update.updateHermanosBecario);
-                ps.setString(1, lstHermanos.get(0).getNombre());
-                ps.setString(2, lstHermanos.get(0).getAPaterno());
-                ps.setString(3, lstHermanos.get(0).getAMaterno());
-                ps.setInt(4, lstHermanos.get(0).getGradoEscolar());
-                ps.setString(5, lstHermanos.get(0).getComentario());
-                ps.setLong(6, idBecario);
-                ps.setLong(7, lstIdHermanos.get(0));
-                int resp = ps.executeUpdate();
-                //Si la actualizacion fue correcta
-                if(resp >= 1){
-                    List<Hermanos> nuevaLista = new ArrayList<>();
-                    nuevaLista.add(lstHermanos.get(1));
-                    response = insertHermanosBecario(conexion, idBecario, nuevaLista);
+                int contador = 0;
+                for (Hermanos hermano : lstHermanos) {
+                    if(contador < lstHermanos.size() - 1){
+                         ps = conexion.prepareStatement(Update.updateHermanosBecario);
+                        ps.setString(1, hermano.getNombre());
+                        ps.setString(2, hermano.getAPaterno());
+                        ps.setString(3, hermano.getAMaterno());
+                        ps.setInt(4, hermano.getGradoEscolar());
+                        ps.setString(5, hermano.getComentario());
+                        ps.setLong(6, idBecario);
+                        ps.setLong(7, lstIdHermanos.get(contador));
+                        int resp = ps.executeUpdate();
+                        //Si la actualizacion fue correcta
+                        if(resp < 1)
+                            throw new SQLException("No se pudo actualizar los hermanos");
+                        }
+                    else{
+                        ps = conexion.prepareStatement(Insert.insertHermanoBecario);
+                        ps.setString(1, hermano.getNombre());
+                        ps.setString(2, hermano.getAPaterno());
+                        ps.setString(3, hermano.getAMaterno());
+                        ps.setInt(4, hermano.getGradoEscolar());
+                        ps.setLong(5, idBecario);
+                        ps.setString(6, hermano.getComentario());
+                        int resp = ps.executeUpdate();
+                        //Si la actualizacion fue correcta
+                        if(resp < 1)
+                            throw new SQLException("No se pudo actualizar los hermanos");
+                    }
+                    contador++;
                 }
+                response = true;
             }
             //Si existen la misma cantidad de registros con la misma cantidad de nuevas direcciones
             else if(hermanos > 0 && hermanos == lstHermanos.size()){
@@ -1712,7 +1730,39 @@ public class PrincipalModelo {
                     if(contador == lstHermanos.size())
                         response = true;
                 }
-            }      
+            }
+            //Si existen menos hermanos que los que se encuentran en la base de datos, 
+            //Se actualizan 
+            else{
+                int contador = 0;
+                for (Hermanos hermano : lstHermanos) {
+                    ps = conexion.prepareStatement(Update.updateHermanosBecario);
+                    ps.setString(1, hermano.getNombre());
+                    ps.setString(2, hermano.getAPaterno());
+                    ps.setString(3, hermano.getAMaterno());
+                    ps.setInt(4, hermano.getGradoEscolar());
+                    ps.setString(5, hermano.getComentario());
+                    ps.setLong(6, idBecario);
+                    ps.setLong(7, lstIdHermanos.get(contador));
+                    int resp = ps.executeUpdate();
+                    //Si la actualizacion fue correcta
+                    if(resp == 0)
+                        break;
+                    contador++;
+                }
+                //Se eliminan los hermanos
+                while(contador < lstIdHermanos.size()){
+                    ps = conexion.prepareStatement(Delete.DELETE_HERMANO_BECARIO);
+                    ps.setLong(1, lstIdHermanos.get(contador));
+                    int resp = ps.executeUpdate();
+                    if(resp == 0){
+                        break;
+                    }
+                    contador++;
+                }
+                if(contador == lstIdHermanos.size())
+                    response = true;
+            }
         }
         catch(SQLException e){
             log.muestraErrores(e);

@@ -3071,3 +3071,25 @@ Verifique su conexion e intentelo de nuevo
 27/5/2016;12:53:12;ERROR: Code0
 27/5/2016;12:53:12;Message: No se pudo conectar a la base de datos.
 Verifique su conexion e intentelo de nuevo
+30/5/2016;23:50:30;Nombre de categoria no encontrado
+30/5/2016;23:52:12;SQLError: 42000
+30/5/2016;23:52:12;ERROR: Code1318
+30/5/2016;23:52:12;Message: Incorrect number of arguments for PROCEDURE becas_chihuahua.update_fecha_inicio_fin_beca; expected 5, got 1
+30/5/2016;23:52:14;null
+30/5/2016;23:53:27;SQLError: HY000
+30/5/2016;23:53:27;ERROR: Code1442
+30/5/2016;23:53:27;Message: Can't update table 'beca_datos_escolares' in stored function/trigger because it is already used by statement which invoked this stored function/trigger.
+30/5/2016;23:53:28;null
+31/5/2016;20:57:22;SQLError: 42S02
+31/5/2016;20:57:22;ERROR: Code1146
+31/5/2016;20:57:22;Message: Table 'becas_chihuahua.beca_cat_reporte' doesn't exist
+31/5/2016;22:13:6;null
+31/5/2016;22:13:15;null
+31/5/2016;22:26:22;null
+31/5/2016;22:28:4;null
+31/5/2016;22:29:44;null
+31/5/2016;22:30:48;Nombre de categoria no encontrado
+31/5/2016;22:31:53;Nombre de categoria no encontrado
+31/5/2016;22:45:54;null
+31/5/2016;22:46:0;null
+31/5/2016;22:49:55;null
