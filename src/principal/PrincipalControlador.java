@@ -516,12 +516,17 @@ public class PrincipalControlador {
         llenaComboCategorias(vistaRegistro.cmbTipoEscuela, catTipoEscuela);
         llenaComboCategorias(lstVistaDireccion.get(0).cmbCiudadBecado, catMunicipios);
         
-        lstVistaParentesco.get(1).cmbParentesco.setSelectedIndex(1);
+        lstVistaParentesco.get(0).cmbParentesco.setSelectedIndex(1);
+        lstVistaParentesco.get(1).cmbParentesco.setSelectedIndex(0);
+        
+        vistaRegistro.combobxCivilBecado.setSelectedIndex(2);
 
         if (bandera) {
             vistaRegistro.cmbEstatus.removeAllItems();
             llenaComboCategorias(vistaRegistro.cmbEstatus, catEstatus);
         }
+        
+       
 
     }
 
