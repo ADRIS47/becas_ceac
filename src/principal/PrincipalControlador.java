@@ -249,7 +249,7 @@ public class PrincipalControlador {
                 terminaVistaKardex();
             }
 
-            vaciaLstFiles();
+            //vaciaLstFiles();
 
             List<LinkedHashMap<Integer, String>> lstCategorias = null;
 

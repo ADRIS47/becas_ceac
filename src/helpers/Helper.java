@@ -124,7 +124,7 @@ public class Helper {
         int becaAut = Integer.parseInt(becaAutorizada);
         int costoCarrera = Integer.parseInt(costoCarr);
         
-        if(becaAut <= costoCarrera){
+//        if(becaAut <= costoCarrera){
             String semestresTotales = Integer.parseInt(cmbSemestresTotales.getSelectedItem().toString()) + 1 + "";
             String semestreInicioBeca = (String) cmbSemestreInicioBeca.getSelectedItem();
             int semestres = Integer.parseInt( semestresTotales) - Integer.parseInt(semestreInicioBeca);
@@ -133,13 +133,13 @@ public class Helper {
 
             DecimalFormat formato = new DecimalFormat("###,###,###,###");
             txtBecaSemestral.setText(formato.format(total));
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "Debes de ingresar un valor menor al Costo de Carrera");
-            txtBecaAutorizada.setText(becaAutorizada.substring(0, becaAutorizada.length() - 1));
-            //txtBecaAutorizada.setText("");
-            
-        }
+//        }
+//        else{
+//            JOptionPane.showMessageDialog(null, "Debes de ingresar un valor menor al Costo de Carrera");
+//            txtBecaAutorizada.setText(becaAutorizada.substring(0, becaAutorizada.length() - 1));
+//            //txtBecaAutorizada.setText("");
+//            
+//        }
         
         
     }

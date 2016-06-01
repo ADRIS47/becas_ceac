@@ -3093,3 +3093,4 @@ Verifique su conexion e intentelo de nuevo
 31/5/2016;22:45:54;null
 31/5/2016;22:46:0;null
 31/5/2016;22:49:55;null
+31/5/2016;23:1:43;Nombre de categoria no encontrado
