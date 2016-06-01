@@ -249,7 +249,7 @@ public class PrincipalControlador {
                 terminaVistaKardex();
             }
 
-            //vaciaLstFiles();
+            vaciaLstFiles();
 
             List<LinkedHashMap<Integer, String>> lstCategorias = null;
 
@@ -518,6 +518,7 @@ public class PrincipalControlador {
         
         lstVistaParentesco.get(0).cmbParentesco.setSelectedIndex(1);
         lstVistaParentesco.get(1).cmbParentesco.setSelectedIndex(0);
+        lstVistaDireccion.get(0).cmbCiudadBecado.setSelectedIndex(13);
         
         vistaRegistro.combobxCivilBecado.setSelectedIndex(2);
 
@@ -848,6 +849,7 @@ public class PrincipalControlador {
             pnlDireccion.setControlador(this);
             pnlDireccion.lblAgregarDireccion.setVisible(false);
             llenaComboCategorias(pnlDireccion.cmbCiudadBecado, catMunicipios);
+            pnlDireccion.cmbCiudadBecado.setSelectedIndex(13);
             lstVistaDireccion.add(pnlDireccion);
             lstVistaDireccion.get(0).lblAgregarDireccion.setVisible(false);
             System.out.println("Esto es de dirección");
@@ -3477,10 +3479,10 @@ public class PrincipalControlador {
         filePagare = null;
         fileCartaAgradecimiento = null;
         
-        lstVistaDireccion = null;
-        lstVistaHermanos = null;
-        lstVistaHijos = null;
-        lstVistaParentesco = null;
+//        lstVistaDireccion = null;
+//        lstVistaHermanos = null;
+//        lstVistaHijos = null;
+//        lstVistaParentesco = null;
     
     }
 
