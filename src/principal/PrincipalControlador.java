@@ -45,6 +45,14 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import jtable.ModelDefault;
 import jtable.ModelUniversidades;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JRExporter;
+import net.sf.jasperreports.engine.JRExporterParameter;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.export.JRPdfExporter;
+import net.sf.jasperreports.engine.util.JRLoader;
 import pojos.Aval;
 import pojos.Becario;
 import pojos.CatColumnasTabla;
@@ -56,6 +64,7 @@ import pojos.Hijos;
 import pojos.Kardex;
 import pojos.Padres;
 import pojos.Telefono;
+import reportes.HistorialIndividual;
 
 /**
  *
@@ -507,12 +516,18 @@ public class PrincipalControlador {
         llenaComboCategorias(vistaRegistro.cmbTipoEscuela, catTipoEscuela);
         llenaComboCategorias(lstVistaDireccion.get(0).cmbCiudadBecado, catMunicipios);
         
-        lstVistaParentesco.get(1).cmbParentesco.setSelectedIndex(1);
+        lstVistaParentesco.get(0).cmbParentesco.setSelectedIndex(1);
+        lstVistaParentesco.get(1).cmbParentesco.setSelectedIndex(0);
+        lstVistaDireccion.get(0).cmbCiudadBecado.setSelectedIndex(13);
+        
+        vistaRegistro.combobxCivilBecado.setSelectedIndex(2);
 
         if (bandera) {
             vistaRegistro.cmbEstatus.removeAllItems();
             llenaComboCategorias(vistaRegistro.cmbEstatus, catEstatus);
         }
+        
+       
 
     }
 
@@ -834,6 +849,7 @@ public class PrincipalControlador {
             pnlDireccion.setControlador(this);
             pnlDireccion.lblAgregarDireccion.setVisible(false);
             llenaComboCategorias(pnlDireccion.cmbCiudadBecado, catMunicipios);
+            pnlDireccion.cmbCiudadBecado.setSelectedIndex(13);
             lstVistaDireccion.add(pnlDireccion);
             lstVistaDireccion.get(0).lblAgregarDireccion.setVisible(false);
             System.out.println("Esto es de dirección");
@@ -3462,6 +3478,11 @@ public class PrincipalControlador {
         fileIneBecario = null;
         filePagare = null;
         fileCartaAgradecimiento = null;
+        
+//        lstVistaDireccion = null;
+//        lstVistaHermanos = null;
+//        lstVistaHijos = null;
+//        lstVistaParentesco = null;
     
     }
 
@@ -3895,5 +3916,37 @@ public class PrincipalControlador {
         
         vistaRegistro.updateUI();
         vistaRegistro.validate();
+    }
+
+    protected void creaReporte() {
+        Conexion conn = new Conexion();
+        Connection conexion = conn.estableceConexion();
+        
+        if(conexion == null){
+            JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        Becario becario = modelo.getBecarioPorFolio(conexion, "DEV-01");
+        
+        File file = new File("semestre_beca_devolucion.jasper");
+        try {
+            HistorialIndividual report = new HistorialIndividual();
+            report.setBecario(becario);
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, report);
+            JRExporter exporter = new JRPdfExporter();  
+            exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint); 
+            exporter.setParameter(JRExporterParameter.OUTPUT_FILE, new java.io.File("reporte2PDF.pdf")); 
+            exporter.exportReport(); 
+        } catch (JRException ex) {
+            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            conexion.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

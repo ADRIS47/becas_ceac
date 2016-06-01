@@ -6,6 +6,7 @@
 package crud;
 
 import pojos.CatColumnasTabla;
+import pojos.Hermanos;
 
 /**
  *
@@ -34,4 +35,5 @@ public class Delete {
         return query;
     }
     
+    public static String DELETE_HERMANO_BECARIO = "DELETE FROM beca_hermano WHERE " + Hermanos.COL_ID + " = ?";   
 }

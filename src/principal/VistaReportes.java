@@ -428,7 +428,7 @@ public class VistaReportes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEjectuaReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEjectuaReporteActionPerformed
-        // TODO add your handling code here:
+        controlador.creaReporte();
     }//GEN-LAST:event_btnEjectuaReporteActionPerformed
 
     private void BtSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSalirActionPerformed
