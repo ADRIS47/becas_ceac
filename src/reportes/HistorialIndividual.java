@@ -17,6 +17,7 @@ import pojos.CatPrograma;
 import pojos.CatUniversidad;
 import pojos.DatosEscolares;
 import pojos.Kardex;
+import pojos.PojoReporteIndividual;
 import pojos.Telefono;
 
 /**
@@ -24,19 +25,19 @@ import pojos.Telefono;
  * @author sergio
  */
 public class HistorialIndividual implements JRDataSource{
-    Becario becario = new Becario();
-    CatPrograma programa = new CatPrograma();
-    CatEstatus estatus = new CatEstatus();
-    CatUniversidad universidad = new CatUniversidad();
+    List<PojoReporteIndividual> lstDatosUnicos = new ArrayList<>();
+    List<CatPrograma> programa = new ArrayList<>();
+    List<CatEstatus> estatus = new ArrayList<>();
+    List<CatUniversidad> universidad = new ArrayList<>();
     List<DatosEscolares> lstDatosEscolares = new ArrayList<>();
-    CatCampo campo = new CatCampo();
+    List<CatCampo> campo = new ArrayList<>();
     List<Telefono> lstTelefono = new ArrayList<>();
     List<Kardex> lstKardex = new ArrayList<>();
     int contador = -1;
 
     @Override
     public boolean next() throws JRException {
-        return ++contador < lstDatosEscolares.size();
+        return ++contador < lstDatosUnicos.size();
     }
 
     @Override
@@ -44,90 +45,90 @@ public class HistorialIndividual implements JRDataSource{
         Object valor = null;
         switch(jrf.getName()){
             case "folio":
-                valor = becario.getFolio();
+                valor = lstDatosUnicos.get(contador).getFolio();
                 break;
             case "aPaterno":
-                valor = becario.getApPaterno();
+                valor = lstDatosUnicos.get(contador).getaPaterno();
                 break;
             case "aMaterno":
-                valor = becario.getApMaterno();
+                valor = lstDatosUnicos.get(contador).getaMaterno();
                 break;
             case "nombre":
-                valor = becario.getNombre();
+                valor = lstDatosUnicos.get(contador).getNombre();
                 break;
-//            case "":
-//                
-//                break;
-//            case "":
-//                
-//                break;
-//            case "":
-//                
-//                break;
-//            case "":
-//                
-//                break;
-//            case "":
-//                
-//                break;
-//            case "":
-//                
-//                break;
-//            case "":
-//                
-//                break;
-//            case "":
-//                
-//                break;
-//            case "":
-//                
-//                break;
-//            case "":
-//                
-//                break;
-//            case "":
-//                
-//                break;
-//            case "":
-//                
-//                break;
-//            case "":
-//                
-//                break;
-//            case "":
-//                
-//                break;
-//            case "":
-//                
-//                break;
-//            case "":
-//                
-//                break;
-//            case "":
-//                
-//                break;
-//            case "":
-//                
-//                break;
-//            case "":
-//                
-//                break;
-//            case "":
-//                
-//                break;
-//            case "":
-//                
-//                break;
-//            case "":
-//                
-//                break;
+            case "programa":
+                valor = lstDatosUnicos.get(contador).getPrograma();
+                break;
+            case "estatus":
+                valor = lstDatosUnicos.get(contador).getEstatus();
+                break;
+            case "escuela":
+                valor = lstDatosUnicos.get(contador).getEscuela();
+                break;
+            case "carrera":
+                valor = lstDatosUnicos.get(contador).getCarrera();
+                break;
+            case "campo":
+                valor = lstDatosUnicos.get(contador).getCampo();
+                break;
+            case "telefonos":
+                
+                break;
+            case "email":
+                valor = lstDatosUnicos.get(contador).getEmail();
+                break;
+            case "fechaIngreso":
+                valor = lstDatosUnicos.get(contador).getFechaIngreso();
+                break;
+            case "semestreIngreso":
+                valor = lstDatosUnicos.get(contador).getSemestreIngreso();
+                break;
+            case "fechaGraduacion":
+                valor = lstDatosUnicos.get(contador).getFechaGraduacion();
+                break;
+            case "becaTotal":
+                valor = lstDatosUnicos.get(contador).getBecaTotal();
+                break;
+            case "pagoSemestral":
+                valor = lstDatosUnicos.get(contador).getBecaSemestral();
+                break;
+            case "saldoAcumulado":
+                
+                break;
+            case "servicioAcumulado":
+                
+                break;
+            case "descuentoAcumulado":
+                
+                break;
+            case "semestre":
+                
+                break;
+            case "pago":
+                
+                break;
+            case "promedio":
+                
+                break;
+            case "horasServicio":
+                
+                break;
+            case "tipoServicio":
+                
+                break;
+            case "descuento":
+                
+                break;
+            case "nombreCompleto":
+                valor = lstDatosUnicos.get(0).getaPaterno() + " " + lstDatosUnicos.get(0).getaMaterno() + " " + lstDatosUnicos.get(0).getNombre();
+                break;
         }
         
         return valor;
     }
     
-    public void setBecario(Becario becario){
-        this.becario = becario;
+    public void setBecario(PojoReporteIndividual becario){
+        this.lstDatosUnicos.add(becario);
     }
     
 }
