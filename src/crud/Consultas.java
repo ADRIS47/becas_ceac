@@ -451,4 +451,26 @@ public class Consultas {
      */
     public static String getIdMayor = "SELECT ? AS maximo FROM ?";
     
+    public static String getReporteIndividualDatosUnicos = "SELECT becario.folio AS folio, becario.ap_paterno AS aPaterno, "
+                                                            + "becario.ap_materno AS aMaterno, \n" +
+                                                            "becario.nombre AS nombre, \n" +
+                                                            "programa.nombre AS programa, \n" +
+                                                            "estatus.nombre AS estatus, \n" +
+                                                            "uni.nombre AS universidad, \n" +
+                                                            "escolar.nombre_carrera AS carrera, \n" +
+                                                            "campo.nombre AS campo_carrera, \n" +
+                                                            "becario.email AS email, \n" +
+                                                            "escolar.fecha_inicio_beca AS inicio_beca, \n" +
+                                                            "escolar.semestre_inicio_beca AS semestre_inicio_beca, \n" +
+                                                            "escolar.fecha_fin_beca AS graduacion, \n" +
+                                                            "escolar.beca_total AS beca_total, \n" +
+                                                            "escolar.beca_semestral AS beca_semestral \n" +
+                                                            "FROM beca_becario AS becario\n" +
+                                                            "JOIN beca_cat_programa AS programa ON programa.id_programa = becario.id_programa \n" +
+                                                            "JOIN beca_cat_estatus AS estatus ON estatus.id_estatus = becario.id_estatus \n" +
+                                                            "JOIN beca_datos_escolares AS escolar ON escolar.id_becario = becario.id_becario \n" +
+                                                            "JOIN beca_cat_universidad AS uni ON escolar.id_universidad = uni.id_universidad \n" +
+                                                            "JOIN beca_cat_campo AS campo ON campo.id_campo_carrera = escolar.id_campo_carrera \n" +
+                                                            "WHERE becario.folio = ?";
+    
 }

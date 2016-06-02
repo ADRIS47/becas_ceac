@@ -53,6 +53,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import pojos.Aval;
 import pojos.Becario;
 import pojos.CatColumnasTabla;
@@ -63,6 +64,7 @@ import pojos.Hermanos;
 import pojos.Hijos;
 import pojos.Kardex;
 import pojos.Padres;
+import pojos.PojoReporteIndividual;
 import pojos.Telefono;
 import reportes.HistorialIndividual;
 
@@ -3927,26 +3929,36 @@ public class PrincipalControlador {
             return;
         }
         
-        Becario becario = modelo.getBecarioPorFolio(conexion, "DEV-01");
+        //Becario becario = modelo.getBecarioPorFolio(conexion, "DEV-01");
+        PojoReporteIndividual reporteIndividual = modelo.getReporteIndividualDatosUnicos(conexion, "DEV-01");
         
-        File file = new File("semestre_beca_devolucion.jasper");
+        File file = new File("src/reportes/historial_individual.jasper");
+        System.out.println(file.getAbsolutePath());
         try {
             HistorialIndividual report = new HistorialIndividual();
-            report.setBecario(becario);
+            report.setBecario(reporteIndividual);
             JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
             JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, report);
-            JRExporter exporter = new JRPdfExporter();  
-            exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint); 
-            exporter.setParameter(JRExporterParameter.OUTPUT_FILE, new java.io.File("reporte2PDF.pdf")); 
-            exporter.exportReport(); 
+            
+            JasperViewer visor = new JasperViewer(jasperPrint);
+            visor.setVisible(true);
+//            JRExporter exporter = new JRPdfExporter();  
+//            exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint); 
+//            exporter.setParameter(JRExporterParameter.OUTPUT_FILE, new java.io.File("reporte2PDF.pdf")); 
+//            exporter.exportReport(); 
         } catch (JRException ex) {
+//            log.muestraErrores(e);
             Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        try {
-            conexion.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+        finally {
+            try{
+                conexion.close();
+            } 
+            catch (SQLException ex) {
+                log.muestraErrores(ex);
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 }
