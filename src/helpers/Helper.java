@@ -580,7 +580,7 @@ public class Helper {
         
         
         //Se comienzan a calcular el inicio de cada semestre del becario
-        int mesInicio = datosEscolares.getMesInicioBeca();
+        int mesInicio = datosEscolares.getMesInicioBeca() + 1;
         //Se igualan los meses para que se comience en Enero o Agosto
         if(mesInicio >= 6)
             mesInicio = 7;
@@ -597,11 +597,11 @@ public class Helper {
                 inicio.add(Calendar.MONTH, 6);
            
                 int mes = inicio.get(Calendar.MONTH);
-                if(mes >= 6)
-                    mes = 7;
-                if(mes < 6)
-                    mes = 0;
-                inicio.set(Calendar.MONTH, mes);
+            if(mesInicio >= 6)
+                mesInicio = 7;
+            if(mesInicio < 6)
+                mesInicio = 0;
+            inicio.set(Calendar.MONTH, mes);
             }
             else{
                 Calendar aux = new GregorianCalendar();
@@ -610,10 +610,10 @@ public class Helper {
                 inicio.add(Calendar.MONTH, 6);
            
                 int mes = inicio.get(Calendar.MONTH);
-                if(mes >= 6)
-                    mes = 7;
-                if(mes < 6)
-                    mes = 0;
+                if(mesInicio >= 6)
+                    mesInicio = 7;
+                if(mesInicio < 6)
+                    mesInicio = 0;
                 inicio.set(Calendar.MONTH, mes);
                 
                 //System.out.println("Antes de agregar fecha a lista: " + aux.getTime());

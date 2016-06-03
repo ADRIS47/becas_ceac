@@ -3154,3 +3154,25 @@ Verifique su conexion e intentelo de nuevo
 2/6/2016;22:15:4;ERROR: Code0
 2/6/2016;22:15:4;Message: No se pudo conectar a la base de datos.
 Verifique su conexion e intentelo de nuevo
+3/6/2016;8:46:17;Nombre de categoria no encontrado
+3/6/2016;8:50:35;Nombre de categoria no encontrado
+3/6/2016;8:55:40;Nombre de categoria no encontrado
+3/6/2016;9:0:27;Nombre de categoria no encontrado
+3/6/2016;9:17:49;Nombre de categoria no encontrado
+3/6/2016;9:18:21;Nombre de categoria no encontrado
+3/6/2016;9:20:51;Nombre de categoria no encontrado
+3/6/2016;9:22:47;Nombre de categoria no encontrado
+3/6/2016;9:22:54;Nombre de categoria no encontrado
+3/6/2016;9:27:51;Nombre de categoria no encontrado
+3/6/2016;9:30:15;Nombre de categoria no encontrado
+3/6/2016;9:30:48;Nombre de categoria no encontrado
+3/6/2016;9:35:13;Nombre de categoria no encontrado
+3/6/2016;9:35:16;Nombre de categoria no encontrado
+3/6/2016;9:35:19;Nombre de categoria no encontrado
+3/6/2016;9:36:45;Nombre de categoria no encontrado
+3/6/2016;9:37:7;Nombre de categoria no encontrado
+3/6/2016;11:49:11;Nombre de categoria no encontrado
+3/6/2016;12:48:17;Nombre de categoria no encontrado
+3/6/2016;13:28:20;Nombre de categoria no encontrado
+3/6/2016;13:29:52;Nombre de categoria no encontrado
+3/6/2016;13:43:56;Nombre de categoria no encontrado
