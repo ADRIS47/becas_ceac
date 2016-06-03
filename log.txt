@@ -3104,6 +3104,56 @@ Verifique su conexion e intentelo de nuevo
 2/6/2016;14:11:9;Message: No se pudo conectar a la base de datos.
 Verifique su conexion e intentelo de nuevo
 2/6/2016;18:21:6;Nombre de categoria no encontrado
+2/6/2016;21:17:25;Nombre de categoria no encontrado
+2/6/2016;21:18:26;Nombre de categoria no encontrado
+2/6/2016;21:27:42;SQLError: Error
+2/6/2016;21:27:42;ERROR: Code0
+2/6/2016;21:27:42;Message: No se pudo conectar a la base de datos.
+Verifique su conexion e intentelo de nuevo
+2/6/2016;21:31:40;SQLError: Error
+2/6/2016;21:31:40;ERROR: Code0
+2/6/2016;21:31:40;Message: No se pudo conectar a la base de datos.
+Verifique su conexion e intentelo de nuevo
+2/6/2016;21:31:41;SQLError: Error
+2/6/2016;21:31:41;ERROR: Code0
+2/6/2016;21:31:41;Message: No se pudo conectar a la base de datos.
+Verifique su conexion e intentelo de nuevo
+2/6/2016;21:31:42;SQLError: Error
+2/6/2016;21:31:42;ERROR: Code0
+2/6/2016;21:31:42;Message: No se pudo conectar a la base de datos.
+Verifique su conexion e intentelo de nuevo
+2/6/2016;21:31:43;SQLError: Error
+2/6/2016;21:31:43;ERROR: Code0
+2/6/2016;21:31:43;Message: No se pudo conectar a la base de datos.
+Verifique su conexion e intentelo de nuevo
+2/6/2016;21:48:16;SQLError: Error
+2/6/2016;21:48:16;ERROR: Code0
+2/6/2016;21:48:16;Message: No se pudo conectar a la base de datos.
+Verifique su conexion e intentelo de nuevo
+2/6/2016;21:51:27;SQLError: Error
+2/6/2016;21:51:27;ERROR: Code0
+2/6/2016;21:51:27;Message: No se pudo conectar a la base de datos.
+Verifique su conexion e intentelo de nuevo
+2/6/2016;21:53:30;SQLError: Error
+2/6/2016;21:53:30;ERROR: Code0
+2/6/2016;21:53:30;Message: No se pudo conectar a la base de datos.
+Verifique su conexion e intentelo de nuevo
+2/6/2016;21:54:36;SQLError: Error
+2/6/2016;21:54:36;ERROR: Code0
+2/6/2016;21:54:36;Message: No se pudo conectar a la base de datos.
+Verifique su conexion e intentelo de nuevo
+2/6/2016;21:55:5;SQLError: Error
+2/6/2016;21:55:5;ERROR: Code0
+2/6/2016;21:55:5;Message: No se pudo conectar a la base de datos.
+Verifique su conexion e intentelo de nuevo
+2/6/2016;21:58:6;SQLError: Error
+2/6/2016;21:58:6;ERROR: Code0
+2/6/2016;21:58:6;Message: No se pudo conectar a la base de datos.
+Verifique su conexion e intentelo de nuevo
+2/6/2016;22:15:4;SQLError: Error
+2/6/2016;22:15:4;ERROR: Code0
+2/6/2016;22:15:4;Message: No se pudo conectar a la base de datos.
+Verifique su conexion e intentelo de nuevo
 1/6/2016;10:31:4;SQLError: Error
 1/6/2016;10:31:4;ERROR: Code0
 1/6/2016;10:31:4;Message: No se pudo conectar a la base de datos.
@@ -3118,3 +3168,4 @@ Verifique su conexion e intentelo de nuevo
 2/6/2016;22:22:6;No se pudo copiar el archivo acta_nacimiento-DEV-056.pdf    C:\SIBEC\becarios\DEV-056\acta_nacimiento-DEV-056.pdf
 2/6/2016;22:23:17;Nombre de categoria no encontrado
 2/6/2016;22:24:25;Nombre de categoria no encontrado
+2/6/2016;22:43:55;Nombre de categoria no encontrado

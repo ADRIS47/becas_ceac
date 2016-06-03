@@ -70,9 +70,12 @@ public class LoginModelo {
             }
         }
         catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "No se pudo conectar a la base de datos.\nVerifique su conexion e intentelo de nuevo");
             muestraErrores(e);
         }
         finally{
+            if(conexion == null)
+                return response;
             try {
                 conexion.close();
             } catch (SQLException ex) {

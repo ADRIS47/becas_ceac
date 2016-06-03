@@ -493,7 +493,11 @@ public class Helper {
         String mes = new String(calendario.get(Calendar.MONTH) + 1 + "");
         if(mes.length() == 1)
             mes = "0" + mes;
-        fecha = calendario.get(Calendar.DATE) + "/" + mes + "/" + calendario.get(Calendar.YEAR);
+        
+        String dia = new String(calendario.get(Calendar.DATE) + "");
+        if(dia.length() == 1)
+            dia = "0" + dia;
+        fecha = dia + "/" + mes + "/" + calendario.get(Calendar.YEAR);
         
         return fecha;
     }
