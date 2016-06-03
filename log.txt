@@ -3094,3 +3094,13 @@ Verifique su conexion e intentelo de nuevo
 31/5/2016;22:46:0;null
 31/5/2016;22:49:55;null
 31/5/2016;23:1:43;Nombre de categoria no encontrado
+1/6/2016;10:31:4;SQLError: Error
+1/6/2016;10:31:4;ERROR: Code0
+1/6/2016;10:31:4;Message: No se pudo conectar a la base de datos.
+Verifique su conexion e intentelo de nuevo
+1/6/2016;10:33:24;Nombre de categoria no encontrado
+1/6/2016;10:39:50;Nombre de categoria no encontrado
+1/6/2016;10:40:57;No se pudo copiar el archivo foto-DEV-056.jpg    C:\SIBEC\becarios\DEV-056\foto-DEV-056.jpg
+1/6/2016;10:41:35;Nombre de categoria no encontrado
+1/6/2016;11:43:32;Nombre de categoria no encontrado
+1/6/2016;11:43:49;Nombre de categoria no encontrado
