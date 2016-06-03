@@ -46,14 +46,20 @@ import javax.swing.table.DefaultTableModel;
 import jtable.ModelDefault;
 import jtable.ModelUniversidades;
 import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JRExporter;
-import net.sf.jasperreports.engine.JRExporterParameter;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
+//import net.sf.jasperreports.engine.JRException;
+//import net.sf.jasperreports.engine.JRExporter;
+//import net.sf.jasperreports.engine.JRExporterParameter;
+//import net.sf.jasperreports.engine.JasperFillManager;
+//import net.sf.jasperreports.engine.JasperPrint;
+//import net.sf.jasperreports.engine.JasperReport;
+//import net.sf.jasperreports.engine.export.JRPdfExporter;
+//import net.sf.jasperreports.engine.util.JRLoader;
+//import net.sf.jasperreports.view.JasperViewer;
 import pojos.Aval;
 import pojos.Becario;
 import pojos.CatColumnasTabla;
@@ -65,8 +71,10 @@ import pojos.Hijos;
 import pojos.Kardex;
 import pojos.Padres;
 import pojos.PojoReporteIndividual;
+import pojos.PojoReporteIndividualMuchosDatos;
 import pojos.Telefono;
 import reportes.HistorialIndividual;
+//import reportes.HistorialIndividual;
 
 /**
  *
@@ -3931,12 +3939,14 @@ public class PrincipalControlador {
         
         //Becario becario = modelo.getBecarioPorFolio(conexion, "DEV-01");
         PojoReporteIndividual reporteIndividual = modelo.getReporteIndividualDatosUnicos(conexion, "DEV-01");
+        List<PojoReporteIndividualMuchosDatos> datos = modelo.getReporteIndividualMuchosDatos(conexion, "DEV-01");
         
-        File file = new File("src/reportes/historial_individual.jasper");
+        File file = new File("historial_individual.jasper");
         System.out.println(file.getAbsolutePath());
         try {
             HistorialIndividual report = new HistorialIndividual();
-            report.setBecario(reporteIndividual);
+            report.setDatosUnicos(reporteIndividual);
+            report.setLstMuchosDatos(datos);
             JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
             JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, report);
             

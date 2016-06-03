@@ -10,7 +10,6 @@ import java.util.List;
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRField;
-import pojos.Becario;
 import pojos.CatCampo;
 import pojos.CatEstatus;
 import pojos.CatPrograma;
@@ -18,6 +17,7 @@ import pojos.CatUniversidad;
 import pojos.DatosEscolares;
 import pojos.Kardex;
 import pojos.PojoReporteIndividual;
+import pojos.PojoReporteIndividualMuchosDatos;
 import pojos.Telefono;
 
 /**
@@ -26,18 +26,20 @@ import pojos.Telefono;
  */
 public class HistorialIndividual implements JRDataSource{
     List<PojoReporteIndividual> lstDatosUnicos = new ArrayList<>();
-    List<CatPrograma> programa = new ArrayList<>();
-    List<CatEstatus> estatus = new ArrayList<>();
-    List<CatUniversidad> universidad = new ArrayList<>();
-    List<DatosEscolares> lstDatosEscolares = new ArrayList<>();
-    List<CatCampo> campo = new ArrayList<>();
-    List<Telefono> lstTelefono = new ArrayList<>();
-    List<Kardex> lstKardex = new ArrayList<>();
+    List<PojoReporteIndividualMuchosDatos> lstMuchosDatos = new ArrayList<>();
     int contador = -1;
+    
+    public void setDatosUnicos(PojoReporteIndividual becario){
+        this.lstDatosUnicos.add(becario);
+    }
+
+    public void setLstMuchosDatos(List<PojoReporteIndividualMuchosDatos> lstMuchosDatos) {
+        this.lstMuchosDatos = lstMuchosDatos;
+    }
 
     @Override
     public boolean next() throws JRException {
-        return ++contador < lstDatosUnicos.size();
+        return ++contador < lstMuchosDatos.size();
     }
 
     @Override
@@ -45,52 +47,52 @@ public class HistorialIndividual implements JRDataSource{
         Object valor = null;
         switch(jrf.getName()){
             case "folio":
-                valor = lstDatosUnicos.get(contador).getFolio();
+                valor = lstDatosUnicos.get(0).getFolio();
                 break;
             case "aPaterno":
-                valor = lstDatosUnicos.get(contador).getaPaterno();
+                valor = lstDatosUnicos.get(0).getaPaterno();
                 break;
             case "aMaterno":
-                valor = lstDatosUnicos.get(contador).getaMaterno();
+                valor = lstDatosUnicos.get(0).getaMaterno();
                 break;
             case "nombre":
-                valor = lstDatosUnicos.get(contador).getNombre();
+                valor = lstDatosUnicos.get(0).getNombre();
                 break;
             case "programa":
-                valor = lstDatosUnicos.get(contador).getPrograma();
+                valor = lstDatosUnicos.get(0).getPrograma();
                 break;
             case "estatus":
-                valor = lstDatosUnicos.get(contador).getEstatus();
+                valor = lstDatosUnicos.get(0).getEstatus();
                 break;
             case "escuela":
-                valor = lstDatosUnicos.get(contador).getEscuela();
+                valor = lstDatosUnicos.get(0).getEscuela();
                 break;
             case "carrera":
-                valor = lstDatosUnicos.get(contador).getCarrera();
+                valor = lstDatosUnicos.get(0).getCarrera();
                 break;
             case "campo":
-                valor = lstDatosUnicos.get(contador).getCampo();
+                valor = lstDatosUnicos.get(0).getCampo();
                 break;
             case "telefonos":
                 
                 break;
             case "email":
-                valor = lstDatosUnicos.get(contador).getEmail();
+                valor = lstDatosUnicos.get(0).getEmail();
                 break;
             case "fechaIngreso":
-                valor = lstDatosUnicos.get(contador).getFechaIngreso();
+                valor = lstDatosUnicos.get(0).getFechaIngreso();
                 break;
             case "semestreIngreso":
-                valor = lstDatosUnicos.get(contador).getSemestreIngreso();
+                valor = lstDatosUnicos.get(0).getSemestreIngreso();
                 break;
             case "fechaGraduacion":
-                valor = lstDatosUnicos.get(contador).getFechaGraduacion();
+                valor = lstDatosUnicos.get(0).getFechaGraduacion();
                 break;
             case "becaTotal":
-                valor = lstDatosUnicos.get(contador).getBecaTotal();
+                valor = lstDatosUnicos.get(0).getBecaTotal();
                 break;
             case "pagoSemestral":
-                valor = lstDatosUnicos.get(contador).getBecaSemestral();
+                valor = lstDatosUnicos.get(0).getBecaSemestral();
                 break;
             case "saldoAcumulado":
                 
@@ -102,16 +104,19 @@ public class HistorialIndividual implements JRDataSource{
                 
                 break;
             case "semestre":
-                
+                valor = lstMuchosDatos.get(contador).getSemestre();
                 break;
-            case "pago":
-                
+            case "pago1":
+                valor = lstMuchosDatos.get(contador).getPago1();
+                break;
+            case "pago2":
+                valor = lstMuchosDatos.get(contador).getPago2();
                 break;
             case "promedio":
                 
                 break;
             case "horasServicio":
-                
+                valor = lstMuchosDatos.get(contador).getHorasServicio();
                 break;
             case "tipoServicio":
                 
@@ -125,10 +130,6 @@ public class HistorialIndividual implements JRDataSource{
         }
         
         return valor;
-    }
-    
-    public void setBecario(PojoReporteIndividual becario){
-        this.lstDatosUnicos.add(becario);
     }
     
 }

@@ -473,4 +473,22 @@ public class Consultas {
                                                             "JOIN beca_cat_campo AS campo ON campo.id_campo_carrera = escolar.id_campo_carrera \n" +
                                                             "WHERE becario.folio = ?";
     
+    public static String getReporteIndividualMuchosDatos = "SELECT\n" +
+                    "     beca_becario.`id_becario` AS id_becario,\n" +
+                    "     beca_datos_escolares.`id_becario` AS beca_datos_escolares_id_becario,\n" +
+                    "     beca_kardex.`id_becario` AS beca_kardex_id_becario,\n" +
+                    "     beca_kardex.`num_semestre` AS num_semestre,\n" +
+                    "     beca_kardex.`pago_inicio_semestre` AS pago1,\n" +
+                    "     beca_kardex.`pago_fin_semestre` AS pago2,\n" +
+                    "     beca_kardex.`promedio` AS promedio,\n" +
+                    "     beca_kardex.`descuento` AS descuento,\n" +
+                    "     beca_kardex.`horas_servicio` AS horas_servicio,\n" +
+                    "     beca_cat_servicio_comunitario.`nombre` AS nombre_servicio_comunitario,\n" +
+                    "     beca_cat_servicio_comunitario.`id_servicio_comunitario` AS beca_cat_servicio_comunitario_id_servicio_comunitario\n" +
+                    "FROM\n" +
+                    "     `beca_becario` beca_becario INNER JOIN `beca_datos_escolares` beca_datos_escolares ON beca_becario.`id_becario` = beca_datos_escolares.`id_becario`\n" +
+                    "     INNER JOIN `beca_kardex` beca_kardex ON beca_becario.`id_becario` = beca_kardex.`id_becario`\n" +
+                    "     INNER JOIN `beca_cat_servicio_comunitario` beca_cat_servicio_comunitario ON beca_kardex.`id_servicio_comunitario` = beca_cat_servicio_comunitario.`id_servicio_comunitario` "
+                    + "WHERE beca_becario.folio = ?";
+    
 }

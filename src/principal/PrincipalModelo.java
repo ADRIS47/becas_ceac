@@ -50,6 +50,7 @@ import pojos.Hijos;
 import pojos.Kardex;
 import pojos.Padres;
 import pojos.PojoReporteIndividual;
+import pojos.PojoReporteIndividualMuchosDatos;
 import pojos.Telefono;
 
 /**
@@ -3378,5 +3379,33 @@ public class PrincipalModelo {
         
         return result;
         
+    }
+
+    protected List<PojoReporteIndividualMuchosDatos> getReporteIndividualMuchosDatos(Connection conexion, String folioBecario) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        List<PojoReporteIndividualMuchosDatos> result = null;
+        
+        try {
+            ps = conexion.prepareStatement(Consultas.getReporteIndividualMuchosDatos);
+            ps.setString(1, folioBecario);
+            rs = ps.executeQuery();
+            result = new ArrayList<>();
+            while(rs.next()){
+                PojoReporteIndividualMuchosDatos res = new PojoReporteIndividualMuchosDatos();
+                res.setSemestre(rs.getInt("num_semestre"));
+                res.setPago1(rs.getBoolean("pago1"));
+                res.setPago2(rs.getBoolean("pago2"));
+                res.setPromedio(rs.getFloat("promedio"));
+                res.setHorasServicio(rs.getInt("horas_servicio"));
+                res.setTipoServicio(rs.getString("nombre_servicio_comunitario"));
+                res.setDescuento(rs.getInt("descuento"));
+                result.add(res);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return result;
     }
 }
