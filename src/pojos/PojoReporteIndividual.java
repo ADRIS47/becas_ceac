@@ -13,6 +13,7 @@ import java.sql.Date;
  */
 public class PojoReporteIndividual {
     
+    long idBecario;
     String folio;
     String aPaterno;
     String aMaterno;
@@ -32,6 +33,14 @@ public class PojoReporteIndividual {
     int servicioAcumulado;
     int descuentoAcumulado;
 
+    public long getIdBecario() {
+        return idBecario;
+    }
+
+    public void setIdBecario(long idBecario) {
+        this.idBecario = idBecario;
+    }
+    
     public String getFolio() {
         return folio;
     }

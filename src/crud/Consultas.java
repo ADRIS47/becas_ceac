@@ -451,7 +451,8 @@ public class Consultas {
      */
     public static String getIdMayor = "SELECT ? AS maximo FROM ?";
     
-    public static String getReporteIndividualDatosUnicos = "SELECT becario.folio AS folio, becario.ap_paterno AS aPaterno, "
+    public static String getReporteIndividualDatosUnicos = "SELECT becario.id_becario AS id_becario, "
+                                                            + "becario.folio AS folio, becario.ap_paterno AS aPaterno, "
                                                             + "becario.ap_materno AS aMaterno, \n" +
                                                             "becario.nombre AS nombre, \n" +
                                                             "programa.nombre AS programa, \n" +

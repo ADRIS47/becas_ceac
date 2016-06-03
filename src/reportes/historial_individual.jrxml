@@ -110,7 +110,7 @@
 				<text><![CDATA[Teléfono(s)]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="345" y="71" width="115" height="20" uuid="fd6a773e-b0ec-42b2-9c19-1575d4a9364f"/>
+				<reportElement x="345" y="71" width="236" height="20" uuid="fd6a773e-b0ec-42b2-9c19-1575d4a9364f"/>
 				<textFieldExpression><![CDATA[$F{telefonos}]]></textFieldExpression>
 			</textField>
 			<staticText>

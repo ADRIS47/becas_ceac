@@ -3357,6 +3357,7 @@ public class PrincipalModelo {
             rs = ps.executeQuery();
             result = new PojoReporteIndividual();
             while(rs.next()){
+                result.setIdBecario(rs.getLong("id_becario"));
                 result.setFolio(rs.getString("folio"));
                 result.setaPaterno(rs.getString("aPaterno"));
                 result.setaMaterno(rs.getString("aMaterno"));
