@@ -1,89 +1,243 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="historial_individual" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d954569f-a58e-4911-a658-4a86437608ae">
-	<queryString language="SQL">
-		<![CDATA[SELECT
-     beca_becario.`folio` AS beca_becario_folio,
-     beca_becario.`ap_materno` AS beca_becario_ap_materno,
-     beca_becario.`ap_paterno` AS beca_becario_ap_paterno,
-     beca_becario.`nombre` AS beca_becario_nombre,
-     beca_becario.`id_programa` AS beca_becario_id_programa,
-     beca_cat_programa.`id_programa` AS beca_cat_programa_id_programa,
-     beca_cat_programa.`nombre` AS beca_cat_programa_nombre,
-     beca_becario.`id_estatus` AS beca_becario_id_estatus,
-     beca_cat_estatus.`id_estatus` AS beca_cat_estatus_id_estatus,
-     beca_cat_estatus.`nombre` AS beca_cat_estatus_nombre,
-     beca_datos_escolares.`id_becario` AS beca_datos_escolares_id_becario,
-     beca_datos_escolares.`id_universidad` AS beca_datos_escolares_id_universidad,
-     beca_cat_universidad.`id_universidad` AS beca_cat_universidad_id_universidad,
-     beca_cat_universidad.`nombre` AS beca_cat_universidad_nombre,
-     beca_datos_escolares.`nombre_carrera` AS beca_datos_escolares_nombre_carrera,
-     beca_datos_escolares.`id_campo_carrera` AS beca_datos_escolares_id_campo_carrera,
-     beca_cat_campo.`id_campo_carrera` AS beca_cat_campo_id_campo_carrera,
-     beca_cat_campo.`nombre` AS beca_cat_campo_nombre,
-     beca_telefono.`id_becario` AS beca_telefono_id_becario,
-     beca_telefono.`telefono` AS beca_telefono_telefono,
-     beca_becario.`email` AS beca_becario_email,
-     beca_datos_escolares.`fecha_inicio_beca` AS beca_datos_escolares_fecha_inicio_beca,
-     beca_datos_escolares.`semestre_inicio_beca` AS beca_datos_escolares_semestre_inicio_beca,
-     beca_datos_escolares.`fecha_fin_beca` AS beca_datos_escolares_fecha_fin_beca,
-     beca_datos_escolares.`beca_total` AS beca_datos_escolares_beca_total,
-     beca_datos_escolares.`beca_semestral` AS beca_datos_escolares_beca_semestral,
-     beca_kardex.`horas_servicio` AS beca_kardex_horas_servicio,
-     beca_kardex.`id_servicio_comunitario` AS beca_kardex_id_servicio_comunitario,
-     beca_cat_servicio_comunitario.`id_servicio_comunitario` AS beca_cat_servicio_comunitario_id_servicio_comunitario,
-     beca_cat_servicio_comunitario.`nombre` AS beca_cat_servicio_comunitario_nombre,
-     beca_kardex.`descuento` AS beca_kardex_descuento,
-     beca_kardex.`promedio` AS beca_kardex_promedio,
-     beca_kardex.`pago_inicio_semestre` AS beca_kardex_pago_inicio_semestre,
-     beca_kardex.`pago_fin_semestre` AS beca_kardex_pago_fin_semestre,
-     beca_kardex.`num_semestre` AS beca_kardex_num_semestre
-FROM
-     `beca_becario` beca_becario INNER JOIN `beca_datos_escolares` beca_datos_escolares ON beca_becario.`id_becario` = beca_datos_escolares.`id_becario`
-     INNER JOIN `beca_cat_programa` beca_cat_programa ON beca_becario.`id_programa` = beca_cat_programa.`id_programa`
-     INNER JOIN `beca_cat_estatus` beca_cat_estatus ON beca_becario.`id_estatus` = beca_cat_estatus.`id_estatus`
-     INNER JOIN `beca_telefono` beca_telefono ON beca_becario.`id_becario` = beca_telefono.`id_becario`
-     INNER JOIN `beca_kardex` beca_kardex ON beca_becario.`id_becario` = beca_kardex.`id_becario`
-     INNER JOIN `beca_cat_servicio_comunitario` beca_cat_servicio_comunitario ON beca_kardex.`id_servicio_comunitario` = beca_cat_servicio_comunitario.`id_servicio_comunitario`
-     INNER JOIN `beca_cat_universidad` beca_cat_universidad ON beca_datos_escolares.`id_universidad` = beca_cat_universidad.`id_universidad`
-     INNER JOIN `beca_cat_campo` beca_cat_campo ON beca_datos_escolares.`id_campo_carrera` = beca_cat_campo.`id_campo_carrera`]]>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="historial_individual" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d954569f-a58e-4911-a658-4a86437608ae">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
 	</queryString>
-	<field name="beca_becario_folio" class="java.lang.String"/>
-	<field name="beca_becario_ap_materno" class="java.lang.String"/>
-	<field name="beca_becario_ap_paterno" class="java.lang.String"/>
-	<field name="beca_becario_nombre" class="java.lang.String"/>
-	<field name="beca_cat_programa_nombre" class="java.lang.String"/>
-	<field name="beca_cat_estatus_nombre" class="java.lang.String"/>
-	<field name="beca_cat_universidad_nombre" class="java.lang.String"/>
-	<field name="beca_datos_escolares_nombre_carrera" class="java.lang.String"/>
-	<field name="beca_cat_campo_nombre" class="java.lang.String"/>
-	<field name="beca_telefono_telefono" class="java.lang.String"/>
-	<field name="beca_becario_email" class="java.lang.String"/>
-	<field name="beca_datos_escolares_fecha_inicio_beca" class="java.sql.Date"/>
-	<field name="beca_datos_escolares_semestre_inicio_beca" class="java.lang.Integer"/>
-	<field name="beca_datos_escolares_fecha_fin_beca" class="java.sql.Date"/>
-	<field name="beca_datos_escolares_beca_total" class="java.lang.Integer"/>
-	<field name="beca_datos_escolares_beca_semestral" class="java.lang.Integer"/>
-	<field name="beca_kardex_horas_servicio" class="java.lang.Integer"/>
-	<field name="beca_cat_servicio_comunitario_nombre" class="java.lang.String"/>
-	<field name="beca_kardex_descuento" class="java.lang.Integer"/>
-	<field name="beca_kardex_promedio" class="java.lang.Float"/>
-	<field name="beca_kardex_pago_inicio_semestre" class="java.lang.Boolean"/>
-	<field name="beca_kardex_pago_fin_semestre" class="java.lang.Boolean"/>
-	<field name="beca_kardex_num_semestre" class="java.lang.Integer"/>
+	<field name="folio" class="java.lang.String"/>
+	<field name="aPaterno" class="java.lang.String"/>
+	<field name="aMaterno" class="java.lang.String"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="programa" class="java.lang.String"/>
+	<field name="estatus" class="java.lang.String"/>
+	<field name="escuela" class="java.lang.String"/>
+	<field name="carrera" class="java.lang.String"/>
+	<field name="campo" class="java.lang.String"/>
+	<field name="telefonos" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="fechaIngreso" class="java.lang.String"/>
+	<field name="semestreIngreso" class="java.lang.String"/>
+	<field name="fechaGraduacion" class="java.lang.String"/>
+	<field name="becaTotal" class="java.lang.String"/>
+	<field name="pagoSemestral" class="java.lang.String"/>
+	<field name="saldoAcumulado" class="java.lang.String"/>
+	<field name="servicioAcumulado" class="java.lang.String"/>
+	<field name="descuentoAcumulado" class="java.lang.String"/>
+	<field name="semestre" class="java.lang.String"/>
+	<field name="pago1" class="java.lang.String"/>
+	<field name="promedio" class="java.lang.String"/>
+	<field name="horasServicio" class="java.lang.String"/>
+	<field name="tipoServicio" class="java.lang.String"/>
+	<field name="descuento" class="java.lang.String"/>
+	<field name="nombreCompleto" class="java.lang.String"/>
+	<field name="pago2" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch"/>
+		<band height="46" splitType="Stretch">
+			<staticText>
+				<reportElement x="218" y="18" width="105" height="20" uuid="3deb1e2d-313a-421d-825a-884b6703359a"/>
+				<text><![CDATA[REPORTE INDIIDUAL]]></text>
+			</staticText>
+		</band>
 	</title>
 	<pageHeader>
 		<band height="35" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="61" splitType="Stretch"/>
+		<band height="206" splitType="Stretch">
+			<textField>
+				<reportElement x="33" y="11" width="73" height="20" uuid="4fdc5144-d82a-4ec3-85a1-f0dd08f1025e"/>
+				<textFieldExpression><![CDATA[$F{folio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="237" y="11" width="155" height="20" uuid="e9eb0785-cafb-4864-ad31-c12bd6df2e3b"/>
+				<textFieldExpression><![CDATA[$F{nombreCompleto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="11" width="33" height="20" uuid="b634b48a-06b0-414d-be2a-4f4c495078d7"/>
+				<text><![CDATA[Folio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="11" width="47" height="20" uuid="de41406d-52b6-4c7a-a95e-488b7b273498"/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="544" y="11" width="64" height="20" uuid="d91844a7-8cb8-41ed-9a2b-946fd595d7b6"/>
+				<text><![CDATA[Programa]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="608" y="11" width="100" height="20" uuid="633ab178-4867-4f55-b465-96ec6bb187aa"/>
+				<textFieldExpression><![CDATA[$F{programa}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="41" width="44" height="20" uuid="5048a706-d025-4995-a5e2-7fa8b702687d"/>
+				<text><![CDATA[Estatus]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="44" y="41" width="100" height="20" uuid="5140dbfe-1b37-4959-85cf-fd0b0d11bfd3"/>
+				<textFieldExpression><![CDATA[$F{estatus}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="196" y="41" width="44" height="20" uuid="63e6849c-1e06-4f7c-85fe-df2e4f58bb36"/>
+				<text><![CDATA[Escuela]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="240" y="41" width="189" height="20" uuid="d39b89b2-ca2c-44ca-9616-9882c555b619"/>
+				<textFieldExpression><![CDATA[$F{escuela}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="71" width="44" height="20" uuid="e66cbe62-ae89-4375-ac4e-9a21b8ed5364"/>
+				<text><![CDATA[Carrera]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="44" y="71" width="204" height="20" uuid="a55bcb5c-048f-4751-bfd1-072d75e12ca0"/>
+				<textFieldExpression><![CDATA[$F{carrera}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="554" y="41" width="44" height="20" uuid="e45dec95-5549-4ac8-ab86-e678fe19a2eb"/>
+				<text><![CDATA[Campo]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="598" y="41" width="100" height="20" uuid="638c0e0e-ca97-472e-a40d-2238a8db69c9"/>
+				<textFieldExpression><![CDATA[$F{campo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="287" y="71" width="58" height="20" uuid="4aa15471-ee78-408b-9806-69fbe5a583b0"/>
+				<text><![CDATA[Teléfono(s)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="345" y="71" width="115" height="20" uuid="fd6a773e-b0ec-42b2-9c19-1575d4a9364f"/>
+				<textFieldExpression><![CDATA[$F{telefonos}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="106" width="101" height="20" uuid="60fc5e06-a47b-410c-9e6f-b676c9ff6d2f"/>
+				<text><![CDATA[Correo Electrónico]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="107" y="106" width="178" height="20" uuid="56e182f6-4096-41ea-acb2-af6bbce97316"/>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="337" y="106" width="42" height="20" uuid="500dbe86-290e-4cd0-96c3-1aa86a3c1c3c"/>
+				<text><![CDATA[Ingreso]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="383" y="106" width="76" height="20" uuid="75d111cc-9d73-499d-b7e2-3ecf3772f71a"/>
+				<textFieldExpression><![CDATA[$F{fechaIngreso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="630" y="106" width="78" height="20" uuid="e58afa93-78b3-4be7-b4dd-17183a05f9df"/>
+				<textFieldExpression><![CDATA[$F{fechaGraduacion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="564" y="106" width="66" height="20" uuid="53ae6a2c-8615-443d-bc9b-b51dc49d0f28"/>
+				<text><![CDATA[Graduación]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="136" width="54" height="20" uuid="b7f7706d-11e4-4e9c-937f-a883dfb16827"/>
+				<text><![CDATA[Beca Total]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="54" y="136" width="75" height="20" uuid="03977f3a-5450-4ff4-872a-04535eb28aee"/>
+				<textFieldExpression><![CDATA[$F{becaTotal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="248" y="136" width="85" height="20" uuid="5e8da1d8-3eef-440c-b359-12fc912c4594"/>
+				<text><![CDATA[Beca Semestral]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="333" y="136" width="56" height="20" uuid="8178fae9-66e8-44ad-b3ba-42d3cdb05bf1"/>
+				<textFieldExpression><![CDATA[$F{pagoSemestral}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="565" y="136" width="102" height="20" uuid="43bf4b04-8b34-47c8-80c6-4fd331221292"/>
+				<text><![CDATA[Saldo Acumulado]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="667" y="136" width="56" height="20" uuid="361299a1-68d7-4cff-a840-61519a1258cb"/>
+				<textFieldExpression><![CDATA[$F{saldoAcumulado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="227" y="171" width="102" height="20" uuid="2b8c6199-0e07-4bc9-90f4-19c729784d17"/>
+				<text><![CDATA[Servicio Acumulado]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="332" y="171" width="53" height="20" uuid="47f9bee6-1923-4984-b4d6-4a153f411ef3"/>
+				<textFieldExpression><![CDATA[$F{servicioAcumulado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="521" y="171" width="49" height="20" uuid="f096e79b-d82e-4918-978f-218e2d53b6cd"/>
+				<textFieldExpression><![CDATA[$F{descuentoAcumulado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="392" y="171" width="113" height="20" uuid="9a273f30-77c6-49a7-97a8-f2b47a4aeb8c"/>
+				<text><![CDATA[Descuento Acumulado]]></text>
+			</staticText>
+		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch"/>
+		<band height="37" splitType="Stretch">
+			<staticText>
+				<reportElement x="5" y="0" width="49" height="20" uuid="0eb24d34-a253-445b-9ac8-0dac52cfa61b"/>
+				<text><![CDATA[semestre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="698" y="0" width="56" height="20" uuid="d1b32489-39b3-4800-90a3-43ac6565a498"/>
+				<text><![CDATA[Descuento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="155" y="0" width="49" height="20" uuid="975ce48b-8cf0-4732-ba5e-3018697faa57"/>
+				<text><![CDATA[pago1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="581" y="0" width="76" height="20" uuid="d3b0374f-80af-4471-b760-5ae4281734d1"/>
+				<text><![CDATA[tipo Servicio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="0" width="49" height="20" uuid="3be3e5f1-9f74-4e3e-91d8-3282d9bf9983"/>
+				<text><![CDATA[promedio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="478" y="0" width="60" height="20" uuid="6138b0ac-3ccd-4609-bd9f-da6b86640cd8"/>
+				<text><![CDATA[hrs Servicio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="264" y="0" width="49" height="20" uuid="12877e7c-fa70-481f-a498-2704c77bd5f6"/>
+				<text><![CDATA[pago2]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="65" y="0" width="79" height="20" uuid="4ea41850-8666-45ba-9cdb-bc11a4e8ec9e"/>
+				<textFieldExpression><![CDATA[$F{semestre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="204" y="0" width="44" height="20" uuid="d7de8e7a-c23f-41bf-9a94-e4841c1d5a76"/>
+				<textFieldExpression><![CDATA[$F{pago1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="323" y="0" width="42" height="20" uuid="aaeef7b5-3c43-4c0f-9bce-24c42f6f050e"/>
+				<textFieldExpression><![CDATA[$F{pago2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="431" y="0" width="40" height="20" uuid="d544cefb-bce7-41af-8a09-5c64fbe7e12b"/>
+				<textFieldExpression><![CDATA[$F{promedio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="538" y="0" width="37" height="20" uuid="1fcff9b3-fc96-4c1c-ad0f-07df7a2e3ce6"/>
+				<textFieldExpression><![CDATA[$F{horasServicio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="657" y="0" width="41" height="20" uuid="6564049f-fd9b-429d-8d98-79e2ebeb3182"/>
+				<textFieldExpression><![CDATA[$F{tipoServicio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="754" y="0" width="48" height="20" uuid="142d2fa1-bc8d-4cc0-b475-a02584f6ee70"/>
+				<textFieldExpression><![CDATA[$F{descuento}]]></textFieldExpression>
+			</textField>
+		</band>
 	</detail>
 	<columnFooter>
 		<band height="45" splitType="Stretch"/>

@@ -451,4 +451,44 @@ public class Consultas {
      */
     public static String getIdMayor = "SELECT ? AS maximo FROM ?";
     
+    public static String getReporteIndividualDatosUnicos = "SELECT becario.folio AS folio, becario.ap_paterno AS aPaterno, "
+                                                            + "becario.ap_materno AS aMaterno, \n" +
+                                                            "becario.nombre AS nombre, \n" +
+                                                            "programa.nombre AS programa, \n" +
+                                                            "estatus.nombre AS estatus, \n" +
+                                                            "uni.nombre AS universidad, \n" +
+                                                            "escolar.nombre_carrera AS carrera, \n" +
+                                                            "campo.nombre AS campo_carrera, \n" +
+                                                            "becario.email AS email, \n" +
+                                                            "escolar.fecha_inicio_beca AS inicio_beca, \n" +
+                                                            "escolar.semestre_inicio_beca AS semestre_inicio_beca, \n" +
+                                                            "escolar.fecha_fin_beca AS graduacion, \n" +
+                                                            "escolar.beca_total AS beca_total, \n" +
+                                                            "escolar.beca_semestral AS beca_semestral \n" +
+                                                            "FROM beca_becario AS becario\n" +
+                                                            "JOIN beca_cat_programa AS programa ON programa.id_programa = becario.id_programa \n" +
+                                                            "JOIN beca_cat_estatus AS estatus ON estatus.id_estatus = becario.id_estatus \n" +
+                                                            "JOIN beca_datos_escolares AS escolar ON escolar.id_becario = becario.id_becario \n" +
+                                                            "JOIN beca_cat_universidad AS uni ON escolar.id_universidad = uni.id_universidad \n" +
+                                                            "JOIN beca_cat_campo AS campo ON campo.id_campo_carrera = escolar.id_campo_carrera \n" +
+                                                            "WHERE becario.folio = ?";
+    
+    public static String getReporteIndividualMuchosDatos = "SELECT\n" +
+                    "     beca_becario.`id_becario` AS id_becario,\n" +
+                    "     beca_datos_escolares.`id_becario` AS beca_datos_escolares_id_becario,\n" +
+                    "     beca_kardex.`id_becario` AS beca_kardex_id_becario,\n" +
+                    "     beca_kardex.`num_semestre` AS num_semestre,\n" +
+                    "     beca_kardex.`pago_inicio_semestre` AS pago1,\n" +
+                    "     beca_kardex.`pago_fin_semestre` AS pago2,\n" +
+                    "     beca_kardex.`promedio` AS promedio,\n" +
+                    "     beca_kardex.`descuento` AS descuento,\n" +
+                    "     beca_kardex.`horas_servicio` AS horas_servicio,\n" +
+                    "     beca_cat_servicio_comunitario.`nombre` AS nombre_servicio_comunitario,\n" +
+                    "     beca_cat_servicio_comunitario.`id_servicio_comunitario` AS beca_cat_servicio_comunitario_id_servicio_comunitario\n" +
+                    "FROM\n" +
+                    "     `beca_becario` beca_becario INNER JOIN `beca_datos_escolares` beca_datos_escolares ON beca_becario.`id_becario` = beca_datos_escolares.`id_becario`\n" +
+                    "     INNER JOIN `beca_kardex` beca_kardex ON beca_becario.`id_becario` = beca_kardex.`id_becario`\n" +
+                    "     INNER JOIN `beca_cat_servicio_comunitario` beca_cat_servicio_comunitario ON beca_kardex.`id_servicio_comunitario` = beca_cat_servicio_comunitario.`id_servicio_comunitario` "
+                    + "WHERE beca_becario.folio = ?";
+    
 }

@@ -49,6 +49,8 @@ import pojos.Hermanos;
 import pojos.Hijos;
 import pojos.Kardex;
 import pojos.Padres;
+import pojos.PojoReporteIndividual;
+import pojos.PojoReporteIndividualMuchosDatos;
 import pojos.Telefono;
 
 /**
@@ -3336,5 +3338,74 @@ public class PrincipalModelo {
         }
         
         return response;
+    }
+
+    /**
+     * Obtiene la informacion que no se repite en el reporte individual
+     * @param conexion
+     * @param folioBecario
+     * @return 
+     */
+    protected PojoReporteIndividual getReporteIndividualDatosUnicos(Connection conexion, String folioBecario) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        PojoReporteIndividual result = null;
+        
+        try {
+            ps = conexion.prepareStatement(Consultas.getReporteIndividualDatosUnicos);
+            ps.setString(1, folioBecario);
+            rs = ps.executeQuery();
+            result = new PojoReporteIndividual();
+            while(rs.next()){
+                result.setFolio(rs.getString("folio"));
+                result.setaPaterno(rs.getString("aPaterno"));
+                result.setaMaterno(rs.getString("aMaterno"));
+                result.setNombre(rs.getString("nombre"));
+                result.setPrograma(rs.getString("programa"));
+                result.setEstatus(rs.getString("estatus"));
+                result.setEscuela(rs.getString("universidad"));
+                result.setCarrera(rs.getString("carrera"));
+                result.setCampo(rs.getString("campo_carrera"));
+                result.setEmail(rs.getString("email"));
+                result.setFechaIngreso(rs.getDate("inicio_beca"));
+                result.setSemestreIngreso(rs.getInt("semestre_inicio_beca"));
+                result.setFechaGraduacion(rs.getDate("graduacion"));
+                result.setBecaTotal(rs.getFloat("beca_total"));
+                result.setBecaSemestral(rs.getFloat("beca_semestral"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return result;
+        
+    }
+
+    protected List<PojoReporteIndividualMuchosDatos> getReporteIndividualMuchosDatos(Connection conexion, String folioBecario) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        List<PojoReporteIndividualMuchosDatos> result = null;
+        
+        try {
+            ps = conexion.prepareStatement(Consultas.getReporteIndividualMuchosDatos);
+            ps.setString(1, folioBecario);
+            rs = ps.executeQuery();
+            result = new ArrayList<>();
+            while(rs.next()){
+                PojoReporteIndividualMuchosDatos res = new PojoReporteIndividualMuchosDatos();
+                res.setSemestre(rs.getInt("num_semestre"));
+                res.setPago1(rs.getBoolean("pago1"));
+                res.setPago2(rs.getBoolean("pago2"));
+                res.setPromedio(rs.getFloat("promedio"));
+                res.setHorasServicio(rs.getInt("horas_servicio"));
+                res.setTipoServicio(rs.getString("nombre_servicio_comunitario"));
+                res.setDescuento(rs.getInt("descuento"));
+                result.add(res);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return result;
     }
 }
