@@ -3114,3 +3114,7 @@ Verifique su conexion e intentelo de nuevo
 1/6/2016;10:41:35;Nombre de categoria no encontrado
 1/6/2016;11:43:32;Nombre de categoria no encontrado
 1/6/2016;11:43:49;Nombre de categoria no encontrado
+2/6/2016;22:20:28;Nombre de categoria no encontrado
+2/6/2016;22:22:6;No se pudo copiar el archivo acta_nacimiento-DEV-056.pdf    C:\SIBEC\becarios\DEV-056\acta_nacimiento-DEV-056.pdf
+2/6/2016;22:23:17;Nombre de categoria no encontrado
+2/6/2016;22:24:25;Nombre de categoria no encontrado
