@@ -3176,3 +3176,4 @@ Verifique su conexion e intentelo de nuevo
 3/6/2016;13:28:20;Nombre de categoria no encontrado
 3/6/2016;13:29:52;Nombre de categoria no encontrado
 3/6/2016;13:43:56;Nombre de categoria no encontrado
+3/6/2016;13:45:53;Nombre de categoria no encontrado
