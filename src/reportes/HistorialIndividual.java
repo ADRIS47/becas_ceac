@@ -45,6 +45,7 @@ public class HistorialIndividual implements JRDataSource{
     @Override
     public Object getFieldValue(JRField jrf) throws JRException {
         Object valor = null;
+        float pagoSemestral = 0;
         switch(jrf.getName()){
             case "folio":
                 valor = lstDatosUnicos.get(0).getFolio();
@@ -104,6 +105,7 @@ public class HistorialIndividual implements JRDataSource{
             case "saldoAcumulado":
                 int saldo = 0;
                 for (PojoReporteIndividualMuchosDatos datos : lstMuchosDatos) {
+                    
                 }
                 valor = saldo;
                 break;
@@ -125,10 +127,20 @@ public class HistorialIndividual implements JRDataSource{
                 valor = lstMuchosDatos.get(contador).getSemestre();
                 break;
             case "pago1":
-                valor = lstMuchosDatos.get(contador).getPago1();
+                boolean pago1 = lstMuchosDatos.get(contador).getPago1();
+                pagoSemestral = lstDatosUnicos.get(0).getBecaSemestral();
+                if(pago1)
+                    valor = pagoSemestral / 2;
+                else
+                    valor = 0;
                 break;
             case "pago2":
-                valor = lstMuchosDatos.get(contador).getPago2();
+                boolean pago2 = lstMuchosDatos.get(contador).getPago2();
+                pagoSemestral = lstDatosUnicos.get(0).getBecaSemestral();
+                if(pago2)
+                    valor = pagoSemestral / 2;
+                else
+                    valor = 0;
                 break;
             case "promedio":
                 valor = lstMuchosDatos.get(contador).getPromedio();
