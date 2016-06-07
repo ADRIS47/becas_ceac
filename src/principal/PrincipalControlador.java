@@ -45,21 +45,21 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import jtable.ModelDefault;
 import jtable.ModelUniversidades;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.view.JasperViewer;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JRExporter;
-import net.sf.jasperreports.engine.JRExporterParameter;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.export.JRPdfExporter;
-import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.view.JasperViewer;
+//import net.sf.jasperreports.engine.JRException;
+//import net.sf.jasperreports.engine.JasperFillManager;
+//import net.sf.jasperreports.engine.JasperPrint;
+//import net.sf.jasperreports.engine.JasperReport;
+//import net.sf.jasperreports.engine.util.JRLoader;
+//import net.sf.jasperreports.view.JasperViewer;
+//import net.sf.jasperreports.engine.JRException;
+//import net.sf.jasperreports.engine.JRExporter;
+//import net.sf.jasperreports.engine.JRExporterParameter;
+//import net.sf.jasperreports.engine.JasperFillManager;
+//import net.sf.jasperreports.engine.JasperPrint;
+//import net.sf.jasperreports.engine.JasperReport;
+//import net.sf.jasperreports.engine.export.JRPdfExporter;
+//import net.sf.jasperreports.engine.util.JRLoader;
+//import net.sf.jasperreports.view.JasperViewer;
 import pojos.Aval;
 import pojos.Becario;
 import pojos.CatColumnasTabla;
@@ -73,7 +73,7 @@ import pojos.Padres;
 import pojos.PojoReporteIndividual;
 import pojos.PojoReporteIndividualMuchosDatos;
 import pojos.Telefono;
-import reportes.HistorialIndividual;
+//import reportes.HistorialIndividual;
 //import reportes.HistorialIndividual;
 //import reportes.HistorialIndividual;
 
@@ -3945,49 +3945,49 @@ public class PrincipalControlador {
      * Verifica el reporte seleccionado por el usuario y proximo a crear,
      */
     protected void creaReporte() {
-        Conexion conn = new Conexion();
-        Connection conexion = conn.estableceConexion();
-        
-        if(conexion == null){
-            JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        
-        //Becario becario = modelo.getBecarioPorFolio(conexion, "DEV-01");
-        PojoReporteIndividual reporteIndividual = modelo.getReporteIndividualDatosUnicos(conexion, "DEV-01");
-        List<PojoReporteIndividualMuchosDatos> datos = modelo.getReporteIndividualMuchosDatos(conexion, "DEV-01");
-        List<Telefono> telefonos = modelo.getTelefonosBecario(conexion, reporteIndividual.getIdBecario());
-        
-        File file = new File("historial_individual.jasper");
-        System.out.println(file.getAbsolutePath());
-        try {
-            HistorialIndividual report = new HistorialIndividual();
-            report.setLstDatosUnicos(reporteIndividual);
-            report.setLstMuchosDatos(datos);
-            report.setLstTelefonos(telefonos);
-            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
-            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, report);
-            
-            JasperViewer visor = new JasperViewer(jasperPrint);
-            visor.setVisible(true);
-            visor.setDefaultCloseOperation(JasperViewer.DISPOSE_ON_CLOSE);
-//            JRExporter exporter = new JRPdfExporter();  
-//            exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint); 
-//            exporter.setParameter(JRExporterParameter.OUTPUT_FILE, new java.io.File("reporte2PDF.pdf")); 
-//            exporter.exportReport(); 
-        } catch (JRException ex) {
-//            log.muestraErrores(e);
-            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        finally {
-            try{
-                conexion.close();
-            } 
-            catch (SQLException ex) {
-                log.muestraErrores(ex);
-                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+//        Conexion conn = new Conexion();
+//        Connection conexion = conn.estableceConexion();
+//        
+//        if(conexion == null){
+//            JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+//            return;
+//        }
+//        
+//        //Becario becario = modelo.getBecarioPorFolio(conexion, "DEV-01");
+//        PojoReporteIndividual reporteIndividual = modelo.getReporteIndividualDatosUnicos(conexion, "DEV-01");
+//        List<PojoReporteIndividualMuchosDatos> datos = modelo.getReporteIndividualMuchosDatos(conexion, "DEV-01");
+//        List<Telefono> telefonos = modelo.getTelefonosBecario(conexion, reporteIndividual.getIdBecario());
+//        
+//        File file = new File("historial_individual.jasper");
+//        System.out.println(file.getAbsolutePath());
+//        try {
+//            HistorialIndividual report = new HistorialIndividual();
+//            report.setLstDatosUnicos(reporteIndividual);
+//            report.setLstMuchosDatos(datos);
+//            report.setLstTelefonos(telefonos);
+//            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
+//            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, report);
+//            
+//            JasperViewer visor = new JasperViewer(jasperPrint);
+//            visor.setVisible(true);
+//            visor.setDefaultCloseOperation(JasperViewer.DISPOSE_ON_CLOSE);
+////            JRExporter exporter = new JRPdfExporter();  
+////            exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint); 
+////            exporter.setParameter(JRExporterParameter.OUTPUT_FILE, new java.io.File("reporte2PDF.pdf")); 
+////            exporter.exportReport(); 
+//        } catch (JRException ex) {
+////            log.muestraErrores(e);
+//            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        
+//        finally {
+//            try{
+//                conexion.close();
+//            } 
+//            catch (SQLException ex) {
+//                log.muestraErrores(ex);
+//                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
     }
 }
