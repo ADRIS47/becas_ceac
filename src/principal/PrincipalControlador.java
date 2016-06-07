@@ -2076,6 +2076,8 @@ public class PrincipalControlador {
                     if (componente instanceof JLabel) {
                         
                         JLabel txtSemestre = (JLabel) componente;
+                        if(g > lstKardex.size() - 1)
+                            break;
                         Kardex kardex = lstKardex.get(g);
                         if(i % 2 == 0)
                             txtSemestre.setText(kardex.getTransferencia1());
