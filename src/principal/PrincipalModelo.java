@@ -1680,8 +1680,8 @@ public class PrincipalModelo {
             else if(hermanos > 0 && hermanos < lstHermanos.size()){
                 int contador = 0;
                 for (Hermanos hermano : lstHermanos) {
-                    if(contador < lstHermanos.size() - 1){
-                         ps = conexion.prepareStatement(Update.updateHermanosBecario);
+                    if(contador == 0 && contador <= hermanos -1){
+                        ps = conexion.prepareStatement(Update.updateHermanosBecario);
                         ps.setString(1, hermano.getNombre());
                         ps.setString(2, hermano.getAPaterno());
                         ps.setString(3, hermano.getAMaterno());
@@ -1693,10 +1693,10 @@ public class PrincipalModelo {
                         //Si la actualizacion fue correcta
                         if(resp < 1)
                             throw new SQLException("No se pudo actualizar los hermanos");
-                        contador++;
+                        
                     }
                         
-                    else{
+                    else if( contador > hermanos -1){
                         ps = conexion.prepareStatement(Insert.insertHermanoBecario);
                         ps.setString(1, hermano.getNombre());
                         ps.setString(2, hermano.getAPaterno());
