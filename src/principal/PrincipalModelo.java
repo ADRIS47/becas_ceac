@@ -1693,7 +1693,9 @@ public class PrincipalModelo {
                         //Si la actualizacion fue correcta
                         if(resp < 1)
                             throw new SQLException("No se pudo actualizar los hermanos");
-                        }
+                        contador++;
+                    }
+                        
                     else{
                         ps = conexion.prepareStatement(Insert.insertHermanoBecario);
                         ps.setString(1, hermano.getNombre());
@@ -3357,6 +3359,7 @@ public class PrincipalModelo {
             rs = ps.executeQuery();
             result = new PojoReporteIndividual();
             while(rs.next()){
+                result.setIdBecario(rs.getLong("id_becario"));
                 result.setFolio(rs.getString("folio"));
                 result.setaPaterno(rs.getString("aPaterno"));
                 result.setaMaterno(rs.getString("aMaterno"));

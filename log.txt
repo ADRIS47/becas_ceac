@@ -3176,6 +3176,7 @@ Verifique su conexion e intentelo de nuevo
 3/6/2016;13:28:20;Nombre de categoria no encontrado
 3/6/2016;13:29:52;Nombre de categoria no encontrado
 3/6/2016;13:43:56;Nombre de categoria no encontrado
+3/6/2016;13:45:53;Nombre de categoria no encontrado
 2/6/2016;21:27:42;Message: No se pudo conectar a la base de datos.
 Verifique su conexion e intentelo de nuevo
 2/6/2016;21:31:40;SQLError: Error

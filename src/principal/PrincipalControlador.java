@@ -75,6 +75,7 @@ import pojos.PojoReporteIndividualMuchosDatos;
 import pojos.Telefono;
 //import reportes.HistorialIndividual;
 //import reportes.HistorialIndividual;
+//import reportes.HistorialIndividual;
 
 /**
  *
@@ -466,7 +467,17 @@ public class PrincipalControlador {
         
         creaPantalla(vistaReporte);
         List<LinkedHashMap<Integer, String>> lstCategorias = null;
-        llenaCamposCategoriasVistaReportes(lstCategorias);        
+        llenaCamposCategoriasVistaReportes(lstCategorias);
+
+        //Se emparejan los combo de los años 
+        Calendar calendario = new GregorianCalendar();
+        int year = calendario.get(Calendar.YEAR);
+        
+        helper.setAñoActualEnCombo(vistaReporte.cmbAnioReg);
+        helper.setAñoActualEnCombo(vistaReporte.cmbAnioRep2);
+        helper.setAñoActualEnCombo(vistaReporte.cmbanioReg2);
+        helper.setAñoActualEnCombo(vistaReporte.cmbanioRep3);
+        
         helper.cursorNormal(vista);
     }
 
@@ -3930,6 +3941,9 @@ public class PrincipalControlador {
         vistaRegistro.validate();
     }
 
+    /**
+     * Verifica el reporte seleccionado por el usuario y proximo a crear,
+     */
     protected void creaReporte() {
 //        Conexion conn = new Conexion();
 //        Connection conexion = conn.estableceConexion();
@@ -3942,18 +3956,21 @@ public class PrincipalControlador {
 //        //Becario becario = modelo.getBecarioPorFolio(conexion, "DEV-01");
 //        PojoReporteIndividual reporteIndividual = modelo.getReporteIndividualDatosUnicos(conexion, "DEV-01");
 //        List<PojoReporteIndividualMuchosDatos> datos = modelo.getReporteIndividualMuchosDatos(conexion, "DEV-01");
+//        List<Telefono> telefonos = modelo.getTelefonosBecario(conexion, reporteIndividual.getIdBecario());
 //        
 //        File file = new File("historial_individual.jasper");
 //        System.out.println(file.getAbsolutePath());
 //        try {
 //            HistorialIndividual report = new HistorialIndividual();
-//            report.setDatosUnicos(reporteIndividual);
+//            report.setLstDatosUnicos(reporteIndividual);
 //            report.setLstMuchosDatos(datos);
+//            report.setLstTelefonos(telefonos);
 //            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
 //            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, report);
 //            
 //            JasperViewer visor = new JasperViewer(jasperPrint);
 //            visor.setVisible(true);
+//            visor.setDefaultCloseOperation(JasperViewer.DISPOSE_ON_CLOSE);
 ////            JRExporter exporter = new JRPdfExporter();  
 ////            exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint); 
 ////            exporter.setParameter(JRExporterParameter.OUTPUT_FILE, new java.io.File("reporte2PDF.pdf")); 

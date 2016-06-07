@@ -5,37 +5,37 @@
  */
 package reportes;
 
-//import java.util.ArrayList;
-//import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
 //import net.sf.jasperreports.engine.JRDataSource;
 //import net.sf.jasperreports.engine.JRException;
 //import net.sf.jasperreports.engine.JRField;
-//import pojos.CatCampo;
-//import pojos.CatEstatus;
-//import pojos.CatPrograma;
-//import pojos.CatUniversidad;
-//import pojos.DatosEscolares;
-//import pojos.Kardex;
-//import pojos.PojoReporteIndividual;
-//import pojos.PojoReporteIndividualMuchosDatos;
-//import pojos.Telefono;
-//
-///**
-// *
-// * @author sergio
-// */
+import pojos.PojoReporteIndividual;
+import pojos.PojoReporteIndividualMuchosDatos;
+import pojos.Telefono;
+
+/**
+ *
+ * @author sergio
+ */
 //public class HistorialIndividual implements JRDataSource{
 //    List<PojoReporteIndividual> lstDatosUnicos = new ArrayList<>();
 //    List<PojoReporteIndividualMuchosDatos> lstMuchosDatos = new ArrayList<>();
+//    List<Telefono> lstTelefonos = new ArrayList<>();
 //    int contador = -1;
 //    
-//    public void setDatosUnicos(PojoReporteIndividual becario){
+//    public void setLstDatosUnicos(PojoReporteIndividual becario){
 //        this.lstDatosUnicos.add(becario);
 //    }
 //
 //    public void setLstMuchosDatos(List<PojoReporteIndividualMuchosDatos> lstMuchosDatos) {
 //        this.lstMuchosDatos = lstMuchosDatos;
 //    }
+//
+//    public void setLstTelefonos(List<Telefono> lstTelefonos) {
+//        this.lstTelefonos = lstTelefonos;
+//    }
+//    
 //
 //    @Override
 //    public boolean next() throws JRException {
@@ -45,6 +45,7 @@ package reportes;
 //    @Override
 //    public Object getFieldValue(JRField jrf) throws JRException {
 //        Object valor = null;
+//        float pagoSemestral = 0;
 //        switch(jrf.getName()){
 //            case "folio":
 //                valor = lstDatosUnicos.get(0).getFolio();
@@ -74,7 +75,14 @@ package reportes;
 //                valor = lstDatosUnicos.get(0).getCampo();
 //                break;
 //            case "telefonos":
-//                
+//                int tamanio = lstTelefonos.size();
+//                valor = "";
+//                for (int i = 0; i < tamanio; i++) {
+//                    if(i == tamanio - 1)
+//                        valor = valor + lstTelefonos.get(i).getTelefono();
+//                    else
+//                        valor = valor + lstTelefonos.get(i).getTelefono() + ", ";
+//                }
 //                break;
 //            case "email":
 //                valor = lstDatosUnicos.get(0).getEmail();
@@ -95,34 +103,56 @@ package reportes;
 //                valor = lstDatosUnicos.get(0).getBecaSemestral();
 //                break;
 //            case "saldoAcumulado":
-//                
+//                int saldo = 0;
+//                for (PojoReporteIndividualMuchosDatos datos : lstMuchosDatos) {
+//                    
+//                }
+//                valor = saldo;
 //                break;
 //            case "servicioAcumulado":
-//                
+//                int servicio = 0;
+//                for (PojoReporteIndividualMuchosDatos datos : lstMuchosDatos) {
+//                    servicio += datos.getHorasServicio();
+//                }
+//                valor = servicio;
 //                break;
 //            case "descuentoAcumulado":
-//                
+//                int descuento = 0;
+//                for (PojoReporteIndividualMuchosDatos datos : lstMuchosDatos) {
+//                    descuento += datos.getDescuento();
+//                }
+//                valor = descuento;
 //                break;
 //            case "semestre":
 //                valor = lstMuchosDatos.get(contador).getSemestre();
 //                break;
 //            case "pago1":
-//                valor = lstMuchosDatos.get(contador).getPago1();
+//                boolean pago1 = lstMuchosDatos.get(contador).getPago1();
+//                pagoSemestral = lstDatosUnicos.get(0).getBecaSemestral();
+//                if(pago1)
+//                    valor = pagoSemestral / 2;
+//                else
+//                    valor = 0;
 //                break;
 //            case "pago2":
-//                valor = lstMuchosDatos.get(contador).getPago2();
+//                boolean pago2 = lstMuchosDatos.get(contador).getPago2();
+//                pagoSemestral = lstDatosUnicos.get(0).getBecaSemestral();
+//                if(pago2)
+//                    valor = pagoSemestral / 2;
+//                else
+//                    valor = 0;
 //                break;
 //            case "promedio":
-//                
+//                valor = lstMuchosDatos.get(contador).getPromedio();
 //                break;
 //            case "horasServicio":
 //                valor = lstMuchosDatos.get(contador).getHorasServicio();
 //                break;
 //            case "tipoServicio":
-//                
+//                valor = lstMuchosDatos.get(contador).getTipoServicio();
 //                break;
 //            case "descuento":
-//                
+//                valor = lstMuchosDatos.get(contador).getDescuento();
 //                break;
 //            case "nombreCompleto":
 //                valor = lstDatosUnicos.get(0).getaPaterno() + " " + lstDatosUnicos.get(0).getaMaterno() + " " + lstDatosUnicos.get(0).getNombre();
