@@ -3243,3 +3243,11 @@ Verifique su conexion e intentelo de nuevo
 Verifique su conexion e intentelo de nuevo
 3/6/2016;9:49:55;Nombre de categoria no encontrado
 3/6/2016;9:51:8;Nombre de categoria no encontrado
+3/6/2016;13:57:46;Nombre de categoria no encontrado
+3/6/2016;14:0:44;Nombre de categoria no encontrado
+3/6/2016;14:0:55;Nombre de categoria no encontrado
+3/6/2016;14:3:43;Nombre de categoria no encontrado
+7/6/2016;11:3:20;SQLError: Error
+7/6/2016;11:3:20;ERROR: Code0
+7/6/2016;11:3:20;Message: No se pudo conectar a la base de datos.
+Verifique su conexion e intentelo de nuevo
