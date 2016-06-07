@@ -467,7 +467,17 @@ public class PrincipalControlador {
         
         creaPantalla(vistaReporte);
         List<LinkedHashMap<Integer, String>> lstCategorias = null;
-        llenaCamposCategoriasVistaReportes(lstCategorias);        
+        llenaCamposCategoriasVistaReportes(lstCategorias);
+
+        //Se emparejan los combo de los años 
+        Calendar calendario = new GregorianCalendar();
+        int year = calendario.get(Calendar.YEAR);
+        
+        helper.setAñoActualEnCombo(vistaReporte.cmbAnioReg);
+        helper.setAñoActualEnCombo(vistaReporte.cmbAnioRep2);
+        helper.setAñoActualEnCombo(vistaReporte.cmbanioReg2);
+        helper.setAñoActualEnCombo(vistaReporte.cmbanioRep3);
+        
         helper.cursorNormal(vista);
     }
 
@@ -3931,6 +3941,9 @@ public class PrincipalControlador {
         vistaRegistro.validate();
     }
 
+    /**
+     * Verifica el reporte seleccionado por el usuario y proximo a crear,
+     */
     protected void creaReporte() {
         Conexion conn = new Conexion();
         Connection conexion = conn.estableceConexion();
@@ -3957,6 +3970,7 @@ public class PrincipalControlador {
             
             JasperViewer visor = new JasperViewer(jasperPrint);
             visor.setVisible(true);
+            visor.setDefaultCloseOperation(JasperViewer.DISPOSE_ON_CLOSE);
 //            JRExporter exporter = new JRPdfExporter();  
 //            exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint); 
 //            exporter.setParameter(JRExporterParameter.OUTPUT_FILE, new java.io.File("reporte2PDF.pdf")); 
