@@ -1680,8 +1680,8 @@ public class PrincipalModelo {
             else if(hermanos > 0 && hermanos < lstHermanos.size()){
                 int contador = 0;
                 for (Hermanos hermano : lstHermanos) {
-                    if(contador < lstHermanos.size() - 1){
-                         ps = conexion.prepareStatement(Update.updateHermanosBecario);
+                    if(contador == 0 && contador <= hermanos -1){
+                        ps = conexion.prepareStatement(Update.updateHermanosBecario);
                         ps.setString(1, hermano.getNombre());
                         ps.setString(2, hermano.getAPaterno());
                         ps.setString(3, hermano.getAMaterno());
@@ -1693,10 +1693,10 @@ public class PrincipalModelo {
                         //Si la actualizacion fue correcta
                         if(resp < 1)
                             throw new SQLException("No se pudo actualizar los hermanos");
-                        contador++;
+                        
                     }
                         
-                    else{
+                    else if( contador > hermanos -1){
                         ps = conexion.prepareStatement(Insert.insertHermanoBecario);
                         ps.setString(1, hermano.getNombre());
                         ps.setString(2, hermano.getAPaterno());
@@ -2658,7 +2658,7 @@ public class PrincipalModelo {
             while(rs.next()){
                 Kardex kardex = new Kardex();
                 kardex.setId_kardex(rs.getLong(Kardex.COL_ID_KARDEX));
-                kardex.setNum_semestre(rs.getInt(Kardex.COL_NUM_SEMESTRE));
+                kardex.setNum_semestre(rs.getString(Kardex.COL_NUM_SEMESTRE));
                 kardex.setPago_inicio_semestre(rs.getBoolean(Kardex.COL_PAGO_INICIO_SEMESTRE));
                 kardex.setPago_fin_semestre(rs.getBoolean(Kardex.COL_PAGO_FIN_SEMESTRE));
                 kardex.setPlatica1(rs.getBoolean(Kardex.COL_PLATICA_1));
@@ -2751,7 +2751,7 @@ public class PrincipalModelo {
             if(idsKardex.isEmpty()){
                 for (Kardex kardex : lstKardex) {
                     ps = conexion.prepareStatement(Insert.insertKardexBecario);
-                    ps.setInt(1, kardex.getNum_semestre());
+                    ps.setString(1, kardex.getNum_semestre());
                     ps.setBoolean(2, kardex.isPago_inicio_semestre());
                     ps.setBoolean(3, kardex.isPago_fin_semestre());
                     ps.setBoolean(4, kardex.isPlatica1());
@@ -2782,7 +2782,7 @@ public class PrincipalModelo {
                 //Se recorren los kardex actualizables
                 for (Kardex kardex : lstKardex) {
                     ps = conexion.prepareStatement(Update.updateKardexBecario);
-                    ps.setInt(1, kardex.getNum_semestre());
+                    ps.setString(1, kardex.getNum_semestre());
                     ps.setBoolean(2, kardex.isPago_inicio_semestre());
                     ps.setBoolean(3, kardex.isPago_fin_semestre());
                     ps.setBoolean(4, kardex.isPlatica1());
@@ -3396,7 +3396,7 @@ public class PrincipalModelo {
             result = new ArrayList<>();
             while(rs.next()){
                 PojoReporteIndividualMuchosDatos res = new PojoReporteIndividualMuchosDatos();
-                res.setSemestre(rs.getInt("num_semestre"));
+                res.setSemestre(rs.getString("num_semestre"));
                 res.setPago1(rs.getBoolean("pago1"));
                 res.setPago2(rs.getBoolean("pago2"));
                 res.setPromedio(rs.getFloat("promedio"));

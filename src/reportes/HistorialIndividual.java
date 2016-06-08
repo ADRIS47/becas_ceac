@@ -18,7 +18,8 @@ import pojos.Telefono;
  *
  * @author sergio
  */
-//public class HistorialIndividual implements JRDataSource{
+public class HistorialIndividual {
+//implements JRDataSource{
 //    List<PojoReporteIndividual> lstDatosUnicos = new ArrayList<>();
 //    List<PojoReporteIndividualMuchosDatos> lstMuchosDatos = new ArrayList<>();
 //    List<Telefono> lstTelefonos = new ArrayList<>();
@@ -161,5 +162,5 @@ import pojos.Telefono;
 //        
 //        return valor;
 //    }
-//    
-//}
+    
+}

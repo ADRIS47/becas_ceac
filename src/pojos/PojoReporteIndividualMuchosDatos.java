@@ -11,7 +11,7 @@ package pojos;
  */
 public class PojoReporteIndividualMuchosDatos {
     
-    int semestre;
+    String semestre;
     boolean pago1;
     boolean pago2;
     float promedio;
@@ -19,11 +19,11 @@ public class PojoReporteIndividualMuchosDatos {
     String tipoServicio;
     int descuento;
 
-    public int getSemestre() {
+    public String getSemestre() {
         return semestre;
     }
 
-    public void setSemestre(int semestre) {
+    public void setSemestre(String semestre) {
         this.semestre = semestre;
     }
 

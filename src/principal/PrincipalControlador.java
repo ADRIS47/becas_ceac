@@ -73,10 +73,7 @@ import pojos.Padres;
 import pojos.PojoReporteIndividual;
 import pojos.PojoReporteIndividualMuchosDatos;
 import pojos.Telefono;
-//import reportes.HistorialIndividual;
-//import reportes.HistorialIndividual;
-//import reportes.HistorialIndividual;
-
+import reportes.HistorialIndividual;
 /**
  *
  * @author sabagip
@@ -639,6 +636,11 @@ public class PrincipalControlador {
         vistaCatalogos.removeAll();
         vaciaLstVistas();
         vistaCatalogos = null;
+    }
+    
+    private void terminaVistaReportes(){
+        vistaReporte.removeAll();;
+        vistaReporte = null;
     }
 
     /**
@@ -3414,6 +3416,7 @@ public class PrincipalControlador {
                 JPanel panel = (JPanel) componente;
 
                 JTextField txtSemestre = (JTextField) panel.getComponent(0);
+                //System.out.println(txtSemestre.getText());
                 JCheckBox chkPago1 = (JCheckBox) panel.getComponent(1);
                 JTextField txtHorasServicio = (JTextField) panel.getComponent(2);
                 JComboBox cmbTipoServicioComunitario = (JComboBox) panel.getComponent(3);
@@ -3426,6 +3429,7 @@ public class PrincipalControlador {
                 JTextField txtDescuento = (JTextField) panel.getComponent(10);
 
                 Kardex kardex = new Kardex();
+                kardex.setNum_semestre(txtSemestre.getText());
                 kardex.setPago_inicio_semestre(chkPago1.isSelected());
                 if (!txtHorasServicio.getText().equals("")) {
                     kardex.setHorasServicio(Integer.parseInt(txtHorasServicio.getText()));
@@ -3945,49 +3949,77 @@ public class PrincipalControlador {
      * Verifica el reporte seleccionado por el usuario y proximo a crear,
      */
     protected void creaReporte() {
-//        Conexion conn = new Conexion();
-//        Connection conexion = conn.estableceConexion();
-//        
-//        if(conexion == null){
-//            JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
-//            return;
-//        }
-//        
-//        //Becario becario = modelo.getBecarioPorFolio(conexion, "DEV-01");
-//        PojoReporteIndividual reporteIndividual = modelo.getReporteIndividualDatosUnicos(conexion, "DEV-01");
-//        List<PojoReporteIndividualMuchosDatos> datos = modelo.getReporteIndividualMuchosDatos(conexion, "DEV-01");
-//        List<Telefono> telefonos = modelo.getTelefonosBecario(conexion, reporteIndividual.getIdBecario());
-//        
-//        File file = new File("historial_individual.jasper");
-//        System.out.println(file.getAbsolutePath());
-//        try {
-//            HistorialIndividual report = new HistorialIndividual();
-//            report.setLstDatosUnicos(reporteIndividual);
-//            report.setLstMuchosDatos(datos);
-//            report.setLstTelefonos(telefonos);
-//            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
-//            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, report);
+        
+//        int idReporte = getIdCmbBox((String) vistaReporte.cmbTipoReporte.getSelectedItem(), catReportes);
+//        System.out.println(idReporte + "");
+//        helper.cursorEspera(vista);
+//        switch(idReporte){
 //            
-//            JasperViewer visor = new JasperViewer(jasperPrint);
-//            visor.setVisible(true);
-//            visor.setDefaultCloseOperation(JasperViewer.DISPOSE_ON_CLOSE);
-////            JRExporter exporter = new JRPdfExporter();  
-////            exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint); 
-////            exporter.setParameter(JRExporterParameter.OUTPUT_FILE, new java.io.File("reporte2PDF.pdf")); 
-////            exporter.exportReport(); 
-//        } catch (JRException ex) {
-////            log.muestraErrores(e);
-//            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+//            //Reporte Individual
+//            case 4:
+//                creaReporteIndividual();
+//                break;
 //        }
 //        
-//        finally {
-//            try{
-//                conexion.close();
-//            } 
-//            catch (SQLException ex) {
-//                log.muestraErrores(ex);
+//        helper.cursorNormal(vista);
+    }
+
+    /**
+     * Genera el reporte general del becario que ha sido buscado
+     */
+//    private void creaReporteIndividual() {
+//        try{
+//            String folio = vistaRegistro.txtFolio.getText();
+//            
+//            Conexion conn = new Conexion();
+//            Connection conexion = conn.estableceConexion();
+//
+//            if(conexion == null){
+//                JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+//                return;
+//            }
+//
+//            //Becario becario = modelo.getBecarioPorFolio(conexion, "DEV-01");
+//            PojoReporteIndividual reporteIndividual = modelo.getReporteIndividualDatosUnicos(conexion, folio);
+//            List<PojoReporteIndividualMuchosDatos> datos = modelo.getReporteIndividualMuchosDatos(conexion, folio);
+//            List<Telefono> telefonos = modelo.getTelefonosBecario(conexion, reporteIndividual.getIdBecario());
+//
+//            File file = new File("historial_individual.jasper");
+//            System.out.println(file.getAbsolutePath());
+//            try {
+//                HistorialIndividual report = new HistorialIndividual();
+//                report.setLstDatosUnicos(reporteIndividual);
+//                report.setLstMuchosDatos(datos);
+//                report.setLstTelefonos(telefonos);
+//                JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
+//                JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, report);
+//
+//                JasperViewer visor = new JasperViewer(jasperPrint, false);
+//                visor.setVisible(true);
+//                
+//    //            JRExporter exporter = new JRPdfExporter();  
+//    //            exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint); 
+//    //            exporter.setParameter(JRExporterParameter.OUTPUT_FILE, new java.io.File("reporte2PDF.pdf")); 
+//    //            exporter.exportReport(); 
+//            } catch (JRException ex) {
+////                log.muestraErrores(ex);
 //                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
 //            }
+//
+//            finally {
+//                try{
+//                    conexion.close();
+//                } 
+//                catch (SQLException ex) {
+//                    log.muestraErrores(ex);
+//                    Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+//                }
+//            }
 //        }
-    }
+//        catch(NullPointerException e){
+//            JOptionPane.showMessageDialog(vistaReporte, "Debe de seleccionar un becario", "Error", JOptionPane.ERROR_MESSAGE);
+//            terminaVistaReportes();
+//            creaVistaBusqueda();
+//        }
+//    }
 }
