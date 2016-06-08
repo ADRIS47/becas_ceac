@@ -12,7 +12,7 @@ package pojos;
 public class Kardex {
     
     long id_kardex;
-    int num_semestre;
+    String num_semestre;
     boolean pago_inicio_semestre;
     boolean pago_fin_semestre;
     boolean platica1;
@@ -37,11 +37,11 @@ public class Kardex {
         this.id_kardex = id_registro;
     }
 
-    public int getNum_semestre() {
+    public String getNum_semestre() {
         return num_semestre;
     }
 
-    public void setNum_semestre(int num_semestre) {
+    public void setNum_semestre(String num_semestre) {
         this.num_semestre = num_semestre;
     }
 

@@ -2605,7 +2605,7 @@ public class PrincipalModelo {
             while(rs.next()){
                 Kardex kardex = new Kardex();
                 kardex.setId_kardex(rs.getLong(Kardex.COL_ID_KARDEX));
-                kardex.setNum_semestre(rs.getInt(Kardex.COL_NUM_SEMESTRE));
+                kardex.setNum_semestre(rs.getString(Kardex.COL_NUM_SEMESTRE));
                 kardex.setPago_inicio_semestre(rs.getBoolean(Kardex.COL_PAGO_INICIO_SEMESTRE));
                 kardex.setPago_fin_semestre(rs.getBoolean(Kardex.COL_PAGO_FIN_SEMESTRE));
                 kardex.setPlatica1(rs.getBoolean(Kardex.COL_PLATICA_1));
@@ -2698,7 +2698,7 @@ public class PrincipalModelo {
             if(idsKardex.isEmpty()){
                 for (Kardex kardex : lstKardex) {
                     ps = conexion.prepareStatement(Insert.insertKardexBecario);
-                    ps.setInt(1, kardex.getNum_semestre());
+                    ps.setString(1, kardex.getNum_semestre());
                     ps.setBoolean(2, kardex.isPago_inicio_semestre());
                     ps.setBoolean(3, kardex.isPago_fin_semestre());
                     ps.setBoolean(4, kardex.isPlatica1());
@@ -2729,7 +2729,7 @@ public class PrincipalModelo {
                 //Se recorren los kardex actualizables
                 for (Kardex kardex : lstKardex) {
                     ps = conexion.prepareStatement(Update.updateKardexBecario);
-                    ps.setInt(1, kardex.getNum_semestre());
+                    ps.setString(1, kardex.getNum_semestre());
                     ps.setBoolean(2, kardex.isPago_inicio_semestre());
                     ps.setBoolean(3, kardex.isPago_fin_semestre());
                     ps.setBoolean(4, kardex.isPlatica1());
