@@ -39,13 +39,31 @@
 	<title>
 		<band height="46" splitType="Stretch">
 			<staticText>
-				<reportElement x="218" y="18" width="105" height="20" uuid="3deb1e2d-313a-421d-825a-884b6703359a"/>
-				<text><![CDATA[REPORTE INDIIDUAL]]></text>
+				<reportElement x="285" y="0" width="218" height="20" uuid="1ee47b3c-dfeb-4675-b2bd-c0d93ec1b6c3"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE GENERAL]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="285" y="16" width="218" height="20" uuid="2d52252a-492f-40e0-90b9-e9d7a7842e8c"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FUNDACION CRUZ RUSSEK]]></text>
+			</staticText>
+			<image>
+				<reportElement x="5" y="0" width="107" height="36" uuid="ebaf1f43-964e-48e2-a456-e6265237c509"/>
+				<imageExpression><![CDATA["C:\\Users\\Adriana\\Documents\\NetBeansProjects\\becas\\becas_ceac\\src\\imagenes\\logocr.jpg"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="35" splitType="Stretch"/>
+		<band height="35" splitType="Stretch">
+			<line>
+				<reportElement x="5" y="-3" width="797" height="1" uuid="4bc2c79b-70b5-4c08-87b0-18d778e11273"/>
+			</line>
+		</band>
 	</pageHeader>
 	<columnHeader>
 		<band height="206" splitType="Stretch">
