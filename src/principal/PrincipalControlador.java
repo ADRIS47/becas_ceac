@@ -2156,9 +2156,11 @@ public class PrincipalControlador {
             i = 10;
             boolean bandera = false;
             for (Component componente : componentes) {
-                int semestre = (i/2) - 1;
+                int semestre = (i/2) ;
                 JTextField txtSemestre = (JTextField) componente;
-                Calendar calendario = lstFechaSemestre.get(semestre + 1);
+                if(semestre > lstFechaSemestre.size() - 1)
+                    break;
+                Calendar calendario = lstFechaSemestre.get(semestre);
                 if(bandera == false){
                     txtSemestre.setText("Transf 1 " + calendario.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault()) + "/" + calendario.get(Calendar.YEAR));
                     bandera =true;
@@ -2914,33 +2916,37 @@ public class PrincipalControlador {
                     datosEscolares.getSemestresTotalesCarrera());
         else
             semestresHabilitados = 3;
+        
+        if(datosEscolares.getSemestreInicioBeca() > 1)
+            semestresHabilitados = (datosEscolares.getSemestresTotalesCarrera() - semestresHabilitados) + 2;
+        
         //Se procede a deshabilitar los semestres que aun no tienen que llenarse
-        deshabilitaSemestresKardex(vistaKardex.PnlKardex, semestresHabilitados, 0, 1);
+        deshabilitaSemestresKardex(vistaKardex.PnlKardex, semestresHabilitados + 1, 0, 1);
         //Se llena el pnlKardex
         llenaPnlKardex(lstKardex, lstFechaSemestres);
 
         //Se procede a deshabilitar los semestres de la pestaña adjuntar boleta en el 
         //apartado de semestres y acciones
-        deshabilitaSemestresKardex(vistaKardex.jpnlListaDocumentosBoleta, semestresHabilitados - 1, 0, 2);
-        deshabilitaSemestresKardex(vistaKardex.jpnlAccionesDocumentosBoleta, (semestresHabilitados - 1) * 3, 0, 3);
+        deshabilitaSemestresKardex(vistaKardex.jpnlListaDocumentosBoleta, semestresHabilitados , 0, 2);
+        deshabilitaSemestresKardex(vistaKardex.jpnlAccionesDocumentosBoleta, (semestresHabilitados ) * 3, 0, 3);
         llenaPnlBoletaOCargaSemestral(lstKardex, lstFechaSemestres, 1);
         //Se procede a deshabilitar los semestres de la pastaña adjuntar carga semestral 
         //en el apartado de semestres y acciones
-        deshabilitaSemestresKardex(vistaKardex.jpnlListaDocumentosServicioComunitario, semestresHabilitados - 1, 0, 2);
-        deshabilitaSemestresKardex(vistaKardex.jpnlAccionesDocumentosServicioComunitario, (semestresHabilitados - 1) * 3, 0, 3);
+        deshabilitaSemestresKardex(vistaKardex.jpnlListaDocumentosServicioComunitario, semestresHabilitados , 0, 2);
+        deshabilitaSemestresKardex(vistaKardex.jpnlAccionesDocumentosServicioComunitario, (semestresHabilitados ) * 3, 0, 3);
         llenaPnlBoletaOCargaSemestral(lstKardex, lstFechaSemestres, 2);
         
         //Se procede a deshabilitar los semestres de la pestaña transferencias en el 
         //apartado carga semestral
         //Se deshabilitan los primeros 10 jtextField
-        deshabilitaSemestresKardex(vistaKardex.jpnlListaDocumentos4, (semestresHabilitados - 1) * 2, 0, 2);
+        deshabilitaSemestresKardex(vistaKardex.jpnlListaDocumentos4, (semestresHabilitados ) * 2, 0, 2);
         //Se deshabilitan los primeros 30 botones y label
-        deshabilitaSemestresKardex(vistaKardex.jpnlAccionesDocumentos2, (semestresHabilitados - 1) * 6, 0, 3);
+        deshabilitaSemestresKardex(vistaKardex.jpnlAccionesDocumentos2, (semestresHabilitados ) * 6, 0, 3);
 
         //Se deshabilitan los 10 jtextField restantes
-        deshabilitaSemestresKardex(vistaKardex.jpnlListaDocumentos5, ((semestresHabilitados - 1) * 2) - 10, 0, 2);
+        deshabilitaSemestresKardex(vistaKardex.jpnlListaDocumentos5, ((semestresHabilitados ) * 2) - 10, 0, 2);
         //Se deshabilitan los 30 botones y labels restantes
-        deshabilitaSemestresKardex(vistaKardex.jpnlAccionesDocumentos3, ((semestresHabilitados - 1) * 6) - 30, 0, 3);
+        deshabilitaSemestresKardex(vistaKardex.jpnlAccionesDocumentos3, ((semestresHabilitados ) * 6) - 30, 0, 3);
         
         //Se asignan las transacciones al arreglo lstFilesTransferencias
         addTransferenciasAArreglo(lstKardex);
@@ -3360,7 +3366,10 @@ public class PrincipalControlador {
 
             //se obtienen los datos de los semestres habilitados
             semestres = helper.getTotalSemestresporHabilitarKardex(datosEscolares.getSemestreInicioBeca(),
-                    datosEscolares.getSemestresTotalesCarrera()) - 1;
+                    datosEscolares.getSemestresTotalesCarrera()) ;
+            
+            if(datosEscolares.getSemestreInicioBeca() > 1)
+                semestres = (datosEscolares.getSemestresTotalesCarrera() - semestres) + 2;
 
             //Se obtiene la información del kardex del becario
             List<Kardex> lstKardex = getInfoKardex(semestres);
@@ -3949,7 +3958,7 @@ public class PrincipalControlador {
      * Verifica el reporte seleccionado por el usuario y proximo a crear,
      */
     protected void creaReporte() {
-        
+//        
 //        int idReporte = getIdCmbBox((String) vistaReporte.cmbTipoReporte.getSelectedItem(), catReportes);
 //        System.out.println(idReporte + "");
 //        helper.cursorEspera(vista);
@@ -3963,11 +3972,11 @@ public class PrincipalControlador {
 //        
 //        helper.cursorNormal(vista);
     }
-
-    /**
-     * Genera el reporte general del becario que ha sido buscado
-     */
-//    private void creaReporteIndividual() {
+//
+//    /**
+//     * Genera el reporte general del becario que ha sido buscado
+//     */
+    private void creaReporteIndividual() {
 //        try{
 //            String folio = vistaRegistro.txtFolio.getText();
 //            
@@ -4021,5 +4030,5 @@ public class PrincipalControlador {
 //            terminaVistaReportes();
 //            creaVistaBusqueda();
 //        }
-//    }
+    }
 }

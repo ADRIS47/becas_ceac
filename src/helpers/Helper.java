@@ -536,9 +536,10 @@ public class Helper {
      * @return Regresa el total de semestres a habilitar
      */
     public int getTotalSemestresporHabilitarKardex(int semestreInicioBeca, int semestresTotales){
-        semestresTotales += 1;
-        semestreInicioBeca -= 1;
-        return semestresTotales - semestreInicioBeca;
+//        semestresTotales += 1;
+//        semestreInicioBeca -= 1;
+//        return semestresTotales - semestreInicioBeca;
+        return (semestresTotales - semestreInicioBeca) + 1;
     }
     
     public static void getDescuentoSemestral(JCheckBox chkPlatica1, JCheckBox chkPlatica2, 
@@ -572,10 +573,10 @@ public class Helper {
         
         int semestresTranscurridos = getTotalSemestresporHabilitarKardex(datosEscolares.getSemestreInicioBeca(), 
                 datosEscolares.getSemestresTotalesCarrera());
-        semestresTranscurridos -= 1;
         
-        //Se llena la primer posicion que se brincará al recorrel la lista
-        //lstFechasSemestres.add(null);
+        if(datosEscolares.getSemestreInicioBeca() > 1){
+            semestresTranscurridos = (datosEscolares.getSemestresTotalesCarrera() - semestresTranscurridos) + 2;
+        }
         
         
         
@@ -592,16 +593,17 @@ public class Helper {
 //        System.out.println("INicio: " + inicio.getTime());
 //        inicio.add(Calendar.MONTH, semestresTranscurridos * 6);
 //        System.out.println("INicio2: " + inicio.getTime());
-        for(int i = 0; i <=  semestresTranscurridos ; i++){
-            if(i < (datosEscolares.getSemestreInicioBeca() - 1)){
+        
+        for(int i = 0; i <=  semestresTranscurridos  ; i++){
+            if(i < (datosEscolares.getSemestreInicioBeca() - 2 )){
                 inicio.add(Calendar.MONTH, 6);
            
                 int mes = inicio.get(Calendar.MONTH);
-            if(mesInicio >= 6)
-                mesInicio = 7;
-            if(mesInicio < 6)
-                mesInicio = 0;
-            inicio.set(Calendar.MONTH, mes);
+                if(mesInicio >= 6)
+                    mesInicio = 7;
+                if(mesInicio < 6)
+                    mesInicio = 0;
+                inicio.set(Calendar.MONTH, mes);
             }
             else{
                 Calendar aux = new GregorianCalendar();
