@@ -762,15 +762,16 @@ public class Helper {
         Path path;
         
         Path template = Paths.get(getClass().getProtectionDomain().getCodeSource().getLocation().getPath());
+        System.out.println(template);
         File isJar = new File(template.toString());
         //Si se está ejecutando en netbeans
         if(isJar.isDirectory()){
-            path = Paths.get(template + "/reportes/compilados/" + nombreArchivo);
+            path = Paths.get(template + Index.SEPARADOR +"reportes" + Index.SEPARADOR + "compilados" + Index.SEPARADOR + nombreArchivo);
         }
         //Si se está ejecutando en el jar
-        else
-            path = Paths.get(template.getParent() + "/compilados/" + nombreArchivo);
-        
+        else{
+            path = Paths.get(template.getParent() + Index.SEPARADOR + "compilados" + Index.SEPARADOR + nombreArchivo);
+        }
         
         return path;
     }

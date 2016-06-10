@@ -14,6 +14,7 @@ import pojos.CatEstatus;
 import pojos.CatLugarServicioComunitario;
 import pojos.CatMunicipios;
 import pojos.CatReporte;
+import pojos.CatSexo;
 import pojos.CatTipoEscuela;
 import pojos.CatTipoServicioSocial;
 import pojos.CatUniversidad;
@@ -491,5 +492,12 @@ public class Consultas {
                     "     INNER JOIN `beca_kardex` beca_kardex ON beca_becario.`id_becario` = beca_kardex.`id_becario`\n" +
                     "     INNER JOIN `beca_cat_servicio_comunitario` beca_cat_servicio_comunitario ON beca_kardex.`id_servicio_comunitario` = beca_cat_servicio_comunitario.`id_servicio_comunitario` "
                     + "WHERE beca_becario.folio = ?";
+    
+    /**
+     * Obtiene todos los becarios por su sexo
+     */
+    public static String getAllBecariosPorSexo = "SELECT " + Becario.COL_ID + ", " + 
+                                                Becario.COL_SEXO + " " +
+                                                "FROM beca_becario";
     
 }

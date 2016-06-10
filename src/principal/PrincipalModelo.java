@@ -2760,8 +2760,8 @@ public class PrincipalModelo {
                     ps.setFloat(7, kardex.getDescuento());
 //                    ps.setInt(8, kardex.getIdServicioComunitario());
 //                    ps.setInt(9, kardex.getLugarServicioComunitario());
-                    ps.setInt(9, kardex.getIdServicioComunitario());
-                    ps.setInt(8, kardex.getLugarServicioComunitario());
+                    ps.setInt(8, kardex.getIdServicioComunitario());
+                    ps.setInt(9, kardex.getLugarServicioComunitario());
                     ps.setString(10, kardex.getBoleta());
                     ps.setString(11, kardex.getCarta_servicio_comunitario());
                     ps.setBoolean(12, kardex.isPago_extra());
@@ -2789,10 +2789,8 @@ public class PrincipalModelo {
                     ps.setBoolean(5, kardex.isPlatica2());
                     ps.setFloat(6, kardex.getPromedio());
                     ps.setFloat(7, kardex.getDescuento());
-//                    ps.setInt(8, kardex.getIdServicioComunitario());
-//                    ps.setInt(9, kardex.getLugarServicioComunitario());
-                    ps.setInt(8, kardex.getLugarServicioComunitario());
-                    ps.setInt(9, kardex.getIdServicioComunitario());
+                    ps.setInt(8, kardex.getIdServicioComunitario());
+                    ps.setInt(9, kardex.getLugarServicioComunitario());
                     ps.setString(10, kardex.getBoleta());
                     ps.setString(11, kardex.getCarta_servicio_comunitario());
                     ps.setBoolean(12, kardex.isPago_extra());
@@ -3410,5 +3408,33 @@ public class PrincipalModelo {
         }
         
         return result;
+    }
+
+    /**
+     * Obtiene todos los becarios con su sexo
+     * @param conexion
+     * @return 
+     */
+    protected List getAllBecariosPorSexo(Connection conexion) {
+        
+        Statement st = null;
+        ResultSet rs = null;
+        List lstResults = new ArrayList();
+        
+        try {
+            st = conexion.createStatement();
+            System.out.println(Consultas.getAllBecariosPorSexo);
+            rs = st.executeQuery(Consultas.getAllBecariosPorSexo);
+            while(rs.next()){
+                Becario becario = new  Becario();
+                becario.setId(rs.getLong(Becario.COL_ID));
+                becario.setIdSexo(rs.getInt(Becario.COL_SEXO));
+                lstResults.add(becario);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return lstResults;
     }
 }
