@@ -18,7 +18,10 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Frame;
 import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Connection;
@@ -3985,13 +3988,10 @@ public class PrincipalControlador {
                 return;
             }
             
-            //File file = new File("Reporte_general.jasper");
+            Path path = helper.getDirectorioReporte("Reporte_general.jasper");
             
-            URL url = getClass().getResource("/src/reportes/compilados/reportes.compilado/Reporte_general.jasper");
-            System.out.println(url.toString());
-            System.out.println(url.getPath());
-            File file = new File(url.getPath());
-            //System.out.println(file.getAbsolutePath());
+            File file = path.toFile();
+            
             JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
             JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, conexion);
             
@@ -4021,8 +4021,10 @@ public class PrincipalControlador {
             PojoReporteIndividual reporteIndividual = modelo.getReporteIndividualDatosUnicos(conexion, folio);
             List<PojoReporteIndividualMuchosDatos> datos = modelo.getReporteIndividualMuchosDatos(conexion, folio);
             List<Telefono> telefonos = modelo.getTelefonosBecario(conexion, reporteIndividual.getIdBecario());
-
-            File file = new File("historial_individual.jasper");
+            
+            Path path = helper.getDirectorioReporte("historial_individual.jasper");
+            
+            File file = path.toFile();
             System.out.println(file.getAbsolutePath());
             try {
                 HistorialIndividual report = new HistorialIndividual();
