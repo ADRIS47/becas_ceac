@@ -173,8 +173,8 @@ public class Kardex {
     public static final String COL_PLATICA_2 = "platica2";
     public static final String COL_PROMEDIO = "promedio";
     public static final String COL_DESCUENTO = "descuento";
-    public static final String COL_LUGAR_SERVICIO_COMUNITARIO = "id_servicio_comunitario";
-    public static final String COL_ID_SERVICIO_COMUNITARIO = "lugar_servicio_comunitario";
+    public static final String COL_LUGAR_SERVICIO_COMUNITARIO = "lugar_servicio_comunitario";
+    public static final String COL_ID_SERVICIO_COMUNITARIO = "id_servicio_comunitario";
     public static final String COL_BOLETA = "boleta";
     public static final String COL_CARTA_SERVICIO_COMUNITARIO = "carta_servicio_comunitario";
     public static final String COL_ID_BECARIO = "id_becario";

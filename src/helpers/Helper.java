@@ -752,5 +752,28 @@ public class Helper {
         return catNuevoCatalogo;
     }
             
+    /**
+     * Detecta si el sistema se está ejecutando en netbeans o en el .jar y
+     * devuelve la ruta completa del archivo que se desea abrir
+     * @param nombreArchivo
+     * @return 
+     */
+    public Path getDirectorioReporte(String nombreArchivo){
+        Path path;
+        
+        Path template = Paths.get(getClass().getProtectionDomain().getCodeSource().getLocation().getPath());
+        System.out.println(template);
+        File isJar = new File(template.toString());
+        //Si se está ejecutando en netbeans
+        if(isJar.isDirectory()){
+            path = Paths.get(template + Index.SEPARADOR +"reportes" + Index.SEPARADOR + "compilados" + Index.SEPARADOR + nombreArchivo);
+        }
+        //Si se está ejecutando en el jar
+        else{
+            path = Paths.get(template.getParent() + Index.SEPARADOR + "compilados" + Index.SEPARADOR + nombreArchivo);
+        }
+        
+        return path;
+    }
             
 }

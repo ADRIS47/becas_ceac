@@ -18,7 +18,12 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Frame;
 import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -45,19 +50,12 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import jtable.ModelDefault;
 import jtable.ModelUniversidades;
+//import net.sf.jasperreports.engine.JRDataSource;
 //import net.sf.jasperreports.engine.JRException;
 //import net.sf.jasperreports.engine.JasperFillManager;
 //import net.sf.jasperreports.engine.JasperPrint;
 //import net.sf.jasperreports.engine.JasperReport;
-//import net.sf.jasperreports.engine.util.JRLoader;
-//import net.sf.jasperreports.view.JasperViewer;
-//import net.sf.jasperreports.engine.JRException;
-//import net.sf.jasperreports.engine.JRExporter;
-//import net.sf.jasperreports.engine.JRExporterParameter;
-//import net.sf.jasperreports.engine.JasperFillManager;
-//import net.sf.jasperreports.engine.JasperPrint;
-//import net.sf.jasperreports.engine.JasperReport;
-//import net.sf.jasperreports.engine.export.JRPdfExporter;
+//import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 //import net.sf.jasperreports.engine.util.JRLoader;
 //import net.sf.jasperreports.view.JasperViewer;
 import pojos.Aval;
@@ -1412,7 +1410,7 @@ public class PrincipalControlador {
 
         //Se carga el contrato
         if (fileContrato != null) {
-            Path path = helper.CopiaArchivoADestino(becario.getFolio(), "contrato-", fileContrato);
+            Path path = helper.CopiaArchivoADestino(becario.getFolio(), "solicitud-", fileContrato);
             if (path == null) {
                 JOptionPane.showMessageDialog(vista, "Error al copiar el contrato", "Error", JOptionPane.ERROR_MESSAGE);
                 return null;
@@ -3958,30 +3956,79 @@ public class PrincipalControlador {
      * Verifica el reporte seleccionado por el usuario y proximo a crear,
      */
     protected void creaReporte() {
-//        
+        
 //        int idReporte = getIdCmbBox((String) vistaReporte.cmbTipoReporte.getSelectedItem(), catReportes);
 //        System.out.println(idReporte + "");
 //        helper.cursorEspera(vista);
 //        switch(idReporte){
 //            
+//            //Reporte General
+//            case 1:
+//                creaReporteGeneral();
+//                break;
+//            
 //            //Reporte Individual
 //            case 4:
 //                creaReporteIndividual();
+//                break;
+//                
+//            //Reporte Sexo
+//            case 6:
+//                creaReporteSexo();
 //                break;
 //        }
 //        
 //        helper.cursorNormal(vista);
     }
+    
+    /**
+     * Genera el reporte general de los becarios
+     */
+//    private void creaReporteGeneral() {
+//        Conexion conn = null;
+//        Connection conexion = null;
+//        try {
+//            conn = new Conexion();
+//            conexion = conn.estableceConexion();
+//            
+//            if(conexion == null){
+//                JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+//                return;
+//            }
+//            
+//            Path path = helper.getDirectorioReporte("Reporte_general.jasper");
+//            
+//            File file = path.toFile();
+//            
+//            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
+//            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, conexion);
+//            
+//            JasperViewer visor = new JasperViewer(jasperPrint, false);
+//            visor.setVisible(true);
+//        } catch (JRException ex) {
+//            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        finally{
+//            try {
+//                conexion.close();
+//            } catch (SQLException ex) {
+//                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+//    }
 //
 //    /**
 //     * Genera el reporte general del becario que ha sido buscado
 //     */
-    private void creaReporteIndividual() {
+//    private void creaReporteIndividual() {
+//        Conexion conn = null;
+//        Connection conexion = null;
+//        
 //        try{
 //            String folio = vistaRegistro.txtFolio.getText();
 //            
-//            Conexion conn = new Conexion();
-//            Connection conexion = conn.estableceConexion();
+//            conn = new Conexion();
+//            conexion = conn.estableceConexion();
 //
 //            if(conexion == null){
 //                JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
@@ -3992,8 +4039,10 @@ public class PrincipalControlador {
 //            PojoReporteIndividual reporteIndividual = modelo.getReporteIndividualDatosUnicos(conexion, folio);
 //            List<PojoReporteIndividualMuchosDatos> datos = modelo.getReporteIndividualMuchosDatos(conexion, folio);
 //            List<Telefono> telefonos = modelo.getTelefonosBecario(conexion, reporteIndividual.getIdBecario());
-//
-//            File file = new File("historial_individual.jasper");
+//            
+//            Path path = helper.getDirectorioReporte("historial_individual.jasper");
+//            
+//            File file = path.toFile();
 //            System.out.println(file.getAbsolutePath());
 //            try {
 //                HistorialIndividual report = new HistorialIndividual();
@@ -4006,10 +4055,6 @@ public class PrincipalControlador {
 //                JasperViewer visor = new JasperViewer(jasperPrint, false);
 //                visor.setVisible(true);
 //                
-//    //            JRExporter exporter = new JRPdfExporter();  
-//    //            exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint); 
-//    //            exporter.setParameter(JRExporterParameter.OUTPUT_FILE, new java.io.File("reporte2PDF.pdf")); 
-//    //            exporter.exportReport(); 
 //            } catch (JRException ex) {
 ////                log.muestraErrores(ex);
 //                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
@@ -4030,5 +4075,50 @@ public class PrincipalControlador {
 //            terminaVistaReportes();
 //            creaVistaBusqueda();
 //        }
-    }
+//        finally{
+//            try {
+//                conexion.close();
+//            } catch (SQLException ex) {
+//                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+//    }
+//
+//    /**
+//     * Genera el reporte de sexo
+//     */
+//    private void creaReporteSexo() {
+//        Conexion conn = null;
+//        Connection conexion = null;
+//        try {
+//            conn = new Conexion();
+//            conexion = conn.estableceConexion();
+//            List lstBecarios = new ArrayList();
+//            
+//            if(conexion == null){
+//                JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+//                return;
+//            }
+//            
+//            lstBecarios = modelo.getAllBecariosPorSexo(conexion);
+//            
+//            Path path = helper.getDirectorioReporte("reporte_sexo.jasper");
+//            File file = path.toFile();
+//            
+//            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
+//            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, new JRBeanCollectionDataSource(lstBecarios));
+//            
+//            JasperViewer visor = new JasperViewer(jasperPrint, false);
+//            visor.setVisible(true);
+//        } catch (JRException ex) {
+//            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        finally{
+//            try {
+//                conexion.close();
+//            } catch (SQLException ex) {
+//                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+//    }
 }

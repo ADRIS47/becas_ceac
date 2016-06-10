@@ -3272,3 +3272,19 @@ Verifique su conexion e intentelo de nuevo
 Verifique su conexion e intentelo de nuevo
 9/6/2016;8:27:47;Nombre de categoria no encontrado
 9/6/2016;8:28:33;Nombre de categoria no encontrado
+9/6/2016;13:53:45;SQLError: Error
+9/6/2016;13:53:45;ERROR: Code0
+9/6/2016;13:53:45;Message: No se pudo conectar a la base de datos.
+Verifique su conexion e intentelo de nuevo
+9/6/2016;13:53:50;SQLError: Error
+9/6/2016;13:53:50;ERROR: Code0
+9/6/2016;13:53:50;Message: No se pudo conectar a la base de datos.
+Verifique su conexion e intentelo de nuevo
+10/6/2016;14:17:12;Nombre de categoria no encontrado
+10/6/2016;14:18:59;Nombre de categoria no encontrado
+10/6/2016;14:19:0;Nombre de categoria no encontrado
+10/6/2016;14:23:49;Nombre de categoria no encontrado
+10/6/2016;14:25:0;Nombre de categoria no encontrado
+10/6/2016;14:25:10;Nombre de categoria no encontrado
+10/6/2016;14:25:20;Nombre de categoria no encontrado
+10/6/2016;14:25:23;Nombre de categoria no encontrado
