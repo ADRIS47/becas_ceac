@@ -3288,3 +3288,27 @@ Verifique su conexion e intentelo de nuevo
 10/6/2016;14:25:10;Nombre de categoria no encontrado
 10/6/2016;14:25:20;Nombre de categoria no encontrado
 10/6/2016;14:25:23;Nombre de categoria no encontrado
+10/6/2016;15:25:36;Nombre de categoria no encontrado
+10/6/2016;15:25:50;No se pudo copiar la boleta BALLERINA 2DO CREDITO.pdf    /home/sergio/SIBEC/becarios/DEV-057/boleta_0-DEV-057.pdf
+10/6/2016;15:31:29;Nombre de categoria no encontrado
+10/6/2016;15:34:36;Nombre de categoria no encontrado
+10/6/2016;15:34:57;No se pudo copiar la boleta BALLERINA 2DO CREDITO.pdf    /home/sergio/SIBEC/becarios/DEV-057/boleta_0-DEV-057.pdf
+10/6/2016;15:35:54;Nombre de categoria no encontrado
+10/6/2016;15:46:24;SQLError: Error
+10/6/2016;15:46:24;ERROR: Code0
+10/6/2016;15:46:24;Message: No se pudo conectar a la base de datos.
+Verifique su conexion e intentelo de nuevo
+10/6/2016;15:46:49;SQLError: Error
+10/6/2016;15:46:49;ERROR: Code0
+10/6/2016;15:46:49;Message: No se pudo conectar a la base de datos.
+Verifique su conexion e intentelo de nuevo
+10/6/2016;15:48:0;SQLError: Error
+10/6/2016;15:48:0;ERROR: Code0
+10/6/2016;15:48:0;Message: No se pudo conectar a la base de datos.
+Verifique su conexion e intentelo de nuevo
+10/6/2016;15:48:52;/home/sergio/SIBEC/becarios/DEV-057/boleta_0-DEV-057
+10/6/2016;15:48:52;No se pudo copiar la boleta boleta_0-DEV-057.pdf    /home/sergio/SIBEC/becarios/DEV-057/boleta_0-DEV-057.pdf
+10/6/2016;15:50:19;No se pudo copiar la boleta boleta_0-DEV-057.pdf    /home/sergio/SIBEC/becarios/DEV-057/boleta_0-DEV-057.pdf
+10/6/2016;15:52:45;No se pudo copiar la boleta boleta_0-DEV-057.pdf    /home/sergio/SIBEC/becarios/DEV-057/boleta_0-DEV-057.pdf
+10/6/2016;15:53:48;No se pudo copiar la boleta boleta_0-DEV-057.pdf    /home/sergio/SIBEC/becarios/DEV-057/boleta_0-DEV-057.pdf
+10/6/2016;15:53:48;No se pudo copiar la boleta boleta_0-DEV-057.pdf    /home/sergio/SIBEC/becarios/DEV-057/boleta_0-DEV-057.pdf

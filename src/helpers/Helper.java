@@ -324,11 +324,15 @@ public class Helper {
             //Se obtiene la boleta y se copia al directorio
                 String extension = lstFilesBoletas[i].getName().substring(lstFilesBoletas[i].getName().length() - 4, 
                                 lstFilesBoletas[i].getName().length());
+                
+                System.out.println(Paths.get(Index.RUTA_BASE + Index.RUTA_SISTEMA + becario.getFolio()));
+                
+                verificaDirectorio(Paths.get(Index.RUTA_BASE + Index.RUTA_SISTEMA + becario.getFolio()));
 
                 Path de = Paths.get(lstFilesBoletas[i].getAbsolutePath());
                 Path a = Paths.get(Index.RUTA_BASE + Index.RUTA_SISTEMA + becario.getFolio() + Index.SEPARADOR + 
                         "boleta_" + i + "-" + becario.getFolio() + extension);
-
+                
                 try {
                     Files.copy(de, a, StandardCopyOption.REPLACE_EXISTING);
                     kardex.setBoleta(becario.getFolio() + Index.SEPARADOR + a.getFileName().toString());
@@ -421,7 +425,7 @@ public class Helper {
         return lstResult;
     }
 
-    private void verificaDirectorio(Path rutaDirectorio) {
+    public void verificaDirectorio(Path rutaDirectorio) {
         if(!Files.exists(rutaDirectorio)){
             try {
                 Files.createDirectory(rutaDirectorio);

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteSexo2" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="42008d4c-4428-4f37-b05a-cb0a87805cae">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     beca_becario.`nombre` AS beca_becario_nombre,
+     beca_becario.`ap_paterno` AS beca_becario_ap_paterno,
+     beca_becario.`ap_materno` AS beca_becario_ap_materno,
+     beca_becario.`folio` AS beca_becario_folio,
+     beca_becario.`sexo` AS beca_becario_sexo,
+     beca_cat_sexo.`nombre` AS beca_cat_sexo_nombre,
+     beca_cat_sexo.`id_genero` AS beca_cat_sexo_id_genero
+FROM
+     `beca_cat_sexo` beca_cat_sexo INNER JOIN `beca_becario` beca_becario ON beca_cat_sexo.`id_genero` = beca_becario.`sexo`]]>
+	</queryString>
+	<field name="beca_becario_nombre" class="java.lang.String"/>
+	<field name="beca_becario_ap_paterno" class="java.lang.String"/>
+	<field name="beca_becario_ap_materno" class="java.lang.String"/>
+	<field name="beca_becario_folio" class="java.lang.String"/>
+	<field name="beca_becario_sexo" class="java.lang.Integer"/>
+	<field name="beca_cat_sexo_nombre" class="java.lang.String"/>
+	<field name="beca_cat_sexo_id_genero" class="java.lang.Integer"/>
+	<group name="GRP_SEXO">
+		<groupExpression><![CDATA[$F{beca_becario_sexo}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="45" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="64" splitType="Stretch">
+			<textField>
+				<reportElement x="22" y="20" width="100" height="20" uuid="db9da2dd-fa8c-431a-bffd-183b80dd6868"/>
+				<textFieldExpression><![CDATA[$F{beca_becario_folio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="164" y="20" width="100" height="20" uuid="467420b0-723c-49af-810d-a244c1abd682"/>
+				<textFieldExpression><![CDATA[$F{beca_becario_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="289" y="20" width="150" height="20" uuid="98a68732-766d-4847-992b-bd5129a4380d"/>
+				<textFieldExpression><![CDATA[$F{beca_becario_ap_paterno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="473" y="20" width="149" height="20" uuid="3d2a434a-7a0d-4802-b810-55573836281b"/>
+				<textFieldExpression><![CDATA[$F{beca_becario_ap_materno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="658" y="20" width="100" height="20" uuid="8c73ced4-d3f4-4c77-84f1-3f2120ee4023"/>
+				<textFieldExpression><![CDATA[$F{beca_becario_sexo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="50" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="39" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="179" splitType="Stretch">
+			<pieChart>
+				<chart>
+					<reportElement x="239" y="20" width="340" height="138" uuid="ec2a2aa0-01d6-4e15-b8ef-ad9ac7afa6b7"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{beca_cat_sexo_nombre}]]></keyExpression>
+					<valueExpression><![CDATA[$V{GRP_SEXO_COUNT}]]></valueExpression>
+					<labelExpression><![CDATA[$F{beca_cat_sexo_nombre} + " - " + $V{GRP_SEXO_COUNT}]]></labelExpression>
+				</pieDataset>
+				<piePlot>
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+		</band>
+	</summary>
+</jasperReport>
