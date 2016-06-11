@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportePrepaPublica" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="afe62215-8995-4bab-b846-f48d8fb868e2">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT dat.id_tipo_escuela, esc.nombre
+
+FROM beca_datos_escolares AS dat
+
+JOIN beca_tipo_escuela AS esc ON esc.id_tipo_escuela = dat.id_tipo_escuela]]>
+	</queryString>
+	<field name="nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="GRP_PREPAS">
+		<groupExpression><![CDATA[$F{nombre}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="11" width="802" height="58" uuid="64893028-31f8-4d78-a5c9-d9d026b320ea"/>
+				<textElement>
+					<font size="38"/>
+				</textElement>
+				<text><![CDATA[PREPARATORIAS PUBLICAS Y PRIVADAS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<summary>
+		<band height="263" splitType="Stretch">
+			<pieChart>
+				<chart>
+					<reportElement x="252" y="25" width="296" height="193" uuid="6526e1f1-6d5a-4226-a8d6-e37c8e8fd4af"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{nombre}]]></keyExpression>
+					<valueExpression><![CDATA[$V{GRP_PREPAS_COUNT}]]></valueExpression>
+					<labelExpression><![CDATA[$F{nombre} + " - " + $V{GRP_PREPAS_COUNT}]]></labelExpression>
+				</pieDataset>
+				<piePlot>
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+		</band>
+	</summary>
+</jasperReport>

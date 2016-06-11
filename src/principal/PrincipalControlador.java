@@ -4100,7 +4100,7 @@ public class PrincipalControlador {
                 return;
             }
             
-            Path path = helper.getDirectorioReporte("reporteSexo2.jasper");
+            Path path = helper.getDirectorioReporte("reporteSexo.jasper");
             File file = path.toFile();
             
             JasperReport reporte = (JasperReport) JRLoader.loadObject(file);

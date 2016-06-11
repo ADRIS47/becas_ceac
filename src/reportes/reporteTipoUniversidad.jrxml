@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteTipoUniversidad" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fca3cf3d-b6c4-4b31-9871-9ba7905fb733">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT datos.id_becario, datos.id_universidad, uni.id_tipo_escuela, esc.nombre
+
+FROM beca_datos_escolares AS datos
+
+JOIN beca_cat_universidad AS uni ON datos.id_universidad = uni.id_universidad
+
+JOIN beca_tipo_escuela AS esc ON uni.id_tipo_escuela = esc.id_tipo_escuela;]]>
+	</queryString>
+	<field name="nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="GRP_UNIVERSIDADES">
+		<groupExpression><![CDATA[$F{nombre}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="55" y="21" width="722" height="58" uuid="dad74d44-4678-4495-8775-c603aac0385a"/>
+				<textElement>
+					<font size="38"/>
+				</textElement>
+				<text><![CDATA[Universidades Públicas y Privadas]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="23" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="27" splitType="Stretch"/>
+	</detail>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="218" splitType="Stretch">
+			<pieChart>
+				<chart>
+					<reportElement x="231" y="11" width="366" height="179" uuid="6c38adf4-6444-45ed-9236-3b43a68756c4"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{nombre}]]></keyExpression>
+					<valueExpression><![CDATA[$V{GRP_UNIVERSIDADES_COUNT}]]></valueExpression>
+					<labelExpression><![CDATA[$F{nombre} + " - " + $V{GRP_UNIVERSIDADES_COUNT}]]></labelExpression>
+				</pieDataset>
+				<piePlot>
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+		</band>
+	</summary>
+</jasperReport>

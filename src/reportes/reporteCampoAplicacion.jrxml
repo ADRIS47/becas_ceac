@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteCampoAplicacion" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="889eb874-f6ab-4730-bfcc-e96b94a78ebe">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT dat.id_campo_carrera, campo.nombre
+
+FROM beca_datos_escolares AS dat
+
+JOIN beca_cat_campo AS campo ON dat.id_campo_carrera = campo.id_campo_carrera]]>
+	</queryString>
+	<field name="nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="GRP_CAMPO">
+		<groupExpression><![CDATA[$F{nombre}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="802" height="79" uuid="d76d1f66-f910-45cc-902c-beeef0a52d02"/>
+				<textElement textAlignment="Center">
+					<font size="38"/>
+				</textElement>
+				<text><![CDATA[CAMPOS DE ESTUDIO]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="173" splitType="Stretch">
+			<pieChart>
+				<chart>
+					<reportElement x="271" y="0" width="272" height="169" uuid="6c4d0d4e-5eba-45dc-bbb8-3fbfcf932069"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{nombre}]]></keyExpression>
+					<valueExpression><![CDATA[$V{GRP_CAMPO_COUNT}]]></valueExpression>
+					<labelExpression><![CDATA[$F{nombre} + " - " + $V{GRP_CAMPO_COUNT}]]></labelExpression>
+				</pieDataset>
+				<piePlot>
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+		</band>
+	</summary>
+</jasperReport>

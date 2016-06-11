@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteEdoCivil" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="05a0cab6-2a0a-473a-8695-b0a148e0a76d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT civil.nombre
+
+FROM beca_becario AS becario
+
+JOIN beca_cat_estado_civil AS civil ON civil.id_estado_civil = becario.id_estado_civil;]]>
+	</queryString>
+	<field name="nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="GRP_EDO_CIVIL">
+		<groupExpression><![CDATA[$F{nombre}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="802" height="53" uuid="e3fdf031-d310-4443-964d-ede7280b69cd"/>
+				<textElement textAlignment="Center">
+					<font size="38"/>
+				</textElement>
+				<text><![CDATA[CASADOS Y SOLTEROS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<summary>
+		<band height="244" splitType="Stretch">
+			<pieChart>
+				<chart>
+					<reportElement x="240" y="27" width="247" height="151" uuid="fdf5f563-1872-479e-9c67-8eec6fd023c3"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{nombre}]]></keyExpression>
+					<valueExpression><![CDATA[$V{GRP_EDO_CIVIL_COUNT}]]></valueExpression>
+					<labelExpression><![CDATA[$F{nombre} + " - " + $V{GRP_EDO_CIVIL_COUNT}]]></labelExpression>
+				</pieDataset>
+				<piePlot>
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+		</band>
+	</summary>
+</jasperReport>
