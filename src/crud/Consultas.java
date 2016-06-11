@@ -499,5 +499,11 @@ public class Consultas {
     public static String getAllBecariosPorSexo = "SELECT " + Becario.COL_ID + ", " + 
                                                 Becario.COL_SEXO + " " +
                                                 "FROM beca_becario";
+    /**
+     * Obtiene todos los becarios que trabajan
+     */
+    public static String getAllBecariosTrabajan = "SELECT  " + Becario.COL_ID + ", " + 
+                                                    Becario.COL_TRABAJA + " " + 
+                                                    "FROM beca_becario";
     
 }

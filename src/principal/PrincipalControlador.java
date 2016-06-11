@@ -72,6 +72,7 @@ import pojos.PojoReporteIndividual;
 import pojos.PojoReporteIndividualMuchosDatos;
 import pojos.Telefono;
 import reportes.HistorialIndividual;
+import reportes.ReporteTrabajan;
 /**
  *
  * @author sabagip
@@ -3977,6 +3978,11 @@ public class PrincipalControlador {
             case 6:
                 creaReporteSexo();
                 break;
+                
+            //Reporte Trabajan
+            case 7:
+                creaReporteTrabaja();
+                break;
         }
         
         helper.cursorNormal(vista);
@@ -4110,6 +4116,78 @@ public class PrincipalControlador {
             visor.setVisible(true);
         } catch (JRException ex) {
             Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            try {
+                conexion.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    /**
+     * Genera el reporte de los becarios que trabajan
+     */
+    private void creaReporteTrabaja(){
+        Conexion conn = null;
+        Connection conexion = null;
+        
+        try{
+            
+            
+            conn = new Conexion();
+            conexion = conn.estableceConexion();
+
+            if(conexion == null){
+                JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            
+            List<Becario> datos = modelo.getAllBecariosTrabajan(conexion);
+            
+            for (Becario dato : datos) {
+                //Si el becario trabaja
+                if(dato.getTrabaja() == 1)
+                    dato.setNombre("Trabajan");
+                else
+                    dato.setNombre("No trabajan");
+            }
+            
+            Path path = helper.getDirectorioReporte("reporteTrabajan.jasper");
+            
+            File file = path.toFile();
+            System.out.println(file.getAbsolutePath());
+            try {
+                ReporteTrabajan report = new ReporteTrabajan();
+                report.setLstTrabaja(datos);
+                
+                JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
+                JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, report);
+
+                JasperViewer visor = new JasperViewer(jasperPrint, false);
+                visor.setVisible(true);
+                
+            } catch (JRException ex) {
+//                log.muestraErrores(ex);
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            finally {
+                try{
+                    conexion.close();
+                } 
+                catch (SQLException ex) {
+                    log.muestraErrores(ex);
+                    Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        catch(NullPointerException e){
+            JOptionPane.showMessageDialog(vistaReporte, "Debe de seleccionar un becario", "Error", JOptionPane.ERROR_MESSAGE);
+            terminaVistaReportes();
+            creaVistaBusqueda();
         }
         finally{
             try {

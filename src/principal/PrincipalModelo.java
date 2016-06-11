@@ -3437,4 +3437,26 @@ public class PrincipalModelo {
         
         return lstResults;
     }
+
+    protected List<Becario> getAllBecariosTrabajan(Connection conexion) {
+        Statement st = null;
+        ResultSet rs = null;
+        List lstResults = new ArrayList();
+        
+        try {
+            st = conexion.createStatement();
+            System.out.println(Consultas.getAllBecariosTrabajan);
+            rs = st.executeQuery(Consultas.getAllBecariosTrabajan);
+            while(rs.next()){
+                Becario becario = new  Becario();
+                becario.setId(rs.getLong(Becario.COL_ID));
+                becario.setTrabaja(rs.getInt(Becario.COL_TRABAJA));
+                lstResults.add(becario);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return lstResults;
+    }
 }
