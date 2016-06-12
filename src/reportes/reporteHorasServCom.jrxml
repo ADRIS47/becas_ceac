@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteHorasServCom" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="374d92c6-fb0b-4e83-ac87-56671cfb7f4c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT kardex.lugar_servicio_comunitario, com.nombre, SUM(kardex.horas_servicio) AS horas
+
+FROM beca_kardex AS kardex
+
+JOIN beca_cat_lugar_servicio_comunitario AS com ON kardex.lugar_servicio_comunitario = com.id_lugar_servicio_comunitario
+GROUP BY com.nombre]]>
+	</queryString>
+	<field name="lugar_servicio_comunitario" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="horas" class="java.math.BigDecimal"/>
+	<variable name="horas_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{horas}]]></variableExpression>
+	</variable>
+	<group name="GRP_NOMBRE">
+		<groupExpression><![CDATA[$F{horas}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<summary>
+		<band height="210" splitType="Stretch">
+			<pieChart>
+				<chart>
+					<reportElement x="105" y="11" width="592" height="199" uuid="4484283f-958d-42fb-90e2-09f0299dd26c"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{nombre}]]></keyExpression>
+					<valueExpression><![CDATA[$F{horas}]]></valueExpression>
+					<labelExpression><![CDATA[$F{nombre} + " - " + $F{horas}]]></labelExpression>
+				</pieDataset>
+				<piePlot>
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+		</band>
+	</summary>
+</jasperReport>

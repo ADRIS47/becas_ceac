@@ -3983,6 +3983,11 @@ public class PrincipalControlador {
             case 7:
                 creaReporteTrabaja();
                 break;
+                
+            //Reporte Horas por lugar de Servicio Comunitario
+            case 8:
+                creaReporteHorasServCom();
+                break;
         }
         
         helper.cursorNormal(vista);
@@ -4188,6 +4193,41 @@ public class PrincipalControlador {
             JOptionPane.showMessageDialog(vistaReporte, "Debe de seleccionar un becario", "Error", JOptionPane.ERROR_MESSAGE);
             terminaVistaReportes();
             creaVistaBusqueda();
+        }
+        finally{
+            try {
+                conexion.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    /**
+     * Genera el reporte de las horas por lugar de servicio comunitario
+     */
+    private void creaReporteHorasServCom(){
+        Conexion conn = null;
+        Connection conexion = null;
+        try {
+            conn = new Conexion();
+            conexion = conn.estableceConexion();
+            
+            if(conexion == null){
+                JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            Path path = helper.getDirectorioReporte("reporteHorasServCom.jasper");
+            File file = path.toFile();
+            
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, conexion);
+            
+            JasperViewer visor = new JasperViewer(jasperPrint, false);
+            visor.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
         }
         finally{
             try {
