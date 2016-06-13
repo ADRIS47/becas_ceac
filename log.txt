@@ -3288,3 +3288,4 @@ Verifique su conexion e intentelo de nuevo
 10/6/2016;14:25:10;Nombre de categoria no encontrado
 10/6/2016;14:25:20;Nombre de categoria no encontrado
 10/6/2016;14:25:23;Nombre de categoria no encontrado
+10/6/2016;14:2:59;Nombre de categoria no encontrado
