@@ -3438,6 +3438,11 @@ public class PrincipalModelo {
         return lstResults;
     }
 
+    /**
+     * Obtiene todos los becarios que trabajan
+     * @param conexion
+     * @return 
+     */
     protected List<Becario> getAllBecariosTrabajan(Connection conexion) {
         Statement st = null;
         ResultSet rs = null;
@@ -3451,6 +3456,33 @@ public class PrincipalModelo {
                 Becario becario = new  Becario();
                 becario.setId(rs.getLong(Becario.COL_ID));
                 becario.setTrabaja(rs.getInt(Becario.COL_TRABAJA));
+                lstResults.add(becario);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return lstResults;
+    }
+
+    /**
+     * Obtiene todos los becarios que son los primeros en ser becados
+     * @param conexion
+     * @return 
+     */
+    protected List<Becario> getAllBecariosEnSerBecados(Connection conexion) {
+        Statement st = null;
+        ResultSet rs = null;
+        List lstResults = new ArrayList();
+        
+        try {
+            st = conexion.createStatement();
+            System.out.println(Consultas.getAllBecariosEnSerBecados);
+            rs = st.executeQuery(Consultas.getAllBecariosEnSerBecados);
+            while(rs.next()){
+                Becario becario = new  Becario();
+                becario.setId(rs.getLong(Becario.COL_ID));
+                becario.setPrimeroConBeca(rs.getInt(Becario.COL_PRIMERO_CON_BECA));
                 lstResults.add(becario);
             }
         } catch (SQLException ex) {

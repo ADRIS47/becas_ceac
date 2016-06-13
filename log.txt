@@ -3312,3 +3312,19 @@ Verifique su conexion e intentelo de nuevo
 10/6/2016;15:52:45;No se pudo copiar la boleta boleta_0-DEV-057.pdf    /home/sergio/SIBEC/becarios/DEV-057/boleta_0-DEV-057.pdf
 10/6/2016;15:53:48;No se pudo copiar la boleta boleta_0-DEV-057.pdf    /home/sergio/SIBEC/becarios/DEV-057/boleta_0-DEV-057.pdf
 10/6/2016;15:53:48;No se pudo copiar la boleta boleta_0-DEV-057.pdf    /home/sergio/SIBEC/becarios/DEV-057/boleta_0-DEV-057.pdf
+13/6/2016;12:12:35;SQLError: Error
+13/6/2016;12:12:35;ERROR: Code0
+13/6/2016;12:12:35;Message: No se pudo conectar a la base de datos.
+Verifique su conexion e intentelo de nuevo
+13/6/2016;12:12:38;SQLError: Error
+13/6/2016;12:12:38;ERROR: Code0
+13/6/2016;12:12:38;Message: No se pudo conectar a la base de datos.
+Verifique su conexion e intentelo de nuevo
+13/6/2016;12:14:18;SQLError: Error
+13/6/2016;12:14:18;ERROR: Code0
+13/6/2016;12:14:18;Message: No se pudo conectar a la base de datos.
+Verifique su conexion e intentelo de nuevo
+13/6/2016;12:14:23;SQLError: Error
+13/6/2016;12:14:23;ERROR: Code0
+13/6/2016;12:14:23;Message: No se pudo conectar a la base de datos.
+Verifique su conexion e intentelo de nuevo
