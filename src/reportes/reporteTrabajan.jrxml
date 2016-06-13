@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteTrabajan" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="699b2810-b4c9-402f-b80f-7f8a230a09f1">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="trabaja" class="java.lang.String"/>
+	<group name="GRP_TRABAJAN">
+		<groupExpression><![CDATA[$F{trabaja}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="76" splitType="Stretch">
+			<staticText>
+				<reportElement x="129" y="17" width="619" height="50" uuid="9f126267-bd4d-455e-9a2d-29257a486e96"/>
+				<textElement>
+					<font size="36"/>
+				</textElement>
+				<text><![CDATA[BECARIOS QUE TRABAJAN]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="39">
+			<staticText>
+				<reportElement x="278" y="13" width="100" height="20" uuid="cb59c500-5c09-457b-b3a6-271cc4b20e35"/>
+				<text><![CDATA[trabaja]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="378" y="13" width="100" height="20" uuid="16de5d26-77da-4583-a0ea-e54f47f00383"/>
+				<textFieldExpression><![CDATA[$F{trabaja}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="202" splitType="Stretch">
+			<pieChart>
+				<chart>
+					<reportElement x="211" y="16" width="402" height="164" uuid="4fca1400-7b6b-4bd8-b4c6-c06986d76797"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{trabaja}]]></keyExpression>
+					<valueExpression><![CDATA[$V{GRP_TRABAJAN_COUNT}]]></valueExpression>
+					<labelExpression><![CDATA[$F{trabaja} + " - " + $V{GRP_TRABAJAN_COUNT}]]></labelExpression>
+				</pieDataset>
+				<piePlot>
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+		</band>
+	</summary>
+</jasperReport>

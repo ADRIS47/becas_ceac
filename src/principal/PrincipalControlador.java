@@ -50,14 +50,14 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import jtable.ModelDefault;
 import jtable.ModelUniversidades;
-//import net.sf.jasperreports.engine.JRDataSource;
-//import net.sf.jasperreports.engine.JRException;
-//import net.sf.jasperreports.engine.JasperFillManager;
-//import net.sf.jasperreports.engine.JasperPrint;
-//import net.sf.jasperreports.engine.JasperReport;
-//import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-//import net.sf.jasperreports.engine.util.JRLoader;
-//import net.sf.jasperreports.view.JasperViewer;
+import net.sf.jasperreports.engine.JRDataSource;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import pojos.Aval;
 import pojos.Becario;
 import pojos.CatColumnasTabla;
@@ -72,6 +72,8 @@ import pojos.PojoReporteIndividual;
 import pojos.PojoReporteIndividualMuchosDatos;
 import pojos.Telefono;
 import reportes.HistorialIndividual;
+import reportes.ReportePrimerBecado;
+import reportes.ReporteTrabajan;
 /**
  *
  * @author sabagip
@@ -2446,6 +2448,7 @@ public class PrincipalControlador {
             return;
         }
 
+        //vaciaLstFiles();
         Becario becario = modelo.getBecarioPorFolio(conexion, folio);
         if (becario == null) {
             helper.cursorNormal(vista);
@@ -2572,7 +2575,7 @@ public class PrincipalControlador {
         int row = vistaBusqueda.tblResultadoBusqueda.getSelectedRow();
         //Se obtiene el folio del becario seleccionado
         String folio = modelo.getValueAt(row, 3).toString();
-
+        
         getInfoBecarioPorFolio(folio);
     }
 
@@ -3957,168 +3960,478 @@ public class PrincipalControlador {
      */
     protected void creaReporte() {
         
-//        int idReporte = getIdCmbBox((String) vistaReporte.cmbTipoReporte.getSelectedItem(), catReportes);
-//        System.out.println(idReporte + "");
-//        helper.cursorEspera(vista);
-//        switch(idReporte){
-//            
-//            //Reporte General
-//            case 1:
-//                creaReporteGeneral();
-//                break;
-//            
-//            //Reporte Individual
-//            case 4:
-//                creaReporteIndividual();
-//                break;
-//                
-//            //Reporte Sexo
-//            case 6:
-//                creaReporteSexo();
-//                break;
-//        }
-//        
-//        helper.cursorNormal(vista);
+        int idReporte = getIdCmbBox((String) vistaReporte.cmbTipoReporte.getSelectedItem(), catReportes);
+        System.out.println(idReporte + "");
+        helper.cursorEspera(vista);
+        switch(idReporte){
+            
+            //Reporte General
+            case 1:
+                creaReporteDirectamente("Reporte_general.jasper");
+                break;
+            
+            //Reporte Individual
+            case 4:
+                creaReporteIndividual();
+                break;
+                
+            //Reporte Sexo
+            case 6:
+                creaReporteDirectamente("reporteSexo.jasper");
+                break;
+                
+            //Reporte Trabajan
+            case 7:
+                creaReporteTrabaja();
+                break;
+                
+            //Reporte Universidades Públicas
+            case 8:
+                //creaReporteUniversidadesPublicas();
+                creaReporteDirectamente("reporteTipoUniversidad.jasper");
+                break;
+                
+            //Reporte Universidades Públicas
+            case 9:
+                //creaReporteCampoEstudio();
+                creaReporteDirectamente("reporteCampoAplicacion.jasper");
+                break;
+
+            //Reporte Horas por lugar de Servicio Comunitario
+            case 11:
+                //creaReporteHorasServCom();
+                creaReporteDirectamente("reporteHorasServCom.jasper");
+                break;
+                
+            /**
+             * Reporte Primer Universitario
+             */
+            case 12:
+                creaReportePrimerBecario();
+                break;
+        }
+        
+        helper.cursorNormal(vista);
     }
     
     /**
      * Genera el reporte general de los becarios
      */
-//    private void creaReporteGeneral() {
-//        Conexion conn = null;
-//        Connection conexion = null;
-//        try {
-//            conn = new Conexion();
-//            conexion = conn.estableceConexion();
-//            
-//            if(conexion == null){
-//                JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
-//                return;
-//            }
-//            
-//            Path path = helper.getDirectorioReporte("Reporte_general.jasper");
-//            
-//            File file = path.toFile();
-//            
-//            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
-//            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, conexion);
-//            
-//            JasperViewer visor = new JasperViewer(jasperPrint, false);
-//            visor.setVisible(true);
-//        } catch (JRException ex) {
-//            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        finally{
-//            try {
-//                conexion.close();
-//            } catch (SQLException ex) {
-//                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
-//    }
-//
-//    /**
-//     * Genera el reporte general del becario que ha sido buscado
-//     */
-//    private void creaReporteIndividual() {
-//        Conexion conn = null;
-//        Connection conexion = null;
-//        
-//        try{
-//            String folio = vistaRegistro.txtFolio.getText();
-//            
-//            conn = new Conexion();
-//            conexion = conn.estableceConexion();
-//
-//            if(conexion == null){
-//                JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
-//                return;
-//            }
-//
-//            //Becario becario = modelo.getBecarioPorFolio(conexion, "DEV-01");
-//            PojoReporteIndividual reporteIndividual = modelo.getReporteIndividualDatosUnicos(conexion, folio);
-//            List<PojoReporteIndividualMuchosDatos> datos = modelo.getReporteIndividualMuchosDatos(conexion, folio);
-//            List<Telefono> telefonos = modelo.getTelefonosBecario(conexion, reporteIndividual.getIdBecario());
-//            
-//            Path path = helper.getDirectorioReporte("historial_individual.jasper");
-//            
-//            File file = path.toFile();
-//            System.out.println(file.getAbsolutePath());
-//            try {
-//                HistorialIndividual report = new HistorialIndividual();
-//                report.setLstDatosUnicos(reporteIndividual);
-//                report.setLstMuchosDatos(datos);
-//                report.setLstTelefonos(telefonos);
-//                JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
-//                JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, report);
-//
-//                JasperViewer visor = new JasperViewer(jasperPrint, false);
-//                visor.setVisible(true);
-//                
-//            } catch (JRException ex) {
-////                log.muestraErrores(ex);
-//                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//
-//            finally {
-//                try{
-//                    conexion.close();
-//                } 
-//                catch (SQLException ex) {
-//                    log.muestraErrores(ex);
-//                    Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
-//                }
-//            }
-//        }
-//        catch(NullPointerException e){
-//            JOptionPane.showMessageDialog(vistaReporte, "Debe de seleccionar un becario", "Error", JOptionPane.ERROR_MESSAGE);
-//            terminaVistaReportes();
-//            creaVistaBusqueda();
-//        }
-//        finally{
-//            try {
-//                conexion.close();
-//            } catch (SQLException ex) {
-//                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
-//    }
-//
-//    /**
-//     * Genera el reporte de sexo
-//     */
-//    private void creaReporteSexo() {
-//        Conexion conn = null;
-//        Connection conexion = null;
-//        try {
-//            conn = new Conexion();
-//            conexion = conn.estableceConexion();
-//            List lstBecarios = new ArrayList();
-//            
-//            if(conexion == null){
-//                JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
-//                return;
-//            }
-//            
-//            lstBecarios = modelo.getAllBecariosPorSexo(conexion);
-//            
-//            Path path = helper.getDirectorioReporte("reporte_sexo.jasper");
-//            File file = path.toFile();
-//            
-//            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
-//            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, new JRBeanCollectionDataSource(lstBecarios));
-//            
-//            JasperViewer visor = new JasperViewer(jasperPrint, false);
-//            visor.setVisible(true);
-//        } catch (JRException ex) {
-//            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        finally{
-//            try {
-//                conexion.close();
-//            } catch (SQLException ex) {
-//                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
-//    }
+    /*private void creaReporteGeneral() {
+        Conexion conn = null;
+        Connection conexion = null;
+        try {
+            conn = new Conexion();
+            conexion = conn.estableceConexion();
+            
+            if(conexion == null){
+                JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            Path path = helper.getDirectorioReporte("Reporte_general.jasper");
+            
+            File file = path.toFile();
+            
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, conexion);
+            
+            JasperViewer visor = new JasperViewer(jasperPrint, false);
+            visor.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            try {
+                conexion.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }*/
+
+    /**
+     * Genera el reporte general del becario que ha sido buscado
+     */
+    private void creaReporteIndividual() {
+        Conexion conn = null;
+        Connection conexion = null;
+        
+        try{
+            String folio = vistaRegistro.txtFolio.getText();
+            
+            conn = new Conexion();
+            conexion = conn.estableceConexion();
+
+            if(conexion == null){
+                JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            //Becario becario = modelo.getBecarioPorFolio(conexion, "DEV-01");
+            PojoReporteIndividual reporteIndividual = modelo.getReporteIndividualDatosUnicos(conexion, folio);
+            List<PojoReporteIndividualMuchosDatos> datos = modelo.getReporteIndividualMuchosDatos(conexion, folio);
+            List<Telefono> telefonos = modelo.getTelefonosBecario(conexion, reporteIndividual.getIdBecario());
+            
+            Path path = helper.getDirectorioReporte("historial_individual.jasper");
+            
+            File file = path.toFile();
+            System.out.println(file.getAbsolutePath());
+            try {
+                HistorialIndividual report = new HistorialIndividual();
+                report.setLstDatosUnicos(reporteIndividual);
+                report.setLstMuchosDatos(datos);
+                report.setLstTelefonos(telefonos);
+                JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
+                JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, report);
+
+                JasperViewer visor = new JasperViewer(jasperPrint, false);
+                visor.setVisible(true);
+                
+            } catch (JRException ex) {
+//                log.muestraErrores(ex);
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            finally {
+                try{
+                    conexion.close();
+                } 
+                catch (SQLException ex) {
+                    log.muestraErrores(ex);
+                    Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        catch(NullPointerException e){
+            JOptionPane.showMessageDialog(vistaReporte, "Debe de seleccionar un becario", "Error", JOptionPane.ERROR_MESSAGE);
+            terminaVistaReportes();
+            creaVistaBusqueda();
+        }
+        finally{
+            try {
+                conexion.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
+    /**
+     * Genera el reporte de sexo
+     */
+    /*private void creaReporteSexo() {
+        Conexion conn = null;
+        Connection conexion = null;
+        try {
+            conn = new Conexion();
+            conexion = conn.estableceConexion();
+            
+            if(conexion == null){
+                JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            Path path = helper.getDirectorioReporte("reporteSexo.jasper");
+            File file = path.toFile();
+            
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, conexion);
+            
+            JasperViewer visor = new JasperViewer(jasperPrint, false);
+            visor.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            try {
+                conexion.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }*/
+    
+    /**
+     * Genera el reporte de los becarios que trabajan
+     */
+    private void creaReporteTrabaja(){
+        Conexion conn = null;
+        Connection conexion = null;
+        
+        try{
+            
+            
+            conn = new Conexion();
+            conexion = conn.estableceConexion();
+
+            if(conexion == null){
+                JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            
+            List<Becario> datos = modelo.getAllBecariosTrabajan(conexion);
+            
+            for (Becario dato : datos) {
+                //Si el becario trabaja
+                if(dato.getTrabaja() == 1)
+                    dato.setNombre("Trabajan");
+                else
+                    dato.setNombre("No trabajan");
+            }
+            
+            Path path = helper.getDirectorioReporte("reporteTrabajan.jasper");
+            
+            File file = path.toFile();
+            System.out.println(file.getAbsolutePath());
+            try {
+                ReporteTrabajan report = new ReporteTrabajan();
+                report.setLstTrabaja(datos);
+                
+                JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
+                JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, report);
+
+                JasperViewer visor = new JasperViewer(jasperPrint, false);
+                visor.setVisible(true);
+                
+            } catch (JRException ex) {
+//                log.muestraErrores(ex);
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            finally {
+                try{
+                    conexion.close();
+                } 
+                catch (SQLException ex) {
+                    log.muestraErrores(ex);
+                    Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        catch(NullPointerException e){
+            JOptionPane.showMessageDialog(vistaReporte, "Debe de seleccionar un becario", "Error", JOptionPane.ERROR_MESSAGE);
+            terminaVistaReportes();
+            creaVistaBusqueda();
+        }
+        finally{
+            try {
+                conexion.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    /**
+     * Genera el reporte de las horas por lugar de servicio comunitario
+     */
+    private void creaReporteHorasServCom(){
+        Conexion conn = null;
+        Connection conexion = null;
+        try {
+            conn = new Conexion();
+            conexion = conn.estableceConexion();
+            
+            if(conexion == null){
+                JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            Path path = helper.getDirectorioReporte("reporteHorasServCom.jasper");
+            File file = path.toFile();
+            
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, conexion);
+            
+            JasperViewer visor = new JasperViewer(jasperPrint, false);
+            visor.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            try {
+                conexion.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
+    /**
+     * Genera el reporte de Universidades públicas
+     */
+    /*private void creaReporteUniversidadesPublicas() {
+        Conexion conn = null;
+        Connection conexion = null;
+        try {
+            conn = new Conexion();
+            conexion = conn.estableceConexion();
+            
+            if(conexion == null){
+                JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            Path path = helper.getDirectorioReporte("reporteTipoUniversidad.jasper");
+            File file = path.toFile();
+            
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, conexion);
+            
+            JasperViewer visor = new JasperViewer(jasperPrint, false);
+            visor.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            try {
+                conexion.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }*/
+    
+    /**
+     * Genera el reporte de Universidades públicas
+     */
+    /*private void creaReporteCampoEstudio() {
+        Conexion conn = null;
+        Connection conexion = null;
+        try {
+            conn = new Conexion();
+            conexion = conn.estableceConexion();
+            
+            if(conexion == null){
+                JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            Path path = helper.getDirectorioReporte("reporteCampoAplicacion.jasper");
+            File file = path.toFile();
+            
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, conexion);
+            
+            JasperViewer visor = new JasperViewer(jasperPrint, false);
+            visor.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            try {
+                conexion.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }*/
+    
+    /**
+     * Genera el reporte indicado, este método solo funciona con los reportes que 
+     * ya tienen en sus plantillas los querys necesarios para formarse
+     */
+    private void creaReporteDirectamente(String nombreReporte) {
+        Conexion conn = null;
+        Connection conexion = null;
+        try {
+            conn = new Conexion();
+            conexion = conn.estableceConexion();
+            
+            if(conexion == null){
+                JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            Path path = helper.getDirectorioReporte(nombreReporte);
+            File file = path.toFile();
+            
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, conexion);
+            
+            JasperViewer visor = new JasperViewer(jasperPrint, false);
+            visor.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            try {
+                conexion.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    /**
+     * Genera el reporte de los becarios en ser primeros de ser becados
+     */
+    private void creaReportePrimerBecario(){
+        Conexion conn = null;
+        Connection conexion = null;
+        
+        try{
+            
+            conn = new Conexion();
+            conexion = conn.estableceConexion();
+
+            if(conexion == null){
+                JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            List<Becario> datos = modelo.getAllBecariosEnSerBecados(conexion);
+            
+            for (Becario dato : datos) {
+                //Si el becario trabaja
+                if(dato.getPrimeroConBeca() == 1)
+                    dato.setNombre("Si es primero");
+                else
+                    dato.setNombre("No es primero");
+            }
+            
+            Path path = helper.getDirectorioReporte("reportePrimerBecado.jasper");
+            
+            File file = path.toFile();
+            System.out.println(file.getAbsolutePath());
+            try {
+                ReportePrimerBecado report = new ReportePrimerBecado();
+                report.setLstTrabaja(datos);
+                
+                JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
+                JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, report);
+
+                JasperViewer visor = new JasperViewer(jasperPrint, false);
+                visor.setVisible(true);
+                
+            } catch (JRException ex) {
+//                log.muestraErrores(ex);
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            finally {
+                try{
+                    conexion.close();
+                } 
+                catch (SQLException ex) {
+                    log.muestraErrores(ex);
+                    Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        catch(NullPointerException e){
+            JOptionPane.showMessageDialog(vistaReporte, "Debe de seleccionar un becario", "Error", JOptionPane.ERROR_MESSAGE);
+            terminaVistaReportes();
+            creaVistaBusqueda();
+        }
+        finally{
+            try {
+                conexion.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
 }

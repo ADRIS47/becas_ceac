@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteSexo" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="42008d4c-4428-4f37-b05a-cb0a87805cae">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     beca_becario.`nombre` AS beca_becario_nombre,
+     beca_becario.`ap_paterno` AS beca_becario_ap_paterno,
+     beca_becario.`ap_materno` AS beca_becario_ap_materno,
+     beca_becario.`folio` AS beca_becario_folio,
+     beca_becario.`sexo` AS beca_becario_sexo,
+     beca_cat_sexo.`nombre` AS beca_cat_sexo_nombre,
+     beca_cat_sexo.`id_genero` AS beca_cat_sexo_id_genero
+FROM
+     `beca_cat_sexo` beca_cat_sexo INNER JOIN `beca_becario` beca_becario ON beca_cat_sexo.`id_genero` = beca_becario.`sexo`]]>
+	</queryString>
+	<field name="beca_becario_nombre" class="java.lang.String"/>
+	<field name="beca_becario_ap_paterno" class="java.lang.String"/>
+	<field name="beca_becario_ap_materno" class="java.lang.String"/>
+	<field name="beca_becario_folio" class="java.lang.String"/>
+	<field name="beca_becario_sexo" class="java.lang.Integer"/>
+	<field name="beca_cat_sexo_nombre" class="java.lang.String"/>
+	<field name="beca_cat_sexo_id_genero" class="java.lang.Integer"/>
+	<group name="GRP_SEXO">
+		<groupExpression><![CDATA[$F{beca_becario_sexo}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="174" y="12" width="450" height="56" uuid="6ba1afe3-7705-42e7-9a8c-3225bd7c82c1"/>
+				<textElement>
+					<font size="36"/>
+				</textElement>
+				<text><![CDATA[HOMBRES Y MUJERES]]></text>
+			</staticText>
+		</band>
+	</title>
+	<summary>
+		<band height="179" splitType="Stretch">
+			<pieChart>
+				<chart>
+					<reportElement x="120" y="17" width="340" height="138" uuid="dd3b9886-bbdf-4de2-82ee-16c3bd05a593"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend position="Top"/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{beca_cat_sexo_nombre}]]></keyExpression>
+					<valueExpression><![CDATA[$V{GRP_SEXO_COUNT}]]></valueExpression>
+					<labelExpression><![CDATA[$F{beca_cat_sexo_nombre} + " - " + $V{GRP_SEXO_COUNT}]]></labelExpression>
+				</pieDataset>
+				<piePlot>
+					<plot>
+						<seriesColor seriesOrder="0" color="#F901DC"/>
+						<seriesColor seriesOrder="1" color="#F8FF00"/>
+					</plot>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+		</band>
+	</summary>
+</jasperReport>
