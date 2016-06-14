@@ -18,21 +18,18 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Frame;
 import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
@@ -50,12 +47,10 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import jtable.ModelDefault;
 import jtable.ModelUniversidades;
-import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import pojos.Aval;
@@ -4067,7 +4062,10 @@ public class PrincipalControlador {
                 JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-
+            
+            Map<String,Object> parametros = new HashMap<>();
+            parametros.put("imagen", "imagenes" + Index.SEPARADOR + "logocr.jpg");
+            
             //Becario becario = modelo.getBecarioPorFolio(conexion, "DEV-01");
             PojoReporteIndividual reporteIndividual = modelo.getReporteIndividualDatosUnicos(conexion, folio);
             List<PojoReporteIndividualMuchosDatos> datos = modelo.getReporteIndividualMuchosDatos(conexion, folio);
@@ -4083,7 +4081,7 @@ public class PrincipalControlador {
                 report.setLstMuchosDatos(datos);
                 report.setLstTelefonos(telefonos);
                 JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
-                JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, report);
+                JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, report);
 
                 JasperViewer visor = new JasperViewer(jasperPrint, false);
                 visor.setVisible(true);
@@ -4110,6 +4108,7 @@ public class PrincipalControlador {
         }
         finally{
             try {
+                if(conexion != null)
                 conexion.close();
             } catch (SQLException ex) {
                 Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
@@ -4170,6 +4169,8 @@ public class PrincipalControlador {
                 return;
             }
 
+            Map<String,Object> parametros = new HashMap<>();
+            parametros.put("imagen", "imagenes" + Index.SEPARADOR + "logocr.jpg");
             
             List<Becario> datos = modelo.getAllBecariosTrabajan(conexion);
             
@@ -4190,7 +4191,7 @@ public class PrincipalControlador {
                 report.setLstTrabaja(datos);
                 
                 JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
-                JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, report);
+                JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, report);
 
                 JasperViewer visor = new JasperViewer(jasperPrint, false);
                 visor.setVisible(true);
@@ -4242,8 +4243,11 @@ public class PrincipalControlador {
             Path path = helper.getDirectorioReporte("reporteHorasServCom.jasper");
             File file = path.toFile();
             
+            Map<String,Object> parametros = new HashMap<>();
+            parametros.put("imagen", "imagenes" + Index.SEPARADOR + "logocr.jpg");
+            
             JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
-            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, conexion);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, conexion);
             
             JasperViewer visor = new JasperViewer(jasperPrint, false);
             visor.setVisible(true);
@@ -4345,11 +4349,14 @@ public class PrincipalControlador {
                 return;
             }
             
+            Map<String,Object> parametros = new HashMap<>();
+            parametros.put("imagen", "imagenes" + Index.SEPARADOR + "logocr.jpg");
+            
             Path path = helper.getDirectorioReporte(nombreReporte);
             File file = path.toFile();
             
             JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
-            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, conexion);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, conexion);
             
             JasperViewer visor = new JasperViewer(jasperPrint, false);
             visor.setVisible(true);
@@ -4392,6 +4399,9 @@ public class PrincipalControlador {
                     dato.setNombre("No es primero");
             }
             
+            Map<String,Object> parametros = new HashMap<>();
+            parametros.put("imagen", "imagenes" + Index.SEPARADOR + "logocr.jpg");
+            
             Path path = helper.getDirectorioReporte("reportePrimerBecado.jasper");
             
             File file = path.toFile();
@@ -4401,7 +4411,7 @@ public class PrincipalControlador {
                 report.setLstTrabaja(datos);
                 
                 JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
-                JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, report);
+                JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, report);
 
                 JasperViewer visor = new JasperViewer(jasperPrint, false);
                 visor.setVisible(true);

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="1008" pageHeight="612" orientation="Landscape" columnWidth="968" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3424e32c-a42b-488b-9877-977c3bcf6c73">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.x" value="94"/>
 	<property name="ireport.y" value="0"/>
-	<queryString language="SQL">
+	<parameter name="imagen" class="java.lang.String"/>
+	<queryString>
 		<![CDATA[SELECT
      beca_becario.`folio` AS beca_becario_folio,
      beca_becario.`ap_paterno` AS beca_becario_ap_paterno,
@@ -27,7 +28,9 @@
      beca_datos_escolares.`anio_inicio_beca` AS beca_datos_escolares_anio_inicio_beca,
      beca_datos_escolares.`semestre_inicio_beca` AS beca_datos_escolares_semestre_inicio_beca,
      beca_datos_escolares.`mes_graduacion` AS beca_datos_escolares_mes_graduacion,
-     beca_datos_escolares.`anio_graduacion` AS beca_datos_escolares_anio_graduacion
+     beca_datos_escolares.`anio_graduacion` AS beca_datos_escolares_anio_graduacion,
+     beca_datos_escolares.`fecha_inicio_beca` AS beca_datos_escolares_fecha_inicio_beca,
+     beca_datos_escolares.`fecha_fin_beca` AS beca_datos_escolares_fecha_fin_beca
 FROM
      `beca_cat_estatus` beca_cat_estatus INNER JOIN `beca_becario` beca_becario ON beca_cat_estatus.`id_estatus` = beca_becario.`id_estatus`
      INNER JOIN `beca_cat_programa` beca_cat_programa ON beca_becario.`id_programa` = beca_cat_programa.`id_programa`
@@ -59,6 +62,8 @@ FROM
 	<field name="beca_datos_escolares_semestre_inicio_beca" class="java.lang.Integer"/>
 	<field name="beca_datos_escolares_mes_graduacion" class="java.lang.Integer"/>
 	<field name="beca_datos_escolares_anio_graduacion" class="java.lang.String"/>
+	<field name="beca_datos_escolares_fecha_inicio_beca" class="java.sql.Date"/>
+	<field name="beca_datos_escolares_fecha_fin_beca" class="java.sql.Date"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -73,6 +78,7 @@ FROM
 			</staticText>
 			<image>
 				<reportElement x="0" y="0" width="142" height="36" uuid="8411fce6-9935-4b1d-8cd5-f6cde856dcbb"/>
+				<imageExpression><![CDATA[$P{imagen}]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement x="375" y="16" width="218" height="20" uuid="ed3a5761-845d-4ae4-8723-bce9f35cb0e7"/>
@@ -227,37 +233,20 @@ FROM
 				<text><![CDATA[$]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="743" y="0" width="23" height="20" uuid="19cd141d-64a3-45d9-a298-cf2a0246f865"/>
-				<textFieldExpression><![CDATA[$F{beca_datos_escolares_mes_inicio_beca}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="787" y="0" width="24" height="20" uuid="7b09b813-5a0e-48c2-9f27-edd380257701"/>
-				<textFieldExpression><![CDATA[$F{beca_datos_escolares_anio_inicio_beca}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="771" y="0" width="4" height="20" uuid="3368d557-3861-4736-885b-827779e4d76d"/>
-				<text><![CDATA[/]]></text>
-			</staticText>
-			<textField>
 				<reportElement x="821" y="0" width="67" height="20" uuid="b346b275-a870-4c81-9dc6-4e915f1ff39d"/>
 				<textFieldExpression><![CDATA[$F{beca_datos_escolares_semestre_inicio_beca}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="897" y="0" width="27" height="20" uuid="0377da4a-adb2-47c0-979e-34357999d2b1"/>
-				<textFieldExpression><![CDATA[$F{beca_datos_escolares_mes_graduacion}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="937" y="0" width="29" height="20" uuid="dcf492b4-d9fb-4a83-9b34-0aee9d18d784"/>
-				<textFieldExpression><![CDATA[$F{beca_datos_escolares_anio_graduacion}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="924" y="0" width="13" height="20" uuid="08eeedb8-144c-441e-ac75-09197fa1e0f1"/>
-				<textElement textAlignment="Center"/>
-				<text><![CDATA[/]]></text>
-			</staticText>
-			<textField>
 				<reportElement x="250" y="0" width="80" height="20" uuid="77113d21-aa6a-4175-b5ae-7e29a77109d5"/>
 				<textFieldExpression><![CDATA[$F{beca_cat_programa_nombre}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="742" y="0" width="70" height="20" uuid="2429a94d-0c55-4f5d-be61-78bcc101c767"/>
+				<textFieldExpression><![CDATA[$F{beca_datos_escolares_fecha_inicio_beca}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="897" y="0" width="69" height="20" uuid="e2067c9c-9fdd-4acc-b669-ba95665b7526"/>
+				<textFieldExpression><![CDATA[$F{beca_datos_escolares_fecha_fin_beca}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
