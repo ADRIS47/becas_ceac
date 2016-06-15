@@ -182,13 +182,13 @@ public class EscuchadorValidaEntrada implements KeyListener {
     private void evaluaTelefono(){
         String str = txtCampo.getText();
         char[] fuente = str.toCharArray();
-        char[] resultado = new char[fuente.length];
+        char[] resultado = new char[fuente.length + 3];
         int j = 0;
         boolean error = false;
 
         for (int i = 0; i < fuente.length; i++) {
 
-            if ((fuente[i] >= '0' && fuente[i] <= '9')) {
+            if ((fuente[i] >= '0' && fuente[i] <= '9') || fuente[i] == '-') {
                 resultado[j++] = fuente[i];
             } 
             else{
@@ -201,9 +201,14 @@ public class EscuchadorValidaEntrada implements KeyListener {
                 txtCampo.setText(new String(resultado, 0, j));
             }
             
-            if(i == 10){
+            if(i == 13){
                 txtCampo.setText(new String(resultado, 0, 10));
             }
+        }
+        
+        if(j == 3 || j == 7 || j == 10){
+                resultado[j++] = '-';
+                txtCampo.setText(new String(resultado, 0, j));
         }
     }
     
@@ -293,37 +298,6 @@ public class EscuchadorValidaEntrada implements KeyListener {
             resultado[j++] = '/';
             txtCampo.setText(new String(resultado, 0, j));
         }
-
-//        String str = txtCampo.getText();
-//        char[] fuente = str.toCharArray();
-//        char[] resultado = new char[fuente.length];
-//        int j = 0;
-//        boolean error = false;
-//
-//        for (int i = 0; i < fuente.length; i++) {
-//
-//            if ((fuente[i] >= '0' && fuente[i] <= '9') ||
-//                     fuente[i] == '/') {
-//                resultado[j++] = fuente[i];
-//                if(str.length() == 2){
-//                    txtCampo.setText(resultado.toString() + "/");
-//                }
-//            } 
-//            else{
-//                error = true;
-//                java.awt.Toolkit.getDefaultToolkit().beep();
-//            }
-//
-//            if (error) {
-//                txtCampo.setText("");
-//                txtCampo.setText(new String(resultado, 0, j));
-//            }
-//            
-//            if(i == 10){
-//                txtCampo.setText("");
-//                txtCampo.setText(new String(resultado, 0, 10));
-//            }
-//        }
         
     }
     
