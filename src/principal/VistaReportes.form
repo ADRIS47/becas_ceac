@@ -17,29 +17,19 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
-                              <Component id="jPnlReporteSeleccion" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jPanel4" max="32767" attributes="0"/>
-                              <Component id="PnlFechasGraducion" alignment="0" max="32767" attributes="0"/>
-                              <Component id="PnlFechasRegistro" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="jPanel1" max="32767" attributes="0"/>
-                              <Component id="PnlFechasGraducion1" alignment="1" min="-2" pref="675" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jPanel4" alignment="1" max="32767" attributes="0"/>
+                  <Component id="jPnlReporteSeleccion" alignment="1" max="32767" attributes="0"/>
+                  <Component id="PnlFechasRegistro" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="PnlFechasGraducion1" alignment="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="PnlFechasGraducion" alignment="0" min="-2" pref="731" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
-                      <Component id="PnlBotonesReporte" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
+                  <Component id="PnlBotonesReporte" alignment="1" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="56" max="32767" attributes="0"/>
+              <EmptySpace pref="53" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -58,9 +48,9 @@
               <Component id="PnlFechasGraducion1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="PnlBotonesReporte" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="18" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -131,7 +121,7 @@
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="cmbTipoReporte" min="-2" pref="359" max="-2" attributes="0"/>
-                  <EmptySpace pref="42" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -182,7 +172,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                  <EmptySpace pref="36" max="32767" attributes="0"/>
                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="cmbMesReg" min="-2" pref="83" max="-2" attributes="0"/>
@@ -194,7 +184,6 @@
                   <Component id="cmbMesReg2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                   <Component id="cmbanioReg2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="27" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -232,19 +221,20 @@
               <Font name="Tahoma" size="10" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="12">
-                <StringItem index="0" value="Enero"/>
-                <StringItem index="1" value="Febrero"/>
-                <StringItem index="2" value="Marzo"/>
-                <StringItem index="3" value="Abril"/>
-                <StringItem index="4" value="Mayo"/>
-                <StringItem index="5" value="Junio"/>
-                <StringItem index="6" value="Julio"/>
-                <StringItem index="7" value="Agosto"/>
-                <StringItem index="8" value="Septiembre"/>
-                <StringItem index="9" value="Octubre"/>
-                <StringItem index="10" value="Noviembre"/>
-                <StringItem index="11" value="Diciembre"/>
+              <StringArray count="13">
+                <StringItem index="0" value="Seleccione"/>
+                <StringItem index="1" value="Enero"/>
+                <StringItem index="2" value="Febrero"/>
+                <StringItem index="3" value="Marzo"/>
+                <StringItem index="4" value="Abril"/>
+                <StringItem index="5" value="Mayo"/>
+                <StringItem index="6" value="Junio"/>
+                <StringItem index="7" value="Julio"/>
+                <StringItem index="8" value="Agosto"/>
+                <StringItem index="9" value="Septiembre"/>
+                <StringItem index="10" value="Octubre"/>
+                <StringItem index="11" value="Noviembre"/>
+                <StringItem index="12" value="Diciembre"/>
               </StringArray>
             </Property>
           </Properties>
@@ -258,19 +248,20 @@
               <Font name="Tahoma" size="10" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="12">
-                <StringItem index="0" value="Enero"/>
-                <StringItem index="1" value="Febrero"/>
-                <StringItem index="2" value="Marzo"/>
-                <StringItem index="3" value="Abril"/>
-                <StringItem index="4" value="Mayo"/>
-                <StringItem index="5" value="Junio"/>
-                <StringItem index="6" value="Julio"/>
-                <StringItem index="7" value="Agosto"/>
-                <StringItem index="8" value="Septiembre"/>
-                <StringItem index="9" value="Octubre"/>
-                <StringItem index="10" value="Noviembre"/>
-                <StringItem index="11" value="Diciembre"/>
+              <StringArray count="13">
+                <StringItem index="0" value="Seleccione"/>
+                <StringItem index="1" value="Enero"/>
+                <StringItem index="2" value="Febrero"/>
+                <StringItem index="3" value="Marzo"/>
+                <StringItem index="4" value="Abril"/>
+                <StringItem index="5" value="Mayo"/>
+                <StringItem index="6" value="Junio"/>
+                <StringItem index="7" value="Julio"/>
+                <StringItem index="8" value="Agosto"/>
+                <StringItem index="9" value="Septiembre"/>
+                <StringItem index="10" value="Octubre"/>
+                <StringItem index="11" value="Noviembre"/>
+                <StringItem index="12" value="Diciembre"/>
               </StringArray>
             </Property>
           </Properties>
@@ -292,41 +283,42 @@
               <Font name="Tahoma" size="10" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="34">
-                <StringItem index="0" value="2007"/>
-                <StringItem index="1" value="2008"/>
-                <StringItem index="2" value="2009"/>
-                <StringItem index="3" value="2010"/>
-                <StringItem index="4" value="2011"/>
-                <StringItem index="5" value="2012"/>
-                <StringItem index="6" value="2013"/>
-                <StringItem index="7" value="2014"/>
-                <StringItem index="8" value="2015"/>
-                <StringItem index="9" value="2016"/>
-                <StringItem index="10" value="2017"/>
-                <StringItem index="11" value="2018"/>
-                <StringItem index="12" value="2019"/>
-                <StringItem index="13" value="2020"/>
-                <StringItem index="14" value="2021"/>
-                <StringItem index="15" value="2022"/>
-                <StringItem index="16" value="2023"/>
-                <StringItem index="17" value="2024"/>
-                <StringItem index="18" value="2025"/>
-                <StringItem index="19" value="2026"/>
-                <StringItem index="20" value="2027"/>
-                <StringItem index="21" value="2028"/>
-                <StringItem index="22" value="2029"/>
-                <StringItem index="23" value="2030"/>
-                <StringItem index="24" value="2031"/>
-                <StringItem index="25" value="2032"/>
-                <StringItem index="26" value="2033"/>
-                <StringItem index="27" value="2034"/>
-                <StringItem index="28" value="2035"/>
-                <StringItem index="29" value="2036"/>
-                <StringItem index="30" value="2037"/>
-                <StringItem index="31" value="2038"/>
-                <StringItem index="32" value="2039"/>
-                <StringItem index="33" value="2040"/>
+              <StringArray count="35">
+                <StringItem index="0" value="Seleccione"/>
+                <StringItem index="1" value="2007"/>
+                <StringItem index="2" value="2008"/>
+                <StringItem index="3" value="2009"/>
+                <StringItem index="4" value="2010"/>
+                <StringItem index="5" value="2011"/>
+                <StringItem index="6" value="2012"/>
+                <StringItem index="7" value="2013"/>
+                <StringItem index="8" value="2014"/>
+                <StringItem index="9" value="2015"/>
+                <StringItem index="10" value="2016"/>
+                <StringItem index="11" value="2017"/>
+                <StringItem index="12" value="2018"/>
+                <StringItem index="13" value="2019"/>
+                <StringItem index="14" value="2020"/>
+                <StringItem index="15" value="2021"/>
+                <StringItem index="16" value="2022"/>
+                <StringItem index="17" value="2023"/>
+                <StringItem index="18" value="2024"/>
+                <StringItem index="19" value="2025"/>
+                <StringItem index="20" value="2026"/>
+                <StringItem index="21" value="2027"/>
+                <StringItem index="22" value="2028"/>
+                <StringItem index="23" value="2029"/>
+                <StringItem index="24" value="2030"/>
+                <StringItem index="25" value="2031"/>
+                <StringItem index="26" value="2032"/>
+                <StringItem index="27" value="2033"/>
+                <StringItem index="28" value="2034"/>
+                <StringItem index="29" value="2035"/>
+                <StringItem index="30" value="2036"/>
+                <StringItem index="31" value="2037"/>
+                <StringItem index="32" value="2038"/>
+                <StringItem index="33" value="2039"/>
+                <StringItem index="34" value="2040"/>
               </StringArray>
             </Property>
           </Properties>
@@ -340,41 +332,42 @@
               <Font name="Tahoma" size="10" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="34">
-                <StringItem index="0" value="2007"/>
-                <StringItem index="1" value="2008"/>
-                <StringItem index="2" value="2009"/>
-                <StringItem index="3" value="2010"/>
-                <StringItem index="4" value="2011"/>
-                <StringItem index="5" value="2012"/>
-                <StringItem index="6" value="2013"/>
-                <StringItem index="7" value="2014"/>
-                <StringItem index="8" value="2015"/>
-                <StringItem index="9" value="2016"/>
-                <StringItem index="10" value="2017"/>
-                <StringItem index="11" value="2018"/>
-                <StringItem index="12" value="2019"/>
-                <StringItem index="13" value="2020"/>
-                <StringItem index="14" value="2021"/>
-                <StringItem index="15" value="2022"/>
-                <StringItem index="16" value="2023"/>
-                <StringItem index="17" value="2024"/>
-                <StringItem index="18" value="2025"/>
-                <StringItem index="19" value="2026"/>
-                <StringItem index="20" value="2027"/>
-                <StringItem index="21" value="2028"/>
-                <StringItem index="22" value="2029"/>
-                <StringItem index="23" value="2030"/>
-                <StringItem index="24" value="2031"/>
-                <StringItem index="25" value="2032"/>
-                <StringItem index="26" value="2033"/>
-                <StringItem index="27" value="2034"/>
-                <StringItem index="28" value="2035"/>
-                <StringItem index="29" value="2036"/>
-                <StringItem index="30" value="2037"/>
-                <StringItem index="31" value="2038"/>
-                <StringItem index="32" value="2039"/>
-                <StringItem index="33" value="2040"/>
+              <StringArray count="35">
+                <StringItem index="0" value="Seleccione"/>
+                <StringItem index="1" value="2007"/>
+                <StringItem index="2" value="2008"/>
+                <StringItem index="3" value="2009"/>
+                <StringItem index="4" value="2010"/>
+                <StringItem index="5" value="2011"/>
+                <StringItem index="6" value="2012"/>
+                <StringItem index="7" value="2013"/>
+                <StringItem index="8" value="2014"/>
+                <StringItem index="9" value="2015"/>
+                <StringItem index="10" value="2016"/>
+                <StringItem index="11" value="2017"/>
+                <StringItem index="12" value="2018"/>
+                <StringItem index="13" value="2019"/>
+                <StringItem index="14" value="2020"/>
+                <StringItem index="15" value="2021"/>
+                <StringItem index="16" value="2022"/>
+                <StringItem index="17" value="2023"/>
+                <StringItem index="18" value="2024"/>
+                <StringItem index="19" value="2025"/>
+                <StringItem index="20" value="2026"/>
+                <StringItem index="21" value="2027"/>
+                <StringItem index="22" value="2028"/>
+                <StringItem index="23" value="2029"/>
+                <StringItem index="24" value="2030"/>
+                <StringItem index="25" value="2031"/>
+                <StringItem index="26" value="2032"/>
+                <StringItem index="27" value="2033"/>
+                <StringItem index="28" value="2034"/>
+                <StringItem index="29" value="2035"/>
+                <StringItem index="30" value="2036"/>
+                <StringItem index="31" value="2037"/>
+                <StringItem index="32" value="2038"/>
+                <StringItem index="33" value="2039"/>
+                <StringItem index="34" value="2040"/>
               </StringArray>
             </Property>
           </Properties>
@@ -445,19 +438,20 @@
               <Font name="Tahoma" size="10" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="12">
-                <StringItem index="0" value="Enero"/>
-                <StringItem index="1" value="Febrero"/>
-                <StringItem index="2" value="Marzo"/>
-                <StringItem index="3" value="Abril"/>
-                <StringItem index="4" value="Mayo"/>
-                <StringItem index="5" value="Junio"/>
-                <StringItem index="6" value="Julio"/>
-                <StringItem index="7" value="Agosto"/>
-                <StringItem index="8" value="Septiembre"/>
-                <StringItem index="9" value="Octubre"/>
-                <StringItem index="10" value="Noviembre"/>
-                <StringItem index="11" value="Diciembre"/>
+              <StringArray count="13">
+                <StringItem index="0" value="Seleccione"/>
+                <StringItem index="1" value="Enero"/>
+                <StringItem index="2" value="Febrero"/>
+                <StringItem index="3" value="Marzo"/>
+                <StringItem index="4" value="Abril"/>
+                <StringItem index="5" value="Mayo"/>
+                <StringItem index="6" value="Junio"/>
+                <StringItem index="7" value="Julio"/>
+                <StringItem index="8" value="Agosto"/>
+                <StringItem index="9" value="Septiembre"/>
+                <StringItem index="10" value="Octubre"/>
+                <StringItem index="11" value="Noviembre"/>
+                <StringItem index="12" value="Diciembre"/>
               </StringArray>
             </Property>
           </Properties>
@@ -471,19 +465,20 @@
               <Font name="Tahoma" size="10" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="12">
-                <StringItem index="0" value="Enero"/>
-                <StringItem index="1" value="Febrero"/>
-                <StringItem index="2" value="Marzo"/>
-                <StringItem index="3" value="Abril"/>
-                <StringItem index="4" value="Mayo"/>
-                <StringItem index="5" value="Junio"/>
-                <StringItem index="6" value="Julio"/>
-                <StringItem index="7" value="Agosto"/>
-                <StringItem index="8" value="Septiembre"/>
-                <StringItem index="9" value="Octubre"/>
-                <StringItem index="10" value="Noviembre"/>
-                <StringItem index="11" value="Diciembre"/>
+              <StringArray count="13">
+                <StringItem index="0" value="Seleccione"/>
+                <StringItem index="1" value="Enero"/>
+                <StringItem index="2" value="Febrero"/>
+                <StringItem index="3" value="Marzo"/>
+                <StringItem index="4" value="Abril"/>
+                <StringItem index="5" value="Mayo"/>
+                <StringItem index="6" value="Junio"/>
+                <StringItem index="7" value="Julio"/>
+                <StringItem index="8" value="Agosto"/>
+                <StringItem index="9" value="Septiembre"/>
+                <StringItem index="10" value="Octubre"/>
+                <StringItem index="11" value="Noviembre"/>
+                <StringItem index="12" value="Diciembre"/>
               </StringArray>
             </Property>
           </Properties>
@@ -505,41 +500,42 @@
               <Font name="Tahoma" size="10" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="34">
-                <StringItem index="0" value="2007"/>
-                <StringItem index="1" value="2008"/>
-                <StringItem index="2" value="2009"/>
-                <StringItem index="3" value="2010"/>
-                <StringItem index="4" value="2011"/>
-                <StringItem index="5" value="2012"/>
-                <StringItem index="6" value="2013"/>
-                <StringItem index="7" value="2014"/>
-                <StringItem index="8" value="2015"/>
-                <StringItem index="9" value="2016"/>
-                <StringItem index="10" value="2017"/>
-                <StringItem index="11" value="2018"/>
-                <StringItem index="12" value="2019"/>
-                <StringItem index="13" value="2020"/>
-                <StringItem index="14" value="2021"/>
-                <StringItem index="15" value="2022"/>
-                <StringItem index="16" value="2023"/>
-                <StringItem index="17" value="2024"/>
-                <StringItem index="18" value="2025"/>
-                <StringItem index="19" value="2026"/>
-                <StringItem index="20" value="2027"/>
-                <StringItem index="21" value="2028"/>
-                <StringItem index="22" value="2029"/>
-                <StringItem index="23" value="2030"/>
-                <StringItem index="24" value="2031"/>
-                <StringItem index="25" value="2032"/>
-                <StringItem index="26" value="2033"/>
-                <StringItem index="27" value="2034"/>
-                <StringItem index="28" value="2035"/>
-                <StringItem index="29" value="2036"/>
-                <StringItem index="30" value="2037"/>
-                <StringItem index="31" value="2038"/>
-                <StringItem index="32" value="2039"/>
-                <StringItem index="33" value="2040"/>
+              <StringArray count="35">
+                <StringItem index="0" value="Seleccione"/>
+                <StringItem index="1" value="2007"/>
+                <StringItem index="2" value="2008"/>
+                <StringItem index="3" value="2009"/>
+                <StringItem index="4" value="2010"/>
+                <StringItem index="5" value="2011"/>
+                <StringItem index="6" value="2012"/>
+                <StringItem index="7" value="2013"/>
+                <StringItem index="8" value="2014"/>
+                <StringItem index="9" value="2015"/>
+                <StringItem index="10" value="2016"/>
+                <StringItem index="11" value="2017"/>
+                <StringItem index="12" value="2018"/>
+                <StringItem index="13" value="2019"/>
+                <StringItem index="14" value="2020"/>
+                <StringItem index="15" value="2021"/>
+                <StringItem index="16" value="2022"/>
+                <StringItem index="17" value="2023"/>
+                <StringItem index="18" value="2024"/>
+                <StringItem index="19" value="2025"/>
+                <StringItem index="20" value="2026"/>
+                <StringItem index="21" value="2027"/>
+                <StringItem index="22" value="2028"/>
+                <StringItem index="23" value="2029"/>
+                <StringItem index="24" value="2030"/>
+                <StringItem index="25" value="2031"/>
+                <StringItem index="26" value="2032"/>
+                <StringItem index="27" value="2033"/>
+                <StringItem index="28" value="2034"/>
+                <StringItem index="29" value="2035"/>
+                <StringItem index="30" value="2036"/>
+                <StringItem index="31" value="2037"/>
+                <StringItem index="32" value="2038"/>
+                <StringItem index="33" value="2039"/>
+                <StringItem index="34" value="2040"/>
               </StringArray>
             </Property>
           </Properties>
@@ -553,41 +549,42 @@
               <Font name="Tahoma" size="10" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="34">
-                <StringItem index="0" value="2007"/>
-                <StringItem index="1" value="2008"/>
-                <StringItem index="2" value="2009"/>
-                <StringItem index="3" value="2010"/>
-                <StringItem index="4" value="2011"/>
-                <StringItem index="5" value="2012"/>
-                <StringItem index="6" value="2013"/>
-                <StringItem index="7" value="2014"/>
-                <StringItem index="8" value="2015"/>
-                <StringItem index="9" value="2016"/>
-                <StringItem index="10" value="2017"/>
-                <StringItem index="11" value="2018"/>
-                <StringItem index="12" value="2019"/>
-                <StringItem index="13" value="2020"/>
-                <StringItem index="14" value="2021"/>
-                <StringItem index="15" value="2022"/>
-                <StringItem index="16" value="2023"/>
-                <StringItem index="17" value="2024"/>
-                <StringItem index="18" value="2025"/>
-                <StringItem index="19" value="2026"/>
-                <StringItem index="20" value="2027"/>
-                <StringItem index="21" value="2028"/>
-                <StringItem index="22" value="2029"/>
-                <StringItem index="23" value="2030"/>
-                <StringItem index="24" value="2031"/>
-                <StringItem index="25" value="2032"/>
-                <StringItem index="26" value="2033"/>
-                <StringItem index="27" value="2034"/>
-                <StringItem index="28" value="2035"/>
-                <StringItem index="29" value="2036"/>
-                <StringItem index="30" value="2037"/>
-                <StringItem index="31" value="2038"/>
-                <StringItem index="32" value="2039"/>
-                <StringItem index="33" value="2040"/>
+              <StringArray count="35">
+                <StringItem index="0" value="Seleccione"/>
+                <StringItem index="1" value="2007"/>
+                <StringItem index="2" value="2008"/>
+                <StringItem index="3" value="2009"/>
+                <StringItem index="4" value="2010"/>
+                <StringItem index="5" value="2011"/>
+                <StringItem index="6" value="2012"/>
+                <StringItem index="7" value="2013"/>
+                <StringItem index="8" value="2014"/>
+                <StringItem index="9" value="2015"/>
+                <StringItem index="10" value="2016"/>
+                <StringItem index="11" value="2017"/>
+                <StringItem index="12" value="2018"/>
+                <StringItem index="13" value="2019"/>
+                <StringItem index="14" value="2020"/>
+                <StringItem index="15" value="2021"/>
+                <StringItem index="16" value="2022"/>
+                <StringItem index="17" value="2023"/>
+                <StringItem index="18" value="2024"/>
+                <StringItem index="19" value="2025"/>
+                <StringItem index="20" value="2026"/>
+                <StringItem index="21" value="2027"/>
+                <StringItem index="22" value="2028"/>
+                <StringItem index="23" value="2029"/>
+                <StringItem index="24" value="2030"/>
+                <StringItem index="25" value="2031"/>
+                <StringItem index="26" value="2032"/>
+                <StringItem index="27" value="2033"/>
+                <StringItem index="28" value="2034"/>
+                <StringItem index="29" value="2035"/>
+                <StringItem index="30" value="2036"/>
+                <StringItem index="31" value="2037"/>
+                <StringItem index="32" value="2038"/>
+                <StringItem index="33" value="2039"/>
+                <StringItem index="34" value="2040"/>
               </StringArray>
             </Property>
           </Properties>
@@ -714,12 +711,12 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                   <Component id="btnEjectuaReporte" min="-2" pref="140" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="btnLimpiarFiltros" min="-2" pref="140" max="-2" attributes="0"/>
-                  <EmptySpace pref="44" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
                   <Component id="BtSalir" min="-2" pref="140" max="-2" attributes="0"/>
                   <EmptySpace min="41" pref="41" max="-2" attributes="0"/>
               </Group>

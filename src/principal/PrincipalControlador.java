@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
@@ -461,10 +462,7 @@ public class PrincipalControlador {
         List<LinkedHashMap<Integer, String>> lstCategorias = null;
         llenaCamposCategoriasVistaReportes(lstCategorias);
 
-        //Se emparejan los combo de los años 
-        Calendar calendario = new GregorianCalendar();
-        int year = calendario.get(Calendar.YEAR);
-        
+        //Se emparejan los combo de los años         
         helper.setAñoActualEnCombo(vistaReporte.cmbAnioReg);
         helper.setAñoActualEnCombo(vistaReporte.cmbAnioRep2);
         helper.setAñoActualEnCombo(vistaReporte.cmbanioReg2);
@@ -4349,8 +4347,14 @@ public class PrincipalControlador {
                 return;
             }
             
-            Map<String,Object> parametros = new HashMap<>();
-            parametros.put("imagen", "imagenes" + Index.SEPARADOR + "logocr.jpg");
+            Map<String,Object> parametros = getFiltrosReporte();
+            parametros.put("imagen", "imagenes/logocr.jpg");
+            
+            Iterator it = parametros.keySet().iterator();
+            while(it.hasNext()){
+                String id = (String) it.next();
+                System.out.println(id + " -------> " + parametros.get(id));
+            }
             
             Path path = helper.getDirectorioReporte(nombreReporte);
             File file = path.toFile();
@@ -4443,5 +4447,99 @@ public class PrincipalControlador {
                 Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+
+    /**
+     * Obtiene los filtros que tiene seleccionado el usuario
+     * @return 
+     */
+    private Map<String, Object> getFiltrosReporte() {
+        Map<String, Object> mapParametros = new HashMap<>();
+        //Se obtienen los filtros por mes de registro
+        int deMesRegistro =  vistaReporte.cmbMesReg.getSelectedIndex();
+        String deAnioRegistro = (String) vistaReporte.cmbAnioReg.getSelectedItem();
+        int AMesRegistro =  vistaReporte.cmbMesReg2.getSelectedIndex();
+        String AAnioRegistro = (String) vistaReporte.cmbanioReg2.getSelectedItem();
+        
+        //Se obtienen los filtros por mes de graduación
+        int deMesGraduacion =  vistaReporte.cmbMesRep3.getSelectedIndex();
+        String deAnioGraduacion = (String) vistaReporte.cmbAnioRep2.getSelectedItem();
+        int AMesGraduacion =  vistaReporte.cmbMesRep4.getSelectedIndex();
+        String AAnioGraduacion = (String) vistaReporte.cmbanioRep3.getSelectedItem();
+        
+        //Se obtienen los filtros por programas y estatus
+        String programaInicial1 = (String) vistaReporte.cmbProgramaInicial.getSelectedItem();
+        String programaInicial2 = (String) vistaReporte.cmbProgramaFinal.getSelectedItem();
+        String estatusPrograma = (String) vistaReporte.cmbEstatus.getSelectedItem();
+        
+        //Se obtienen los filtros por programas y folios
+        String programa = (String) vistaReporte.cmbPrograma.getSelectedItem();
+        String folioInicial = vistaReporte.txtFolioInicial.getText();
+        String folioFinal = vistaReporte.txtFolioFinal.getText();
+        
+        String query = "";
+        boolean comas = false;
+        StringBuilder builder = new StringBuilder();        
+//        
+//        //Se evalua que existan filtros por mes de registro
+//        if((deMesRegistro != 0 && AMesRegistro != 0)){
+//            builder = builder.append(" WHERE beca_datos_escolares.fecha_inicio_beca");
+//            builder = builder.append(" BETWEEN ");
+//            builder = builder.append(deAnioRegistro);
+//            builder = builder.append("/");
+//            if(deMesRegistro < 10){
+//                builder = builder.append("0");
+//                builder = builder.append(deMesRegistro);
+//            }
+//            else
+//                builder = builder.append(deMesRegistro);
+//            builder = builder.append("/01 AND ");
+//            builder = builder.append(AAnioRegistro);
+//            builder = builder.append("/");
+//            if(AMesRegistro < 10){
+//                builder = builder.append("0");
+//                builder = builder.append(AMesRegistro);
+//            }
+//            else
+//                builder = builder.append(AMesRegistro);
+//            builder = builder.append("/01");
+//            comas = true;
+//        }
+//        
+//        if((deMesGraduacion > 0 &&  AMesGraduacion > 0)){
+//            if(comas)
+//                builder = builder.append(" AND ");
+//            else
+//                builder = builder.append(" WHERE ");
+//            
+//            builder = builder.append(" BETWEEN '");
+//            builder = builder.append(deAnioGraduacion);
+//            builder = builder.append("/");
+//            if(deMesGraduacion < 10){
+//                builder = builder.append("0");
+//                builder = builder.append(deMesGraduacion);
+//            }
+//            else
+//                builder = builder.append(deMesGraduacion);
+//            
+//            builder = builder.append("/01' AND '");
+//            builder = builder.append(AAnioGraduacion);
+//            builder = builder.append("/");
+//            if(AMesGraduacion < 10){
+//                builder = builder.append("0");
+//                builder = builder.append(AMesGraduacion + 1);
+//            }
+//            else
+//                builder = builder.append(AMesGraduacion + 1);
+//            builder = builder.append("/01'");
+//        }
+//        
+//        if(builder.length() > 0){
+//            mapParametros.put("filtroFechas", builder.toString());
+//            System.out.println("Agregado---------------------------");
+//        }
+//        System.out.println("BUILDER-----> " + builder.toString());
+mapParametros.put("filtroFechas", "WHERE beca_datos_escolares.fecha_inicio_beca BETWEEN '" + deAnioRegistro + "/" + deMesRegistro + "/01' AND '" + AAnioRegistro + "/" + AMesRegistro + "/01'");
+        return mapParametros;
     }
 }

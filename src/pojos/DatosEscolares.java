@@ -5,6 +5,8 @@
  */
 package pojos;
 
+import java.util.Date;
+
 /**
  *
  * @author sabagip
@@ -28,6 +30,8 @@ public class DatosEscolares {
     int semestresTotalesCarrera;
     int semestreInicioBeca;
     int idTipoEscuela;
+    Date fechaInicioBeca;
+    Date fechaGraduacion;
 
     public long getId() {
         return id;
@@ -164,6 +168,22 @@ public class DatosEscolares {
     public void setIdTipoEscuela(int idTipoEscuela) {
         this.idTipoEscuela = idTipoEscuela;
     }
+
+    public Date getFechaInicioBeca() {
+        return fechaInicioBeca;
+    }
+
+    public void setFechaInicioBeca(Date fechaInicioBeca) {
+        this.fechaInicioBeca = fechaInicioBeca;
+    }
+
+    public Date getFechaGraduacion() {
+        return fechaGraduacion;
+    }
+
+    public void setFechaGraduacion(Date fechaGraduacion) {
+        this.fechaGraduacion = fechaGraduacion;
+    }
     
     public static final String COL_ID = "id_dato_escolar";
     public static final String COL_ESCUELA_PROCEDENCIA = "escuela_procedencia";
@@ -182,6 +202,8 @@ public class DatosEscolares {
     public static final String COL_SEMESTRES_TOTALES_BECA = "semestres_totales_carrera";
     public static final String COL_SEMESTRE_INICIO_BECA = "semestre_inicio_beca";
     public static final String COL_ID_TIPO_ESCUELA = "id_tipo_escuela";
+    public final static String COL_FECHA_INICIO_BECA = "fecha_inicio_beca";
+    public final static String COL_FECHA_GRADUACION = "fecha_fin_beca";
     
     
 }

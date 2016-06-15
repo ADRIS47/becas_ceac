@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="1008" pageHeight="612" orientation="Landscape" columnWidth="968" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3424e32c-a42b-488b-9877-977c3bcf6c73">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" pageWidth="1008" pageHeight="612" orientation="Landscape" columnWidth="968" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3424e32c-a42b-488b-9877-977c3bcf6c73">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="94"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="imagen" class="java.lang.String"/>
+	<parameter name="filtroFechas" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="filtroProgEstatus" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="filtroProgFolio" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT
      beca_becario.`folio` AS beca_becario_folio,
@@ -37,7 +46,8 @@ FROM
      INNER JOIN `beca_datos_escolares` beca_datos_escolares ON beca_becario.`id_becario` = beca_datos_escolares.`id_becario`
      INNER JOIN `beca_cat_universidad` beca_cat_universidad ON beca_datos_escolares.`id_universidad` = beca_cat_universidad.`id_universidad`
      INNER JOIN `beca_cat_universidad` beca_cat_universidad_A ON beca_datos_escolares.`id_universidad` = beca_cat_universidad_A.`id_universidad`
-     INNER JOIN `beca_cat_campo` beca_cat_campo ON beca_datos_escolares.`id_campo_carrera` = beca_cat_campo.`id_campo_carrera`]]>
+     INNER JOIN `beca_cat_campo` beca_cat_campo ON beca_datos_escolares.`id_campo_carrera` = beca_cat_campo.`id_campo_carrera`
+$P{filtroFechas}]]>
 	</queryString>
 	<field name="beca_becario_folio" class="java.lang.String"/>
 	<field name="beca_becario_ap_paterno" class="java.lang.String"/>
