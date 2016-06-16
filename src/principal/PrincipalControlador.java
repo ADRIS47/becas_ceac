@@ -3960,7 +3960,8 @@ public class PrincipalControlador {
             
             //Reporte General
             case 1:
-                creaReporteDirectamente("Reporte_general.jasper");
+                //creaReporteDirectamente("Reporte_general.jasper");
+                creaReporteGeneral();
                 break;
             
             //Reporte Individual
@@ -4010,7 +4011,7 @@ public class PrincipalControlador {
     /**
      * Genera el reporte general de los becarios
      */
-    /*private void creaReporteGeneral() {
+    private void creaReporteGeneral() {
         Conexion conn = null;
         Connection conexion = null;
         try {
@@ -4022,12 +4023,16 @@ public class PrincipalControlador {
                 return;
             }
             
+            String filtros = getFiltrosReporte();
+            Map<String, Object> parametros = new HashMap<>();
+            parametros.put("imagen", "imagenes/logocr.jpg");
+            
             Path path = helper.getDirectorioReporte("Reporte_general.jasper");
             
             File file = path.toFile();
             
             JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
-            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, conexion);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, conexion);
             
             JasperViewer visor = new JasperViewer(jasperPrint, false);
             visor.setVisible(true);
@@ -4041,7 +4046,7 @@ public class PrincipalControlador {
                 Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }*/
+    }
 
     /**
      * Genera el reporte general del becario que ha sido buscado
@@ -4347,7 +4352,8 @@ public class PrincipalControlador {
                 return;
             }
             
-            Map<String,Object> parametros = getFiltrosReporte();
+            String filtros = getFiltrosReporte();
+            Map<String, Object> parametros = new HashMap<>();
             parametros.put("imagen", "imagenes/logocr.jpg");
             
             Iterator it = parametros.keySet().iterator();
@@ -4453,7 +4459,7 @@ public class PrincipalControlador {
      * Obtiene los filtros que tiene seleccionado el usuario
      * @return 
      */
-    private Map<String, Object> getFiltrosReporte() {
+    private String getFiltrosReporte() {
         Map<String, Object> mapParametros = new HashMap<>();
         //Se obtienen los filtros por mes de registro
         int deMesRegistro =  vistaReporte.cmbMesReg.getSelectedIndex();
@@ -4482,64 +4488,63 @@ public class PrincipalControlador {
         StringBuilder builder = new StringBuilder();        
 //        
 //        //Se evalua que existan filtros por mes de registro
-//        if((deMesRegistro != 0 && AMesRegistro != 0)){
-//            builder = builder.append(" WHERE beca_datos_escolares.fecha_inicio_beca");
-//            builder = builder.append(" BETWEEN ");
-//            builder = builder.append(deAnioRegistro);
-//            builder = builder.append("/");
-//            if(deMesRegistro < 10){
-//                builder = builder.append("0");
-//                builder = builder.append(deMesRegistro);
-//            }
-//            else
-//                builder = builder.append(deMesRegistro);
-//            builder = builder.append("/01 AND ");
-//            builder = builder.append(AAnioRegistro);
-//            builder = builder.append("/");
-//            if(AMesRegistro < 10){
-//                builder = builder.append("0");
-//                builder = builder.append(AMesRegistro);
-//            }
-//            else
-//                builder = builder.append(AMesRegistro);
-//            builder = builder.append("/01");
-//            comas = true;
-//        }
-//        
-//        if((deMesGraduacion > 0 &&  AMesGraduacion > 0)){
-//            if(comas)
-//                builder = builder.append(" AND ");
-//            else
-//                builder = builder.append(" WHERE ");
-//            
-//            builder = builder.append(" BETWEEN '");
-//            builder = builder.append(deAnioGraduacion);
-//            builder = builder.append("/");
-//            if(deMesGraduacion < 10){
-//                builder = builder.append("0");
-//                builder = builder.append(deMesGraduacion);
-//            }
-//            else
-//                builder = builder.append(deMesGraduacion);
-//            
-//            builder = builder.append("/01' AND '");
-//            builder = builder.append(AAnioGraduacion);
-//            builder = builder.append("/");
-//            if(AMesGraduacion < 10){
-//                builder = builder.append("0");
-//                builder = builder.append(AMesGraduacion + 1);
-//            }
-//            else
-//                builder = builder.append(AMesGraduacion + 1);
-//            builder = builder.append("/01'");
-//        }
-//        
-//        if(builder.length() > 0){
-//            mapParametros.put("filtroFechas", builder.toString());
-//            System.out.println("Agregado---------------------------");
-//        }
-//        System.out.println("BUILDER-----> " + builder.toString());
-mapParametros.put("filtroFechas", "WHERE beca_datos_escolares.fecha_inicio_beca BETWEEN '" + deAnioRegistro + "/" + deMesRegistro + "/01' AND '" + AAnioRegistro + "/" + AMesRegistro + "/01'");
-        return mapParametros;
+        if((deMesRegistro != 0 && AMesRegistro != 0)){
+            builder = builder.append(" WHERE beca_datos_escolares.fecha_inicio_beca");
+            builder = builder.append(" BETWEEN ");
+            builder = builder.append(deAnioRegistro);
+            builder = builder.append("/");
+            if(deMesRegistro < 10){
+                builder = builder.append("0");
+                builder = builder.append(deMesRegistro);
+            }
+            else
+                builder = builder.append(deMesRegistro);
+            builder = builder.append("/01 AND ");
+            builder = builder.append(AAnioRegistro);
+            builder = builder.append("/");
+            if(AMesRegistro < 10){
+                builder = builder.append("0");
+                builder = builder.append(AMesRegistro);
+            }
+            else
+                builder = builder.append(AMesRegistro);
+            builder = builder.append("/01");
+            comas = true;
+        }
+        
+        if((deMesGraduacion > 0 &&  AMesGraduacion > 0)){
+            if(comas)
+                builder = builder.append(" AND ");
+            else
+                builder = builder.append(" WHERE ");
+            
+            builder = builder.append(" BETWEEN '");
+            builder = builder.append(deAnioGraduacion);
+            builder = builder.append("/");
+            if(deMesGraduacion < 10){
+                builder = builder.append("0");
+                builder = builder.append(deMesGraduacion);
+            }
+            else
+                builder = builder.append(deMesGraduacion);
+            
+            builder = builder.append("/01' AND '");
+            builder = builder.append(AAnioGraduacion);
+            builder = builder.append("/");
+            if(AMesGraduacion < 10){
+                builder = builder.append("0");
+                builder = builder.append(AMesGraduacion + 1);
+            }
+            else
+                builder = builder.append(AMesGraduacion + 1);
+            builder = builder.append("/01'");
+        }
+        
+        if(builder.length() > 0){
+            mapParametros.put("filtroFechas", builder.toString());
+            System.out.println("Agregado---------------------------");
+        }
+        System.out.println("BUILDER-----> " + builder.toString());
+        return builder.toString();
     }
 }
