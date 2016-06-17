@@ -19,6 +19,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -49,6 +50,7 @@ import pojos.Hermanos;
 import pojos.Hijos;
 import pojos.Kardex;
 import pojos.Padres;
+import pojos.PojoReporteGeneral;
 import pojos.PojoReporteIndividual;
 import pojos.PojoReporteIndividualMuchosDatos;
 import pojos.Telefono;
@@ -3490,5 +3492,55 @@ public class PrincipalModelo {
         }
         
         return lstResults;
+    }
+
+    /**
+     * Obtiene los datos necesarios para generar el reporte General
+     * @param conexion
+     * @param filtros Parte del Query que contiene los filtros para generar el reporte
+     * @return Lista con los datos de los becarios
+     */
+    List<PojoReporteGeneral> getDatosReporteGeneral(Connection conexion, String filtros, Date[] fechas) {
+        List<PojoReporteGeneral> lstResult = new ArrayList<>();
+        Statement st = null;
+        ResultSet rs = null;
+        String query = "";
+        boolean flagFechasFiltro = false;
+        
+        if(fechas != null)
+            flagFechasFiltro = true;
+        try {
+            st = conexion.createStatement();
+            query = Consultas.getAllBecariosReporteGeneral.concat(filtros);
+            System.out.println(query);
+            rs = st.executeQuery(query);
+            while(rs.next()){
+                PojoReporteGeneral reporte = new PojoReporteGeneral();
+                reporte.setFolio(rs.getString("folio"));
+                reporte.setaPaterno(rs.getString("aPaterno"));
+                reporte.setaMaterno(rs.getString("aMaterno"));
+                reporte.setNombre(rs.getString("nombre"));
+                reporte.setNombrePrograma(rs.getString("nombrePrograma"));
+                reporte.setNombreEstatus(rs.getString("nombreEstatus"));
+                reporte.setNombreUniversidad(rs.getString("nombreUniversidad"));
+                reporte.setNombreCampoCarrera(rs.getString("nombreCampo"));
+                reporte.setBecaTotal(rs.getInt("becaTotal"));
+                reporte.setBecaSemestral(rs.getInt("becaSemestral"));
+                reporte.setSemestreInicioBeca(rs.getInt("semestreInicioBeca"));
+                reporte.setFechaInicioBeca(rs.getDate("fechaInicioBeca"));
+                reporte.setFechaFinBeca(rs.getDate("fechaFinBeca"));
+                
+                if(flagFechasFiltro){
+                    reporte.setFechaDe(fechas[0]);
+                    reporte.setFechaA(fechas[1]);
+                }
+                
+                lstResult.add(reporte);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return lstResult;
     }
 }

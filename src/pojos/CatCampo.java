@@ -39,7 +39,7 @@ public class CatCampo {
         this.descripcion = descripcion;
     }
     
-    public final static String COL_ID = "id_campo";
+    public final static String COL_ID = "id_campo_carrera";
     public final static String COL_NOMBRE = "nombre";
     public final static String COL_DESCRIPCION = "descipcion";
     

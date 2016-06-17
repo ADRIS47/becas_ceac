@@ -8,11 +8,13 @@ package crud;
 import pojos.Aval;
 import pojos.Becario;
 import pojos.CatBanco;
+import pojos.CatCampo;
 import pojos.CatCategorias;
 import pojos.CatColumnasTabla;
 import pojos.CatEstatus;
 import pojos.CatLugarServicioComunitario;
 import pojos.CatMunicipios;
+import pojos.CatPrograma;
 import pojos.CatReporte;
 import pojos.CatSexo;
 import pojos.CatTipoEscuela;
@@ -511,5 +513,23 @@ public class Consultas {
     public static String getAllBecariosEnSerBecados = "SELECT " + Becario.COL_ID + ", " + 
                                                         Becario.COL_PRIMERO_CON_BECA + " " + 
                                                         "FROM beca_becario";
+    /**
+     * Obtiene todos los becarios para general el reporte general
+     */
+    public static String getAllBecariosReporteGeneral = "SELECT becario." + Becario.COL_FOLIO + " AS folio, becario." + 
+            Becario.COL_APATERNO + " AS aPaterno, becario." + Becario.COL_AMATERNO + " AS aMaterno, becario." + Becario.COL_NOMBRE + " AS nombre, becario." + 
+            Becario.COL_PROGRAMA + ", becario." + Becario.COL_ESTATUS + ", programa." + CatPrograma.COL_ID + ", programa." + 
+            CatPrograma.COL_NOMBRE + " AS nombrePrograma, estatus." + CatEstatus.COL_ID + ", estatus." + CatEstatus.COL_NOMBRE + " AS nombreEstatus, uni." + 
+            DatosEscolares.COL_ID_UNIVERSIDAD + ", uni." + CatUniversidad.COL_NOMBRE + " AS nombreUniversidad, campo." + 
+            DatosEscolares.COL_ID_CAMPO_CARRERA + ", campo." + CatCampo.COL_NOMBRE + " AS nombreCampo, datos." + 
+            DatosEscolares.COL_BECA_TOTAL + " AS becaTotal, datos." + DatosEscolares.COL_BECA_SEMESTRAL + " AS becaSemestral, datos." + 
+            DatosEscolares.COL_SEMESTRE_INICIO_BECA + " AS semestreInicioBeca, datos." + DatosEscolares.COL_FECHA_INICIO_BECA + " AS fechaInicioBeca, datos." +
+            DatosEscolares.COL_FECHA_GRADUACION +  " AS fechaFinBeca" +
+            " FROM beca_cat_estatus AS estatus"
+            + " INNER JOIN beca_becario AS becario ON estatus." + CatEstatus.COL_ID + " = becario." + Becario.COL_ESTATUS + 
+            " INNER JOIN beca_cat_programa AS programa ON becario." + Becario.COL_PROGRAMA + " = programa." + CatPrograma.COL_ID + 
+            " INNER JOIN beca_datos_escolares AS datos ON datos." + DatosEscolares.COL_ID_BECARIO + " = becario." + Becario.COL_ID + 
+            " INNER JOIN beca_cat_universidad AS uni ON uni." + CatUniversidad.COL_ID + " = datos." + DatosEscolares.COL_ID_UNIVERSIDAD +
+            " INNER JOIN beca_cat_campo AS campo ON campo." + CatCampo.COL_ID + " = datos." + DatosEscolares.COL_ID_CAMPO_CARRERA + " "; 
     
 }

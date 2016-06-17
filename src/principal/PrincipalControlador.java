@@ -64,10 +64,12 @@ import pojos.Hermanos;
 import pojos.Hijos;
 import pojos.Kardex;
 import pojos.Padres;
+import pojos.PojoReporteGeneral;
 import pojos.PojoReporteIndividual;
 import pojos.PojoReporteIndividualMuchosDatos;
 import pojos.Telefono;
 import reportes.HistorialIndividual;
+import reportes.ReporteGeneral;
 import reportes.ReportePrimerBecado;
 import reportes.ReporteTrabajan;
 /**
@@ -4024,15 +4026,24 @@ public class PrincipalControlador {
             }
             
             String filtros = getFiltrosReporte();
+            java.util.Date[] fechasFiltro = null;
+            if(!filtros.isEmpty())
+                fechasFiltro = helper.getFechasFiltro(filtros);
+            
             Map<String, Object> parametros = new HashMap<>();
             parametros.put("imagen", "imagenes/logocr.jpg");
             
-            Path path = helper.getDirectorioReporte("Reporte_general.jasper");
+            List<PojoReporteGeneral> lstDatos = modelo.getDatosReporteGeneral(conexion, filtros, fechasFiltro);
+            
+            Path path = helper.getDirectorioReporte("reporteGeneral2.jasper");
             
             File file = path.toFile();
             
+            ReporteGeneral datosReporte = new ReporteGeneral();
+            datosReporte.setLstReporte(lstDatos);
+            
             JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
-            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, conexion);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, datosReporte);
             
             JasperViewer visor = new JasperViewer(jasperPrint, false);
             visor.setVisible(true);
@@ -4489,8 +4500,8 @@ public class PrincipalControlador {
 //        
 //        //Se evalua que existan filtros por mes de registro
         if((deMesRegistro != 0 && AMesRegistro != 0)){
-            builder = builder.append(" WHERE beca_datos_escolares.fecha_inicio_beca");
-            builder = builder.append(" BETWEEN ");
+            builder = builder.append(" WHERE datos.fecha_inicio_beca");
+            builder = builder.append(" BETWEEN '");
             builder = builder.append(deAnioRegistro);
             builder = builder.append("/");
             if(deMesRegistro < 10){
@@ -4499,7 +4510,7 @@ public class PrincipalControlador {
             }
             else
                 builder = builder.append(deMesRegistro);
-            builder = builder.append("/01 AND ");
+            builder = builder.append("/01' AND '");
             builder = builder.append(AAnioRegistro);
             builder = builder.append("/");
             if(AMesRegistro < 10){
@@ -4508,7 +4519,7 @@ public class PrincipalControlador {
             }
             else
                 builder = builder.append(AMesRegistro);
-            builder = builder.append("/01");
+            builder = builder.append("/01'");
             comas = true;
         }
         
@@ -4537,7 +4548,7 @@ public class PrincipalControlador {
             }
             else
                 builder = builder.append(AMesGraduacion + 1);
-            builder = builder.append("/01'");
+            builder = builder.append("/01' ");
         }
         
         if(builder.length() > 0){

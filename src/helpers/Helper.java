@@ -18,6 +18,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.sql.Date;
+import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -778,6 +779,28 @@ public class Helper {
         }
         
         return path;
+    }
+
+    /**
+     * Obtiene las fechas de los filtros
+     * @param filtros
+     * @return 
+     */
+    public java.util.Date[] getFechasFiltro(String filtros) {
+        java.util.Date[] result = new java.util.Date[2];
+        String[] separacion = filtros.split("BETWEEN");
+        String[] fechas = separacion[1].split("AND");
+        
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
+        try {
+            fechas[0] = fechas[0].replace("'", "").trim();
+            fechas[1] = fechas[1].replace("'", "").trim();
+            result[0] = formato.parse(fechas[0].trim());
+            result[1] = formato.parse(fechas[1].trim());
+        } catch (ParseException ex) {
+            Logger.getLogger(Helper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
     }
             
 }
