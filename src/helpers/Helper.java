@@ -45,6 +45,7 @@ import javax.swing.table.DefaultTableModel;
 import pojos.Becario;
 import pojos.DatosEscolares;
 import pojos.Kardex;
+import principal.VistaReportes;
 
 /**
  *
@@ -786,19 +787,25 @@ public class Helper {
      * @param filtros
      * @return 
      */
-    public java.util.Date[] getFechasFiltro(String filtros) {
+    public java.util.Date[] getFechasFiltro(String filtros, VistaReportes vistaReporte) {
         java.util.Date[] result = new java.util.Date[2];
-        String[] separacion = filtros.split("BETWEEN");
-        String[] fechas = separacion[1].split("AND");
-        
-        SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
-        try {
-            fechas[0] = fechas[0].replace("'", "").trim();
-            fechas[1] = fechas[1].replace("'", "").trim();
-            result[0] = formato.parse(fechas[0].trim());
-            result[1] = formato.parse(fechas[1].trim());
-        } catch (ParseException ex) {
-            Logger.getLogger(Helper.class.getName()).log(Level.SEVERE, null, ex);
+        //Si se encontraron filtros
+        if(!filtros.isEmpty()){
+            String[] separacion = filtros.split("BETWEEN");
+            String[] fechas = separacion[1].split("AND");
+
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
+            try {
+                fechas[0] = fechas[0].replace("'", "").trim();
+                fechas[1] = fechas[1].replace("'", "").trim();
+                result[0] = formato.parse(fechas[0].trim());
+                result[1] = formato.parse(fechas[1].trim());
+            } catch (ParseException ex) {
+                Logger.getLogger(Helper.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else{
+            
         }
         return result;
     }

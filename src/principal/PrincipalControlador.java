@@ -4027,15 +4027,14 @@ public class PrincipalControlador {
             
             String filtros = getFiltrosReporte();
             java.util.Date[] fechasFiltro = null;
-            if(!filtros.isEmpty())
-                fechasFiltro = helper.getFechasFiltro(filtros);
+            fechasFiltro = helper.getFechasFiltro(filtros, vistaReporte);
             
             Map<String, Object> parametros = new HashMap<>();
             parametros.put("imagen", "imagenes/logocr.jpg");
             
             List<PojoReporteGeneral> lstDatos = modelo.getDatosReporteGeneral(conexion, filtros, fechasFiltro);
             
-            Path path = helper.getDirectorioReporte("reporteGeneral2.jasper");
+            Path path = helper.getDirectorioReporte("Reporte_general.jasper");
             
             File file = path.toFile();
             
@@ -4497,59 +4496,65 @@ public class PrincipalControlador {
         String query = "";
         boolean comas = false;
         StringBuilder builder = new StringBuilder();        
-//        
-//        //Se evalua que existan filtros por mes de registro
-        if((deMesRegistro != 0 && AMesRegistro != 0)){
-            builder = builder.append(" WHERE datos.fecha_inicio_beca");
-            builder = builder.append(" BETWEEN '");
-            builder = builder.append(deAnioRegistro);
-            builder = builder.append("/");
-            if(deMesRegistro < 10){
-                builder = builder.append("0");
-                builder = builder.append(deMesRegistro);
+        
+        //Si se esta filtrando por fecha de ingreso
+        if(vistaReporte.chkFiltro.isSelected()){
+    //        //Se evalua que existan filtros por mes de registro
+            if((deMesRegistro != 0 && AMesRegistro != 0)){
+                builder = builder.append(" WHERE datos.fecha_inicio_beca");
+                builder = builder.append(" BETWEEN '");
+                builder = builder.append(deAnioRegistro);
+                builder = builder.append("/");
+                if(deMesRegistro < 10){
+                    builder = builder.append("0");
+                    builder = builder.append(deMesRegistro);
+                }
+                else
+                    builder = builder.append(deMesRegistro);
+                builder = builder.append("/01' AND '");
+                builder = builder.append(AAnioRegistro);
+                builder = builder.append("/");
+                if(AMesRegistro < 10){
+                    builder = builder.append("0");
+                    builder = builder.append(AMesRegistro);
+                }
+                else
+                    builder = builder.append(AMesRegistro);
+                builder = builder.append("/01'");
+                comas = true;
             }
-            else
-                builder = builder.append(deMesRegistro);
-            builder = builder.append("/01' AND '");
-            builder = builder.append(AAnioRegistro);
-            builder = builder.append("/");
-            if(AMesRegistro < 10){
-                builder = builder.append("0");
-                builder = builder.append(AMesRegistro);
+        }
+        //Si se esta filtrando por fecha de graduacion
+        else{
+            if((deMesGraduacion > 0 &&  AMesGraduacion > 0)){
+                if(comas)
+                    builder = builder.append(" AND ");
+                else
+                    builder = builder.append(" WHERE ");
+
+                builder = builder.append("datos." + DatosEscolares.COL_FECHA_GRADUACION + " BETWEEN '");
+                builder = builder.append(deAnioGraduacion);
+                builder = builder.append("/");
+                if(deMesGraduacion < 10){
+                    builder = builder.append("0");
+                    builder = builder.append(deMesGraduacion);
+                }
+                else
+                    builder = builder.append(deMesGraduacion);
+
+                builder = builder.append("/01' AND '");
+                builder = builder.append(AAnioGraduacion);
+                builder = builder.append("/");
+                if(AMesGraduacion < 10){
+                    builder = builder.append("0");
+                    builder = builder.append(AMesGraduacion);
+                }
+                else
+                    builder = builder.append(AMesGraduacion);
+                builder = builder.append("/01' ");
             }
-            else
-                builder = builder.append(AMesRegistro);
-            builder = builder.append("/01'");
-            comas = true;
         }
         
-        if((deMesGraduacion > 0 &&  AMesGraduacion > 0)){
-            if(comas)
-                builder = builder.append(" AND ");
-            else
-                builder = builder.append(" WHERE ");
-            
-            builder = builder.append(" BETWEEN '");
-            builder = builder.append(deAnioGraduacion);
-            builder = builder.append("/");
-            if(deMesGraduacion < 10){
-                builder = builder.append("0");
-                builder = builder.append(deMesGraduacion);
-            }
-            else
-                builder = builder.append(deMesGraduacion);
-            
-            builder = builder.append("/01' AND '");
-            builder = builder.append(AAnioGraduacion);
-            builder = builder.append("/");
-            if(AMesGraduacion < 10){
-                builder = builder.append("0");
-                builder = builder.append(AMesGraduacion + 1);
-            }
-            else
-                builder = builder.append(AMesGraduacion + 1);
-            builder = builder.append("/01' ");
-        }
         
         if(builder.length() > 0){
             mapParametros.put("filtroFechas", builder.toString());
@@ -4557,5 +4562,32 @@ public class PrincipalControlador {
         }
         System.out.println("BUILDER-----> " + builder.toString());
         return builder.toString();
+    }
+
+    protected void cambiaFiltroBusqueda() {
+        //Si se quiere filtrar por fecha de Inicio de beca
+        if(vistaReporte.chkFiltro.isSelected()){
+            
+            vistaReporte.cmbMesReg.setEnabled(true);
+            vistaReporte.cmbMesReg2.setEnabled(true);
+            vistaReporte.cmbAnioReg.setEnabled(true);
+            vistaReporte.cmbanioReg2.setEnabled(true);
+            
+            vistaReporte.cmbMesRep3.setEnabled(false);
+            vistaReporte.cmbMesRep4.setEnabled(false);
+            vistaReporte.cmbAnioRep2.setEnabled(false);
+            vistaReporte.cmbanioRep3.setEnabled(false);
+        }
+        else{
+            vistaReporte.cmbMesReg.setEnabled(false);
+            vistaReporte.cmbMesReg2.setEnabled(false);
+            vistaReporte.cmbAnioReg.setEnabled(false);
+            vistaReporte.cmbanioReg2.setEnabled(false);
+            
+            vistaReporte.cmbMesRep3.setEnabled(true);
+            vistaReporte.cmbMesRep4.setEnabled(true);
+            vistaReporte.cmbAnioRep2.setEnabled(true);
+            vistaReporte.cmbanioRep3.setEnabled(true);
+        }
     }
 }
