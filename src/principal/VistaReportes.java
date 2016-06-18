@@ -131,13 +131,16 @@ public class VistaReportes extends javax.swing.JPanel {
         jLabel8.setText("Programa inical:");
 
         cmbProgramaInicial.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        cmbProgramaInicial.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione" }));
 
         cmbProgramaFinal.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        cmbProgramaFinal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione" }));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel13.setText("y");
 
         cmbEstatus.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        cmbEstatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione" }));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel14.setText("Estatus:");
@@ -235,8 +238,10 @@ public class VistaReportes extends javax.swing.JPanel {
         jLabel3.setText("Folio Final:");
 
         cmbPrograma.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        cmbPrograma.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione" }));
 
         txtFolioInicial.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        txtFolioInicial.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         txtFolioFinal.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         txtFolioFinal.addActionListener(new java.awt.event.ActionListener() {

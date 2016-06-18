@@ -4484,12 +4484,12 @@ public class PrincipalControlador {
         String AAnioGraduacion = (String) vistaReporte.cmbanioRep3.getSelectedItem();
         
         //Se obtienen los filtros por programas y estatus
-        String programaInicial1 = (String) vistaReporte.cmbProgramaInicial.getSelectedItem();
-        String programaInicial2 = (String) vistaReporte.cmbProgramaFinal.getSelectedItem();
-        String estatusPrograma = (String) vistaReporte.cmbEstatus.getSelectedItem();
+        int programaInicial1 = vistaReporte.cmbProgramaInicial.getSelectedIndex();
+        int programaInicial2 = vistaReporte.cmbProgramaFinal.getSelectedIndex();
+        int estatusBecario = vistaReporte.cmbEstatus.getSelectedIndex();
         
         //Se obtienen los filtros por programas y folios
-        String programa = (String) vistaReporte.cmbPrograma.getSelectedItem();
+        int programa = vistaReporte.cmbPrograma.getSelectedIndex();
         String folioInicial = vistaReporte.txtFolioInicial.getText();
         String folioFinal = vistaReporte.txtFolioFinal.getText();
         
@@ -4525,7 +4525,7 @@ public class PrincipalControlador {
             }
         }
         //Si se esta filtrando por fecha de graduacion
-        else{
+        else if(!vistaReporte.chkFiltro.isSelected()){
             if((deMesGraduacion > 0 &&  AMesGraduacion > 0)){
                 if(comas)
                     builder = builder.append(" AND ");
@@ -4552,9 +4552,69 @@ public class PrincipalControlador {
                 else
                     builder = builder.append(AMesGraduacion);
                 builder = builder.append("/01' ");
+                
+                comas = true;
             }
         }
         
+        //
+        if(programaInicial1 != 0){
+            
+            if(comas)
+                builder = builder.append(" AND ");
+            else
+                builder = builder.append(" WHERE ");
+            builder = builder.append("becario.");
+            builder = builder.append(Becario.COL_PROGRAMA);
+            builder = builder.append(" = ");
+            builder = builder.append(getIdCmbBox((String) vistaReporte.cmbProgramaInicial.getSelectedItem(), catPrograma));
+//           builder = builder.append(" AND becario.");
+//           builder = builder.append(Becario.COL_PROGRAMA);
+//           builder = builder.append(getIdCmbBox((String) vistaReporte.cmbProgramaFinal.getSelectedItem(), catPrograma));
+//           builder = builder.append(Becario.COL_PROGRAMA);
+            
+            comas = true;
+        }
+        //Si se va a filtrar por estatus
+        if(estatusBecario != 0){
+             if(comas)
+                builder = builder.append(" AND ");
+            else
+                builder = builder.append(" WHERE ");
+             
+             builder = builder.append("becario.");
+             builder = builder.append(Becario.COL_ESTATUS);
+             builder = builder.append(" = ");
+             builder = builder.append(getIdCmbBox((String) vistaReporte.cmbEstatus.getSelectedItem(), catEstatus));
+             
+             comas = true;
+        }
+        
+        //Si se va a filtrar por programa y folios
+        if(programa != 0 && !folioInicial.isEmpty()){
+             if(comas)
+                builder = builder.append(" AND ");
+            else
+                builder = builder.append(" WHERE ");
+             
+            String inicioFolio = modelo.getClavePrograma(getIdCmbBox((String) 
+                            vistaReporte.cmbPrograma.getSelectedItem(), catPrograma));
+            
+            builder = builder.append("becario.");
+            builder = builder.append(Becario.COL_PROGRAMA);
+            builder = builder.append(" = ");
+            builder = builder.append(getIdCmbBox((String) vistaReporte.cmbPrograma.getSelectedItem(), catPrograma));
+            builder = builder.append(" AND substring(");
+            builder = builder.append(Becario.COL_FOLIO);
+            builder = builder.append(" FROM 5 FOR 1000) >= ");
+            builder = builder.append(folioInicial);
+            if(!folioFinal.isEmpty()){
+                builder = builder.append(" AND substring( ");
+                builder = builder.append(Becario.COL_FOLIO);
+                builder = builder.append(" FROM 5 FOR 1000) <= ");
+                builder = builder.append(folioFinal);
+            }
+        }
         
         if(builder.length() > 0){
             mapParametros.put("filtroFechas", builder.toString());

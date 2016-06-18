@@ -790,7 +790,7 @@ public class Helper {
     public java.util.Date[] getFechasFiltro(String filtros, VistaReportes vistaReporte) {
         java.util.Date[] result = new java.util.Date[2];
         //Si se encontraron filtros
-        if(!filtros.isEmpty()){
+        if(!filtros.isEmpty() && filtros.contains("BETWEEN")){
             String[] separacion = filtros.split("BETWEEN");
             String[] fechas = separacion[1].split("AND");
 
