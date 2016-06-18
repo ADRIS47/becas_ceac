@@ -4025,7 +4025,7 @@ public class PrincipalControlador {
                 return;
             }
             
-            String filtros = getFiltrosReporte();
+            String filtros = getFiltrosReporte(conexion);
             java.util.Date[] fechasFiltro = null;
             fechasFiltro = helper.getFechasFiltro(filtros, vistaReporte);
             
@@ -4362,7 +4362,7 @@ public class PrincipalControlador {
                 return;
             }
             
-            String filtros = getFiltrosReporte();
+            String filtros = getFiltrosReporte(conexion);
             Map<String, Object> parametros = new HashMap<>();
             parametros.put("imagen", "imagenes/logocr.jpg");
             
@@ -4469,7 +4469,7 @@ public class PrincipalControlador {
      * Obtiene los filtros que tiene seleccionado el usuario
      * @return 
      */
-    private String getFiltrosReporte() {
+    private String getFiltrosReporte(Connection conexion) {
         Map<String, Object> mapParametros = new HashMap<>();
         //Se obtienen los filtros por mes de registro
         int deMesRegistro =  vistaReporte.cmbMesReg.getSelectedIndex();
@@ -4614,6 +4614,20 @@ public class PrincipalControlador {
                 builder = builder.append(" FROM 5 FOR 1000) <= ");
                 builder = builder.append(folioFinal);
             }
+            
+            comas = true;
+        }
+        //Si no se seleccionaron filtros
+        if(comas == false){
+            Date fechaMenor = modelo.getFechaMenorDeIngreso(conexion);
+            Date fechaMayor = modelo.getFechaMayorDeGraduacion(conexion);
+            
+            builder = builder.append(" WHERE datos.fecha_inicio_beca");
+            builder = builder.append(" BETWEEN '");
+            builder = builder.append(fechaMenor); 
+            builder = builder.append("' AND '");
+            builder = builder.append(fechaMayor);
+            builder = builder.append("' ");
         }
         
         if(builder.length() > 0){

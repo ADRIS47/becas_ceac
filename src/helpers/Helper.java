@@ -796,16 +796,17 @@ public class Helper {
 
             SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
             try {
+                //Se remplazan los caracteres raros
                 fechas[0] = fechas[0].replace("'", "").trim();
                 fechas[1] = fechas[1].replace("'", "").trim();
+                fechas[0] = fechas[0].replace("-", "/").trim();
+                fechas[1] = fechas[1].replace("-", "/").trim();
+                //Se parsean las fechas
                 result[0] = formato.parse(fechas[0].trim());
                 result[1] = formato.parse(fechas[1].trim());
             } catch (ParseException ex) {
                 Logger.getLogger(Helper.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
-        else{
-            
         }
         return result;
     }

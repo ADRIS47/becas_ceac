@@ -3543,4 +3543,42 @@ public class PrincipalModelo {
         
         return lstResult;
     }
+
+    protected java.sql.Date getFechaMenorDeIngreso(Connection conexion) {
+        java.sql.Date fecha = null;
+        Statement st = null;
+        ResultSet rs = null;
+        
+        try {
+            st = conexion.createStatement();
+            rs = st.executeQuery(Consultas.getFechaMenorDeIngreso);
+            
+            if(rs.next()){
+                fecha = rs.getDate(DatosEscolares.COL_FECHA_INICIO_BECA);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return fecha;
+    }
+
+    java.sql.Date getFechaMayorDeGraduacion(Connection conexion) {
+        java.sql.Date fecha = null;
+        Statement st = null;
+        ResultSet rs = null;
+        
+        try {
+            st = conexion.createStatement();
+            rs = st.executeQuery(Consultas.getFechaMayorDeGraduacion);
+            
+            if(rs.next()){
+                fecha = rs.getDate(DatosEscolares.COL_FECHA_GRADUACION);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return fecha;
+    }
 }

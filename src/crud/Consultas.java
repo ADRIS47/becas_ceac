@@ -532,4 +532,16 @@ public class Consultas {
             " INNER JOIN beca_cat_universidad AS uni ON uni." + CatUniversidad.COL_ID + " = datos." + DatosEscolares.COL_ID_UNIVERSIDAD +
             " INNER JOIN beca_cat_campo AS campo ON campo." + CatCampo.COL_ID + " = datos." + DatosEscolares.COL_ID_CAMPO_CARRERA + " "; 
     
+    /**
+     * Obtiene al becario que se registro primero en toda la historia
+     */
+    public static String getFechaMenorDeIngreso = "SELECT MIN(" + DatosEscolares.COL_FECHA_INICIO_BECA + ") "
+                            + "AS " + DatosEscolares.COL_FECHA_INICIO_BECA + " FROM beca_datos_escolares";
+    
+    /**
+     * Obtiene al último becario que se va a graduar en la historia
+     */
+    public static String getFechaMayorDeGraduacion = "SELECT MAX(" + DatosEscolares.COL_FECHA_GRADUACION + ") "
+                            + "AS " + DatosEscolares.COL_FECHA_GRADUACION + " FROM beca_datos_escolares";
+    
 }
