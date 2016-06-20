@@ -4369,7 +4369,7 @@ public class PrincipalControlador {
             Iterator it = parametros.keySet().iterator();
             while(it.hasNext()){
                 String id = (String) it.next();
-                System.out.println(id + " -------> " + parametros.get(id));
+                //System.out.println(id + " -------> " + parametros.get(id));
             }
             
             Path path = helper.getDirectorioReporte(nombreReporte);
@@ -4634,7 +4634,7 @@ public class PrincipalControlador {
             mapParametros.put("filtroFechas", builder.toString());
             System.out.println("Agregado---------------------------");
         }
-        System.out.println("BUILDER-----> " + builder.toString());
+        //System.out.println("BUILDER-----> " + builder.toString());
         return builder.toString();
     }
 

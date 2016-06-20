@@ -3512,7 +3512,7 @@ public class PrincipalModelo {
         try {
             st = conexion.createStatement();
             query = Consultas.getAllBecariosReporteGeneral.concat(filtros);
-            System.out.println(query);
+            //System.out.println(query);
             rs = st.executeQuery(query);
             while(rs.next()){
                 PojoReporteGeneral reporte = new PojoReporteGeneral();
