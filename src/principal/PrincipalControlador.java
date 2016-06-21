@@ -4088,32 +4088,23 @@ public class PrincipalControlador {
             
             File file = path.toFile();
             System.out.println(file.getAbsolutePath());
-            try {
-                HistorialIndividual report = new HistorialIndividual();
-                report.setLstDatosUnicos(reporteIndividual);
-                report.setLstMuchosDatos(datos);
-                report.setLstTelefonos(telefonos);
-                JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
-                JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, report);
+            
+            HistorialIndividual report = new HistorialIndividual();
+            report.setLstDatosUnicos(reporteIndividual);
+            report.setLstMuchosDatos(datos);
+            report.setLstTelefonos(telefonos);
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, report);
 
-                JasperViewer visor = new JasperViewer(jasperPrint, false);
-                visor.setVisible(true);
+            JasperViewer visor = new JasperViewer(jasperPrint, false);
+            visor.setVisible(true);
                 
-            } catch (JRException ex) {
+           
+        }
+        catch (JRException ex) {
 //                log.muestraErrores(ex);
                 Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
             }
-
-            finally {
-                try{
-                    conexion.close();
-                } 
-                catch (SQLException ex) {
-                    log.muestraErrores(ex);
-                    Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        }
         catch(NullPointerException e){
             JOptionPane.showMessageDialog(vistaReporte, "Debe de seleccionar un becario", "Error", JOptionPane.ERROR_MESSAGE);
             terminaVistaReportes();
@@ -4199,30 +4190,21 @@ public class PrincipalControlador {
             
             File file = path.toFile();
             System.out.println(file.getAbsolutePath());
-            try {
-                ReporteTrabajan report = new ReporteTrabajan();
-                report.setLstTrabaja(datos);
-                
-                JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
-                JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, report);
+            
+            ReporteTrabajan report = new ReporteTrabajan();
+            report.setLstTrabaja(datos);
 
-                JasperViewer visor = new JasperViewer(jasperPrint, false);
-                visor.setVisible(true);
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, report);
+
+            JasperViewer visor = new JasperViewer(jasperPrint, false);
+            visor.setVisible(true);
                 
-            } catch (JRException ex) {
+            
+        }
+        catch (JRException ex) {
 //                log.muestraErrores(ex);
-                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-            finally {
-                try{
-                    conexion.close();
-                } 
-                catch (SQLException ex) {
-                    log.muestraErrores(ex);
-                    Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
+            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
         }
         catch(NullPointerException e){
             JOptionPane.showMessageDialog(vistaReporte, "Debe de seleccionar un becario", "Error", JOptionPane.ERROR_MESSAGE);
@@ -4426,31 +4408,22 @@ public class PrincipalControlador {
             
             File file = path.toFile();
             System.out.println(file.getAbsolutePath());
-            try {
-                ReportePrimerBecado report = new ReportePrimerBecado();
-                report.setLstTrabaja(datos);
                 
-                JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
-                JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, report);
+            ReportePrimerBecado report = new ReportePrimerBecado();
+            report.setLstTrabaja(datos);
 
-                JasperViewer visor = new JasperViewer(jasperPrint, false);
-                visor.setVisible(true);
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, report);
+
+            JasperViewer visor = new JasperViewer(jasperPrint, false);
+            visor.setVisible(true);
                 
-            } catch (JRException ex) {
-//                log.muestraErrores(ex);
-                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-            finally {
-                try{
-                    conexion.close();
-                } 
-                catch (SQLException ex) {
-                    log.muestraErrores(ex);
-                    Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
+            
         }
+        catch (JRException ex) {
+    //                log.muestraErrores(ex);
+               Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+           }
         catch(NullPointerException e){
             JOptionPane.showMessageDialog(vistaReporte, "Debe de seleccionar un becario", "Error", JOptionPane.ERROR_MESSAGE);
             terminaVistaReportes();
