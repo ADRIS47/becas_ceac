@@ -3,6 +3,7 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<parameter name="imagen" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -54,7 +55,7 @@
 			</staticText>
 			<image>
 				<reportElement x="5" y="3" width="107" height="36" uuid="ebaf1f43-964e-48e2-a456-e6265237c509"/>
-				<imageExpression><![CDATA["C:\\Users\\Adriana\\Documents\\NetBeansProjects\\becas\\becas_ceac\\src\\imagenes\\logocr.jpg"]]></imageExpression>
+				<imageExpression><![CDATA[$P{imagen}]]></imageExpression>
 			</image>
 			<line>
 				<reportElement x="0" y="42" width="763" height="1" uuid="ed78abe7-8ac4-4c20-9a8e-c60dd6a5b374"/>

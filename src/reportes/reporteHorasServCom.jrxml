@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteHorasServCom" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="374d92c6-fb0b-4e83-ac87-56671cfb7f4c">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteHorasServCom" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="374d92c6-fb0b-4e83-ac87-56671cfb7f4c">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="120"/>
 	<queryString>
 		<![CDATA[SELECT kardex.lugar_servicio_comunitario, com.nombre, SUM(kardex.horas_servicio) AS horas
 
@@ -28,13 +28,28 @@ GROUP BY com.nombre]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch"/>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="36" width="572" height="28" uuid="a9b4f92f-15cd-4de2-873d-abcbf18a765b"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[REPORTE POR HRS. DE SERVICIO COMUNITARIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="10" width="572" height="26" uuid="d5e860cb-8e6f-466b-82a8-a2f121a121e3"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[FUNDACION RUSSEK]]></text>
+			</staticText>
+		</band>
 	</title>
 	<summary>
-		<band height="210" splitType="Stretch">
+		<band height="500" splitType="Stretch">
 			<pieChart>
 				<chart>
-					<reportElement x="105" y="11" width="592" height="199" uuid="4484283f-958d-42fb-90e2-09f0299dd26c"/>
+					<reportElement x="10" y="82" width="562" height="350" uuid="4484283f-958d-42fb-90e2-09f0299dd26c"/>
 					<chartTitle/>
 					<chartSubtitle/>
 					<chartLegend/>
