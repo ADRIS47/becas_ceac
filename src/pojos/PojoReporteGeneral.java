@@ -28,6 +28,9 @@ public class PojoReporteGeneral {
     Date fechaFinBeca;
     Date fechaDe;
     Date fechaA;
+    String sexo;
+    int idGeneroSexo;
+    
 
     public String getFolio() {
         return folio;
@@ -148,5 +151,22 @@ public class PojoReporteGeneral {
     public void setFechaA(Date fechaA) {
         this.fechaA = fechaA;
     }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public int getIdGeneroSexo() {
+        return idGeneroSexo;
+    }
+
+    public void setIdGeneroSexo(int idGeneroSexo) {
+        this.idGeneroSexo = idGeneroSexo;
+    }
+    
     
 }

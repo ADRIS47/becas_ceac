@@ -71,6 +71,7 @@ import pojos.Telefono;
 import reportes.HistorialIndividual;
 import reportes.ReporteGeneral;
 import reportes.ReportePrimerBecado;
+import reportes.ReporteSexo;
 import reportes.ReporteTrabajan;
 /**
  *
@@ -3973,7 +3974,8 @@ public class PrincipalControlador {
                 
             //Reporte Sexo
             case 6:
-                creaReporteDirectamente("reporteSexo.jasper");
+                //creaReporteDirectamente("reporteSexo.jasper");
+                creaReporteSexo();
                 break;
                 
             //Reporte Trabajan
@@ -4123,7 +4125,7 @@ public class PrincipalControlador {
     /**
      * Genera el reporte de sexo
      */
-    /*private void creaReporteSexo() {
+    private void creaReporteSexo() {
         Conexion conn = null;
         Connection conexion = null;
         try {
@@ -4135,11 +4137,23 @@ public class PrincipalControlador {
                 return;
             }
             
+            String filtros = getFiltrosReporte(conexion);
+            java.util.Date[] fechasFiltro = null;
+            fechasFiltro = helper.getFechasFiltro(filtros, vistaReporte);
+            
+            Map<String, Object> parametros = new HashMap<>();
+            parametros.put("imagen", "imagenes/logocr.jpg");
+            
             Path path = helper.getDirectorioReporte("reporteSexo.jasper");
             File file = path.toFile();
             
+            List<PojoReporteGeneral> lstDatos = modelo.creaReporteSexo(conexion, filtros, fechasFiltro);
+            
+            ReporteSexo reporteSexo = new ReporteSexo();
+            reporteSexo.setLstReporte(lstDatos);
+            
             JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
-            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, conexion);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, reporteSexo);
             
             JasperViewer visor = new JasperViewer(jasperPrint, false);
             visor.setVisible(true);
@@ -4153,7 +4167,7 @@ public class PrincipalControlador {
                 Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }*/
+    }
     
     /**
      * Genera el reporte de los becarios que trabajan
@@ -4603,10 +4617,10 @@ public class PrincipalControlador {
             builder = builder.append("' ");
         }
         
-        if(builder.length() > 0){
-            mapParametros.put("filtroFechas", builder.toString());
-            System.out.println("Agregado---------------------------");
-        }
+//        if(builder.length() > 0){
+//            mapParametros.put("filtroFechas", builder.toString());
+//            System.out.println("Agregado---------------------------");
+//        }
         //System.out.println("BUILDER-----> " + builder.toString());
         return builder.toString();
     }

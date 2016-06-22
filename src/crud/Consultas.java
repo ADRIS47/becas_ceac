@@ -544,4 +544,25 @@ public class Consultas {
     public static String getFechaMayorDeGraduacion = "SELECT MAX(" + DatosEscolares.COL_FECHA_GRADUACION + ") "
                             + "AS " + DatosEscolares.COL_FECHA_GRADUACION + " FROM beca_datos_escolares";
     
+    /**
+     * SELECT
+     beca_becario.`nombre` AS beca_becario_nombre,
+     beca_becario.`ap_paterno` AS beca_becario_ap_paterno,
+     beca_becario.`ap_materno` AS beca_becario_ap_materno,
+     beca_becario.`folio` AS beca_becario_folio,
+     beca_becario.`sexo` AS beca_becario_sexo,
+     beca_cat_sexo.`nombre` AS beca_cat_sexo_nombre,
+     beca_cat_sexo.`id_genero` AS beca_cat_sexo_id_genero
+FROM
+     `beca_cat_sexo` beca_cat_sexo INNER JOIN `beca_becario` beca_becario ON beca_cat_sexo.`id_genero` = beca_becario.`sexo`
+     * Obtiene los datos para crear el reporte de Sexo
+     */
+    public static String getAllBecariosReporteSexo = "SELECT becario." + Becario.COL_FOLIO + " AS folio, becario." + 
+                        Becario.COL_APATERNO + " AS aPaterno, becario." + Becario.COL_AMATERNO + " AS aMaterno, becario." + 
+                        Becario.COL_NOMBRE + " AS nombre, sexo." + CatSexo.COL_NOMBRE + " AS nombreSexo, " +
+                        CatSexo.COL_ID_GENERO + " AS idSexo " +
+                        "FROM beca_becario AS becario " +
+                        "INNER JOIN beca_cat_sexo AS sexo ON sexo." + CatSexo.COL_ID_GENERO + " = becario." + Becario.COL_SEXO + " " +
+                        "INNER JOIN beca_datos_escolares AS datos ON datos." + DatosEscolares.COL_ID_BECARIO + " = becario." + Becario.COL_ID + " ";
+    
 }

@@ -3581,4 +3581,48 @@ public class PrincipalModelo {
         
         return fecha;
     }
+
+    /**
+     * Crea el reporte de sexo
+     * @param conexion
+     * @param filtros
+     * @param fechasFiltro
+     * @return 
+     */
+    List<PojoReporteGeneral> creaReporteSexo(Connection conexion, String filtros, Date[] fechas) {
+        List<PojoReporteGeneral> lstResult = new ArrayList<>();
+        Statement st = null;
+        ResultSet rs = null;
+        String query = "";
+        boolean flagFechasFiltro = false;
+        
+        if(fechas != null)
+            flagFechasFiltro = true;
+        try {
+            st = conexion.createStatement();
+            query = Consultas.getAllBecariosReporteSexo.concat(filtros);
+            System.out.println(query);
+            rs = st.executeQuery(query);
+            while(rs.next()){
+                PojoReporteGeneral reporte = new PojoReporteGeneral();
+                reporte.setFolio(rs.getString("folio"));
+                reporte.setaPaterno(rs.getString("aPaterno"));
+                reporte.setaMaterno(rs.getString("aMaterno"));
+                reporte.setNombre(rs.getString("nombre"));
+                reporte.setSexo(rs.getString("nombreSexo"));
+                reporte.setIdGeneroSexo(rs.getInt("idSexo"));
+                
+                if(flagFechasFiltro){
+                    reporte.setFechaDe(fechas[0]);
+                    reporte.setFechaA(fechas[1]);
+                }
+                
+                lstResult.add(reporte);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return lstResult;
+    }
 }
