@@ -69,6 +69,7 @@ import pojos.PojoReporteIndividual;
 import pojos.PojoReporteIndividualMuchosDatos;
 import pojos.Telefono;
 import reportes.HistorialIndividual;
+import reportes.ReporteEdoCivil;
 import reportes.ReporteGeneral;
 import reportes.ReportePrimerBecado;
 import reportes.ReporteSexo;
@@ -4007,6 +4008,10 @@ public class PrincipalControlador {
             case 12:
                 creaReportePrimerBecario();
                 break;
+                
+            case 14:
+                creaReporteEstadoCivil();
+                break;
         }
         
         helper.cursorNormal(vista);
@@ -4028,6 +4033,7 @@ public class PrincipalControlador {
             }
             
             String filtros = getFiltrosReporte(conexion);
+            
             java.util.Date[] fechasFiltro = null;
             fechasFiltro = helper.getFechasFiltro(filtros, vistaReporte);
             
@@ -4224,6 +4230,54 @@ public class PrincipalControlador {
             JOptionPane.showMessageDialog(vistaReporte, "Debe de seleccionar un becario", "Error", JOptionPane.ERROR_MESSAGE);
             terminaVistaReportes();
             creaVistaBusqueda();
+        }
+        finally{
+            try {
+                conexion.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    /**
+     * Genera el reporte del estado civil de los becarios
+     */
+    private void creaReporteEstadoCivil() {
+        Conexion conn = null;
+        Connection conexion = null;
+        try {
+            conn = new Conexion();
+            conexion = conn.estableceConexion();
+            
+            if(conexion == null){
+                JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            String filtros = getFiltrosReporte(conexion);
+            java.util.Date[] fechasFiltro = null;
+            fechasFiltro = helper.getFechasFiltro(filtros, vistaReporte);
+            String programa = helper.getPrograma(filtros);
+            
+            Map<String, Object> parametros = new HashMap<>();
+            parametros.put("imagen", "imagenes/logocr.jpg");
+            
+            Path path = helper.getDirectorioReporte("reporteEdoCivil.jasper");
+            File file = path.toFile();
+            
+            List<PojoReporteGeneral> lstDatos = modelo.creaReporteEdoCivil(conexion, filtros, fechasFiltro);
+            
+            ReporteEdoCivil reporteEdoCivil = new ReporteEdoCivil();
+            reporteEdoCivil.setLstReporte(lstDatos);
+            
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, reporteEdoCivil);
+            
+            JasperViewer visor = new JasperViewer(jasperPrint, false);
+            visor.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
         }
         finally{
             try {

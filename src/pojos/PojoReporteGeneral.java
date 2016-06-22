@@ -30,6 +30,7 @@ public class PojoReporteGeneral {
     Date fechaA;
     String sexo;
     int idGeneroSexo;
+    String nombreEdoCivil;
     
 
     public String getFolio() {
@@ -167,6 +168,12 @@ public class PojoReporteGeneral {
     public void setIdGeneroSexo(int idGeneroSexo) {
         this.idGeneroSexo = idGeneroSexo;
     }
-    
-    
+
+    public String getNombreEdoCivil() {
+        return nombreEdoCivil;
+    }
+
+    public void setNombreEdoCivil(String nombreEdoCivil) {
+        this.nombreEdoCivil = nombreEdoCivil;
+    }
 }
