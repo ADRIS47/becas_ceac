@@ -571,4 +571,16 @@ public class Consultas {
                             //"INNER JOIN beca_cat_programa AS programa ON programa." + CatPrograma.COL_ID + " = becario." + Becario.COL_PROGRAMA + " " +
                             "INNER JOIN beca_datos_escolares AS datos ON datos." + DatosEscolares.COL_ID_BECARIO + " = becario." + Becario.COL_ID + " ";
     
+    /**
+     *  SELECT dat.id_campo_carrera, campo.nombre
+
+FROM beca_datos_escolares AS dat
+
+JOIN beca_cat_campo AS campo ON dat.id_campo_carrera = campo.id_campo_carrera
+     */
+    public static String getAllBecariosReporteCampoAplicacion = "SELECT campo." + CatCampo.COL_NOMBRE + " AS nombreCampoAplicacion " + 
+                            "FROM beca_becario AS becario " + 
+                            "INNER JOIN beca_datos_escolares AS datos ON becario. " + Becario.COL_ID + " = datos." + DatosEscolares.COL_ID_BECARIO + " " +
+                            "INNER JOIN beca_cat_campo AS campo ON datos." + DatosEscolares.COL_ID_CAMPO_CARRERA + " = campo." + CatCampo.COL_ID + " ";
+    
 }

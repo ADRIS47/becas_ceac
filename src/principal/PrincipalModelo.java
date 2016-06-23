@@ -3666,4 +3666,45 @@ public class PrincipalModelo {
         
         return lstResult;
     }
+
+    /**
+     * Obtiene la informacion necesaria para crear el reporte por campo de aplicación 
+     * @param conexion
+     * @param filtros
+     * @param fechas
+     * @param programa
+     * @return 
+     */
+    protected List<PojoReporteGeneral> creaReporteCampoAplicacion(Connection conexion, String filtros, Date[] fechas, String programa) {
+        List<PojoReporteGeneral> lstResult = new ArrayList<>();
+        Statement st = null;
+        ResultSet rs = null;
+        String query = "";
+        boolean flagFechasFiltro = false;
+        
+        if(fechas != null)
+            flagFechasFiltro = true;
+        try {
+            st = conexion.createStatement();
+            query = Consultas.getAllBecariosReporteCampoAplicacion.concat(filtros);
+            System.out.println(query);
+            rs = st.executeQuery(query);
+            while(rs.next()){
+                PojoReporteGeneral reporte = new PojoReporteGeneral();
+                reporte.setNombreCampoCarrera(rs.getString("nombreCampoAplicacion"));
+                
+                reporte.setNombrePrograma(programa);
+                if(flagFechasFiltro){
+                    reporte.setFechaDe(fechas[0]);
+                    reporte.setFechaA(fechas[1]);
+                }
+                
+                lstResult.add(reporte);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return lstResult;
+    }
 }

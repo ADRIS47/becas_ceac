@@ -31,7 +31,6 @@ public class PojoReporteGeneral {
     String sexo;
     int idGeneroSexo;
     String nombreEdoCivil;
-    
 
     public String getFolio() {
         return folio;
