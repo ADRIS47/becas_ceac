@@ -72,6 +72,7 @@ import reportes.HistorialIndividual;
 import reportes.ReporteCampoEstudio;
 import reportes.ReporteEdoCivil;
 import reportes.ReporteGeneral;
+import reportes.ReporteHorasServicio;
 import reportes.ReportePrimerBecado;
 import reportes.ReporteSexo;
 import reportes.ReporteTrabajan;
@@ -3999,8 +4000,8 @@ public class PrincipalControlador {
 
             //Reporte Horas por lugar de Servicio Comunitario
             case 11:
-                //creaReporteHorasServCom();
-                creaReporteDirectamente("reporteHorasServCom.jasper");
+                creaReporteHorasServCom();
+                //creaReporteDirectamente("reporteHorasServCom.jasper");
                 break;
                 
             /**
@@ -4308,14 +4309,28 @@ public class PrincipalControlador {
                 return;
             }
             
+            String filtros = getFiltrosReporte(conexion);
+            java.util.Date[] fechasFiltro = null;
+            fechasFiltro = helper.getFechasFiltro(filtros, vistaReporte);
+            
+            int idPrograma = helper.getIdPrograma(filtros);
+            String nombrePrograma = "TODOS";
+            if(idPrograma != 0)
+                nombrePrograma = getItemComboBox(idPrograma, catPrograma);
+            
+            Map<String, Object> parametros = new HashMap<>();
+            parametros.put("imagen", "imagenes/logocr.jpg");
+            
             Path path = helper.getDirectorioReporte("reporteHorasServCom.jasper");
             File file = path.toFile();
             
-            Map<String,Object> parametros = new HashMap<>();
-            parametros.put("imagen", "imagenes" + Index.SEPARADOR + "logocr.jpg");
+            List<PojoReporteGeneral> lstDatos = modelo.getAllBecariosServicioComunitario(conexion, filtros, fechasFiltro, nombrePrograma );
+            
+            ReporteHorasServicio reporteHrsServicio = new ReporteHorasServicio();
+            reporteHrsServicio.setLstReporte(lstDatos);
             
             JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
-            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, conexion);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, reporteHrsServicio);
             
             JasperViewer visor = new JasperViewer(jasperPrint, false);
             visor.setVisible(true);

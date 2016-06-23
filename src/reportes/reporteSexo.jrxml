@@ -13,6 +13,9 @@
 	<field name="sexo" class="java.lang.Integer"/>
 	<field name="nombreSexo" class="java.lang.String"/>
 	<field name="idSexo" class="java.lang.Integer"/>
+	<field name="fechaDe" class="java.util.Date"/>
+	<field name="fechaA" class="java.util.Date"/>
+	<field name="nombrePrograma" class="java.lang.String"/>
 	<group name="GRP_SEXO">
 		<groupExpression><![CDATA[$F{nombreSexo}]]></groupExpression>
 	</group>
@@ -34,7 +37,7 @@
 		<band height="179" splitType="Stretch">
 			<pieChart>
 				<chart>
-					<reportElement x="120" y="17" width="340" height="138" uuid="dd3b9886-bbdf-4de2-82ee-16c3bd05a593"/>
+					<reportElement x="200" y="24" width="340" height="138" uuid="dd3b9886-bbdf-4de2-82ee-16c3bd05a593"/>
 					<chartTitle/>
 					<chartSubtitle/>
 					<chartLegend position="Top"/>
