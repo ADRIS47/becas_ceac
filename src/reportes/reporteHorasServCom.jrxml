@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteHorasServCom" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="374d92c6-fb0b-4e83-ac87-56671cfb7f4c">
-	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="120"/>
+	<property name="ireport.y" value="0"/>
 	<queryString>
 		<![CDATA[SELECT kardex.lugar_servicio_comunitario, com.nombre, SUM(kardex.horas_servicio) AS horas
 
@@ -28,28 +28,65 @@ GROUP BY com.nombre]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch">
+		<band height="104" splitType="Stretch">
 			<staticText>
-				<reportElement x="10" y="36" width="572" height="28" uuid="a9b4f92f-15cd-4de2-873d-abcbf18a765b"/>
+				<reportElement x="0" y="36" width="572" height="28" uuid="a9b4f92f-15cd-4de2-873d-abcbf18a765b"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
 					<font size="20"/>
 				</textElement>
 				<text><![CDATA[REPORTE POR HRS. DE SERVICIO COMUNITARIO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="10" y="10" width="572" height="26" uuid="d5e860cb-8e6f-466b-82a8-a2f121a121e3"/>
+				<reportElement x="0" y="10" width="572" height="26" uuid="d5e860cb-8e6f-466b-82a8-a2f121a121e3"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
 					<font size="20"/>
 				</textElement>
 				<text><![CDATA[FUNDACION RUSSEK]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="192" y="72" width="11" height="20" uuid="468e5014-efb0-4742-936d-164b78f1364e"/>
+				<textElement verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[al]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="360" y="72" width="52" height="20" uuid="3bb25cf1-9cbf-4dbb-b0d3-1dd8c8d190d1"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Programa:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="79" y="72" width="61" height="20" uuid="b4f1633f-a72a-47cf-a46b-77f4b0f9e353"/>
+				<textElement verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Periodo del]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="64" width="572" height="1" uuid="8e95c029-7bba-477d-9a42-f2336d1f2a04"/>
+			</line>
 		</band>
 	</title>
+	<pageFooter>
+		<band height="22">
+			<textField evaluationTime="Report">
+				<reportElement x="295" y="0" width="40" height="20" uuid="63f438a3-302e-4dcd-add3-234d73cbed2b"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="235" y="0" width="60" height="20" uuid="8a8d9498-0409-43bc-b0c0-d368dd058df5"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
 	<summary>
-		<band height="500" splitType="Stretch">
+		<band height="575" splitType="Stretch">
 			<pieChart>
 				<chart>
-					<reportElement x="10" y="82" width="562" height="350" uuid="4484283f-958d-42fb-90e2-09f0299dd26c"/>
+					<reportElement x="0" y="29" width="572" height="433" uuid="4484283f-958d-42fb-90e2-09f0299dd26c"/>
 					<chartTitle/>
 					<chartSubtitle/>
 					<chartLegend/>
@@ -64,6 +101,10 @@ GROUP BY com.nombre]]>
 					<itemLabel/>
 				</piePlot>
 			</pieChart>
+			<staticText>
+				<reportElement x="10" y="531" width="549" height="33" uuid="f060d32b-bdde-4a4a-b19b-e24af983a02a"/>
+				<text><![CDATA[Representación gráfica de la cantidad de horas de servicio comunitario, en diversos lugares donde se pueden realizar este tipo de ayuda.]]></text>
+			</staticText>
 		</band>
 	</summary>
 </jasperReport>

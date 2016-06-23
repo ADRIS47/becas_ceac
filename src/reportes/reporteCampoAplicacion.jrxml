@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteCampoAplicacion" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="889eb874-f6ab-4730-bfcc-e96b94a78ebe">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="523"/>
+	<property name="ireport.y" value="255"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT dat.id_campo_carrera, campo.nombre
 
@@ -75,11 +75,13 @@ JOIN beca_cat_campo AS campo ON dat.id_campo_carrera = campo.id_campo_carrera]]>
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="515" splitType="Stretch">
+		<band height="560" splitType="Stretch">
 			<pieChart>
 				<chart>
-					<reportElement x="0" y="67" width="572" height="322" uuid="6c4d0d4e-5eba-45dc-bbb8-3fbfcf932069"/>
-					<chartTitle/>
+					<reportElement x="0" y="67" width="572" height="376" uuid="6c4d0d4e-5eba-45dc-bbb8-3fbfcf932069"/>
+					<chartTitle>
+						<font fontName="Arial"/>
+					</chartTitle>
 					<chartSubtitle/>
 					<chartLegend>
 						<font fontName="Arial" size="9"/>
@@ -90,7 +92,7 @@ JOIN beca_cat_campo AS campo ON dat.id_campo_carrera = campo.id_campo_carrera]]>
 					<valueExpression><![CDATA[$V{GRP_CAMPO_COUNT}]]></valueExpression>
 					<labelExpression><![CDATA[$F{nombre} + " ( " + $V{GRP_CAMPO_COUNT} + " ) "]]></labelExpression>
 				</pieDataset>
-				<piePlot>
+				<piePlot isShowLabels="true">
 					<plot>
 						<seriesColor seriesOrder="0" color="#0000FF"/>
 						<seriesColor seriesOrder="1" color="#CC0000"/>
@@ -105,7 +107,7 @@ JOIN beca_cat_campo AS campo ON dat.id_campo_carrera = campo.id_campo_carrera]]>
 				</piePlot>
 			</pieChart>
 			<staticText>
-				<reportElement x="23" y="470" width="532" height="33" uuid="9397dd1d-e5b3-4c3c-a6a9-75401856a34a"/>
+				<reportElement x="23" y="527" width="532" height="33" uuid="9397dd1d-e5b3-4c3c-a6a9-75401856a34a"/>
 				<text><![CDATA[Se define en función del tema de estudio de investigación, u objeto de la asistencia técnica y/o capacitación, en relación a su aplicación en una actividad socioeconómica determinada.]]></text>
 			</staticText>
 		</band>

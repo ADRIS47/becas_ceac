@@ -29,21 +29,35 @@ FROM
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch">
+		<band height="62" splitType="Stretch">
 			<staticText>
-				<reportElement x="174" y="12" width="450" height="56" uuid="6ba1afe3-7705-42e7-9a8c-3225bd7c82c1"/>
-				<textElement>
-					<font size="36"/>
+				<reportElement x="0" y="29" width="802" height="28" uuid="6ba1afe3-7705-42e7-9a8c-3225bd7c82c1"/>
+				<textElement textAlignment="Center">
+					<font size="20"/>
 				</textElement>
 				<text><![CDATA[HOMBRES Y MUJERES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-112" y="-117" width="555" height="26" uuid="d76d1f66-f910-45cc-902c-beeef0a52d02"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[FUNDACION RUSSEK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="802" height="29" uuid="51ed7274-7bd6-4e9a-b5ba-22026765a1a6"/>
+				<textElement textAlignment="Center">
+					<font size="20" isBold="false"/>
+				</textElement>
+				<text><![CDATA[FUNDACION CRUZ RUSSEK]]></text>
 			</staticText>
 		</band>
 	</title>
 	<summary>
-		<band height="179" splitType="Stretch">
+		<band height="540" splitType="Stretch">
 			<pieChart>
 				<chart>
-					<reportElement x="120" y="17" width="340" height="138" uuid="dd3b9886-bbdf-4de2-82ee-16c3bd05a593"/>
+					<reportElement x="0" y="92" width="802" height="353" uuid="dd3b9886-bbdf-4de2-82ee-16c3bd05a593"/>
 					<chartTitle/>
 					<chartSubtitle/>
 					<chartLegend position="Top"/>
