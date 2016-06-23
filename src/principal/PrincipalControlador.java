@@ -4258,7 +4258,11 @@ public class PrincipalControlador {
             String filtros = getFiltrosReporte(conexion);
             java.util.Date[] fechasFiltro = null;
             fechasFiltro = helper.getFechasFiltro(filtros, vistaReporte);
-            String programa = helper.getPrograma(filtros);
+            
+            int idPrograma = helper.getIdPrograma(filtros);
+            String nombrePrograma = "TODOS";
+            if(idPrograma != 0)
+                nombrePrograma = getItemComboBox(idPrograma, catPrograma);
             
             Map<String, Object> parametros = new HashMap<>();
             parametros.put("imagen", "imagenes/logocr.jpg");
@@ -4266,7 +4270,7 @@ public class PrincipalControlador {
             Path path = helper.getDirectorioReporte("reporteEdoCivil.jasper");
             File file = path.toFile();
             
-            List<PojoReporteGeneral> lstDatos = modelo.creaReporteEdoCivil(conexion, filtros, fechasFiltro);
+            List<PojoReporteGeneral> lstDatos = modelo.creaReporteEdoCivil(conexion, filtros, fechasFiltro, nombrePrograma);
             
             ReporteEdoCivil reporteEdoCivil = new ReporteEdoCivil();
             reporteEdoCivil.setLstReporte(lstDatos);
@@ -4658,19 +4662,22 @@ public class PrincipalControlador {
             
             comas = true;
         }
-        //Si no se seleccionaron filtros
-        if(comas == false){
+        //Si no se seleccionaron filtros de fechas
+        if((deMesRegistro == 0 && AMesRegistro == 0) || (deMesGraduacion == 0 &&  AMesGraduacion == 0)){
             Date fechaMenor = modelo.getFechaMenorDeIngreso(conexion);
             Date fechaMayor = modelo.getFechaMayorDeGraduacion(conexion);
             
-            builder = builder.append(" WHERE datos.fecha_inicio_beca");
+            if(comas == true)
+                builder = builder.append(" AND datos.fecha_inicio_beca");
+            else
+                builder = builder.append(" WHERE datos.fecha_inicio_beca");
+            
             builder = builder.append(" BETWEEN '");
             builder = builder.append(fechaMenor); 
             builder = builder.append("' AND '");
             builder = builder.append(fechaMayor);
             builder = builder.append("' ");
         }
-        
 //        if(builder.length() > 0){
 //            mapParametros.put("filtroFechas", builder.toString());
 //            System.out.println("Agregado---------------------------");

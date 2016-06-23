@@ -3630,10 +3630,11 @@ public class PrincipalModelo {
      * Obtiene la información necesaria para generar el reporte de estado civil
      * @param conexion
      * @param filtros
-     * @param fechasFiltro
+     * @param fechas
+     * @param programa
      * @return 
      */
-    protected List<PojoReporteGeneral> creaReporteEdoCivil(Connection conexion, String filtros, Date[] fechas) {
+    protected List<PojoReporteGeneral> creaReporteEdoCivil(Connection conexion, String filtros, Date[] fechas, String programa) {
         List<PojoReporteGeneral> lstResult = new ArrayList<>();
         Statement st = null;
         ResultSet rs = null;
@@ -3650,7 +3651,8 @@ public class PrincipalModelo {
             while(rs.next()){
                 PojoReporteGeneral reporte = new PojoReporteGeneral();
                 reporte.setNombreEdoCivil(rs.getString("nombreEdoCivil"));
-                reporte.setNombrePrograma(rs.getString("nombrePrograma"));
+                
+                reporte.setNombrePrograma(programa);
                 if(flagFechasFiltro){
                     reporte.setFechaDe(fechas[0]);
                     reporte.setFechaA(fechas[1]);

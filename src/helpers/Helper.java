@@ -808,32 +808,21 @@ public class Helper {
                 Logger.getLogger(Helper.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        else if(!filtros.isEmpty() ){
+            
+        }
         return result;
     }
 
-    public String getPrograma(String filtros) {
-        String programa = "";
+    public int getIdPrograma(String filtros) {
+        int programa = 0;
         
         if(!filtros.isEmpty() && filtros.contains(Becario.COL_PROGRAMA)){
-            String[] separacion = filtros.split(Becario.COL_PROGRAMA + " =");
-            
-            for (String fecha : separacion) {
-                System.out.println("ESTO ES UNA FECHA: "+ fecha);
-            }
-            
-            
-//            try {
-//                //Se remplazan los caracteres raros
-//                fechas[0] = fechas[0].replace("'", "").trim();
-//                fechas[1] = fechas[1].replace("'", "").trim();
-//                fechas[0] = fechas[0].replace("-", "/").trim();
-//                fechas[1] = fechas[1].replace("-", "/").trim();
-//                //Se parsean las fechas
-//                result[0] = formato.parse(fechas[0].trim());
-//            } catch (ParseException ex) {
-//                Logger.getLogger(Helper.class.getName()).log(Level.SEVERE, null, ex);
-//            }
+            String[] separacion = filtros.split(Becario.COL_PROGRAMA + " = ");
+            String[] sepProgramas = separacion[1].split(" ");
+            programa = Integer.parseInt(sepProgramas[0]);
         }
+        
         return programa;
     }
             
