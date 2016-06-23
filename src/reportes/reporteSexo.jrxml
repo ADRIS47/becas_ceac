@@ -4,26 +4,17 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString>
-		<![CDATA[SELECT
-     beca_becario.`nombre` AS beca_becario_nombre,
-     beca_becario.`ap_paterno` AS beca_becario_ap_paterno,
-     beca_becario.`ap_materno` AS beca_becario_ap_materno,
-     beca_becario.`folio` AS beca_becario_folio,
-     beca_becario.`sexo` AS beca_becario_sexo,
-     beca_cat_sexo.`nombre` AS beca_cat_sexo_nombre,
-     beca_cat_sexo.`id_genero` AS beca_cat_sexo_id_genero
-FROM
-     `beca_cat_sexo` beca_cat_sexo INNER JOIN `beca_becario` beca_becario ON beca_cat_sexo.`id_genero` = beca_becario.`sexo`]]>
+		<![CDATA[]]>
 	</queryString>
-	<field name="beca_becario_nombre" class="java.lang.String"/>
-	<field name="beca_becario_ap_paterno" class="java.lang.String"/>
-	<field name="beca_becario_ap_materno" class="java.lang.String"/>
-	<field name="beca_becario_folio" class="java.lang.String"/>
-	<field name="beca_becario_sexo" class="java.lang.Integer"/>
-	<field name="beca_cat_sexo_nombre" class="java.lang.String"/>
-	<field name="beca_cat_sexo_id_genero" class="java.lang.Integer"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="aPaterno" class="java.lang.String"/>
+	<field name="aMaterno" class="java.lang.String"/>
+	<field name="folio" class="java.lang.String"/>
+	<field name="sexo" class="java.lang.Integer"/>
+	<field name="nombreSexo" class="java.lang.String"/>
+	<field name="idSexo" class="java.lang.Integer"/>
 	<group name="GRP_SEXO">
-		<groupExpression><![CDATA[$F{beca_becario_sexo}]]></groupExpression>
+		<groupExpression><![CDATA[$F{nombreSexo}]]></groupExpression>
 	</group>
 	<background>
 		<band splitType="Stretch"/>
@@ -63,9 +54,9 @@ FROM
 					<chartLegend position="Top"/>
 				</chart>
 				<pieDataset>
-					<keyExpression><![CDATA[$F{beca_cat_sexo_nombre}]]></keyExpression>
+					<keyExpression><![CDATA[$F{nombreSexo}]]></keyExpression>
 					<valueExpression><![CDATA[$V{GRP_SEXO_COUNT}]]></valueExpression>
-					<labelExpression><![CDATA[$F{beca_cat_sexo_nombre} + " - " + $V{GRP_SEXO_COUNT}]]></labelExpression>
+					<labelExpression><![CDATA[$F{nombreSexo} + " - " + $V{GRP_SEXO_COUNT}]]></labelExpression>
 				</pieDataset>
 				<piePlot>
 					<plot>

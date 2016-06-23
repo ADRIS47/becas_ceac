@@ -69,8 +69,11 @@ import pojos.PojoReporteIndividual;
 import pojos.PojoReporteIndividualMuchosDatos;
 import pojos.Telefono;
 import reportes.HistorialIndividual;
+import reportes.ReporteCampoEstudio;
+import reportes.ReporteEdoCivil;
 import reportes.ReporteGeneral;
 import reportes.ReportePrimerBecado;
+import reportes.ReporteSexo;
 import reportes.ReporteTrabajan;
 /**
  *
@@ -3973,7 +3976,8 @@ public class PrincipalControlador {
                 
             //Reporte Sexo
             case 6:
-                creaReporteDirectamente("reporteSexo.jasper");
+                //creaReporteDirectamente("reporteSexo.jasper");
+                creaReporteSexo();
                 break;
                 
             //Reporte Trabajan
@@ -3987,10 +3991,10 @@ public class PrincipalControlador {
                 creaReporteDirectamente("reporteTipoUniversidad.jasper");
                 break;
                 
-            //Reporte Universidades Públicas
+            //Reporte Campo Aplicacion
             case 9:
-                //creaReporteCampoEstudio();
-                creaReporteDirectamente("reporteCampoAplicacion.jasper");
+                creaReporteCampoEstudio();
+                //creaReporteDirectamente("reporteCampoAplicacion.jasper");
                 break;
 
             //Reporte Horas por lugar de Servicio Comunitario
@@ -4004,6 +4008,10 @@ public class PrincipalControlador {
              */
             case 12:
                 creaReportePrimerBecario();
+                break;
+                
+            case 14:
+                creaReporteEstadoCivil();
                 break;
         }
         
@@ -4026,6 +4034,7 @@ public class PrincipalControlador {
             }
             
             String filtros = getFiltrosReporte(conexion);
+            
             java.util.Date[] fechasFiltro = null;
             fechasFiltro = helper.getFechasFiltro(filtros, vistaReporte);
             
@@ -4123,7 +4132,7 @@ public class PrincipalControlador {
     /**
      * Genera el reporte de sexo
      */
-    /*private void creaReporteSexo() {
+    private void creaReporteSexo() {
         Conexion conn = null;
         Connection conexion = null;
         try {
@@ -4135,11 +4144,23 @@ public class PrincipalControlador {
                 return;
             }
             
+            String filtros = getFiltrosReporte(conexion);
+            java.util.Date[] fechasFiltro = null;
+            fechasFiltro = helper.getFechasFiltro(filtros, vistaReporte);
+            
+            Map<String, Object> parametros = new HashMap<>();
+            parametros.put("imagen", "imagenes/logocr.jpg");
+            
             Path path = helper.getDirectorioReporte("reporteSexo.jasper");
             File file = path.toFile();
             
+            List<PojoReporteGeneral> lstDatos = modelo.creaReporteSexo(conexion, filtros, fechasFiltro);
+            
+            ReporteSexo reporteSexo = new ReporteSexo();
+            reporteSexo.setLstReporte(lstDatos);
+            
             JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
-            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, conexion);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, reporteSexo);
             
             JasperViewer visor = new JasperViewer(jasperPrint, false);
             visor.setVisible(true);
@@ -4153,7 +4174,7 @@ public class PrincipalControlador {
                 Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }*/
+    }
     
     /**
      * Genera el reporte de los becarios que trabajan
@@ -4210,6 +4231,58 @@ public class PrincipalControlador {
             JOptionPane.showMessageDialog(vistaReporte, "Debe de seleccionar un becario", "Error", JOptionPane.ERROR_MESSAGE);
             terminaVistaReportes();
             creaVistaBusqueda();
+        }
+        finally{
+            try {
+                conexion.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    /**
+     * Genera el reporte del estado civil de los becarios
+     */
+    private void creaReporteEstadoCivil() {
+        Conexion conn = null;
+        Connection conexion = null;
+        try {
+            conn = new Conexion();
+            conexion = conn.estableceConexion();
+            
+            if(conexion == null){
+                JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            String filtros = getFiltrosReporte(conexion);
+            java.util.Date[] fechasFiltro = null;
+            fechasFiltro = helper.getFechasFiltro(filtros, vistaReporte);
+            
+            int idPrograma = helper.getIdPrograma(filtros);
+            String nombrePrograma = "TODOS";
+            if(idPrograma != 0)
+                nombrePrograma = getItemComboBox(idPrograma, catPrograma);
+            
+            Map<String, Object> parametros = new HashMap<>();
+            parametros.put("imagen", "imagenes/logocr.jpg");
+            
+            Path path = helper.getDirectorioReporte("reporteEdoCivil.jasper");
+            File file = path.toFile();
+            
+            List<PojoReporteGeneral> lstDatos = modelo.creaReporteEdoCivil(conexion, filtros, fechasFiltro, nombrePrograma);
+            
+            ReporteEdoCivil reporteEdoCivil = new ReporteEdoCivil();
+            reporteEdoCivil.setLstReporte(lstDatos);
+            
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, reporteEdoCivil);
+            
+            JasperViewer visor = new JasperViewer(jasperPrint, false);
+            visor.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
         }
         finally{
             try {
@@ -4296,7 +4369,7 @@ public class PrincipalControlador {
     /**
      * Genera el reporte de Universidades públicas
      */
-    /*private void creaReporteCampoEstudio() {
+    private void creaReporteCampoEstudio() {
         Conexion conn = null;
         Connection conexion = null;
         try {
@@ -4308,11 +4381,27 @@ public class PrincipalControlador {
                 return;
             }
             
+            String filtros = getFiltrosReporte(conexion);
+            java.util.Date[] fechasFiltro = null;
+            fechasFiltro = helper.getFechasFiltro(filtros, vistaReporte);
+            
+            int idPrograma = helper.getIdPrograma(filtros);
+            String nombrePrograma = "TODOS";
+            if(idPrograma != 0)
+                nombrePrograma = getItemComboBox(idPrograma, catPrograma);
+            
+            Map<String, Object> parametros = new HashMap<>();
+            parametros.put("imagen", "imagenes/logocr.jpg");
+            
             Path path = helper.getDirectorioReporte("reporteCampoAplicacion.jasper");
             File file = path.toFile();
             
+            List<PojoReporteGeneral> lstDatos = modelo.creaReporteCampoAplicacion(conexion, filtros, fechasFiltro, nombrePrograma);
+            ReporteCampoEstudio reporteCampo = new ReporteCampoEstudio();
+            reporteCampo.setLstReporte(lstDatos);
+            
             JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
-            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, conexion);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, reporteCampo);
             
             JasperViewer visor = new JasperViewer(jasperPrint, false);
             visor.setVisible(true);
@@ -4326,7 +4415,7 @@ public class PrincipalControlador {
                 Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }*/
+    }
     
     /**
      * Genera el reporte indicado, este método solo funciona con los reportes que 
@@ -4494,8 +4583,23 @@ public class PrincipalControlador {
                 else
                     builder = builder.append(AMesRegistro);
                 builder = builder.append("/01'");
-                comas = true;
             }
+            else{
+                Date fechaMenor = modelo.getFechaMenorDeIngreso(conexion);
+                Date fechaMayor = modelo.getFechaMayorDeGraduacion(conexion);
+
+                if(comas == true)
+                    builder = builder.append(" AND datos.fecha_inicio_beca");
+                else
+                    builder = builder.append(" WHERE datos.fecha_inicio_beca");
+
+                builder = builder.append(" BETWEEN '");
+                builder = builder.append(fechaMenor); 
+                builder = builder.append("' AND '");
+                builder = builder.append(fechaMayor);
+                builder = builder.append("' ");
+            }
+            comas = true;
         }
         //Si se esta filtrando por fecha de graduacion
         else if(!vistaReporte.chkFiltro.isSelected()){
@@ -4525,9 +4629,23 @@ public class PrincipalControlador {
                 else
                     builder = builder.append(AMesGraduacion);
                 builder = builder.append("/01' ");
-                
-                comas = true;
             }
+            else{
+                Date fechaMenor = modelo.getFechaMenorDeIngreso(conexion);
+                Date fechaMayor = modelo.getFechaMayorDeGraduacion(conexion);
+
+                if(comas == true)
+                    builder = builder.append(" AND datos.fecha_inicio_beca");
+                else
+                    builder = builder.append(" WHERE datos.fecha_inicio_beca");
+
+                builder = builder.append(" BETWEEN '");
+                builder = builder.append(fechaMenor); 
+                builder = builder.append("' AND '");
+                builder = builder.append(fechaMayor);
+                builder = builder.append("' ");
+            }
+            comas = true;
         }
         
         //
@@ -4590,23 +4708,10 @@ public class PrincipalControlador {
             
             comas = true;
         }
-        //Si no se seleccionaron filtros
-        if(comas == false){
-            Date fechaMenor = modelo.getFechaMenorDeIngreso(conexion);
-            Date fechaMayor = modelo.getFechaMayorDeGraduacion(conexion);
-            
-            builder = builder.append(" WHERE datos.fecha_inicio_beca");
-            builder = builder.append(" BETWEEN '");
-            builder = builder.append(fechaMenor); 
-            builder = builder.append("' AND '");
-            builder = builder.append(fechaMayor);
-            builder = builder.append("' ");
-        }
-        
-        if(builder.length() > 0){
-            mapParametros.put("filtroFechas", builder.toString());
-            System.out.println("Agregado---------------------------");
-        }
+//        if(builder.length() > 0){
+//            mapParametros.put("filtroFechas", builder.toString());
+//            System.out.println("Agregado---------------------------");
+//        }
         //System.out.println("BUILDER-----> " + builder.toString());
         return builder.toString();
     }

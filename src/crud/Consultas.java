@@ -11,6 +11,7 @@ import pojos.CatBanco;
 import pojos.CatCampo;
 import pojos.CatCategorias;
 import pojos.CatColumnasTabla;
+import pojos.CatEstadoCivil;
 import pojos.CatEstatus;
 import pojos.CatLugarServicioComunitario;
 import pojos.CatMunicipios;
@@ -525,8 +526,8 @@ public class Consultas {
             DatosEscolares.COL_BECA_TOTAL + " AS becaTotal, datos." + DatosEscolares.COL_BECA_SEMESTRAL + " AS becaSemestral, datos." + 
             DatosEscolares.COL_SEMESTRE_INICIO_BECA + " AS semestreInicioBeca, datos." + DatosEscolares.COL_FECHA_INICIO_BECA + " AS fechaInicioBeca, datos." +
             DatosEscolares.COL_FECHA_GRADUACION +  " AS fechaFinBeca" +
-            " FROM beca_cat_estatus AS estatus"
-            + " INNER JOIN beca_becario AS becario ON estatus." + CatEstatus.COL_ID + " = becario." + Becario.COL_ESTATUS + 
+            " FROM beca_cat_estatus AS estatus "
+            + "INNER JOIN beca_becario AS becario ON estatus." + CatEstatus.COL_ID + " = becario." + Becario.COL_ESTATUS + 
             " INNER JOIN beca_cat_programa AS programa ON becario." + Becario.COL_PROGRAMA + " = programa." + CatPrograma.COL_ID + 
             " INNER JOIN beca_datos_escolares AS datos ON datos." + DatosEscolares.COL_ID_BECARIO + " = becario." + Becario.COL_ID + 
             " INNER JOIN beca_cat_universidad AS uni ON uni." + CatUniversidad.COL_ID + " = datos." + DatosEscolares.COL_ID_UNIVERSIDAD +
@@ -543,5 +544,43 @@ public class Consultas {
      */
     public static String getFechaMayorDeGraduacion = "SELECT MAX(" + DatosEscolares.COL_FECHA_GRADUACION + ") "
                             + "AS " + DatosEscolares.COL_FECHA_GRADUACION + " FROM beca_datos_escolares";
+    
+    /**
+     * Obtiene los datos para crear el reporte de Sexo
+     */
+    public static String getAllBecariosReporteSexo = "SELECT becario." + Becario.COL_FOLIO + " AS folio, becario." + 
+                        Becario.COL_APATERNO + " AS aPaterno, becario." + Becario.COL_AMATERNO + " AS aMaterno, becario." + 
+                        Becario.COL_NOMBRE + " AS nombre, sexo." + CatSexo.COL_NOMBRE + " AS nombreSexo, " +
+                        CatSexo.COL_ID_GENERO + " AS idSexo " +
+                        "FROM beca_becario AS becario " +
+                        "INNER JOIN beca_cat_sexo AS sexo ON sexo." + CatSexo.COL_ID_GENERO + " = becario." + Becario.COL_SEXO + " " +
+                        "INNER JOIN beca_datos_escolares AS datos ON datos." + DatosEscolares.COL_ID_BECARIO + " = becario." + Becario.COL_ID + " ";
+    
+    /**
+     * SELECT civil.nombre
+
+        FROM beca_becario AS becario
+
+        JOIN beca_cat_estado_civil AS civil ON civil.id_estado_civil = becario.id_estado_civil;
+     * Obtiene los datos para crear el reporte de Estados civiles
+     */
+    public static String getAllBecariosReporteEdoCivil = "SELECT civil." + CatEstadoCivil.COL_NOMBRE + " AS nombreEdoCivil " +
+                            //"programa." + CatPrograma.COL_NOMBRE + " AS nombrePrograma " +
+                            "FROM beca_becario AS becario " + 
+                            "INNER JOIN beca_cat_estado_civil AS civil ON civil." + CatEstadoCivil.COL_ID_ESTADO_CIVIL + " = becario." + Becario.COL_ESTADO_CIVIL + " " +
+                            //"INNER JOIN beca_cat_programa AS programa ON programa." + CatPrograma.COL_ID + " = becario." + Becario.COL_PROGRAMA + " " +
+                            "INNER JOIN beca_datos_escolares AS datos ON datos." + DatosEscolares.COL_ID_BECARIO + " = becario." + Becario.COL_ID + " ";
+    
+    /**
+     *  SELECT dat.id_campo_carrera, campo.nombre
+
+FROM beca_datos_escolares AS dat
+
+JOIN beca_cat_campo AS campo ON dat.id_campo_carrera = campo.id_campo_carrera
+     */
+    public static String getAllBecariosReporteCampoAplicacion = "SELECT campo." + CatCampo.COL_NOMBRE + " AS nombreCampoAplicacion " + 
+                            "FROM beca_becario AS becario " + 
+                            "INNER JOIN beca_datos_escolares AS datos ON becario. " + Becario.COL_ID + " = datos." + DatosEscolares.COL_ID_BECARIO + " " +
+                            "INNER JOIN beca_cat_campo AS campo ON datos." + DatosEscolares.COL_ID_CAMPO_CARRERA + " = campo." + CatCampo.COL_ID + " ";
     
 }

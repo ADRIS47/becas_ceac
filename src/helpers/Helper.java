@@ -775,7 +775,17 @@ public class Helper {
             template = Paths.get(getClass().getProtectionDomain().getCodeSource().getLocation().getPath());
         }
         
-        System.out.println(template);
+        Path template = null;
+        
+        String sistemaOperativo = System.getProperty("os.name");
+        if(sistemaOperativo.toUpperCase().contains("WIN")){
+            template = Paths.get(getClass().getProtectionDomain().getCodeSource().getLocation().getPath().substring(1));
+        }
+        else if(sistemaOperativo.toUpperCase().contains("LIN")){
+            template = Paths.get(getClass().getProtectionDomain().getCodeSource().getLocation().getPath());
+        }
+        
+        //System.out.println(template);
         File isJar = new File(template.toString());
         //Si se está ejecutando en netbeans
         if(isJar.isDirectory()){
@@ -815,7 +825,22 @@ public class Helper {
                 Logger.getLogger(Helper.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        else if(!filtros.isEmpty() ){
+            
+        }
         return result;
+    }
+
+    public int getIdPrograma(String filtros) {
+        int programa = 0;
+        
+        if(!filtros.isEmpty() && filtros.contains(Becario.COL_PROGRAMA)){
+            String[] separacion = filtros.split(Becario.COL_PROGRAMA + " = ");
+            String[] sepProgramas = separacion[1].split(" ");
+            programa = Integer.parseInt(sepProgramas[0]);
+        }
+        
+        return programa;
     }
             
 }
