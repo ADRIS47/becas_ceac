@@ -775,16 +775,7 @@ public class Helper {
             template = Paths.get(getClass().getProtectionDomain().getCodeSource().getLocation().getPath());
         }
         
-        Path template = null;
-        
-        String sistemaOperativo = System.getProperty("os.name");
-        if(sistemaOperativo.toUpperCase().contains("WIN")){
-            template = Paths.get(getClass().getProtectionDomain().getCodeSource().getLocation().getPath().substring(1));
-        }
-        else if(sistemaOperativo.toUpperCase().contains("LIN")){
-            template = Paths.get(getClass().getProtectionDomain().getCodeSource().getLocation().getPath());
-        }
-        
+               
         //System.out.println(template);
         File isJar = new File(template.toString());
         //Si se está ejecutando en netbeans

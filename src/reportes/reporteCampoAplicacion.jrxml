@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteCampoAplicacion" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="889eb874-f6ab-4730-bfcc-e96b94a78ebe">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="240"/>
+	<property name="ireport.y" value="48"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -21,31 +21,31 @@
 	<title>
 		<band height="91" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="3" width="555" height="26" uuid="d76d1f66-f910-45cc-902c-beeef0a52d02"/>
+				<reportElement x="0" y="3" width="572" height="26" uuid="d76d1f66-f910-45cc-902c-beeef0a52d02"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
 					<font size="20"/>
 				</textElement>
 				<text><![CDATA[FUNDACION RUSSEK]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="29" width="555" height="28" uuid="033e95be-e552-4557-a3c1-c2788e5bae00"/>
+				<reportElement x="0" y="29" width="572" height="28" uuid="033e95be-e552-4557-a3c1-c2788e5bae00"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
 					<font size="20"/>
 				</textElement>
 				<text><![CDATA[REPORTE POR CAMPO DE APLICACION]]></text>
 			</staticText>
 			<line>
-				<reportElement x="0" y="59" width="555" height="1" uuid="3a6a2c04-af73-4bac-bb9c-06938d922e48"/>
+				<reportElement x="0" y="60" width="572" height="1" uuid="3a6a2c04-af73-4bac-bb9c-06938d922e48"/>
 			</line>
 			<staticText>
-				<reportElement x="56" y="60" width="61" height="20" uuid="8cbba63a-2e61-4338-993f-ea9fb4557d5e"/>
+				<reportElement x="23" y="60" width="61" height="20" uuid="8cbba63a-2e61-4338-993f-ea9fb4557d5e"/>
 				<textElement verticalAlignment="Bottom">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Periodo del]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="207" y="57" width="11" height="20" uuid="6fd495cc-c383-4cb4-8abe-50bdd053f155"/>
+				<reportElement x="233" y="60" width="11" height="20" uuid="6fd495cc-c383-4cb4-8abe-50bdd053f155"/>
 				<textElement verticalAlignment="Bottom">
 					<font isBold="true"/>
 				</textElement>
@@ -59,28 +59,36 @@
 				<text><![CDATA[Programa:]]></text>
 			</staticText>
 			<textField pattern="dd/MMMM/yyyy">
-				<reportElement x="107" y="60" width="89" height="20" uuid="1e6562f8-9540-4569-b7a1-d5d7da202ca6"/>
+				<reportElement x="84" y="60" width="123" height="20" uuid="1e6562f8-9540-4569-b7a1-d5d7da202ca6"/>
+				<textElement verticalAlignment="Bottom"/>
 				<textFieldExpression><![CDATA[$F{fechaDe}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MMMM/yyyy">
-				<reportElement x="228" y="60" width="100" height="20" uuid="b22c5c21-b150-42b8-a540-107411ca7f2c"/>
+				<reportElement x="249" y="60" width="100" height="20" uuid="b22c5c21-b150-42b8-a540-107411ca7f2c"/>
+				<textElement verticalAlignment="Bottom"/>
 				<textFieldExpression><![CDATA[$F{fechaA}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="455" y="60" width="100" height="20" uuid="05b7b9a0-7820-42b3-b4c6-fad30ab5fbfa"/>
+				<textElement verticalAlignment="Bottom"/>
 				<textFieldExpression><![CDATA[$F{nombrePrograma}]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>
 	<pageFooter>
-		<band height="29" splitType="Stretch">
+		<band height="23" splitType="Stretch">
 			<textField>
-				<reportElement x="207" y="6" width="60" height="20" uuid="aac219a0-abb5-4ae9-9718-98239fee4d80"/>
-				<textElement textAlignment="Right"/>
+				<reportElement x="234" y="0" width="60" height="20" uuid="aac219a0-abb5-4ae9-9718-98239fee4d80"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
 				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="267" y="6" width="40" height="20" uuid="3f885f8c-8297-4748-b18a-1c2a50eab588"/>
+				<reportElement x="294" y="0" width="40" height="20" uuid="3f885f8c-8297-4748-b18a-1c2a50eab588"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 		</band>
