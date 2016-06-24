@@ -600,4 +600,12 @@ GROUP BY com.nombre
                             "INNER JOIN beca_kardex AS kardex ON becario. " + Becario.COL_ID + " = kardex." + Kardex.COL_ID_BECARIO + " " +
                             "INNER JOIN beca_cat_lugar_servicio_comunitario AS com ON kardex." + Kardex.COL_ID_SERVICIO_COMUNITARIO + " = com." + CatLugarServicioComunitario.COL_ID + " ";
     
+    
+    public static String getAllBecariosServicioComunitario2 = "SELECT com." + CatLugarServicioComunitario.COL_NOMBRE + 
+                            " AS nombreServicioComunitario, " +
+                            "SUM(kardex." + Kardex.COL_HORAS_SERVICIO + ") AS horas " +
+                            "FROM beca_kardex AS kardex " +
+                            "INNER JOIN beca_cat_lugar_servicio_comunitario AS com ON kardex." + Kardex.COL_LUGAR_SERVICIO_COMUNITARIO + " = com." + CatLugarServicioComunitario.COL_ID + " " +
+                            "INNER JOIN beca_becario AS becario ON becario. " + Becario.COL_ID + " = kardex." + Kardex.COL_ID_BECARIO + " " +
+                            "INNER JOIN beca_datos_escolares AS datos ON becario. " + Becario.COL_ID + " = datos." + DatosEscolares.COL_ID_BECARIO + " ";
 }

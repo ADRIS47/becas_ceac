@@ -3720,7 +3720,8 @@ public class PrincipalModelo {
             flagFechasFiltro = true;
         try {
             st = conexion.createStatement();
-            query = Consultas.getAllBecariosServicioComunitario.concat(filtros);
+            query = Consultas.getAllBecariosServicioComunitario2.concat(filtros);
+            query = query.concat("GROUP BY nombreServicioComunitario");
             System.out.println(query);
             rs = st.executeQuery(query);
             while(rs.next()){

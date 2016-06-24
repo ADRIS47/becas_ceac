@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteSexo" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="42008d4c-4428-4f37-b05a-cb0a87805cae">
-	<property name="ireport.zoom" value="1.0"/>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteSexo" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="42008d4c-4428-4f37-b05a-cb0a87805cae">
+	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="504"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -23,21 +23,92 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch">
+		<band height="78" splitType="Stretch">
 			<staticText>
-				<reportElement x="174" y="12" width="450" height="56" uuid="6ba1afe3-7705-42e7-9a8c-3225bd7c82c1"/>
-				<textElement>
-					<font size="36"/>
+				<reportElement x="0" y="29" width="572" height="28" uuid="6ba1afe3-7705-42e7-9a8c-3225bd7c82c1"/>
+				<textElement textAlignment="Center">
+					<font size="20"/>
 				</textElement>
-				<text><![CDATA[HOMBRES Y MUJERES]]></text>
+				<text><![CDATA[REPORTE POR GÉNERO BECARIOS]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="-112" y="-117" width="555" height="26" uuid="d76d1f66-f910-45cc-902c-beeef0a52d02"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[FUNDACION RUSSEK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="572" height="29" uuid="51ed7274-7bd6-4e9a-b5ba-22026765a1a6"/>
+				<textElement textAlignment="Center">
+					<font size="20" isBold="false"/>
+				</textElement>
+				<text><![CDATA[FUNDACION CRUZ RUSSEK]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="56" width="572" height="1" uuid="1f4c819d-aca8-4fb0-8bf6-3d900bb03bc5"/>
+			</line>
+			<staticText>
+				<reportElement x="29" y="57" width="67" height="20" uuid="00b29688-5b4f-44cf-8754-3cffced09c50"/>
+				<textElement verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Periodo del]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="239" y="57" width="17" height="20" uuid="cb317cfe-de9f-4787-9788-29c665c3c31d"/>
+				<textElement verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[al]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="388" y="57" width="59" height="20" uuid="c9899df0-64b2-43ca-9908-36732fb6ea37"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Programa:]]></text>
+			</staticText>
+			<textField pattern="dd/MMMM/yyyy">
+				<reportElement x="96" y="58" width="123" height="20" uuid="ef49eae1-e004-4049-a834-eb1f51dc1b84"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{fechaDe}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MMMM/yyyy">
+				<reportElement x="256" y="56" width="100" height="20" uuid="60f5c6a6-cbf3-4ba5-bf06-11bec0ca8ac9"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{fechaA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="461" y="57" width="100" height="20" uuid="29a059c7-9f13-45e6-a4a9-d6f0b726c026"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{nombrePrograma}]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
+	<pageFooter>
+		<band height="24">
+			<textField>
+				<reportElement x="221" y="4" width="60" height="20" uuid="8833c868-59b9-4955-9306-0322d4124ec6"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="281" y="4" width="40" height="20" uuid="9a177e19-e3b2-4ffd-a503-6f6074e4354c"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
 	<summary>
-		<band height="179" splitType="Stretch">
+		<band height="546" splitType="Stretch">
 			<pieChart>
 				<chart>
-					<reportElement x="200" y="24" width="340" height="138" uuid="dd3b9886-bbdf-4de2-82ee-16c3bd05a593"/>
+					<reportElement x="0" y="80" width="572" height="326" uuid="dd3b9886-bbdf-4de2-82ee-16c3bd05a593"/>
 					<chartTitle/>
 					<chartSubtitle/>
 					<chartLegend position="Top"/>
@@ -49,12 +120,17 @@
 				</pieDataset>
 				<piePlot>
 					<plot>
-						<seriesColor seriesOrder="0" color="#F901DC"/>
-						<seriesColor seriesOrder="1" color="#F8FF00"/>
+						<seriesColor seriesOrder="0" color="#FF33CC"/>
+						<seriesColor seriesOrder="1" color="#0000CC"/>
 					</plot>
 					<itemLabel/>
 				</piePlot>
 			</pieChart>
+			<staticText>
+				<reportElement x="16" y="501" width="532" height="33" uuid="dc850dbc-45ef-4700-9f0f-3dc2abd64578"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Representación gráfica de cantidad de becarios por género]]></text>
+			</staticText>
 		</band>
 	</summary>
 </jasperReport>
