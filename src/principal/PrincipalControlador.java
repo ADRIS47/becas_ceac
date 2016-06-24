@@ -4078,6 +4078,11 @@ public class PrincipalControlador {
         try{
             String folio = vistaRegistro.txtFolio.getText();
             
+            if(folio.isEmpty()){
+                JOptionPane.showMessageDialog(vista, "Debe de seleccionar a un becario", "Error", JOptionPane.ERROR_MESSAGE);
+                creaVistaBusqueda();
+                terminaVistaReportes();
+            }
             conn = new Conexion();
             conexion = conn.estableceConexion();
 
