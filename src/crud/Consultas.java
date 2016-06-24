@@ -583,4 +583,21 @@ JOIN beca_cat_campo AS campo ON dat.id_campo_carrera = campo.id_campo_carrera
                             "INNER JOIN beca_datos_escolares AS datos ON becario. " + Becario.COL_ID + " = datos." + DatosEscolares.COL_ID_BECARIO + " " +
                             "INNER JOIN beca_cat_campo AS campo ON datos." + DatosEscolares.COL_ID_CAMPO_CARRERA + " = campo." + CatCampo.COL_ID + " ";
     
+    /**
+     * SELECT kardex.lugar_servicio_comunitario AS idServicioComunitario, com.nombre AS nombreServicioComunitario,
+	SUM(kardex.horas_servicio) AS horas
+
+FROM beca_kardex AS kardex
+
+JOIN beca_cat_lugar_servicio_comunitario AS com ON kardex.lugar_servicio_comunitario = com.id_lugar_servicio_comunitario
+GROUP BY com.nombre
+     */
+    public static String getAllBecariosServicioComunitario = "SELECT com." + CatLugarServicioComunitario.COL_NOMBRE + 
+                            " AS nombreServicioComunitario, " +
+                            "SUM(kardex." + Kardex.COL_HORAS_SERVICIO + ") AS horas " +
+                            "FROM beca_becario AS becario " + 
+                            "INNER JOIN beca_datos_escolares AS datos ON becario. " + Becario.COL_ID + " = datos." + DatosEscolares.COL_ID_BECARIO + " " +
+                            "INNER JOIN beca_kardex AS kardex ON becario. " + Becario.COL_ID + " = kardex." + Kardex.COL_ID_BECARIO + " " +
+                            "INNER JOIN beca_cat_lugar_servicio_comunitario AS com ON kardex." + Kardex.COL_ID_SERVICIO_COMUNITARIO + " = com." + CatLugarServicioComunitario.COL_ID + " ";
+    
 }

@@ -4,26 +4,11 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString>
-		<![CDATA[SELECT kardex.lugar_servicio_comunitario, com.nombre, SUM(kardex.horas_servicio) AS horas
-
-FROM beca_kardex AS kardex
-
-JOIN beca_cat_lugar_servicio_comunitario AS com ON kardex.lugar_servicio_comunitario = com.id_lugar_servicio_comunitario
-GROUP BY com.nombre]]>
+		<![CDATA[]]>
 	</queryString>
-	<field name="lugar_servicio_comunitario" class="java.lang.Integer">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="nombre" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
+	<field name="idServicioComunitario" class="java.lang.Integer"/>
+	<field name="nombreServicioComunitario" class="java.lang.String"/>
 	<field name="horas" class="java.math.BigDecimal"/>
-	<variable name="horas_1" class="java.math.BigDecimal" calculation="Sum">
-		<variableExpression><![CDATA[$F{horas}]]></variableExpression>
-	</variable>
-	<group name="GRP_NOMBRE">
-		<groupExpression><![CDATA[$F{horas}]]></groupExpression>
-	</group>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -92,9 +77,9 @@ GROUP BY com.nombre]]>
 					<chartLegend/>
 				</chart>
 				<pieDataset>
-					<keyExpression><![CDATA[$F{nombre}]]></keyExpression>
+					<keyExpression><![CDATA[$F{nombreServicioComunitario}]]></keyExpression>
 					<valueExpression><![CDATA[$F{horas}]]></valueExpression>
-					<labelExpression><![CDATA[$F{nombre} + " - " + $F{horas}]]></labelExpression>
+					<labelExpression><![CDATA[$F{nombreServicioComunitario} + " - " + $F{horas}]]></labelExpression>
 				</pieDataset>
 				<piePlot>
 					<plot/>

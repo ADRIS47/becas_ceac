@@ -31,6 +31,8 @@ public class PojoReporteGeneral {
     String sexo;
     int idGeneroSexo;
     String nombreEdoCivil;
+    String nombreServicioComunitario;
+    int horasServicioComunitario;
 
     public String getFolio() {
         return folio;
@@ -175,4 +177,21 @@ public class PojoReporteGeneral {
     public void setNombreEdoCivil(String nombreEdoCivil) {
         this.nombreEdoCivil = nombreEdoCivil;
     }
+
+    public String getNombreServicioComunitario() {
+        return nombreServicioComunitario;
+    }
+
+    public void setNombreServicioComunitario(String nombreServicioComunitario) {
+        this.nombreServicioComunitario = nombreServicioComunitario;
+    }
+
+    public int getHorasServicioComunitario() {
+        return horasServicioComunitario;
+    }
+
+    public void setHorasServicioComunitario(int horasServicioComunitario) {
+        this.horasServicioComunitario = horasServicioComunitario;
+    }
+    
 }
