@@ -76,6 +76,7 @@ import reportes.ReporteHorasServicio;
 import reportes.ReportePrimerBecado;
 import reportes.ReporteSexo;
 import reportes.ReporteTrabajan;
+import reportes.ReporteUniversidades;
 /**
  *
  * @author sabagip
@@ -3988,8 +3989,8 @@ public class PrincipalControlador {
                 
             //Reporte Universidades Públicas
             case 8:
-                //creaReporteUniversidadesPublicas();
-                creaReporteDirectamente("reporteTipoUniversidad.jasper");
+                creaReporteUniversidadesPublicas();
+                //creaReporteDirectamente("reporteTipoUniversidad.jasper");
                 break;
                 
             //Reporte Campo Aplicacion
@@ -4354,7 +4355,7 @@ public class PrincipalControlador {
     /**
      * Genera el reporte de Universidades públicas
      */
-    /*private void creaReporteUniversidadesPublicas() {
+    private void creaReporteUniversidadesPublicas() {
         Conexion conn = null;
         Connection conexion = null;
         try {
@@ -4366,11 +4367,28 @@ public class PrincipalControlador {
                 return;
             }
             
+            String filtros = getFiltrosReporte(conexion);
+            java.util.Date[] fechasFiltro = null;
+            fechasFiltro = helper.getFechasFiltro(filtros, vistaReporte);
+            
+            int idPrograma = helper.getIdPrograma(filtros);
+            String nombrePrograma = "TODOS";
+            if(idPrograma != 0)
+                nombrePrograma = getItemComboBox(idPrograma, catPrograma);
+            
+            Map<String, Object> parametros = new HashMap<>();
+            parametros.put("imagen", "imagenes/logocr.jpg");
+            
             Path path = helper.getDirectorioReporte("reporteTipoUniversidad.jasper");
             File file = path.toFile();
             
+            List<PojoReporteGeneral> lstDatos = modelo.getAllUniversidadesPublicas(conexion, filtros, fechasFiltro, nombrePrograma );
+            
+            ReporteUniversidades reporteUnis = new ReporteUniversidades();
+            reporteUnis.setLstReporte(lstDatos);
+            
             JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
-            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, conexion);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, reporteUnis);
             
             JasperViewer visor = new JasperViewer(jasperPrint, false);
             visor.setVisible(true);
@@ -4384,7 +4402,7 @@ public class PrincipalControlador {
                 Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }*/
+    }
     
     /**
      * Genera el reporte de Universidades públicas

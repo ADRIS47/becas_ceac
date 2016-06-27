@@ -3,12 +3,8 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<queryString language="SQL">
-		<![CDATA[SELECT dat.id_tipo_escuela, esc.nombre
-
-FROM beca_datos_escolares AS dat
-
-JOIN beca_tipo_escuela AS esc ON esc.id_tipo_escuela = dat.id_tipo_escuela]]>
+	<queryString>
+		<![CDATA[]]>
 	</queryString>
 	<field name="nombre" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>

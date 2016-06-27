@@ -3709,6 +3709,14 @@ public class PrincipalModelo {
         return lstResult;
     }
 
+    /**
+     * Obtiene la informacion necesaria para crear el reporte de servicio comunitario
+     * @param conexion
+     * @param filtros
+     * @param fechas
+     * @param programa
+     * @return 
+     */
     protected List<PojoReporteGeneral> getAllBecariosServicioComunitario(Connection conexion, String filtros, Date[] fechas, String programa) {
         List<PojoReporteGeneral> lstResult = new ArrayList<>();
         Statement st = null;
@@ -3720,7 +3728,7 @@ public class PrincipalModelo {
             flagFechasFiltro = true;
         try {
             st = conexion.createStatement();
-            query = Consultas.getAllBecariosServicioComunitario2.concat(filtros);
+            query = Consultas.getAllBecariosServicioComunitario.concat(filtros);
             query = query.concat("GROUP BY nombreServicioComunitario");
             System.out.println(query);
             rs = st.executeQuery(query);
@@ -3728,6 +3736,47 @@ public class PrincipalModelo {
                 PojoReporteGeneral reporte = new PojoReporteGeneral();
                 reporte.setNombreServicioComunitario(rs.getString("nombreServicioComunitario"));
                 reporte.setHorasServicioComunitario(rs.getInt("horas"));
+                reporte.setNombrePrograma(programa);
+                if(flagFechasFiltro){
+                    reporte.setFechaDe(fechas[0]);
+                    reporte.setFechaA(fechas[1]);
+                }
+                
+                lstResult.add(reporte);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return lstResult;
+    }
+
+    
+    /**
+     * Obtiene la informacion necesaria para crear el reporte de universidades publicas
+     * @param conexion
+     * @param filtros
+     * @param fechas
+     * @param programa
+     * @return 
+     */
+    List<PojoReporteGeneral> getAllUniversidadesPublicas(Connection conexion, String filtros, Date[] fechas, String programa) {
+        List<PojoReporteGeneral> lstResult = new ArrayList<>();
+        Statement st = null;
+        ResultSet rs = null;
+        String query = "";
+        boolean flagFechasFiltro = false;
+        
+        if(fechas != null)
+            flagFechasFiltro = true;
+        try {
+            st = conexion.createStatement();
+            query = Consultas.getAllUniversidadesPublicas.concat(filtros);
+            System.out.println(query);
+            rs = st.executeQuery(query);
+            while(rs.next()){
+                PojoReporteGeneral reporte = new PojoReporteGeneral();
+                reporte.setNombreUniversidad(rs.getString("nombreUniversidad"));
                 reporte.setNombrePrograma(programa);
                 if(flagFechasFiltro){
                     reporte.setFechaDe(fechas[0]);
