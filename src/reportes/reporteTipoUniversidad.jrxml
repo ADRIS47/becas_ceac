@@ -3,23 +3,17 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<queryString language="SQL">
-		<![CDATA[SELECT datos.id_becario, datos.id_universidad, uni.id_tipo_escuela, esc.nombre
-
-FROM beca_datos_escolares AS datos
-
-JOIN beca_cat_universidad AS uni ON datos.id_universidad = uni.id_universidad
-
-JOIN beca_tipo_escuela AS esc ON uni.id_tipo_escuela = esc.id_tipo_escuela;]]>
+	<queryString>
+		<![CDATA[]]>
 	</queryString>
-	<field name="nombre" class="java.lang.String">
+	<field name="nombreUniversidad" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="fechaDe" class="java.util.Date"/>
 	<field name="nombrePrograma" class="java.lang.String"/>
 	<field name="fechaA" class="java.util.Date"/>
 	<group name="GRP_UNIVERSIDADES">
-		<groupExpression><![CDATA[$F{nombre}]]></groupExpression>
+		<groupExpression><![CDATA[$F{nombreUniversidad}]]></groupExpression>
 	</group>
 	<background>
 		<band splitType="Stretch"/>
@@ -112,9 +106,9 @@ JOIN beca_tipo_escuela AS esc ON uni.id_tipo_escuela = esc.id_tipo_escuela;]]>
 					<chartLegend/>
 				</chart>
 				<pieDataset>
-					<keyExpression><![CDATA[$F{nombre}]]></keyExpression>
+					<keyExpression><![CDATA[$F{nombreUniversidad}]]></keyExpression>
 					<valueExpression><![CDATA[$V{GRP_UNIVERSIDADES_COUNT}]]></valueExpression>
-					<labelExpression><![CDATA[$F{nombre} + " - " + $V{GRP_UNIVERSIDADES_COUNT}]]></labelExpression>
+					<labelExpression><![CDATA[$F{nombreUniversidad} + " - " + $V{GRP_UNIVERSIDADES_COUNT}]]></labelExpression>
 				</pieDataset>
 				<piePlot>
 					<plot/>

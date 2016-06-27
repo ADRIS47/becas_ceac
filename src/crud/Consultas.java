@@ -601,4 +601,20 @@ GROUP BY com.nombre
                             "INNER JOIN beca_kardex AS kardex ON becario. " + Becario.COL_ID + " = kardex." + Kardex.COL_ID_BECARIO + " " +
                             "INNER JOIN beca_cat_lugar_servicio_comunitario AS com ON kardex." + Kardex.COL_ID_SERVICIO_COMUNITARIO + " = com." + CatLugarServicioComunitario.COL_ID + " ";
     
+    /**
+     * Query que obtiene la información necesaria para generar el reporte de universidades publicas
+     * SELECT datos.id_becario, datos.id_universidad, uni.id_tipo_escuela, esc.nombre
+
+FROM beca_datos_escolares AS datos
+
+JOIN beca_cat_universidad AS uni ON datos.id_universidad = uni.id_universidad
+
+JOIN beca_tipo_escuela AS esc ON uni.id_tipo_escuela = esc.id_tipo_escuela
+     */
+    public static String getAllUniversidadesPublicas = "SELECT datos." + DatosEscolares.COL_ID_BECARIO + ", datos." + DatosEscolares.COL_ID_UNIVERSIDAD + ", " +
+                                "esc." + CatUniversidad.COL_NOMBRE + " AS nombreUniversidad " +  
+                                "FROM beca_datos_escolares AS datos " +
+                                "INNER JOIN beca_cat_universidad AS uni ON datos." +  DatosEscolares.COL_ID_UNIVERSIDAD + " = uni." + CatUniversidad.COL_ID + " " +
+                                "INNER JOIN beca_tipo_escuela AS esc ON uni." + CatUniversidad.COL_ID_TIPO_ESCUELA + " = esc." + CatTipoEscuela.COL_ID + " ";
+    
 }

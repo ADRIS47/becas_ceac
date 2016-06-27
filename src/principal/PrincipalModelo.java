@@ -3748,4 +3748,46 @@ public class PrincipalModelo {
         
         return lstResult;
     }
+
+    /**
+     * 
+     * @param conexion
+     * @param filtros
+     * @param fechas
+     * @param programa
+     * @return 
+     */
+    protected List<PojoReporteGeneral> getAllUniversidadesPublicas(Connection conexion, String filtros, Date[] fechas, String programa) {
+        List<PojoReporteGeneral> lstResult = new ArrayList<>();
+        Statement st = null;
+        ResultSet rs = null;
+        String query = "";
+        boolean flagFechasFiltro = false;
+        
+        if(fechas != null)
+            flagFechasFiltro = true;
+        try {
+            st = conexion.createStatement();
+            query = Consultas.getAllUniversidadesPublicas.concat(filtros);
+            System.out.println(query);
+            rs = st.executeQuery(query);
+            while(rs.next()){
+                PojoReporteGeneral reporte = new PojoReporteGeneral();
+                reporte.setNombreUniversidad(rs.getString("nombreUniversidad"));
+                reporte.setFechaDe(fechas[0]);
+                reporte.setFechaA(fechas[1]);
+                reporte.setNombrePrograma(programa);
+                if(flagFechasFiltro){
+                    reporte.setFechaDe(fechas[0]);
+                    reporte.setFechaA(fechas[1]);
+                }
+                
+                lstResult.add(reporte);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return lstResult;
+    }
 }
