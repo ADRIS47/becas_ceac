@@ -4195,12 +4195,21 @@ public class PrincipalControlador {
                 return;
             }
 
-            Map<String,Object> parametros = new HashMap<>();
-            parametros.put("imagen", "imagenes" + Index.SEPARADOR + "logocr.jpg");
+            String filtros = getFiltrosReporte(conexion);
+            java.util.Date[] fechasFiltro = null;
+            fechasFiltro = helper.getFechasFiltro(filtros, vistaReporte);
             
-            List<Becario> datos = modelo.getAllBecariosTrabajan(conexion);
+            Map<String, Object> parametros = new HashMap<>();
+            parametros.put("imagen", "imagenes/logocr.jpg");
             
-            for (Becario dato : datos) {
+            int idPrograma = helper.getIdPrograma(filtros);
+            String nombrePrograma = "TODOS";
+            if(idPrograma != 0)
+                nombrePrograma = getItemComboBox(idPrograma, catPrograma);
+            
+            List<PojoReporteGeneral> datos = modelo.getAllBecariosTrabajan(conexion, filtros, fechasFiltro, nombrePrograma);
+            
+            for (PojoReporteGeneral dato : datos) {
                 //Si el becario trabaja
                 if(dato.getTrabaja() == 1)
                     dato.setNombre("Trabajan");
@@ -4211,7 +4220,7 @@ public class PrincipalControlador {
             Path path = helper.getDirectorioReporte("reporteTrabajan.jasper");
             
             File file = path.toFile();
-            System.out.println(file.getAbsolutePath());
+            //System.out.println(file.getAbsolutePath());
             
             ReporteTrabajan report = new ReporteTrabajan();
             report.setLstTrabaja(datos);

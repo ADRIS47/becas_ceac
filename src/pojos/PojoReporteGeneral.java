@@ -13,6 +13,7 @@ import java.util.Date;
  */
 public class PojoReporteGeneral {
     
+    long idBecario;
     String folio;
     String aPaterno;
     String aMaterno;
@@ -33,6 +34,7 @@ public class PojoReporteGeneral {
     String nombreEdoCivil;
     String nombreServicioComunitario;
     int horasServicioComunitario;
+    int trabaja;
 
     public String getFolio() {
         return folio;
@@ -192,6 +194,22 @@ public class PojoReporteGeneral {
 
     public void setHorasServicioComunitario(int horasServicioComunitario) {
         this.horasServicioComunitario = horasServicioComunitario;
+    }
+
+    public long getIdBecario() {
+        return idBecario;
+    }
+
+    public void setIdBecario(long idBecario) {
+        this.idBecario = idBecario;
+    }
+
+    public int getTrabaja() {
+        return trabaja;
+    }
+
+    public void setTrabaja(int trabaja) {
+        this.trabaja = trabaja;
     }
     
 }

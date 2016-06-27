@@ -505,9 +505,10 @@ public class Consultas {
     /**
      * Obtiene todos los becarios que trabajan
      */
-    public static String getAllBecariosTrabajan = "SELECT  " + Becario.COL_ID + ", " + 
-                                                    Becario.COL_TRABAJA + " " + 
-                                                    "FROM beca_becario";
+    public static String getAllBecariosTrabajan = "SELECT  becario." + Becario.COL_ID + " AS idBecario, becario." + 
+                                                    Becario.COL_TRABAJA + " AS trabaja " + 
+                                                    "FROM beca_becario AS becario" + 
+                                                    " INNER JOIN beca_datos_escolares AS datos ON datos." + DatosEscolares.COL_ID_BECARIO + " = becario." + Becario.COL_ID  ;
     /**
      * Obtiene todos los becarios en ser primeros de ser becados
      */

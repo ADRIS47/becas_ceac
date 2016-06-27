@@ -3444,22 +3444,29 @@ public class PrincipalModelo {
     /**
      * Obtiene todos los becarios que trabajan
      * @param conexion
+     * @param filtros
+     * @param fechas
+     * @param nombrePrograma
      * @return 
      */
-    protected List<Becario> getAllBecariosTrabajan(Connection conexion) {
+    protected List<PojoReporteGeneral> getAllBecariosTrabajan(Connection conexion, String filtros, Date[] fechas, String nombrePrograma) {
         Statement st = null;
         ResultSet rs = null;
         List lstResults = new ArrayList();
         
         try {
             st = conexion.createStatement();
-            System.out.println(Consultas.getAllBecariosTrabajan);
-            rs = st.executeQuery(Consultas.getAllBecariosTrabajan);
+            String query = Consultas.getAllBecariosTrabajan.concat(filtros);
+            System.out.println(query);
+            rs = st.executeQuery(query);
             while(rs.next()){
-                Becario becario = new  Becario();
-                becario.setId(rs.getLong(Becario.COL_ID));
-                becario.setTrabaja(rs.getInt(Becario.COL_TRABAJA));
-                lstResults.add(becario);
+                PojoReporteGeneral pojo = new  PojoReporteGeneral();
+                pojo.setIdBecario(rs.getLong("idBecario"));
+                pojo.setTrabaja(rs.getInt("trabaja"));
+                pojo.setNombrePrograma(nombrePrograma);
+                pojo.setFechaDe(fechas[0]);
+                pojo.setFechaA(fechas[1]);
+                lstResults.add(pojo);
             }
         } catch (SQLException ex) {
             Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);

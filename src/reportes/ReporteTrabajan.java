@@ -11,6 +11,7 @@ import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRField;
 import pojos.Becario;
+import pojos.PojoReporteGeneral;
 
 /**
  *
@@ -18,14 +19,14 @@ import pojos.Becario;
  */
 public class ReporteTrabajan implements JRDataSource{
     
-    List<Becario> lstTrabaja = new ArrayList<>();
+    List<PojoReporteGeneral> lstTrabaja = new ArrayList<>();
     int contador = -1;
 
-    public List<Becario> getLstTrabaja() {
+    public List<PojoReporteGeneral> getLstTrabaja() {
         return lstTrabaja;
     }
 
-    public void setLstTrabaja(List<Becario> lstTrabaja) {
+    public void setLstTrabaja(List<PojoReporteGeneral> lstTrabaja) {
         this.lstTrabaja = lstTrabaja;
     }
 
@@ -42,6 +43,13 @@ public class ReporteTrabajan implements JRDataSource{
         switch(campo){
             case "trabaja":
                 valor = lstTrabaja.get(contador).getNombre();
+                break;
+            case "fechaDe":
+                valor = lstTrabaja.get(contador).getFechaDe();
+                break;
+                
+            case "fechaA":
+                valor = lstTrabaja.get(contador).getFechaA();
                 break;
         }
         return valor;
