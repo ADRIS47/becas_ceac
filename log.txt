@@ -6670,3 +6670,4 @@ Verifique su conexion e intentelo de nuevo
 23/6/2016;11:59:36;Nombre de categoria no encontrado
 23/6/2016;12:59:24;Nombre de categoria no encontrado
 23/6/2016;13:9:7;Nombre de categoria no encontrado
+24/6/2016;12:16:29;Nombre de categoria no encontrado

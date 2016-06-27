@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteTrabajan" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="699b2810-b4c9-402f-b80f-7f8a230a09f1">
-	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="501"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -95,7 +95,7 @@
 		</band>
 	</columnFooter>
 	<summary>
-		<band height="533" splitType="Stretch">
+		<band height="545" splitType="Stretch">
 			<pieChart>
 				<chart>
 					<reportElement x="0" y="53" width="572" height="385" uuid="4fca1400-7b6b-4bd8-b4c6-c06986d76797"/>
@@ -116,6 +116,11 @@
 					<itemLabel/>
 				</piePlot>
 			</pieChart>
+			<staticText>
+				<reportElement x="12" y="512" width="549" height="33" uuid="6cc44818-748d-4508-8900-e01e24d8d31a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Representación gráfica de los becarios on actividad laboral y los becarios que unicamente estudian]]></text>
+			</staticText>
 		</band>
 	</summary>
 </jasperReport>

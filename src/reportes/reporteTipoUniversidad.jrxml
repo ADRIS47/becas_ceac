@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteTipoUniversidad" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fca3cf3d-b6c4-4b31-9871-9ba7905fb733">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteTipoUniversidad" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fca3cf3d-b6c4-4b31-9871-9ba7905fb733">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -15,6 +15,9 @@ JOIN beca_tipo_escuela AS esc ON uni.id_tipo_escuela = esc.id_tipo_escuela;]]>
 	<field name="nombre" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
+	<field name="fechaDe" class="java.util.Date"/>
+	<field name="nombrePrograma" class="java.lang.String"/>
+	<field name="fechaA" class="java.util.Date"/>
 	<group name="GRP_UNIVERSIDADES">
 		<groupExpression><![CDATA[$F{nombre}]]></groupExpression>
 	</group>
@@ -22,30 +25,88 @@ JOIN beca_tipo_escuela AS esc ON uni.id_tipo_escuela = esc.id_tipo_escuela;]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch">
+		<band height="95" splitType="Stretch">
 			<staticText>
-				<reportElement x="55" y="21" width="722" height="58" uuid="dad74d44-4678-4495-8775-c603aac0385a"/>
+				<reportElement x="0" y="38" width="572" height="27" uuid="dad74d44-4678-4495-8775-c603aac0385a"/>
 				<textElement>
-					<font size="38"/>
+					<font size="20"/>
 				</textElement>
-				<text><![CDATA[Universidades Públicas y Privadas]]></text>
+				<text><![CDATA[REPORTE DE BECARIOS POR TIPO DE UNIVERSIDAD]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="572" height="26" uuid="ceb27715-b7da-4f3b-8728-4dfedec7660c"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[FUNDACION RUSSEK]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="65" width="572" height="1" uuid="b6e1bc0d-de7c-4b02-957c-c6b1d305e93e"/>
+			</line>
+			<staticText>
+				<reportElement x="343" y="68" width="100" height="20" uuid="df7f32f8-3be1-4ed1-981d-6cbc93e24e99"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Programa:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="208" y="68" width="11" height="20" uuid="8522816e-ecaf-4c9e-817d-50a933e8755b"/>
+				<textElement verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[al]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="68" width="61" height="20" uuid="f7fd6666-a45e-45b6-a88a-cb9908242c7f"/>
+				<textElement verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Periodo del]]></text>
+			</staticText>
+			<textField pattern="dd/MMMM/yyyy">
+				<reportElement x="85" y="68" width="123" height="20" uuid="6f6e8497-fd2d-4c6c-bce3-3cd26aa72b61"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{fechaDe}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MMMM/yyyy">
+				<reportElement x="221" y="68" width="100" height="20" uuid="a1e12811-f313-46e1-82b9-9e1ee32ee853"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{fechaA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="68" width="100" height="20" uuid="e21a8d9f-6c68-4907-bb87-0f2918b70999"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{nombrePrograma}]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 	<columnHeader>
-		<band height="23" splitType="Stretch"/>
-	</columnHeader>
-	<detail>
-		<band height="27" splitType="Stretch"/>
-	</detail>
-	<pageFooter>
 		<band splitType="Stretch"/>
+	</columnHeader>
+	<pageFooter>
+		<band height="20">
+			<textField evaluationTime="Report">
+				<reportElement x="281" y="0" width="40" height="20" uuid="37c97b32-5cca-4063-9f25-1dd25fc8914d"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="221" y="0" width="60" height="20" uuid="1fd021b5-b995-46f1-9d12-c63ef521446f"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+		</band>
 	</pageFooter>
 	<summary>
-		<band height="218" splitType="Stretch">
+		<band height="545" splitType="Stretch">
 			<pieChart>
 				<chart>
-					<reportElement x="231" y="11" width="366" height="179" uuid="6c38adf4-6444-45ed-9236-3b43a68756c4"/>
+					<reportElement x="0" y="46" width="572" height="355" uuid="6c38adf4-6444-45ed-9236-3b43a68756c4"/>
 					<chartTitle/>
 					<chartSubtitle/>
 					<chartLegend/>
@@ -60,6 +121,11 @@ JOIN beca_tipo_escuela AS esc ON uni.id_tipo_escuela = esc.id_tipo_escuela;]]>
 					<itemLabel/>
 				</piePlot>
 			</pieChart>
+			<staticText>
+				<reportElement x="0" y="429" width="570" height="33" uuid="b2cfad9e-d081-41bf-9a34-c48e5ac7e8c3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Representación gráfica de los becarios on actividad laboral y los becarios que unicamente estudian]]></text>
+			</staticText>
 		</band>
 	</summary>
 </jasperReport>

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportePrimerBecado" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8946aba2-09bc-46a9-98b0-f7a902dc86bf">
-	<property name="ireport.zoom" value="1.0"/>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportePrimerBecado" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8946aba2-09bc-46a9-98b0-f7a902dc86bf">
+	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="523"/>
 	<field name="becado" class="java.lang.String"/>
+	<field name="fechaDe" class="java.util.Date"/>
+	<field name="fechaA" class="java.util.Date"/>
+	<field name="nombrePrograma" class="java.lang.String"/>
 	<group name="GRP_BECADO">
 		<groupExpression><![CDATA[$F{becado}]]></groupExpression>
 	</group>
@@ -11,21 +14,80 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch">
+		<band height="81" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="14" width="802" height="65" uuid="e131aff6-887c-491f-81c0-26ad27ffc0ee"/>
+				<reportElement x="0" y="26" width="572" height="31" uuid="e131aff6-887c-491f-81c0-26ad27ffc0ee"/>
 				<textElement textAlignment="Center">
-					<font size="38"/>
+					<font size="20"/>
 				</textElement>
-				<text><![CDATA[PRIMEROS CON BECA]]></text>
+				<text><![CDATA[REPORTE DE BECARIOS PRIMEROS CON CARRERA]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="572" height="26" uuid="6eec862d-32d3-4d0a-b1b6-dcbc1b623ca2"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[FUNDACION RUSSEK]]></text>
+			</staticText>
+			<textField pattern="dd/MMMM/yyyy">
+				<reportElement x="94" y="59" width="123" height="20" uuid="3a0422e7-4373-40cc-b0ad-bfe476adf115"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{fechaDe}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MMMM/yyyy">
+				<reportElement x="244" y="59" width="100" height="20" uuid="bc78497f-149f-4852-bb56-f650e53d7d35"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{fechaA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="217" y="59" width="11" height="20" uuid="6df8c853-e4fc-45b9-8535-352e5870b2a7"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[al]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="59" width="61" height="20" uuid="6b4333c6-d5a9-46dd-9d35-b0065753b305"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Periodo del]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="385" y="59" width="52" height="20" uuid="3f40f9d2-3913-4e6c-a42c-b787652d9a41"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Programa:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="441" y="59" width="100" height="20" uuid="3fb4f43d-a993-4271-8724-4efc169432fb"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nombrePrograma}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="56" width="572" height="1" uuid="979f2e47-60c5-47eb-8d58-e8ef9d8a175e"/>
+			</line>
 		</band>
 	</title>
+	<pageFooter>
+		<band height="22">
+			<textField>
+				<reportElement x="244" y="0" width="60" height="20" uuid="682bbcd5-4d06-4572-ab9e-5bf26ac231d6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="304" y="0" width="40" height="20" uuid="701faeb7-9804-4d1e-8abc-6089e93f3028"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
 	<summary>
-		<band height="284" splitType="Stretch">
+		<band height="558" splitType="Stretch">
 			<pieChart>
 				<chart>
-					<reportElement x="122" y="0" width="546" height="284" uuid="22a2e004-b96c-46b5-b9d8-d8063dbd2299"/>
+					<reportElement x="0" y="37" width="572" height="401" uuid="22a2e004-b96c-46b5-b9d8-d8063dbd2299"/>
 					<chartTitle/>
 					<chartSubtitle/>
 					<chartLegend/>
@@ -36,10 +98,18 @@
 					<labelExpression><![CDATA[$F{becado} + " - " + $V{GRP_BECADO_COUNT}]]></labelExpression>
 				</pieDataset>
 				<piePlot>
-					<plot/>
+					<plot>
+						<seriesColor seriesOrder="0" color="#3399FF"/>
+						<seriesColor seriesOrder="1" color="#FF0000"/>
+					</plot>
 					<itemLabel/>
 				</piePlot>
 			</pieChart>
+			<staticText>
+				<reportElement x="11" y="525" width="549" height="33" uuid="bb201ed7-5a59-48d9-96c8-914acb797c15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Representación gráfica de los becarios que son los primeros en su familia que estan cursando la carrera universitaria.]]></text>
+			</staticText>
 		</band>
 	</summary>
 </jasperReport>
