@@ -4459,47 +4459,47 @@ public class PrincipalControlador {
      * Genera el reporte indicado, este método solo funciona con los reportes que 
      * ya tienen en sus plantillas los querys necesarios para formarse
      */
-    private void creaReporteDirectamente(String nombreReporte) {
-        Conexion conn = null;
-        Connection conexion = null;
-        try {
-            conn = new Conexion();
-            conexion = conn.estableceConexion();
-            
-            if(conexion == null){
-                JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            
-            String filtros = getFiltrosReporte(conexion);
-            Map<String, Object> parametros = new HashMap<>();
-            parametros.put("imagen", "imagenes/logocr.jpg");
-            
-            Iterator it = parametros.keySet().iterator();
-            while(it.hasNext()){
-                String id = (String) it.next();
-                //System.out.println(id + " -------> " + parametros.get(id));
-            }
-            
-            Path path = helper.getDirectorioReporte(nombreReporte);
-            File file = path.toFile();
-            
-            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
-            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, conexion);
-            
-            JasperViewer visor = new JasperViewer(jasperPrint, false);
-            visor.setVisible(true);
-        } catch (JRException ex) {
-            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        finally{
-            try {
-                conexion.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }
+//    private void creaReporteDirectamente(String nombreReporte) {
+//        Conexion conn = null;
+//        Connection conexion = null;
+//        try {
+//            conn = new Conexion();
+//            conexion = conn.estableceConexion();
+//            
+//            if(conexion == null){
+//                JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+//                return;
+//            }
+//            
+//            String filtros = getFiltrosReporte(conexion);
+//            Map<String, Object> parametros = new HashMap<>();
+//            parametros.put("imagen", "imagenes/logocr.jpg");
+//            
+//            Iterator it = parametros.keySet().iterator();
+//            while(it.hasNext()){
+//                String id = (String) it.next();
+//                //System.out.println(id + " -------> " + parametros.get(id));
+//            }
+//            
+//            Path path = helper.getDirectorioReporte(nombreReporte);
+//            File file = path.toFile();
+//            
+//            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
+//            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, conexion);
+//            
+//            JasperViewer visor = new JasperViewer(jasperPrint, false);
+//            visor.setVisible(true);
+//        } catch (JRException ex) {
+//            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        finally{
+//            try {
+//                conexion.close();
+//            } catch (SQLException ex) {
+//                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+//    }
     
     /**
      * Genera el reporte de los becarios en ser primeros de ser becados
