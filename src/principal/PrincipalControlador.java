@@ -4530,18 +4530,27 @@ public class PrincipalControlador {
                 return;
             }
 
-            List<Becario> datos = modelo.getAllBecariosEnSerBecados(conexion);
+            String filtros = getFiltrosReporte(conexion);
+            java.util.Date[] fechasFiltro = null;
+            fechasFiltro = helper.getFechasFiltro(filtros, vistaReporte);
             
-            for (Becario dato : datos) {
+            int idPrograma = helper.getIdPrograma(filtros);
+            String nombrePrograma = "TODOS";
+            if(idPrograma != 0)
+                nombrePrograma = getItemComboBox(idPrograma, catPrograma);
+            
+            Map<String, Object> parametros = new HashMap<>();
+            parametros.put("imagen", "imagenes/logocr.jpg");
+            
+            List<PojoReporteGeneral> datos = modelo.getAllBecariosEnSerBecados(conexion, filtros, fechasFiltro, nombrePrograma);
+            
+            for (PojoReporteGeneral dato : datos) {
                 //Si el becario trabaja
                 if(dato.getPrimeroConBeca() == 1)
                     dato.setNombre("Si es primero");
                 else
                     dato.setNombre("No es primero");
             }
-            
-            Map<String,Object> parametros = new HashMap<>();
-            parametros.put("imagen", "imagenes" + Index.SEPARADOR + "logocr.jpg");
             
             Path path = helper.getDirectorioReporte("reportePrimerBecado.jasper");
             

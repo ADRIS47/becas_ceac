@@ -35,7 +35,9 @@ public class PojoReporteGeneral {
     String nombreServicioComunitario;
     int horasServicioComunitario;
     int trabaja;
-
+    String nombreTrabaja;
+    int primeroConBeca;
+    
     public String getFolio() {
         return folio;
     }
@@ -210,6 +212,22 @@ public class PojoReporteGeneral {
 
     public void setTrabaja(int trabaja) {
         this.trabaja = trabaja;
+    }
+
+    public String getNombreTrabaja() {
+        return nombreTrabaja;
+    }
+
+    public void setNombreTrabaja(String nombreTrabaja) {
+        this.nombreTrabaja = nombreTrabaja;
+    }
+
+    public int getPrimeroConBeca() {
+        return primeroConBeca;
+    }
+
+    public void setPrimeroConBeca(int primeroConBeca) {
+        this.primeroConBeca = primeroConBeca;
     }
     
 }

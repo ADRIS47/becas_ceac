@@ -3480,19 +3480,25 @@ public class PrincipalModelo {
      * @param conexion
      * @return 
      */
-    protected List<Becario> getAllBecariosEnSerBecados(Connection conexion) {
+    protected List<PojoReporteGeneral> getAllBecariosEnSerBecados(Connection conexion, String filtros, Date[] fechas, String nombrePrograma) {
         Statement st = null;
         ResultSet rs = null;
         List lstResults = new ArrayList();
         
         try {
             st = conexion.createStatement();
-            System.out.println(Consultas.getAllBecariosEnSerBecados);
-            rs = st.executeQuery(Consultas.getAllBecariosEnSerBecados);
+            String query = Consultas.getAllBecariosEnSerBecados.concat(filtros);
+            System.out.println(query);
+            rs = st.executeQuery(query);
+            System.out.println(query);
             while(rs.next()){
-                Becario becario = new  Becario();
-                becario.setId(rs.getLong(Becario.COL_ID));
-                becario.setPrimeroConBeca(rs.getInt(Becario.COL_PRIMERO_CON_BECA));
+                PojoReporteGeneral becario = new  PojoReporteGeneral();
+                becario.setIdBecario(rs.getLong("idBecario"));
+                becario.setPrimeroConBeca(rs.getInt("primeroConBeca"));
+                becario.setFechaDe(fechas[0]);
+                becario.setFechaA(fechas[1]);
+                becario.setNombrePrograma(nombrePrograma);
+                
                 lstResults.add(becario);
             }
         } catch (SQLException ex) {
@@ -3728,6 +3734,7 @@ public class PrincipalModelo {
         try {
             st = conexion.createStatement();
             query = Consultas.getAllBecariosServicioComunitario.concat(filtros);
+            query = query.concat(" GROUP BY nombreServicioComunitario");
             System.out.println(query);
             rs = st.executeQuery(query);
             while(rs.next()){
