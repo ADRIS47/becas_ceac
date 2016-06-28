@@ -40,11 +40,11 @@
 	<title>
 		<band height="46" splitType="Stretch">
 			<staticText>
-				<reportElement x="285" y="19" width="218" height="20" uuid="1ee47b3c-dfeb-4675-b2bd-c0d93ec1b6c3"/>
+				<reportElement x="227" y="19" width="335" height="20" uuid="1ee47b3c-dfeb-4675-b2bd-c0d93ec1b6c3"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[REPORTE CONTROL SEMESTRAL]]></text>
+				<text><![CDATA[REPORTE CONTROL SEMESTRAL BECA DEVOLUCION]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="288" y="3" width="218" height="20" uuid="2d52252a-492f-40e0-90b9-e9d7a7842e8c"/>
@@ -65,47 +65,33 @@
 	<columnHeader>
 		<band height="223" splitType="Stretch">
 			<textField>
-				<reportElement x="54" y="8" width="101" height="20" uuid="4fdc5144-d82a-4ec3-85a1-f0dd08f1025e"/>
+				<reportElement x="54" y="36" width="101" height="20" uuid="4fdc5144-d82a-4ec3-85a1-f0dd08f1025e"/>
 				<textElement verticalAlignment="Middle">
 					<font size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{folio}.toUpperCase()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="262" y="8" width="241" height="20" uuid="e9eb0785-cafb-4864-ad31-c12bd6df2e3b"/>
+				<reportElement x="262" y="36" width="241" height="20" uuid="e9eb0785-cafb-4864-ad31-c12bd6df2e3b"/>
 				<textElement>
 					<font size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombreCompleto}.toUpperCase()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="8" width="44" height="20" uuid="b634b48a-06b0-414d-be2a-4f4c495078d7"/>
+				<reportElement x="0" y="36" width="44" height="20" uuid="b634b48a-06b0-414d-be2a-4f4c495078d7"/>
 				<textElement verticalAlignment="Middle">
 					<font size="11" isBold="true"/>
 				</textElement>
 				<text><![CDATA[FOLIO:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="178" y="8" width="81" height="20" uuid="de41406d-52b6-4c7a-a95e-488b7b273498"/>
+				<reportElement x="178" y="36" width="81" height="20" uuid="de41406d-52b6-4c7a-a95e-488b7b273498"/>
 				<textElement textAlignment="Right">
 					<font size="11" isBold="true"/>
 				</textElement>
 				<text><![CDATA[NOMBRE:]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="534" y="8" width="86" height="20" uuid="d91844a7-8cb8-41ed-9a2b-946fd595d7b6"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font size="11" isBold="true"/>
-				</textElement>
-				<text><![CDATA[PROGRAMA:]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="620" y="8" width="140" height="20" uuid="633ab178-4867-4f55-b465-96ec6bb187aa"/>
-				<textElement verticalAlignment="Middle">
-					<font size="11"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{programa}.toUpperCase()]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement x="587" y="56" width="57" height="20" uuid="5048a706-d025-4995-a5e2-7fa8b702687d"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
@@ -272,11 +258,8 @@
 				</textElement>
 				<text><![CDATA[DESCUENTO ACUMULADO:]]></text>
 			</staticText>
-			<line>
-				<reportElement x="0" y="29" width="763" height="1" uuid="52e88461-b4d9-41a8-900e-b678a201b43a"/>
-			</line>
 			<staticText>
-				<reportElement x="221" y="33" width="350" height="20" uuid="2318e19d-a70f-4f84-92e0-21e549a0246a"/>
+				<reportElement x="212" y="0" width="350" height="20" uuid="2318e19d-a70f-4f84-92e0-21e549a0246a"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="11" isBold="true"/>
 				</textElement>
