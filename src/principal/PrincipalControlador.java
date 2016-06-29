@@ -1957,7 +1957,7 @@ public class PrincipalControlador {
                 if (i < lstKardex.size()) {
                     Kardex kardex = lstKardex.get(i);
 
-                    System.out.println("Fecha controlador: " + fecha.getTime());
+                    //System.out.println("Fecha controlador: " + fecha.getTime());
 
                     chkPago1.setSelected(kardex.isPlatica1());
                     txtHorasServicio.setText(kardex.getHorasServicio() + "");
