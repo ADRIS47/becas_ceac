@@ -3444,22 +3444,29 @@ public class PrincipalModelo {
     /**
      * Obtiene todos los becarios que trabajan
      * @param conexion
+     * @param filtros
+     * @param fechas
+     * @param nombrePrograma
      * @return 
      */
-    protected List<Becario> getAllBecariosTrabajan(Connection conexion) {
+    protected List<PojoReporteGeneral> getAllBecariosTrabajan(Connection conexion, String filtros, Date[] fechas, String nombrePrograma) {
         Statement st = null;
         ResultSet rs = null;
         List lstResults = new ArrayList();
         
         try {
             st = conexion.createStatement();
-            System.out.println(Consultas.getAllBecariosTrabajan);
-            rs = st.executeQuery(Consultas.getAllBecariosTrabajan);
+            String query = Consultas.getAllBecariosTrabajan.concat(filtros);
+            System.out.println(query);
+            rs = st.executeQuery(query);
             while(rs.next()){
-                Becario becario = new  Becario();
-                becario.setId(rs.getLong(Becario.COL_ID));
-                becario.setTrabaja(rs.getInt(Becario.COL_TRABAJA));
-                lstResults.add(becario);
+                PojoReporteGeneral pojo = new  PojoReporteGeneral();
+                pojo.setIdBecario(rs.getLong("idBecario"));
+                pojo.setTrabaja(rs.getInt("trabaja"));
+                pojo.setNombrePrograma(nombrePrograma);
+                pojo.setFechaDe(fechas[0]);
+                pojo.setFechaA(fechas[1]);
+                lstResults.add(pojo);
             }
         } catch (SQLException ex) {
             Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
@@ -3473,19 +3480,25 @@ public class PrincipalModelo {
      * @param conexion
      * @return 
      */
-    protected List<Becario> getAllBecariosEnSerBecados(Connection conexion) {
+    protected List<PojoReporteGeneral> getAllBecariosEnSerBecados(Connection conexion, String filtros, Date[] fechas, String nombrePrograma) {
         Statement st = null;
         ResultSet rs = null;
         List lstResults = new ArrayList();
         
         try {
             st = conexion.createStatement();
-            System.out.println(Consultas.getAllBecariosEnSerBecados);
-            rs = st.executeQuery(Consultas.getAllBecariosEnSerBecados);
+            String query = Consultas.getAllBecariosEnSerBecados.concat(filtros);
+            System.out.println(query);
+            rs = st.executeQuery(query);
+            System.out.println(query);
             while(rs.next()){
-                Becario becario = new  Becario();
-                becario.setId(rs.getLong(Becario.COL_ID));
-                becario.setPrimeroConBeca(rs.getInt(Becario.COL_PRIMERO_CON_BECA));
+                PojoReporteGeneral becario = new  PojoReporteGeneral();
+                becario.setIdBecario(rs.getLong("idBecario"));
+                becario.setPrimeroConBeca(rs.getInt("primeroConBeca"));
+                becario.setFechaDe(fechas[0]);
+                becario.setFechaA(fechas[1]);
+                becario.setNombrePrograma(nombrePrograma);
+                
                 lstResults.add(becario);
             }
         } catch (SQLException ex) {
@@ -3721,12 +3734,55 @@ public class PrincipalModelo {
         try {
             st = conexion.createStatement();
             query = Consultas.getAllBecariosServicioComunitario.concat(filtros);
+            query = query.concat(" GROUP BY nombreServicioComunitario");
             System.out.println(query);
             rs = st.executeQuery(query);
             while(rs.next()){
                 PojoReporteGeneral reporte = new PojoReporteGeneral();
                 reporte.setNombreServicioComunitario(rs.getString("nombreServicioComunitario"));
                 reporte.setHorasServicioComunitario(rs.getInt("horas"));
+                reporte.setNombrePrograma(programa);
+                if(flagFechasFiltro){
+                    reporte.setFechaDe(fechas[0]);
+                    reporte.setFechaA(fechas[1]);
+                }
+                
+                lstResult.add(reporte);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return lstResult;
+    }
+
+    /**
+     * 
+     * @param conexion
+     * @param filtros
+     * @param fechas
+     * @param programa
+     * @return 
+     */
+    protected List<PojoReporteGeneral> getAllUniversidadesPublicas(Connection conexion, String filtros, Date[] fechas, String programa) {
+        List<PojoReporteGeneral> lstResult = new ArrayList<>();
+        Statement st = null;
+        ResultSet rs = null;
+        String query = "";
+        boolean flagFechasFiltro = false;
+        
+        if(fechas != null)
+            flagFechasFiltro = true;
+        try {
+            st = conexion.createStatement();
+            query = Consultas.getAllUniversidadesPublicas.concat(filtros);
+            System.out.println(query);
+            rs = st.executeQuery(query);
+            while(rs.next()){
+                PojoReporteGeneral reporte = new PojoReporteGeneral();
+                reporte.setNombreUniversidad(rs.getString("nombreUniversidad"));
+                reporte.setFechaDe(fechas[0]);
+                reporte.setFechaA(fechas[1]);
                 reporte.setNombrePrograma(programa);
                 if(flagFechasFiltro){
                     reporte.setFechaDe(fechas[0]);

@@ -505,15 +505,17 @@ public class Consultas {
     /**
      * Obtiene todos los becarios que trabajan
      */
-    public static String getAllBecariosTrabajan = "SELECT  " + Becario.COL_ID + ", " + 
-                                                    Becario.COL_TRABAJA + " " + 
-                                                    "FROM beca_becario";
+    public static String getAllBecariosTrabajan = "SELECT  becario." + Becario.COL_ID + " AS idBecario, becario." + 
+                                                    Becario.COL_TRABAJA + " AS trabaja " + 
+                                                    "FROM beca_becario AS becario" + 
+                                                    " INNER JOIN beca_datos_escolares AS datos ON datos." + DatosEscolares.COL_ID_BECARIO + " = becario." + Becario.COL_ID  ;
     /**
      * Obtiene todos los becarios en ser primeros de ser becados
      */
-    public static String getAllBecariosEnSerBecados = "SELECT " + Becario.COL_ID + ", " + 
-                                                        Becario.COL_PRIMERO_CON_BECA + " " + 
-                                                        "FROM beca_becario";
+    public static String getAllBecariosEnSerBecados = "SELECT becario." + Becario.COL_ID + " AS idBecario, becario." + 
+                                                        Becario.COL_PRIMERO_CON_BECA + " AS primeroConBeca " + 
+                                                        "FROM beca_becario AS becario " +
+                                                        " INNER JOIN beca_datos_escolares AS datos ON datos." + DatosEscolares.COL_ID_BECARIO + " = becario." + Becario.COL_ID + " ";
     /**
      * Obtiene todos los becarios para general el reporte general
      */
@@ -598,6 +600,22 @@ GROUP BY com.nombre
                             "FROM beca_becario AS becario " + 
                             "INNER JOIN beca_datos_escolares AS datos ON becario. " + Becario.COL_ID + " = datos." + DatosEscolares.COL_ID_BECARIO + " " +
                             "INNER JOIN beca_kardex AS kardex ON becario. " + Becario.COL_ID + " = kardex." + Kardex.COL_ID_BECARIO + " " +
-                            "INNER JOIN beca_cat_lugar_servicio_comunitario AS com ON kardex." + Kardex.COL_ID_SERVICIO_COMUNITARIO + " = com." + CatLugarServicioComunitario.COL_ID + " ";
+                            "INNER JOIN beca_cat_lugar_servicio_comunitario AS com ON kardex." + Kardex.COL_LUGAR_SERVICIO_COMUNITARIO + " = com." + CatLugarServicioComunitario.COL_ID + " ";
+    
+    /**
+     * Query que obtiene la información necesaria para generar el reporte de universidades publicas
+     * SELECT datos.id_becario, datos.id_universidad, uni.id_tipo_escuela, esc.nombre
+
+FROM beca_datos_escolares AS datos
+
+JOIN beca_cat_universidad AS uni ON datos.id_universidad = uni.id_universidad
+
+JOIN beca_tipo_escuela AS esc ON uni.id_tipo_escuela = esc.id_tipo_escuela
+     */
+    public static String getAllUniversidadesPublicas = "SELECT datos." + DatosEscolares.COL_ID_BECARIO + ", datos." + DatosEscolares.COL_ID_UNIVERSIDAD + ", " +
+                                "esc." + CatUniversidad.COL_NOMBRE + " AS nombreUniversidad " +  
+                                "FROM beca_datos_escolares AS datos " +
+                                "INNER JOIN beca_cat_universidad AS uni ON datos." +  DatosEscolares.COL_ID_UNIVERSIDAD + " = uni." + CatUniversidad.COL_ID + " " +
+                                "INNER JOIN beca_tipo_escuela AS esc ON uni." + CatUniversidad.COL_ID_TIPO_ESCUELA + " = esc." + CatTipoEscuela.COL_ID + " ";
     
 }

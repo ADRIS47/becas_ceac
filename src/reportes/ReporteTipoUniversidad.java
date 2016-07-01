@@ -10,46 +10,47 @@ import java.util.List;
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRField;
-import pojos.Becario;
 import pojos.PojoReporteGeneral;
 
 /**
  *
  * @author sabagip
  */
-public class ReporteTrabajan implements JRDataSource{
+public class ReporteTipoUniversidad implements JRDataSource{
     
-    List<PojoReporteGeneral> lstTrabaja = new ArrayList<>();
+    List<PojoReporteGeneral> lstTipoUniversidad = new ArrayList<>();
     int contador = -1;
 
     public List<PojoReporteGeneral> getLstTrabaja() {
-        return lstTrabaja;
+        return lstTipoUniversidad;
     }
 
     public void setLstTrabaja(List<PojoReporteGeneral> lstTrabaja) {
-        this.lstTrabaja = lstTrabaja;
+        this.lstTipoUniversidad = lstTrabaja;
     }
 
     @Override
     public boolean next() throws JRException {
-        return ++contador < lstTrabaja.size();
+        return ++contador < lstTipoUniversidad.size();
     }
 
     @Override
     public Object getFieldValue(JRField jrf) throws JRException {
         Object valor = null;
-        float pagoSemestral = 0;
         String campo = jrf.getName();
         switch(campo){
-            case "trabaja":
-                valor = lstTrabaja.get(contador).getNombre();
+            case "nombreUniversidad":
+                valor = lstTipoUniversidad.get(contador).getNombreUniversidad();
                 break;
             case "fechaDe":
-                valor = lstTrabaja.get(contador).getFechaDe();
+                valor = lstTipoUniversidad.get(contador).getFechaDe();
                 break;
                 
             case "fechaA":
-                valor = lstTrabaja.get(contador).getFechaA();
+                valor = lstTipoUniversidad.get(contador).getFechaA();
+                break;
+            case "nombrePrograma":
+                valor = lstTipoUniversidad.get(contador).getNombrePrograma();
                 break;
         }
         return valor;
