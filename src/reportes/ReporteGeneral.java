@@ -77,11 +77,9 @@ public class ReporteGeneral implements JRDataSource{
                 String nombre = lstReporte.get(contador).getaPaterno() + " " + lstReporte.get(contador).getaMaterno() + " " + lstReporte.get(contador).getNombre();
                 valor = nombre;
                 break;
-                
             case "fechaDe":
                 valor = lstReporte.get(contador).getFechaDe();
                     break;
-                
             case "fechaA":
                 valor = lstReporte.get(contador).getFechaA();
                     break;

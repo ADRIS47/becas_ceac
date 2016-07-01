@@ -28,6 +28,9 @@ public class Kardex {
     int horasServicio;
     String transferencia1;
     String transferencia2;
+    int descuentoTotal;
+    int saldoTotal;
+    int horasTotales;
     
     public long getId_kardex() {
         return id_kardex;
@@ -163,6 +166,30 @@ public class Kardex {
 
     public void setTransferencia2(String transferencia2) {
         this.transferencia2 = transferencia2;
+    }
+
+    public int getDescuentoTotal() {
+        return descuentoTotal;
+    }
+
+    public void setDescuentoTotal(int descuentoTotal) {
+        this.descuentoTotal = descuentoTotal;
+    }
+
+    public int getSaldoTotal() {
+        return saldoTotal;
+    }
+
+    public void setSaldoTotal(int saldoTotal) {
+        this.saldoTotal = saldoTotal;
+    }
+
+    public int getHorasTotales() {
+        return horasTotales;
+    }
+
+    public void setHorasTotales(int horasTotales) {
+        this.horasTotales = horasTotales;
     }
     
     public static final String COL_ID_KARDEX = "id_kardex";

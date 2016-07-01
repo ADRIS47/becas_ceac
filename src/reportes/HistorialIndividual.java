@@ -105,8 +105,12 @@ public class HistorialIndividual
                 break;
             case "saldoAcumulado":
                 int saldo = 0;
+                int becaSemestral = ((int) lstDatosUnicos.get(0).getBecaSemestral()) / 2;
                 for (PojoReporteIndividualMuchosDatos datos : lstMuchosDatos) {
-                    
+                    if(datos.getPago1())
+                        saldo += becaSemestral;
+                    if(datos.getPago2())
+                        saldo += becaSemestral;
                 }
                 valor = saldo;
                 break;
