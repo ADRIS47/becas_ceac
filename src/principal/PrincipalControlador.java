@@ -1957,7 +1957,7 @@ public class PrincipalControlador {
                 if (i < lstKardex.size()) {
                     Kardex kardex = lstKardex.get(i);
 
-                    System.out.println("Fecha controlador: " + fecha.getTime());
+                    //System.out.println("Fecha controlador: " + fecha.getTime());
 
                     chkPago1.setSelected(kardex.isPlatica1());
                     txtHorasServicio.setText(kardex.getHorasServicio() + "");
@@ -2480,9 +2480,12 @@ public class PrincipalControlador {
         DatosEscolares lstDatosEscolares = modelo.getDatosEscolaresBecario(conexion, becario.getId());
 
         Aval lstAval = modelo.getAvalBecario(conexion, becario.getId());
-
+        
+        List<Kardex> lstKardex = modelo.getKardexPorIdBecario(conexion, becario.getId());
+        lstKardex = getTotalesKardexPorBecario(lstKardex, lstDatosEscolares);
+        
         creaVistaRegistroConDatosBecario(becario, lstDireccionesBecario, lstTelefonosBecario, lstPadresBecario, lstHermanos,
-                lstHijos, lstDatosEscolares, lstAval);
+                lstHijos, lstDatosEscolares, lstAval, lstKardex);
 
         try {
             conexion.close();
@@ -2594,7 +2597,7 @@ public class PrincipalControlador {
      */
     private void creaVistaRegistroConDatosBecario(Becario becario, List<Direccion> lstDireccionesBecario,
             List<Telefono> lstTelefonosBecario, List<Padres> lstPadresBecario, List<Hermanos> lstHermanos,
-            List<Hijos> lstHijos, DatosEscolares lstDatosEscolares, Aval lstAval) {
+            List<Hijos> lstHijos, DatosEscolares lstDatosEscolares, Aval lstAval, List<Kardex> lstKardex) {
 
         if (vistaRegistro != null) {
             terminaVistaRegistro();
@@ -2622,7 +2625,7 @@ public class PrincipalControlador {
             lstCategorias = modelo.getCategoriasVistaRegistro();
             llenaCamposCategoriasVistaRegistro(lstCategorias, true);
             llenaCamposVistaRegistro(becario, lstDireccionesBecario, lstTelefonosBecario,
-                    lstPadresBecario, lstHermanos, lstHijos, lstDatosEscolares, lstAval);
+                    lstPadresBecario, lstHermanos, lstHijos, lstDatosEscolares, lstAval, lstKardex);
         } catch (SQLException ex) {
             Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(vista, "Error, consulta el registro de errores",
@@ -2662,7 +2665,7 @@ public class PrincipalControlador {
      */
     private void llenaCamposVistaRegistro(Becario becario, List<Direccion> lstDireccionesBecario,
             List<Telefono> lstTelefonosBecario, List<Padres> lstPadresBecario, List<Hermanos> lstHermanos,
-            List<Hijos> lstHijos, DatosEscolares lstDatosEscolares, Aval lstAval) {
+            List<Hijos> lstHijos, DatosEscolares lstDatosEscolares, Aval lstAval, List<Kardex> lstKardex) {
 
         //Llenado de datos generales
         String programa = getItemComboBox(becario.getIdPrograma(), catPrograma);
@@ -2682,6 +2685,18 @@ public class PrincipalControlador {
         vistaRegistro.combobxSexoBecado.setSelectedIndex(becario.getIdSexo() - 1);
         vistaRegistro.combobxCivilBecado.setSelectedIndex(becario.getIdEstadoCivil() - 1);
         
+        if(lstKardex != null || !lstKardex.isEmpty()){
+            
+            
+            vistaRegistro.txtHorasServicio.setText(lstKardex.get(0).getHorasTotales() + "");
+            vistaRegistro.txtDescuento.setText(lstKardex.get(0).getDescuentoTotal() + "%");
+            vistaRegistro.txtSaldo.setText("$" + lstKardex.get(0).getSaldoTotal());
+        }
+        else{
+            vistaRegistro.txtHorasServicio.setText("0");
+            vistaRegistro.txtDescuento.setText("0%");
+            vistaRegistro.txtSaldo.setText("$0");
+        }
         int contador = 0;
         for (Telefono telefono : lstTelefonosBecario) {
             switch (contador) {
@@ -4072,7 +4087,7 @@ public class PrincipalControlador {
     /**
      * Genera el reporte general del becario que ha sido buscado
      */
-    private void creaReporteIndividual() {
+    protected void creaReporteIndividual() {
         Conexion conn = null;
         Connection conexion = null;
         
@@ -4800,5 +4815,34 @@ public class PrincipalControlador {
             vistaReporte.cmbAnioRep2.setEnabled(true);
             vistaReporte.cmbanioRep3.setEnabled(true);
         }
+    }
+
+    private List<Kardex> getTotalesKardexPorBecario(List<Kardex> lstKardex, DatosEscolares datosEscolares) {
+        int descuentoTotal = 0;
+        int saldoTotal = 0;
+        int horasTotales = 0;
+        int becaSemestral = datosEscolares.getBecaSemestral() / 2;
+        List<Kardex> lstResult = new ArrayList<>();
+        
+        for (Kardex kardex : lstKardex) {
+            descuentoTotal += kardex.getDescuento();
+            horasTotales += kardex.getHorasServicio();
+            int pagos = 0;
+            if(kardex.isPago_inicio_semestre())
+                pagos += becaSemestral;
+            if(kardex.isPago_fin_semestre())
+                pagos += becaSemestral;
+            
+            saldoTotal += pagos;
+        }
+        
+        for (Kardex kardex : lstKardex) {
+            kardex.setSaldoTotal(saldoTotal);
+            kardex.setDescuentoTotal(descuentoTotal);
+            kardex.setHorasTotales(horasTotales);
+            lstResult.add(kardex);
+        }
+        
+        return lstResult;
     }
 }
