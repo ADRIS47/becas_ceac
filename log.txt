@@ -6688,3 +6688,8 @@ Verifique su conexion e intentelo de nuevo
 1/7/2016;13:59:44;Nombre de categoria no encontrado
 1/7/2016;14:4:50;Nombre de categoria no encontrado
 1/7/2016;14:8:48;Nombre de categoria no encontrado
+4/7/2016;10:13:14;Nombre de categoria no encontrado
+4/7/2016;10:22:48;Nombre de categoria no encontrado
+4/7/2016;10:47:44;Nombre de categoria no encontrado
+4/7/2016;11:0:53;Nombre de categoria no encontrado
+4/7/2016;11:3:40;Nombre de categoria no encontrado

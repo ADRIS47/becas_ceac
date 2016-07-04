@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteTrabajan" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="699b2810-b4c9-402f-b80f-7f8a230a09f1">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="336"/>
+	<property name="ireport.y" value="0"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -17,7 +17,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="77" splitType="Stretch">
+		<band height="78" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="0" width="572" height="26" uuid="bfeff80f-4393-4102-8e05-97b26f92b68f"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
@@ -34,41 +34,50 @@
 			</staticText>
 			<line>
 				<reportElement x="0" y="52" width="572" height="1" uuid="662c720c-2705-496d-8bf7-265da865ef50"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
 			</line>
 			<textField pattern="dd/MMMM/yyyy">
 				<reportElement x="105" y="53" width="123" height="20" uuid="27ab8735-6307-49ac-915a-9f75a1cb21bf"/>
-				<textElement verticalAlignment="Bottom"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Calibri"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{fechaDe}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="33" y="53" width="61" height="20" uuid="1e9e4db6-2e96-4b8b-aee2-010fdae85471"/>
-				<textElement verticalAlignment="Bottom">
-					<font isBold="true"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Calibri" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Periodo del]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="228" y="53" width="11" height="20" uuid="8711bc8d-5afc-4d5c-a7b3-9a84adcd956e"/>
-				<textElement verticalAlignment="Bottom">
-					<font isBold="true"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Calibri" isBold="true"/>
 				</textElement>
 				<text><![CDATA[al]]></text>
 			</staticText>
 			<textField pattern="dd/MMMM/yyyy">
 				<reportElement x="244" y="53" width="100" height="20" uuid="0300b731-c654-4d11-9813-bc21b5877fef"/>
-				<textElement verticalAlignment="Bottom"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Calibri"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{fechaA}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="366" y="53" width="100" height="20" uuid="ee8a1c81-ed1c-4112-b30d-bb702ece19a7"/>
-				<textElement textAlignment="Right" verticalAlignment="Bottom">
-					<font isBold="true"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Calibri" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Programa:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="472" y="53" width="100" height="20" uuid="a1cc6fa4-77c4-46c3-8fa4-6d4c5744e602"/>
-				<textElement verticalAlignment="Bottom"/>
+				<reportElement x="469" y="53" width="100" height="20" uuid="a1cc6fa4-77c4-46c3-8fa4-6d4c5744e602"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Calibri"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{nombrePrograma}]]></textFieldExpression>
 			</textField>
 		</band>
@@ -77,21 +86,27 @@
 		<band splitType="Stretch"/>
 	</columnHeader>
 	<columnFooter>
-		<band height="24">
+		<band height="21">
 			<textField>
-				<reportElement x="232" y="4" width="60" height="20" uuid="e50945f8-1610-4df8-9551-d296d0e2c639"/>
+				<reportElement x="232" y="4" width="60" height="17" uuid="e50945f8-1610-4df8-9551-d296d0e2c639"/>
 				<textElement textAlignment="Right">
-					<font size="9"/>
+					<font fontName="Calibri" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="292" y="4" width="40" height="20" uuid="a580ad33-57cd-4ad0-b691-63f5a2247dad"/>
+				<reportElement x="292" y="4" width="40" height="17" uuid="a580ad33-57cd-4ad0-b691-63f5a2247dad"/>
 				<textElement>
-					<font size="9"/>
+					<font fontName="Calibri" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
+			<line>
+				<reportElement x="0" y="-7" width="572" height="1" uuid="00a8f296-92e9-4c1b-aaaa-ed18f0dbf739"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
 		</band>
 	</columnFooter>
 	<summary>
@@ -99,9 +114,13 @@
 			<pieChart>
 				<chart>
 					<reportElement x="0" y="53" width="572" height="385" uuid="4fca1400-7b6b-4bd8-b4c6-c06986d76797"/>
-					<chartTitle/>
+					<chartTitle>
+						<font fontName="Calibri" isBold="true"/>
+					</chartTitle>
 					<chartSubtitle/>
-					<chartLegend/>
+					<chartLegend>
+						<font fontName="Calibri" size="9"/>
+					</chartLegend>
 				</chart>
 				<pieDataset>
 					<keyExpression><![CDATA[$F{trabaja}]]></keyExpression>
@@ -113,11 +132,13 @@
 						<seriesColor seriesOrder="0" color="#33FF33"/>
 						<seriesColor seriesOrder="1" color="#FFFF33"/>
 					</plot>
-					<itemLabel/>
+					<itemLabel>
+						<font fontName="Calibri" size="9"/>
+					</itemLabel>
 				</piePlot>
 			</pieChart>
 			<staticText>
-				<reportElement x="12" y="512" width="549" height="33" uuid="6cc44818-748d-4508-8900-e01e24d8d31a"/>
+				<reportElement x="10" y="495" width="549" height="33" uuid="6cc44818-748d-4508-8900-e01e24d8d31a"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<text><![CDATA[Representación gráfica de los becarios on actividad laboral y los becarios que unicamente estudian]]></text>
 			</staticText>
