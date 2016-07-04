@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteTipoUniversidad" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fca3cf3d-b6c4-4b31-9871-9ba7905fb733">
-	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString>
@@ -19,9 +19,9 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="95" splitType="Stretch">
+		<band height="72" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="38" width="572" height="27" uuid="dad74d44-4678-4495-8775-c603aac0385a"/>
+				<reportElement x="0" y="26" width="572" height="27" uuid="dad74d44-4678-4495-8775-c603aac0385a"/>
 				<textElement>
 					<font size="20"/>
 				</textElement>
@@ -35,44 +35,59 @@
 				<text><![CDATA[FUNDACION RUSSEK]]></text>
 			</staticText>
 			<line>
-				<reportElement x="0" y="65" width="572" height="1" uuid="b6e1bc0d-de7c-4b02-957c-c6b1d305e93e"/>
+				<reportElement x="0" y="53" width="572" height="1" uuid="b6e1bc0d-de7c-4b02-957c-c6b1d305e93e"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement x="343" y="68" width="100" height="20" uuid="df7f32f8-3be1-4ed1-981d-6cbc93e24e99"/>
-				<textElement textAlignment="Right" verticalAlignment="Bottom">
-					<font isBold="true"/>
+				<reportElement x="342" y="54" width="100" height="13" uuid="df7f32f8-3be1-4ed1-981d-6cbc93e24e99"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Calibri" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Programa:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="208" y="68" width="11" height="20" uuid="8522816e-ecaf-4c9e-817d-50a933e8755b"/>
-				<textElement verticalAlignment="Bottom">
-					<font isBold="true"/>
+				<reportElement x="207" y="54" width="11" height="13" uuid="8522816e-ecaf-4c9e-817d-50a933e8755b"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Calibri" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[al]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="21" y="68" width="61" height="20" uuid="f7fd6666-a45e-45b6-a88a-cb9908242c7f"/>
-				<textElement verticalAlignment="Bottom">
-					<font isBold="true"/>
+				<reportElement x="20" y="54" width="61" height="13" uuid="f7fd6666-a45e-45b6-a88a-cb9908242c7f"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Calibri" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Periodo del]]></text>
 			</staticText>
 			<textField pattern="dd/MMMM/yyyy">
-				<reportElement x="85" y="68" width="123" height="20" uuid="6f6e8497-fd2d-4c6c-bce3-3cd26aa72b61"/>
-				<textElement verticalAlignment="Bottom"/>
+				<reportElement x="84" y="54" width="123" height="13" uuid="6f6e8497-fd2d-4c6c-bce3-3cd26aa72b61"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Calibri" size="9"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{fechaDe}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MMMM/yyyy">
-				<reportElement x="221" y="68" width="100" height="20" uuid="a1e12811-f313-46e1-82b9-9e1ee32ee853"/>
-				<textElement verticalAlignment="Bottom"/>
+				<reportElement x="220" y="54" width="100" height="13" uuid="a1e12811-f313-46e1-82b9-9e1ee32ee853"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Calibri" size="9"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{fechaA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="455" y="68" width="100" height="20" uuid="e21a8d9f-6c68-4907-bb87-0f2918b70999"/>
-				<textElement verticalAlignment="Bottom"/>
+				<reportElement x="454" y="54" width="100" height="13" uuid="e21a8d9f-6c68-4907-bb87-0f2918b70999"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Calibri" size="9"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{nombrePrograma}]]></textFieldExpression>
 			</textField>
+			<line>
+				<reportElement x="0" y="69" width="572" height="1" uuid="31473aa6-3bb4-4150-a84f-8213cca3aafd"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
 		</band>
 	</title>
 	<columnHeader>
@@ -83,14 +98,14 @@
 			<textField evaluationTime="Report">
 				<reportElement x="281" y="0" width="40" height="20" uuid="37c97b32-5cca-4063-9f25-1dd25fc8914d"/>
 				<textElement>
-					<font size="9"/>
+					<font fontName="Calibri" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="221" y="0" width="60" height="20" uuid="1fd021b5-b995-46f1-9d12-c63ef521446f"/>
 				<textElement textAlignment="Right">
-					<font size="9"/>
+					<font fontName="Calibri" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
@@ -103,7 +118,9 @@
 					<reportElement x="0" y="46" width="572" height="355" uuid="6c38adf4-6444-45ed-9236-3b43a68756c4"/>
 					<chartTitle/>
 					<chartSubtitle/>
-					<chartLegend/>
+					<chartLegend>
+						<font fontName="Calibri"/>
+					</chartLegend>
 				</chart>
 				<pieDataset>
 					<keyExpression><![CDATA[$F{nombreUniversidad}]]></keyExpression>
@@ -112,7 +129,9 @@
 				</pieDataset>
 				<piePlot>
 					<plot/>
-					<itemLabel/>
+					<itemLabel>
+						<font fontName="Calibri" size="10"/>
+					</itemLabel>
 				</piePlot>
 			</pieChart>
 			<staticText>
