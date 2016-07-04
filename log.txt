@@ -6682,3 +6682,9 @@ Verifique su conexion e intentelo de nuevo
 1/7/2016;12:24:36;Nombre de categoria no encontrado
 1/7/2016;12:25:20;Nombre de categoria no encontrado
 1/7/2016;12:42:50;Nombre de categoria no encontrado
+1/7/2016;12:51:33;Nombre de categoria no encontrado
+1/7/2016;12:51:57;Nombre de categoria no encontrado
+1/7/2016;13:37:11;Nombre de categoria no encontrado
+1/7/2016;13:59:44;Nombre de categoria no encontrado
+1/7/2016;14:4:50;Nombre de categoria no encontrado
+1/7/2016;14:8:48;Nombre de categoria no encontrado
