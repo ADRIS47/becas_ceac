@@ -4171,7 +4171,12 @@ public class PrincipalControlador {
             Path path = helper.getDirectorioReporte("reporteSexo.jasper");
             File file = path.toFile();
             
-            List<PojoReporteGeneral> lstDatos = modelo.creaReporteSexo(conexion, filtros, fechasFiltro);
+            int idPrograma = helper.getIdPrograma(filtros);
+            String nombrePrograma = "TODOS";
+            if(idPrograma != 0)
+                nombrePrograma = getItemComboBox(idPrograma, catPrograma);
+            
+            List<PojoReporteGeneral> lstDatos = modelo.creaReporteSexo(conexion, filtros, fechasFiltro, nombrePrograma);
             
             ReporteSexo reporteSexo = new ReporteSexo();
             reporteSexo.setLstReporte(lstDatos);

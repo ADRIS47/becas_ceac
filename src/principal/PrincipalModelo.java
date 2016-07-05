@@ -3603,7 +3603,7 @@ public class PrincipalModelo {
      * @param fechasFiltro
      * @return 
      */
-    List<PojoReporteGeneral> creaReporteSexo(Connection conexion, String filtros, Date[] fechas) {
+    List<PojoReporteGeneral> creaReporteSexo(Connection conexion, String filtros, Date[] fechas, String nombrePrograma) {
         List<PojoReporteGeneral> lstResult = new ArrayList<>();
         Statement st = null;
         ResultSet rs = null;
@@ -3625,7 +3625,7 @@ public class PrincipalModelo {
                 reporte.setNombre(rs.getString("nombre"));
                 reporte.setSexo(rs.getString("nombreSexo"));
                 reporte.setIdGeneroSexo(rs.getInt("idSexo"));
-                
+                reporte.setNombrePrograma(nombrePrograma);
                 if(flagFechasFiltro){
                     reporte.setFechaDe(fechas[0]);
                     reporte.setFechaA(fechas[1]);

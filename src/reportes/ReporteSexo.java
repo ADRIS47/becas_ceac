@@ -55,10 +55,12 @@ public class ReporteSexo implements JRDataSource{
             case "fechaDe":
                 valor = lstReporte.get(contador).getFechaDe();
                     break;
-                
             case "fechaA":
                 valor = lstReporte.get(contador).getFechaA();
                     break;
+            case "nombrePrograma":
+                valor = lstReporte.get(0).getNombrePrograma();
+                break;
         }
         return valor;
     }

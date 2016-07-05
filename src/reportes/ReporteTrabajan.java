@@ -47,10 +47,13 @@ public class ReporteTrabajan implements JRDataSource{
             case "fechaDe":
                 valor = lstTrabaja.get(contador).getFechaDe();
                 break;
-                
             case "fechaA":
                 valor = lstTrabaja.get(contador).getFechaA();
                 break;
+            case "nombrePrograma":
+                valor = lstTrabaja.get(contador).getNombrePrograma();
+                break;
+                
         }
         return valor;
     }
