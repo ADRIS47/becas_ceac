@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteCampoAplicacion" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="889eb874-f6ab-4730-bfcc-e96b94a78ebe">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="48"/>
+	<property name="ireport.y" value="0"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -19,7 +19,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="91" splitType="Stretch">
+		<band height="81" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="3" width="572" height="26" uuid="d76d1f66-f910-45cc-902c-beeef0a52d02"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
@@ -35,44 +35,59 @@
 				<text><![CDATA[REPORTE POR CAMPO DE APLICACION]]></text>
 			</staticText>
 			<line>
-				<reportElement x="0" y="60" width="572" height="1" uuid="3a6a2c04-af73-4bac-bb9c-06938d922e48"/>
+				<reportElement x="0" y="56" width="572" height="1" uuid="3a6a2c04-af73-4bac-bb9c-06938d922e48"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement x="23" y="60" width="61" height="20" uuid="8cbba63a-2e61-4338-993f-ea9fb4557d5e"/>
+				<reportElement x="92" y="60" width="49" height="12" uuid="8cbba63a-2e61-4338-993f-ea9fb4557d5e"/>
 				<textElement verticalAlignment="Bottom">
-					<font isBold="true"/>
+					<font fontName="Calibri" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Periodo del]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="233" y="60" width="11" height="20" uuid="6fd495cc-c383-4cb4-8abe-50bdd053f155"/>
+				<reportElement x="233" y="60" width="11" height="12" uuid="6fd495cc-c383-4cb4-8abe-50bdd053f155"/>
 				<textElement verticalAlignment="Bottom">
-					<font isBold="true"/>
+					<font fontName="Calibri" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[al]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="349" y="60" width="100" height="20" uuid="3fe884e8-9d91-40f4-bf72-4c3f5e699c96"/>
+				<reportElement x="349" y="60" width="100" height="12" uuid="3fe884e8-9d91-40f4-bf72-4c3f5e699c96"/>
 				<textElement textAlignment="Right" verticalAlignment="Bottom">
-					<font isBold="true"/>
+					<font fontName="Calibri" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Programa:]]></text>
 			</staticText>
 			<textField pattern="dd/MMMM/yyyy">
-				<reportElement x="84" y="60" width="123" height="20" uuid="1e6562f8-9540-4569-b7a1-d5d7da202ca6"/>
-				<textElement verticalAlignment="Bottom"/>
+				<reportElement x="151" y="60" width="71" height="12" uuid="1e6562f8-9540-4569-b7a1-d5d7da202ca6"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Calibri" size="9"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{fechaDe}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MMMM/yyyy">
-				<reportElement x="249" y="60" width="100" height="20" uuid="b22c5c21-b150-42b8-a540-107411ca7f2c"/>
-				<textElement verticalAlignment="Bottom"/>
+				<reportElement x="249" y="60" width="100" height="12" uuid="b22c5c21-b150-42b8-a540-107411ca7f2c"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Calibri" size="9"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{fechaA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="455" y="60" width="100" height="20" uuid="05b7b9a0-7820-42b3-b4c6-fad30ab5fbfa"/>
-				<textElement verticalAlignment="Bottom"/>
+				<reportElement x="455" y="60" width="100" height="12" uuid="05b7b9a0-7820-42b3-b4c6-fad30ab5fbfa"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Calibri" size="9"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{nombrePrograma}]]></textFieldExpression>
 			</textField>
+			<line>
+				<reportElement x="1" y="78" width="572" height="1" uuid="78ea8c34-0889-4e65-a10f-2113a3e262d8"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
 		</band>
 	</title>
 	<pageFooter>
@@ -80,14 +95,14 @@
 			<textField>
 				<reportElement x="234" y="0" width="60" height="20" uuid="aac219a0-abb5-4ae9-9718-98239fee4d80"/>
 				<textElement textAlignment="Right">
-					<font size="9"/>
+					<font fontName="Calibri" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
 				<reportElement x="294" y="0" width="40" height="20" uuid="3f885f8c-8297-4748-b18a-1c2a50eab588"/>
 				<textElement>
-					<font size="9"/>
+					<font fontName="Calibri" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
@@ -103,7 +118,7 @@
 					</chartTitle>
 					<chartSubtitle/>
 					<chartLegend>
-						<font fontName="Arial" size="9"/>
+						<font fontName="Calibri" size="9"/>
 					</chartLegend>
 				</chart>
 				<pieDataset>
@@ -122,7 +137,9 @@
 						<seriesColor seriesOrder="6" color="#FF3300"/>
 						<seriesColor seriesOrder="7" color="#666600"/>
 					</plot>
-					<itemLabel/>
+					<itemLabel>
+						<font fontName="Calibri"/>
+					</itemLabel>
 				</piePlot>
 			</pieChart>
 			<staticText>

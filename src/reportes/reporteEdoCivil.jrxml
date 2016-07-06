@@ -19,7 +19,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="94" splitType="Stretch">
+		<band height="84" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="2" width="572" height="26" uuid="7d31ed84-ea32-4959-86ca-68561f9d5a8e"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
@@ -36,54 +36,74 @@
 			</staticText>
 			<line>
 				<reportElement x="0" y="57" width="572" height="1" uuid="feca0ee8-ea3b-4e0d-b6d2-4e7739823238"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement x="188" y="74" width="11" height="20" uuid="2dc15d54-7e38-4a49-898c-751d3c9ede4b"/>
-				<textElement verticalAlignment="Bottom">
-					<font isBold="true"/>
+				<reportElement x="188" y="61" width="11" height="20" uuid="2dc15d54-7e38-4a49-898c-751d3c9ede4b"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Calibri" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[al]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="48" y="74" width="48" height="20" uuid="afab5c39-cac4-4f05-b7ad-1c400cafcc21"/>
-				<textElement verticalAlignment="Bottom">
-					<font isBold="true"/>
+				<reportElement x="48" y="61" width="48" height="20" uuid="afab5c39-cac4-4f05-b7ad-1c400cafcc21"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Calibri" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Periodo del]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="341" y="74" width="100" height="20" uuid="c7fb719f-52de-4e00-9120-b29f3818fa3b"/>
-				<textElement textAlignment="Right" verticalAlignment="Bottom">
-					<font isBold="true"/>
+				<reportElement x="341" y="61" width="100" height="20" uuid="c7fb719f-52de-4e00-9120-b29f3818fa3b"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Calibri" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Programa:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="441" y="74" width="118" height="20" uuid="8857aacb-4bf8-493b-845b-72c79ddac183"/>
-				<textElement verticalAlignment="Bottom"/>
+				<reportElement x="441" y="61" width="118" height="20" uuid="8857aacb-4bf8-493b-845b-72c79ddac183"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Calibri" size="9"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{nombrePrograma}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MMMM/yyyy" isBlankWhenNull="false">
-				<reportElement x="96" y="74" width="92" height="20" uuid="acddd27b-8a6d-46cb-b794-040fd0429a94"/>
-				<textElement verticalAlignment="Bottom"/>
+				<reportElement x="96" y="61" width="92" height="20" uuid="acddd27b-8a6d-46cb-b794-040fd0429a94"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Calibri" size="9"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{fechaDe}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MMMM/yyyy">
-				<reportElement x="205" y="74" width="100" height="20" uuid="0467fcc6-15b4-41b3-9a40-b521a83e6789"/>
-				<textElement verticalAlignment="Bottom"/>
+				<reportElement x="205" y="61" width="100" height="20" uuid="0467fcc6-15b4-41b3-9a40-b521a83e6789"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Calibri" size="9"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{fechaA}]]></textFieldExpression>
 			</textField>
+			<line>
+				<reportElement x="0" y="81" width="572" height="1" uuid="fff624f5-00c5-49cb-a095-2a6fee82aecf"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
 		</band>
 	</title>
 	<pageFooter>
 		<band height="25">
 			<textField>
 				<reportElement x="249" y="5" width="80" height="20" uuid="a8d12128-728f-4791-819c-4c94db47e082"/>
-				<textElement textAlignment="Right"/>
+				<textElement textAlignment="Right">
+					<font fontName="Calibri" size="9"/>
+				</textElement>
 				<textFieldExpression><![CDATA["Pagina"+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
 				<reportElement x="329" y="5" width="40" height="20" uuid="4f256606-ac45-4c3f-8993-b445fdf2bec3"/>
+				<textElement>
+					<font fontName="Calibri" size="9"/>
+				</textElement>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 		</band>
@@ -95,7 +115,9 @@
 					<reportElement x="0" y="91" width="572" height="353" uuid="fdf5f563-1872-479e-9c67-8eec6fd023c3"/>
 					<chartTitle/>
 					<chartSubtitle/>
-					<chartLegend/>
+					<chartLegend>
+						<font fontName="Calibri"/>
+					</chartLegend>
 				</chart>
 				<pieDataset>
 					<keyExpression><![CDATA[$F{nombreEdoCivil}]]></keyExpression>
@@ -104,7 +126,9 @@
 				</pieDataset>
 				<piePlot>
 					<plot/>
-					<itemLabel/>
+					<itemLabel>
+						<font fontName="Calibri"/>
+					</itemLabel>
 				</piePlot>
 			</pieChart>
 			<staticText>
