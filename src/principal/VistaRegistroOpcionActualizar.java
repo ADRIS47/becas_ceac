@@ -37,6 +37,7 @@ public class VistaRegistroOpcionActualizar extends javax.swing.JPanel {
         btnImprimir = new javax.swing.JButton();
         btnGuardar3 = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
+        btnEdoCta = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(125, 334));
 
@@ -76,6 +77,15 @@ public class VistaRegistroOpcionActualizar extends javax.swing.JPanel {
             }
         });
 
+        btnEdoCta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cobranza.png"))); // NOI18N
+        btnEdoCta.setToolTipText("COBRANZA BECARIO");
+        btnEdoCta.setPreferredSize(new java.awt.Dimension(160, 29));
+        btnEdoCta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEdoCtaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -86,7 +96,8 @@ public class VistaRegistroOpcionActualizar extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnGuardar3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addComponent(btnGuardar3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(btnEdoCta, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                     .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
@@ -98,10 +109,12 @@ public class VistaRegistroOpcionActualizar extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(btnEdoCta, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnGuardar3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -114,7 +127,7 @@ public class VistaRegistroOpcionActualizar extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 90, Short.MAX_VALUE))
+                .addGap(0, 16, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -134,8 +147,13 @@ public class VistaRegistroOpcionActualizar extends javax.swing.JPanel {
         controlador.creaReporteIndividual();
     }//GEN-LAST:event_btnImprimirActionPerformed
 
+    private void btnEdoCtaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEdoCtaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEdoCtaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEdoCta;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnGuardar3;
     private javax.swing.JButton btnImprimir;

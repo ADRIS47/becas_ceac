@@ -6704,3 +6704,6 @@ Verifique su conexion e intentelo de nuevo
 6/7/2016;14:25:31;Nombre de categoria no encontrado
 6/7/2016;14:25:31;Nombre de categoria no encontrado
 6/7/2016;14:25:31;Nombre de categoria no encontrado
+6/7/2016;14:58:29;Nombre de categoria no encontrado
+6/7/2016;14:58:59;Nombre de categoria no encontrado
+7/7/2016;13:2:21;Nombre de categoria no encontrado
