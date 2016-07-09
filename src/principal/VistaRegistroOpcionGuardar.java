@@ -63,6 +63,7 @@ public class VistaRegistroOpcionGuardar extends javax.swing.JPanel {
 
         btnEdoCta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cobranza.png"))); // NOI18N
         btnEdoCta.setToolTipText("COBRANZA BECARIO");
+        btnEdoCta.setEnabled(false);
         btnEdoCta.setPreferredSize(new java.awt.Dimension(160, 29));
         btnEdoCta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

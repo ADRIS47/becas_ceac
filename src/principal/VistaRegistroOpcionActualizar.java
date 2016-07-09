@@ -148,7 +148,7 @@ public class VistaRegistroOpcionActualizar extends javax.swing.JPanel {
     }//GEN-LAST:event_btnImprimirActionPerformed
 
     private void btnEdoCtaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEdoCtaActionPerformed
-        // TODO add your handling code here:
+        controlador.creaVistaCobranza();
     }//GEN-LAST:event_btnEdoCtaActionPerformed
 
 

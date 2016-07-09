@@ -89,6 +89,7 @@ public class PrincipalControlador {
     VistaKardex vistaKardex;
     VistaCatalogos vistaCatalogos;
     VistaReportes vistaReporte;
+    VistaCobranza vistaCobranza;
     
     PnlPortada vistaPortada;
     VistaRegistroOpcionGuardar vistaOpcionGuardar;
@@ -246,7 +247,19 @@ public class PrincipalControlador {
      */
     public void creaVistaRegistro() {
         helper.cursorEspera(vista);
-        if(vistaKardex == null){
+        
+        if(vistaKardex != null){
+            getInfoBecarioPorFolio(vistaKardex.txtFolio.getText());
+            terminaVistaKardex();
+        }
+            
+        else 
+            if(vistaCobranza != null){
+                getInfoBecarioPorFolio(vistaCobranza.txtFolio.getText());
+                terminaVistaCobranza();
+            }
+            
+        else{
             if (vistaRegistro != null) {
                 terminaVistaRegistro();
             }
@@ -255,10 +268,12 @@ public class PrincipalControlador {
                 vistaRegistro = new VistaRegistro(this);
                 this.setVistaRegistro(vistaRegistro);
             }
-
-            if (vistaKardex != null) {
+            
+            if(vistaKardex != null)
                 terminaVistaKardex();
-            }
+            
+            if(vistaCobranza != null)
+                terminaVistaCobranza();
 
             vaciaLstFiles();
 
@@ -295,11 +310,14 @@ public class PrincipalControlador {
             creaPantalla(vistaRegistro);
 //            cargaVistaRegistro = true;
         }
-        else{
-            getInfoBecarioPorFolio(vistaKardex.txtFolio.getText());
-            terminaVistaKardex();
+            
+
+        helper.cursorNormal(vista);
+            
+//            terminaVistaKardex();
+//            terminaVistaCobranza();
 //            cargaVistaRegistro = false;
-        }
+        
     }
 
     /**
@@ -461,6 +479,9 @@ public class PrincipalControlador {
     protected void creaVistaReportes() {
         helper.cursorEspera(vista);
         
+        if(vistaReporte != null)
+            vistaReporte = null;
+        
         vistaReporte = new VistaReportes();
         this.setVistaReporte(vistaReporte);
         vistaReporte.setControlador(this);
@@ -474,6 +495,25 @@ public class PrincipalControlador {
         helper.setAñoActualEnCombo(vistaReporte.cmbAnioRep2);
         helper.setAñoActualEnCombo(vistaReporte.cmbanioReg2);
         helper.setAñoActualEnCombo(vistaReporte.cmbanioRep3);
+        
+        helper.cursorNormal(vista);
+    }
+    
+    protected void creaVistaCobranza() {
+        helper.cursorEspera(vista);
+        
+        if(vistaCobranza != null)
+            vistaCobranza = null;
+        
+        vistaCobranza = new VistaCobranza();
+        
+        String nombreBecario = vistaRegistro.txtNombreBecado.getText() + " " +
+                            vistaRegistro.txtApPaternoBecado.getText() + " " +
+                            vistaRegistro.txtApMaternoBecado.getText();
+        vistaCobranza.txtNombreBecario.setText(nombreBecario);
+        vistaCobranza.txtPrograma.setText(vistaRegistro.comboBoxPrograma.getSelectedItem().toString());
+        vistaCobranza.txtFolio.setText(vistaRegistro.txtFolio.getText());
+        creaPantalla(vistaCobranza);
         
         helper.cursorNormal(vista);
     }
@@ -641,6 +681,11 @@ public class PrincipalControlador {
     private void terminaVistaReportes(){
         vistaReporte.removeAll();;
         vistaReporte = null;
+    }
+    
+    private void terminaVistaCobranza(){
+        vistaCobranza.removeAll();
+        vistaCobranza = null;
     }
 
     /**

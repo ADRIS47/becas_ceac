@@ -1011,15 +1011,15 @@ public class PnlCobranza extends javax.swing.JPanel {
     }//GEN-LAST:event_TxtSemSC35ActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        controlador.updateKardexBecario();
+        //.updateKardexBecario();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        controlador.cerrarSesion();
+        //.cerrarSesion();
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
-        controlador.creaReporteIndividual();
+        //controlador.creaReporteIndividual();
     }//GEN-LAST:event_btnImprimirActionPerformed
 
 

@@ -9,12 +9,12 @@ package principal;
  *
  * @author Adriana
  */
-public class PnlCobranza extends javax.swing.JPanel {
+public class VistaCobranza extends javax.swing.JPanel {
     PrincipalControlador controlador;
     /**
      * Creates new form PnlCobranza
      */
-    public PnlCobranza() {
+    public VistaCobranza() {
         initComponents();
     }
 
@@ -171,7 +171,7 @@ public class PnlCobranza extends javax.swing.JPanel {
                     .addComponent(txtPrograma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNombreBecario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         PnlInfoBecario.add(PnlInfBecarioI, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 17, 680, 70));
