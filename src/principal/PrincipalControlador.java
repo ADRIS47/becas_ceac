@@ -507,12 +507,9 @@ public class PrincipalControlador {
         
         vistaCobranza = new VistaCobranza();
         
-        String nombreBecario = vistaRegistro.txtNombreBecado.getText() + " " +
-                            vistaRegistro.txtApPaternoBecado.getText() + " " +
-                            vistaRegistro.txtApMaternoBecado.getText();
-        vistaCobranza.txtNombreBecario.setText(nombreBecario);
-        vistaCobranza.txtPrograma.setText(vistaRegistro.comboBoxPrograma.getSelectedItem().toString());
-        vistaCobranza.txtFolio.setText(vistaRegistro.txtFolio.getText());
+        String folio = vistaRegistro.txtFolio.getText();
+        llenaVistaCobranza(folio);
+        
         creaPantalla(vistaCobranza);
         
         helper.cursorNormal(vista);
@@ -2935,7 +2932,7 @@ public class PrincipalControlador {
      * @param folio
      */
     private void llenaCamposVistaKardex(String folio) {
-        Conexion conn = new Conexion();
+        Conexion conn = new Conexion();5
         Connection conexion = conn.estableceConexion();
         Becario becario = null;
         List<Kardex> lstKardex = null;
@@ -4894,5 +4891,20 @@ public class PrincipalControlador {
         }
         
         return lstResult;
+    }
+
+    private void llenaVistaCobranza(String folio) {
+        Conexion conn = new Conexion();
+        Connection conexion = conn.estableceConexion();
+        Becario becario = null;
+        List<Kardex> lstKardex = null;
+        DatosEscolares datosEscolares = null;
+        String nombreBecario = vistaRegistro.txtNombreBecado.getText() + " " +
+                            vistaRegistro.txtApPaternoBecado.getText() + " " +
+                            vistaRegistro.txtApMaternoBecado.getText();
+        
+        vistaCobranza.txtNombreBecario.setText(nombreBecario);
+        vistaCobranza.txtPrograma.setText(vistaRegistro.comboBoxPrograma.getSelectedItem().toString());
+        vistaCobranza.txtFolio.setText(folio);
     }
 }
