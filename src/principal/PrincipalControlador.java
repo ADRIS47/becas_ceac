@@ -2026,6 +2026,69 @@ public class PrincipalControlador {
     }
 
     /**
+     * Llena el panel de cobranza con la información necesaria
+     * @param lstKardex
+     * @param lstFechaSemestre 
+     */
+    private void llenaPnlCobranza(List<Kardex> lstKardex, List<Calendar> lstFechaSemestre) {
+
+        Component[] componentes = vistaCobranza.PnlCargos.getComponents();
+        int i = -1;
+        for (Component componente : componentes) {
+            if (i == -1) {
+                i++;
+                continue;
+            }
+            if (componente instanceof JPanel) {
+
+                JPanel panel = (JPanel) componente;
+
+                JTextField txtSemestre = (JTextField) panel.getComponent(0);
+                JCheckBox chkPago1 = (JCheckBox) panel.getComponent(1);
+                JTextField txtHorasServicio = (JTextField) panel.getComponent(2);
+                JComboBox<String> cmbTipoServicioSocial = (JComboBox<String>) panel.getComponent(3);
+                JComboBox<String> cmbLugarServicioSocial = (JComboBox<String>) panel.getComponent(4);
+                JCheckBox chkPlatica1 = (JCheckBox) panel.getComponent(5);
+                JCheckBox chkPlatica2 = (JCheckBox) panel.getComponent(6);
+                JCheckBox chkPago2 = (JCheckBox) panel.getComponent(7);
+                JCheckBox chkPagoExtra = (JCheckBox) panel.getComponent(8);
+                JTextField txtPromedio = (JTextField) panel.getComponent(9);
+                JTextField txtDescuento = (JTextField) panel.getComponent(10);
+
+                llenaComboCategorias(cmbTipoServicioSocial, catTipoServicioSocial);
+                llenaComboCategorias(cmbLugarServicioSocial, catLugarServicioSocial);
+
+                Calendar fecha = lstFechaSemestre.get(i);
+                if (i < lstKardex.size()) {
+                    Kardex kardex = lstKardex.get(i);
+
+                    //System.out.println("Fecha controlador: " + fecha.getTime());
+
+                    chkPago1.setSelected(kardex.isPlatica1());
+                    txtHorasServicio.setText(kardex.getHorasServicio() + "");
+                    chkPlatica1.setSelected(kardex.isPlatica1());
+                    chkPlatica2.setSelected(kardex.isPlatica2());
+                    chkPago1.setSelected(kardex.isPago_inicio_semestre());
+                    chkPago2.setSelected(kardex.isPago_fin_semestre());
+                    chkPagoExtra.setSelected(kardex.isPago_extra());
+                    txtPromedio.setText(kardex.getPromedio() + "");
+                    txtDescuento.setText(kardex.getDescuento() + "%");
+
+                    cmbTipoServicioSocial.setSelectedItem(getItemComboBox(kardex.getIdServicioComunitario(), catTipoServicioSocial));
+                    cmbLugarServicioSocial.setSelectedItem(getItemComboBox(kardex.getLugarServicioComunitario(), catLugarServicioSocial));
+                }
+                txtSemestre.setText(fecha.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault()) + "/" + fecha.get(Calendar.YEAR));
+
+                if (i == lstFechaSemestre.size() - 1) {
+                    break;
+                }
+                i++;
+            }
+
+        }
+    }
+    
+    /**
      * Llena los paneles de las boletas y carga semestral con los datos del
      * becario
      *
@@ -2035,6 +2098,7 @@ public class PrincipalControlador {
      * 2.- Llena con la informacion de la pestaña de las cargas semestrales
      * 3.- LLena con la informacion a los primeros 10 transferencias de la pestaña adjuntar transferencias
      * 4.- LLena con la informacion a las restantes 10 transferencias de la pestaña adjuntar transferencias 
+     * 5.- Llena la pantalla cobranza con la información de las transferencias realizadas al becario
      */
     private void llenaPnlBoletaOCargaSemestral(List<Kardex> lstKardex, List<Calendar> lstFechaSemestre, int codigo) {
         JPanel pnlSemestres = null;
@@ -2149,6 +2213,35 @@ public class PrincipalControlador {
                     }
                 }
                 break;
+                
+            case 5:
+                pnlSemestres = vistaCobranza.jpnlListaSemestreCargos;
+                pnlAcciones = vistaCobranza.jpnlListaDocumentos5;
+                if(lstKardex.isEmpty())
+                    break;
+
+                componentes = pnlAcciones.getComponents();
+                i = 0;
+                g = 0;
+                for (Component componente : componentes) {
+                    if (componente instanceof JTextField) {
+                        
+                        JTextField txtSemestre = (JTextField) componente;
+                        Kardex kardex = lstKardex.get(g);
+                        if(i % 2 == 0)
+                            txtSemestre.setText(kardex.getTransferencia1());
+                        else{
+                            txtSemestre.setText(kardex.getTransferencia2());
+                            g++;
+                        }
+                            
+                        i++;
+                    }
+                    if (g == (tamanio) - 1) {
+                        break;
+                    }
+                }
+                break;
 
         }
         //Se agregan los semestres de las boletas y cartas de servicio comunitario
@@ -2232,11 +2325,11 @@ public class PrincipalControlador {
      * boletas y carga semestral en el apartado de acciones y estatus.
      * 4.- Deshabilita los componentes de la pestaña de transferencias en el apartado
      * Carga semestral
+     * 5.- Deshabilita los componentes de la pantalla Cobranza
      */
     private void deshabilitaSemestresKardex(JPanel pnlPanel, int semestresHabilitados,
             int contador, int codigo) {
         Component[] componentes = pnlPanel.getComponents();
-
         switch (codigo) {
             //Desabilita los componentes del pnlKardex
             case 1:
@@ -2308,6 +2401,27 @@ public class PrincipalControlador {
                         if (componente instanceof JButton || componente instanceof JLabel) {
                             componente.setVisible(false);
                         }
+                    }
+
+                }
+                break;
+                
+            case 5:
+                for (Component componente : componentes) {
+                    i = contador / 2;
+                    
+                    if(componente instanceof JPanel){
+                        deshabilitaSemestresKardex((JPanel) componente, semestresHabilitados, contador, 5);
+                    }
+                    
+                    if ((componente instanceof JTextField || componente instanceof JLabel) && i < semestresHabilitados) {
+                        contador++;
+                    }
+
+                    else if ((componente instanceof JTextField || componente instanceof JLabel) && i >= semestresHabilitados) {
+                        contador++;
+                        componente.setVisible(false);
+                        
                     }
 
                 }
@@ -2932,7 +3046,7 @@ public class PrincipalControlador {
      * @param folio
      */
     private void llenaCamposVistaKardex(String folio) {
-        Conexion conn = new Conexion();5
+        Conexion conn = new Conexion();
         Connection conexion = conn.estableceConexion();
         Becario becario = null;
         List<Kardex> lstKardex = null;
@@ -4893,6 +5007,10 @@ public class PrincipalControlador {
         return lstResult;
     }
 
+    /**
+     * Llena con la informacion del becario la pantalla de cobranza
+     * @param folio 
+     */
     private void llenaVistaCobranza(String folio) {
         Conexion conn = new Conexion();
         Connection conexion = conn.estableceConexion();
@@ -4906,5 +5024,39 @@ public class PrincipalControlador {
         vistaCobranza.txtNombreBecario.setText(nombreBecario);
         vistaCobranza.txtPrograma.setText(vistaRegistro.comboBoxPrograma.getSelectedItem().toString());
         vistaCobranza.txtFolio.setText(folio);
+        
+        becario = modelo.getBecarioPorFolio(conexion, folio);
+        datosEscolares = modelo.getDatosEscolaresBecario(conexion, becario.getId());
+        
+        int semestresHabilitados = 0;
+        //Se toman los semestres activos del becario
+        if(!getItemComboBox(becario.getIdPrograma(), catPrograma).contains("Empuje"))
+            semestresHabilitados = helper.getTotalSemestresporHabilitarKardex(datosEscolares.getSemestreInicioBeca(),
+                    datosEscolares.getSemestresTotalesCarrera());
+        if(datosEscolares.getSemestreInicioBeca() > 1)
+            semestresHabilitados = (datosEscolares.getSemestresTotalesCarrera() - semestresHabilitados) + 2;
+        
+        //Se procede a deshabilitar los semestres que aun no tienen que llenarse
+        deshabilitaSemestresKardex(vistaCobranza.PnlCargos, semestresHabilitados, 0, 5);
+        
+        //Se generan los semestres del becario a partir de su fecha de inicio de la beca
+        List<Calendar> lstFechaSemestres = helper.getFechaSemestres(datosEscolares);
+        
+        //Se comienza el llenado de los cargos
+        lstKardex = modelo.getKardexPorIdBecario(conexion, becario.getId());
+        //Se llena el pnlKardex
+        //llenaPnlCobranza(lstKardex, lstFechaSemestres);
+        
+        addTransferenciasAArreglo(lstKardex);
+        //Se llenan los primeros 10 jtextfield
+        llenaPnlBoletaOCargaSemestral(lstKardex, lstFechaSemestres, 5);
+        //Se llenan los jtextfield restantes
+        //if(semestresHabilitados - 1 > 4)
+        //    llenaPnlBoletaOCargaSemestral(lstKardex, lstFechaSemestres, 4);
+        try {
+            conexion.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

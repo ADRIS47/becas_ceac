@@ -1024,7 +1024,7 @@ public class VistaCobranza extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel PnlCargos;
+    protected javax.swing.JPanel PnlCargos;
     private javax.swing.JPanel PnlInfBecarioI;
     private javax.swing.JPanel PnlInfoBecario;
     private javax.swing.JTextField TxtCargo11;
