@@ -508,7 +508,7 @@ public class PrincipalControlador {
         vistaCobranza = new VistaCobranza();
         
         String folio = vistaRegistro.txtFolio.getText();
-        llenaVistaCobranza(folio);
+        llenaCamposVistaCobranza(folio);
         
         creaPantalla(vistaCobranza);
         
@@ -2100,7 +2100,7 @@ public class PrincipalControlador {
      * 4.- LLena con la informacion a las restantes 10 transferencias de la pestaña adjuntar transferencias 
      * 5.- Llena la pantalla cobranza con la información de las transferencias realizadas al becario
      */
-    private void llenaPnlBoletaOCargaSemestral(List<Kardex> lstKardex, List<Calendar> lstFechaSemestre, int codigo) {
+    private void llenaPnlBoletaOCargaSemestral(List<Kardex> lstKardex, List<Calendar> lstFechaSemestre, int codigo, DatosEscolares datosEscolares) {
         JPanel pnlSemestres = null;
         JPanel pnlAcciones = null;
         int tamanio = lstFechaSemestre.size();
@@ -2219,7 +2219,9 @@ public class PrincipalControlador {
                 pnlAcciones = vistaCobranza.jpnlListaDocumentos5;
                 if(lstKardex.isEmpty())
                     break;
-
+                
+                int deposito = datosEscolares.getBecaSemestral() / 2;
+                
                 componentes = pnlAcciones.getComponents();
                 i = 0;
                 g = 0;
@@ -2228,10 +2230,17 @@ public class PrincipalControlador {
                         
                         JTextField txtSemestre = (JTextField) componente;
                         Kardex kardex = lstKardex.get(g);
-                        if(i % 2 == 0)
-                            txtSemestre.setText(kardex.getTransferencia1());
+                        if(i % 2 == 0){
+                            if(kardex.isPago_inicio_semestre())
+                                txtSemestre.setText("$" + deposito + "");
+                            else
+                                txtSemestre.setText("Sin pago" );
+                        }
                         else{
-                            txtSemestre.setText(kardex.getTransferencia2());
+                            if(kardex.isPago_fin_semestre())
+                                txtSemestre.setText("$" + deposito + "");
+                            else
+                                txtSemestre.setText("Sin pago" );
                             g++;
                         }
                             
@@ -2841,9 +2850,7 @@ public class PrincipalControlador {
         vistaRegistro.combobxSexoBecado.setSelectedIndex(becario.getIdSexo() - 1);
         vistaRegistro.combobxCivilBecado.setSelectedIndex(becario.getIdEstadoCivil() - 1);
         
-        if(lstKardex != null || !lstKardex.isEmpty()){
-            
-            
+        if(lstKardex != null && !lstKardex.isEmpty()){
             vistaRegistro.txtHorasServicio.setText(lstKardex.get(0).getHorasTotales() + "");
             vistaRegistro.txtDescuento.setText(lstKardex.get(0).getDescuentoTotal() + "%");
             vistaRegistro.txtSaldo.setText("$" + lstKardex.get(0).getSaldoTotal());
@@ -3101,12 +3108,12 @@ public class PrincipalControlador {
         //apartado de semestres y acciones
         deshabilitaSemestresKardex(vistaKardex.jpnlListaDocumentosBoleta, semestresHabilitados , 0, 2);
         deshabilitaSemestresKardex(vistaKardex.jpnlAccionesDocumentosBoleta, (semestresHabilitados ) * 3, 0, 3);
-        llenaPnlBoletaOCargaSemestral(lstKardex, lstFechaSemestres, 1);
+        llenaPnlBoletaOCargaSemestral(lstKardex, lstFechaSemestres, 1, null);
         //Se procede a deshabilitar los semestres de la pastaña adjuntar carga semestral 
         //en el apartado de semestres y acciones
         deshabilitaSemestresKardex(vistaKardex.jpnlListaDocumentosServicioComunitario, semestresHabilitados , 0, 2);
         deshabilitaSemestresKardex(vistaKardex.jpnlAccionesDocumentosServicioComunitario, (semestresHabilitados ) * 3, 0, 3);
-        llenaPnlBoletaOCargaSemestral(lstKardex, lstFechaSemestres, 2);
+        llenaPnlBoletaOCargaSemestral(lstKardex, lstFechaSemestres, 2, null);
         
         //Se procede a deshabilitar los semestres de la pestaña transferencias en el 
         //apartado carga semestral
@@ -3124,10 +3131,10 @@ public class PrincipalControlador {
         addTransferenciasAArreglo(lstKardex);
         
         //Se llenan los primeros 10 jtextfield
-        llenaPnlBoletaOCargaSemestral(lstKardex, lstFechaSemestres, 3);
+        llenaPnlBoletaOCargaSemestral(lstKardex, lstFechaSemestres, 3, null);
         //Se llenan los jtextfield restantes
         if(semestresHabilitados - 1 > 4)
-            llenaPnlBoletaOCargaSemestral(lstKardex, lstFechaSemestres, 4);
+            llenaPnlBoletaOCargaSemestral(lstKardex, lstFechaSemestres, 4, null);
         
         //Se llenan las primeras 10 transferencias
         
@@ -3507,8 +3514,8 @@ public class PrincipalControlador {
         helper.cursorEspera(vista);
         Conexion conn = new Conexion();
         Connection conexion = conn.estableceConexion();
-        boolean response = false;
-        int semestres = 0;
+        boolean response;
+        int semestres;
         if (conexion == null) {
             helper.cursorNormal(vista);
             JOptionPane.showMessageDialog(vistaKardex, "No se pudo conectar a la base de datos, intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
@@ -5011,12 +5018,15 @@ public class PrincipalControlador {
      * Llena con la informacion del becario la pantalla de cobranza
      * @param folio 
      */
-    private void llenaVistaCobranza(String folio) {
+    private void llenaCamposVistaCobranza(String folio) {
         Conexion conn = new Conexion();
         Connection conexion = conn.estableceConexion();
-        Becario becario = null;
-        List<Kardex> lstKardex = null;
-        DatosEscolares datosEscolares = null;
+        Becario becario;
+        List<Kardex> lstKardex;
+        DatosEscolares datosEscolares;
+        int deposito;
+        int totalCargos = 0;
+        int totalDepositos = 0;
         String nombreBecario = vistaRegistro.txtNombreBecado.getText() + " " +
                             vistaRegistro.txtApPaternoBecado.getText() + " " +
                             vistaRegistro.txtApMaternoBecado.getText();
@@ -5049,10 +5059,17 @@ public class PrincipalControlador {
         
         addTransferenciasAArreglo(lstKardex);
         //Se llenan los primeros 10 jtextfield
-        llenaPnlBoletaOCargaSemestral(lstKardex, lstFechaSemestres, 5);
-        //Se llenan los jtextfield restantes
-        //if(semestresHabilitados - 1 > 4)
-        //    llenaPnlBoletaOCargaSemestral(lstKardex, lstFechaSemestres, 4);
+        llenaPnlBoletaOCargaSemestral(lstKardex, lstFechaSemestres, 5, datosEscolares);
+        
+        //Se llenan los totales de cargos y depositos
+        deposito = datosEscolares.getBecaSemestral() / 2;
+        
+        for (Kardex kardex : lstKardex) {
+            if(kardex.isPago_inicio_semestre())
+                totalCargos += deposito;
+        }
+        
+        vistaCobranza.txtTotalCargos.setText("$" + totalCargos);
         try {
             conexion.close();
         } catch (SQLException ex) {

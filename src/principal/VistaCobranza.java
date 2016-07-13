@@ -1095,6 +1095,6 @@ public class VistaCobranza extends javax.swing.JPanel {
     protected javax.swing.JTextField txtNombreBecario;
     protected javax.swing.JTextField txtPrograma;
     private javax.swing.JTextField txtTotalAbonos;
-    private javax.swing.JTextField txtTotalCargos;
+    protected javax.swing.JTextField txtTotalCargos;
     // End of variables declaration//GEN-END:variables
 }
