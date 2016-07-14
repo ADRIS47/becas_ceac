@@ -564,77 +564,29 @@ public class VistaCobranza extends javax.swing.JPanel {
         jpnlListaDocumentos5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jpnlListaDocumentos5.setMaximumSize(new java.awt.Dimension(141, 174));
         jpnlListaDocumentos5.setLayout(new java.awt.GridLayout(24, 1));
-
-        TxtCargo11.setText("jTextField1");
         jpnlListaDocumentos5.add(TxtCargo11);
-
-        TxtCargo21.setText("jTextField1");
         jpnlListaDocumentos5.add(TxtCargo21);
-
-        TxtCargo12.setText("jTextField1");
         jpnlListaDocumentos5.add(TxtCargo12);
-
-        TxtCargo22.setText("jTextField1");
         jpnlListaDocumentos5.add(TxtCargo22);
-
-        TxtCargo13.setText("jTextField1");
         jpnlListaDocumentos5.add(TxtCargo13);
-
-        TxtCargo23.setText("jTextField1");
         jpnlListaDocumentos5.add(TxtCargo23);
-
-        TxtCargo14.setText("jTextField1");
         jpnlListaDocumentos5.add(TxtCargo14);
-
-        TxtCargo24.setText("jTextField1");
         jpnlListaDocumentos5.add(TxtCargo24);
-
-        TxtCargo15.setText("jTextField1");
         jpnlListaDocumentos5.add(TxtCargo15);
-
-        TxtCargo25.setText("jTextField1");
         jpnlListaDocumentos5.add(TxtCargo25);
-
-        TxtCargo16.setText("jTextField1");
         jpnlListaDocumentos5.add(TxtCargo16);
-
-        TxtCargo26.setText("jTextField1");
         jpnlListaDocumentos5.add(TxtCargo26);
-
-        TxtCargo17.setText("jTextField1");
         jpnlListaDocumentos5.add(TxtCargo17);
-
-        TxtCargo27.setText("jTextField1");
         jpnlListaDocumentos5.add(TxtCargo27);
-
-        TxtCargo18.setText("jTextField1");
         jpnlListaDocumentos5.add(TxtCargo18);
-
-        TxtCargo28.setText("jTextField1");
         jpnlListaDocumentos5.add(TxtCargo28);
-
-        TxtCargo19.setText("jTextField1");
         jpnlListaDocumentos5.add(TxtCargo19);
-
-        TxtCargo29.setText("jTextField1");
         jpnlListaDocumentos5.add(TxtCargo29);
-
-        TxtCargo110.setText("jTextField1");
         jpnlListaDocumentos5.add(TxtCargo110);
-
-        TxtCargo210.setText("jTextField1");
         jpnlListaDocumentos5.add(TxtCargo210);
-
-        TxtCargo111.setText("jTextField1");
         jpnlListaDocumentos5.add(TxtCargo111);
-
-        TxtCargo211.setText("jTextField1");
         jpnlListaDocumentos5.add(TxtCargo211);
-
-        TxtCargo112.setText("jTextField1");
         jpnlListaDocumentos5.add(TxtCargo112);
-
-        TxtCargo212.setText("jTextField1");
         jpnlListaDocumentos5.add(TxtCargo212);
 
         javax.swing.GroupLayout PnlCargosLayout = new javax.swing.GroupLayout(PnlCargos);
