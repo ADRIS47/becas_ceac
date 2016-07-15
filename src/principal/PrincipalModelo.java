@@ -44,6 +44,7 @@ import pojos.CatSexo;
 import pojos.CatTipoEscuela;
 import pojos.CatTipoServicioSocial;
 import pojos.CatUniversidad;
+import pojos.Cobranza;
 import pojos.DatosEscolares;
 import pojos.Direccion;
 import pojos.Hermanos;
@@ -3796,5 +3797,15 @@ public class PrincipalModelo {
         }
         
         return lstResult;
+    }
+
+    /**
+     * Obtiene los depositos realizados por el becario
+     * @param conexion
+     * @param idBecario
+     * @return 
+     */
+    protected List<Cobranza> getAbonosBecario(Connection conexion, long idBecario) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

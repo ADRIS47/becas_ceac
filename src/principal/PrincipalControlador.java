@@ -22,6 +22,7 @@ import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -58,6 +59,7 @@ import pojos.Aval;
 import pojos.Becario;
 import pojos.CatColumnasTabla;
 import pojos.CatUniversidad;
+import pojos.Cobranza;
 import pojos.DatosEscolares;
 import pojos.Direccion;
 import pojos.Hermanos;
@@ -5024,6 +5026,7 @@ public class PrincipalControlador {
         Becario becario;
         List<Kardex> lstKardex;
         DatosEscolares datosEscolares;
+        DecimalFormat formatoDecimales = new DecimalFormat("###,###,###");
         int deposito;
         int totalCargos = 0;
         int totalDepositos = 0;
@@ -5069,7 +5072,10 @@ public class PrincipalControlador {
                 totalCargos += deposito;
         }
         
-        vistaCobranza.txtTotalCargos.setText("$" + totalCargos);
+        //Se comienza con el llenado de los depositos
+        List<Cobranza> lstCobranza = modelo.getAbonosBecario(conexion, becario.getId());
+        
+        vistaCobranza.txtTotalCargos.setText("$" + formatoDecimales.format(totalCargos));
         try {
             conexion.close();
         } catch (SQLException ex) {
