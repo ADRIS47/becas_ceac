@@ -10,7 +10,13 @@ package principal;
  * @author Adriana
  */
 public class VistaCobranza extends javax.swing.JPanel {
+    
     PrincipalControlador controlador;
+
+    public void setControlador(PrincipalControlador controlador) {
+        this.controlador = controlador;
+    }
+
     /**
      * Creates new form PnlCobranza
      */
@@ -90,7 +96,7 @@ public class VistaCobranza extends javax.swing.JPanel {
         TxtCargo212 = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblCobranza = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         txtTotalCargos = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -615,19 +621,27 @@ public class VistaCobranza extends javax.swing.JPanel {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Abonos"));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblCobranza.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
                 "Fecha Aplicación", "Abono", "Referencia"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblCobranza);
+        if (tblCobranza.getColumnModel().getColumnCount() > 0) {
+            tblCobranza.getColumnModel().getColumn(0).setResizable(false);
+            tblCobranza.getColumnModel().getColumn(1).setResizable(false);
+            tblCobranza.getColumnModel().getColumn(2).setResizable(false);
         }
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -650,12 +664,8 @@ public class VistaCobranza extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("CARGOS   $");
 
-        txtTotalCargos.setText("jTextField1");
-
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("ABONOS   $");
-
-        txtTotalAbonos.setText("jTextField1");
 
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/guardar_cambios.png"))); // NOI18N
         btnGuardar.setToolTipText("Guardar Registro");
@@ -940,14 +950,14 @@ public class VistaCobranza extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JPanel jpnlAreaBotones;
     protected javax.swing.JPanel jpnlListaDocumentos5;
     protected javax.swing.JPanel jpnlListaSemestreCargos;
+    protected javax.swing.JTable tblCobranza;
     protected javax.swing.JTextField txtFolio;
     protected javax.swing.JTextField txtNombreBecario;
     protected javax.swing.JTextField txtPrograma;
-    private javax.swing.JTextField txtTotalAbonos;
+    protected javax.swing.JTextField txtTotalAbonos;
     protected javax.swing.JTextField txtTotalCargos;
     // End of variables declaration//GEN-END:variables
 }

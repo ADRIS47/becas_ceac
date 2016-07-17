@@ -21,6 +21,7 @@ import pojos.CatSexo;
 import pojos.CatTipoEscuela;
 import pojos.CatTipoServicioSocial;
 import pojos.CatUniversidad;
+import pojos.Cobranza;
 import pojos.DatosEscolares;
 import pojos.Direccion;
 import pojos.Hermanos;
@@ -617,5 +618,13 @@ JOIN beca_tipo_escuela AS esc ON uni.id_tipo_escuela = esc.id_tipo_escuela
                                 "FROM beca_datos_escolares AS datos " +
                                 "INNER JOIN beca_cat_universidad AS uni ON datos." +  DatosEscolares.COL_ID_UNIVERSIDAD + " = uni." + CatUniversidad.COL_ID + " " +
                                 "INNER JOIN beca_tipo_escuela AS esc ON uni." + CatUniversidad.COL_ID_TIPO_ESCUELA + " = esc." + CatTipoEscuela.COL_ID + " ";
+    
+    /**
+     * Obtiene los abonos que ha realizado el becario
+     */
+    public static String getAbonosBecario = "SELECT " + Cobranza.COL_ID + ", " + Cobranza.COL_FECHA_PAGO + ", " + 
+                                                Cobranza.COL_MONTO + ", " + Cobranza.COL_REFERENCIA + " " + 
+                                                "FROM beca_pagos_becario " +
+                                                "WHERE " + Cobranza.COL_ID_BECARIO + " = ?";
     
 }

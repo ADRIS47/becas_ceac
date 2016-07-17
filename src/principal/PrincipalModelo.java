@@ -3806,6 +3806,31 @@ public class PrincipalModelo {
      * @return 
      */
     protected List<Cobranza> getAbonosBecario(Connection conexion, long idBecario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        List<Cobranza> lstCobranza = new ArrayList<>();
+//        PreparedStatement ps;
+        ResultSet rs;
+        
+        try(
+                PreparedStatement ps = conexion.prepareStatement(Consultas.getAbonosBecario);
+            ){
+            ps.setLong(1, idBecario);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                Cobranza cobranza = new Cobranza();
+                cobranza.setFechaPago(rs.getDate(Cobranza.COL_FECHA_PAGO));
+                cobranza.setMontoPago(rs.getInt(Cobranza.COL_MONTO));
+                cobranza.setReferencia(rs.getString(Cobranza.COL_REFERENCIA));
+                cobranza.setIdCobranza(rs.getLong(Cobranza.COL_ID));
+                lstCobranza.add(cobranza);
+            }
+            
+            rs.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            log.muestraErrores(ex);
+        }
+        return lstCobranza;
     }
 }

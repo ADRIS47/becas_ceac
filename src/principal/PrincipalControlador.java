@@ -22,6 +22,7 @@ import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -508,6 +509,7 @@ public class PrincipalControlador {
             vistaCobranza = null;
         
         vistaCobranza = new VistaCobranza();
+        vistaCobranza.setControlador(this);
         
         String folio = vistaRegistro.txtFolio.getText();
         llenaCamposVistaCobranza(folio);
@@ -5074,12 +5076,35 @@ public class PrincipalControlador {
         
         //Se comienza con el llenado de los depositos
         List<Cobranza> lstCobranza = modelo.getAbonosBecario(conexion, becario.getId());
+        totalDepositos = llenaTablaCobranza(lstCobranza);
         
+        //Se llenan los totales de abonos y cargos
         vistaCobranza.txtTotalCargos.setText("$" + formatoDecimales.format(totalCargos));
+        vistaCobranza.txtTotalAbonos.setText("$" + formatoDecimales.format(totalDepositos));
         try {
             conexion.close();
         } catch (SQLException ex) {
             Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    /**
+     * Llena la tabla de depositos de VistaCobranza y obtiene el total de abonos que ha hecho el becario
+     * @param lstCobranza
+     * @return 
+     */
+    private int llenaTablaCobranza(List<Cobranza> lstCobranza) {
+        int totalDepositos = 0;
+        DefaultTableModel tblModelo = (DefaultTableModel) vistaCobranza.tblCobranza.getModel();
+        
+        for (Cobranza abono : lstCobranza) {
+            java.sql.Date fechaAbono = new java.sql.Date(abono.getFechaPago().getTime());
+            String fecha = helper.formateaFechaBD(fechaAbono);
+            tblModelo.addRow(new String[]{fecha, "$" + abono.getMontoPago(), abono.getReferencia()});
+            
+            totalDepositos += abono.getMontoPago();
+        }
+        
+        return totalDepositos;
     }
 }
