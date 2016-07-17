@@ -10,6 +10,7 @@ import helpers.EscuchadorCalculaBecaXSemestre;
 import helpers.EscuchadorCalculaDescuentoSemestral;
 import helpers.EscuchadorCmbBoxCambiado;
 import helpers.EscuchadorValidaEntrada;
+import helpers.EscuchadorValidaEntradaTablaCobranza;
 import helpers.Helper;
 import helpers.Log;
 import index.Index;
@@ -22,7 +23,6 @@ import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
-import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -46,8 +46,11 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import jtable.ModelDefault;
 import jtable.ModelUniversidades;
 import net.sf.jasperreports.engine.JRException;
@@ -513,6 +516,9 @@ public class PrincipalControlador {
         
         String folio = vistaRegistro.txtFolio.getText();
         llenaCamposVistaCobranza(folio);
+        
+        //
+        addListenerTblCobranza();
         
         creaPantalla(vistaCobranza);
         
@@ -5106,5 +5112,12 @@ public class PrincipalControlador {
         }
         
         return totalDepositos;
+    }
+
+    /**
+     * Agrega los listener de fechas a la tabla cobranza
+     */
+    private void addListenerTblCobranza() {
+        vistaCobranza.tblCobranza.getModel().addTableModelListener(new EscuchadorValidaEntradaTablaCobranza());
     }
 }
