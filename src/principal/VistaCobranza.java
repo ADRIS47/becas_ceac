@@ -709,6 +709,11 @@ public class VistaCobranza extends javax.swing.JPanel {
 
         btnAgregarFila.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/table_add.png"))); // NOI18N
         btnAgregarFila.setText("Insertar abono");
+        btnAgregarFila.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarFilaActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -956,6 +961,10 @@ public class VistaCobranza extends javax.swing.JPanel {
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
         controlador.creaReporteIndividual();
     }//GEN-LAST:event_btnImprimirActionPerformed
+
+    private void btnAgregarFilaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarFilaActionPerformed
+        controlador.insertarRegistroCobranza();
+    }//GEN-LAST:event_btnAgregarFilaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

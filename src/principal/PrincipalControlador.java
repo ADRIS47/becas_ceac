@@ -10,7 +10,6 @@ import helpers.EscuchadorCalculaBecaXSemestre;
 import helpers.EscuchadorCalculaDescuentoSemestral;
 import helpers.EscuchadorCmbBoxCambiado;
 import helpers.EscuchadorValidaEntrada;
-import helpers.EscuchadorValidaEntradaTablaCobranza;
 import helpers.Helper;
 import helpers.Log;
 import index.Index;
@@ -46,11 +45,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.event.TableModelEvent;
-import javax.swing.event.TableModelListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 import jtable.ModelDefault;
 import jtable.ModelUniversidades;
 import net.sf.jasperreports.engine.JRException;
@@ -163,6 +159,11 @@ public class PrincipalControlador {
      * El primer valor indica el numero de renglon de la tabla, el segundo el id del valor del catalogo
      */
     LinkedHashMap<Integer, Integer> lstCatalogoRelIdsRenglonTabla = null;
+    
+    /**
+     * El primer valor indica el numero de renglon de la tabla, el segundo el id del valor del catalogo
+     */
+    LinkedHashMap<Integer, Long> lstRelIdsRenglonTabla = null;
 
     List<PnlHijos> lstVistaHijos = new ArrayList<>();
     List<PnlHermanos> lstVistaHermanos = new ArrayList<>();
@@ -693,6 +694,9 @@ public class PrincipalControlador {
     private void terminaVistaCobranza(){
         vistaCobranza.removeAll();
         vistaCobranza = null;
+        
+        lstRelIdsRenglonTabla.clear();
+        lstRelIdsRenglonTabla = null;
     }
 
     /**
@@ -5097,18 +5101,22 @@ public class PrincipalControlador {
     /**
      * Llena la tabla de depositos de VistaCobranza y obtiene el total de abonos que ha hecho el becario
      * @param lstCobranza
-     * @return 
+     * @return El total de los depositos realizados por el becario
      */
     private int llenaTablaCobranza(List<Cobranza> lstCobranza) {
         int totalDepositos = 0;
         DefaultTableModel tblModelo = (DefaultTableModel) vistaCobranza.tblCobranza.getModel();
+        int renglon = 0;
         
+        lstRelIdsRenglonTabla = new LinkedHashMap<>();
         for (Cobranza abono : lstCobranza) {
             java.sql.Date fechaAbono = new java.sql.Date(abono.getFechaPago().getTime());
             String fecha = helper.formateaFechaBD(fechaAbono);
             tblModelo.addRow(new String[]{fecha, "$" + abono.getMontoPago(), abono.getReferencia()});
             
+            lstRelIdsRenglonTabla.put(renglon, abono.getIdCobranza());
             totalDepositos += abono.getMontoPago();
+            renglon++;
         }
         
         return totalDepositos;
@@ -5126,7 +5134,34 @@ public class PrincipalControlador {
     /**
      * Agrega una fila a la tabla de cobranza
      */
-    protected void insertarFilatblCobranza() {
+    protected void insertarRegistroCobranza() {
+        
+        boolean isDateCorrect = helper.validaFechaNacimiento(vistaCobranza.txtFecha, vistaCobranza);
+        
+        if(isDateCorrect == false)
+            return;
+        //Se valida que se llenaron los campos necesarios para ingresar un registro
+        if(vistaCobranza.txtAbono.getText().isEmpty() || 
+                                    vistaCobranza.txtReferencia.getText().isEmpty()){
+            JOptionPane.showMessageDialog(vistaCobranza, "Debe de llenar los campos abono, fecha y referencia", 
+                    "Advertencia", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        int deposito = Integer.parseInt(vistaCobranza.txtAbono.getText().replace(",", ""));
+        
+        Cobranza abono = new Cobranza();
+        helper.convertCadenaAFecha(vistaCobranza.txtFecha.getText());
+        abono.setFechaPago(helper.convertCadenaAFecha(vistaCobranza.txtFecha.getText()));
+        abono.setMontoPago(deposito);
+        abono.setReferencia(vistaCobranza.txtReferencia.getText());
+        
+        
+        DefaultTableModel tblModelo = (DefaultTableModel) vistaCobranza.tblCobranza.getModel();
+        tblModelo.addRow(new String[]{vistaCobranza.txtFecha.getText(), "$" + abono.getMontoPago(), abono.getReferencia()});
+        
+        vistaCobranza.tblCobranza.updateUI();
+        vistaCobranza.tblCobranza.validate();
         
     }
 }
