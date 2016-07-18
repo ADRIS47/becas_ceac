@@ -59,7 +59,7 @@ public class Cobranza {
         this.idBecario = idBecario;
     }
     
-    public static final String COL_ID = "idCobranza";
+    public static final String COL_ID = "id_cobranza";
     public static final String COL_FECHA_PAGO = "fecha_pago";
     public static final String COL_MONTO = "monto_pago";
     public static final String COL_REFERENCIA = "referencia";

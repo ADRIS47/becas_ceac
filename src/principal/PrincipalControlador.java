@@ -5118,6 +5118,15 @@ public class PrincipalControlador {
      * Agrega los listener de fechas a la tabla cobranza
      */
     private void addListenerTblCobranza() {
-        vistaCobranza.tblCobranza.getModel().addTableModelListener(new EscuchadorValidaEntradaTablaCobranza());
+        vistaCobranza.txtFecha.addKeyListener(new EscuchadorValidaEntrada(vistaCobranza.pnlAccion, EscuchadorValidaEntrada.FECHA_NACIMIENTO, vistaCobranza.txtFecha));
+        vistaCobranza.txtAbono.addKeyListener(new EscuchadorValidaEntrada(vistaCobranza.pnlAccion, EscuchadorValidaEntrada.DINERO, vistaCobranza.txtAbono));
+        vistaCobranza.txtReferencia.addKeyListener(new EscuchadorValidaEntrada(vistaCobranza.pnlAccion, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, vistaCobranza.txtReferencia));
+    }
+
+    /**
+     * Agrega una fila a la tabla de cobranza
+     */
+    protected void insertarFilatblCobranza() {
+        
     }
 }
