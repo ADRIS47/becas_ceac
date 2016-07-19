@@ -108,6 +108,7 @@ public class VistaCobranza extends javax.swing.JPanel {
         txtFecha = new javax.swing.JTextField();
         btnAgregarFila = new javax.swing.JButton();
         btnEliminarFila = new javax.swing.JButton();
+        BtnAddDescripcionCatalogo1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         txtTotalCargos = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -667,20 +668,20 @@ public class VistaCobranza extends javax.swing.JPanel {
 
         pnlAccion.setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.ipadx = 71;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 86;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 34, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(6, 28, 0, 0);
         pnlAccion.add(txtAbono, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.ipadx = 128;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 28, 0, 12);
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
         pnlAccion.add(txtReferencia, gridBagConstraints);
 
         jLabel6.setText("Fecha");
@@ -688,24 +689,23 @@ public class VistaCobranza extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 70, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 99, 0, 0);
         pnlAccion.add(jLabel6, gridBagConstraints);
 
         jLabel5.setText("Abono");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 46, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 49, 0, 0);
         pnlAccion.add(jLabel5, gridBagConstraints);
 
         jLabel7.setText("Referencia");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 50, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 42, 0, 0);
         pnlAccion.add(jLabel7, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -713,7 +713,7 @@ public class VistaCobranza extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.ipadx = 96;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 37, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(6, 67, 0, 0);
         pnlAccion.add(txtFecha, gridBagConstraints);
 
         btnAgregarFila.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/table_add.png"))); // NOI18N
@@ -727,7 +727,7 @@ public class VistaCobranza extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.ipadx = 25;
+        gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(12, 52, 0, 0);
         pnlAccion.add(btnAgregarFila, gridBagConstraints);
@@ -740,13 +740,29 @@ public class VistaCobranza extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 12, 0, 0);
+        pnlAccion.add(btnEliminarFila, gridBagConstraints);
+
+        BtnAddDescripcionCatalogo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/database_save.png"))); // NOI18N
+        BtnAddDescripcionCatalogo1.setText("Actualizar Abono");
+        BtnAddDescripcionCatalogo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddDescripcionCatalogo1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.ipadx = 24;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.ipady = -4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(12, 8, 0, 0);
-        pnlAccion.add(btnEliminarFila, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(14, 6, 0, 12);
+        pnlAccion.add(BtnAddDescripcionCatalogo1, gridBagConstraints);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -988,8 +1004,14 @@ public class VistaCobranza extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdBecarioActionPerformed
 
+    private void BtnAddDescripcionCatalogo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddDescripcionCatalogo1ActionPerformed
+        controlador.updateRegistroCobranza();
+    }//GEN-LAST:event_BtnAddDescripcionCatalogo1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    protected javax.swing.JButton BtnAddDescripcionCatalogo;
+    protected javax.swing.JButton BtnAddDescripcionCatalogo1;
     protected javax.swing.JPanel PnlCargos;
     private javax.swing.JPanel PnlInfBecarioI;
     private javax.swing.JPanel PnlInfoBecario;
