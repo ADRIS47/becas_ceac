@@ -5171,15 +5171,7 @@ public class PrincipalControlador {
             return;
         }
         
-        //Se actualiza la tabla
-        DefaultTableModel tblModelo = (DefaultTableModel) vistaCobranza.tblCobranza.getModel();
-        tblModelo.addRow(new String[]{vistaCobranza.txtFecha.getText(), "$" + abono.getMontoPago(), abono.getReferencia()});
-        
-        vistaCobranza.tblCobranza.updateUI();
-        vistaCobranza.tblCobranza.validate();
-        
-        //Se actualizan las relaciones de la tabla y Id's
-        lstRelIdsRenglonTabla.put(tblModelo.getRowCount(), idCobranza);
+        creaVistaCobranza();
         
         helper.cursorNormal(vista);
     }
