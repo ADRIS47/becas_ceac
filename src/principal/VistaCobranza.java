@@ -989,7 +989,7 @@ public class VistaCobranza extends javax.swing.JPanel {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
-        controlador.creaReporteIndividual();
+        //controlador.creaReporteIndividual();
     }//GEN-LAST:event_btnImprimirActionPerformed
 
     private void btnAgregarFilaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarFilaActionPerformed
