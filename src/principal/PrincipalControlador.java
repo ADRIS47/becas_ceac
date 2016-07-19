@@ -5138,7 +5138,6 @@ public class PrincipalControlador {
      * Agrega una fila a la tabla de cobranza
      */
     protected void insertarRegistroCobranza() {
-        helper.cursorEspera(vista);
         
         boolean isDateCorrect = helper.validaFechaNacimiento(vistaCobranza.txtFecha, vistaCobranza);
         
@@ -5153,7 +5152,17 @@ public class PrincipalControlador {
             return;
         }
         
-        int deposito = Integer.parseInt(vistaCobranza.txtAbono.getText().replace(".", ""));
+        int respuesta = JOptionPane.showConfirmDialog(vistaCatalogos, "¿Seguro que desea insertar el registro?", "", JOptionPane.YES_NO_OPTION);
+        
+        if(respuesta == JOptionPane.NO_OPTION)
+            return;
+        
+        helper.cursorEspera(vista);
+        
+        String dep = vistaCobranza.txtAbono.getText().replace(".", "");
+        dep = vistaCobranza.txtAbono.getText().replace(",", "");
+        
+        int deposito = Integer.parseInt(dep);
         long idBecario = Long.parseLong(vistaCobranza.txtIdBecario.getText());
         Cobranza abono = new Cobranza();
         helper.convertCadenaAFecha(vistaCobranza.txtFecha.getText());
@@ -5171,6 +5180,7 @@ public class PrincipalControlador {
             return;
         }
         
+        JOptionPane.showMessageDialog(vistaCobranza, "Registro insertado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
         creaVistaCobranza();
         
         helper.cursorNormal(vista);
@@ -5181,12 +5191,40 @@ public class PrincipalControlador {
      */
     protected void eliminarRegistroCobranza() {
         
+        int selectedRow = vistaCobranza.tblCobranza.getSelectedRow();
+        
+        if(selectedRow == -1){
+            JOptionPane.showMessageDialog(vistaCobranza, "Debe de seleccionar el registro a eliminar", "Error", JOptionPane.ERROR_MESSAGE);
+            helper.cursorNormal(vista);
+            return;
+        }
+        
         int respuesta = JOptionPane.showConfirmDialog(vistaCatalogos, "¿Seguro que desea eliminar el registro?", "", JOptionPane.YES_NO_OPTION);
         
         if(respuesta == JOptionPane.NO_OPTION)
             return;
         
         helper.cursorEspera(vista);
+        
+        long idCobranza = lstRelIdsRenglonTabla.get(selectedRow);
+        boolean response = modelo.deleteRegistroCobranza(idCobranza);
+        
+        if(response == false){
+            JOptionPane.showMessageDialog(vistaCobranza, "No se pudo eliminar el registro. \n Intentelo de nuevo.", "Error", JOptionPane.ERROR_MESSAGE);
+            helper.cursorNormal(vista);
+            return;
+        }
+        
+        JOptionPane.showMessageDialog(vistaCobranza, "Registro eliminado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+        creaVistaCobranza();
+        
+        helper.cursorNormal(vista);
+    }
+
+    /**
+     * Actualiza el registro seleccionado
+     */
+    protected void updateRegistroCobranza() {
         
         int selectedRow = vistaCobranza.tblCobranza.getSelectedRow();
         
@@ -5196,13 +5234,36 @@ public class PrincipalControlador {
             return;
         }
         
-        long idCobranza = lstRelIdsRenglonTabla.get(selectedRow);
-        boolean response = modelo.deleteRegistroCobranza(idCobranza);
+        int respuesta = JOptionPane.showConfirmDialog(vistaCatalogos, "¿Seguro que desea actualizar el registro?", "", JOptionPane.YES_NO_OPTION);
+        
+        if(respuesta == JOptionPane.NO_OPTION)
+            return;
+        
+        helper.cursorEspera(vista);
+        
+        String dep = (String) vistaCobranza.tblCobranza.getValueAt(selectedRow, 1);
+        dep = dep.replace("$", "");
+        
+        String fecha = (String) vistaCobranza.tblCobranza.getValueAt(selectedRow, 0);
+        int monto = Integer.parseInt(dep);
+        String referencia = (String) vistaCobranza.tblCobranza.getValueAt(selectedRow, 2);
+        
+        Cobranza cobranza = new Cobranza();
+        cobranza.setIdCobranza(lstRelIdsRenglonTabla.get(selectedRow));
+        cobranza.setFechaPago(helper.convertCadenaAFecha(fecha));
+        cobranza.setMontoPago(monto);
+        cobranza.setReferencia(referencia);
+        cobranza.setIdBecario(Long.parseLong(vistaCobranza.txtIdBecario.getText()));
+        
+        boolean response = modelo.updateRegistroCobranza(cobranza);
         
         if(response == false){
             JOptionPane.showMessageDialog(vistaCobranza, "No se pudo eliminar el registro. \n Intentelo de nuevo.", "Error", JOptionPane.ERROR_MESSAGE);
+            helper.cursorNormal(vista);
             return;
         }
+        
+        JOptionPane.showMessageDialog(vistaCobranza, "Registro actualizado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
         
         creaVistaCobranza();
         

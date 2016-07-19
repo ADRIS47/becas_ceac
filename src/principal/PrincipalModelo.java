@@ -3881,6 +3881,11 @@ public class PrincipalModelo {
         return idAbono;
     }
 
+    /**
+     * Elimina un abono del becario
+     * @param idCobranza
+     * @return True si se elimino correctamente, False si no
+     */
     protected boolean deleteRegistroCobranza(long idCobranza) {
         Conexion conn = new Conexion();
         boolean response = false;
@@ -3896,6 +3901,36 @@ public class PrincipalModelo {
         catch(SQLException e){
             Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, e);
             log.muestraErrores(e);
+        }
+        
+        return response;
+    }
+
+    /**
+     * Actualiza el registro de cobranza
+     * @param cobranza
+     * @return True si la actualizacion fue correcta, false sin no
+     */
+    protected boolean updateRegistroCobranza(Cobranza cobranza) {
+        Conexion conn = new Conexion();
+        boolean response = false;
+        
+        try(Connection conexion = conn.estableceConexion();
+                PreparedStatement ps = conexion.prepareStatement(Update.updateAbonoBecario);) {
+            
+            ps.setDate(1, helper.convertUtilDateToSqlDate(cobranza.getFechaPago()));
+            ps.setInt(2, cobranza.getMontoPago());
+            ps.setString(3, cobranza.getReferencia());
+            ps.setLong(4, cobranza.getIdCobranza());
+            
+            int resp = ps.executeUpdate();
+            
+            if(resp > 0)
+                response = true;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            log.muestraErrores(ex);
         }
         
         return response;

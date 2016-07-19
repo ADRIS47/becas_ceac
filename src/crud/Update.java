@@ -9,6 +9,7 @@ import pojos.Aval;
 import pojos.Becario;
 import pojos.CatColumnasTabla;
 import pojos.CatPrograma;
+import pojos.Cobranza;
 import pojos.DatosEscolares;
 import pojos.Direccion;
 import pojos.Hermanos;
@@ -153,6 +154,14 @@ public class Update {
     public static String updateTruncaBecario = "UPDATE beca_becario "
             + "SET " + Becario.COL_ESTATUS + " = ?, " + Becario.COL_TIPO_ESTATUS + " = ? "
             + "WHERE " + Becario.COL_ID + " = ?";
+    
+    /**
+     * Actualiza el abono del becario
+     */
+    public static String updateAbonoBecario = "UPDATE beca_pagos_becario " +
+                        "SET " + Cobranza.COL_FECHA_PAGO + " = ?, " + 
+                        Cobranza.COL_MONTO + " = ?, " + Cobranza.COL_REFERENCIA + " = ? " +
+                        "WHERE " + Cobranza.COL_ID + " = ?";
     
     /**
      * Desactiva un registro del catalogo seleccionado
