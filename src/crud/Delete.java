@@ -6,6 +6,7 @@
 package crud;
 
 import pojos.CatColumnasTabla;
+import pojos.Cobranza;
 import pojos.Hermanos;
 
 /**
@@ -13,6 +14,12 @@ import pojos.Hermanos;
  * @author sabagip
  */
 public class Delete {
+    
+    /**
+     * Elimina el registro de abonos realizados por el becario
+     */
+    public static String deleteRegistroCobranza = "DELETE FROM beca_pagos_becario " +
+                        "WHERE " + Cobranza.COL_ID + " = ?"; 
 
     /**
      * Crea el query de eliminacion de un registro de una tabla

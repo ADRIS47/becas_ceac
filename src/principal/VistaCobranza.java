@@ -41,6 +41,7 @@ public class VistaCobranza extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         txtPrograma = new javax.swing.JTextField();
         txtNombreBecario = new javax.swing.JTextField();
+        txtIdBecario = new javax.swing.JTextField();
         PnlCargos = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel45 = new javax.swing.JLabel();
@@ -190,6 +191,14 @@ public class VistaCobranza extends javax.swing.JPanel {
         );
 
         PnlInfoBecario.add(PnlInfBecarioI, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 17, 680, 70));
+
+        txtIdBecario.setEnabled(false);
+        txtIdBecario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdBecarioActionPerformed(evt);
+            }
+        });
+        PnlInfoBecario.add(txtIdBecario, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 30, 10, -1));
 
         PnlCargos.setBorder(javax.swing.BorderFactory.createTitledBorder("Cargos"));
 
@@ -725,6 +734,11 @@ public class VistaCobranza extends javax.swing.JPanel {
 
         btnEliminarFila.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/table_delete.png"))); // NOI18N
         btnEliminarFila.setText("Eliminar abono");
+        btnEliminarFila.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarFilaActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 2;
@@ -966,6 +980,14 @@ public class VistaCobranza extends javax.swing.JPanel {
         controlador.insertarRegistroCobranza();
     }//GEN-LAST:event_btnAgregarFilaActionPerformed
 
+    private void btnEliminarFilaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarFilaActionPerformed
+        controlador.eliminarRegistroCobranza();
+    }//GEN-LAST:event_btnEliminarFilaActionPerformed
+
+    private void txtIdBecarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdBecarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdBecarioActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     protected javax.swing.JPanel PnlCargos;
@@ -1043,6 +1065,7 @@ public class VistaCobranza extends javax.swing.JPanel {
     protected javax.swing.JTextField txtAbono;
     protected javax.swing.JTextField txtFecha;
     protected javax.swing.JTextField txtFolio;
+    protected javax.swing.JTextField txtIdBecario;
     protected javax.swing.JTextField txtNombreBecario;
     protected javax.swing.JTextField txtPrograma;
     protected javax.swing.JTextField txtReferencia;

@@ -3833,4 +3833,71 @@ public class PrincipalModelo {
         }
         return lstCobranza;
     }
+
+    /**
+     * Inserta el nuevo abono dado por el becario
+     * @param abono
+     * @return Id generado por el abono
+     */
+    protected long insertAbonoBecario(Cobranza abono) {
+        
+        Conexion conn = new Conexion();
+        ResultSet rs = null;
+        long idAbono = 0;
+                
+        try (Connection conexion = conn.estableceConexion();
+                PreparedStatement ps = conexion.prepareStatement(Insert.insertAbonoBecario, PreparedStatement.RETURN_GENERATED_KEYS);){
+            java.sql.Date fecha = helper.convertUtilDateToSqlDate(abono.getFechaPago());
+            ps.setDate(1, fecha);
+            ps.setInt(2, abono.getMontoPago());
+            ps.setString(3, abono.getReferencia());
+            ps.setLong(4, abono.getIdBecario());
+            
+            System.out.println(ps);
+            int result = ps.executeUpdate();
+            
+            if(result <= 0)
+                return idAbono;
+            
+            rs = ps.getGeneratedKeys();
+            
+            if(rs.next())
+                idAbono = rs.getLong(1);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            log.muestraErrores(ex);
+        }
+        finally{
+            try {
+                if(rs != null)
+                    rs.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+                log.muestraErrores(ex);
+            }
+        }
+        
+        return idAbono;
+    }
+
+    protected boolean deleteRegistroCobranza(long idCobranza) {
+        Conexion conn = new Conexion();
+        boolean response = false;
+        
+        try(Connection conexion = conn.estableceConexion();
+                PreparedStatement ps = conexion.prepareStatement(Delete.deleteRegistroCobranza);){
+            ps.setLong(1, idCobranza);
+            int resp = ps.executeUpdate();
+            
+            if(resp > 0)
+                response = true;
+        }
+        catch(SQLException e){
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, e);
+            log.muestraErrores(e);
+        }
+        
+        return response;
+    }
 }

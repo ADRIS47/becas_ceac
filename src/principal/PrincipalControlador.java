@@ -3828,8 +3828,6 @@ public class PrincipalControlador {
 
         //helper.eliminaFilaTabla(tabla, lstCatalogoCopia);
         int filaSeleccionada = vistaCatalogos.TblDescripcionCatalogo.getSelectedRow();
-        int contador = vistaCatalogos.TblDescripcionCatalogo.getSelectedRow();
-        DefaultTableModel tblModelo = (DefaultTableModel) tabla.getModel();
         
         if(filaSeleccionada < 0)
             JOptionPane.showMessageDialog(vistaCatalogos, "Debe de seleccionar el registro a eliminar", "Error", JOptionPane.ERROR_MESSAGE);
@@ -3884,6 +3882,7 @@ public class PrincipalControlador {
         
         if(conexion == null){
             JOptionPane.showMessageDialog(vistaCatalogos, "No se pudo conectar a la base de datos. \n Intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
         }
         
         DefaultTableModel tblModel = (DefaultTableModel) vistaCatalogos.TblDescripcionCatalogo.getModel();
@@ -5088,6 +5087,10 @@ public class PrincipalControlador {
         List<Cobranza> lstCobranza = modelo.getAbonosBecario(conexion, becario.getId());
         totalDepositos = llenaTablaCobranza(lstCobranza);
         
+        //Se inserta el id del Becario
+        vistaCobranza.txtIdBecario.setText(becario.getId() + "");
+        vistaCobranza.txtIdBecario.setVisible(false);
+        
         //Se llenan los totales de abonos y cargos
         vistaCobranza.txtTotalCargos.setText("$" + formatoDecimales.format(totalCargos));
         vistaCobranza.txtTotalAbonos.setText("$" + formatoDecimales.format(totalDepositos));
@@ -5135,6 +5138,7 @@ public class PrincipalControlador {
      * Agrega una fila a la tabla de cobranza
      */
     protected void insertarRegistroCobranza() {
+        helper.cursorEspera(vista);
         
         boolean isDateCorrect = helper.validaFechaNacimiento(vistaCobranza.txtFecha, vistaCobranza);
         
@@ -5145,23 +5149,71 @@ public class PrincipalControlador {
                                     vistaCobranza.txtReferencia.getText().isEmpty()){
             JOptionPane.showMessageDialog(vistaCobranza, "Debe de llenar los campos abono, fecha y referencia", 
                     "Advertencia", JOptionPane.WARNING_MESSAGE);
+            helper.cursorNormal(vista);
             return;
         }
         
-        int deposito = Integer.parseInt(vistaCobranza.txtAbono.getText().replace(",", ""));
-        
+        int deposito = Integer.parseInt(vistaCobranza.txtAbono.getText().replace(".", ""));
+        long idBecario = Long.parseLong(vistaCobranza.txtIdBecario.getText());
         Cobranza abono = new Cobranza();
         helper.convertCadenaAFecha(vistaCobranza.txtFecha.getText());
         abono.setFechaPago(helper.convertCadenaAFecha(vistaCobranza.txtFecha.getText()));
         abono.setMontoPago(deposito);
         abono.setReferencia(vistaCobranza.txtReferencia.getText());
+        abono.setIdBecario(Long.parseLong(vistaCobranza.txtIdBecario.getText()));
         
+        long idCobranza = modelo.insertAbonoBecario(abono);
         
+        if(idCobranza == 0){
+            JOptionPane.showMessageDialog(vistaCobranza, "No se pudo inserta el abono. \n Intentelo de nuevo", 
+                    "Error", JOptionPane.ERROR_MESSAGE);
+            helper.cursorNormal(vista);
+            return;
+        }
+        
+        //Se actualiza la tabla
         DefaultTableModel tblModelo = (DefaultTableModel) vistaCobranza.tblCobranza.getModel();
         tblModelo.addRow(new String[]{vistaCobranza.txtFecha.getText(), "$" + abono.getMontoPago(), abono.getReferencia()});
         
         vistaCobranza.tblCobranza.updateUI();
         vistaCobranza.tblCobranza.validate();
         
+        //Se actualizan las relaciones de la tabla y Id's
+        lstRelIdsRenglonTabla.put(tblModelo.getRowCount(), idCobranza);
+        
+        helper.cursorNormal(vista);
+    }
+
+    /**
+     * Elimina el abono seleccionado por el usuario
+     */
+    protected void eliminarRegistroCobranza() {
+        
+        int respuesta = JOptionPane.showConfirmDialog(vistaCatalogos, "¿Seguro que desea eliminar el registro?", "", JOptionPane.YES_NO_OPTION);
+        
+        if(respuesta == JOptionPane.NO_OPTION)
+            return;
+        
+        helper.cursorEspera(vista);
+        
+        int selectedRow = vistaCobranza.tblCobranza.getSelectedRow();
+        
+        if(selectedRow == -1){
+            JOptionPane.showMessageDialog(vistaCobranza, "Debe de seleccionar el registro a eliminar", "Error", JOptionPane.ERROR_MESSAGE);
+            helper.cursorNormal(vista);
+            return;
+        }
+        
+        long idCobranza = lstRelIdsRenglonTabla.get(selectedRow);
+        boolean response = modelo.deleteRegistroCobranza(idCobranza);
+        
+        if(response == false){
+            JOptionPane.showMessageDialog(vistaCobranza, "No se pudo eliminar el registro. \n Intentelo de nuevo.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        creaVistaCobranza();
+        
+        helper.cursorNormal(vista);
     }
 }

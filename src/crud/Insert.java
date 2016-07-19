@@ -8,6 +8,7 @@ package crud;
 import pojos.Aval;
 import pojos.Becario;
 import pojos.CatColumnasTabla;
+import pojos.Cobranza;
 import pojos.DatosEscolares;
 import pojos.Direccion;
 import pojos.Hermanos;
@@ -140,6 +141,11 @@ public class Insert {
             + "?,?,?,?,?,"
             + "?,?,?,?,?,"
             + "?)";
+    
+    public static String insertAbonoBecario = "INSERT INTO beca_pagos_becario " +
+                "(" + Cobranza.COL_FECHA_PAGO + ", " + Cobranza.COL_MONTO + ", " +
+                    Cobranza.COL_REFERENCIA + ", " + Cobranza.COL_ID_BECARIO + ") " +
+                    "VALUES (?,?,?,?)";
 
     /**
      * Inserta un registro dentro de una tabla por su nombre
@@ -147,7 +153,6 @@ public class Insert {
      * @param nombreColumnas
      * @param datoNuevo
      * @param idRegistro
-     * @param tipoUniversidad
      * @return 
      */
     public static String insertRegistroCatalogo(String nombreTabla, CatColumnasTabla nombreColumnas, 
