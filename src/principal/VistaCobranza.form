@@ -228,9 +228,6 @@
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIdBecarioActionPerformed"/>
-          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
           </AuxValues>

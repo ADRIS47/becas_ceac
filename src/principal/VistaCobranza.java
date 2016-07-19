@@ -194,11 +194,6 @@ public class VistaCobranza extends javax.swing.JPanel {
         PnlInfoBecario.add(PnlInfBecarioI, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 17, 680, 70));
 
         txtIdBecario.setEnabled(false);
-        txtIdBecario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdBecarioActionPerformed(evt);
-            }
-        });
         PnlInfoBecario.add(txtIdBecario, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 30, 10, -1));
 
         PnlCargos.setBorder(javax.swing.BorderFactory.createTitledBorder("Cargos"));
@@ -999,10 +994,6 @@ public class VistaCobranza extends javax.swing.JPanel {
     private void btnEliminarFilaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarFilaActionPerformed
         controlador.eliminarRegistroCobranza();
     }//GEN-LAST:event_btnEliminarFilaActionPerformed
-
-    private void txtIdBecarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdBecarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIdBecarioActionPerformed
 
     private void BtnAddDescripcionCatalogo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddDescripcionCatalogo1ActionPerformed
         controlador.updateRegistroCobranza();
