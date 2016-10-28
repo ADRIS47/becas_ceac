@@ -2674,7 +2674,7 @@ public class PrincipalModelo {
                 kardex.setBoleta(rs.getString(Kardex.COL_BOLETA));
                 kardex.setCarta_servicio_comunitario(rs.getString(Kardex.COL_CARTA_SERVICIO_COMUNITARIO));
                 kardex.setId_becario(rs.getLong(Kardex.COL_ID_BECARIO));
-                kardex.setPago_extra(rs.getBoolean(Kardex.COL_PAGO_EXTRA));
+                kardex.setPago_extra(rs.getDouble(Kardex.COL_PAGO_EXTRA));
                 kardex.setHorasServicio(rs.getInt(Kardex.COL_HORAS_SERVICIO));
                 kardex.setTransferencia1(rs.getString(Kardex.COL_TRANSFERENCIA_1));
                 kardex.setTransferencia2(rs.getString(Kardex.COL_TRANSFERENCIA_2));
@@ -2768,7 +2768,7 @@ public class PrincipalModelo {
                     ps.setInt(9, kardex.getLugarServicioComunitario());
                     ps.setString(10, kardex.getBoleta());
                     ps.setString(11, kardex.getCarta_servicio_comunitario());
-                    ps.setBoolean(12, kardex.isPago_extra());
+                    ps.setDouble(12, kardex.getPago_extra());
                     ps.setInt(13, kardex.getHorasServicio());
                     ps.setLong(14, becario.getId());
                     ps.setString(15, kardex.getTransferencia1());
@@ -2797,7 +2797,7 @@ public class PrincipalModelo {
                     ps.setInt(9, kardex.getLugarServicioComunitario());
                     ps.setString(10, kardex.getBoleta());
                     ps.setString(11, kardex.getCarta_servicio_comunitario());
-                    ps.setBoolean(12, kardex.isPago_extra());
+                    ps.setDouble(12, kardex.getPago_extra());
                     ps.setInt(13, kardex.getHorasServicio());
                     ps.setString(14, kardex.getTransferencia1());
                     ps.setString(15, kardex.getTransferencia2());

@@ -2711,7 +2711,7 @@ public class PrincipalModelo {
                     ps.setInt(8, kardex.getLugarServicioComunitario());
                     ps.setString(10, kardex.getBoleta());
                     ps.setString(11, kardex.getCarta_servicio_comunitario());
-                    ps.setBoolean(12, kardex.isPago_extra());
+                    ps.setBoolean(12, kardex.getPago_extra());
                     ps.setInt(13, kardex.getHorasServicio());
                     ps.setLong(14, becario.getId());
                     ps.setString(15, kardex.getTransferencia1());
@@ -2742,7 +2742,7 @@ public class PrincipalModelo {
                     ps.setInt(9, kardex.getIdServicioComunitario());
                     ps.setString(10, kardex.getBoleta());
                     ps.setString(11, kardex.getCarta_servicio_comunitario());
-                    ps.setBoolean(12, kardex.isPago_extra());
+                    ps.setBoolean(12, kardex.getPago_extra());
                     ps.setInt(13, kardex.getHorasServicio());
                     ps.setString(14, kardex.getTransferencia1());
                     ps.setString(15, kardex.getTransferencia2());

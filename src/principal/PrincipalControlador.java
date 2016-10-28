@@ -2002,7 +2002,8 @@ public class PrincipalControlador {
                 JCheckBox chkPlatica1 = (JCheckBox) panel.getComponent(5);
                 JCheckBox chkPlatica2 = (JCheckBox) panel.getComponent(6);
                 JCheckBox chkPago2 = (JCheckBox) panel.getComponent(7);
-                JCheckBox chkPagoExtra = (JCheckBox) panel.getComponent(8);
+                //JCheckBox chkPagoExtra = (JCheckBox) panel.getComponent(8);
+                JTextField txtPagoExtra = (JTextField) panel.getComponent(8);
                 JTextField txtPromedio = (JTextField) panel.getComponent(9);
                 JTextField txtDescuento = (JTextField) panel.getComponent(10);
 
@@ -2021,7 +2022,7 @@ public class PrincipalControlador {
                     chkPlatica2.setSelected(kardex.isPlatica2());
                     chkPago1.setSelected(kardex.isPago_inicio_semestre());
                     chkPago2.setSelected(kardex.isPago_fin_semestre());
-                    chkPagoExtra.setSelected(kardex.isPago_extra());
+                    txtPagoExtra.setText(kardex.getPago_extra() + "");
                     txtPromedio.setText(kardex.getPromedio() + "");
                     txtDescuento.setText(kardex.getDescuento() + "%");
 
@@ -2065,7 +2066,7 @@ public class PrincipalControlador {
                 JCheckBox chkPlatica1 = (JCheckBox) panel.getComponent(5);
                 JCheckBox chkPlatica2 = (JCheckBox) panel.getComponent(6);
                 JCheckBox chkPago2 = (JCheckBox) panel.getComponent(7);
-                JCheckBox chkPagoExtra = (JCheckBox) panel.getComponent(8);
+                JTextField txtPagoExtra = (JTextField) panel.getComponent(8);
                 JTextField txtPromedio = (JTextField) panel.getComponent(9);
                 JTextField txtDescuento = (JTextField) panel.getComponent(10);
 
@@ -2084,7 +2085,7 @@ public class PrincipalControlador {
                     chkPlatica2.setSelected(kardex.isPlatica2());
                     chkPago1.setSelected(kardex.isPago_inicio_semestre());
                     chkPago2.setSelected(kardex.isPago_fin_semestre());
-                    chkPagoExtra.setSelected(kardex.isPago_extra());
+                    txtPagoExtra.setText(kardex.getPago_extra() + "");
                     txtPromedio.setText(kardex.getPromedio() + "");
                     txtDescuento.setText(kardex.getDescuento() + "%");
 
@@ -3626,7 +3627,7 @@ public class PrincipalControlador {
                 JCheckBox chkPlatica1 = (JCheckBox) panel.getComponent(5);
                 JCheckBox chkPlatica2 = (JCheckBox) panel.getComponent(6);
                 JCheckBox chkPago2 = (JCheckBox) panel.getComponent(7);
-                JCheckBox chkPagoExtra = (JCheckBox) panel.getComponent(8);
+                JTextField txtPagoExtra = (JTextField) panel.getComponent(8);
                 JTextField txtPromedio = (JTextField) panel.getComponent(9);
                 JTextField txtDescuento = (JTextField) panel.getComponent(10);
 
@@ -3643,7 +3644,7 @@ public class PrincipalControlador {
                 int idLugarServicioComunitario = getIdCmbBox((String) cmbLugarServicioComunitario.getSelectedItem(), catLugarServicioSocial);
                 kardex.setLugarServicioComunitario(idLugarServicioComunitario);
                 kardex.setPago_fin_semestre(chkPago2.isSelected());
-                kardex.setPago_extra(chkPagoExtra.isSelected());
+                kardex.setPago_extra(Double.parseDouble(txtPagoExtra.getText()));
                 if (!txtPromedio.getText().equals("")) {
                     kardex.setPromedio(Float.parseFloat(txtPromedio.getText()));
                 }

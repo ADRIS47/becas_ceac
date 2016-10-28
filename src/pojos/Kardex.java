@@ -24,7 +24,7 @@ public class Kardex {
     String boleta;
     String carta_servicio_comunitario;
     long id_becario;
-    boolean pago_extra;
+    double pago_extra;
     int horasServicio;
     String transferencia1;
     String transferencia2;
@@ -120,11 +120,11 @@ public class Kardex {
         this.id_becario = id_becario;
     }
 
-    public boolean isPago_extra() {
+    public double getPago_extra() {
         return pago_extra;
     }
 
-    public void setPago_extra(boolean pago_extra) {
+    public void setPago_extra(double pago_extra) {
         this.pago_extra = pago_extra;
     }
 

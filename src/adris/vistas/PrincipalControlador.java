@@ -1927,7 +1927,7 @@ public class PrincipalControlador {
                     chkPlatica2.setSelected(kardex.isPlatica2());
                     chkPago1.setSelected(kardex.isPago_inicio_semestre());
                     chkPago2.setSelected(kardex.isPago_fin_semestre());
-                    chkPagoExtra.setSelected(kardex.isPago_extra());
+                    chkPagoExtra.setSelected(kardex.getPago_extra());
                     txtPromedio.setText(kardex.getPromedio() + "");
                     txtDescuento.setText(kardex.getDescuento() + "%");
 

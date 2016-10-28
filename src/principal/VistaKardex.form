@@ -56,7 +56,7 @@
                       <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <Component id="jtabKardex" max="32767" attributes="0"/>
+              <Component id="jtabKardex" pref="462" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -97,7 +97,7 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="4" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Component id="jLabel2" min="-2" pref="85" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="txtPrograma" min="-2" pref="217" max="-2" attributes="0"/>
@@ -748,16 +748,7 @@
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JCheckBox" name="jCheckBox1">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Agency FB" size="9" style="0"/>
-                        </Property>
-                        <Property name="horizontalAlignment" type="int" value="0"/>
-                      </Properties>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
-                      </AuxValues>
+                    <Component class="javax.swing.JTextField" name="txtOtroPago1">
                     </Component>
                     <Component class="javax.swing.JTextField" name="TxtProm1">
                       <Properties>
@@ -916,16 +907,7 @@
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JCheckBox" name="jCheckBox2">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Agency FB" size="9" style="0"/>
-                        </Property>
-                        <Property name="horizontalAlignment" type="int" value="0"/>
-                      </Properties>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
-                      </AuxValues>
+                    <Component class="javax.swing.JTextField" name="txtOtroPago2">
                     </Component>
                     <Component class="javax.swing.JTextField" name="TxtProm2">
                       <Properties>
@@ -1081,19 +1063,7 @@
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JCheckBox" name="jCheckBox3">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Agency FB" size="9" style="0"/>
-                        </Property>
-                        <Property name="horizontalAlignment" type="int" value="0"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox3ActionPerformed"/>
-                      </Events>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
-                      </AuxValues>
+                    <Component class="javax.swing.JTextField" name="txtOtroPago3">
                     </Component>
                     <Component class="javax.swing.JTextField" name="TxtProm3">
                       <Properties>
@@ -1249,19 +1219,7 @@
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JCheckBox" name="jCheckBox4">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Agency FB" size="9" style="0"/>
-                        </Property>
-                        <Property name="horizontalAlignment" type="int" value="0"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox4ActionPerformed"/>
-                      </Events>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
-                      </AuxValues>
+                    <Component class="javax.swing.JTextField" name="txtOtroPago4">
                     </Component>
                     <Component class="javax.swing.JTextField" name="TxtProm4">
                       <Properties>
@@ -1420,16 +1378,7 @@
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JCheckBox" name="jCheckBox5">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Agency FB" size="9" style="0"/>
-                        </Property>
-                        <Property name="horizontalAlignment" type="int" value="0"/>
-                      </Properties>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
-                      </AuxValues>
+                    <Component class="javax.swing.JTextField" name="txtOtroPago5">
                     </Component>
                     <Component class="javax.swing.JTextField" name="TxtProm5">
                       <Properties>
@@ -1588,16 +1537,7 @@
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JCheckBox" name="jCheckBox6">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Agency FB" size="9" style="0"/>
-                        </Property>
-                        <Property name="horizontalAlignment" type="int" value="0"/>
-                      </Properties>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
-                      </AuxValues>
+                    <Component class="javax.swing.JTextField" name="txtOtroPago6">
                     </Component>
                     <Component class="javax.swing.JTextField" name="TxtProm6">
                       <Properties>
@@ -1759,16 +1699,7 @@
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JCheckBox" name="jCheckBox7">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Agency FB" size="9" style="0"/>
-                        </Property>
-                        <Property name="horizontalAlignment" type="int" value="0"/>
-                      </Properties>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
-                      </AuxValues>
+                    <Component class="javax.swing.JTextField" name="txtOtroPago7">
                     </Component>
                     <Component class="javax.swing.JTextField" name="TxtProm7">
                       <Properties>
@@ -1924,16 +1855,7 @@
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JCheckBox" name="jCheckBox8">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Agency FB" size="9" style="0"/>
-                        </Property>
-                        <Property name="horizontalAlignment" type="int" value="0"/>
-                      </Properties>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
-                      </AuxValues>
+                    <Component class="javax.swing.JTextField" name="txtOtroPago8">
                     </Component>
                     <Component class="javax.swing.JTextField" name="TxtProm8">
                       <Properties>
@@ -2089,17 +2011,7 @@
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JCheckBox" name="jCheckBox9">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Agency FB" size="9" style="0"/>
-                        </Property>
-                        <Property name="hideActionText" type="boolean" value="true"/>
-                        <Property name="horizontalAlignment" type="int" value="0"/>
-                      </Properties>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
-                      </AuxValues>
+                    <Component class="javax.swing.JTextField" name="txtOtroPago9">
                     </Component>
                     <Component class="javax.swing.JTextField" name="TxtProm9">
                       <Properties>
@@ -2255,16 +2167,7 @@
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JCheckBox" name="jCheckBox10">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Agency FB" size="9" style="0"/>
-                        </Property>
-                        <Property name="horizontalAlignment" type="int" value="0"/>
-                      </Properties>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
-                      </AuxValues>
+                    <Component class="javax.swing.JTextField" name="txtOtroPago10">
                     </Component>
                     <Component class="javax.swing.JTextField" name="TxtProm10">
                       <Properties>
@@ -2420,16 +2323,7 @@
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JCheckBox" name="jCheckBox11">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Agency FB" size="9" style="0"/>
-                        </Property>
-                        <Property name="horizontalAlignment" type="int" value="0"/>
-                      </Properties>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
-                      </AuxValues>
+                    <Component class="javax.swing.JTextField" name="txtOtroPago11">
                     </Component>
                     <Component class="javax.swing.JTextField" name="TxtProm11">
                       <Properties>
@@ -2585,16 +2479,7 @@
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JCheckBox" name="jCheckBox12">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Agency FB" size="9" style="0"/>
-                        </Property>
-                        <Property name="horizontalAlignment" type="int" value="0"/>
-                      </Properties>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
-                      </AuxValues>
+                    <Component class="javax.swing.JTextField" name="txtOtroPago12">
                     </Component>
                     <Component class="javax.swing.JTextField" name="TxtProm12">
                       <Properties>
@@ -2643,7 +2528,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane3" alignment="0" pref="396" max="32767" attributes="0"/>
+                  <Component id="jScrollPane3" alignment="0" pref="425" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -2698,7 +2583,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabel32" min="-2" pref="239" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                  <Component id="jLabel33" pref="391" max="32767" attributes="0"/>
+                                  <Component id="jLabel33" pref="408" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                                   <Component id="jLabel34" min="-2" pref="105" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
@@ -3851,14 +3736,14 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jpnlListaDocumentosServicioComunitario" min="-2" pref="253" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jpnlAccionesDocumentosServicioComunitario" pref="634" max="32767" attributes="0"/>
+                                  <Component id="jpnlAccionesDocumentosServicioComunitario" pref="643" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jpnlAccionesDocumentosServicioComunitario" alignment="0" pref="339" max="32767" attributes="0"/>
+                              <Component id="jpnlAccionesDocumentosServicioComunitario" alignment="0" pref="367" max="32767" attributes="0"/>
                               <Component id="jpnlListaDocumentosServicioComunitario" alignment="1" max="32767" attributes="0"/>
                           </Group>
                         </DimensionLayout>
@@ -4992,7 +4877,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jPanel16" pref="860" max="32767" attributes="0"/>
+                              <Component id="jPanel16" pref="910" max="32767" attributes="0"/>
                               <Component id="jPanel15" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -5004,7 +4889,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jPanel15" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jPanel16" pref="277" max="32767" attributes="0"/>
+                          <Component id="jPanel16" pref="300" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
