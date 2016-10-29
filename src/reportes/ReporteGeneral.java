@@ -64,6 +64,9 @@ public class ReporteGeneral implements JRDataSource{
             case "becaSemestral":
                 valor = lstReporte.get(contador).getBecaSemestral();
                 break;
+            case "ajuste_beca":
+                valor = lstReporte.get(contador).getAjusteBeca();
+                break;
             case "semestreInicioBeca":
                 valor = lstReporte.get(contador).getSemestreInicioBeca();
                 break;

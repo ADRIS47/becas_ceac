@@ -5,7 +5,6 @@
  */
 package adris.vistas;
 
-import principal.*;
 import crud.Conexion;
 import helpers.EscuchadorCalculaBecaXSemestre;
 import helpers.EscuchadorCalculaDescuentoSemestral;
@@ -23,12 +22,16 @@ import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
@@ -46,18 +49,36 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import jtable.ModelDefault;
 import jtable.ModelUniversidades;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import pojos.Aval;
 import pojos.Becario;
 import pojos.CatColumnasTabla;
 import pojos.CatUniversidad;
+import pojos.Cobranza;
 import pojos.DatosEscolares;
 import pojos.Direccion;
 import pojos.Hermanos;
 import pojos.Hijos;
 import pojos.Kardex;
 import pojos.Padres;
+import pojos.PojoReporteGeneral;
+import pojos.PojoReporteIndividual;
+import pojos.PojoReporteIndividualMuchosDatos;
 import pojos.Telefono;
-
+import reportes.HistorialIndividual;
+import reportes.ReporteCampoEstudio;
+import reportes.ReporteEdoCivil;
+import reportes.ReporteGeneral;
+import reportes.ReporteHorasServicio;
+import reportes.ReportePrimerBecado;
+import reportes.ReporteSexo;
+import reportes.ReporteTipoUniversidad;
+import reportes.ReporteTrabajan;
 /**
  *
  * @author sabagip
@@ -70,6 +91,7 @@ public class PrincipalControlador {
     VistaKardex vistaKardex;
     VistaCatalogos vistaCatalogos;
     VistaReportes vistaReporte;
+    VistaCobranza vistaCobranza;
     
     PnlPortada vistaPortada;
     VistaRegistroOpcionGuardar vistaOpcionGuardar;
@@ -137,6 +159,11 @@ public class PrincipalControlador {
      * El primer valor indica el numero de renglon de la tabla, el segundo el id del valor del catalogo
      */
     LinkedHashMap<Integer, Integer> lstCatalogoRelIdsRenglonTabla = null;
+    
+    /**
+     * El primer valor indica el numero de renglon de la tabla, el segundo el id del valor del catalogo
+     */
+    LinkedHashMap<Integer, Long> lstRelIdsRenglonTabla = null;
 
     List<PnlHijos> lstVistaHijos = new ArrayList<>();
     List<PnlHermanos> lstVistaHermanos = new ArrayList<>();
@@ -227,7 +254,19 @@ public class PrincipalControlador {
      */
     public void creaVistaRegistro() {
         helper.cursorEspera(vista);
-        if(vistaKardex == null){
+        
+        if(vistaKardex != null){
+            getInfoBecarioPorFolio(vistaKardex.txtFolio.getText());
+            terminaVistaKardex();
+        }
+            
+        else 
+            if(vistaCobranza != null){
+                getInfoBecarioPorFolio(vistaCobranza.txtFolio.getText());
+                terminaVistaCobranza();
+            }
+            
+        else{
             if (vistaRegistro != null) {
                 terminaVistaRegistro();
             }
@@ -236,10 +275,12 @@ public class PrincipalControlador {
                 vistaRegistro = new VistaRegistro(this);
                 this.setVistaRegistro(vistaRegistro);
             }
-
-            if (vistaKardex != null) {
+            
+            if(vistaKardex != null)
                 terminaVistaKardex();
-            }
+            
+            if(vistaCobranza != null)
+                terminaVistaCobranza();
 
             vaciaLstFiles();
 
@@ -276,11 +317,14 @@ public class PrincipalControlador {
             creaPantalla(vistaRegistro);
 //            cargaVistaRegistro = true;
         }
-        else{
-            getInfoBecarioPorFolio(vistaKardex.txtFolio.getText());
-            terminaVistaKardex();
+            
+
+        helper.cursorNormal(vista);
+            
+//            terminaVistaKardex();
+//            terminaVistaCobranza();
 //            cargaVistaRegistro = false;
-        }
+        
     }
 
     /**
@@ -442,13 +486,43 @@ public class PrincipalControlador {
     protected void creaVistaReportes() {
         helper.cursorEspera(vista);
         
+        if(vistaReporte != null)
+            vistaReporte = null;
+        
         vistaReporte = new VistaReportes();
         this.setVistaReporte(vistaReporte);
         vistaReporte.setControlador(this);
         
         creaPantalla(vistaReporte);
         List<LinkedHashMap<Integer, String>> lstCategorias = null;
-        llenaCamposCategoriasVistaReportes(lstCategorias);        
+        llenaCamposCategoriasVistaReportes(lstCategorias);
+
+        //Se emparejan los combo de los años         
+        helper.setAñoActualEnCombo(vistaReporte.cmbAnioReg);
+        helper.setAñoActualEnCombo(vistaReporte.cmbAnioRep2);
+        helper.setAñoActualEnCombo(vistaReporte.cmbanioReg2);
+        helper.setAñoActualEnCombo(vistaReporte.cmbanioRep3);
+        
+        helper.cursorNormal(vista);
+    }
+    
+    protected void creaVistaCobranza() {
+        helper.cursorEspera(vista);
+        
+        if(vistaCobranza != null)
+            vistaCobranza = null;
+        
+        vistaCobranza = new VistaCobranza();
+        vistaCobranza.setControlador(this);
+        
+        String folio = vistaRegistro.txtFolio.getText();
+        llenaCamposVistaCobranza(folio);
+        
+        //
+        addListenerTblCobranza();
+        
+        creaPantalla(vistaCobranza);
+        
         helper.cursorNormal(vista);
     }
 
@@ -508,12 +582,18 @@ public class PrincipalControlador {
         llenaComboCategorias(vistaRegistro.cmbTipoEscuela, catTipoEscuela);
         llenaComboCategorias(lstVistaDireccion.get(0).cmbCiudadBecado, catMunicipios);
         
-        lstVistaParentesco.get(1).cmbParentesco.setSelectedIndex(1);
+        lstVistaParentesco.get(0).cmbParentesco.setSelectedIndex(1);
+        lstVistaParentesco.get(1).cmbParentesco.setSelectedIndex(0);
+        lstVistaDireccion.get(0).cmbCiudadBecado.setSelectedIndex(13);
+        
+        vistaRegistro.combobxCivilBecado.setSelectedIndex(2);
 
         if (bandera) {
             vistaRegistro.cmbEstatus.removeAllItems();
             llenaComboCategorias(vistaRegistro.cmbEstatus, catEstatus);
         }
+        
+       
 
     }
 
@@ -604,6 +684,19 @@ public class PrincipalControlador {
         vistaCatalogos.removeAll();
         vaciaLstVistas();
         vistaCatalogos = null;
+    }
+    
+    private void terminaVistaReportes(){
+        vistaReporte.removeAll();;
+        vistaReporte = null;
+    }
+    
+    private void terminaVistaCobranza(){
+        vistaCobranza.removeAll();
+        vistaCobranza = null;
+        
+        lstRelIdsRenglonTabla.clear();
+        lstRelIdsRenglonTabla = null;
     }
 
     /**
@@ -835,6 +928,7 @@ public class PrincipalControlador {
             pnlDireccion.setControlador(this);
             pnlDireccion.lblAgregarDireccion.setVisible(false);
             llenaComboCategorias(pnlDireccion.cmbCiudadBecado, catMunicipios);
+            pnlDireccion.cmbCiudadBecado.setSelectedIndex(13);
             lstVistaDireccion.add(pnlDireccion);
             lstVistaDireccion.get(0).lblAgregarDireccion.setVisible(false);
             System.out.println("Esto es de dirección");
@@ -1374,7 +1468,7 @@ public class PrincipalControlador {
 
         //Se carga el contrato
         if (fileContrato != null) {
-            Path path = helper.CopiaArchivoADestino(becario.getFolio(), "contrato-", fileContrato);
+            Path path = helper.CopiaArchivoADestino(becario.getFolio(), "solicitud-", fileContrato);
             if (path == null) {
                 JOptionPane.showMessageDialog(vista, "Error al copiar el contrato", "Error", JOptionPane.ERROR_MESSAGE);
                 return null;
@@ -1908,7 +2002,8 @@ public class PrincipalControlador {
                 JCheckBox chkPlatica1 = (JCheckBox) panel.getComponent(5);
                 JCheckBox chkPlatica2 = (JCheckBox) panel.getComponent(6);
                 JCheckBox chkPago2 = (JCheckBox) panel.getComponent(7);
-                JCheckBox chkPagoExtra = (JCheckBox) panel.getComponent(8);
+                //JCheckBox chkPagoExtra = (JCheckBox) panel.getComponent(8);
+                JTextField txtPagoExtra = (JTextField) panel.getComponent(8);
                 JTextField txtPromedio = (JTextField) panel.getComponent(9);
                 JTextField txtDescuento = (JTextField) panel.getComponent(10);
 
@@ -1919,7 +2014,7 @@ public class PrincipalControlador {
                 if (i < lstKardex.size()) {
                     Kardex kardex = lstKardex.get(i);
 
-                    System.out.println("Fecha controlador: " + fecha.getTime());
+                    //System.out.println("Fecha controlador: " + fecha.getTime());
 
                     chkPago1.setSelected(kardex.isPlatica1());
                     txtHorasServicio.setText(kardex.getHorasServicio() + "");
@@ -1927,7 +2022,7 @@ public class PrincipalControlador {
                     chkPlatica2.setSelected(kardex.isPlatica2());
                     chkPago1.setSelected(kardex.isPago_inicio_semestre());
                     chkPago2.setSelected(kardex.isPago_fin_semestre());
-                    chkPagoExtra.setSelected(kardex.getPago_extra());
+                    txtPagoExtra.setText(kardex.getPago_extra() + "");
                     txtPromedio.setText(kardex.getPromedio() + "");
                     txtDescuento.setText(kardex.getDescuento() + "%");
 
@@ -1946,6 +2041,69 @@ public class PrincipalControlador {
     }
 
     /**
+     * Llena el panel de cobranza con la información necesaria
+     * @param lstKardex
+     * @param lstFechaSemestre 
+     */
+    private void llenaPnlCobranza(List<Kardex> lstKardex, List<Calendar> lstFechaSemestre) {
+
+        Component[] componentes = vistaCobranza.PnlCargos.getComponents();
+        int i = -1;
+        for (Component componente : componentes) {
+            if (i == -1) {
+                i++;
+                continue;
+            }
+            if (componente instanceof JPanel) {
+
+                JPanel panel = (JPanel) componente;
+
+                JTextField txtSemestre = (JTextField) panel.getComponent(0);
+                JCheckBox chkPago1 = (JCheckBox) panel.getComponent(1);
+                JTextField txtHorasServicio = (JTextField) panel.getComponent(2);
+                JComboBox<String> cmbTipoServicioSocial = (JComboBox<String>) panel.getComponent(3);
+                JComboBox<String> cmbLugarServicioSocial = (JComboBox<String>) panel.getComponent(4);
+                JCheckBox chkPlatica1 = (JCheckBox) panel.getComponent(5);
+                JCheckBox chkPlatica2 = (JCheckBox) panel.getComponent(6);
+                JCheckBox chkPago2 = (JCheckBox) panel.getComponent(7);
+                JTextField txtPagoExtra = (JTextField) panel.getComponent(8);
+                JTextField txtPromedio = (JTextField) panel.getComponent(9);
+                JTextField txtDescuento = (JTextField) panel.getComponent(10);
+
+                llenaComboCategorias(cmbTipoServicioSocial, catTipoServicioSocial);
+                llenaComboCategorias(cmbLugarServicioSocial, catLugarServicioSocial);
+
+                Calendar fecha = lstFechaSemestre.get(i);
+                if (i < lstKardex.size()) {
+                    Kardex kardex = lstKardex.get(i);
+
+                    //System.out.println("Fecha controlador: " + fecha.getTime());
+
+                    chkPago1.setSelected(kardex.isPlatica1());
+                    txtHorasServicio.setText(kardex.getHorasServicio() + "");
+                    chkPlatica1.setSelected(kardex.isPlatica1());
+                    chkPlatica2.setSelected(kardex.isPlatica2());
+                    chkPago1.setSelected(kardex.isPago_inicio_semestre());
+                    chkPago2.setSelected(kardex.isPago_fin_semestre());
+                    txtPagoExtra.setText(kardex.getPago_extra() + "");
+                    txtPromedio.setText(kardex.getPromedio() + "");
+                    txtDescuento.setText(kardex.getDescuento() + "%");
+
+                    cmbTipoServicioSocial.setSelectedItem(getItemComboBox(kardex.getIdServicioComunitario(), catTipoServicioSocial));
+                    cmbLugarServicioSocial.setSelectedItem(getItemComboBox(kardex.getLugarServicioComunitario(), catLugarServicioSocial));
+                }
+                txtSemestre.setText(fecha.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault()) + "/" + fecha.get(Calendar.YEAR));
+
+                if (i == lstFechaSemestre.size() - 1) {
+                    break;
+                }
+                i++;
+            }
+
+        }
+    }
+    
+    /**
      * Llena los paneles de las boletas y carga semestral con los datos del
      * becario
      *
@@ -1955,8 +2113,9 @@ public class PrincipalControlador {
      * 2.- Llena con la informacion de la pestaña de las cargas semestrales
      * 3.- LLena con la informacion a los primeros 10 transferencias de la pestaña adjuntar transferencias
      * 4.- LLena con la informacion a las restantes 10 transferencias de la pestaña adjuntar transferencias 
+     * 5.- Llena la pantalla cobranza con la información de las transferencias realizadas al becario
      */
-    private void llenaPnlBoletaOCargaSemestral(List<Kardex> lstKardex, List<Calendar> lstFechaSemestre, int codigo) {
+    private void llenaPnlBoletaOCargaSemestral(List<Kardex> lstKardex, List<Calendar> lstFechaSemestre, int codigo, DatosEscolares datosEscolares) {
         JPanel pnlSemestres = null;
         JPanel pnlAcciones = null;
         int tamanio = lstFechaSemestre.size();
@@ -2051,6 +2210,8 @@ public class PrincipalControlador {
                     if (componente instanceof JLabel) {
                         
                         JLabel txtSemestre = (JLabel) componente;
+                        if(g > lstKardex.size() - 1)
+                            break;
                         Kardex kardex = lstKardex.get(g);
                         if(i % 2 == 0)
                             txtSemestre.setText(kardex.getTransferencia1());
@@ -2063,6 +2224,44 @@ public class PrincipalControlador {
                         
                     }
                     if (i == (tamanio * 2)- 1) {
+                        break;
+                    }
+                }
+                break;
+                
+            case 5:
+                pnlSemestres = vistaCobranza.jpnlListaSemestreCargos;
+                pnlAcciones = vistaCobranza.jpnlListaDocumentos5;
+                if(lstKardex.isEmpty())
+                    break;
+                
+                int deposito = datosEscolares.getBecaSemestral() / 2;
+                
+                componentes = pnlAcciones.getComponents();
+                i = 0;
+                g = 0;
+                for (Component componente : componentes) {
+                    if (componente instanceof JTextField) {
+                        
+                        JTextField txtSemestre = (JTextField) componente;
+                        Kardex kardex = lstKardex.get(g);
+                        if(i % 2 == 0){
+                            if(kardex.isPago_inicio_semestre())
+                                txtSemestre.setText("$" + deposito + "");
+                            else
+                                txtSemestre.setText("Sin pago" );
+                        }
+                        else{
+                            if(kardex.isPago_fin_semestre())
+                                txtSemestre.setText("$" + deposito + "");
+                            else
+                                txtSemestre.setText("Sin pago" );
+                            g++;
+                        }
+                            
+                        i++;
+                    }
+                    if (g == (tamanio) - 1) {
                         break;
                     }
                 }
@@ -2116,9 +2315,11 @@ public class PrincipalControlador {
             i = 10;
             boolean bandera = false;
             for (Component componente : componentes) {
-                int semestre = (i/2) - 1;
+                int semestre = (i/2) ;
                 JTextField txtSemestre = (JTextField) componente;
-                Calendar calendario = lstFechaSemestre.get(semestre + 1);
+                if(semestre > lstFechaSemestre.size() - 1)
+                    break;
+                Calendar calendario = lstFechaSemestre.get(semestre);
                 if(bandera == false){
                     txtSemestre.setText("Transf 1 " + calendario.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault()) + "/" + calendario.get(Calendar.YEAR));
                     bandera =true;
@@ -2148,11 +2349,11 @@ public class PrincipalControlador {
      * boletas y carga semestral en el apartado de acciones y estatus.
      * 4.- Deshabilita los componentes de la pestaña de transferencias en el apartado
      * Carga semestral
+     * 5.- Deshabilita los componentes de la pantalla Cobranza
      */
     private void deshabilitaSemestresKardex(JPanel pnlPanel, int semestresHabilitados,
             int contador, int codigo) {
         Component[] componentes = pnlPanel.getComponents();
-
         switch (codigo) {
             //Desabilita los componentes del pnlKardex
             case 1:
@@ -2224,6 +2425,27 @@ public class PrincipalControlador {
                         if (componente instanceof JButton || componente instanceof JLabel) {
                             componente.setVisible(false);
                         }
+                    }
+
+                }
+                break;
+                
+            case 5:
+                for (Component componente : componentes) {
+                    i = contador / 2;
+                    
+                    if(componente instanceof JPanel){
+                        deshabilitaSemestresKardex((JPanel) componente, semestresHabilitados, contador, 5);
+                    }
+                    
+                    if ((componente instanceof JTextField || componente instanceof JLabel) && i < semestresHabilitados) {
+                        contador++;
+                    }
+
+                    else if ((componente instanceof JTextField || componente instanceof JLabel) && i >= semestresHabilitados) {
+                        contador++;
+                        componente.setVisible(false);
+                        
                     }
 
                 }
@@ -2406,6 +2628,7 @@ public class PrincipalControlador {
             return;
         }
 
+        //vaciaLstFiles();
         Becario becario = modelo.getBecarioPorFolio(conexion, folio);
         if (becario == null) {
             helper.cursorNormal(vista);
@@ -2437,9 +2660,12 @@ public class PrincipalControlador {
         DatosEscolares lstDatosEscolares = modelo.getDatosEscolaresBecario(conexion, becario.getId());
 
         Aval lstAval = modelo.getAvalBecario(conexion, becario.getId());
-
+        
+        List<Kardex> lstKardex = modelo.getKardexPorIdBecario(conexion, becario.getId());
+        lstKardex = getTotalesKardexPorBecario(lstKardex, lstDatosEscolares);
+        
         creaVistaRegistroConDatosBecario(becario, lstDireccionesBecario, lstTelefonosBecario, lstPadresBecario, lstHermanos,
-                lstHijos, lstDatosEscolares, lstAval);
+                lstHijos, lstDatosEscolares, lstAval, lstKardex);
 
         try {
             conexion.close();
@@ -2532,7 +2758,7 @@ public class PrincipalControlador {
         int row = vistaBusqueda.tblResultadoBusqueda.getSelectedRow();
         //Se obtiene el folio del becario seleccionado
         String folio = modelo.getValueAt(row, 3).toString();
-
+        
         getInfoBecarioPorFolio(folio);
     }
 
@@ -2551,7 +2777,7 @@ public class PrincipalControlador {
      */
     private void creaVistaRegistroConDatosBecario(Becario becario, List<Direccion> lstDireccionesBecario,
             List<Telefono> lstTelefonosBecario, List<Padres> lstPadresBecario, List<Hermanos> lstHermanos,
-            List<Hijos> lstHijos, DatosEscolares lstDatosEscolares, Aval lstAval) {
+            List<Hijos> lstHijos, DatosEscolares lstDatosEscolares, Aval lstAval, List<Kardex> lstKardex) {
 
         if (vistaRegistro != null) {
             terminaVistaRegistro();
@@ -2579,7 +2805,7 @@ public class PrincipalControlador {
             lstCategorias = modelo.getCategoriasVistaRegistro();
             llenaCamposCategoriasVistaRegistro(lstCategorias, true);
             llenaCamposVistaRegistro(becario, lstDireccionesBecario, lstTelefonosBecario,
-                    lstPadresBecario, lstHermanos, lstHijos, lstDatosEscolares, lstAval);
+                    lstPadresBecario, lstHermanos, lstHijos, lstDatosEscolares, lstAval, lstKardex);
         } catch (SQLException ex) {
             Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(vista, "Error, consulta el registro de errores",
@@ -2619,7 +2845,7 @@ public class PrincipalControlador {
      */
     private void llenaCamposVistaRegistro(Becario becario, List<Direccion> lstDireccionesBecario,
             List<Telefono> lstTelefonosBecario, List<Padres> lstPadresBecario, List<Hermanos> lstHermanos,
-            List<Hijos> lstHijos, DatosEscolares lstDatosEscolares, Aval lstAval) {
+            List<Hijos> lstHijos, DatosEscolares lstDatosEscolares, Aval lstAval, List<Kardex> lstKardex) {
 
         //Llenado de datos generales
         String programa = getItemComboBox(becario.getIdPrograma(), catPrograma);
@@ -2639,6 +2865,16 @@ public class PrincipalControlador {
         vistaRegistro.combobxSexoBecado.setSelectedIndex(becario.getIdSexo() - 1);
         vistaRegistro.combobxCivilBecado.setSelectedIndex(becario.getIdEstadoCivil() - 1);
         
+        if(lstKardex != null && !lstKardex.isEmpty()){
+            vistaRegistro.txtHorasServicio.setText(lstKardex.get(0).getHorasTotales() + "");
+            vistaRegistro.txtDescuento.setText(lstKardex.get(0).getDescuentoTotal() + "%");
+            vistaRegistro.txtSaldo.setText("$" + lstKardex.get(0).getSaldoTotal());
+        }
+        else{
+            vistaRegistro.txtHorasServicio.setText("0");
+            vistaRegistro.txtDescuento.setText("0%");
+            vistaRegistro.txtSaldo.setText("$0");
+        }
         int contador = 0;
         for (Telefono telefono : lstTelefonosBecario) {
             switch (contador) {
@@ -2674,8 +2910,8 @@ public class PrincipalControlador {
             lstVistaDireccion.get(contador).txtNumIntBecado.setText(direccion.getNumInt());
             lstVistaDireccion.get(contador).txtCPBecado.setText(direccion.getCodigoPostal() + "");
             lstVistaDireccion.get(contador).txtColoniaBecado.setText(direccion.getColonia());
-            String idDireccion = getItemComboBox(direccion.getCiudad(), catMunicipios);
-            lstVistaDireccion.get(contador).cmbCiudadBecado.setSelectedItem(direccion.getCiudad());
+            String ciudad = getItemComboBox(direccion.getCiudad(), catMunicipios);
+            lstVistaDireccion.get(contador).cmbCiudadBecado.setSelectedItem(ciudad);
             contador++;
         }
 
@@ -2874,42 +3110,46 @@ public class PrincipalControlador {
                     datosEscolares.getSemestresTotalesCarrera());
         else
             semestresHabilitados = 3;
+        
+        if(datosEscolares.getSemestreInicioBeca() > 1)
+            semestresHabilitados = (datosEscolares.getSemestresTotalesCarrera() - semestresHabilitados) + 2;
+        
         //Se procede a deshabilitar los semestres que aun no tienen que llenarse
-        deshabilitaSemestresKardex(vistaKardex.PnlKardex, semestresHabilitados, 0, 1);
+        deshabilitaSemestresKardex(vistaKardex.PnlKardex, semestresHabilitados + 1, 0, 1);
         //Se llena el pnlKardex
         llenaPnlKardex(lstKardex, lstFechaSemestres);
 
         //Se procede a deshabilitar los semestres de la pestaña adjuntar boleta en el 
         //apartado de semestres y acciones
-        deshabilitaSemestresKardex(vistaKardex.jpnlListaDocumentosBoleta, semestresHabilitados - 1, 0, 2);
-        deshabilitaSemestresKardex(vistaKardex.jpnlAccionesDocumentosBoleta, (semestresHabilitados - 1) * 3, 0, 3);
-        llenaPnlBoletaOCargaSemestral(lstKardex, lstFechaSemestres, 1);
+        deshabilitaSemestresKardex(vistaKardex.jpnlListaDocumentosBoleta, semestresHabilitados , 0, 2);
+        deshabilitaSemestresKardex(vistaKardex.jpnlAccionesDocumentosBoleta, (semestresHabilitados ) * 3, 0, 3);
+        llenaPnlBoletaOCargaSemestral(lstKardex, lstFechaSemestres, 1, null);
         //Se procede a deshabilitar los semestres de la pastaña adjuntar carga semestral 
         //en el apartado de semestres y acciones
-        deshabilitaSemestresKardex(vistaKardex.jpnlListaDocumentosServicioComunitario, semestresHabilitados - 1, 0, 2);
-        deshabilitaSemestresKardex(vistaKardex.jpnlAccionesDocumentosServicioComunitario, (semestresHabilitados - 1) * 3, 0, 3);
-        llenaPnlBoletaOCargaSemestral(lstKardex, lstFechaSemestres, 2);
+        deshabilitaSemestresKardex(vistaKardex.jpnlListaDocumentosServicioComunitario, semestresHabilitados , 0, 2);
+        deshabilitaSemestresKardex(vistaKardex.jpnlAccionesDocumentosServicioComunitario, (semestresHabilitados ) * 3, 0, 3);
+        llenaPnlBoletaOCargaSemestral(lstKardex, lstFechaSemestres, 2, null);
         
         //Se procede a deshabilitar los semestres de la pestaña transferencias en el 
         //apartado carga semestral
         //Se deshabilitan los primeros 10 jtextField
-        deshabilitaSemestresKardex(vistaKardex.jpnlListaDocumentos4, (semestresHabilitados - 1) * 2, 0, 2);
+        deshabilitaSemestresKardex(vistaKardex.jpnlListaDocumentos4, (semestresHabilitados ) * 2, 0, 2);
         //Se deshabilitan los primeros 30 botones y label
-        deshabilitaSemestresKardex(vistaKardex.jpnlAccionesDocumentos2, (semestresHabilitados - 1) * 6, 0, 3);
+        deshabilitaSemestresKardex(vistaKardex.jpnlAccionesDocumentos2, (semestresHabilitados ) * 6, 0, 3);
 
         //Se deshabilitan los 10 jtextField restantes
-        deshabilitaSemestresKardex(vistaKardex.jpnlListaDocumentos5, ((semestresHabilitados - 1) * 2) - 10, 0, 2);
+        deshabilitaSemestresKardex(vistaKardex.jpnlListaDocumentos5, ((semestresHabilitados ) * 2) - 10, 0, 2);
         //Se deshabilitan los 30 botones y labels restantes
-        deshabilitaSemestresKardex(vistaKardex.jpnlAccionesDocumentos3, ((semestresHabilitados - 1) * 6) - 30, 0, 3);
+        deshabilitaSemestresKardex(vistaKardex.jpnlAccionesDocumentos3, ((semestresHabilitados ) * 6) - 30, 0, 3);
         
         //Se asignan las transacciones al arreglo lstFilesTransferencias
         addTransferenciasAArreglo(lstKardex);
         
         //Se llenan los primeros 10 jtextfield
-        llenaPnlBoletaOCargaSemestral(lstKardex, lstFechaSemestres, 3);
+        llenaPnlBoletaOCargaSemestral(lstKardex, lstFechaSemestres, 3, null);
         //Se llenan los jtextfield restantes
         if(semestresHabilitados - 1 > 4)
-            llenaPnlBoletaOCargaSemestral(lstKardex, lstFechaSemestres, 4);
+            llenaPnlBoletaOCargaSemestral(lstKardex, lstFechaSemestres, 4, null);
         
         //Se llenan las primeras 10 transferencias
         
@@ -3289,8 +3529,8 @@ public class PrincipalControlador {
         helper.cursorEspera(vista);
         Conexion conn = new Conexion();
         Connection conexion = conn.estableceConexion();
-        boolean response = false;
-        int semestres = 0;
+        boolean response;
+        int semestres;
         if (conexion == null) {
             helper.cursorNormal(vista);
             JOptionPane.showMessageDialog(vistaKardex, "No se pudo conectar a la base de datos, intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
@@ -3320,7 +3560,10 @@ public class PrincipalControlador {
 
             //se obtienen los datos de los semestres habilitados
             semestres = helper.getTotalSemestresporHabilitarKardex(datosEscolares.getSemestreInicioBeca(),
-                    datosEscolares.getSemestresTotalesCarrera()) - 1;
+                    datosEscolares.getSemestresTotalesCarrera()) ;
+            
+            if(datosEscolares.getSemestreInicioBeca() > 1)
+                semestres = (datosEscolares.getSemestresTotalesCarrera() - semestres) + 2;
 
             //Se obtiene la información del kardex del becario
             List<Kardex> lstKardex = getInfoKardex(semestres);
@@ -3376,6 +3619,7 @@ public class PrincipalControlador {
                 JPanel panel = (JPanel) componente;
 
                 JTextField txtSemestre = (JTextField) panel.getComponent(0);
+                //System.out.println(txtSemestre.getText());
                 JCheckBox chkPago1 = (JCheckBox) panel.getComponent(1);
                 JTextField txtHorasServicio = (JTextField) panel.getComponent(2);
                 JComboBox cmbTipoServicioComunitario = (JComboBox) panel.getComponent(3);
@@ -3383,11 +3627,12 @@ public class PrincipalControlador {
                 JCheckBox chkPlatica1 = (JCheckBox) panel.getComponent(5);
                 JCheckBox chkPlatica2 = (JCheckBox) panel.getComponent(6);
                 JCheckBox chkPago2 = (JCheckBox) panel.getComponent(7);
-                JCheckBox chkPagoExtra = (JCheckBox) panel.getComponent(8);
+                JTextField txtPagoExtra = (JTextField) panel.getComponent(8);
                 JTextField txtPromedio = (JTextField) panel.getComponent(9);
                 JTextField txtDescuento = (JTextField) panel.getComponent(10);
 
                 Kardex kardex = new Kardex();
+                kardex.setNum_semestre(txtSemestre.getText());
                 kardex.setPago_inicio_semestre(chkPago1.isSelected());
                 if (!txtHorasServicio.getText().equals("")) {
                     kardex.setHorasServicio(Integer.parseInt(txtHorasServicio.getText()));
@@ -3399,7 +3644,7 @@ public class PrincipalControlador {
                 int idLugarServicioComunitario = getIdCmbBox((String) cmbLugarServicioComunitario.getSelectedItem(), catLugarServicioSocial);
                 kardex.setLugarServicioComunitario(idLugarServicioComunitario);
                 kardex.setPago_fin_semestre(chkPago2.isSelected());
-                kardex.setPago_extra(chkPagoExtra.isSelected());
+                kardex.setPago_extra(Double.parseDouble(txtPagoExtra.getText()));
                 if (!txtPromedio.getText().equals("")) {
                     kardex.setPromedio(Float.parseFloat(txtPromedio.getText()));
                 }
@@ -3463,6 +3708,11 @@ public class PrincipalControlador {
         fileIneBecario = null;
         filePagare = null;
         fileCartaAgradecimiento = null;
+        
+//        lstVistaDireccion = null;
+//        lstVistaHermanos = null;
+//        lstVistaHijos = null;
+//        lstVistaParentesco = null;
     
     }
 
@@ -3510,7 +3760,7 @@ public class PrincipalControlador {
      * Inserta un registro en el catalogo seleccionado
      * @param tabla Tabla a agregar la fila
      */
-    protected void InsertarRegistroCastalogo(JTable tabla) {
+    protected void insertarRegistroCastalogo(JTable tabla) {
         String texto = vistaCatalogos.TxtFldDescripcionCatalogo.getText();
         DefaultTableModel tblModelo = (DefaultTableModel) tabla.getModel();
         //Si no se ha el filtrado el catalogo
@@ -3520,44 +3770,48 @@ public class PrincipalControlador {
         }
         else{
             
-            helper.cursorEspera(vista);
+            int select = JOptionPane.showConfirmDialog(vistaCatalogos, "¿Seguro que desea insertar " + texto + "?", "", JOptionPane.YES_NO_OPTION);
             
-            Conexion conn = new Conexion();
-            Connection conexion = conn.estableceConexion();
-            
-            if(conexion == null){
-                JOptionPane.showMessageDialog(vistaCatalogos, "No se pudo conectar a la base de datos. \n Intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-            
-            String seleccion = (String) vistaCatalogos.cmbTipoCatalogo.getSelectedItem();
-            int idTabla = getIdCmbBox(seleccion, catCatalogos);
-            String nombreTabla = modelo.getNombreTabla(conexion, idTabla);
-            
-            CatColumnasTabla nombreColumnas = modelo.getNombreColumnasTabla(conexion, nombreTabla);
-            
-            boolean response;
-            if(tblModelo.getColumnCount() == 1)
-                response = modelo.insertRegistroCatalogo(conexion, texto, 0, 
-                        nombreTabla, nombreColumnas);
-            else
-                response = modelo.insertRegistroCatalogo(conexion, texto, 0, nombreTabla, nombreColumnas, true);
-            
-            
-            if(response == false){
-                JOptionPane.showMessageDialog(vistaCatalogos, "No se pudo insertar el registro. \n Intentelo de nuevo.", "Error", JOptionPane.ERROR_MESSAGE);
-                try {
-                    conexion.close();
-                } catch (SQLException ex) {
-                    Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
-                    log.muestraErrores(ex);
+            if(select == JOptionPane.YES_OPTION){
+                helper.cursorEspera(vista);
+
+                Conexion conn = new Conexion();
+                Connection conexion = conn.estableceConexion();
+
+                if(conexion == null){
+                    JOptionPane.showMessageDialog(vistaCatalogos, "No se pudo conectar a la base de datos. \n Intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
                 }
-                helper.cursorNormal(vista);
-            }
-            else{
-                JOptionPane.showMessageDialog(vistaCatalogos, "Registro insertado.");
-                creaVistaCatalogos();
-                vistaCatalogos.cmbTipoCatalogo.setSelectedItem(seleccion);
-                helper.cursorNormal(vista);
+
+                String seleccion = (String) vistaCatalogos.cmbTipoCatalogo.getSelectedItem();
+                int idTabla = getIdCmbBox(seleccion, catCatalogos);
+                String nombreTabla = modelo.getNombreTabla(conexion, idTabla);
+
+                CatColumnasTabla nombreColumnas = modelo.getNombreColumnasTabla(conexion, nombreTabla);
+
+                boolean response;
+                if(tblModelo.getColumnCount() == 1)
+                    response = modelo.insertRegistroCatalogo(conexion, texto, 0, 
+                            nombreTabla, nombreColumnas);
+                else
+                    response = modelo.insertRegistroCatalogo(conexion, texto, 0, nombreTabla, nombreColumnas, true);
+
+
+                if(response == false){
+                    JOptionPane.showMessageDialog(vistaCatalogos, "No se pudo insertar el registro. \n Intentelo de nuevo.", "Error", JOptionPane.ERROR_MESSAGE);
+                    try {
+                        conexion.close();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+                        log.muestraErrores(ex);
+                    }
+                    helper.cursorNormal(vista);
+                }
+                else{
+                    JOptionPane.showMessageDialog(vistaCatalogos, "Registro insertado.");
+                    creaVistaCatalogos();
+                    vistaCatalogos.cmbTipoCatalogo.setSelectedItem(seleccion);
+                    helper.cursorNormal(vista);
+                }
             }
         }
     }
@@ -3575,8 +3829,6 @@ public class PrincipalControlador {
 
         //helper.eliminaFilaTabla(tabla, lstCatalogoCopia);
         int filaSeleccionada = vistaCatalogos.TblDescripcionCatalogo.getSelectedRow();
-        int contador = vistaCatalogos.TblDescripcionCatalogo.getSelectedRow();
-        DefaultTableModel tblModelo = (DefaultTableModel) tabla.getModel();
         
         if(filaSeleccionada < 0)
             JOptionPane.showMessageDialog(vistaCatalogos, "Debe de seleccionar el registro a eliminar", "Error", JOptionPane.ERROR_MESSAGE);
@@ -3631,6 +3883,7 @@ public class PrincipalControlador {
         
         if(conexion == null){
             JOptionPane.showMessageDialog(vistaCatalogos, "No se pudo conectar a la base de datos. \n Intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
         }
         
         DefaultTableModel tblModel = (DefaultTableModel) vistaCatalogos.TblDescripcionCatalogo.getModel();
@@ -3893,5 +4146,1128 @@ public class PrincipalControlador {
         vistaRegistro.updateUI();
         vistaRegistro.validate();
     }
-   
+
+    /**
+     * Verifica el reporte seleccionado por el usuario y proximo a crear,
+     */
+    protected void creaReporte() {
+        
+        int idReporte = getIdCmbBox((String) vistaReporte.cmbTipoReporte.getSelectedItem(), catReportes);
+        System.out.println(idReporte + "");
+        helper.cursorEspera(vista);
+        switch(idReporte){
+            
+            //Reporte General
+            case 1:
+                //creaReporteDirectamente("Reporte_general.jasper");
+                creaReporteGeneral();
+                break;
+            
+            //Reporte Individual
+            case 4:
+                creaReporteIndividual();
+                break;
+                
+            //Reporte Sexo
+            case 6:
+                //creaReporteDirectamente("reporteSexo.jasper");
+                creaReporteSexo();
+                break;
+                
+            //Reporte Trabajan
+            case 7:
+                creaReporteTrabaja();
+                break;
+                
+            //Reporte Universidades Públicas
+            case 8:
+                creaReporteUniversidadesPublicas();
+                //creaReporteDirectamente("reporteTipoUniversidad.jasper");
+                break;
+                
+            //Reporte Campo Aplicacion
+            case 9:
+                creaReporteCampoEstudio();
+                //creaReporteDirectamente("reporteCampoAplicacion.jasper");
+                break;
+
+            //Reporte Horas por lugar de Servicio Comunitario
+            case 11:
+                creaReporteHorasServCom();
+                //creaReporteDirectamente("reporteHorasServCom.jasper");
+                break;
+                
+            /**
+             * Reporte Primer Universitario
+             */
+            case 12:
+                creaReportePrimerBecario();
+                break;
+                
+            case 14:
+                creaReporteEstadoCivil();
+                break;
+        }
+        
+        helper.cursorNormal(vista);
+    }
+    
+    /**
+     * Genera el reporte general de los becarios
+     */
+    private void creaReporteGeneral() {
+        Conexion conn = null;
+        Connection conexion = null;
+        try {
+            conn = new Conexion();
+            conexion = conn.estableceConexion();
+            
+            if(conexion == null){
+                JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            String filtros = getFiltrosReporte(conexion);
+            
+            java.util.Date[] fechasFiltro = null;
+            fechasFiltro = helper.getFechasFiltro(filtros, vistaReporte);
+            
+            Map<String, Object> parametros = new HashMap<>();
+            parametros.put("imagen", "imagenes/logocr.jpg");
+            
+            List<PojoReporteGeneral> lstDatos = modelo.getDatosReporteGeneral(conexion, filtros, fechasFiltro);
+            
+            Path path = helper.getDirectorioReporte("Reporte_general.jasper");
+            
+            File file = path.toFile();
+            
+            ReporteGeneral datosReporte = new ReporteGeneral();
+            datosReporte.setLstReporte(lstDatos);
+            
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, datosReporte);
+            
+            JasperViewer visor = new JasperViewer(jasperPrint, false);
+            visor.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            try {
+                conexion.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
+    /**
+     * Genera el reporte general del becario que ha sido buscado
+     */
+    protected void creaReporteIndividual() {
+        Conexion conn = null;
+        Connection conexion = null;
+        
+        try{
+            String folio = vistaRegistro.txtFolio.getText();
+            
+            conn = new Conexion();
+            conexion = conn.estableceConexion();
+
+            if(conexion == null){
+                JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            Map<String,Object> parametros = new HashMap<>();
+            parametros.put("imagen", "imagenes" + Index.SEPARADOR + "logocr.jpg");
+            
+            //Becario becario = modelo.getBecarioPorFolio(conexion, "DEV-01");
+            PojoReporteIndividual reporteIndividual = modelo.getReporteIndividualDatosUnicos(conexion, folio);
+            List<PojoReporteIndividualMuchosDatos> datos = modelo.getReporteIndividualMuchosDatos(conexion, folio);
+            List<Telefono> telefonos = modelo.getTelefonosBecario(conexion, reporteIndividual.getIdBecario());
+            
+            Path path = helper.getDirectorioReporte("historial_individual.jasper");
+            
+            File file = path.toFile();
+            System.out.println(file.getAbsolutePath());
+            
+            HistorialIndividual report = new HistorialIndividual();
+            report.setLstDatosUnicos(reporteIndividual);
+            report.setLstMuchosDatos(datos);
+            report.setLstTelefonos(telefonos);
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, report);
+
+            JasperViewer visor = new JasperViewer(jasperPrint, false);
+            visor.setVisible(true);
+                
+           
+        }
+        catch (JRException ex) {
+//                log.muestraErrores(ex);
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        catch(NullPointerException e){
+            JOptionPane.showMessageDialog(vistaReporte, "Debe de seleccionar un becario", "Error", JOptionPane.ERROR_MESSAGE);
+            terminaVistaReportes();
+            creaVistaBusqueda();
+        }
+        finally{
+            try {
+                if(conexion != null)
+                conexion.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
+    /**
+     * Genera el reporte de sexo
+     */
+    private void creaReporteSexo() {
+        Conexion conn = null;
+        Connection conexion = null;
+        try {
+            conn = new Conexion();
+            conexion = conn.estableceConexion();
+            
+            if(conexion == null){
+                JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            String filtros = getFiltrosReporte(conexion);
+            java.util.Date[] fechasFiltro = null;
+            fechasFiltro = helper.getFechasFiltro(filtros, vistaReporte);
+            
+            Map<String, Object> parametros = new HashMap<>();
+            parametros.put("imagen", "imagenes/logocr.jpg");
+            
+            Path path = helper.getDirectorioReporte("reporteSexo.jasper");
+            File file = path.toFile();
+            
+            int idPrograma = helper.getIdPrograma(filtros);
+            String nombrePrograma = "TODOS";
+            if(idPrograma != 0)
+                nombrePrograma = getItemComboBox(idPrograma, catPrograma);
+            
+            List<PojoReporteGeneral> lstDatos = modelo.creaReporteSexo(conexion, filtros, fechasFiltro, nombrePrograma);
+            
+            ReporteSexo reporteSexo = new ReporteSexo();
+            reporteSexo.setLstReporte(lstDatos);
+            
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, reporteSexo);
+            
+            JasperViewer visor = new JasperViewer(jasperPrint, false);
+            visor.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            try {
+                conexion.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    /**
+     * Genera el reporte de los becarios que trabajan
+     */
+    private void creaReporteTrabaja(){
+        Conexion conn = null;
+        Connection conexion = null;
+        
+        try{
+            
+            
+            conn = new Conexion();
+            conexion = conn.estableceConexion();
+
+            if(conexion == null){
+                JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            String filtros = getFiltrosReporte(conexion);
+            java.util.Date[] fechasFiltro = null;
+            fechasFiltro = helper.getFechasFiltro(filtros, vistaReporte);
+            
+            Map<String, Object> parametros = new HashMap<>();
+            parametros.put("imagen", "imagenes/logocr.jpg");
+            
+            int idPrograma = helper.getIdPrograma(filtros);
+            String nombrePrograma = "TODOS";
+            if(idPrograma != 0)
+                nombrePrograma = getItemComboBox(idPrograma, catPrograma);
+            
+            List<PojoReporteGeneral> datos = modelo.getAllBecariosTrabajan(conexion, filtros, fechasFiltro, nombrePrograma);
+            
+            for (PojoReporteGeneral dato : datos) {
+                //Si el becario trabaja
+                if(dato.getTrabaja() == 1)
+                    dato.setNombre("Trabajan");
+                else
+                    dato.setNombre("No trabajan");
+            }
+            
+            Path path = helper.getDirectorioReporte("reporteTrabajan.jasper");
+            
+            File file = path.toFile();
+            //System.out.println(file.getAbsolutePath());
+            
+            ReporteTrabajan report = new ReporteTrabajan();
+            report.setLstTrabaja(datos);
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, report);
+
+            JasperViewer visor = new JasperViewer(jasperPrint, false);
+            visor.setVisible(true);
+                
+            
+        }
+        catch (JRException ex) {
+//                log.muestraErrores(ex);
+            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        catch(NullPointerException e){
+            JOptionPane.showMessageDialog(vistaReporte, "Debe de seleccionar un becario", "Error", JOptionPane.ERROR_MESSAGE);
+            terminaVistaReportes();
+            creaVistaBusqueda();
+        }
+        finally{
+            try {
+                conexion.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    /**
+     * Genera el reporte del estado civil de los becarios
+     */
+    private void creaReporteEstadoCivil() {
+        Conexion conn = null;
+        Connection conexion = null;
+        try {
+            conn = new Conexion();
+            conexion = conn.estableceConexion();
+            
+            if(conexion == null){
+                JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            String filtros = getFiltrosReporte(conexion);
+            java.util.Date[] fechasFiltro = null;
+            fechasFiltro = helper.getFechasFiltro(filtros, vistaReporte);
+            
+            int idPrograma = helper.getIdPrograma(filtros);
+            String nombrePrograma = "TODOS";
+            if(idPrograma != 0)
+                nombrePrograma = getItemComboBox(idPrograma, catPrograma);
+            
+            Map<String, Object> parametros = new HashMap<>();
+            parametros.put("imagen", "imagenes/logocr.jpg");
+            
+            Path path = helper.getDirectorioReporte("reporteEdoCivil.jasper");
+            File file = path.toFile();
+            
+            List<PojoReporteGeneral> lstDatos = modelo.creaReporteEdoCivil(conexion, filtros, fechasFiltro, nombrePrograma);
+            
+            ReporteEdoCivil reporteEdoCivil = new ReporteEdoCivil();
+            reporteEdoCivil.setLstReporte(lstDatos);
+            
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, reporteEdoCivil);
+            
+            JasperViewer visor = new JasperViewer(jasperPrint, false);
+            visor.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            try {
+                conexion.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    /**
+     * Genera el reporte de las horas por lugar de servicio comunitario
+     */
+    private void creaReporteHorasServCom(){
+        Conexion conn = null;
+        Connection conexion = null;
+        try {
+            conn = new Conexion();
+            conexion = conn.estableceConexion();
+            
+            if(conexion == null){
+                JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            String filtros = getFiltrosReporte(conexion);
+            java.util.Date[] fechasFiltro = null;
+            fechasFiltro = helper.getFechasFiltro(filtros, vistaReporte);
+            
+            int idPrograma = helper.getIdPrograma(filtros);
+            String nombrePrograma = "TODOS";
+            if(idPrograma != 0)
+                nombrePrograma = getItemComboBox(idPrograma, catPrograma);
+            
+            Map<String, Object> parametros = new HashMap<>();
+            parametros.put("imagen", "imagenes/logocr.jpg");
+            
+            Path path = helper.getDirectorioReporte("reporteHorasServCom.jasper");
+            File file = path.toFile();
+            
+            List<PojoReporteGeneral> lstDatos = modelo.getAllBecariosServicioComunitario(conexion, filtros, fechasFiltro, nombrePrograma );
+            
+            ReporteHorasServicio reporteHrsServicio = new ReporteHorasServicio();
+            reporteHrsServicio.setLstReporte(lstDatos);
+            
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, reporteHrsServicio);
+            
+            JasperViewer visor = new JasperViewer(jasperPrint, false);
+            visor.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            try {
+                conexion.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
+    /**
+     * Genera el reporte de Universidades públicas
+     */
+    private void creaReporteUniversidadesPublicas() {
+        Conexion conn = null;
+        Connection conexion = null;
+        try {
+            conn = new Conexion();
+            conexion = conn.estableceConexion();
+            
+            if(conexion == null){
+                JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            String filtros = getFiltrosReporte(conexion);
+            java.util.Date[] fechasFiltro = null;
+            fechasFiltro = helper.getFechasFiltro(filtros, vistaReporte);
+            
+            int idPrograma = helper.getIdPrograma(filtros);
+            String nombrePrograma = "TODOS";
+            if(idPrograma != 0)
+                nombrePrograma = getItemComboBox(idPrograma, catPrograma);
+            
+            Map<String, Object> parametros = new HashMap<>();
+            parametros.put("imagen", "imagenes/logocr.jpg");
+            
+            List<PojoReporteGeneral> lstDatos = modelo.getAllUniversidadesPublicas(conexion, filtros, fechasFiltro, nombrePrograma );
+            
+//            for (PojoReporteGeneral dato : lstDatos) {
+//                //Si el becario trabaja
+//                if(dato.getNombreUniversidad().equals("Publica") )
+//                    dato.setNombre("Pública");
+//                else
+//                    dato.setNombre("No trabajan");
+//            }
+            
+            Path path = helper.getDirectorioReporte("reporteTipoUniversidad.jasper");
+            File file = path.toFile();
+            
+            ReporteTipoUniversidad reporteUni = new ReporteTipoUniversidad();
+            reporteUni.setLstTrabaja(lstDatos);
+            
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, reporteUni);
+            
+            JasperViewer visor = new JasperViewer(jasperPrint, false);
+            visor.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            try {
+                conexion.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    /**
+     * Genera el reporte de Universidades públicas
+     */
+    private void creaReporteCampoEstudio() {
+        Conexion conn = null;
+        Connection conexion = null;
+        try {
+            conn = new Conexion();
+            conexion = conn.estableceConexion();
+            
+            if(conexion == null){
+                JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            String filtros = getFiltrosReporte(conexion);
+            java.util.Date[] fechasFiltro = null;
+            fechasFiltro = helper.getFechasFiltro(filtros, vistaReporte);
+            
+            int idPrograma = helper.getIdPrograma(filtros);
+            String nombrePrograma = "TODOS";
+            if(idPrograma != 0)
+                nombrePrograma = getItemComboBox(idPrograma, catPrograma);
+            
+            Map<String, Object> parametros = new HashMap<>();
+            parametros.put("imagen", "imagenes/logocr.jpg");
+            
+            Path path = helper.getDirectorioReporte("reporteCampoAplicacion.jasper");
+            File file = path.toFile();
+            
+            List<PojoReporteGeneral> lstDatos = modelo.creaReporteCampoAplicacion(conexion, filtros, fechasFiltro, nombrePrograma);
+            ReporteCampoEstudio reporteCampo = new ReporteCampoEstudio();
+            reporteCampo.setLstReporte(lstDatos);
+            
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, reporteCampo);
+            
+            JasperViewer visor = new JasperViewer(jasperPrint, false);
+            visor.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            try {
+                conexion.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    /**
+     * Genera el reporte indicado, este método solo funciona con los reportes que 
+     * ya tienen en sus plantillas los querys necesarios para formarse
+     */
+    private void creaReporteDirectamente(String nombreReporte) {
+        Conexion conn = null;
+        Connection conexion = null;
+        try {
+            conn = new Conexion();
+            conexion = conn.estableceConexion();
+            
+            if(conexion == null){
+                JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            String filtros = getFiltrosReporte(conexion);
+            Map<String, Object> parametros = new HashMap<>();
+            parametros.put("imagen", "imagenes/logocr.jpg");
+            
+            Iterator it = parametros.keySet().iterator();
+            while(it.hasNext()){
+                String id = (String) it.next();
+                //System.out.println(id + " -------> " + parametros.get(id));
+            }
+            
+            Path path = helper.getDirectorioReporte(nombreReporte);
+            File file = path.toFile();
+            
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, conexion);
+            
+            JasperViewer visor = new JasperViewer(jasperPrint, false);
+            visor.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            try {
+                conexion.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    /**
+     * Genera el reporte de los becarios en ser primeros de ser becados
+     */
+    private void creaReportePrimerBecario(){
+        Conexion conn = null;
+        Connection conexion = null;
+        
+        try{
+            
+            conn = new Conexion();
+            conexion = conn.estableceConexion();
+
+            if(conexion == null){
+                JOptionPane.showMessageDialog(vistaReporte, "No se pudo conectar a la base de datos.\nVerifique su conexión e intentelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            String filtros = getFiltrosReporte(conexion);
+            java.util.Date[] fechasFiltro = null;
+            fechasFiltro = helper.getFechasFiltro(filtros, vistaReporte);
+            
+            int idPrograma = helper.getIdPrograma(filtros);
+            String nombrePrograma = "TODOS";
+            if(idPrograma != 0)
+                nombrePrograma = getItemComboBox(idPrograma, catPrograma);
+            
+            Map<String, Object> parametros = new HashMap<>();
+            parametros.put("imagen", "imagenes/logocr.jpg");
+            
+            List<PojoReporteGeneral> datos = modelo.getAllBecariosEnSerBecados(conexion, filtros, fechasFiltro, nombrePrograma);
+            
+            for (PojoReporteGeneral dato : datos) {
+                //Si el becario trabaja
+                if(dato.getPrimeroConBeca() == 1)
+                    dato.setNombre("Si es primero");
+                else
+                    dato.setNombre("No es primero");
+            }
+            
+            Path path = helper.getDirectorioReporte("reportePrimerBecado.jasper");
+            
+            File file = path.toFile();
+            System.out.println(file.getAbsolutePath());
+                
+            ReportePrimerBecado report = new ReportePrimerBecado();
+            report.setLstTrabaja(datos);
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, report);
+
+            JasperViewer visor = new JasperViewer(jasperPrint, false);
+            visor.setVisible(true);
+                
+            
+        }
+        catch (JRException ex) {
+    //                log.muestraErrores(ex);
+               Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+           }
+        catch(NullPointerException e){
+            JOptionPane.showMessageDialog(vistaReporte, "Debe de seleccionar un becario", "Error", JOptionPane.ERROR_MESSAGE);
+            terminaVistaReportes();
+            creaVistaBusqueda();
+        }
+        finally{
+            try {
+                conexion.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
+    /**
+     * Obtiene los filtros que tiene seleccionado el usuario
+     * @return 
+     */
+    private String getFiltrosReporte(Connection conexion) {
+        Map<String, Object> mapParametros = new HashMap<>();
+        //Se obtienen los filtros por mes de registro
+        int deMesRegistro =  vistaReporte.cmbMesReg.getSelectedIndex();
+        String deAnioRegistro = (String) vistaReporte.cmbAnioReg.getSelectedItem();
+        int AMesRegistro =  vistaReporte.cmbMesReg2.getSelectedIndex();
+        String AAnioRegistro = (String) vistaReporte.cmbanioReg2.getSelectedItem();
+        
+        //Se obtienen los filtros por mes de graduación
+        int deMesGraduacion =  vistaReporte.cmbMesRep3.getSelectedIndex();
+        String deAnioGraduacion = (String) vistaReporte.cmbAnioRep2.getSelectedItem();
+        int AMesGraduacion =  vistaReporte.cmbMesRep4.getSelectedIndex();
+        String AAnioGraduacion = (String) vistaReporte.cmbanioRep3.getSelectedItem();
+        
+        //Se obtienen los filtros por programas y estatus
+        int programaInicial1 = vistaReporte.cmbProgramaInicial.getSelectedIndex();
+        int programaInicial2 = vistaReporte.cmbProgramaFinal.getSelectedIndex();
+        int estatusBecario = vistaReporte.cmbEstatus.getSelectedIndex();
+        
+        //Se obtienen los filtros por programas y folios
+        int programa = vistaReporte.cmbPrograma.getSelectedIndex();
+        String folioInicial = vistaReporte.txtFolioInicial.getText();
+        String folioFinal = vistaReporte.txtFolioFinal.getText();
+        
+        String query = "";
+        boolean comas = false;
+        StringBuilder builder = new StringBuilder();        
+        
+        //Si se esta filtrando por fecha de ingreso
+        if(vistaReporte.chkFiltro.isSelected()){
+    //        //Se evalua que existan filtros por mes de registro
+            if((deMesRegistro != 0 && AMesRegistro != 0)){
+                builder = builder.append(" WHERE datos.fecha_inicio_beca");
+                builder = builder.append(" BETWEEN '");
+                builder = builder.append(deAnioRegistro);
+                builder = builder.append("/");
+                if(deMesRegistro < 10){
+                    builder = builder.append("0");
+                    builder = builder.append(deMesRegistro);
+                }
+                else
+                    builder = builder.append(deMesRegistro);
+                builder = builder.append("/01' AND '");
+                builder = builder.append(AAnioRegistro);
+                builder = builder.append("/");
+                if(AMesRegistro < 10){
+                    builder = builder.append("0");
+                    builder = builder.append(AMesRegistro);
+                }
+                else
+                    builder = builder.append(AMesRegistro);
+                builder = builder.append("/01'");
+            }
+            else{
+                Date fechaMenor = modelo.getFechaMenorDeIngreso(conexion);
+                Date fechaMayor = modelo.getFechaMayorDeGraduacion(conexion);
+
+                if(comas == true)
+                    builder = builder.append(" AND datos.fecha_inicio_beca");
+                else
+                    builder = builder.append(" WHERE datos.fecha_inicio_beca");
+
+                builder = builder.append(" BETWEEN '");
+                builder = builder.append(fechaMenor); 
+                builder = builder.append("' AND '");
+                builder = builder.append(fechaMayor);
+                builder = builder.append("' ");
+            }
+            comas = true;
+        }
+        //Si se esta filtrando por fecha de graduacion
+        else if(!vistaReporte.chkFiltro.isSelected()){
+            if((deMesGraduacion > 0 &&  AMesGraduacion > 0)){
+                if(comas)
+                    builder = builder.append(" AND ");
+                else
+                    builder = builder.append(" WHERE ");
+
+                builder = builder.append("datos." + DatosEscolares.COL_FECHA_GRADUACION + " BETWEEN '");
+                builder = builder.append(deAnioGraduacion);
+                builder = builder.append("/");
+                if(deMesGraduacion < 10){
+                    builder = builder.append("0");
+                    builder = builder.append(deMesGraduacion);
+                }
+                else
+                    builder = builder.append(deMesGraduacion);
+
+                builder = builder.append("/01' AND '");
+                builder = builder.append(AAnioGraduacion);
+                builder = builder.append("/");
+                if(AMesGraduacion < 10){
+                    builder = builder.append("0");
+                    builder = builder.append(AMesGraduacion);
+                }
+                else
+                    builder = builder.append(AMesGraduacion);
+                builder = builder.append("/01' ");
+            }
+            else{
+                Date fechaMenor = modelo.getFechaMenorDeIngreso(conexion);
+                Date fechaMayor = modelo.getFechaMayorDeGraduacion(conexion);
+
+                if(comas == true)
+                    builder = builder.append(" AND datos.fecha_inicio_beca");
+                else
+                    builder = builder.append(" WHERE datos.fecha_inicio_beca");
+
+                builder = builder.append(" BETWEEN '");
+                builder = builder.append(fechaMenor); 
+                builder = builder.append("' AND '");
+                builder = builder.append(fechaMayor);
+                builder = builder.append("' ");
+            }
+            comas = true;
+        }
+        
+        //
+        if(programaInicial1 != 0){
+            
+            if(comas)
+                builder = builder.append(" AND ");
+            else
+                builder = builder.append(" WHERE ");
+            builder = builder.append("becario.");
+            builder = builder.append(Becario.COL_PROGRAMA);
+            builder = builder.append(" = ");
+            builder = builder.append(getIdCmbBox((String) vistaReporte.cmbProgramaInicial.getSelectedItem(), catPrograma));
+//           builder = builder.append(" AND becario.");
+//           builder = builder.append(Becario.COL_PROGRAMA);
+//           builder = builder.append(getIdCmbBox((String) vistaReporte.cmbProgramaFinal.getSelectedItem(), catPrograma));
+//           builder = builder.append(Becario.COL_PROGRAMA);
+            
+            comas = true;
+        }
+        //Si se va a filtrar por estatus
+        if(estatusBecario != 0){
+             if(comas)
+                builder = builder.append(" AND ");
+            else
+                builder = builder.append(" WHERE ");
+             
+             builder = builder.append("becario.");
+             builder = builder.append(Becario.COL_ESTATUS);
+             builder = builder.append(" = ");
+             builder = builder.append(getIdCmbBox((String) vistaReporte.cmbEstatus.getSelectedItem(), catEstatus));
+             
+             comas = true;
+        }
+        
+        //Si se va a filtrar por programa y folios
+        if(programa != 0 && !folioInicial.isEmpty()){
+             if(comas)
+                builder = builder.append(" AND ");
+            else
+                builder = builder.append(" WHERE ");
+             
+            String inicioFolio = modelo.getClavePrograma(getIdCmbBox((String) 
+                            vistaReporte.cmbPrograma.getSelectedItem(), catPrograma));
+            
+            builder = builder.append("becario.");
+            builder = builder.append(Becario.COL_PROGRAMA);
+            builder = builder.append(" = ");
+            builder = builder.append(getIdCmbBox((String) vistaReporte.cmbPrograma.getSelectedItem(), catPrograma));
+            builder = builder.append(" AND substring(");
+            builder = builder.append(Becario.COL_FOLIO);
+            builder = builder.append(" FROM 5 FOR 1000) >= ");
+            builder = builder.append(folioInicial);
+            if(!folioFinal.isEmpty()){
+                builder = builder.append(" AND substring( ");
+                builder = builder.append(Becario.COL_FOLIO);
+                builder = builder.append(" FROM 5 FOR 1000) <= ");
+                builder = builder.append(folioFinal);
+            }
+            
+            comas = true;
+        }
+//        if(builder.length() > 0){
+//            mapParametros.put("filtroFechas", builder.toString());
+//            System.out.println("Agregado---------------------------");
+//        }
+        //System.out.println("BUILDER-----> " + builder.toString());
+        return builder.toString();
+    }
+
+    protected void cambiaFiltroBusqueda() {
+        //Si se quiere filtrar por fecha de Inicio de beca
+        if(vistaReporte.chkFiltro.isSelected()){
+            
+            vistaReporte.cmbMesReg.setEnabled(true);
+            vistaReporte.cmbMesReg2.setEnabled(true);
+            vistaReporte.cmbAnioReg.setEnabled(true);
+            vistaReporte.cmbanioReg2.setEnabled(true);
+            
+            vistaReporte.cmbMesRep3.setEnabled(false);
+            vistaReporte.cmbMesRep4.setEnabled(false);
+            vistaReporte.cmbAnioRep2.setEnabled(false);
+            vistaReporte.cmbanioRep3.setEnabled(false);
+        }
+        else{
+            vistaReporte.cmbMesReg.setEnabled(false);
+            vistaReporte.cmbMesReg2.setEnabled(false);
+            vistaReporte.cmbAnioReg.setEnabled(false);
+            vistaReporte.cmbanioReg2.setEnabled(false);
+            
+            vistaReporte.cmbMesRep3.setEnabled(true);
+            vistaReporte.cmbMesRep4.setEnabled(true);
+            vistaReporte.cmbAnioRep2.setEnabled(true);
+            vistaReporte.cmbanioRep3.setEnabled(true);
+        }
+    }
+
+    private List<Kardex> getTotalesKardexPorBecario(List<Kardex> lstKardex, DatosEscolares datosEscolares) {
+        int descuentoTotal = 0;
+        int saldoTotal = 0;
+        int horasTotales = 0;
+        int becaSemestral = datosEscolares.getBecaSemestral() / 2;
+        List<Kardex> lstResult = new ArrayList<>();
+        
+        for (Kardex kardex : lstKardex) {
+            descuentoTotal += kardex.getDescuento();
+            horasTotales += kardex.getHorasServicio();
+            int pagos = 0;
+            if(kardex.isPago_inicio_semestre())
+                pagos += becaSemestral;
+            if(kardex.isPago_fin_semestre())
+                pagos += becaSemestral;
+            
+            saldoTotal += pagos;
+        }
+        
+        for (Kardex kardex : lstKardex) {
+            kardex.setSaldoTotal(saldoTotal);
+            kardex.setDescuentoTotal(descuentoTotal);
+            kardex.setHorasTotales(horasTotales);
+            lstResult.add(kardex);
+        }
+        
+        return lstResult;
+    }
+
+    /**
+     * Llena con la informacion del becario la pantalla de cobranza
+     * @param folio 
+     */
+    private void llenaCamposVistaCobranza(String folio) {
+        Conexion conn = new Conexion();
+        Connection conexion = conn.estableceConexion();
+        Becario becario;
+        List<Kardex> lstKardex;
+        DatosEscolares datosEscolares;
+        DecimalFormat formatoDecimales = new DecimalFormat("###,###,###");
+        int deposito;
+        int totalCargos = 0;
+        int totalDepositos = 0;
+        String nombreBecario = vistaRegistro.txtNombreBecado.getText() + " " +
+                            vistaRegistro.txtApPaternoBecado.getText() + " " +
+                            vistaRegistro.txtApMaternoBecado.getText();
+        
+        vistaCobranza.txtNombreBecario.setText(nombreBecario);
+        vistaCobranza.txtPrograma.setText(vistaRegistro.comboBoxPrograma.getSelectedItem().toString());
+        vistaCobranza.txtFolio.setText(folio);
+        
+        becario = modelo.getBecarioPorFolio(conexion, folio);
+        datosEscolares = modelo.getDatosEscolaresBecario(conexion, becario.getId());
+        
+        int semestresHabilitados = 0;
+        //Se toman los semestres activos del becario
+        if(!getItemComboBox(becario.getIdPrograma(), catPrograma).contains("Empuje"))
+            semestresHabilitados = helper.getTotalSemestresporHabilitarKardex(datosEscolares.getSemestreInicioBeca(),
+                    datosEscolares.getSemestresTotalesCarrera());
+        if(datosEscolares.getSemestreInicioBeca() > 1)
+            semestresHabilitados = (datosEscolares.getSemestresTotalesCarrera() - semestresHabilitados) + 2;
+        
+        //Se procede a deshabilitar los semestres que aun no tienen que llenarse
+        deshabilitaSemestresKardex(vistaCobranza.PnlCargos, semestresHabilitados, 0, 5);
+        
+        //Se generan los semestres del becario a partir de su fecha de inicio de la beca
+        List<Calendar> lstFechaSemestres = helper.getFechaSemestres(datosEscolares);
+        
+        //Se comienza el llenado de los cargos
+        lstKardex = modelo.getKardexPorIdBecario(conexion, becario.getId());
+        //Se llena el pnlKardex
+        //llenaPnlCobranza(lstKardex, lstFechaSemestres);
+        
+        addTransferenciasAArreglo(lstKardex);
+        //Se llenan los primeros 10 jtextfield
+        llenaPnlBoletaOCargaSemestral(lstKardex, lstFechaSemestres, 5, datosEscolares);
+        
+        //Se llenan los totales de cargos y depositos
+        deposito = datosEscolares.getBecaSemestral() / 2;
+        
+        for (Kardex kardex : lstKardex) {
+            if(kardex.isPago_inicio_semestre())
+                totalCargos += deposito;
+        }
+        
+        //Se comienza con el llenado de los depositos
+        List<Cobranza> lstCobranza = modelo.getAbonosBecario(conexion, becario.getId());
+        totalDepositos = llenaTablaCobranza(lstCobranza);
+        
+        //Se inserta el id del Becario
+        vistaCobranza.txtIdBecario.setText(becario.getId() + "");
+        vistaCobranza.txtIdBecario.setVisible(false);
+        
+        //Se llenan los totales de abonos y cargos
+        vistaCobranza.txtTotalCargos.setText("$" + formatoDecimales.format(totalCargos));
+        vistaCobranza.txtTotalAbonos.setText("$" + formatoDecimales.format(totalDepositos));
+        try {
+            conexion.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    /**
+     * Llena la tabla de depositos de VistaCobranza y obtiene el total de abonos que ha hecho el becario
+     * @param lstCobranza
+     * @return El total de los depositos realizados por el becario
+     */
+    private int llenaTablaCobranza(List<Cobranza> lstCobranza) {
+        int totalDepositos = 0;
+        DefaultTableModel tblModelo = (DefaultTableModel) vistaCobranza.tblCobranza.getModel();
+        int renglon = 0;
+        
+        lstRelIdsRenglonTabla = new LinkedHashMap<>();
+        for (Cobranza abono : lstCobranza) {
+            java.sql.Date fechaAbono = new java.sql.Date(abono.getFechaPago().getTime());
+            String fecha = helper.formateaFechaBD(fechaAbono);
+            tblModelo.addRow(new String[]{fecha, "$" + abono.getMontoPago(), abono.getReferencia()});
+            
+            lstRelIdsRenglonTabla.put(renglon, abono.getIdCobranza());
+            totalDepositos += abono.getMontoPago();
+            renglon++;
+        }
+        
+        return totalDepositos;
+    }
+
+    /**
+     * Agrega los listener de fechas a la tabla cobranza
+     */
+    private void addListenerTblCobranza() {
+        vistaCobranza.txtFecha.addKeyListener(new EscuchadorValidaEntrada(vistaCobranza.pnlAccion, EscuchadorValidaEntrada.FECHA_NACIMIENTO, vistaCobranza.txtFecha));
+        vistaCobranza.txtAbono.addKeyListener(new EscuchadorValidaEntrada(vistaCobranza.pnlAccion, EscuchadorValidaEntrada.DINERO, vistaCobranza.txtAbono));
+        vistaCobranza.txtReferencia.addKeyListener(new EscuchadorValidaEntrada(vistaCobranza.pnlAccion, EscuchadorValidaEntrada.LETRAS_NUMEROS_ESPACIO, vistaCobranza.txtReferencia));
+    }
+
+    /**
+     * Agrega una fila a la tabla de cobranza
+     */
+    protected void insertarRegistroCobranza() {
+        
+        boolean isDateCorrect = helper.validaFechaNacimiento(vistaCobranza.txtFecha, vistaCobranza);
+        
+        if(isDateCorrect == false)
+            return;
+        //Se valida que se llenaron los campos necesarios para ingresar un registro
+        if(vistaCobranza.txtAbono.getText().isEmpty() || 
+                                    vistaCobranza.txtReferencia.getText().isEmpty()){
+            JOptionPane.showMessageDialog(vistaCobranza, "Debe de llenar los campos abono, fecha y referencia", 
+                    "Advertencia", JOptionPane.WARNING_MESSAGE);
+            helper.cursorNormal(vista);
+            return;
+        }
+        
+        int respuesta = JOptionPane.showConfirmDialog(vistaCatalogos, "¿Seguro que desea insertar el registro?", "", JOptionPane.YES_NO_OPTION);
+        
+        if(respuesta == JOptionPane.NO_OPTION)
+            return;
+        
+        helper.cursorEspera(vista);
+        
+        String dep = vistaCobranza.txtAbono.getText().replace(".", "");
+        dep = vistaCobranza.txtAbono.getText().replace(",", "");
+        
+        int deposito = Integer.parseInt(dep);
+        long idBecario = Long.parseLong(vistaCobranza.txtIdBecario.getText());
+        Cobranza abono = new Cobranza();
+        helper.convertCadenaAFecha(vistaCobranza.txtFecha.getText());
+        abono.setFechaPago(helper.convertCadenaAFecha(vistaCobranza.txtFecha.getText()));
+        abono.setMontoPago(deposito);
+        abono.setReferencia(vistaCobranza.txtReferencia.getText());
+        abono.setIdBecario(Long.parseLong(vistaCobranza.txtIdBecario.getText()));
+        
+        long idCobranza = modelo.insertAbonoBecario(abono);
+        
+        if(idCobranza == 0){
+            JOptionPane.showMessageDialog(vistaCobranza, "No se pudo inserta el abono. \n Intentelo de nuevo", 
+                    "Error", JOptionPane.ERROR_MESSAGE);
+            helper.cursorNormal(vista);
+            return;
+        }
+        
+        JOptionPane.showMessageDialog(vistaCobranza, "Registro insertado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+        creaVistaCobranza();
+        
+        helper.cursorNormal(vista);
+    }
+
+    /**
+     * Elimina el abono seleccionado por el usuario
+     */
+    protected void eliminarRegistroCobranza() {
+        
+        int selectedRow = vistaCobranza.tblCobranza.getSelectedRow();
+        
+        if(selectedRow == -1){
+            JOptionPane.showMessageDialog(vistaCobranza, "Debe de seleccionar el registro a eliminar", "Error", JOptionPane.ERROR_MESSAGE);
+            helper.cursorNormal(vista);
+            return;
+        }
+        
+        int respuesta = JOptionPane.showConfirmDialog(vistaCatalogos, "¿Seguro que desea eliminar el registro?", "", JOptionPane.YES_NO_OPTION);
+        
+        if(respuesta == JOptionPane.NO_OPTION)
+            return;
+        
+        helper.cursorEspera(vista);
+        
+        long idCobranza = lstRelIdsRenglonTabla.get(selectedRow);
+        boolean response = modelo.deleteRegistroCobranza(idCobranza);
+        
+        if(response == false){
+            JOptionPane.showMessageDialog(vistaCobranza, "No se pudo eliminar el registro. \n Intentelo de nuevo.", "Error", JOptionPane.ERROR_MESSAGE);
+            helper.cursorNormal(vista);
+            return;
+        }
+        
+        JOptionPane.showMessageDialog(vistaCobranza, "Registro eliminado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+        creaVistaCobranza();
+        
+        helper.cursorNormal(vista);
+    }
+
+    /**
+     * Actualiza el registro seleccionado
+     */
+    protected void updateRegistroCobranza() {
+        
+        int selectedRow = vistaCobranza.tblCobranza.getSelectedRow();
+        
+        if(selectedRow == -1){
+            JOptionPane.showMessageDialog(vistaCobranza, "Debe de seleccionar el registro a eliminar", "Error", JOptionPane.ERROR_MESSAGE);
+            helper.cursorNormal(vista);
+            return;
+        }
+        
+        int respuesta = JOptionPane.showConfirmDialog(vistaCatalogos, "¿Seguro que desea actualizar el registro?", "", JOptionPane.YES_NO_OPTION);
+        
+        if(respuesta == JOptionPane.NO_OPTION)
+            return;
+        
+        helper.cursorEspera(vista);
+        
+        String dep = (String) vistaCobranza.tblCobranza.getValueAt(selectedRow, 1);
+        dep = dep.replace("$", "");
+        
+        String fecha = (String) vistaCobranza.tblCobranza.getValueAt(selectedRow, 0);
+        int monto = Integer.parseInt(dep);
+        String referencia = (String) vistaCobranza.tblCobranza.getValueAt(selectedRow, 2);
+        
+        Cobranza cobranza = new Cobranza();
+        cobranza.setIdCobranza(lstRelIdsRenglonTabla.get(selectedRow));
+        cobranza.setFechaPago(helper.convertCadenaAFecha(fecha));
+        cobranza.setMontoPago(monto);
+        cobranza.setReferencia(referencia);
+        cobranza.setIdBecario(Long.parseLong(vistaCobranza.txtIdBecario.getText()));
+        
+        boolean response = modelo.updateRegistroCobranza(cobranza);
+        
+        if(response == false){
+            JOptionPane.showMessageDialog(vistaCobranza, "No se pudo eliminar el registro. \n Intentelo de nuevo.", "Error", JOptionPane.ERROR_MESSAGE);
+            helper.cursorNormal(vista);
+            return;
+        }
+        
+        JOptionPane.showMessageDialog(vistaCobranza, "Registro actualizado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+        
+        creaVistaCobranza();
+        
+        helper.cursorNormal(vista);
+    }
 }

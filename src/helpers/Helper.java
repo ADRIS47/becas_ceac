@@ -327,11 +327,11 @@ public class Helper {
                 String extension = lstFilesBoletas[i].getName().substring(lstFilesBoletas[i].getName().length() - 4, 
                                 lstFilesBoletas[i].getName().length());
                 
-                System.out.println(Paths.get(Index.RUTA_BASE + Index.RUTA_SISTEMA + becario.getFolio()));
+                //System.out.println(Paths.get(Index.RUTA_BASE + Index.RUTA_SISTEMA + becario.getFolio()));
                 
                 verificaDirectorio(Paths.get(Index.RUTA_BASE + Index.RUTA_SISTEMA + becario.getFolio()));
 
-                Path de = Paths.get(lstFilesBoletas[i].getAbsolutePath());
+                Path de = Paths.get(lstFilesBoletas[i].getAbsolutePath().replace("\\", "/"));
                 Path a = Paths.get(Index.RUTA_BASE + Index.RUTA_SISTEMA + becario.getFolio() + Index.SEPARADOR + 
                         "boleta_" + i + "-" + becario.getFolio() + extension);
                 
@@ -352,7 +352,7 @@ public class Helper {
                 String extension = lstFilesCartaServCom[i].getName().substring(lstFilesCartaServCom[i].getName().length() - 4, 
                                 lstFilesCartaServCom[i].getName().length());
 
-                Path de = Paths.get(lstFilesCartaServCom[i].getAbsolutePath());
+                Path de = Paths.get(lstFilesCartaServCom[i].getAbsolutePath().replace("\\", "/"));
                 Path a = Paths.get(Index.RUTA_BASE + Index.RUTA_SISTEMA + becario.getFolio() + Index.SEPARADOR + 
                         "serv_com_" + i + "-" + becario.getFolio() + extension);
 
@@ -377,7 +377,7 @@ public class Helper {
                     String extension = lstFilesTransferencias[posicionInicial].getName().substring(lstFilesTransferencias[posicionInicial].getName().length() - 4, 
                                     lstFilesTransferencias[posicionInicial].getName().length());
 
-                    Path de = Paths.get(lstFilesTransferencias[posicionInicial].getAbsolutePath());
+                    Path de = Paths.get(lstFilesTransferencias[posicionInicial].getAbsolutePath().replace("\\", "/"));
                     Path a = Paths.get(Index.RUTA_BASE + Index.RUTA_SISTEMA + becario.getFolio() + Index.SEPARADOR + 
                             "transferencia_" + posicionInicial + "-" + becario.getFolio() + extension);
 
@@ -401,7 +401,7 @@ public class Helper {
                         String extension = lstFilesTransferencias[posicionFinal].getName().substring(lstFilesTransferencias[posicionFinal].getName().length() - 4, 
                                         lstFilesTransferencias[posicionFinal].getName().length());
 
-                        Path de = Paths.get(lstFilesTransferencias[posicionFinal].getAbsolutePath());
+                        Path de = Paths.get(lstFilesTransferencias[posicionFinal].getAbsolutePath().replace("\\", "/"));
                         Path a = Paths.get(Index.RUTA_BASE + Index.RUTA_SISTEMA + becario.getFolio() + Index.SEPARADOR + 
                                 "transferencia_" + posicionFinal + "-" + becario.getFolio() + extension);
 
@@ -796,6 +796,38 @@ public class Helper {
      * @return 
      */
     public java.util.Date[] getFechasFiltro(String filtros, VistaReportes vistaReporte) {
+        java.util.Date[] result = new java.util.Date[2];
+        //Si se encontraron filtros
+        if(!filtros.isEmpty() && filtros.contains("BETWEEN")){
+            String[] separacion = filtros.split("BETWEEN");
+            String[] fechas = separacion[1].split("AND");
+
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
+            try {
+                //Se remplazan los caracteres raros
+                fechas[0] = fechas[0].replace("'", "").trim();
+                fechas[1] = fechas[1].replace("'", "").trim();
+                fechas[0] = fechas[0].replace("-", "/").trim();
+                fechas[1] = fechas[1].replace("-", "/").trim();
+                //Se parsean las fechas
+                result[0] = formato.parse(fechas[0].trim());
+                result[1] = formato.parse(fechas[1].trim());
+            } catch (ParseException ex) {
+                Logger.getLogger(Helper.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else if(!filtros.isEmpty() ){
+            
+        }
+        return result;
+    }
+    
+    /**
+     * Obtiene las fechas de los filtros
+     * @param filtros
+     * @return 
+     */
+    public java.util.Date[] getFechasFiltro(String filtros, adris.vistas.VistaReportes vistaReporte) {
         java.util.Date[] result = new java.util.Date[2];
         //Si se encontraron filtros
         if(!filtros.isEmpty() && filtros.contains("BETWEEN")){

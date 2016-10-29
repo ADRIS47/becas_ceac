@@ -528,7 +528,9 @@ public class Consultas {
             DatosEscolares.COL_ID_CAMPO_CARRERA + ", campo." + CatCampo.COL_NOMBRE + " AS nombreCampo, datos." + 
             DatosEscolares.COL_BECA_TOTAL + " AS becaTotal, datos." + DatosEscolares.COL_BECA_SEMESTRAL + " AS becaSemestral, datos." + 
             DatosEscolares.COL_SEMESTRE_INICIO_BECA + " AS semestreInicioBeca, datos." + DatosEscolares.COL_FECHA_INICIO_BECA + " AS fechaInicioBeca, datos." +
-            DatosEscolares.COL_FECHA_GRADUACION +  " AS fechaFinBeca" +
+            DatosEscolares.COL_FECHA_GRADUACION +  " AS fechaFinBeca, (" +
+                "SELECT SUM(" + Kardex.COL_PAGO_EXTRA + ") AS ajusteBeca FROM beca_kardex WHERE " + Kardex.COL_ID_BECARIO + " = " +
+                " becario." + Becario.COL_ID + ") AS ajusteBeca" +
             " FROM beca_cat_estatus AS estatus "
             + "INNER JOIN beca_becario AS becario ON estatus." + CatEstatus.COL_ID + " = becario." + Becario.COL_ESTATUS + 
             " INNER JOIN beca_cat_programa AS programa ON becario." + Becario.COL_PROGRAMA + " = programa." + CatPrograma.COL_ID + 

@@ -12,13 +12,13 @@ import helpers.Helper;
  *
  * @author sabagip
  */
-public class VistaRegistro extends javax.swing.JPanel {
+public class VistaRegistro1 extends javax.swing.JPanel {
 
     PrincipalControlador controlador;
     /**
      * Creates new form VistaRegistro2
      */
-    public VistaRegistro(PrincipalControlador controlador) {
+    public VistaRegistro1(PrincipalControlador controlador) {
         initComponents();
         this.controlador = controlador;
     }
@@ -41,7 +41,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         txtFolio = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        cmbEstatus = new javax.swing.JComboBox<>();
+        cmbEstatus = new javax.swing.JComboBox<String>();
         pnlNombres = new javax.swing.JPanel();
         txtNombreBecado = new javax.swing.JTextField();
         txtApPaternoBecado = new javax.swing.JTextField();
@@ -59,12 +59,6 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel26 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
         txtFechaNacimiento = new javax.swing.JTextField();
-        txtHorasServicio = new javax.swing.JTextField();
-        jLabel51 = new javax.swing.JLabel();
-        txtDescuento = new javax.swing.JTextField();
-        jLabel52 = new javax.swing.JLabel();
-        txtSaldo = new javax.swing.JTextField();
-        jLabel53 = new javax.swing.JLabel();
         spnlDirecciones = new javax.swing.JScrollPane();
         pnlDirecciones = new javax.swing.JPanel();
         pnlTelefonosBecados = new javax.swing.JPanel();
@@ -116,8 +110,8 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         cmboxMesGraduacion = new javax.swing.JComboBox();
-        cmboxAnioInicioBeca = new javax.swing.JComboBox<>();
-        cmboxAnioGraduacion = new javax.swing.JComboBox<>();
+        cmboxAnioInicioBeca = new javax.swing.JComboBox<String>();
+        cmboxAnioGraduacion = new javax.swing.JComboBox<String>();
         txtNombreCarrera = new javax.swing.JTextField();
         cmbTipoEscuela = new javax.swing.JComboBox();
         jLabel48 = new javax.swing.JLabel();
@@ -143,7 +137,6 @@ public class VistaRegistro extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jpnlListaDocumentos = new javax.swing.JPanel();
         jLabel36 = new javax.swing.JLabel();
@@ -157,6 +150,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel46 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
         jLabel49 = new javax.swing.JLabel();
+        jLabel51 = new javax.swing.JLabel();
         jpnlAccionesDocumentos = new javax.swing.JPanel();
         btnAddBoleta = new javax.swing.JButton();
         btnEliminaBoleta = new javax.swing.JButton();
@@ -191,6 +185,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         btnAddCartaAgradecimiento = new javax.swing.JButton();
         btnEliminaCartaAsignacionBeca1 = new javax.swing.JButton();
         lblEstatusCartaAgradecimiento = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
         pnlOpciones = new javax.swing.JPanel();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
@@ -235,7 +230,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel3.setText("Estatus:");
 
         cmbEstatus.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cmbEstatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Becado", "Exalumno" }));
+        cmbEstatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Becado", "Exalumno" }));
         cmbEstatus.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmbEstatusItemStateChanged(evt);
@@ -257,7 +252,7 @@ public class VistaRegistro extends javax.swing.JPanel {
                 .addComponent(txtFolio, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cmbEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -265,25 +260,24 @@ public class VistaRegistro extends javax.swing.JPanel {
             pnlProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlProgramaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(cmbEstatus)
-                    .addGroup(pnlProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtFolio)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(comboBoxPrograma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(pnlProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtFolio)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(comboBoxPrograma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbEstatus, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE))
                 .addGap(13, 13, 13))
         );
 
         pnlNombres.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         pnlNombres.setPreferredSize(new java.awt.Dimension(670, 72));
 
-        txtNombreBecado.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtNombreBecado.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
-        txtApPaternoBecado.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtApPaternoBecado.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
-        txtApMaternoBecado.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtApMaternoBecado.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         txtApMaternoBecado.setName("txtApMaternoBecado"); // NOI18N
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
@@ -302,22 +296,22 @@ public class VistaRegistro extends javax.swing.JPanel {
             .addGroup(pnlNombresLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlNombresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNombreBecado, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20))
-                .addGap(35, 35, 35)
+                    .addComponent(txtNombreBecado, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlNombresLayout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addComponent(jLabel20)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlNombresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtApPaternoBecado, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel21))
-                .addGap(18, 18, 18)
-                .addGroup(pnlNombresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtApMaternoBecado, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel22))
-                .addContainerGap(27, Short.MAX_VALUE))
+                    .addComponent(txtApPaternoBecado, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlNombresLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(txtApMaternoBecado, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         pnlNombresLayout.setVerticalGroup(
             pnlNombresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlNombresLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(pnlNombresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtApPaternoBecado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNombreBecado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -326,7 +320,8 @@ public class VistaRegistro extends javax.swing.JPanel {
                 .addGroup(pnlNombresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
                     .addComponent(jLabel21)
-                    .addComponent(jLabel20)))
+                    .addComponent(jLabel20))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         pnlDatos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -334,11 +329,11 @@ public class VistaRegistro extends javax.swing.JPanel {
         pnlDatos.setMinimumSize(new java.awt.Dimension(660, 45));
         pnlDatos.setPreferredSize(new java.awt.Dimension(707, 75));
 
-        combobxSexoBecado.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        combobxSexoBecado.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
-        combobxCivilBecado.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        combobxCivilBecado.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
-        comboBxTrabajaBecado.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        comboBxTrabajaBecado.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         comboBxTrabajaBecado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "No trabaja", "Trabaja" }));
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
@@ -356,76 +351,41 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel44.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel44.setText("(dd/mm/aaaa)");
 
-        txtFechaNacimiento.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-
-        txtHorasServicio.setEditable(false);
-
-        jLabel51.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel51.setText("Horas de Servicio");
-
-        txtDescuento.setEditable(false);
-
-        jLabel52.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel52.setText("Descuento a la fecha");
-
-        txtSaldo.setEditable(false);
-
-        jLabel53.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel53.setText("Saldo Total");
+        txtFechaNacimiento.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
         javax.swing.GroupLayout pnlDatosLayout = new javax.swing.GroupLayout(pnlDatos);
         pnlDatos.setLayout(pnlDatosLayout);
         pnlDatosLayout.setHorizontalGroup(
             pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDatosLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosLayout.createSequentialGroup()
                 .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosLayout.createSequentialGroup()
-                        .addComponent(txtFechaNacimiento)
-                        .addGap(47, 47, 47)
-                        .addComponent(combobxSexoBecado, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(59, 59, 59)
-                        .addComponent(combobxCivilBecado, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(62, 62, 62)
-                        .addComponent(comboBxTrabajaBecado, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))
                     .addGroup(pnlDatosLayout.createSequentialGroup()
-                        .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(pnlDatosLayout.createSequentialGroup()
-                                    .addGap(12, 12, 12)
-                                    .addComponent(jLabel51))
-                                .addComponent(txtHorasServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlDatosLayout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(jLabel26)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel44)))
-                        .addGap(142, 142, 142)
-                        .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlDatosLayout.createSequentialGroup()
-                                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtDescuento)
-                                    .addComponent(jLabel52, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(pnlDatosLayout.createSequentialGroup()
-                                        .addGap(12, 12, 12)
-                                        .addComponent(jLabel53)))
-                                .addGap(111, 111, 111))
-                            .addGroup(pnlDatosLayout.createSequentialGroup()
-                                .addComponent(jLabel25)
-                                .addGap(133, 133, 133)
-                                .addComponent(jLabel24)
-                                .addGap(106, 106, 106)
-                                .addComponent(jLabel23)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                        .addComponent(txtFechaNacimiento)
+                        .addGap(47, 47, 47))
+                    .addGroup(pnlDatosLayout.createSequentialGroup()
+                        .addComponent(jLabel26)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(combobxSexoBecado, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel25))
+                .addGap(41, 41, 41)
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel24)
+                    .addComponent(combobxCivilBecado, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(80, 80, 80)
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(comboBxTrabajaBecado, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel23))
+                .addGap(18, 18, 18))
+            .addGroup(pnlDatosLayout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(jLabel44)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlDatosLayout.setVerticalGroup(
             pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDatosLayout.createSequentialGroup()
-                .addGap(6, 6, 6)
+                .addGap(0, 12, Short.MAX_VALUE)
                 .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(combobxSexoBecado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -436,23 +396,10 @@ public class VistaRegistro extends javax.swing.JPanel {
                     .addComponent(jLabel25)
                     .addComponent(jLabel24)
                     .addComponent(jLabel23)
-                    .addComponent(jLabel26)
-                    .addComponent(jLabel44))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosLayout.createSequentialGroup()
-                        .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtHorasServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(19, 19, 19))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosLayout.createSequentialGroup()
-                        .addComponent(txtSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel53)
-                            .addComponent(jLabel52)
-                            .addComponent(jLabel51))
-                        .addGap(6, 6, 6))))
+                    .addComponent(jLabel26))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel44)
+                .addGap(16, 16, 16))
         );
 
         spnlDirecciones.setBorder(javax.swing.BorderFactory.createTitledBorder("Dirección"));
@@ -476,12 +423,12 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel7.setText("Telefono 3");
 
-        txtTel1Becado.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtTel1Becado.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
-        txtTel2Becado.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtTel2Becado.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         txtTel2Becado.setName("txtTelefono2"); // NOI18N
 
-        txtTel3Becado.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtTel3Becado.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         txtTel3Becado.setName("txtTelefono3"); // NOI18N
 
         javax.swing.GroupLayout pnlTelefonosBecadosLayout = new javax.swing.GroupLayout(pnlTelefonosBecados);
@@ -489,38 +436,41 @@ public class VistaRegistro extends javax.swing.JPanel {
         pnlTelefonosBecadosLayout.setHorizontalGroup(
             pnlTelefonosBecadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTelefonosBecadosLayout.createSequentialGroup()
-                .addGap(133, 133, 133)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnlTelefonosBecadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtTel1Becado, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(73, 73, 73)
+                    .addComponent(txtTel1Becado, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTelefonosBecadosLayout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(32, 32, 32)))
+                .addGap(99, 99, 99)
                 .addGroup(pnlTelefonosBecadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(txtTel2Becado, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(75, 75, 75)
+                    .addComponent(txtTel2Becado, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTelefonosBecadosLayout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(31, 31, 31)))
                 .addGroup(pnlTelefonosBecadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtTel3Becado, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnlTelefonosBecadosLayout.createSequentialGroup()
+                        .addGap(85, 85, 85)
+                        .addComponent(txtTel3Becado, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlTelefonosBecadosLayout.createSequentialGroup()
+                        .addGap(125, 125, 125)
+                        .addComponent(jLabel7)))
+                .addGap(133, 133, 133))
         );
         pnlTelefonosBecadosLayout.setVerticalGroup(
             pnlTelefonosBecadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTelefonosBecadosLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
+            .addGroup(pnlTelefonosBecadosLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(pnlTelefonosBecadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtTel2Becado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTel3Becado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTel1Becado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlTelefonosBecadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 15, Short.MAX_VALUE)
                     .addGroup(pnlTelefonosBecadosLayout.createSequentialGroup()
-                        .addGroup(pnlTelefonosBecadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtTel2Becado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtTel3Becado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlTelefonosBecadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(pnlTelefonosBecadosLayout.createSequentialGroup()
-                        .addComponent(txtTel1Becado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4)))
-                .addContainerGap())
+                        .addComponent(jLabel4)
+                        .addGap(0, 71, Short.MAX_VALUE))))
         );
 
         pnlCorreos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -529,13 +479,13 @@ public class VistaRegistro extends javax.swing.JPanel {
         pnlCorreo1.setPreferredSize(new java.awt.Dimension(340, 50));
         pnlCorreo1.setVerifyInputWhenFocusTarget(false);
 
-        txtCorreoBecario.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtCorreoBecario.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         txtCorreoBecario.setText("correo@dominio.com");
         txtCorreoBecario.setToolTipText("");
         txtCorreoBecario.setPreferredSize(new java.awt.Dimension(335, 27));
         txtCorreoBecario.setSelectionStart(0);
 
-        jLabel29.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel29.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel29.setText("Correo Electrónico");
 
         javax.swing.GroupLayout pnlCorreo1Layout = new javax.swing.GroupLayout(pnlCorreo1);
@@ -547,7 +497,7 @@ public class VistaRegistro extends javax.swing.JPanel {
                 .addComponent(txtCorreoBecario, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCorreo1Layout.createSequentialGroup()
-                .addContainerGap(105, Short.MAX_VALUE)
+                .addContainerGap(123, Short.MAX_VALUE)
                 .addComponent(jLabel29)
                 .addGap(111, 111, 111))
         );
@@ -562,13 +512,13 @@ public class VistaRegistro extends javax.swing.JPanel {
 
         pnlCorreo2.setPreferredSize(new java.awt.Dimension(340, 50));
 
-        txtCorreoBecario2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtCorreoBecario2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         txtCorreoBecario2.setText("correo@dominio.com");
         txtCorreoBecario2.setToolTipText("");
         txtCorreoBecario2.setPreferredSize(new java.awt.Dimension(335, 27));
         txtCorreoBecario2.setSelectionStart(0);
 
-        jLabel30.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel30.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel30.setText("Confirmar Correo Electrónico");
 
         javax.swing.GroupLayout pnlCorreo2Layout = new javax.swing.GroupLayout(pnlCorreo2);
@@ -583,7 +533,7 @@ public class VistaRegistro extends javax.swing.JPanel {
                     .addGroup(pnlCorreo2Layout.createSequentialGroup()
                         .addGap(109, 109, 109)
                         .addComponent(jLabel30)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         pnlCorreo2Layout.setVerticalGroup(
             pnlCorreo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -612,7 +562,7 @@ public class VistaRegistro extends javax.swing.JPanel {
                 .addGroup(pnlCorreosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(pnlCorreo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pnlCorreo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         lblFotografia.setBackground(new java.awt.Color(0, 255, 27));
@@ -639,9 +589,9 @@ public class VistaRegistro extends javax.swing.JPanel {
                             .addComponent(btnFotografia, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE))
                         .addGap(57, 57, 57)
                         .addGroup(pnlDatosGeneralesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pnlNombres, javax.swing.GroupLayout.DEFAULT_SIZE, 820, Short.MAX_VALUE)
-                            .addComponent(pnlDatos, javax.swing.GroupLayout.DEFAULT_SIZE, 820, Short.MAX_VALUE)
-                            .addComponent(pnlPrograma, javax.swing.GroupLayout.DEFAULT_SIZE, 820, Short.MAX_VALUE)))
+                            .addComponent(pnlNombres, javax.swing.GroupLayout.DEFAULT_SIZE, 827, Short.MAX_VALUE)
+                            .addComponent(pnlDatos, javax.swing.GroupLayout.DEFAULT_SIZE, 827, Short.MAX_VALUE)
+                            .addComponent(pnlPrograma, javax.swing.GroupLayout.DEFAULT_SIZE, 827, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosGeneralesLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(pnlDatosGeneralesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -663,9 +613,9 @@ public class VistaRegistro extends javax.swing.JPanel {
                         .addGap(5, 5, 5)
                         .addComponent(pnlPrograma, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(pnlNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pnlNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pnlDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(pnlDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(spnlDirecciones, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
@@ -697,25 +647,16 @@ public class VistaRegistro extends javax.swing.JPanel {
         lblParentesco1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         lblParentesco1.setText("Nombre(s)");
 
-        txtNombreConyuge.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-
         jLabel27.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel27.setText("Ap Paterno");
-
-        txtApPaternoConyuge.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel28.setText("Ap Materno");
 
-        txtApMaternoConyuge.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtApMaternoConyuge.setName("txtApMaternoConyuge"); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel8.setText("Telefono");
-
-        txtTelefonoConyuge.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-
-        txtOcupacionConyuge.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         jLabel45.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel45.setText("Ocupación");
@@ -802,7 +743,7 @@ public class VistaRegistro extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pnlConyuge, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(spnlHijos, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
+                .addComponent(spnlHijos, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE))
         );
 
         tbpBecados.addTab("Datos Familiares", pnlDatosFamiliares);
@@ -817,22 +758,22 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("¿Primero con carrera?");
 
-        cmboxCarreraSiNo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cmboxCarreraSiNo.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         cmboxCarreraSiNo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "No", "Si" }));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel11.setText("Escuela Universitaria:");
 
-        cmboxEscuelaUniversitaria.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cmboxEscuelaUniversitaria.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel12.setText("Campo que aplica:");
 
-        cmboxCampoEscuela.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cmboxCampoEscuela.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
-        txtEscuelaProcedencia.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtEscuelaProcedencia.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         txtEscuelaProcedencia.setName("txtEscuelaProcedencia"); // NOI18N
         txtEscuelaProcedencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -844,7 +785,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel13.setText("Carrera:");
 
-        cmboxMesInicioBeca.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cmboxMesInicioBeca.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         cmboxMesInicioBeca.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
@@ -855,19 +796,19 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel15.setText("Mes de  Graduación:");
 
-        cmboxMesGraduacion.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cmboxMesGraduacion.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         cmboxMesGraduacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
         cmboxMesGraduacion.setFocusable(false);
 
-        cmboxAnioInicioBeca.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cmboxAnioInicioBeca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
+        cmboxAnioInicioBeca.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        cmboxAnioInicioBeca.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
 
-        cmboxAnioGraduacion.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cmboxAnioGraduacion.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         cmboxAnioGraduacion.setForeground(new java.awt.Color(1, 1, 1));
-        cmboxAnioGraduacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
+        cmboxAnioGraduacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
         cmboxAnioGraduacion.setFocusable(false);
 
-        txtNombreCarrera.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtNombreCarrera.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         txtNombreCarrera.setName("txtNombreCarrera"); // NOI18N
         txtNombreCarrera.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -875,7 +816,7 @@ public class VistaRegistro extends javax.swing.JPanel {
             }
         });
 
-        cmbTipoEscuela.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cmbTipoEscuela.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
         jLabel48.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel48.setText("Tipo:");
@@ -883,7 +824,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel43.setFont(new java.awt.Font("Ubuntu", 1, 10)); // NOI18N
         jLabel43.setText("Total de semestres de la carrera");
 
-        cmboxSemestresTotalesCarrera.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cmboxSemestresTotalesCarrera.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         cmboxSemestresTotalesCarrera.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
         cmboxSemestresTotalesCarrera.setSelectedIndex(9);
 
@@ -911,8 +852,21 @@ public class VistaRegistro extends javax.swing.JPanel {
                                 .addComponent(jLabel12)
                                 .addGap(18, 18, 18)
                                 .addComponent(cmboxCampoEscuela, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(213, 213, 213)
-                        .addComponent(cmboxCarreraSiNo, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(pnlInformacionEscolarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlInformacionEscolarLayout.createSequentialGroup()
+                                .addGap(213, 213, 213)
+                                .addComponent(cmboxCarreraSiNo, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInformacionEscolarLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pnlInformacionEscolarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInformacionEscolarLayout.createSequentialGroup()
+                                        .addComponent(jLabel48)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(cmbTipoEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(pnlInformacionEscolarLayout.createSequentialGroup()
+                                        .addComponent(jLabel50)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(chkBoxGraduado))))))
                     .addGroup(pnlInformacionEscolarLayout.createSequentialGroup()
                         .addGroup(pnlInformacionEscolarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel14)
@@ -933,21 +887,9 @@ public class VistaRegistro extends javax.swing.JPanel {
                                 .addComponent(cmboxAnioGraduacion, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pnlInformacionEscolarLayout.createSequentialGroup()
                                 .addComponent(txtEscuelaProcedencia)
-                                .addGroup(pnlInformacionEscolarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(pnlInformacionEscolarLayout.createSequentialGroup()
-                                        .addGap(70, 70, 70)
-                                        .addGroup(pnlInformacionEscolarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(pnlInformacionEscolarLayout.createSequentialGroup()
-                                                .addComponent(jLabel50)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(chkBoxGraduado))
-                                            .addComponent(jLabel10))
-                                        .addGap(87, 87, 87))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInformacionEscolarLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel48)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(cmbTipoEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(70, 70, 70)
+                                .addComponent(jLabel10)
+                                .addGap(87, 87, 87))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInformacionEscolarLayout.createSequentialGroup()
                                 .addComponent(cmboxEscuelaUniversitaria, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -965,20 +907,23 @@ public class VistaRegistro extends javax.swing.JPanel {
                     .addComponent(cmboxCarreraSiNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlInformacionEscolarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlInformacionEscolarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel12)
-                        .addComponent(cmboxCampoEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlInformacionEscolarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlInformacionEscolarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlInformacionEscolarLayout.createSequentialGroup()
+                        .addGroup(pnlInformacionEscolarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel12)
+                            .addComponent(cmboxCampoEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel50))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlInformacionEscolarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(txtEscuelaProcedencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInformacionEscolarLayout.createSequentialGroup()
                         .addComponent(chkBoxGraduado)
-                        .addComponent(jLabel50)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(pnlInformacionEscolarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cmbTipoEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel48))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlInformacionEscolarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(txtEscuelaProcedencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbTipoEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel48))
-                .addGap(13, 13, 13)
                 .addGroup(pnlInformacionEscolarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlInformacionEscolarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel15)
@@ -994,7 +939,7 @@ public class VistaRegistro extends javax.swing.JPanel {
                     .addComponent(cmboxEscuelaUniversitaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel43)
                     .addComponent(cmboxSemestresTotalesCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         pnlManejoBeca.setBorder(javax.swing.BorderFactory.createTitledBorder("Manejo de beca"));
@@ -1010,10 +955,9 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel17.setText("Costo Carrera: $");
 
-        cmboxSemestreInicioBeca.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cmboxSemestreInicioBeca.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         cmboxSemestreInicioBeca.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
 
-        txtCostoCarrera.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtCostoCarrera.setText("0");
         txtCostoCarrera.setName(""); // NOI18N
 
@@ -1021,7 +965,6 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel18.setText("Beca Autorizada: $");
 
-        txtBecaPorSemestre.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtBecaPorSemestre.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         txtBecaPorSemestre.setName("txtBecaAutorizada"); // NOI18N
         txtBecaPorSemestre.addActionListener(new java.awt.event.ActionListener() {
@@ -1034,7 +977,6 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel19.setText("Beca por periodo: $");
 
-        txtBecaAutorizada.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtBecaAutorizada.setText("0");
         txtBecaAutorizada.setName(""); // NOI18N
 
@@ -1058,7 +1000,7 @@ public class VistaRegistro extends javax.swing.JPanel {
                 .addComponent(jLabel19)
                 .addGap(18, 18, 18)
                 .addComponent(txtBecaPorSemestre, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1081,7 +1023,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel31.setText("Comentarios:");
 
         txtAreaObservaciones.setColumns(20);
-        txtAreaObservaciones.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtAreaObservaciones.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         txtAreaObservaciones.setRows(5);
         jScrollPane1.setViewportView(txtAreaObservaciones);
 
@@ -1092,16 +1034,16 @@ public class VistaRegistro extends javax.swing.JPanel {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel31)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 948, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 896, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel31))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addComponent(jLabel31)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1112,7 +1054,7 @@ public class VistaRegistro extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlManejoBecaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlManejoBecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 991, Short.MAX_VALUE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 998, Short.MAX_VALUE)
                     .addGroup(pnlManejoBecaLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 910, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1137,29 +1079,22 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel33.setText("Acción");
 
-        jLabel34.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel34.setText("Estatus");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(103, 103, 103)
-                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(190, 190, 190)
+                .addContainerGap(202, Short.MAX_VALUE)
+                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(75, 75, 75)
                 .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                .addGap(69, 69, 69))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel33)
-                .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jpnlListaDocumentos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -1228,6 +1163,12 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel49.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel49.setText("Carta de Agradecimiento");
         jpnlListaDocumentos.add(jLabel49);
+
+        jLabel51.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel51.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel51.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel51.setText("Carta de Agradecimiento");
+        jpnlListaDocumentos.add(jLabel51);
 
         jpnlAccionesDocumentos.setLayout(new java.awt.GridLayout(11, 3));
 
@@ -1543,12 +1484,12 @@ public class VistaRegistro extends javax.swing.JPanel {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(474, 474, 474)
                 .addComponent(jpnlAccionesDocumentos, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel6Layout.createSequentialGroup()
-                    .addGap(169, 169, 169)
-                    .addComponent(jpnlListaDocumentos, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(583, Short.MAX_VALUE)))
+                    .addGap(237, 237, 237)
+                    .addComponent(jpnlListaDocumentos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(544, Short.MAX_VALUE)))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1561,23 +1502,33 @@ public class VistaRegistro extends javax.swing.JPanel {
                     .addContainerGap()))
         );
 
+        jLabel34.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel34.setText("Estatus");
+
         javax.swing.GroupLayout pnlArchivosAdjuntosLayout = new javax.swing.GroupLayout(pnlArchivosAdjuntos);
         pnlArchivosAdjuntos.setLayout(pnlArchivosAdjuntosLayout);
         pnlArchivosAdjuntosLayout.setHorizontalGroup(
             pnlArchivosAdjuntosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlArchivosAdjuntosLayout.createSequentialGroup()
+                .addGap(101, 101, 101)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(pnlArchivosAdjuntosLayout.createSequentialGroup()
                 .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(pnlArchivosAdjuntosLayout.createSequentialGroup()
-                .addGap(170, 170, 170)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlArchivosAdjuntosLayout.setVerticalGroup(
             pnlArchivosAdjuntosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlArchivosAdjuntosLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlArchivosAdjuntosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlArchivosAdjuntosLayout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1590,7 +1541,7 @@ public class VistaRegistro extends javax.swing.JPanel {
                 .addGroup(pnlDatosEscolaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlArchivosAdjuntos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlInformacionEscolar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlManejoBeca, javax.swing.GroupLayout.DEFAULT_SIZE, 1031, Short.MAX_VALUE))
+                    .addComponent(pnlManejoBeca, javax.swing.GroupLayout.DEFAULT_SIZE, 1036, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnlDatosEscolaresLayout.setVerticalGroup(
@@ -1616,7 +1567,8 @@ public class VistaRegistro extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(tbpBecados, javax.swing.GroupLayout.PREFERRED_SIZE, 1051, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlOpciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pnlOpciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1867,8 +1819,6 @@ public class VistaRegistro extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
-    private javax.swing.JLabel jLabel52;
-    private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -1927,16 +1877,13 @@ public class VistaRegistro extends javax.swing.JPanel {
     protected javax.swing.JTextField txtCorreoBecario;
     protected javax.swing.JTextField txtCorreoBecario2;
     protected javax.swing.JTextField txtCostoCarrera;
-    protected javax.swing.JTextField txtDescuento;
     protected javax.swing.JTextField txtEscuelaProcedencia;
     protected javax.swing.JTextField txtFechaNacimiento;
     protected javax.swing.JTextField txtFolio;
-    protected javax.swing.JTextField txtHorasServicio;
     protected javax.swing.JTextField txtNombreBecado;
     protected javax.swing.JTextField txtNombreCarrera;
     protected javax.swing.JTextField txtNombreConyuge;
     protected javax.swing.JTextField txtOcupacionConyuge;
-    protected javax.swing.JTextField txtSaldo;
     protected javax.swing.JTextField txtTel1Becado;
     protected javax.swing.JTextField txtTel2Becado;
     protected javax.swing.JTextField txtTel3Becado;

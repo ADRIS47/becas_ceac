@@ -3527,7 +3527,7 @@ public class PrincipalModelo {
         try {
             st = conexion.createStatement();
             query = Consultas.getAllBecariosReporteGeneral.concat(filtros);
-            //System.out.println(query);
+            System.out.println(query);
             rs = st.executeQuery(query);
             while(rs.next()){
                 PojoReporteGeneral reporte = new PojoReporteGeneral();
@@ -3544,6 +3544,7 @@ public class PrincipalModelo {
                 reporte.setSemestreInicioBeca(rs.getInt("semestreInicioBeca"));
                 reporte.setFechaInicioBeca(rs.getDate("fechaInicioBeca"));
                 reporte.setFechaFinBeca(rs.getDate("fechaFinBeca"));
+                reporte.setAjusteBeca(rs.getDouble("ajusteBeca"));
                 
                 if(flagFechasFiltro){
                     reporte.setFechaDe(fechas[0]);

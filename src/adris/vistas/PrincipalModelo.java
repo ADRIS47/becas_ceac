@@ -5,9 +5,9 @@
  */
 package adris.vistas;
 
-import principal.*;
 import crud.Conexion;
 import crud.Consultas;
+import crud.Delete;
 import crud.Insert;
 import crud.Update;
 import helpers.Helper;
@@ -19,6 +19,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,13 +44,18 @@ import pojos.CatSexo;
 import pojos.CatTipoEscuela;
 import pojos.CatTipoServicioSocial;
 import pojos.CatUniversidad;
+import pojos.Cobranza;
 import pojos.DatosEscolares;
 import pojos.Direccion;
 import pojos.Hermanos;
 import pojos.Hijos;
 import pojos.Kardex;
 import pojos.Padres;
+import pojos.PojoReporteGeneral;
+import pojos.PojoReporteIndividual;
+import pojos.PojoReporteIndividualMuchosDatos;
 import pojos.Telefono;
+import reportes.ReporteGeneral;
 
 /**
  *
@@ -1676,21 +1682,40 @@ public class PrincipalModelo {
             
             //Si existe una sola hijo registrado, se actualiza el primero y el segundo se inserta
             else if(hermanos > 0 && hermanos < lstHermanos.size()){
-                ps = conexion.prepareStatement(Update.updateHermanosBecario);
-                ps.setString(1, lstHermanos.get(0).getNombre());
-                ps.setString(2, lstHermanos.get(0).getAPaterno());
-                ps.setString(3, lstHermanos.get(0).getAMaterno());
-                ps.setInt(4, lstHermanos.get(0).getGradoEscolar());
-                ps.setString(5, lstHermanos.get(0).getComentario());
-                ps.setLong(6, idBecario);
-                ps.setLong(7, lstIdHermanos.get(0));
-                int resp = ps.executeUpdate();
-                //Si la actualizacion fue correcta
-                if(resp >= 1){
-                    List<Hermanos> nuevaLista = new ArrayList<>();
-                    nuevaLista.add(lstHermanos.get(1));
-                    response = insertHermanosBecario(conexion, idBecario, nuevaLista);
+                int contador = 0;
+                for (Hermanos hermano : lstHermanos) {
+                    if(contador == 0 && contador <= hermanos -1){
+                        ps = conexion.prepareStatement(Update.updateHermanosBecario);
+                        ps.setString(1, hermano.getNombre());
+                        ps.setString(2, hermano.getAPaterno());
+                        ps.setString(3, hermano.getAMaterno());
+                        ps.setInt(4, hermano.getGradoEscolar());
+                        ps.setString(5, hermano.getComentario());
+                        ps.setLong(6, idBecario);
+                        ps.setLong(7, lstIdHermanos.get(contador));
+                        int resp = ps.executeUpdate();
+                        //Si la actualizacion fue correcta
+                        if(resp < 1)
+                            throw new SQLException("No se pudo actualizar los hermanos");
+                        
+                    }
+                        
+                    else if( contador > hermanos -1){
+                        ps = conexion.prepareStatement(Insert.insertHermanoBecario);
+                        ps.setString(1, hermano.getNombre());
+                        ps.setString(2, hermano.getAPaterno());
+                        ps.setString(3, hermano.getAMaterno());
+                        ps.setInt(4, hermano.getGradoEscolar());
+                        ps.setLong(5, idBecario);
+                        ps.setString(6, hermano.getComentario());
+                        int resp = ps.executeUpdate();
+                        //Si la actualizacion fue correcta
+                        if(resp < 1)
+                            throw new SQLException("No se pudo actualizar los hermanos");
+                    }
+                    contador++;
                 }
+                response = true;
             }
             //Si existen la misma cantidad de registros con la misma cantidad de nuevas direcciones
             else if(hermanos > 0 && hermanos == lstHermanos.size()){
@@ -1713,7 +1738,39 @@ public class PrincipalModelo {
                     if(contador == lstHermanos.size())
                         response = true;
                 }
-            }      
+            }
+            //Si existen menos hermanos que los que se encuentran en la base de datos, 
+            //Se actualizan 
+            else{
+                int contador = 0;
+                for (Hermanos hermano : lstHermanos) {
+                    ps = conexion.prepareStatement(Update.updateHermanosBecario);
+                    ps.setString(1, hermano.getNombre());
+                    ps.setString(2, hermano.getAPaterno());
+                    ps.setString(3, hermano.getAMaterno());
+                    ps.setInt(4, hermano.getGradoEscolar());
+                    ps.setString(5, hermano.getComentario());
+                    ps.setLong(6, idBecario);
+                    ps.setLong(7, lstIdHermanos.get(contador));
+                    int resp = ps.executeUpdate();
+                    //Si la actualizacion fue correcta
+                    if(resp == 0)
+                        break;
+                    contador++;
+                }
+                //Se eliminan los hermanos
+                while(contador < lstIdHermanos.size()){
+                    ps = conexion.prepareStatement(Delete.DELETE_HERMANO_BECARIO);
+                    ps.setLong(1, lstIdHermanos.get(contador));
+                    int resp = ps.executeUpdate();
+                    if(resp == 0){
+                        break;
+                    }
+                    contador++;
+                }
+                if(contador == lstIdHermanos.size())
+                    response = true;
+            }
         }
         catch(SQLException e){
             log.muestraErrores(e);
@@ -2102,32 +2159,32 @@ public class PrincipalModelo {
             
             //Se hace la instruccion de WHERE's
             if(!nombre.equals("") && bandera == false){
-                consulta = consulta.concat("WHERE becario." + Becario.COL_NOMBRE + " LIKE ? ");
+                consulta = consulta.concat("WHERE becario." + Becario.COL_NOMBRE + " LIKE ?");
                 bandera = true;
             }
             
             
             if(!aPaterno.equals("") && bandera == false){
-                consulta = consulta.concat("WHERE becario." + Becario.COL_APATERNO + " LIKE ? ");
+                consulta = consulta.concat("WHERE becario." + Becario.COL_APATERNO + " LIKE ?");
                 bandera = true;
             }
             else if(!aPaterno.equals("") && bandera == true){
-                consulta = consulta.concat("AND becario." + Becario.COL_APATERNO + " LIKE ? ");
+                consulta = consulta.concat("AND becario." + Becario.COL_APATERNO + " LIKE ?");
             }
             
             if(!aMaterno.equals("") && bandera == false){
-                consulta = consulta.concat("WHERE becario." + Becario.COL_AMATERNO + " LIKE ? ");
+                consulta = consulta.concat("WHERE becario." + Becario.COL_AMATERNO + " LIKE ?");
                 bandera = true;
             }
             else if(!aMaterno.equals("") && bandera == true){
-                consulta = consulta.concat("AND becario." + Becario.COL_AMATERNO + " LIKE ? ");
+                consulta = consulta.concat("AND becario." + Becario.COL_AMATERNO + " LIKE ?");
             }
             
             if(bandera == false){
-                consulta = consulta.concat("WHERE becario." + Becario.COL_ACTIVO + " = 1");
+                consulta = consulta.concat("WHERE becario." + Becario.COL_ACTIVO + " = 1 ");
             }
             else{
-                consulta = consulta.concat("AND becario." + Becario.COL_ACTIVO + " = 1");
+                consulta = consulta.concat("AND becario." + Becario.COL_ACTIVO + " = 1 ");
             }
             
             bandera = false;
@@ -2617,7 +2674,7 @@ public class PrincipalModelo {
                 kardex.setBoleta(rs.getString(Kardex.COL_BOLETA));
                 kardex.setCarta_servicio_comunitario(rs.getString(Kardex.COL_CARTA_SERVICIO_COMUNITARIO));
                 kardex.setId_becario(rs.getLong(Kardex.COL_ID_BECARIO));
-                kardex.setPago_extra(rs.getBoolean(Kardex.COL_PAGO_EXTRA));
+                kardex.setPago_extra(rs.getDouble(Kardex.COL_PAGO_EXTRA));
                 kardex.setHorasServicio(rs.getInt(Kardex.COL_HORAS_SERVICIO));
                 kardex.setTransferencia1(rs.getString(Kardex.COL_TRANSFERENCIA_1));
                 kardex.setTransferencia2(rs.getString(Kardex.COL_TRANSFERENCIA_2));
@@ -2707,11 +2764,11 @@ public class PrincipalModelo {
                     ps.setFloat(7, kardex.getDescuento());
 //                    ps.setInt(8, kardex.getIdServicioComunitario());
 //                    ps.setInt(9, kardex.getLugarServicioComunitario());
-                    ps.setInt(9, kardex.getIdServicioComunitario());
-                    ps.setInt(8, kardex.getLugarServicioComunitario());
+                    ps.setInt(8, kardex.getIdServicioComunitario());
+                    ps.setInt(9, kardex.getLugarServicioComunitario());
                     ps.setString(10, kardex.getBoleta());
                     ps.setString(11, kardex.getCarta_servicio_comunitario());
-                    ps.setBoolean(12, kardex.getPago_extra());
+                    ps.setDouble(12, kardex.getPago_extra());
                     ps.setInt(13, kardex.getHorasServicio());
                     ps.setLong(14, becario.getId());
                     ps.setString(15, kardex.getTransferencia1());
@@ -2736,13 +2793,11 @@ public class PrincipalModelo {
                     ps.setBoolean(5, kardex.isPlatica2());
                     ps.setFloat(6, kardex.getPromedio());
                     ps.setFloat(7, kardex.getDescuento());
-//                    ps.setInt(8, kardex.getIdServicioComunitario());
-//                    ps.setInt(9, kardex.getLugarServicioComunitario());
-                    ps.setInt(8, kardex.getLugarServicioComunitario());
-                    ps.setInt(9, kardex.getIdServicioComunitario());
+                    ps.setInt(8, kardex.getIdServicioComunitario());
+                    ps.setInt(9, kardex.getLugarServicioComunitario());
                     ps.setString(10, kardex.getBoleta());
                     ps.setString(11, kardex.getCarta_servicio_comunitario());
-                    ps.setBoolean(12, kardex.getPago_extra());
+                    ps.setDouble(12, kardex.getPago_extra());
                     ps.setInt(13, kardex.getHorasServicio());
                     ps.setString(14, kardex.getTransferencia1());
                     ps.setString(15, kardex.getTransferencia2());
@@ -3284,6 +3339,598 @@ public class PrincipalModelo {
         } catch (SQLException ex) {
             log.muestraErrores(ex);
             Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return response;
+    }
+
+    /**
+     * Obtiene la informacion que no se repite en el reporte individual
+     * @param conexion
+     * @param folioBecario
+     * @return 
+     */
+    protected PojoReporteIndividual getReporteIndividualDatosUnicos(Connection conexion, String folioBecario) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        PojoReporteIndividual result = null;
+        
+        try {
+            ps = conexion.prepareStatement(Consultas.getReporteIndividualDatosUnicos);
+            ps.setString(1, folioBecario);
+            rs = ps.executeQuery();
+            result = new PojoReporteIndividual();
+            while(rs.next()){
+                result.setIdBecario(rs.getLong("id_becario"));
+                result.setFolio(rs.getString("folio"));
+                result.setaPaterno(rs.getString("aPaterno"));
+                result.setaMaterno(rs.getString("aMaterno"));
+                result.setNombre(rs.getString("nombre"));
+                result.setPrograma(rs.getString("programa"));
+                result.setEstatus(rs.getString("estatus"));
+                result.setEscuela(rs.getString("universidad"));
+                result.setCarrera(rs.getString("carrera"));
+                result.setCampo(rs.getString("campo_carrera"));
+                result.setEmail(rs.getString("email"));
+                result.setFechaIngreso(rs.getDate("inicio_beca"));
+                result.setSemestreIngreso(rs.getInt("semestre_inicio_beca"));
+                result.setFechaGraduacion(rs.getDate("graduacion"));
+                result.setBecaTotal(rs.getFloat("beca_total"));
+                result.setBecaSemestral(rs.getFloat("beca_semestral"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return result;
+        
+    }
+
+    protected List<PojoReporteIndividualMuchosDatos> getReporteIndividualMuchosDatos(Connection conexion, String folioBecario) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        List<PojoReporteIndividualMuchosDatos> result = null;
+        
+        try {
+            ps = conexion.prepareStatement(Consultas.getReporteIndividualMuchosDatos);
+            ps.setString(1, folioBecario);
+            rs = ps.executeQuery();
+            result = new ArrayList<>();
+            while(rs.next()){
+                PojoReporteIndividualMuchosDatos res = new PojoReporteIndividualMuchosDatos();
+                res.setSemestre(rs.getString("num_semestre"));
+                res.setPago1(rs.getBoolean("pago1"));
+                res.setPago2(rs.getBoolean("pago2"));
+                res.setPromedio(rs.getFloat("promedio"));
+                res.setHorasServicio(rs.getInt("horas_servicio"));
+                res.setTipoServicio(rs.getString("nombre_servicio_comunitario"));
+                res.setDescuento(rs.getInt("descuento"));
+                result.add(res);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return result;
+    }
+
+    /**
+     * Obtiene todos los becarios con su sexo
+     * @param conexion
+     * @return 
+     */
+    protected List getAllBecariosPorSexo(Connection conexion) {
+        
+        Statement st = null;
+        ResultSet rs = null;
+        List lstResults = new ArrayList();
+        
+        try {
+            st = conexion.createStatement();
+            System.out.println(Consultas.getAllBecariosPorSexo);
+            rs = st.executeQuery(Consultas.getAllBecariosPorSexo);
+            while(rs.next()){
+                Becario becario = new  Becario();
+                becario.setId(rs.getLong(Becario.COL_ID));
+                becario.setIdSexo(rs.getInt(Becario.COL_SEXO));
+                lstResults.add(becario);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return lstResults;
+    }
+
+    /**
+     * Obtiene todos los becarios que trabajan
+     * @param conexion
+     * @param filtros
+     * @param fechas
+     * @param nombrePrograma
+     * @return 
+     */
+    protected List<PojoReporteGeneral> getAllBecariosTrabajan(Connection conexion, String filtros, Date[] fechas, String nombrePrograma) {
+        Statement st = null;
+        ResultSet rs = null;
+        List lstResults = new ArrayList();
+        
+        try {
+            st = conexion.createStatement();
+            String query = Consultas.getAllBecariosTrabajan.concat(filtros);
+            System.out.println(query);
+            rs = st.executeQuery(query);
+            while(rs.next()){
+                PojoReporteGeneral pojo = new  PojoReporteGeneral();
+                pojo.setIdBecario(rs.getLong("idBecario"));
+                pojo.setTrabaja(rs.getInt("trabaja"));
+                pojo.setNombrePrograma(nombrePrograma);
+                pojo.setFechaDe(fechas[0]);
+                pojo.setFechaA(fechas[1]);
+                lstResults.add(pojo);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return lstResults;
+    }
+
+    /**
+     * Obtiene todos los becarios que son los primeros en ser becados
+     * @param conexion
+     * @return 
+     */
+    protected List<PojoReporteGeneral> getAllBecariosEnSerBecados(Connection conexion, String filtros, Date[] fechas, String nombrePrograma) {
+        Statement st = null;
+        ResultSet rs = null;
+        List lstResults = new ArrayList();
+        
+        try {
+            st = conexion.createStatement();
+            String query = Consultas.getAllBecariosEnSerBecados.concat(filtros);
+            System.out.println(query);
+            rs = st.executeQuery(query);
+            System.out.println(query);
+            while(rs.next()){
+                PojoReporteGeneral becario = new  PojoReporteGeneral();
+                becario.setIdBecario(rs.getLong("idBecario"));
+                becario.setPrimeroConBeca(rs.getInt("primeroConBeca"));
+                becario.setFechaDe(fechas[0]);
+                becario.setFechaA(fechas[1]);
+                becario.setNombrePrograma(nombrePrograma);
+                
+                lstResults.add(becario);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return lstResults;
+    }
+
+    /**
+     * Obtiene los datos necesarios para generar el reporte General
+     * @param conexion
+     * @param filtros Parte del Query que contiene los filtros para generar el reporte
+     * @return Lista con los datos de los becarios
+     */
+    List<PojoReporteGeneral> getDatosReporteGeneral(Connection conexion, String filtros, Date[] fechas) {
+        List<PojoReporteGeneral> lstResult = new ArrayList<>();
+        Statement st = null;
+        ResultSet rs = null;
+        String query = "";
+        boolean flagFechasFiltro = false;
+        
+        if(fechas != null)
+            flagFechasFiltro = true;
+        try {
+            st = conexion.createStatement();
+            query = Consultas.getAllBecariosReporteGeneral.concat(filtros);
+            //System.out.println(query);
+            rs = st.executeQuery(query);
+            while(rs.next()){
+                PojoReporteGeneral reporte = new PojoReporteGeneral();
+                reporte.setFolio(rs.getString("folio"));
+                reporte.setaPaterno(rs.getString("aPaterno"));
+                reporte.setaMaterno(rs.getString("aMaterno"));
+                reporte.setNombre(rs.getString("nombre"));
+                reporte.setNombrePrograma(rs.getString("nombrePrograma"));
+                reporte.setNombreEstatus(rs.getString("nombreEstatus"));
+                reporte.setNombreUniversidad(rs.getString("nombreUniversidad"));
+                reporte.setNombreCampoCarrera(rs.getString("nombreCampo"));
+                reporte.setBecaTotal(rs.getInt("becaTotal"));
+                reporte.setBecaSemestral(rs.getInt("becaSemestral"));
+                reporte.setSemestreInicioBeca(rs.getInt("semestreInicioBeca"));
+                reporte.setFechaInicioBeca(rs.getDate("fechaInicioBeca"));
+                reporte.setFechaFinBeca(rs.getDate("fechaFinBeca"));
+                
+                if(flagFechasFiltro){
+                    reporte.setFechaDe(fechas[0]);
+                    reporte.setFechaA(fechas[1]);
+                }
+                
+                lstResult.add(reporte);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return lstResult;
+    }
+
+    protected java.sql.Date getFechaMenorDeIngreso(Connection conexion) {
+        java.sql.Date fecha = null;
+        Statement st = null;
+        ResultSet rs = null;
+        
+        try {
+            st = conexion.createStatement();
+            rs = st.executeQuery(Consultas.getFechaMenorDeIngreso);
+            
+            if(rs.next()){
+                fecha = rs.getDate(DatosEscolares.COL_FECHA_INICIO_BECA);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return fecha;
+    }
+
+    java.sql.Date getFechaMayorDeGraduacion(Connection conexion) {
+        java.sql.Date fecha = null;
+        Statement st = null;
+        ResultSet rs = null;
+        
+        try {
+            st = conexion.createStatement();
+            rs = st.executeQuery(Consultas.getFechaMayorDeGraduacion);
+            
+            if(rs.next()){
+                fecha = rs.getDate(DatosEscolares.COL_FECHA_GRADUACION);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return fecha;
+    }
+
+    /**
+     * Obtiene la información necesaria para generar el reporte de los sexos
+     * @param conexion
+     * @param filtros
+     * @param fechasFiltro
+     * @return 
+     */
+    List<PojoReporteGeneral> creaReporteSexo(Connection conexion, String filtros, Date[] fechas, String nombrePrograma) {
+        List<PojoReporteGeneral> lstResult = new ArrayList<>();
+        Statement st = null;
+        ResultSet rs = null;
+        String query = "";
+        boolean flagFechasFiltro = false;
+        
+        if(fechas != null)
+            flagFechasFiltro = true;
+        try {
+            st = conexion.createStatement();
+            query = Consultas.getAllBecariosReporteSexo.concat(filtros);
+            System.out.println(query);
+            rs = st.executeQuery(query);
+            while(rs.next()){
+                PojoReporteGeneral reporte = new PojoReporteGeneral();
+                reporte.setFolio(rs.getString("folio"));
+                reporte.setaPaterno(rs.getString("aPaterno"));
+                reporte.setaMaterno(rs.getString("aMaterno"));
+                reporte.setNombre(rs.getString("nombre"));
+                reporte.setSexo(rs.getString("nombreSexo"));
+                reporte.setIdGeneroSexo(rs.getInt("idSexo"));
+                reporte.setNombrePrograma(nombrePrograma);
+                if(flagFechasFiltro){
+                    reporte.setFechaDe(fechas[0]);
+                    reporte.setFechaA(fechas[1]);
+                }
+                
+                lstResult.add(reporte);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return lstResult;
+    }
+
+    /**
+     * Obtiene la información necesaria para generar el reporte de estado civil
+     * @param conexion
+     * @param filtros
+     * @param fechas
+     * @param programa
+     * @return 
+     */
+    protected List<PojoReporteGeneral> creaReporteEdoCivil(Connection conexion, String filtros, Date[] fechas, String programa) {
+        List<PojoReporteGeneral> lstResult = new ArrayList<>();
+        Statement st = null;
+        ResultSet rs = null;
+        String query = "";
+        boolean flagFechasFiltro = false;
+        
+        if(fechas != null)
+            flagFechasFiltro = true;
+        try {
+            st = conexion.createStatement();
+            query = Consultas.getAllBecariosReporteEdoCivil.concat(filtros);
+            System.out.println(query);
+            rs = st.executeQuery(query);
+            while(rs.next()){
+                PojoReporteGeneral reporte = new PojoReporteGeneral();
+                reporte.setNombreEdoCivil(rs.getString("nombreEdoCivil"));
+                
+                reporte.setNombrePrograma(programa);
+                if(flagFechasFiltro){
+                    reporte.setFechaDe(fechas[0]);
+                    reporte.setFechaA(fechas[1]);
+                }
+                
+                lstResult.add(reporte);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return lstResult;
+    }
+
+    /**
+     * Obtiene la informacion necesaria para crear el reporte por campo de aplicación 
+     * @param conexion
+     * @param filtros
+     * @param fechas
+     * @param programa
+     * @return 
+     */
+    protected List<PojoReporteGeneral> creaReporteCampoAplicacion(Connection conexion, String filtros, Date[] fechas, String programa) {
+        List<PojoReporteGeneral> lstResult = new ArrayList<>();
+        Statement st = null;
+        ResultSet rs = null;
+        String query = "";
+        boolean flagFechasFiltro = false;
+        
+        if(fechas != null)
+            flagFechasFiltro = true;
+        try {
+            st = conexion.createStatement();
+            query = Consultas.getAllBecariosReporteCampoAplicacion.concat(filtros);
+            System.out.println(query);
+            rs = st.executeQuery(query);
+            while(rs.next()){
+                PojoReporteGeneral reporte = new PojoReporteGeneral();
+                reporte.setNombreCampoCarrera(rs.getString("nombreCampoAplicacion"));
+                
+                reporte.setNombrePrograma(programa);
+                if(flagFechasFiltro){
+                    reporte.setFechaDe(fechas[0]);
+                    reporte.setFechaA(fechas[1]);
+                }
+                
+                lstResult.add(reporte);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return lstResult;
+    }
+
+    protected List<PojoReporteGeneral> getAllBecariosServicioComunitario(Connection conexion, String filtros, Date[] fechas, String programa) {
+        List<PojoReporteGeneral> lstResult = new ArrayList<>();
+        Statement st = null;
+        ResultSet rs = null;
+        String query = "";
+        boolean flagFechasFiltro = false;
+        
+        if(fechas != null)
+            flagFechasFiltro = true;
+        try {
+            st = conexion.createStatement();
+            query = Consultas.getAllBecariosServicioComunitario.concat(filtros);
+            query = query.concat(" GROUP BY nombreServicioComunitario");
+            System.out.println(query);
+            rs = st.executeQuery(query);
+            while(rs.next()){
+                PojoReporteGeneral reporte = new PojoReporteGeneral();
+                reporte.setNombreServicioComunitario(rs.getString("nombreServicioComunitario"));
+                reporte.setHorasServicioComunitario(rs.getInt("horas"));
+                reporte.setNombrePrograma(programa);
+                if(flagFechasFiltro){
+                    reporte.setFechaDe(fechas[0]);
+                    reporte.setFechaA(fechas[1]);
+                }
+                
+                lstResult.add(reporte);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return lstResult;
+    }
+
+    /**
+     * 
+     * @param conexion
+     * @param filtros
+     * @param fechas
+     * @param programa
+     * @return 
+     */
+    protected List<PojoReporteGeneral> getAllUniversidadesPublicas(Connection conexion, String filtros, Date[] fechas, String programa) {
+        List<PojoReporteGeneral> lstResult = new ArrayList<>();
+        Statement st = null;
+        ResultSet rs = null;
+        String query = "";
+        boolean flagFechasFiltro = false;
+        
+        if(fechas != null)
+            flagFechasFiltro = true;
+        try {
+            st = conexion.createStatement();
+            query = Consultas.getAllUniversidadesPublicas.concat(filtros);
+            System.out.println(query);
+            rs = st.executeQuery(query);
+            while(rs.next()){
+                PojoReporteGeneral reporte = new PojoReporteGeneral();
+                reporte.setNombreUniversidad(rs.getString("nombreUniversidad"));
+                reporte.setFechaDe(fechas[0]);
+                reporte.setFechaA(fechas[1]);
+                reporte.setNombrePrograma(programa);
+                if(flagFechasFiltro){
+                    reporte.setFechaDe(fechas[0]);
+                    reporte.setFechaA(fechas[1]);
+                }
+                
+                lstResult.add(reporte);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return lstResult;
+    }
+
+    /**
+     * Obtiene los depositos realizados por el becario
+     * @param conexion
+     * @param idBecario
+     * @return 
+     */
+    protected List<Cobranza> getAbonosBecario(Connection conexion, long idBecario) {
+        
+        List<Cobranza> lstCobranza = new ArrayList<>();
+//        PreparedStatement ps;
+        ResultSet rs;
+        
+        try(
+                PreparedStatement ps = conexion.prepareStatement(Consultas.getAbonosBecario);
+            ){
+            ps.setLong(1, idBecario);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                Cobranza cobranza = new Cobranza();
+                cobranza.setFechaPago(rs.getDate(Cobranza.COL_FECHA_PAGO));
+                cobranza.setMontoPago(rs.getInt(Cobranza.COL_MONTO));
+                cobranza.setReferencia(rs.getString(Cobranza.COL_REFERENCIA));
+                cobranza.setIdCobranza(rs.getLong(Cobranza.COL_ID));
+                lstCobranza.add(cobranza);
+            }
+            
+            rs.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            log.muestraErrores(ex);
+        }
+        return lstCobranza;
+    }
+
+    /**
+     * Inserta el nuevo abono dado por el becario
+     * @param abono
+     * @return Id generado por el abono
+     */
+    protected long insertAbonoBecario(Cobranza abono) {
+        
+        Conexion conn = new Conexion();
+        ResultSet rs = null;
+        long idAbono = 0;
+                
+        try (Connection conexion = conn.estableceConexion();
+                PreparedStatement ps = conexion.prepareStatement(Insert.insertAbonoBecario, PreparedStatement.RETURN_GENERATED_KEYS);){
+            java.sql.Date fecha = helper.convertUtilDateToSqlDate(abono.getFechaPago());
+            ps.setDate(1, fecha);
+            ps.setInt(2, abono.getMontoPago());
+            ps.setString(3, abono.getReferencia());
+            ps.setLong(4, abono.getIdBecario());
+            
+            System.out.println(ps);
+            int result = ps.executeUpdate();
+            
+            if(result <= 0)
+                return idAbono;
+            
+            rs = ps.getGeneratedKeys();
+            
+            if(rs.next())
+                idAbono = rs.getLong(1);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            log.muestraErrores(ex);
+        }
+        finally{
+            try {
+                if(rs != null)
+                    rs.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+                log.muestraErrores(ex);
+            }
+        }
+        
+        return idAbono;
+    }
+
+    /**
+     * Elimina un abono del becario
+     * @param idCobranza
+     * @return True si se elimino correctamente, False si no
+     */
+    protected boolean deleteRegistroCobranza(long idCobranza) {
+        Conexion conn = new Conexion();
+        boolean response = false;
+        
+        try(Connection conexion = conn.estableceConexion();
+                PreparedStatement ps = conexion.prepareStatement(Delete.deleteRegistroCobranza);){
+            ps.setLong(1, idCobranza);
+            int resp = ps.executeUpdate();
+            
+            if(resp > 0)
+                response = true;
+        }
+        catch(SQLException e){
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, e);
+            log.muestraErrores(e);
+        }
+        
+        return response;
+    }
+
+    /**
+     * Actualiza el registro de cobranza
+     * @param cobranza
+     * @return True si la actualizacion fue correcta, false sin no
+     */
+    protected boolean updateRegistroCobranza(Cobranza cobranza) {
+        Conexion conn = new Conexion();
+        boolean response = false;
+        
+        try(Connection conexion = conn.estableceConexion();
+                PreparedStatement ps = conexion.prepareStatement(Update.updateAbonoBecario);) {
+            
+            ps.setDate(1, helper.convertUtilDateToSqlDate(cobranza.getFechaPago()));
+            ps.setInt(2, cobranza.getMontoPago());
+            ps.setString(3, cobranza.getReferencia());
+            ps.setLong(4, cobranza.getIdCobranza());
+            
+            int resp = ps.executeUpdate();
+            
+            if(resp > 0)
+                response = true;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
+            log.muestraErrores(ex);
         }
         
         return response;

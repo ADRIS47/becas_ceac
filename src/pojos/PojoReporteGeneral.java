@@ -37,6 +37,7 @@ public class PojoReporteGeneral {
     int trabaja;
     String nombreTrabaja;
     int primeroConBeca;
+    double ajusteBeca;
     
     public String getFolio() {
         return folio;
@@ -228,6 +229,14 @@ public class PojoReporteGeneral {
 
     public void setPrimeroConBeca(int primeroConBeca) {
         this.primeroConBeca = primeroConBeca;
+    }
+
+    public double getAjusteBeca() {
+        return ajusteBeca;
+    }
+
+    public void setAjusteBeca(double ajusteBeca) {
+        this.ajusteBeca = ajusteBeca;
     }
     
 }

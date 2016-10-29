@@ -43,6 +43,7 @@
 	<field name="fechaFinBeca" class="java.sql.Date"/>
 	<field name="fechaDe" class="java.util.Date"/>
 	<field name="fechaA" class="java.util.Date"/>
+	<field name="ajuste_beca" class="java.lang.Double"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -109,69 +110,62 @@
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="35" splitType="Stretch">
+		<band height="32" splitType="Stretch">
 			<staticText>
 				<reportElement x="2" y="-1" width="45" height="29" uuid="df7084c4-1a71-4b6d-aca0-51285bc8bf0e"/>
-				<textElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Calibri" isBold="true"/>
 				</textElement>
 				<text><![CDATA[FOLIO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="58" y="-1" width="184" height="29" uuid="27b7acab-f955-4cc3-b11a-371480940571"/>
-				<textElement>
+				<reportElement x="49" y="-1" width="180" height="29" uuid="27b7acab-f955-4cc3-b11a-371480940571"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Calibri" isBold="true"/>
 				</textElement>
 				<text><![CDATA[NOMBRE]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="249" y="-1" width="80" height="29" uuid="63878095-72f8-4db3-aaef-10e8ae845b59"/>
-				<textElement>
+				<reportElement x="226" y="-1" width="80" height="29" uuid="63878095-72f8-4db3-aaef-10e8ae845b59"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Calibri" isBold="true"/>
 				</textElement>
 				<text><![CDATA[PROGRAMA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="339" y="-1" width="57" height="29" uuid="851f4827-5eac-4db7-873d-06b78b26e3d5"/>
-				<textElement>
+				<reportElement x="310" y="-1" width="57" height="29" uuid="851f4827-5eac-4db7-873d-06b78b26e3d5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Calibri" isBold="true"/>
 				</textElement>
 				<text><![CDATA[ESTATUS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="404" y="-1" width="180" height="29" uuid="9c217ef7-1fb4-4f14-83a4-623dc92cff35"/>
-				<textElement>
+				<reportElement x="370" y="-1" width="180" height="29" uuid="9c217ef7-1fb4-4f14-83a4-623dc92cff35"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Calibri" isBold="true"/>
 				</textElement>
 				<text><![CDATA[UNIVERSIDAD]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="591" y="-1" width="63" height="31" uuid="02e5d638-9f32-4856-a2e5-d6204a622f65"/>
-				<textElement>
+				<reportElement x="551" y="-1" width="63" height="31" uuid="02e5d638-9f32-4856-a2e5-d6204a622f65"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Calibri" isBold="true"/>
 				</textElement>
 				<text><![CDATA[BECA TOTAL]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="664" y="1" width="69" height="29" uuid="a9dbe3ab-dfe2-463f-b79c-2044c3dca50b"/>
-				<textElement>
+				<reportElement x="616" y="1" width="69" height="29" uuid="a9dbe3ab-dfe2-463f-b79c-2044c3dca50b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Calibri" isBold="true"/>
 				</textElement>
 				<text><![CDATA[BECA SEMESTRAL]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="742" y="3" width="71" height="29" uuid="7b2a86e5-79c7-465a-b794-c65316f95c9b"/>
-				<textElement>
+				<reportElement x="756" y="3" width="71" height="29" uuid="7b2a86e5-79c7-465a-b794-c65316f95c9b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Calibri" isBold="true"/>
 				</textElement>
 				<text><![CDATA[INGRESO A CEDUCATIVA]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="897" y="1" width="69" height="29" uuid="78cd6015-20bf-484f-b575-2e2ad558f02b"/>
-				<textElement>
-					<font fontName="Calibri" isBold="true"/>
-				</textElement>
-				<text><![CDATA[FECHA DE GRADUACION]]></text>
 			</staticText>
 			<line>
 				<reportElement x="2" y="28" width="964" height="1" uuid="3a52967f-6079-48fc-9d86-3cc059d97291"/>
@@ -180,11 +174,25 @@
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement x="826" y="3" width="59" height="25" uuid="5bf13ae9-f265-4810-b98e-44016dba440e"/>
-				<textElement>
+				<reportElement x="829" y="4" width="59" height="25" uuid="5bf13ae9-f265-4810-b98e-44016dba440e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Calibri" isBold="true"/>
 				</textElement>
 				<text><![CDATA[SEMESTRE DE INGRESO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="889" y="2" width="69" height="29" uuid="78cd6015-20bf-484f-b575-2e2ad558f02b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA DE GRADUACION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="687" y="1" width="69" height="29" uuid="b80bca12-b8b2-4b05-aad2-c6e7ac924a3c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AJUSTE DE BECA]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
@@ -192,92 +200,85 @@
 		<band height="20" splitType="Stretch">
 			<textField>
 				<reportElement x="3" y="0" width="45" height="20" uuid="d8297fad-063b-4e3f-90b2-01edaa5e8097"/>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font fontName="Calibri" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{folio}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="59" y="0" width="184" height="20" uuid="431f6593-1208-4ee7-8c45-d52652ba600b"/>
-				<textElement>
+				<reportElement x="50" y="0" width="180" height="20" uuid="431f6593-1208-4ee7-8c45-d52652ba600b"/>
+				<textElement textAlignment="Justified">
 					<font fontName="Calibri" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombre}.concat(" "+ $F{aPaterno}+" " +$F{aMaterno} )]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="340" y="0" width="57" height="20" uuid="7b586593-e3cb-4f01-9e76-33a13d333b07"/>
-				<textElement>
+				<reportElement x="311" y="0" width="57" height="20" uuid="7b586593-e3cb-4f01-9e76-33a13d333b07"/>
+				<textElement textAlignment="Center">
 					<font fontName="Calibri" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombreEstatus}.toUpperCase()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="405" y="0" width="180" height="20" uuid="2292b8c9-0633-40c4-84e0-9d8a391d4ff4"/>
-				<textElement>
+				<reportElement x="371" y="0" width="180" height="20" uuid="2292b8c9-0633-40c4-84e0-9d8a391d4ff4"/>
+				<textElement textAlignment="Center">
 					<font fontName="Calibri" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombreUniversidad}.toUpperCase()]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement x="595" y="0" width="10" height="20" uuid="ae4573c6-8f45-4989-b05d-7deba29df725"/>
-				<textElement>
-					<font fontName="Calibri" size="9"/>
-				</textElement>
-				<text><![CDATA[$]]></text>
-			</staticText>
 			<textField pattern="#,##0.00">
-				<reportElement x="606" y="0" width="49" height="20" uuid="72d4adbd-3d8f-4831-97cc-8d7e29bd19e2"/>
+				<reportElement x="555" y="0" width="60" height="20" uuid="72d4adbd-3d8f-4831-97cc-8d7e29bd19e2"/>
 				<textElement>
 					<font fontName="Calibri" size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{becaTotal}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["$ " + $F{becaTotal}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00">
-				<reportElement x="677" y="0" width="57" height="20" uuid="0be6fa93-6657-4f19-9ada-3018769aa3c1"/>
+				<reportElement x="623" y="0" width="57" height="20" uuid="0be6fa93-6657-4f19-9ada-3018769aa3c1"/>
 				<textElement>
 					<font fontName="Calibri" size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{becaSemestral}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="665" y="0" width="10" height="20" uuid="65d6ac62-c380-4722-a47a-1c0999e20fe3"/>
-				<textElement>
-					<font fontName="Calibri" size="9"/>
-				</textElement>
-				<text><![CDATA[$]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="826" y="0" width="59" height="20" uuid="b346b275-a870-4c81-9dc6-4e915f1ff39d"/>
-				<textElement>
-					<font fontName="Calibri" size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{semestreInicioBeca}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["$ " + $F{becaSemestral}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="250" y="0" width="80" height="20" uuid="77113d21-aa6a-4175-b5ae-7e29a77109d5"/>
-				<textElement>
+				<reportElement x="227" y="0" width="80" height="20" uuid="77113d21-aa6a-4175-b5ae-7e29a77109d5"/>
+				<textElement textAlignment="Center">
 					<font fontName="Calibri" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombrePrograma}.toUpperCase()]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MMMM/yyyy">
-				<reportElement x="742" y="0" width="71" height="20" uuid="2429a94d-0c55-4f5d-be61-78bcc101c767"/>
-				<textElement>
+				<reportElement x="756" y="0" width="71" height="20" uuid="2429a94d-0c55-4f5d-be61-78bcc101c767"/>
+				<textElement textAlignment="Center">
 					<font fontName="Calibri" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{fechaInicioBeca}]]></textFieldExpression>
 			</textField>
+			<textField>
+				<reportElement x="829" y="0" width="59" height="20" uuid="b346b275-a870-4c81-9dc6-4e915f1ff39d"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{semestreInicioBeca}]]></textFieldExpression>
+			</textField>
 			<textField pattern="dd/MMMM/yyyy">
-				<reportElement x="897" y="0" width="69" height="20" uuid="e2067c9c-9fdd-4acc-b669-ba95665b7526"/>
-				<textElement>
+				<reportElement x="889" y="0" width="74" height="20" uuid="e2067c9c-9fdd-4acc-b669-ba95665b7526"/>
+				<textElement textAlignment="Center">
 					<font fontName="Calibri" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{fechaFinBeca}]]></textFieldExpression>
 			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="687" y="0" width="69" height="20" uuid="20b00d06-3448-4a2d-8428-2bec589eb372"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Calibri" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["$ " + $F{ajuste_beca}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<pageFooter>
-		<band height="21" splitType="Stretch">
+		<band height="22" splitType="Stretch">
 			<textField>
 				<reportElement x="416" y="1" width="80" height="20" uuid="a8504664-46a1-45e2-a56c-05640f63d5e4"/>
 				<textElement textAlignment="Right">
