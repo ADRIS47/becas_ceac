@@ -470,7 +470,8 @@ public class Consultas {
                                                             "escolar.semestre_inicio_beca AS semestre_inicio_beca, \n" +
                                                             "escolar.fecha_fin_beca AS graduacion, \n" +
                                                             "escolar.beca_total AS beca_total, \n" +
-                                                            "escolar.beca_semestral AS beca_semestral \n" +
+                                                            "escolar.beca_semestral AS beca_semestral, \n" +
+                                                            "(SELECT SUM(pago_extra) AS ajuste_beca_total FROM beca_kardex WHERE id_becario = becario.id_becario) AS ajuste_beca_total \n" +
                                                             "FROM beca_becario AS becario\n" +
                                                             "JOIN beca_cat_programa AS programa ON programa.id_programa = becario.id_programa \n" +
                                                             "JOIN beca_cat_estatus AS estatus ON estatus.id_estatus = becario.id_estatus \n" +
@@ -489,6 +490,7 @@ public class Consultas {
                     "     beca_kardex.`promedio` AS promedio,\n" +
                     "     beca_kardex.`descuento` AS descuento,\n" +
                     "     beca_kardex.`horas_servicio` AS horas_servicio,\n" +
+                    "     beca_kardex.pago_extra AS ajuste_beca_semestral,\n" + 
                     "     beca_cat_servicio_comunitario.`nombre` AS nombre_servicio_comunitario,\n" +
                     "     beca_cat_servicio_comunitario.`id_servicio_comunitario` AS beca_cat_servicio_comunitario_id_servicio_comunitario\n" +
                     "FROM\n" +

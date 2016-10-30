@@ -3377,6 +3377,7 @@ public class PrincipalModelo {
                 result.setFechaGraduacion(rs.getDate("graduacion"));
                 result.setBecaTotal(rs.getFloat("beca_total"));
                 result.setBecaSemestral(rs.getFloat("beca_semestral"));
+                result.setAjusteBecaTotal(rs.getDouble("ajuste_beca_total"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(PrincipalModelo.class.getName()).log(Level.SEVERE, null, ex);
@@ -3405,6 +3406,7 @@ public class PrincipalModelo {
                 res.setHorasServicio(rs.getInt("horas_servicio"));
                 res.setTipoServicio(rs.getString("nombre_servicio_comunitario"));
                 res.setDescuento(rs.getInt("descuento"));
+                res.setAjusteBecaSemestral(rs.getDouble("ajuste_beca_semestral"));
                 result.add(res);
             }
         } catch (SQLException ex) {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="historial_individual" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="764" leftMargin="14" rightMargin="14" topMargin="14" bottomMargin="14" uuid="d954569f-a58e-4911-a658-4a86437608ae">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="historial_individual" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="764" leftMargin="14" rightMargin="14" topMargin="14" bottomMargin="14" uuid="d954569f-a58e-4911-a658-4a86437608ae">
 	<property name="ireport.zoom" value="1.5"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.x" value="232"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="imagen" class="java.lang.String"/>
 	<queryString>
@@ -18,22 +18,24 @@
 	<field name="campo" class="java.lang.String"/>
 	<field name="telefonos" class="java.lang.String"/>
 	<field name="email" class="java.lang.String"/>
-	<field name="fechaIngreso" class="java.lang.String"/>
+	<field name="fechaIngreso" class="java.util.Date"/>
 	<field name="semestreIngreso" class="java.lang.String"/>
-	<field name="fechaGraduacion" class="java.lang.String"/>
-	<field name="becaTotal" class="java.lang.String"/>
-	<field name="pagoSemestral" class="java.lang.String"/>
-	<field name="saldoAcumulado" class="java.lang.String"/>
-	<field name="servicioAcumulado" class="java.lang.String"/>
-	<field name="descuentoAcumulado" class="java.lang.String"/>
+	<field name="fechaGraduacion" class="java.util.Date"/>
+	<field name="becaTotal" class="java.lang.Float"/>
+	<field name="pagoSemestral" class="java.lang.Float"/>
+	<field name="saldoAcumulado" class="java.lang.Integer"/>
+	<field name="servicioAcumulado" class="java.lang.Integer"/>
+	<field name="descuentoAcumulado" class="java.lang.Integer"/>
 	<field name="semestre" class="java.lang.String"/>
-	<field name="pago1" class="java.lang.String"/>
-	<field name="promedio" class="java.lang.String"/>
-	<field name="horasServicio" class="java.lang.String"/>
+	<field name="pago1" class="java.lang.Float"/>
+	<field name="promedio" class="java.lang.Float"/>
+	<field name="horasServicio" class="java.lang.Integer"/>
 	<field name="tipoServicio" class="java.lang.String"/>
-	<field name="descuento" class="java.lang.String"/>
+	<field name="descuento" class="java.lang.Integer"/>
 	<field name="nombreCompleto" class="java.lang.String"/>
-	<field name="pago2" class="java.lang.String"/>
+	<field name="pago2" class="java.lang.Float"/>
+	<field name="ajusteBecaTotal" class="java.lang.Double"/>
+	<field name="ajusteBecaSemestral" class="java.lang.Double"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -65,7 +67,7 @@
 		</band>
 	</title>
 	<columnHeader>
-		<band height="128" splitType="Stretch">
+		<band height="126" splitType="Stretch">
 			<textField>
 				<reportElement x="275" y="0" width="241" height="14" uuid="e9eb0785-cafb-4864-ad31-c12bd6df2e3b"/>
 				<textElement>
@@ -214,28 +216,28 @@
 				<text><![CDATA[FECHA GRADUACION:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="588" y="61" width="93" height="20" uuid="b7f7706d-11e4-4e9c-937f-a883dfb16827"/>
+				<reportElement x="588" y="61" width="93" height="15" uuid="b7f7706d-11e4-4e9c-937f-a883dfb16827"/>
 				<textElement textAlignment="Right" verticalAlignment="Top">
 					<font fontName="Calibri" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[BECA TOTAL: $]]></text>
 			</staticText>
 			<textField pattern="#,##0.00;-#,##0.00">
-				<reportElement x="685" y="61" width="75" height="20" uuid="03977f3a-5450-4ff4-872a-04535eb28aee"/>
+				<reportElement x="685" y="61" width="75" height="15" uuid="03977f3a-5450-4ff4-872a-04535eb28aee"/>
 				<textElement verticalAlignment="Top">
 					<font fontName="Calibri" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{becaTotal}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="588" y="80" width="93" height="16" uuid="5e8da1d8-3eef-440c-b359-12fc912c4594"/>
+				<reportElement x="588" y="76" width="93" height="16" uuid="5e8da1d8-3eef-440c-b359-12fc912c4594"/>
 				<textElement textAlignment="Right" verticalAlignment="Top">
 					<font fontName="Calibri" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[BECA SEMESTRAL: $]]></text>
 			</staticText>
 			<textField pattern="#,##0.00;-#,##0.00">
-				<reportElement x="685" y="82" width="75" height="14" uuid="8178fae9-66e8-44ad-b3ba-42d3cdb05bf1"/>
+				<reportElement x="685" y="78" width="75" height="14" uuid="8178fae9-66e8-44ad-b3ba-42d3cdb05bf1"/>
 				<textElement verticalAlignment="Top">
 					<font fontName="Calibri" size="9"/>
 				</textElement>
@@ -316,42 +318,42 @@
 				<text><![CDATA[SEMESTRE]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="148" y="111" width="49" height="14" uuid="975ce48b-8cf0-4732-ba5e-3018697faa57"/>
+				<reportElement x="122" y="111" width="49" height="14" uuid="975ce48b-8cf0-4732-ba5e-3018697faa57"/>
 				<textElement verticalAlignment="Top">
 					<font fontName="Calibri" isBold="true"/>
 				</textElement>
 				<text><![CDATA[PAGO 1]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="229" y="111" width="49" height="14" uuid="12877e7c-fa70-481f-a498-2704c77bd5f6"/>
+				<reportElement x="180" y="111" width="49" height="14" uuid="12877e7c-fa70-481f-a498-2704c77bd5f6"/>
 				<textElement verticalAlignment="Top">
 					<font fontName="Calibri" isBold="true"/>
 				</textElement>
 				<text><![CDATA[PAGO 2]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="325" y="111" width="66" height="14" uuid="3be3e5f1-9f74-4e3e-91d8-3282d9bf9983"/>
+				<reportElement x="240" y="111" width="66" height="14" uuid="3be3e5f1-9f74-4e3e-91d8-3282d9bf9983"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font fontName="Calibri" isBold="true"/>
 				</textElement>
 				<text><![CDATA[PROMEDIO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="451" y="111" width="80" height="14" uuid="6138b0ac-3ccd-4609-bd9f-da6b86640cd8"/>
+				<reportElement x="338" y="111" width="80" height="14" uuid="6138b0ac-3ccd-4609-bd9f-da6b86640cd8"/>
 				<textElement verticalAlignment="Top">
 					<font fontName="Calibri" isBold="true"/>
 				</textElement>
 				<text><![CDATA[HRS. SERVICIO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="547" y="111" width="126" height="14" uuid="d3b0374f-80af-4471-b760-5ae4281734d1"/>
+				<reportElement x="434" y="111" width="126" height="14" uuid="d3b0374f-80af-4471-b760-5ae4281734d1"/>
 				<textElement verticalAlignment="Top">
 					<font fontName="Calibri" isBold="true"/>
 				</textElement>
 				<text><![CDATA[TIPO DE SERVICIO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="691" y="111" width="69" height="14" uuid="d1b32489-39b3-4800-90a3-43ac6565a498"/>
+				<reportElement x="578" y="111" width="69" height="14" uuid="d1b32489-39b3-4800-90a3-43ac6565a498"/>
 				<textElement verticalAlignment="Top">
 					<font fontName="Calibri" isBold="true"/>
 				</textElement>
@@ -370,6 +372,27 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{folio}.toUpperCase()]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="578" y="91" width="103" height="16" uuid="9d5aedfe-862a-4712-88bf-6f6a4d5c6f63"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Calibri" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AJUSTE DE BECA TOTAL: $]]></text>
+			</staticText>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="685" y="93" width="75" height="14" uuid="a23faf72-3d21-42c2-8a71-1bae1bd4fe81"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Calibri" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ajusteBecaTotal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="678" y="109" width="69" height="14" uuid="f1148a28-4a00-4137-af03-ce2643b63de5"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Calibri" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AJUSTE DE BECA]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
@@ -382,68 +405,54 @@
 				<textFieldExpression><![CDATA[$F{semestre}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00">
-				<reportElement x="148" y="0" width="49" height="19" uuid="d7de8e7a-c23f-41bf-9a94-e4841c1d5a76"/>
+				<reportElement x="122" y="0" width="49" height="19" uuid="d7de8e7a-c23f-41bf-9a94-e4841c1d5a76"/>
 				<textElement verticalAlignment="Top">
 					<font fontName="Calibri" size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{pago1}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["$" + $F{pago1}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00">
-				<reportElement x="229" y="0" width="49" height="19" uuid="aaeef7b5-3c43-4c0f-9bce-24c42f6f050e"/>
+				<reportElement x="180" y="0" width="49" height="19" uuid="aaeef7b5-3c43-4c0f-9bce-24c42f6f050e"/>
 				<textElement verticalAlignment="Top">
 					<font fontName="Calibri" size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{pago2}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["$" + $F{pago2}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="325" y="0" width="66" height="19" uuid="d544cefb-bce7-41af-8a09-5c64fbe7e12b"/>
+				<reportElement x="240" y="0" width="66" height="19" uuid="d544cefb-bce7-41af-8a09-5c64fbe7e12b"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font fontName="Calibri" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{promedio}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="450" y="0" width="79" height="19" uuid="1fcff9b3-fc96-4c1c-ad0f-07df7a2e3ce6"/>
+				<reportElement x="337" y="0" width="79" height="19" uuid="1fcff9b3-fc96-4c1c-ad0f-07df7a2e3ce6"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font fontName="Calibri" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{horasServicio}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="547" y="2" width="126" height="17" uuid="6564049f-fd9b-429d-8d98-79e2ebeb3182"/>
+				<reportElement x="434" y="2" width="126" height="17" uuid="6564049f-fd9b-429d-8d98-79e2ebeb3182"/>
 				<textElement verticalAlignment="Top">
 					<font fontName="Calibri" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{tipoServicio}.toUpperCase()]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00">
-				<reportElement x="691" y="1" width="69" height="17" uuid="142d2fa1-bc8d-4cc0-b475-a02584f6ee70"/>
+				<reportElement x="578" y="1" width="69" height="17" uuid="142d2fa1-bc8d-4cc0-b475-a02584f6ee70"/>
 				<textElement verticalAlignment="Top">
 					<font fontName="Calibri" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{descuento}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement x="141" y="0" width="6" height="19" uuid="4ff964d9-76a6-4c19-9400-0863806866fa"/>
+			<textField pattern="#,##0.00">
+				<reportElement x="678" y="2" width="69" height="17" uuid="37193e35-0c06-434b-a107-8fd1627ff10f"/>
 				<textElement verticalAlignment="Top">
 					<font fontName="Calibri" size="9"/>
 				</textElement>
-				<text><![CDATA[$]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="221" y="0" width="6" height="19" uuid="3038e800-51d5-4b3f-b80e-20cf6295c567"/>
-				<textElement verticalAlignment="Top">
-					<font fontName="Calibri" size="9"/>
-				</textElement>
-				<text><![CDATA[$]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="685" y="0" width="6" height="19" uuid="752173de-9e85-485f-8ba3-a02835b4116d"/>
-				<textElement verticalAlignment="Top">
-					<font fontName="Calibri" size="9"/>
-				</textElement>
-				<text><![CDATA[$]]></text>
-			</staticText>
+				<textFieldExpression><![CDATA["$" + $F{ajusteBecaSemestral}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<pageFooter>

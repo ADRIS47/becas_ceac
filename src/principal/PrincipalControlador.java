@@ -4162,6 +4162,10 @@ public class PrincipalControlador {
                 //creaReporteDirectamente("Reporte_general.jasper");
                 creaReporteGeneral();
                 break;
+                
+            case 2:
+                creaReporteControlSemestral();
+                break;
             
             //Reporte Individual
             case 4:
@@ -4261,6 +4265,10 @@ public class PrincipalControlador {
         }
     }
 
+    private void creaReporteControlSemestral() {
+        
+    }
+    
     /**
      * Genera el reporte general del becario que ha sido buscado
      */

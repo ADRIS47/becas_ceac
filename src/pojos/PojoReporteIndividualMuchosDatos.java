@@ -18,6 +18,7 @@ public class PojoReporteIndividualMuchosDatos {
     int horasServicio;
     String tipoServicio;
     int descuento;
+    double ajusteBecaSemestral;
 
     public String getSemestre() {
         return semestre;
@@ -73,6 +74,14 @@ public class PojoReporteIndividualMuchosDatos {
 
     public void setDescuento(int descuento) {
         this.descuento = descuento;
+    }
+
+    public double getAjusteBecaSemestral() {
+        return ajusteBecaSemestral;
+    }
+
+    public void setAjusteBecaSemestral(double ajusteBecaSemestral) {
+        this.ajusteBecaSemestral = ajusteBecaSemestral;
     }
     
 }

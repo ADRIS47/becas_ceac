@@ -137,7 +137,7 @@ public class HistorialIndividual
                 if(pago1)
                     valor = pagoSemestral / 2;
                 else
-                    valor = 0;
+                    valor = 0F;
                 break;
             case "pago2":
                 boolean pago2 = lstMuchosDatos.get(contador).getPago2();
@@ -145,7 +145,7 @@ public class HistorialIndividual
                 if(pago2)
                     valor = pagoSemestral / 2;
                 else
-                    valor = 0;
+                    valor = 0F;
                 break;
             case "promedio":
                 valor = lstMuchosDatos.get(contador).getPromedio();
@@ -161,6 +161,12 @@ public class HistorialIndividual
                 break;
             case "nombreCompleto":
                 valor = lstDatosUnicos.get(0).getaPaterno() + " " + lstDatosUnicos.get(0).getaMaterno() + " " + lstDatosUnicos.get(0).getNombre();
+                break;
+            case "ajusteBecaTotal":
+                valor = lstDatosUnicos.get(0).getAjusteBecaTotal();
+                break;
+            case "ajusteBecaSemestral":
+                valor = lstMuchosDatos.get(contador).getAjusteBecaSemestral();
                 break;
         }
         

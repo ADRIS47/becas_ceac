@@ -32,6 +32,7 @@ public class PojoReporteIndividual {
     float saldoAcumulado;
     int servicioAcumulado;
     int descuentoAcumulado;
+    double ajusteBecaTotal;
 
     public long getIdBecario() {
         return idBecario;
@@ -185,4 +186,11 @@ public class PojoReporteIndividual {
         this.descuentoAcumulado = descuentoAcumulado;
     }
     
+    public double getAjusteBecaTotal() {
+        return ajusteBecaTotal;
+    }
+
+    public void setAjusteBecaTotal(double ajusteBecaTotal) {
+        this.ajusteBecaTotal = ajusteBecaTotal;
+    }
 }

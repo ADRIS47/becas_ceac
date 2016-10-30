@@ -6866,3 +6866,37 @@ Verifique su conexion e intentelo de nuevo
 28/10/2016;22:35:49;Nombre de categoria no encontrado
 28/10/2016;22:35:49;Nombre de categoria no encontrado
 28/10/2016;22:35:49;Nombre de categoria no encontrado
+29/10/2016;17:40:16;SQLError: Error
+29/10/2016;17:40:16;ERROR: Code0
+29/10/2016;17:40:16;Message: No se pudo conectar a la base de datos.
+Verifique su conexion e intentelo de nuevo
+29/10/2016;17:40:20;SQLError: Error
+29/10/2016;17:40:20;ERROR: Code0
+29/10/2016;17:40:20;Message: No se pudo conectar a la base de datos.
+Verifique su conexion e intentelo de nuevo
+29/10/2016;17:40:49;SQLError: Error
+29/10/2016;17:40:49;ERROR: Code0
+29/10/2016;17:40:49;Message: No se pudo conectar a la base de datos.
+Verifique su conexion e intentelo de nuevo
+29/10/2016;17:41:39;SQLError: Error
+29/10/2016;17:41:39;ERROR: Code0
+29/10/2016;17:41:39;Message: No se pudo conectar a la base de datos.
+Verifique su conexion e intentelo de nuevo
+29/10/2016;17:41:55;No se pudo conectar a la Base de datos
+29/10/2016;17:42:38;SQLError: Error
+29/10/2016;17:42:38;ERROR: Code0
+29/10/2016;17:42:38;Message: No se pudo conectar a la base de datos.
+Verifique su conexion e intentelo de nuevo
+29/10/2016;17:42:57;SQLError: Error
+29/10/2016;17:42:57;ERROR: Code0
+29/10/2016;17:42:57;Message: No se pudo conectar a la base de datos.
+Verifique su conexion e intentelo de nuevo
+29/10/2016;17:43:5;SQLError: Error
+29/10/2016;17:43:5;ERROR: Code0
+29/10/2016;17:43:5;Message: No se pudo conectar a la base de datos.
+Verifique su conexion e intentelo de nuevo
+29/10/2016;17:43:29;SQLError: Error
+29/10/2016;17:43:29;ERROR: Code0
+29/10/2016;17:43:29;Message: No se pudo conectar a la base de datos.
+Verifique su conexion e intentelo de nuevo
+29/10/2016;18:0:15;No se pudo copiar el archivo DEV-056\foto-DEV-056.jpg    /home/sergio/SIBEC/becarios/DEV-056\foto-DEV-056.jpg

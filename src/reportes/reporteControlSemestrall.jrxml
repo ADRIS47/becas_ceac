@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="historial_individual" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="764" leftMargin="14" rightMargin="14" topMargin="14" bottomMargin="14" uuid="d954569f-a58e-4911-a658-4a86437608ae">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="historial_individual" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="764" leftMargin="14" rightMargin="14" topMargin="14" bottomMargin="14" uuid="d954569f-a58e-4911-a658-4a86437608ae">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -34,6 +34,8 @@
 	<field name="descuento" class="java.lang.String"/>
 	<field name="nombreCompleto" class="java.lang.String"/>
 	<field name="pago2" class="java.lang.String"/>
+	<field name="ajusteBecaTotal" class="java.lang.String"/>
+	<field name="ajusteBecaSemestral" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -214,7 +216,9 @@
 			</textField>
 			<staticText>
 				<reportElement x="562" y="151" width="119" height="20" uuid="5e8da1d8-3eef-440c-b359-12fc912c4594"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[BECA SEMESTRAL: $]]></text>
 			</staticText>
 			<textField pattern="#,##0.00">
@@ -286,35 +290,35 @@
 				<text><![CDATA[PAGO 1]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="229" y="199" width="49" height="20" uuid="12877e7c-fa70-481f-a498-2704c77bd5f6"/>
+				<reportElement x="205" y="199" width="49" height="20" uuid="12877e7c-fa70-481f-a498-2704c77bd5f6"/>
 				<textElement verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[PAGO 2]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="325" y="199" width="66" height="20" uuid="3be3e5f1-9f74-4e3e-91d8-3282d9bf9983"/>
+				<reportElement x="266" y="199" width="66" height="20" uuid="3be3e5f1-9f74-4e3e-91d8-3282d9bf9983"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[PROMEDIO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="451" y="199" width="80" height="20" uuid="6138b0ac-3ccd-4609-bd9f-da6b86640cd8"/>
+				<reportElement x="347" y="199" width="80" height="20" uuid="6138b0ac-3ccd-4609-bd9f-da6b86640cd8"/>
 				<textElement verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[HRS. SERVICIO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="547" y="199" width="126" height="20" uuid="d3b0374f-80af-4471-b760-5ae4281734d1"/>
+				<reportElement x="443" y="199" width="126" height="20" uuid="d3b0374f-80af-4471-b760-5ae4281734d1"/>
 				<textElement verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[TIPO DE SERVICIO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="691" y="199" width="69" height="20" uuid="d1b32489-39b3-4800-90a3-43ac6565a498"/>
+				<reportElement x="578" y="199" width="69" height="20" uuid="d1b32489-39b3-4800-90a3-43ac6565a498"/>
 				<textElement verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
@@ -323,44 +327,68 @@
 			<line>
 				<reportElement x="5" y="221" width="758" height="1" uuid="23d4fbea-0f73-4464-83c7-f17e913f979a"/>
 			</line>
+			<staticText>
+				<reportElement x="542" y="170" width="139" height="20" uuid="ac29ee81-6a9c-4263-a75a-99e2165ae72b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AJUSTE DE BECA TOTAL: $]]></text>
+			</staticText>
+			<textField pattern="#,##0.00">
+				<reportElement x="685" y="170" width="75" height="20" uuid="ae9cb886-47ff-4025-968e-a0b0a5f76714"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ajusteBecaTotal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="658" y="199" width="95" height="20" uuid="aecca9cc-ab16-4d59-859c-5db6cfd03842"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AJUSTE DE BECA]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="22" splitType="Stretch">
 			<textField pattern="#,##0.00">
-				<reportElement x="10" y="0" width="106" height="20" uuid="4ea41850-8666-45ba-9cdb-bc11a4e8ec9e"/>
-				<textElement verticalAlignment="Middle"/>
+				<reportElement x="10" y="0" width="125" height="20" uuid="4ea41850-8666-45ba-9cdb-bc11a4e8ec9e"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{semestre}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00">
 				<reportElement x="148" y="0" width="49" height="20" uuid="d7de8e7a-c23f-41bf-9a94-e4841c1d5a76"/>
-				<textElement verticalAlignment="Middle"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{pago1}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00">
-				<reportElement x="229" y="0" width="49" height="20" uuid="aaeef7b5-3c43-4c0f-9bce-24c42f6f050e"/>
-				<textElement verticalAlignment="Middle"/>
+				<reportElement x="205" y="0" width="49" height="20" uuid="aaeef7b5-3c43-4c0f-9bce-24c42f6f050e"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{pago2}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="325" y="0" width="66" height="20" uuid="d544cefb-bce7-41af-8a09-5c64fbe7e12b"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<reportElement x="266" y="0" width="66" height="20" uuid="d544cefb-bce7-41af-8a09-5c64fbe7e12b"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{promedio}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="450" y="0" width="79" height="20" uuid="1fcff9b3-fc96-4c1c-ad0f-07df7a2e3ce6"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<reportElement x="346" y="0" width="79" height="20" uuid="1fcff9b3-fc96-4c1c-ad0f-07df7a2e3ce6"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{horasServicio}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="547" y="2" width="126" height="20" uuid="6564049f-fd9b-429d-8d98-79e2ebeb3182"/>
-				<textElement verticalAlignment="Middle"/>
+				<reportElement x="443" y="2" width="126" height="20" uuid="6564049f-fd9b-429d-8d98-79e2ebeb3182"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{tipoServicio}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="691" y="2" width="69" height="20" uuid="142d2fa1-bc8d-4cc0-b475-a02584f6ee70"/>
-				<textElement verticalAlignment="Middle"/>
+				<reportElement x="578" y="2" width="69" height="20" uuid="142d2fa1-bc8d-4cc0-b475-a02584f6ee70"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{descuento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="661" y="2" width="100" height="20" uuid="a7ecfb09-27b7-438e-ab8b-601a744c951a"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA["$" + $F{ajusteBecaSemestral}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
