@@ -338,13 +338,9 @@ public class VistaCobranza extends javax.swing.JPanel {
         TxtSemSC18.setBorder(null);
         TxtSemSC18.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC18.setEnabled(false);
-        TxtSemSC18.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtSemSC18ActionPerformed(evt);
-            }
-        });
         jpnlListaSemestreCargos.add(TxtSemSC18);
 
+        TxtSemSC19.setEditable(false);
         TxtSemSC19.setBackground(new java.awt.Color(204, 255, 204));
         TxtSemSC19.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC19.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -363,7 +359,7 @@ public class VistaCobranza extends javax.swing.JPanel {
         TxtSemSC20.setBackground(new java.awt.Color(204, 255, 204));
         TxtSemSC20.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC20.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemSC20.setText("Trasnf 2 Semestre 5");
+        TxtSemSC20.setText("Transf 2 Semestre 5");
         TxtSemSC20.setBorder(null);
         TxtSemSC20.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC20.setEnabled(false);
@@ -375,10 +371,10 @@ public class VistaCobranza extends javax.swing.JPanel {
         jpnlListaSemestreCargos.add(TxtSemSC20);
 
         TxtSemSC21.setEditable(false);
-        TxtSemSC21.setBackground(new java.awt.Color(204, 255, 204));
+        TxtSemSC21.setBackground(new java.awt.Color(204, 204, 255));
         TxtSemSC21.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC21.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemSC21.setText("Trasnf 1 Semestre 6");
+        TxtSemSC21.setText("Transf 1 Semestre 6");
         TxtSemSC21.setBorder(null);
         TxtSemSC21.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC21.setEnabled(false);
@@ -390,10 +386,10 @@ public class VistaCobranza extends javax.swing.JPanel {
         jpnlListaSemestreCargos.add(TxtSemSC21);
 
         TxtSemSC23.setEditable(false);
-        TxtSemSC23.setBackground(new java.awt.Color(204, 255, 204));
+        TxtSemSC23.setBackground(new java.awt.Color(204, 204, 255));
         TxtSemSC23.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC23.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemSC23.setText("Trasnf 2 Semestre 6");
+        TxtSemSC23.setText("Transf 2 Semestre 6");
         TxtSemSC23.setBorder(null);
         TxtSemSC23.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC23.setEnabled(false);
@@ -408,7 +404,7 @@ public class VistaCobranza extends javax.swing.JPanel {
         TxtSemSC24.setBackground(new java.awt.Color(204, 255, 204));
         TxtSemSC24.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC24.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemSC24.setText("Trasnf 1 Semestre 7");
+        TxtSemSC24.setText("Transf 1 Semestre 7");
         TxtSemSC24.setBorder(null);
         TxtSemSC24.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC24.setEnabled(false);
@@ -423,7 +419,7 @@ public class VistaCobranza extends javax.swing.JPanel {
         TxtSemSC25.setBackground(new java.awt.Color(204, 255, 204));
         TxtSemSC25.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC25.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemSC25.setText("Trasnf 2 Semestre 7");
+        TxtSemSC25.setText("Transf 2 Semestre 7");
         TxtSemSC25.setBorder(null);
         TxtSemSC25.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC25.setEnabled(false);
@@ -435,10 +431,10 @@ public class VistaCobranza extends javax.swing.JPanel {
         jpnlListaSemestreCargos.add(TxtSemSC25);
 
         TxtSemSC26.setEditable(false);
-        TxtSemSC26.setBackground(new java.awt.Color(204, 255, 204));
+        TxtSemSC26.setBackground(new java.awt.Color(204, 204, 255));
         TxtSemSC26.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC26.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemSC26.setText("Trasnf 1 Semestre 8");
+        TxtSemSC26.setText("Transf 1 Semestre 8");
         TxtSemSC26.setBorder(null);
         TxtSemSC26.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC26.setEnabled(false);
@@ -450,10 +446,10 @@ public class VistaCobranza extends javax.swing.JPanel {
         jpnlListaSemestreCargos.add(TxtSemSC26);
 
         TxtSemSC27.setEditable(false);
-        TxtSemSC27.setBackground(new java.awt.Color(204, 255, 204));
+        TxtSemSC27.setBackground(new java.awt.Color(204, 204, 255));
         TxtSemSC27.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC27.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemSC27.setText("Trasnf 2 Semestre 8");
+        TxtSemSC27.setText("Transf 2 Semestre 8");
         TxtSemSC27.setBorder(null);
         TxtSemSC27.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC27.setEnabled(false);
@@ -468,7 +464,7 @@ public class VistaCobranza extends javax.swing.JPanel {
         TxtSemSC28.setBackground(new java.awt.Color(204, 255, 204));
         TxtSemSC28.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC28.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemSC28.setText("Trasnf 1 Semestre 9");
+        TxtSemSC28.setText("Transf 1 Semestre 9");
         TxtSemSC28.setBorder(null);
         TxtSemSC28.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC28.setEnabled(false);
@@ -483,7 +479,7 @@ public class VistaCobranza extends javax.swing.JPanel {
         TxtSemSC29.setBackground(new java.awt.Color(204, 255, 204));
         TxtSemSC29.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC29.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemSC29.setText("Trasnf 2 Semestre 9");
+        TxtSemSC29.setText("Transf 2 Semestre 9");
         TxtSemSC29.setBorder(null);
         TxtSemSC29.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC29.setEnabled(false);
@@ -495,10 +491,10 @@ public class VistaCobranza extends javax.swing.JPanel {
         jpnlListaSemestreCargos.add(TxtSemSC29);
 
         TxtSemSC30.setEditable(false);
-        TxtSemSC30.setBackground(new java.awt.Color(204, 255, 204));
+        TxtSemSC30.setBackground(new java.awt.Color(204, 204, 255));
         TxtSemSC30.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC30.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemSC30.setText("Trasnf 1 Semestre 10");
+        TxtSemSC30.setText("Transf 1 Semestre 10");
         TxtSemSC30.setBorder(null);
         TxtSemSC30.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC30.setEnabled(false);
@@ -510,10 +506,10 @@ public class VistaCobranza extends javax.swing.JPanel {
         jpnlListaSemestreCargos.add(TxtSemSC30);
 
         TxtSemSC31.setEditable(false);
-        TxtSemSC31.setBackground(new java.awt.Color(204, 255, 204));
+        TxtSemSC31.setBackground(new java.awt.Color(204, 204, 255));
         TxtSemSC31.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC31.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemSC31.setText("Trasnf 2 Semestre 10");
+        TxtSemSC31.setText("Transf 2 Semestre 10");
         TxtSemSC31.setBorder(null);
         TxtSemSC31.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC31.setEnabled(false);
@@ -528,7 +524,7 @@ public class VistaCobranza extends javax.swing.JPanel {
         TxtSemSC32.setBackground(new java.awt.Color(204, 255, 204));
         TxtSemSC32.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC32.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemSC32.setText("Trasnf 1 Semestre 11");
+        TxtSemSC32.setText("Transf 1 Semestre 11");
         TxtSemSC32.setBorder(null);
         TxtSemSC32.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC32.setEnabled(false);
@@ -543,7 +539,7 @@ public class VistaCobranza extends javax.swing.JPanel {
         TxtSemSC33.setBackground(new java.awt.Color(204, 255, 204));
         TxtSemSC33.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC33.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemSC33.setText("Trasnf 2 Semestre 11");
+        TxtSemSC33.setText("Transf 2 Semestre 11");
         TxtSemSC33.setBorder(null);
         TxtSemSC33.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC33.setEnabled(false);
@@ -555,10 +551,10 @@ public class VistaCobranza extends javax.swing.JPanel {
         jpnlListaSemestreCargos.add(TxtSemSC33);
 
         TxtSemSC34.setEditable(false);
-        TxtSemSC34.setBackground(new java.awt.Color(204, 255, 204));
+        TxtSemSC34.setBackground(new java.awt.Color(204, 204, 255));
         TxtSemSC34.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC34.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemSC34.setText("Trasnf 1 Semestre 12");
+        TxtSemSC34.setText("Transf 1 Semestre 12");
         TxtSemSC34.setBorder(null);
         TxtSemSC34.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC34.setEnabled(false);
@@ -570,10 +566,10 @@ public class VistaCobranza extends javax.swing.JPanel {
         jpnlListaSemestreCargos.add(TxtSemSC34);
 
         TxtSemSC35.setEditable(false);
-        TxtSemSC35.setBackground(new java.awt.Color(204, 255, 204));
+        TxtSemSC35.setBackground(new java.awt.Color(204, 204, 255));
         TxtSemSC35.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtSemSC35.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtSemSC35.setText("Trasnf 2 Semestre 12");
+        TxtSemSC35.setText("Transf 2 Semestre 12");
         TxtSemSC35.setBorder(null);
         TxtSemSC35.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         TxtSemSC35.setEnabled(false);
@@ -587,29 +583,77 @@ public class VistaCobranza extends javax.swing.JPanel {
         jpnlListaDocumentos5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jpnlListaDocumentos5.setMaximumSize(new java.awt.Dimension(141, 174));
         jpnlListaDocumentos5.setLayout(new java.awt.GridLayout(24, 1));
+
+        TxtCargo11.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo11);
+
+        TxtCargo21.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo21);
+
+        TxtCargo12.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo12);
+
+        TxtCargo22.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo22);
+
+        TxtCargo13.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo13);
+
+        TxtCargo23.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo23);
+
+        TxtCargo14.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo14);
+
+        TxtCargo24.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo24);
+
+        TxtCargo15.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo15);
+
+        TxtCargo25.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo25);
+
+        TxtCargo16.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo16);
+
+        TxtCargo26.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo26);
+
+        TxtCargo17.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo17);
+
+        TxtCargo27.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo27);
+
+        TxtCargo18.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo18);
+
+        TxtCargo28.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo28);
+
+        TxtCargo19.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo19);
+
+        TxtCargo29.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo29);
+
+        TxtCargo110.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo110);
+
+        TxtCargo210.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo210);
+
+        TxtCargo111.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo111);
+
+        TxtCargo211.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo211);
+
+        TxtCargo112.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo112);
+
+        TxtCargo212.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo212);
 
         javax.swing.GroupLayout PnlCargosLayout = new javax.swing.GroupLayout(PnlCargos);
@@ -772,7 +816,7 @@ public class VistaCobranza extends javax.swing.JPanel {
                 .addGap(22, 22, 22)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(pnlAccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(pnlAccion, javax.swing.GroupLayout.DEFAULT_SIZE, 509, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -835,7 +879,17 @@ public class VistaCobranza extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(PnlInfoBecario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(348, 348, 348)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jpnlAreaBotones, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(45, 45, 45)
                 .addComponent(jLabel3)
                 .addGap(60, 60, 60)
                 .addComponent(txtTotalCargos, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -844,16 +898,6 @@ public class VistaCobranza extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(txtTotalAbonos, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(PnlInfoBecario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(360, 360, 360)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jpnlAreaBotones, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -872,7 +916,7 @@ public class VistaCobranza extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtTotalCargos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -882,8 +926,8 @@ public class VistaCobranza extends javax.swing.JPanel {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(101, 101, 101)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(49, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(62, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -922,10 +966,6 @@ public class VistaCobranza extends javax.swing.JPanel {
     private void TxtSemSC17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtSemSC17ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtSemSC17ActionPerformed
-
-    private void TxtSemSC18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtSemSC18ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtSemSC18ActionPerformed
 
     private void TxtSemSC19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtSemSC19ActionPerformed
         // TODO add your handling code here:
@@ -1013,7 +1053,6 @@ public class VistaCobranza extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    protected javax.swing.JButton BtnAddDescripcionCatalogo;
     protected javax.swing.JButton BtnAddDescripcionCatalogo1;
     protected javax.swing.JPanel PnlCargos;
     private javax.swing.JPanel PnlInfBecarioI;

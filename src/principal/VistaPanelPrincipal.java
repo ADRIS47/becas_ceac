@@ -107,6 +107,11 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
         btnCobranza.setMinimumSize(new java.awt.Dimension(29, 29));
         btnCobranza.setPreferredSize(new java.awt.Dimension(29, 29));
         btnCobranza.setVerifyInputWhenFocusTarget(false);
+        btnCobranza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCobranzaActionPerformed(evt);
+            }
+        });
 
         btnReportes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnReportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/reportes.png"))); // NOI18N
@@ -222,6 +227,10 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
     private void btnReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportesActionPerformed
         controlador.creaVistaReportes();
     }//GEN-LAST:event_btnReportesActionPerformed
+
+    private void btnCobranzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCobranzaActionPerformed
+        controlador.creaVistaCobranza();
+    }//GEN-LAST:event_btnCobranzaActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

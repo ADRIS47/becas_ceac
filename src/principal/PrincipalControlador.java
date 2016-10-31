@@ -512,16 +512,24 @@ public class PrincipalControlador {
         if(vistaCobranza != null)
             vistaCobranza = null;
         
-        vistaCobranza = new VistaCobranza();
-        vistaCobranza.setControlador(this);
-        
-        String folio = vistaRegistro.txtFolio.getText();
-        llenaCamposVistaCobranza(folio);
-        
-        //
-        addListenerTblCobranza();
-        
-        creaPantalla(vistaCobranza);
+        //Si no se ha abierto la pantalla vistaRegistro
+        if (vistaRegistro == null) {
+            JOptionPane.showMessageDialog(vistaKardex, "Debes de seleccionar un becario");
+            creaVistaBusqueda();
+        } else if (vistaRegistro.txtFolio.getText().equals("")) {
+            JOptionPane.showMessageDialog(vistaKardex, "Debes de seleccionar un becario");
+            creaVistaBusqueda();
+        } //Si ya existe un becario en vistaRegistro
+        else{
+            vistaCobranza = new VistaCobranza();
+            vistaCobranza.setControlador(this);
+
+            String folio = vistaRegistro.txtFolio.getText();
+            llenaCamposVistaCobranza(folio);
+            addListenerTblCobranza();
+
+            creaPantalla(vistaCobranza);
+        }
         
         helper.cursorNormal(vista);
     }
