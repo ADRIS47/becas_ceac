@@ -76,53 +76,53 @@ public class VistaCobranza extends javax.swing.JPanel {
         TxtSemSC35 = new javax.swing.JTextField();
         jpnlListaDocumentos5 = new javax.swing.JPanel();
         TxtCargo11 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnPago1 = new javax.swing.JButton();
         TxtCargo21 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        btnPago2 = new javax.swing.JButton();
         TxtCargo12 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        btnPago3 = new javax.swing.JButton();
         TxtCargo22 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
+        btnPago4 = new javax.swing.JButton();
         TxtCargo13 = new javax.swing.JTextField();
-        jButton5 = new javax.swing.JButton();
+        btnPago5 = new javax.swing.JButton();
         TxtCargo23 = new javax.swing.JTextField();
-        jButton6 = new javax.swing.JButton();
+        btnPago6 = new javax.swing.JButton();
         TxtCargo14 = new javax.swing.JTextField();
-        jButton7 = new javax.swing.JButton();
+        btnPago7 = new javax.swing.JButton();
         TxtCargo24 = new javax.swing.JTextField();
-        jButton8 = new javax.swing.JButton();
+        btnPago8 = new javax.swing.JButton();
         TxtCargo15 = new javax.swing.JTextField();
-        jButton9 = new javax.swing.JButton();
+        btnPago9 = new javax.swing.JButton();
         TxtCargo25 = new javax.swing.JTextField();
-        jButton10 = new javax.swing.JButton();
+        btnPago10 = new javax.swing.JButton();
         TxtCargo16 = new javax.swing.JTextField();
-        jButton11 = new javax.swing.JButton();
+        btnPago11 = new javax.swing.JButton();
         TxtCargo26 = new javax.swing.JTextField();
-        jButton12 = new javax.swing.JButton();
+        btnPago12 = new javax.swing.JButton();
         TxtCargo17 = new javax.swing.JTextField();
-        jButton13 = new javax.swing.JButton();
+        btnPago13 = new javax.swing.JButton();
         TxtCargo27 = new javax.swing.JTextField();
-        jButton14 = new javax.swing.JButton();
+        btnPago14 = new javax.swing.JButton();
         TxtCargo18 = new javax.swing.JTextField();
-        jButton15 = new javax.swing.JButton();
+        btnPago15 = new javax.swing.JButton();
         TxtCargo28 = new javax.swing.JTextField();
-        jButton16 = new javax.swing.JButton();
+        btnPago16 = new javax.swing.JButton();
         TxtCargo19 = new javax.swing.JTextField();
-        jButton17 = new javax.swing.JButton();
+        btnPago17 = new javax.swing.JButton();
         TxtCargo29 = new javax.swing.JTextField();
-        jButton18 = new javax.swing.JButton();
+        btnPago18 = new javax.swing.JButton();
         TxtCargo110 = new javax.swing.JTextField();
-        jButton19 = new javax.swing.JButton();
+        btnPago19 = new javax.swing.JButton();
         TxtCargo210 = new javax.swing.JTextField();
-        jButton20 = new javax.swing.JButton();
+        btnPago20 = new javax.swing.JButton();
         TxtCargo111 = new javax.swing.JTextField();
-        jButton21 = new javax.swing.JButton();
+        btnPago21 = new javax.swing.JButton();
         TxtCargo211 = new javax.swing.JTextField();
-        jButton22 = new javax.swing.JButton();
+        btnPago22 = new javax.swing.JButton();
         TxtCargo112 = new javax.swing.JTextField();
-        jButton23 = new javax.swing.JButton();
+        btnPago23 = new javax.swing.JButton();
         TxtCargo212 = new javax.swing.JTextField();
-        jButton24 = new javax.swing.JButton();
+        btnPago24 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblCobranza = new javax.swing.JTable();
@@ -629,158 +629,218 @@ public class VistaCobranza extends javax.swing.JPanel {
         TxtCargo11.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo11);
 
-        jButton1.setEnabled(false);
-        jpnlListaDocumentos5.add(jButton1);
+        btnPago1.setEnabled(false);
+        jpnlListaDocumentos5.add(btnPago1);
 
         TxtCargo21.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo21);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
-        jButton2.setEnabled(false);
-        jpnlListaDocumentos5.add(jButton2);
+        btnPago2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
+        btnPago2.setEnabled(false);
+        btnPago2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPago2ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos5.add(btnPago2);
 
         TxtCargo12.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo12);
 
-        jButton3.setEnabled(false);
-        jpnlListaDocumentos5.add(jButton3);
+        btnPago3.setEnabled(false);
+        jpnlListaDocumentos5.add(btnPago3);
 
         TxtCargo22.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo22);
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
-        jButton4.setEnabled(false);
-        jpnlListaDocumentos5.add(jButton4);
+        btnPago4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
+        btnPago4.setEnabled(false);
+        btnPago4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPago4ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos5.add(btnPago4);
 
         TxtCargo13.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo13);
 
-        jButton5.setEnabled(false);
-        jpnlListaDocumentos5.add(jButton5);
+        btnPago5.setEnabled(false);
+        jpnlListaDocumentos5.add(btnPago5);
 
         TxtCargo23.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo23);
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
-        jButton6.setEnabled(false);
-        jpnlListaDocumentos5.add(jButton6);
+        btnPago6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
+        btnPago6.setEnabled(false);
+        btnPago6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPago6ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos5.add(btnPago6);
 
         TxtCargo14.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo14);
 
-        jButton7.setEnabled(false);
-        jpnlListaDocumentos5.add(jButton7);
+        btnPago7.setEnabled(false);
+        jpnlListaDocumentos5.add(btnPago7);
 
         TxtCargo24.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo24);
 
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
-        jButton8.setEnabled(false);
-        jpnlListaDocumentos5.add(jButton8);
+        btnPago8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
+        btnPago8.setEnabled(false);
+        btnPago8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPago8ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos5.add(btnPago8);
 
         TxtCargo15.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo15);
 
-        jButton9.setEnabled(false);
-        jpnlListaDocumentos5.add(jButton9);
+        btnPago9.setEnabled(false);
+        jpnlListaDocumentos5.add(btnPago9);
 
         TxtCargo25.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo25);
 
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
-        jButton10.setEnabled(false);
-        jpnlListaDocumentos5.add(jButton10);
+        btnPago10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
+        btnPago10.setEnabled(false);
+        btnPago10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPago10ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos5.add(btnPago10);
 
         TxtCargo16.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo16);
 
-        jButton11.setEnabled(false);
-        jpnlListaDocumentos5.add(jButton11);
+        btnPago11.setEnabled(false);
+        jpnlListaDocumentos5.add(btnPago11);
 
         TxtCargo26.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo26);
 
-        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
-        jButton12.setEnabled(false);
-        jpnlListaDocumentos5.add(jButton12);
+        btnPago12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
+        btnPago12.setEnabled(false);
+        btnPago12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPago12ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos5.add(btnPago12);
 
         TxtCargo17.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo17);
 
-        jButton13.setEnabled(false);
-        jpnlListaDocumentos5.add(jButton13);
+        btnPago13.setEnabled(false);
+        jpnlListaDocumentos5.add(btnPago13);
 
         TxtCargo27.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo27);
 
-        jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
-        jButton14.setEnabled(false);
-        jpnlListaDocumentos5.add(jButton14);
+        btnPago14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
+        btnPago14.setEnabled(false);
+        btnPago14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPago14ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos5.add(btnPago14);
 
         TxtCargo18.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo18);
 
-        jButton15.setEnabled(false);
-        jpnlListaDocumentos5.add(jButton15);
+        btnPago15.setEnabled(false);
+        jpnlListaDocumentos5.add(btnPago15);
 
         TxtCargo28.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo28);
 
-        jButton16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
-        jButton16.setEnabled(false);
-        jpnlListaDocumentos5.add(jButton16);
+        btnPago16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
+        btnPago16.setEnabled(false);
+        btnPago16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPago16ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos5.add(btnPago16);
 
         TxtCargo19.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo19);
 
-        jButton17.setEnabled(false);
-        jpnlListaDocumentos5.add(jButton17);
+        btnPago17.setEnabled(false);
+        jpnlListaDocumentos5.add(btnPago17);
 
         TxtCargo29.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo29);
 
-        jButton18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
-        jButton18.setEnabled(false);
-        jpnlListaDocumentos5.add(jButton18);
+        btnPago18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
+        btnPago18.setEnabled(false);
+        btnPago18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPago18ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos5.add(btnPago18);
 
         TxtCargo110.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo110);
 
-        jButton19.setEnabled(false);
-        jpnlListaDocumentos5.add(jButton19);
+        btnPago19.setEnabled(false);
+        jpnlListaDocumentos5.add(btnPago19);
 
         TxtCargo210.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo210);
 
-        jButton20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
-        jButton20.setEnabled(false);
-        jpnlListaDocumentos5.add(jButton20);
+        btnPago20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
+        btnPago20.setEnabled(false);
+        btnPago20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPago20ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos5.add(btnPago20);
 
         TxtCargo111.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo111);
 
-        jButton21.setEnabled(false);
-        jpnlListaDocumentos5.add(jButton21);
+        btnPago21.setEnabled(false);
+        jpnlListaDocumentos5.add(btnPago21);
 
         TxtCargo211.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo211);
 
-        jButton22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
-        jButton22.setEnabled(false);
-        jpnlListaDocumentos5.add(jButton22);
+        btnPago22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
+        btnPago22.setEnabled(false);
+        btnPago22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPago22ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos5.add(btnPago22);
 
         TxtCargo112.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo112);
 
-        jButton23.setEnabled(false);
-        jpnlListaDocumentos5.add(jButton23);
+        btnPago23.setEnabled(false);
+        jpnlListaDocumentos5.add(btnPago23);
 
         TxtCargo212.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo212);
 
-        jButton24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
-        jButton24.setEnabled(false);
-        jpnlListaDocumentos5.add(jButton24);
+        btnPago24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
+        btnPago24.setEnabled(false);
+        btnPago24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPago24ActionPerformed(evt);
+            }
+        });
+        jpnlListaDocumentos5.add(btnPago24);
 
         jPanel3.add(jpnlListaDocumentos5);
 
@@ -1180,6 +1240,54 @@ public class VistaCobranza extends javax.swing.JPanel {
         controlador.updateRegistroCobranza();
     }//GEN-LAST:event_BtnAddDescripcionCatalogo1ActionPerformed
 
+    private void btnPago2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPago2ActionPerformed
+        controlador.creaDialogCobranza(1);
+    }//GEN-LAST:event_btnPago2ActionPerformed
+
+    private void btnPago4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPago4ActionPerformed
+        controlador.creaDialogCobranza(2);
+    }//GEN-LAST:event_btnPago4ActionPerformed
+
+    private void btnPago6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPago6ActionPerformed
+        controlador.creaDialogCobranza(3);
+    }//GEN-LAST:event_btnPago6ActionPerformed
+
+    private void btnPago8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPago8ActionPerformed
+        controlador.creaDialogCobranza(4);
+    }//GEN-LAST:event_btnPago8ActionPerformed
+
+    private void btnPago10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPago10ActionPerformed
+        controlador.creaDialogCobranza(5);
+    }//GEN-LAST:event_btnPago10ActionPerformed
+
+    private void btnPago12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPago12ActionPerformed
+        controlador.creaDialogCobranza(6);
+    }//GEN-LAST:event_btnPago12ActionPerformed
+
+    private void btnPago14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPago14ActionPerformed
+        controlador.creaDialogCobranza(7);
+    }//GEN-LAST:event_btnPago14ActionPerformed
+
+    private void btnPago16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPago16ActionPerformed
+        controlador.creaDialogCobranza(8);
+    }//GEN-LAST:event_btnPago16ActionPerformed
+
+    private void btnPago18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPago18ActionPerformed
+        controlador.creaDialogCobranza(9);
+    }//GEN-LAST:event_btnPago18ActionPerformed
+
+    private void btnPago20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPago20ActionPerformed
+        controlador.creaDialogCobranza(10);
+    }//GEN-LAST:event_btnPago20ActionPerformed
+
+    private void btnPago22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPago22ActionPerformed
+        controlador.creaDialogCobranza(11);
+    }//GEN-LAST:event_btnPago22ActionPerformed
+
+    private void btnPago24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPago24ActionPerformed
+        controlador.creaDialogCobranza(12);
+    }//GEN-LAST:event_btnPago24ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     protected javax.swing.JButton BtnAddDescripcionCatalogo1;
@@ -1237,31 +1345,31 @@ public class VistaCobranza extends javax.swing.JPanel {
     protected javax.swing.JButton btnAgregarFila;
     protected javax.swing.JButton btnEliminarFila;
     private javax.swing.JButton btnImprimir;
+    private javax.swing.JButton btnPago1;
+    private javax.swing.JButton btnPago10;
+    private javax.swing.JButton btnPago11;
+    private javax.swing.JButton btnPago12;
+    private javax.swing.JButton btnPago13;
+    private javax.swing.JButton btnPago14;
+    private javax.swing.JButton btnPago15;
+    private javax.swing.JButton btnPago16;
+    private javax.swing.JButton btnPago17;
+    private javax.swing.JButton btnPago18;
+    private javax.swing.JButton btnPago19;
+    private javax.swing.JButton btnPago2;
+    private javax.swing.JButton btnPago20;
+    private javax.swing.JButton btnPago21;
+    private javax.swing.JButton btnPago22;
+    private javax.swing.JButton btnPago23;
+    private javax.swing.JButton btnPago24;
+    private javax.swing.JButton btnPago3;
+    private javax.swing.JButton btnPago4;
+    private javax.swing.JButton btnPago5;
+    private javax.swing.JButton btnPago6;
+    private javax.swing.JButton btnPago7;
+    private javax.swing.JButton btnPago8;
+    private javax.swing.JButton btnPago9;
     protected javax.swing.JButton btnSalir;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton19;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton20;
-    private javax.swing.JButton jButton21;
-    private javax.swing.JButton jButton22;
-    private javax.swing.JButton jButton23;
-    private javax.swing.JButton jButton24;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

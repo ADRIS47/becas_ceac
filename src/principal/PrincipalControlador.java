@@ -5354,4 +5354,25 @@ public class PrincipalControlador {
         }
         return response;
     }
+
+    /**
+     * Genera un JDialog que muestra los datos del pago extra que se le hizo al becario
+     * @param semestre Semestre en el que se hizo el pago
+     */
+    protected void creaDialogCobranza(int semestre) {
+        DialogCobranza dialogCobranza = new DialogCobranza(vista, true);
+        Conexion conn = new Conexion();
+        Connection conexion = conn.estableceConexion();
+        
+        if(conexion == null){
+            JOptionPane.showMessageDialog(vista, "No es posible obtener la información solicitada. \n Verifique su conexión.");
+            return;
+        }
+        Becario becario = modelo.getBecarioPorFolio(conexion, vistaCobranza.txtFolio.getText());
+        List<Kardex> lstKardex = modelo.getKardexPorIdBecario(conexion, becario.getId());
+        double pagoRealizado = lstKardex.get(semestre - 1).getPago_extra();
+        dialogCobranza.txtPagoRealizado.setText("$" + pagoRealizado);
+        dialogCobranza.setVisible(true);
+        dialogCobranza.dispose();
+    }
 }
