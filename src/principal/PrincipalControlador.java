@@ -397,6 +397,9 @@ public class PrincipalControlador {
             //Se validan los semestres que deben de habilitarse
 
             llenaCamposVistaKardex(vistaRegistro.txtFolio.getText());
+            
+            //Se valida que el becario sea del programa devolucion
+            recorreJPanel(vistaKardex.PnlKardex, 7);
             creaPantalla(vistaKardex);
 
         }
@@ -1887,17 +1890,22 @@ public class PrincipalControlador {
     /**
      * Recorre todos los componentes dentro de un JPanel
      *
-     * @param clave 1: Valida si hay campos vacios, 2: Vacia los campos, 3:
-     * Asigna listeners a los JTextField de pnlKardex de vistaKardex, 4: Asigna
-     * listeners a los JtextField de pnlInformacionBancaria de VistaKardex, 5:
-     * Deshabilita los componentes que contiene un jpanel. 6: Asigna listeners
-     * para evaluar el descuento por semestre
+     * @param clave 
+     * 1: Valida si hay campos vacios, 
+     * 2: Vacia los campos, 
+     * 3: Asigna listeners a los JTextField de pnlKardex de vistaKardex, 
+     * 4: Asigna listeners a los JtextField de pnlInformacionBancaria de VistaKardex, 
+     * 5: Deshabilita los componentes que contiene un jpanel. 
+     * 6: Asigna listeners para evaluar el descuento por semestre
+     * 7: Oculta o muestra la columna "¿deuda?" en caso de que el becario sea o no
+     *      parte del programa "Cobranza"
      * @param panel Jpanel a recorrer
      * @return True si encontró campos vacios, false si no
      */
     private boolean recorreJPanel(JPanel panel, int clave) {
         Component[] componentes = panel.getComponents();
         boolean response = false;
+        int i = -1;
         switch (clave) {
             case 1:
                 for (Component componente : componentes) {
@@ -1953,7 +1961,6 @@ public class PrincipalControlador {
                 break;
 
             case 6:
-                int i = -1;
                 for (Component componente : componentes) {
                     if (i == -1) {
                         i++;
@@ -1965,8 +1972,8 @@ public class PrincipalControlador {
 
                         JCheckBox chkPlatica1 = (JCheckBox) jPanel.getComponent(5);
                         JCheckBox chkPlatica2 = (JCheckBox) jPanel.getComponent(6);
-                        JTextField txtPromedio = (JTextField) jPanel.getComponent(9);
-                        JTextField txtDescuento = (JTextField) jPanel.getComponent(10);
+                        JTextField txtPromedio = (JTextField) jPanel.getComponent(10);
+                        JTextField txtDescuento = (JTextField) jPanel.getComponent(11);
 
                         chkPlatica1.addItemListener(new EscuchadorCmbBoxCambiado(chkPlatica1, chkPlatica2,
                                 txtPromedio, txtDescuento, EscuchadorCmbBoxCambiado.DESCUENTO_BECA));
@@ -1977,6 +1984,23 @@ public class PrincipalControlador {
 
                     }
                 }
+                break;
+                case 7:
+                    if(vistaKardex.txtPrograma.getText().toUpperCase().contains("DEVOLU")){
+                       
+                        for (Component componente : componentes) {
+
+                            if (componente instanceof JPanel) {
+                                JPanel jPanel = ((JPanel) componente);
+                                
+                                if(!vistaKardex.txtPrograma.getText().toUpperCase().contains("DEVOLUC"))
+                                    jPanel.remove(9);
+                            }
+                        }
+                        vistaKardex.updateUI();
+                        vistaKardex.repaint();
+                    }
+        
                 break;
         }
         return response;
@@ -2012,8 +2036,9 @@ public class PrincipalControlador {
                 JCheckBox chkPago2 = (JCheckBox) panel.getComponent(7);
                 //JCheckBox chkPagoExtra = (JCheckBox) panel.getComponent(8);
                 JTextField txtPagoExtra = (JTextField) panel.getComponent(8);
-                JTextField txtPromedio = (JTextField) panel.getComponent(9);
-                JTextField txtDescuento = (JTextField) panel.getComponent(10);
+                JCheckBox chkDeuda = (JCheckBox) panel.getComponent(9);
+                JTextField txtPromedio = (JTextField) panel.getComponent(10);
+                JTextField txtDescuento = (JTextField) panel.getComponent(11);
 
                 llenaComboCategorias(cmbTipoServicioSocial, catTipoServicioSocial);
                 llenaComboCategorias(cmbLugarServicioSocial, catLugarServicioSocial);

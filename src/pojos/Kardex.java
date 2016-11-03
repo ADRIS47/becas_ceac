@@ -25,6 +25,7 @@ public class Kardex {
     String carta_servicio_comunitario;
     long id_becario;
     double pago_extra;
+    boolean deuda;
     int horasServicio;
     String transferencia1;
     String transferencia2;
@@ -191,6 +192,15 @@ public class Kardex {
     public void setHorasTotales(int horasTotales) {
         this.horasTotales = horasTotales;
     }
+
+    public boolean isDeuda() {
+        return deuda;
+    }
+
+    public void setDeuda(boolean deuda) {
+        this.deuda = deuda;
+    }
+    
     
     public static final String COL_ID_KARDEX = "id_kardex";
     public static final String COL_NUM_SEMESTRE = "num_semestre";
@@ -206,6 +216,7 @@ public class Kardex {
     public static final String COL_CARTA_SERVICIO_COMUNITARIO = "carta_servicio_comunitario";
     public static final String COL_ID_BECARIO = "id_becario";
     public static final String COL_PAGO_EXTRA = "pago_extra";
+    public static final String COL_DEUDA = "deuda";
     public static final String COL_HORAS_SERVICIO = "horas_servicio";
     public static final String COL_TRANSFERENCIA_1 = "transferencia1";
     public static final String COL_TRANSFERENCIA_2 = "transferencia2";
