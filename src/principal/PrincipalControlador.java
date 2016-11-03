@@ -2056,6 +2056,7 @@ public class PrincipalControlador {
                     chkPago1.setSelected(kardex.isPago_inicio_semestre());
                     chkPago2.setSelected(kardex.isPago_fin_semestre());
                     txtPagoExtra.setText(kardex.getPago_extra() + "");
+                    chkDeuda.setSelected(kardex.isDeuda());
                     txtPromedio.setText(kardex.getPromedio() + "");
                     txtDescuento.setText(kardex.getDescuento() + "%");
 
@@ -2288,11 +2289,24 @@ public class PrincipalControlador {
                             if(kardex.isPago_fin_semestre())
                                 txtSemestre.setText("$" + deposito + "");
                             else
-                                txtSemestre.setText("Sin pago" );
-                            g++;
-                        }
+                                txtSemestre.setText("Sin pago" );                                
                             
+                        }
+                    }
+                    
+                    if(componente instanceof JButton){
+                        JButton btnPagoExtra = (JButton) componente;
+                        Kardex kardex = lstKardex.get(g);
+                        
+                        if(i % 2 != 0){
+                            if(kardex.getPago_extra() > 0){
+                                btnPagoExtra.setEnabled(true);
+                            }
+                                
+                            g++;    
+                        }
                         i++;
+                        
                     }
                     if (g == (tamanio) - 1) {
                         break;
@@ -2471,11 +2485,13 @@ public class PrincipalControlador {
                         deshabilitaSemestresKardex((JPanel) componente, semestresHabilitados, contador, 5);
                     }
                     
-                    if ((componente instanceof JTextField || componente instanceof JLabel) && i < semestresHabilitados) {
+                    if ((componente instanceof JTextField || componente instanceof JLabel || componente instanceof JButton) 
+                                && i < semestresHabilitados) {
                         contador++;
                     }
 
-                    else if ((componente instanceof JTextField || componente instanceof JLabel) && i >= semestresHabilitados) {
+                    else if ((componente instanceof JTextField || componente instanceof JLabel || componente instanceof JButton) 
+                                && i >= semestresHabilitados) {
                         contador++;
                         componente.setVisible(false);
                         
@@ -3661,8 +3677,12 @@ public class PrincipalControlador {
                 JCheckBox chkPlatica2 = (JCheckBox) panel.getComponent(6);
                 JCheckBox chkPago2 = (JCheckBox) panel.getComponent(7);
                 JTextField txtPagoExtra = (JTextField) panel.getComponent(8);
-                JTextField txtPromedio = (JTextField) panel.getComponent(9);
-                JTextField txtDescuento = (JTextField) panel.getComponent(10);
+                JCheckBox chkDeuda = null;
+                if(esProgramaCobranza()){
+                    chkDeuda = (JCheckBox) panel.getComponent(9);
+                }
+                JTextField txtPromedio = (JTextField) panel.getComponent(10);
+                JTextField txtDescuento = (JTextField) panel.getComponent(11);
 
                 Kardex kardex = new Kardex();
                 kardex.setNum_semestre(txtSemestre.getText());
@@ -3681,6 +3701,11 @@ public class PrincipalControlador {
                 if (!txtPromedio.getText().equals("")) {
                     kardex.setPromedio(Float.parseFloat(txtPromedio.getText()));
                 }
+                if(chkDeuda != null)
+                    kardex.setDeuda(chkDeuda.isSelected());
+                else
+                    kardex.setDeuda(false);
+                
                 if (!txtDescuento.getText().equals("")) {
                     String descuento = txtDescuento.getText().replace("%", "");
                     kardex.setDescuento(Integer.parseInt(descuento));
@@ -5123,6 +5148,8 @@ public class PrincipalControlador {
         for (Kardex kardex : lstKardex) {
             if(kardex.isPago_inicio_semestre())
                 totalCargos += deposito;
+            if(kardex.isPago_fin_semestre())
+                totalCargos += deposito;
         }
         
         //Se comienza con el llenado de los depositos
@@ -5310,5 +5337,21 @@ public class PrincipalControlador {
         creaVistaCobranza();
         
         helper.cursorNormal(vista);
+    }
+
+    /**
+     * Valida si el programa es de cobranza o no.
+     * Si el programa es de cobranza devuelve True,
+     * Si no False
+     * @return 
+     */
+    private boolean esProgramaCobranza() {
+        boolean response = false;
+        String programa = (String) vistaRegistro.comboBoxPrograma.getSelectedItem();
+        
+        if(programa.toUpperCase().contains("DEVOLUC")){
+            response = true;
+        }
+        return response;
     }
 }

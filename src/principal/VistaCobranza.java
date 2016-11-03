@@ -45,8 +45,10 @@ public class VistaCobranza extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         PnlCargos = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel45 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
         jpnlListaSemestreCargos = new javax.swing.JPanel();
         TxtSemSC22 = new javax.swing.JTextField();
         TxtSemSC12 = new javax.swing.JTextField();
@@ -74,29 +76,53 @@ public class VistaCobranza extends javax.swing.JPanel {
         TxtSemSC35 = new javax.swing.JTextField();
         jpnlListaDocumentos5 = new javax.swing.JPanel();
         TxtCargo11 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         TxtCargo21 = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
         TxtCargo12 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
         TxtCargo22 = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
         TxtCargo13 = new javax.swing.JTextField();
+        jButton5 = new javax.swing.JButton();
         TxtCargo23 = new javax.swing.JTextField();
+        jButton6 = new javax.swing.JButton();
         TxtCargo14 = new javax.swing.JTextField();
+        jButton7 = new javax.swing.JButton();
         TxtCargo24 = new javax.swing.JTextField();
+        jButton8 = new javax.swing.JButton();
         TxtCargo15 = new javax.swing.JTextField();
+        jButton9 = new javax.swing.JButton();
         TxtCargo25 = new javax.swing.JTextField();
+        jButton10 = new javax.swing.JButton();
         TxtCargo16 = new javax.swing.JTextField();
+        jButton11 = new javax.swing.JButton();
         TxtCargo26 = new javax.swing.JTextField();
+        jButton12 = new javax.swing.JButton();
         TxtCargo17 = new javax.swing.JTextField();
+        jButton13 = new javax.swing.JButton();
         TxtCargo27 = new javax.swing.JTextField();
+        jButton14 = new javax.swing.JButton();
         TxtCargo18 = new javax.swing.JTextField();
+        jButton15 = new javax.swing.JButton();
         TxtCargo28 = new javax.swing.JTextField();
+        jButton16 = new javax.swing.JButton();
         TxtCargo19 = new javax.swing.JTextField();
+        jButton17 = new javax.swing.JButton();
         TxtCargo29 = new javax.swing.JTextField();
+        jButton18 = new javax.swing.JButton();
         TxtCargo110 = new javax.swing.JTextField();
+        jButton19 = new javax.swing.JButton();
         TxtCargo210 = new javax.swing.JTextField();
+        jButton20 = new javax.swing.JButton();
         TxtCargo111 = new javax.swing.JTextField();
+        jButton21 = new javax.swing.JButton();
         TxtCargo211 = new javax.swing.JTextField();
+        jButton22 = new javax.swing.JButton();
         TxtCargo112 = new javax.swing.JTextField();
+        jButton23 = new javax.swing.JButton();
         TxtCargo212 = new javax.swing.JTextField();
+        jButton24 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblCobranza = new javax.swing.JTable();
@@ -198,37 +224,51 @@ public class VistaCobranza extends javax.swing.JPanel {
         PnlInfoBecario.add(txtIdBecario, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 30, 10, -1));
 
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        jScrollPane2.setMaximumSize(new java.awt.Dimension(32767, 1500));
+        jScrollPane2.setPreferredSize(new java.awt.Dimension(800, 1400));
 
         PnlCargos.setBorder(javax.swing.BorderFactory.createTitledBorder("Cargos"));
-
-        jLabel45.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel45.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel45.setText("Cargo");
+        PnlCargos.setMaximumSize(new java.awt.Dimension(32767, 1500));
+        PnlCargos.setPreferredSize(new java.awt.Dimension(798, 1500));
 
         jLabel44.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel44.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel44.setText("Periodo");
 
+        jLabel45.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel45.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel45.setText("Cargo");
+
+        jLabel46.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel46.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel46.setText("Pago Extra");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel46)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel44))
+            .addComponent(jLabel44)
+            .addComponent(jLabel45)
+            .addComponent(jLabel46)
         );
+
+        jPanel3.setPreferredSize(new java.awt.Dimension(324, 324));
+        jPanel3.setLayout(new java.awt.GridLayout(1, 3));
 
         jpnlListaSemestreCargos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jpnlListaSemestreCargos.setMaximumSize(new java.awt.Dimension(141, 174));
+        jpnlListaSemestreCargos.setPreferredSize(new java.awt.Dimension(120, 340));
         jpnlListaSemestreCargos.setLayout(new java.awt.GridLayout(24, 1));
 
         TxtSemSC22.setBackground(new java.awt.Color(204, 255, 204));
@@ -580,6 +620,8 @@ public class VistaCobranza extends javax.swing.JPanel {
         });
         jpnlListaSemestreCargos.add(TxtSemSC35);
 
+        jPanel3.add(jpnlListaSemestreCargos);
+
         jpnlListaDocumentos5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jpnlListaDocumentos5.setMaximumSize(new java.awt.Dimension(141, 174));
         jpnlListaDocumentos5.setLayout(new java.awt.GridLayout(24, 1));
@@ -587,74 +629,160 @@ public class VistaCobranza extends javax.swing.JPanel {
         TxtCargo11.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo11);
 
+        jButton1.setEnabled(false);
+        jpnlListaDocumentos5.add(jButton1);
+
         TxtCargo21.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo21);
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
+        jButton2.setEnabled(false);
+        jpnlListaDocumentos5.add(jButton2);
 
         TxtCargo12.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo12);
 
+        jButton3.setEnabled(false);
+        jpnlListaDocumentos5.add(jButton3);
+
         TxtCargo22.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo22);
+
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
+        jButton4.setEnabled(false);
+        jpnlListaDocumentos5.add(jButton4);
 
         TxtCargo13.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo13);
 
+        jButton5.setEnabled(false);
+        jpnlListaDocumentos5.add(jButton5);
+
         TxtCargo23.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo23);
+
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
+        jButton6.setEnabled(false);
+        jpnlListaDocumentos5.add(jButton6);
 
         TxtCargo14.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo14);
 
+        jButton7.setEnabled(false);
+        jpnlListaDocumentos5.add(jButton7);
+
         TxtCargo24.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo24);
+
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
+        jButton8.setEnabled(false);
+        jpnlListaDocumentos5.add(jButton8);
 
         TxtCargo15.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo15);
 
+        jButton9.setEnabled(false);
+        jpnlListaDocumentos5.add(jButton9);
+
         TxtCargo25.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo25);
+
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
+        jButton10.setEnabled(false);
+        jpnlListaDocumentos5.add(jButton10);
 
         TxtCargo16.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo16);
 
+        jButton11.setEnabled(false);
+        jpnlListaDocumentos5.add(jButton11);
+
         TxtCargo26.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo26);
+
+        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
+        jButton12.setEnabled(false);
+        jpnlListaDocumentos5.add(jButton12);
 
         TxtCargo17.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo17);
 
+        jButton13.setEnabled(false);
+        jpnlListaDocumentos5.add(jButton13);
+
         TxtCargo27.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo27);
+
+        jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
+        jButton14.setEnabled(false);
+        jpnlListaDocumentos5.add(jButton14);
 
         TxtCargo18.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo18);
 
+        jButton15.setEnabled(false);
+        jpnlListaDocumentos5.add(jButton15);
+
         TxtCargo28.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo28);
+
+        jButton16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
+        jButton16.setEnabled(false);
+        jpnlListaDocumentos5.add(jButton16);
 
         TxtCargo19.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo19);
 
+        jButton17.setEnabled(false);
+        jpnlListaDocumentos5.add(jButton17);
+
         TxtCargo29.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo29);
+
+        jButton18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
+        jButton18.setEnabled(false);
+        jpnlListaDocumentos5.add(jButton18);
 
         TxtCargo110.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo110);
 
+        jButton19.setEnabled(false);
+        jpnlListaDocumentos5.add(jButton19);
+
         TxtCargo210.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo210);
+
+        jButton20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
+        jButton20.setEnabled(false);
+        jpnlListaDocumentos5.add(jButton20);
 
         TxtCargo111.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo111);
 
+        jButton21.setEnabled(false);
+        jpnlListaDocumentos5.add(jButton21);
+
         TxtCargo211.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo211);
+
+        jButton22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
+        jButton22.setEnabled(false);
+        jpnlListaDocumentos5.add(jButton22);
 
         TxtCargo112.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo112);
 
+        jButton23.setEnabled(false);
+        jpnlListaDocumentos5.add(jButton23);
+
         TxtCargo212.setEditable(false);
         jpnlListaDocumentos5.add(TxtCargo212);
+
+        jButton24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
+        jButton24.setEnabled(false);
+        jpnlListaDocumentos5.add(jButton24);
+
+        jPanel3.add(jpnlListaDocumentos5);
 
         javax.swing.GroupLayout PnlCargosLayout = new javax.swing.GroupLayout(PnlCargos);
         PnlCargos.setLayout(PnlCargosLayout);
@@ -662,22 +790,23 @@ public class VistaCobranza extends javax.swing.JPanel {
             PnlCargosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PnlCargosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(PnlCargosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(PnlCargosLayout.createSequentialGroup()
-                        .addComponent(jpnlListaSemestreCargos, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jpnlListaDocumentos5, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(192, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(464, Short.MAX_VALUE))
+            .addGroup(PnlCargosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(PnlCargosLayout.createSequentialGroup()
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 473, Short.MAX_VALUE)))
         );
         PnlCargosLayout.setVerticalGroup(
             PnlCargosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PnlCargosLayout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(PnlCargosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jpnlListaSemestreCargos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jpnlListaDocumentos5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(1462, Short.MAX_VALUE))
+            .addGroup(PnlCargosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(PnlCargosLayout.createSequentialGroup()
+                    .addGap(47, 47, 47)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(982, Short.MAX_VALUE)))
         );
 
         jScrollPane2.setViewportView(PnlCargos);
@@ -889,7 +1018,7 @@ public class VistaCobranza extends javax.swing.JPanel {
                 .addComponent(jpnlAreaBotones, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
             .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel3)
                 .addGap(60, 60, 60)
                 .addComponent(txtTotalCargos, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1109,17 +1238,43 @@ public class VistaCobranza extends javax.swing.JPanel {
     protected javax.swing.JButton btnEliminarFila;
     private javax.swing.JButton btnImprimir;
     protected javax.swing.JButton btnSalir;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton18;
+    private javax.swing.JButton jButton19;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton20;
+    private javax.swing.JButton jButton21;
+    private javax.swing.JButton jButton22;
+    private javax.swing.JButton jButton23;
+    private javax.swing.JButton jButton24;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel jpnlAreaBotones;

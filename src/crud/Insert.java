@@ -135,12 +135,13 @@ public class Insert {
             + Kardex.COL_LUGAR_SERVICIO_COMUNITARIO + ", " + Kardex.COL_BOLETA + ", "
             + Kardex.COL_CARTA_SERVICIO_COMUNITARIO + ", " + Kardex.COL_PAGO_EXTRA + ", "
             + Kardex.COL_HORAS_SERVICIO + ", " + Kardex.COL_ID_BECARIO + ", "
-            + Kardex.COL_TRANSFERENCIA_1 + ", " + Kardex.COL_TRANSFERENCIA_2 + ") "
+            + Kardex.COL_TRANSFERENCIA_1 + ", " + Kardex.COL_TRANSFERENCIA_2 + "," 
+            + Kardex.COL_DEUDA + ") "
             + "VALUES (" 
             + "?,?,?,?,?,"
             + "?,?,?,?,?,"
             + "?,?,?,?,?,"
-            + "?)";
+            + "?,?)";
     
     public static String insertAbonoBecario = "INSERT INTO beca_pagos_becario " +
                 "(" + Cobranza.COL_FECHA_PAGO + ", " + Cobranza.COL_MONTO + ", " +

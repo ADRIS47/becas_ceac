@@ -2675,6 +2675,7 @@ public class PrincipalModelo {
                 kardex.setCarta_servicio_comunitario(rs.getString(Kardex.COL_CARTA_SERVICIO_COMUNITARIO));
                 kardex.setId_becario(rs.getLong(Kardex.COL_ID_BECARIO));
                 kardex.setPago_extra(rs.getDouble(Kardex.COL_PAGO_EXTRA));
+                kardex.setDeuda(rs.getBoolean(Kardex.COL_DEUDA));
                 kardex.setHorasServicio(rs.getInt(Kardex.COL_HORAS_SERVICIO));
                 kardex.setTransferencia1(rs.getString(Kardex.COL_TRANSFERENCIA_1));
                 kardex.setTransferencia2(rs.getString(Kardex.COL_TRANSFERENCIA_2));
@@ -2773,6 +2774,7 @@ public class PrincipalModelo {
                     ps.setLong(14, becario.getId());
                     ps.setString(15, kardex.getTransferencia1());
                     ps.setString(16, kardex.getTransferencia2());
+                    ps.setBoolean(17, kardex.isDeuda());
                     int result = ps.executeUpdate();
                     if(result == 0){
                         return response;
@@ -2801,8 +2803,9 @@ public class PrincipalModelo {
                     ps.setInt(13, kardex.getHorasServicio());
                     ps.setString(14, kardex.getTransferencia1());
                     ps.setString(15, kardex.getTransferencia2());
-                    ps.setLong(16, becario.getId());
-                    ps.setLong(17, idsKardex.get(i));
+                    ps.setBoolean(16, kardex.isDeuda());
+                    ps.setLong(17, becario.getId());
+                    ps.setLong(18, idsKardex.get(i));
                     int result = ps.executeUpdate();
                     
                     if(result == 0)

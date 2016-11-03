@@ -398,7 +398,7 @@ public class Consultas {
             + Kardex.COL_BOLETA + ", " + Kardex.COL_CARTA_SERVICIO_COMUNITARIO + ", "
             + Kardex.COL_ID_BECARIO + ", " + Kardex.COL_PAGO_EXTRA + ", "
             + Kardex.COL_HORAS_SERVICIO + ", " + Kardex.COL_TRANSFERENCIA_1 + ", "
-            + Kardex.COL_TRANSFERENCIA_2 + " "  
+            + Kardex.COL_TRANSFERENCIA_2 + ", " + Kardex.COL_DEUDA + " "  
             + "FROM beca_kardex "
             + "WHERE " + Kardex.COL_ID_BECARIO + " = ?";
     
