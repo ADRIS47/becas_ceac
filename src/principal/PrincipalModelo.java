@@ -3410,6 +3410,7 @@ public class PrincipalModelo {
                 res.setTipoServicio(rs.getString("nombre_servicio_comunitario"));
                 res.setDescuento(rs.getInt("descuento"));
                 res.setAjusteBecaSemestral(rs.getDouble("ajuste_beca_semestral"));
+                res.setDeuda(rs.getBoolean("deuda"));
                 result.add(res);
             }
         } catch (SQLException ex) {

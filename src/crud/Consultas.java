@@ -490,7 +490,8 @@ public class Consultas {
                     "     beca_kardex.`promedio` AS promedio,\n" +
                     "     beca_kardex.`descuento` AS descuento,\n" +
                     "     beca_kardex.`horas_servicio` AS horas_servicio,\n" +
-                    "     beca_kardex.pago_extra AS ajuste_beca_semestral,\n" + 
+                    "     beca_kardex.pago_extra AS ajuste_beca_semestral,\n" +
+                    "     beca_kardex.deuda AS deuda, \n " +
                     "     beca_cat_servicio_comunitario.`nombre` AS nombre_servicio_comunitario,\n" +
                     "     beca_cat_servicio_comunitario.`id_servicio_comunitario` AS beca_cat_servicio_comunitario_id_servicio_comunitario\n" +
                     "FROM\n" +

@@ -18,8 +18,7 @@ import pojos.Telefono;
  *
  * @author sergio
  */
-public class HistorialIndividual 
-                                    implements JRDataSource{
+public class HistorialIndividual implements JRDataSource{
     List<PojoReporteIndividual> lstDatosUnicos = new ArrayList<>();
     List<PojoReporteIndividualMuchosDatos> lstMuchosDatos = new ArrayList<>();
     List<Telefono> lstTelefonos = new ArrayList<>();
@@ -47,6 +46,8 @@ public class HistorialIndividual
     public Object getFieldValue(JRField jrf) throws JRException {
         Object valor = null;
         float pagoSemestral = 0;
+        float becaTotal = 0;
+        double ajusteBecaACobrar = 0;
         switch(jrf.getName()){
             case "folio":
                 valor = lstDatosUnicos.get(0).getFolio();
@@ -98,7 +99,14 @@ public class HistorialIndividual
                 valor = lstDatosUnicos.get(0).getFechaGraduacion();
                 break;
             case "becaTotal":
-                valor = lstDatosUnicos.get(0).getBecaTotal();
+                
+                becaTotal = lstDatosUnicos.get(0).getBecaTotal();
+                for (PojoReporteIndividualMuchosDatos muchosDatos : lstMuchosDatos) {
+                    if(muchosDatos.isDeuda()){
+                        becaTotal += muchosDatos.getAjusteBecaSemestral();
+                    }
+                }
+                valor = becaTotal;
                 break;
             case "pagoSemestral":
                 valor = lstDatosUnicos.get(0).getBecaSemestral();
@@ -167,6 +175,14 @@ public class HistorialIndividual
                 break;
             case "ajusteBecaSemestral":
                 valor = lstMuchosDatos.get(contador).getAjusteBecaSemestral();
+                break;
+            case "ajusteBecaACobrar":
+                for (PojoReporteIndividualMuchosDatos muchosDatos : lstMuchosDatos) {
+                    if(muchosDatos.isDeuda()){
+                        ajusteBecaACobrar += muchosDatos.getAjusteBecaSemestral();
+                    }
+                }
+                valor = ajusteBecaACobrar + "";
                 break;
         }
         

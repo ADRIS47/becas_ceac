@@ -1987,14 +1987,14 @@ public class PrincipalControlador {
                 }
                 break;
                 case 7:
-                    if(vistaKardex.txtPrograma.getText().toUpperCase().contains("DEVOLU")){
+                    if(esProgramaCobranza()){
                        
                         for (Component componente : componentes) {
 
                             if (componente instanceof JPanel) {
                                 JPanel jPanel = ((JPanel) componente);
                                 
-                                if(!vistaKardex.txtPrograma.getText().toUpperCase().contains("DEVOLUC"))
+                                if(!esProgramaCobranza())
                                     jPanel.remove(9);
                             }
                         }
@@ -3700,7 +3700,11 @@ public class PrincipalControlador {
                 int idLugarServicioComunitario = getIdCmbBox((String) cmbLugarServicioComunitario.getSelectedItem(), catLugarServicioSocial);
                 kardex.setLugarServicioComunitario(idLugarServicioComunitario);
                 kardex.setPago_fin_semestre(chkPago2.isSelected());
-                kardex.setPago_extra(Double.parseDouble(txtPagoExtra.getText().replace("$", "")));
+                
+                if(esProgramaCobranza()){
+                    kardex.setPago_extra(Double.parseDouble(txtPagoExtra.getText().replace("$", "")));
+                }
+                
                 if (!txtPromedio.getText().equals("")) {
                     kardex.setPromedio(Float.parseFloat(txtPromedio.getText()));
                 }
@@ -4359,7 +4363,7 @@ public class PrincipalControlador {
             Path path = helper.getDirectorioReporte("historial_individual.jasper");
             
             File file = path.toFile();
-            System.out.println(file.getAbsolutePath());
+            //System.out.println(file.getAbsolutePath());
             
             HistorialIndividual report = new HistorialIndividual();
             report.setLstDatosUnicos(reporteIndividual);

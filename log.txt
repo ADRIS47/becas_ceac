@@ -6909,3 +6909,6 @@ Verifique su conexion e intentelo de nuevo
 2/11/2016;17:39:30;Message: No se pudo conectar a la base de datos.
 Verifique su conexion e intentelo de nuevo
 2/11/2016;18:37:48;Nombre de categoria no encontrado
+4/11/2016;9:16:3;Nombre de categoria no encontrado
+4/11/2016;9:34:57;Nombre de categoria no encontrado
+4/11/2016;9:35:38;Id no encontrado
