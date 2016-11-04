@@ -37,6 +37,7 @@
 	<field name="ajusteBecaTotal" class="java.lang.Double"/>
 	<field name="ajusteBecaSemestral" class="java.lang.Double"/>
 	<field name="ajusteBecaACobrar" class="java.lang.String"/>
+	<field name="cobranza" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -340,21 +341,21 @@
 				<text><![CDATA[PROMEDIO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="338" y="111" width="80" height="14" uuid="6138b0ac-3ccd-4609-bd9f-da6b86640cd8"/>
+				<reportElement x="312" y="111" width="80" height="14" uuid="6138b0ac-3ccd-4609-bd9f-da6b86640cd8"/>
 				<textElement verticalAlignment="Top">
 					<font fontName="Calibri" isBold="true"/>
 				</textElement>
 				<text><![CDATA[HRS. SERVICIO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="434" y="111" width="126" height="14" uuid="d3b0374f-80af-4471-b760-5ae4281734d1"/>
+				<reportElement x="408" y="111" width="126" height="14" uuid="d3b0374f-80af-4471-b760-5ae4281734d1"/>
 				<textElement verticalAlignment="Top">
 					<font fontName="Calibri" isBold="true"/>
 				</textElement>
 				<text><![CDATA[TIPO DE SERVICIO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="578" y="111" width="69" height="14" uuid="d1b32489-39b3-4800-90a3-43ac6565a498"/>
+				<reportElement x="540" y="112" width="69" height="14" uuid="d1b32489-39b3-4800-90a3-43ac6565a498"/>
 				<textElement verticalAlignment="Top">
 					<font fontName="Calibri" isBold="true"/>
 				</textElement>
@@ -388,7 +389,7 @@
 				<textFieldExpression><![CDATA[$F{ajusteBecaTotal}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="678" y="109" width="69" height="14" uuid="f1148a28-4a00-4137-af03-ce2643b63de5"/>
+				<reportElement x="620" y="110" width="69" height="14" uuid="f1148a28-4a00-4137-af03-ce2643b63de5"/>
 				<textElement verticalAlignment="Top">
 					<font fontName="Calibri" isBold="true"/>
 				</textElement>
@@ -408,6 +409,13 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ajusteBecaACobrar}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="695" y="110" width="69" height="14" uuid="ef4cd97a-105e-483f-b8fb-ec93139b2a73"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Calibri" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COBRANZA]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
@@ -441,32 +449,39 @@
 				<textFieldExpression><![CDATA[$F{promedio}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="337" y="0" width="79" height="19" uuid="1fcff9b3-fc96-4c1c-ad0f-07df7a2e3ce6"/>
+				<reportElement x="311" y="0" width="79" height="19" uuid="1fcff9b3-fc96-4c1c-ad0f-07df7a2e3ce6"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font fontName="Calibri" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{horasServicio}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="434" y="2" width="126" height="17" uuid="6564049f-fd9b-429d-8d98-79e2ebeb3182"/>
+				<reportElement x="408" y="2" width="126" height="17" uuid="6564049f-fd9b-429d-8d98-79e2ebeb3182"/>
 				<textElement verticalAlignment="Top">
 					<font fontName="Calibri" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{tipoServicio}.toUpperCase()]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00">
-				<reportElement x="578" y="1" width="69" height="17" uuid="142d2fa1-bc8d-4cc0-b475-a02584f6ee70"/>
+				<reportElement x="540" y="2" width="69" height="17" uuid="142d2fa1-bc8d-4cc0-b475-a02584f6ee70"/>
 				<textElement verticalAlignment="Top">
 					<font fontName="Calibri" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{descuento}]]></textFieldExpression>
 			</textField>
 			<textField pattern="">
-				<reportElement x="678" y="2" width="69" height="17" uuid="37193e35-0c06-434b-a107-8fd1627ff10f"/>
-				<textElement verticalAlignment="Top">
+				<reportElement x="620" y="3" width="69" height="17" uuid="37193e35-0c06-434b-a107-8fd1627ff10f"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font fontName="Calibri" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA["$" + $F{ajusteBecaSemestral}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="694" y="2" width="43" height="17" uuid="756d1792-7959-4b94-9652-1c5001657a4b"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Calibri" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cobranza}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

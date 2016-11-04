@@ -184,6 +184,13 @@ public class HistorialIndividual implements JRDataSource{
                 }
                 valor = ajusteBecaACobrar + "";
                 break;
+            case "cobranza":
+                if(lstMuchosDatos.get(0).isDeuda()){
+                    valor = "Si";
+                }
+                else
+                    valor = "No";
+                break;
         }
         
         return valor;
