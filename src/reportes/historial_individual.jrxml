@@ -48,7 +48,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[REPORTE GENERAL]]></text>
+				<text><![CDATA[REPORTE INDIVIDUAL]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="288" y="1" width="218" height="20" uuid="2d52252a-492f-40e0-90b9-e9d7a7842e8c"/>
