@@ -23,6 +23,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -2017,6 +2018,7 @@ public class PrincipalControlador {
 
         Component[] componentes = vistaKardex.PnlKardex.getComponents();
         int i = -1;
+        NumberFormat numberFormat = helper.formatoDecimales();
         for (Component componente : componentes) {
             if (i == -1) {
                 i++;
@@ -2055,9 +2057,9 @@ public class PrincipalControlador {
                     chkPlatica2.setSelected(kardex.isPlatica2());
                     chkPago1.setSelected(kardex.isPago_inicio_semestre());
                     chkPago2.setSelected(kardex.isPago_fin_semestre());
-                    txtPagoExtra.setText(kardex.getPago_extra() + "");
+                    txtPagoExtra.setText("$" + numberFormat.format(kardex.getPago_extra()));
                     chkDeuda.setSelected(kardex.isDeuda());
-                    txtPromedio.setText(kardex.getPromedio() + "");
+                    txtPromedio.setText(numberFormat.format(kardex.getPromedio()) + "");
                     txtDescuento.setText(kardex.getDescuento() + "%");
 
                     cmbTipoServicioSocial.setSelectedItem(getItemComboBox(kardex.getIdServicioComunitario(), catTipoServicioSocial));
@@ -3646,6 +3648,7 @@ public class PrincipalControlador {
             }
         }
 
+        creaVistaKardex();
     }
 
     /**
@@ -3697,7 +3700,7 @@ public class PrincipalControlador {
                 int idLugarServicioComunitario = getIdCmbBox((String) cmbLugarServicioComunitario.getSelectedItem(), catLugarServicioSocial);
                 kardex.setLugarServicioComunitario(idLugarServicioComunitario);
                 kardex.setPago_fin_semestre(chkPago2.isSelected());
-                kardex.setPago_extra(Double.parseDouble(txtPagoExtra.getText()));
+                kardex.setPago_extra(Double.parseDouble(txtPagoExtra.getText().replace("$", "")));
                 if (!txtPromedio.getText().equals("")) {
                     kardex.setPromedio(Float.parseFloat(txtPromedio.getText()));
                 }
@@ -5371,7 +5374,16 @@ public class PrincipalControlador {
         Becario becario = modelo.getBecarioPorFolio(conexion, vistaCobranza.txtFolio.getText());
         List<Kardex> lstKardex = modelo.getKardexPorIdBecario(conexion, becario.getId());
         double pagoRealizado = lstKardex.get(semestre - 1).getPago_extra();
-        dialogCobranza.txtPagoRealizado.setText("$" + pagoRealizado);
+        double pagoTotal = 0;
+        for (Kardex kardex : lstKardex) {
+            pagoTotal += kardex.getPago_extra();
+        }
+        
+        NumberFormat numberFormat = helper.formatoDecimales();
+        dialogCobranza.txtTotalPagos.setText("$" + numberFormat.format(pagoTotal));
+        dialogCobranza.txtPagoRealizado.setText("$" + numberFormat.format(pagoRealizado));
+        
+        dialogCobranza.setLocationRelativeTo(vista);
         dialogCobranza.setVisible(true);
         dialogCobranza.dispose();
     }

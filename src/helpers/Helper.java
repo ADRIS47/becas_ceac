@@ -20,6 +20,7 @@ import java.nio.file.StandardCopyOption;
 import java.sql.Date;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -864,6 +865,11 @@ public class Helper {
         }
         
         return programa;
+    }
+    
+    public NumberFormat formatoDecimales(){
+        NumberFormat formato = DecimalFormat.getInstance();
+        return formato;
     }
             
 }
