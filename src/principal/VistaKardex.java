@@ -691,7 +691,7 @@ public class VistaKardex extends javax.swing.JPanel {
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 9)); // NOI18N
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setText("¿Deuda?");
+        jLabel19.setText("Cobranza");
         jLabel19.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         PnlEncabezadoKardex.add(jLabel19);
 

@@ -6912,3 +6912,56 @@ Verifique su conexion e intentelo de nuevo
 4/11/2016;9:16:3;Nombre de categoria no encontrado
 4/11/2016;9:34:57;Nombre de categoria no encontrado
 4/11/2016;9:35:38;Id no encontrado
+8/11/2016;18:54:57;SQLError: 22001
+8/11/2016;18:54:57;ERROR: Code1406
+8/11/2016;18:54:57;Message: Data truncation: Data too long for column 'telefono' at row 1
+8/11/2016;18:54:58;null
+8/11/2016;18:55:58;SQLError: 22001
+8/11/2016;18:55:58;ERROR: Code1406
+8/11/2016;18:55:58;Message: Data truncation: Data too long for column 'telefono' at row 1
+8/11/2016;18:55:59;null
+8/11/2016;18:56:29;SQLError: 22001
+8/11/2016;18:56:29;ERROR: Code1406
+8/11/2016;18:56:29;Message: Data truncation: Data too long for column 'telefono' at row 1
+8/11/2016;18:56:30;null
+8/11/2016;19:2:1;SQLError: 22001
+8/11/2016;19:2:1;ERROR: Code1406
+8/11/2016;19:2:1;Message: Data truncation: Data too long for column 'telefono' at row 1
+8/11/2016;19:2:2;null
+8/11/2016;19:2:41;SQLError: 22001
+8/11/2016;19:2:41;ERROR: Code1406
+8/11/2016;19:2:41;Message: Data truncation: Data too long for column 'telefono' at row 1
+8/11/2016;19:2:45;null
+8/11/2016;19:3:20;SQLError: 22001
+8/11/2016;19:3:20;ERROR: Code1406
+8/11/2016;19:3:20;Message: Data truncation: Data too long for column 'telefono' at row 1
+8/11/2016;19:3:21;null
+8/11/2016;19:4:5;SQLError: 22001
+8/11/2016;19:4:5;ERROR: Code1406
+8/11/2016;19:4:5;Message: Data truncation: Data too long for column 'telefono' at row 1
+8/11/2016;19:4:6;null
+8/11/2016;19:4:37;SQLError: 22001
+8/11/2016;19:4:37;ERROR: Code1406
+8/11/2016;19:4:37;Message: Data truncation: Data too long for column 'telefono' at row 1
+8/11/2016;19:4:39;null
+8/11/2016;19:5:17;SQLError: 22001
+8/11/2016;19:5:17;ERROR: Code1406
+8/11/2016;19:5:17;Message: Data truncation: Data too long for column 'telefono' at row 1
+8/11/2016;19:5:18;null
+8/11/2016;19:10:18;SQLError: 22001
+8/11/2016;19:10:18;ERROR: Code1406
+8/11/2016;19:10:18;Message: Data truncation: Data too long for column 'telefono' at row 1
+8/11/2016;19:10:19;null
+8/11/2016;19:11:48;SQLError: 22001
+8/11/2016;19:11:48;ERROR: Code1406
+8/11/2016;19:11:48;Message: Data truncation: Data too long for column 'telefono' at row 1
+8/11/2016;19:11:56;null
+8/11/2016;19:12:54;SQLError: 22001
+8/11/2016;19:12:54;ERROR: Code1406
+8/11/2016;19:12:54;Message: Data truncation: Data too long for column 'telefono' at row 1
+8/11/2016;19:12:55;null
+8/11/2016;19:13:18;SQLError: 22001
+8/11/2016;19:13:18;ERROR: Code1406
+8/11/2016;19:13:18;Message: Data truncation: Data too long for column 'telefono' at row 1
+8/11/2016;19:13:22;null
+8/11/2016;19:14:30;Nombre de categoria no encontrado

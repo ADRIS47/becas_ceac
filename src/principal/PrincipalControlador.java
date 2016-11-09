@@ -525,6 +525,12 @@ public class PrincipalControlador {
             creaVistaBusqueda();
         } //Si ya existe un becario en vistaRegistro
         else{
+            if(!esProgramaCobranza()){
+                JOptionPane.showMessageDialog(vista, "El becario seleccionado no aplica para cobranza", "Advertencia", JOptionPane.INFORMATION_MESSAGE);
+                //creaVistaRegistro();
+                helper.cursorNormal(vista);
+                return;
+            }
             vistaCobranza = new VistaCobranza();
             vistaCobranza.setControlador(this);
 
@@ -1987,15 +1993,13 @@ public class PrincipalControlador {
                 }
                 break;
                 case 7:
-                    if(esProgramaCobranza()){
+                    if(!esProgramaCobranza()){
                        
                         for (Component componente : componentes) {
 
                             if (componente instanceof JPanel) {
                                 JPanel jPanel = ((JPanel) componente);
-                                
-                                if(!esProgramaCobranza())
-                                    jPanel.remove(9);
+                                jPanel.remove(9);
                             }
                         }
                         vistaKardex.updateUI();
@@ -3681,11 +3685,17 @@ public class PrincipalControlador {
                 JCheckBox chkPago2 = (JCheckBox) panel.getComponent(7);
                 JTextField txtPagoExtra = (JTextField) panel.getComponent(8);
                 JCheckBox chkDeuda = null;
+                JTextField txtPromedio = null;
+                JTextField txtDescuento = null;
                 if(esProgramaCobranza()){
                     chkDeuda = (JCheckBox) panel.getComponent(9);
+                    txtPromedio = (JTextField) panel.getComponent(10);
+                    txtDescuento = (JTextField) panel.getComponent(11);
                 }
-                JTextField txtPromedio = (JTextField) panel.getComponent(10);
-                JTextField txtDescuento = (JTextField) panel.getComponent(11);
+                else{
+                    txtPromedio = (JTextField) panel.getComponent(9);
+                    txtDescuento = (JTextField) panel.getComponent(10);
+                }
 
                 Kardex kardex = new Kardex();
                 kardex.setNum_semestre(txtSemestre.getText());
@@ -3701,7 +3711,7 @@ public class PrincipalControlador {
                 kardex.setLugarServicioComunitario(idLugarServicioComunitario);
                 kardex.setPago_fin_semestre(chkPago2.isSelected());
                 
-                if(esProgramaCobranza()){
+                if(esProgramaCobranza() && txtPagoExtra.getText()!= null && txtPagoExtra.getText().contains("$")){
                     kardex.setPago_extra(Double.parseDouble(txtPagoExtra.getText().replace("$", "")));
                 }
                 

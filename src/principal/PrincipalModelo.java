@@ -934,8 +934,10 @@ public class PrincipalModelo {
         try {
             for (Telefono telefono : lstTelefonosBecario) {
                 ps = conexion.prepareStatement(Insert.insertTelefonoBecario);
-                ps.setString(1, telefono.getTelefono());
+                System.out.println(telefono.getTelefono().replace("-", ""));
+                ps.setString(1, telefono.getTelefono().replace("-", "").trim());
                 ps.setLong(2, idBecario);
+                System.out.println(ps);
                 int i = ps.executeUpdate();
                 if (i == 0) {
                     throw new SQLException("Error al insertar telefono becario: " + ps.toString());
@@ -984,7 +986,7 @@ public class PrincipalModelo {
                 ps.setString(1, papa.getNombre());
                 ps.setString(2, papa.getaPaterno());
                 ps.setString(3, papa.getaMaterno());
-                ps.setString(4, papa.getTelefono());
+                ps.setString(4, papa.getTelefono().replace("-", ""));
                 ps.setInt(5, papa.getGradoEscolar());
                 ps.setInt(6, papa.getTrabaja());
                 ps.setLong(7, idBecario);
