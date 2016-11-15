@@ -332,7 +332,8 @@ public class Helper {
                 
                 verificaDirectorio(Paths.get(Index.RUTA_BASE + Index.RUTA_SISTEMA + becario.getFolio()));
 
-                Path de = Paths.get(lstFilesBoletas[i].getAbsolutePath().replace("\\", "/"));
+                //Path de = Paths.get(lstFilesBoletas[i].getAbsolutePath().replace("\\", "/"));
+                Path de = Paths.get(lstFilesTransferencias[i].getAbsolutePath());
                 Path a = Paths.get(Index.RUTA_BASE + Index.RUTA_SISTEMA + becario.getFolio() + Index.SEPARADOR + 
                         "boleta_" + i + "-" + becario.getFolio() + extension);
                 
@@ -353,7 +354,8 @@ public class Helper {
                 String extension = lstFilesCartaServCom[i].getName().substring(lstFilesCartaServCom[i].getName().length() - 4, 
                                 lstFilesCartaServCom[i].getName().length());
 
-                Path de = Paths.get(lstFilesCartaServCom[i].getAbsolutePath().replace("\\", "/"));
+                //Path de = Paths.get(lstFilesCartaServCom[i].getAbsolutePath().replace("\\", "/"));
+                Path de = Paths.get(lstFilesTransferencias[i].getAbsolutePath());
                 Path a = Paths.get(Index.RUTA_BASE + Index.RUTA_SISTEMA + becario.getFolio() + Index.SEPARADOR + 
                         "serv_com_" + i + "-" + becario.getFolio() + extension);
 
@@ -378,7 +380,8 @@ public class Helper {
                     String extension = lstFilesTransferencias[posicionInicial].getName().substring(lstFilesTransferencias[posicionInicial].getName().length() - 4, 
                                     lstFilesTransferencias[posicionInicial].getName().length());
 
-                    Path de = Paths.get(lstFilesTransferencias[posicionInicial].getAbsolutePath().replace("\\", "/"));
+                    //Path de = Paths.get(lstFilesTransferencias[posicionInicial].getAbsolutePath().replace("\\", "/"));
+                    Path de = Paths.get(lstFilesTransferencias[posicionInicial].getAbsolutePath());
                     Path a = Paths.get(Index.RUTA_BASE + Index.RUTA_SISTEMA + becario.getFolio() + Index.SEPARADOR + 
                             "transferencia_" + posicionInicial + "-" + becario.getFolio() + extension);
 
@@ -402,7 +405,8 @@ public class Helper {
                         String extension = lstFilesTransferencias[posicionFinal].getName().substring(lstFilesTransferencias[posicionFinal].getName().length() - 4, 
                                         lstFilesTransferencias[posicionFinal].getName().length());
 
-                        Path de = Paths.get(lstFilesTransferencias[posicionFinal].getAbsolutePath().replace("\\", "/"));
+                        //Path de = Paths.get(lstFilesTransferencias[posicionFinal].getAbsolutePath().replace("\\", "/"));
+                        Path de = Paths.get(lstFilesTransferencias[posicionFinal].getAbsolutePath());
                         Path a = Paths.get(Index.RUTA_BASE + Index.RUTA_SISTEMA + becario.getFolio() + Index.SEPARADOR + 
                                 "transferencia_" + posicionFinal + "-" + becario.getFolio() + extension);
 
