@@ -333,7 +333,7 @@ public class Helper {
                 verificaDirectorio(Paths.get(Index.RUTA_BASE + Index.RUTA_SISTEMA + becario.getFolio()));
 
                 //Path de = Paths.get(lstFilesBoletas[i].getAbsolutePath().replace("\\", "/"));
-                Path de = Paths.get(lstFilesTransferencias[i].getAbsolutePath());
+                Path de = Paths.get(lstFilesBoletas[i].getAbsolutePath());
                 Path a = Paths.get(Index.RUTA_BASE + Index.RUTA_SISTEMA + becario.getFolio() + Index.SEPARADOR + 
                         "boleta_" + i + "-" + becario.getFolio() + extension);
                 
@@ -348,14 +348,14 @@ public class Helper {
                 }
             }
             
-            //Si existe la boleta a copiar
+            //Si existe el servicio comunitario a copiar
             if(lstFilesCartaServCom[i] != null){
                 //Se obtiene la carta de servicio comunitario y se copia al directorio del becario
                 String extension = lstFilesCartaServCom[i].getName().substring(lstFilesCartaServCom[i].getName().length() - 4, 
                                 lstFilesCartaServCom[i].getName().length());
 
                 //Path de = Paths.get(lstFilesCartaServCom[i].getAbsolutePath().replace("\\", "/"));
-                Path de = Paths.get(lstFilesTransferencias[i].getAbsolutePath());
+                Path de = Paths.get(lstFilesCartaServCom[i].getAbsolutePath());
                 Path a = Paths.get(Index.RUTA_BASE + Index.RUTA_SISTEMA + becario.getFolio() + Index.SEPARADOR + 
                         "serv_com_" + i + "-" + becario.getFolio() + extension);
 

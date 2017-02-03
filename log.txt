@@ -6965,3 +6965,4 @@ Verifique su conexion e intentelo de nuevo
 8/11/2016;19:13:18;Message: Data truncation: Data too long for column 'telefono' at row 1
 8/11/2016;19:13:22;null
 8/11/2016;19:14:30;Nombre de categoria no encontrado
+2/2/2017;19:34:23;Nombre de categoria no encontrado

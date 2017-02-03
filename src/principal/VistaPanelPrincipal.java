@@ -5,6 +5,9 @@
  */
 package principal;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+
 /**
  *
  * @author Adriana
@@ -44,6 +47,7 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Control de Becas");
+        setIconImage(getIconImage());
         setMinimumSize(new java.awt.Dimension(940, 558));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -231,7 +235,15 @@ public class VistaPanelPrincipal extends javax.swing.JFrame {
     private void btnCobranzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCobranzaActionPerformed
         controlador.creaVistaCobranza();
     }//GEN-LAST:event_btnCobranzaActionPerformed
+    
+    @Override
+    public Image getIconImage(){
+        Image retValue = Toolkit.getDefaultToolkit().
+                getImage(ClassLoader.getSystemResource("imagenes/LOGO_con_letra.png"));
 
+
+        return retValue;
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     protected javax.swing.JScrollPane ScrollpnlOpciones;
