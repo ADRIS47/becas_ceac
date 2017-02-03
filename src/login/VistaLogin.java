@@ -6,6 +6,8 @@
 package login;
 
 import helpers.Helper;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import javax.swing.InputMap;
 import javax.swing.KeyStroke;
@@ -57,6 +59,7 @@ public class VistaLogin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Acceso al Sistema");
         setBackground(new java.awt.Color(204, 204, 204));
+        setIconImage(getIconImage());
         setMaximumSize(new java.awt.Dimension(553, 363));
         setMinimumSize(new java.awt.Dimension(255, 164));
         setResizable(false);
@@ -149,6 +152,15 @@ public class VistaLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtClaveKeyPressed
 
+    @Override
+    public Image getIconImage(){
+        Image retValue = Toolkit.getDefaultToolkit().
+                getImage(ClassLoader.getSystemResource("imagenes/LOGO_con_letra.png"));
+
+
+        return retValue;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCambiologin;
     private javax.swing.JButton btnIngresar;
